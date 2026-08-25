@@ -1,0 +1,34 @@
+{
+  "slug": "what-is-enterprise-value",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "equity-and-enterprise-value",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What is enterprise value, and how is it different from equity value?",
+  "model_answer_md": "Enterprise value is the value of a company's whole operating business to everyone who has financed it — shareholders and lenders together. Equity value is just the shareholders' part: share price times diluted share count.\n\nYou move between them with the bridge: EV = equity value + debt − cash + preferred shares + non-controlling interests (+ lease liabilities). EV is what a buyer would effectively pay to own the business outright and owe nobody, which is why it is the value we compare with operating metrics like EBITDA.",
+  "key_points": [
+    "EV = value to all capital providers; EqV = shareholders only",
+    "EqV = share price × diluted shares",
+    "Bridge adds debt-like claims and subtracts cash",
+    "EV pairs with operating metrics (EBITDA), EqV with net income"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do we subtract cash?",
+      "answer_md": "A buyer takes control of the cash the moment the deal closes and can use it to repay the debt it inherited, so the real cost of the operating business is lower by that amount."
+    },
+    {
+      "question": "Which one does the market quote?",
+      "answer_md": "Market capitalisation — an equity value. EV has to be built from the balance sheet."
+    }
+  ],
+  "weak_answer_note": "Recites the formula without saying what each value *represents*, or calls EV 'the price of the shares plus debt' with no mention of who has a claim.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "ev",
+    "equity-value",
+    "definitions"
+  ],
+  "status": "approved"
+}

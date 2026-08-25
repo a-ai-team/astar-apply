@@ -1,0 +1,34 @@
+{
+  "slug": "trapped-cash-and-ev",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "You subtract cash in the EV bridge. Should you subtract *all* of it? When might an analyst not?",
+  "model_answer_md": "The bridge subtracts cash because a buyer can use it to repay the debt it inherits. That logic only holds for cash the buyer could actually get their hands on. Two common exceptions: **operating cash** — the float a business needs to run day to day (a supermarket's tills, a minimum bank balance covenant) — and **trapped cash** held in overseas subsidiaries where repatriating it would trigger tax or is restricted.\n\nIn practice analysts often subtract all reported cash for simplicity and note the assumption, but a careful valuation will deduct only *excess* cash, which makes EV a little higher. The point to make in an interview is that every line of the bridge is a judgement about what a buyer really inherits, not a mechanical rule.",
+  "key_points": [
+    "Subtract cash because a buyer can use it against debt",
+    "Operating cash the business needs is not really excess",
+    "Trapped or restricted cash may not be accessible",
+    "Deducting only excess cash raises EV; state your assumption"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you estimate operating cash?",
+      "answer_md": "A rule of thumb such as a percentage of revenue (often 1–2 %), or the company's own disclosure of minimum cash requirements or restricted cash."
+    },
+    {
+      "question": "Does the same logic apply to short-term investments?",
+      "answer_md": "Yes if they are liquid and could be sold to repay debt — treat them like cash. Illiquid investments belong with non-operating assets and are judged case by case."
+    }
+  ],
+  "weak_answer_note": "Says 'always subtract all cash' or, worse, argues cash should be added to make the company look more valuable.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "ev",
+    "cash",
+    "edge-cases"
+  ],
+  "status": "approved"
+}

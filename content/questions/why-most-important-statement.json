@@ -1,0 +1,33 @@
+{
+  "slug": "why-most-important-statement",
+  "topic_slug": "accounting",
+  "subtopic_slug": "three-statements-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "If you could only look at one financial statement to judge a company's health, which would you choose and why?",
+  "model_answer_md": "The cash flow statement. Profit on the income statement is an accounting opinion — it depends on when revenue is recognised, how assets are depreciated and what has been accrued — whereas the cash flow statement shows what actually came in and went out. A company can report profits while running out of cash (fast-growing businesses with big receivables) or report losses while generating plenty of it (heavily depreciating asset owners).\n\nBecause the cash flow statement starts from net income and reconciles to the change in cash, it also gives you a good view of both the other statements: you see the non-cash charges from the income statement and the working-capital and debt movements from the balance sheet.",
+  "key_points": [
+    "Cash flow statement, because cash is not an opinion",
+    "Profit can diverge from cash in both directions",
+    "CFS reconciles net income to the change in cash, so it reveals the other two",
+    "Good answers give a concrete example of profit ≠ cash"
+  ],
+  "follow_ups": [
+    {
+      "question": "When would the balance sheet be the better choice?",
+      "answer_md": "For a bank or an insurer, where the business *is* the balance sheet, or when you are worried about solvency rather than performance."
+    },
+    {
+      "question": "Can a company be profitable and go bust?",
+      "answer_md": "Yes — if it cannot collect receivables or refinance debt fast enough. Over-trading is a classic example: sales grow, inventory and receivables balloon, and cash runs out."
+    }
+  ],
+  "weak_answer_note": "Picks the income statement 'because profit matters most' with no discussion of accruals versus cash.",
+  "numbers": null,
+  "source_topic": "Accounting – concepts",
+  "tags": [
+    "three-statements",
+    "cash-flow"
+  ],
+  "status": "approved"
+}

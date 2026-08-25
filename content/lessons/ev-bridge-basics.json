@@ -1,0 +1,113 @@
+{
+  "slug": "ev-bridge-basics",
+  "subtopic_slug": "ev-bridge-calculations",
+  "title": "The EqV → EV bridge",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Almost every technical interview gets to this within ten minutes, because the bridge from **equity value** to **enterprise value** is a quick test of whether you understand *who owns what* in a company. If you can walk it confidently, with a number attached to each step, the interviewer relaxes and moves on to valuation. If you stumble, the rest of the interview turns into a rescue mission.\n\nYou only need one mental picture and one worked example. This lesson gives you both."
+      },
+      {
+        "type": "concept",
+        "heading": "One business, several people with a claim on it",
+        "md": "Imagine a company as a single machine that spits out cash every year. Several groups have a claim on that cash:\n\n- **Shareholders** — they own the leftover after everyone else is paid.\n- **Lenders** — they are owed interest and eventually their money back.\n- **Preferred shareholders, minority owners, lease providers** — smaller groups who sit somewhere between the two.\n\n**Equity value (EqV)** is what the *shareholders'* slice is worth: share price × diluted shares.\n\n**Enterprise value (EV)** is what the *whole machine* is worth, regardless of who financed it. It is what a buyer would need to hand over to own the business outright and owe nobody.\n\nThe bridge is simply: start with the shareholders' slice, then add the other claims on top. The one twist is **cash**: a buyer effectively gets the company's cash back the moment they own it, so cash reduces the true price."
+      },
+      {
+        "type": "mechanics",
+        "md": "The bridge, written out:\n\n$$\\text{EV} = \\text{EqV} + \\text{Debt} - \\text{Cash} + \\text{Preferred} + \\text{NCI} + \\text{Lease liabilities}$$\n\nRead each item as a question — *does this claim rank ahead of ordinary shareholders, and does a buyer have to deal with it?*\n\n| Item | Add or subtract | Why |\n|---|---|---|\n| Debt (bonds, loans, overdrafts) | **+** | The buyer inherits it and must repay it |\n| Cash & equivalents | **−** | The buyer can use it to pay down the debt they just inherited |\n| Preferred shares | **+** | Paid before ordinary shareholders; behaves like debt |\n| Non-controlling interest (NCI) | **+** | The consolidated numbers include 100 % of a subsidiary, so EV must reflect 100 % of it |\n| Lease liabilities (IFRS 16) | **+** | Since 2019 leases sit on the balance sheet as a debt-like obligation; add them if your EBITDA excludes lease costs |\n\nTwo habits that stop mistakes:\n\n1. **Use diluted shares** for EqV — options and convertibles that are in the money are shareholders-in-waiting.\n2. **Net debt** is a shorthand for *debt − cash*. If someone gives you net debt, don't subtract cash a second time."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc**, a UK logistics company. From its latest annual report and today's share price:\n\n- Share price £4.20, diluted shares 250m\n- Borrowings £500m, cash £120m\n- Preferred shares £30m, non-controlling interest £25m, lease liabilities £45m\n\nBuild EV one line at a time:",
+        "steps": [
+          { "label": "Equity value", "expr": "4.20 * 250", "value": 1050, "unit": "£m" },
+          { "label": "Net debt", "expr": "500 - 120", "value": 380, "unit": "£m" },
+          { "label": "EqV + net debt", "expr": "1050 + 380", "value": 1430, "unit": "£m" },
+          { "label": "+ preferred + NCI", "expr": "1430 + 30 + 25", "value": 1485, "unit": "£m" },
+          { "label": "Enterprise value (+ leases)", "expr": "1485 + 45", "value": 1530, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Cash is an asset, so surely it makes the company worth more — why subtract it?\"**\n\nIt does make the *shares* worth more: cash is already inside equity value, because the market price reflects it. The bridge is not saying cash is bad. It is saying that once you own the whole company, the cash is yours to use against the debt you have taken on, so the *net* amount you are really paying for the operating business is lower.\n\nThe second-most-common slip is the direction of NCI. Students subtract it because \"we don't own that bit\". But the point of EV is to match the *consolidated* EBITDA, which includes 100 % of the subsidiary. To make numerator and denominator consistent you **add** NCI."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Equity value is the value of the shares — price times diluted share count. Enterprise value is the value of the whole operating business to all capital providers. To get from one to the other you add the claims that rank ahead of ordinary shareholders — debt, preferred shares, non-controlling interests and lease liabilities — and subtract cash, because a buyer can use the company's own cash to pay down what it inherits. For Harbourline that is £1,050m of equity, plus £380m net debt, plus £100m of other claims, giving an EV of about £1.5bn.",
+        "seconds": 45
+      },
+      {
+        "type": "widget",
+        "widget": "ev_bridge",
+        "props": {
+          "company": "Harbourline plc",
+          "share_price": 4.2,
+          "diluted_shares": 250,
+          "debt": 500,
+          "cash": 120,
+          "preferred": 30,
+          "nci": 25,
+          "leases": 45
+        }
+      },
+      {
+        "type": "scenario",
+        "prompt": "Harbourline raises £100m of new debt and leaves the cash on its balance sheet. What happens to equity value and enterprise value?",
+        "statements": {
+          "is": [
+            { "line": "Net income", "delta": 0, "note": "No time has passed, so no interest has been charged yet" }
+          ],
+          "cfs": [
+            { "line": "Cash flow from financing", "delta": 100, "note": "Debt raised" },
+            { "line": "Net change in cash", "delta": 100 }
+          ],
+          "bs": [
+            { "line": "Cash", "delta": 100, "note": "Asset up" },
+            { "line": "Borrowings", "delta": 100, "note": "Liability up — balances" }
+          ]
+        },
+        "check": "Equity value is unchanged (the shares are worth the same: the company has £100m more cash and £100m more debt). Enterprise value is also unchanged: +£100m debt and −£100m cash cancel in the bridge. Raising debt does not create value by itself — only what you *do* with the money does."
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Marlow Foods** trades at £12.50 with 80m diluted shares. It has £260m of bonds, £340m of cash, no preferred shares, £15m of NCI and £20m of lease liabilities. Say the bridge out loud, then calculate its enterprise value. Is EV bigger or smaller than equity value, and why?",
+        "model_answer_md": "Equity value = 12.50 × 80 = **£1,000m**.\n\nNet debt = 260 − 340 = **−£80m** (net *cash*).\n\nEV = 1,000 − 80 + 0 + 15 + 20 = **£955m**.\n\nEV is *smaller* than equity value because Marlow has more cash than debt. A buyer would pay £1,000m for the shares, inherit £260m of bonds, but immediately get £340m of cash back, so the operating business really costs about £955m once the smaller claims are added.",
+        "rubric": [
+          "Uses diluted shares to get £1,000m equity value",
+          "Computes net debt as negative (net cash of £80m)",
+          "Adds NCI and leases, arrives at ~£955m",
+          "Explains that net cash makes EV lower than EqV"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Can enterprise value be negative?", "a": "Yes in theory, when cash exceeds equity value plus all other claims — the market thinks the operating business destroys value. It is rare and usually a sign of distress or a mispricing." },
+          { "q": "Why use diluted rather than basic shares?", "a": "In-the-money options and convertibles will become shares if the company is bought, so a buyer must pay for them too." },
+          { "q": "A company pays a £50m dividend. EqV and EV?", "a": "Equity value falls by £50m (cash left the company). EV is unchanged: cash −50 means the bridge adds back £50m more net debt." },
+          { "q": "Which is bigger in the bridge, EV or EqV, for a typical FTSE 100 company?", "a": "EV — most large companies carry more debt than cash, so net debt is positive and gets added." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Equity value is the shareholders' slice; enterprise value is the whole pie — add the other claims, subtract the cash.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "Explain in one breath why cash is subtracted and NCI is added",
+          "Bridge from share price to enterprise value for any listed company using its balance sheet",
+          "Say what a debt raise, a dividend or a cash acquisition does to EqV and EV",
+          "Spot the double-count when someone gives you net debt and cash separately"
+        ]
+      }
+    ]
+  }
+}

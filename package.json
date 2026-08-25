@@ -17,7 +17,9 @@
     "reembed": "tsx scripts/corpus/reembed.ts",
     "corpus:process": "tsx scripts/corpus/process.ts",
     "cache:check": "tsx scripts/dev/cache-check.ts",
-    "fixtures:build": "tsx scripts/dev/make-fixtures.ts"
+    "fixtures:build": "tsx scripts/dev/make-fixtures.ts",
+    "content:validate": "tsx scripts/content/validate.ts content",
+    "content:load": "tsx scripts/content/load.ts content"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",
