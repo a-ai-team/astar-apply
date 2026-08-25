@@ -136,3 +136,7 @@ create policy "mentors: admin all" on public.mentors
 grant select, update on table public.profiles to authenticated;
 grant select on table public.mentors to anon;
 grant select, insert, update on table public.mentors to authenticated;
+
+-- service_role (admin client, seeds, e2e) — default privileges did not cover these tables.
+grant all on table public.profiles, public.mentors to service_role;
+grant usage on type public.profiles_role to service_role, authenticated, anon;
