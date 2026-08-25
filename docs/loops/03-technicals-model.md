@@ -31,10 +31,10 @@ block types frozen (add, never rename); KaTeX CSS only on lesson routes.
 - [x] schemas + tests
 - [x] taxonomy finalisation (free = Accounting, EqV/EV)
 - [x] seed + 2 lessons + 6 questions
-- [ ] markdown/KaTeX + renderer
-- [ ] `EvBridge`
-- [ ] curriculum pages
-- [ ] path pages
+- [x] markdown/KaTeX + renderer
+- [x] `EvBridge`
+- [x] curriculum pages
+- [x] path pages
 - [ ] admin editor
 - [ ] Playwright/docs/retro
 

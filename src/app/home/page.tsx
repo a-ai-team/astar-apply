@@ -19,8 +19,13 @@ export default async function HomePage() {
             <CardDescription>Ask a senior student who has done the process.</CardDescription>
           </Card>
         </Link>
+        <Link href="/home/technicals" data-testid="home-technicals-card">
+          <Card className="hover:border-muted">
+            <CardTitle>Technicals</CardTitle>
+            <CardDescription>The textbook for IB technicals that doesn&apos;t exist yet.</CardDescription>
+          </Card>
+        </Link>
         {[
-          ["Technicals", "The textbook for IB technicals that doesn't exist yet."],
           ["Practice", "Question bank and spaced-repetition flashcards."],
           ["Interviews", "AI mock interviews graded against model answers."],
         ].map(([title, desc]) => (
