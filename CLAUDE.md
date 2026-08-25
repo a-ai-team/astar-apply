@@ -19,3 +19,8 @@ Next.js (App Router, `src/app`), TypeScript, Tailwind. npm. Deployed on Vercel (
 
 ## Private area
 `/` is public "Coming soon". Real site lives at `/home`, gated by `PRIVATE_ACCESS_KEY` via `src/proxy.ts` — see `docs/PRIVATE_AREA.md`.
+
+## Product plan
+Read `docs/MASTER_PLAN.md` first, then `docs/loops/README.md` (how work is done in loops) and the
+current loop doc in `docs/loops/`. Research notes live in `docs/research/`. Content rule: the 400Q
+guide and financefluency.co.uk are structural references only — never copy their text (repo is public).
