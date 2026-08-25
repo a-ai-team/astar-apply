@@ -1,6 +1,6 @@
 # A* Apply
 
-Spring week & finance application tracker, by [A* AI](https://github.com/a-ai-team).
+A new site from [A* AI](https://github.com/a-ai-team).
 
 - **Stack:** Next.js · TypeScript · Tailwind · Vercel
 - **Contributing:** see [CONTRIBUTING.md](CONTRIBUTING.md)

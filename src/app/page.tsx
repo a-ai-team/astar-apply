@@ -16,7 +16,7 @@ export default function Home() {
           A* Apply
         </h1>
         <p className="max-w-md text-lg text-zinc-600 dark:text-zinc-400">
-          Spring week &amp; finance application tracker. Coming soon.
+          Coming soon.
         </p>
       </main>
     </div>
