@@ -33,11 +33,11 @@ handwriting confidence < 0.6 → `in_review`; Vercel 4.5 MB body → browser sig
 - [x] deps + `test:unit/test:e2e/seed/eval` scripts + `e2e/helpers/auth.ts`
 - [x] `client.ts`, `embeddings.ts` + tests
 - [x] migration 0002 + `scripts/db/check.ts`
-- [ ] `src/lib/content/taxonomy.ts` constant
-- [ ] extraction pipeline + recorded fixture
-- [ ] chunker/tagger/ingest + process route
-- [ ] admin corpus list/upload/detail
-- [ ] fixtures + seed
+- [x] `src/lib/content/taxonomy.ts` constant
+- [x] extraction pipeline + recorded fixture
+- [x] chunker/tagger/ingest + process route
+- [x] admin corpus list/upload/detail
+- [x] fixtures + seed
 - [ ] Playwright + curl + CI
 - [ ] docs/retro; pre-commit check that no `*.pdf|*.jpg|.eval/` is staged
 

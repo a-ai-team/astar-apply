@@ -1,0 +1,133 @@
+{
+  "_note": "PLACEHOLDER — synthetic content for pipeline testing. Original mentor-voice Q&A written for the ingestion pipeline; not real advice from any named person.",
+  "pairs": [
+    {
+      "question": "When should I start applying for spring weeks?",
+      "answer": "The day applications open, honestly. Most banks open in August or September of your first year and a lot of them read on a rolling basis, so a good application in September beats a great one in November. Block out two evenings a week from the start of term and treat it like a module."
+    },
+    {
+      "question": "How many spring week applications is a sensible number?",
+      "answer": "I did around fifteen and got three offers. Under ten and you are relying on luck; over twenty-five and the quality drops because you stop tailoring. Pick a core of eight firms you actually want, then add the rest as practice runs earlier in the cycle."
+    },
+    {
+      "question": "What does a spring week actually involve day to day?",
+      "answer": "Think of it as a week-long interview dressed up as a course. Mornings are usually talks from each division, afternoons are group exercises or a case, and there is a networking event most evenings. The people who convert are the ones who ask one good question per session and remember names."
+    },
+    {
+      "question": "Do I need to know technicals for a first-year spring week interview?",
+      "answer": "Not deep ones. You should be able to explain what an investment bank does, walk through why a company might raise debt versus equity, and say what enterprise value is in one sentence. If you can do a simple net income to cash flow walk you are ahead of most first years."
+    },
+    {
+      "question": "How do I ask someone for a coffee chat without being awkward?",
+      "answer": "Keep it to three lines: who you are, one specific thing about them you found interesting, and a clear ask for fifteen minutes. Do not attach your CV. If they say yes, prepare three questions that cannot be answered by their LinkedIn page."
+    },
+    {
+      "question": "What should I actually say in a networking call?",
+      "answer": "Spend the first two minutes on them, not you. Ask how they chose their group, what surprised them in the first year, and what they would do differently as a student. Near the end, ask if there is anyone else they think you should speak to. That last question is how one call becomes five."
+    },
+    {
+      "question": "Is it worth messaging people on LinkedIn who did not reply the first time?",
+      "answer": "One polite follow-up after about ten days is fine and often works, because the first message just got buried. After that, move on. Analysts are busy, not rude, and there are hundreds of other people you can reach."
+    },
+    {
+      "question": "How do I answer why this bank when they all look the same?",
+      "answer": "You need one concrete thing per firm: a deal they led that you can describe in two sentences, a group that is unusually strong, or something a person there told you. Generic culture answers get ignored. The trick is to write the deal sentence before you apply, not in the interview."
+    },
+    {
+      "question": "Walk me through how a ten pound increase in depreciation flows through the three statements.",
+      "answer": "Income statement: pre-tax profit falls by ten, so with a 25 percent tax rate net income falls by seven and a half. Cash flow statement: start from net income at minus seven and a half, add back the ten of depreciation because it is non-cash, so cash rises by two and a half. Balance sheet: cash up two and a half, fixed assets down ten, so assets are down seven and a half, which matches retained earnings down seven and a half. Always finish by saying the balance sheet balances."
+    },
+    {
+      "question": "What is the difference between equity value and enterprise value?",
+      "answer": "Equity value is what the shareholders own; enterprise value is what the whole business is worth to everyone who has a claim on it. So you add net debt, minority interests and preferred shares to equity value. Worked number: equity value 500 million, debt 200, cash 80, so enterprise value is 620 million. If you say net debt is 120 and stop there, you are fine."
+    },
+    {
+      "question": "Why do you subtract cash when calculating enterprise value?",
+      "answer": "Because the buyer effectively gets the cash back the moment they own the company, so it reduces the real price. A quick way to say it: cash is a non-operating asset, and enterprise value is meant to measure only the operating business."
+    },
+    {
+      "question": "What is the fastest way to prepare for the numerical test?",
+      "answer": "Do timed practice every day for a week rather than a marathon the night before. The questions are not hard; the pace is. Get comfortable with percentage changes and reading a table quickly, and always do the worked-example questions the firm sends you, because the format varies more than the maths."
+    },
+    {
+      "question": "How should I talk about a deal in the news?",
+      "answer": "Use a four-part structure: who bought what, roughly for how much, why it makes sense strategically, and one thing you found interesting or would question. Ninety seconds maximum. Pick a deal in a sector you can say you like, and read two articles on it so you have a detail nobody else mentions."
+    },
+    {
+      "question": "What counts as a good question to ask at the end of an interview?",
+      "answer": "Anything that shows you were listening. Ask about something the interviewer said earlier, or how their group's work changed in the last year. Avoid questions about hours, pay or culture, and never ask something that is answered on the careers page."
+    },
+    {
+      "question": "How do I recover from a bad answer in an interview?",
+      "answer": "Say it out loud: I do not think I explained that well, can I take another go? Interviewers respect the reset far more than watching you dig. Then give the short version. Everyone gets one bad answer; it is the second one you avoid by resetting."
+    },
+    {
+      "question": "Should I apply to spring weeks at firms I have never heard of?",
+      "answer": "Yes, especially early in the cycle. Smaller banks and boutiques interview earlier, care less about your school, and a spring week anywhere gives you a story for every later interview. Treat the first three applications as practice and send them to firms you would not cry about."
+    },
+    {
+      "question": "How do I choose between an M&A group and a markets programme for a spring week?",
+      "answer": "Pick based on what you want to talk about for five days, not on prestige. If you like reading about companies and deals, go advisory. If you like numbers moving every minute and quick decisions, go markets. You can say either in an interview as long as you have one reason and one example."
+    },
+    {
+      "question": "What do I wear to a spring week?",
+      "answer": "A plain suit, plain shirt, no loud tie, comfortable shoes because you will stand at events for hours. Nobody remembers what the well-dressed person wore; everyone remembers the person who could not walk by Thursday."
+    },
+    {
+      "question": "How do I follow up after a networking call?",
+      "answer": "Same day, two lines: thank them, mention one thing they said that changed your thinking. Then, a month later, one line with an update that relates to their advice. That second message is what turns a call into a referral."
+    },
+    {
+      "question": "Is cold emailing bankers rude?",
+      "answer": "Not if it is short and specific. The rude version is a long life story plus a CV attachment. The useful version is three lines and a fifteen-minute ask. Most analysts got their own start the same way and remember it."
+    },
+    {
+      "question": "How many people should I speak to before applying to a firm?",
+      "answer": "Two is enough to write a firm-specific paragraph that sounds real. One gives you a quote, two gives you a pattern. Ten is procrastination."
+    },
+    {
+      "question": "What is a target school and does it matter for spring weeks?",
+      "answer": "A target is a university a firm recruits from every year. It matters less at spring week stage than later, because the volume is huge and the screen is mostly grades, tests and a clear CV. A non-target student with a tidy application and one referral will beat a target student who applied late."
+    },
+    {
+      "question": "Walk me through the three statements when a company buys a machine for 100 in cash.",
+      "answer": "Income statement: nothing on day one, because buying an asset is not an expense. Cash flow statement: capital expenditure of minus 100 in investing, so cash falls 100. Balance sheet: cash down 100, fixed assets up 100, total assets unchanged, it balances. Depreciation starts hitting the income statement from the next period."
+    },
+    {
+      "question": "What is working capital and why do interviewers care?",
+      "answer": "Current operating assets minus current operating liabilities: inventory and receivables minus payables, roughly. Interviewers care because it is cash that is tied up in running the business. Worked number: if receivables rise by 20 and payables rise by 5, working capital rises by 15 and cash flow falls by 15 even though profit did not move."
+    },
+    {
+      "question": "How do I explain a price to earnings multiple in one sentence?",
+      "answer": "It is how many years of today's earnings you are paying for. A share at 120 pence earning 10 pence a year is on twelve times, so twelve years of current earnings. Then say whether that is high or low for the sector, because a number on its own is not an answer."
+    },
+    {
+      "question": "What is the difference between a trading comp and a precedent transaction?",
+      "answer": "A trading comp values the company like its listed peers today; a precedent looks at what buyers actually paid for similar companies. Precedents usually come out higher because they include a control premium. If asked which is more reliable, say comps are more current and precedents are more relevant to a sale."
+    },
+    {
+      "question": "Why do you use unlevered free cash flow in a DCF?",
+      "answer": "Because you want the cash the whole business generates before anyone decides how to finance it. That way the discount rate, the weighted average cost of capital, does the financing work and you land on enterprise value. Use levered cash flow and the cost of equity if you want equity value directly, but keep the pair consistent."
+    },
+    {
+      "question": "What is the weighted average cost of capital in plain English?",
+      "answer": "The blended return the company has to earn to keep both its lenders and its shareholders happy. Worked number: half debt at 5 percent after a 25 percent tax shield gives 3.75, half equity at 10 percent gives 5, so WACC is 8.75 percent. If the mix moves towards debt the rate falls, up to the point where the extra risk pushes both costs up."
+    },
+    {
+      "question": "How does an LBO make money if the company does not grow?",
+      "answer": "Debt paydown. If you buy at 400 with 240 of debt and the business pays 120 of that down over five years using its own cash, you can sell at the same 400 and your equity has gone from 160 to 280. That is 1.75 times your money without any growth at all."
+    },
+    {
+      "question": "What should I do the week before an assessment centre?",
+      "answer": "One mock group exercise with friends where you practise being the person who summarises, not the loudest. One full timed numerical test. Two deals in the news prepared with the four-part structure. Then stop; the night before is for sleep, not for revising the cost of capital."
+    },
+    {
+      "question": "How do I answer the tell me about yourself question?",
+      "answer": "Ninety seconds, three parts: where you are now and what you study, two things you did that point towards finance, and why you are in this room. End on the firm. If you get to two minutes, cut the childhood."
+    },
+    {
+      "question": "What if I do not have any finance experience for my CV?",
+      "answer": "Nobody does in first year. Use what you have: a society treasurer role, a part-time job with a target you beat, a project with a number in it. The bullet should still start with a verb and end with a number; the number can be small."
+    }
+  ]
+}

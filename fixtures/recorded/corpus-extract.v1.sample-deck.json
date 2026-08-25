@@ -1,0 +1,16 @@
+{
+  "_note": "PLACEHOLDER — synthetic content for pipeline testing. Shape of extractPdf() output for the 3-page deck built by fixtures/corpus/sample-pdf.ts. Hand-authored (no API credit on 2026-08-25); re-record with scripts/dev/record-extraction.ts (TODO(james)).",
+  "extraction": {
+    "pages": [
+      { "page": 1, "markdown": "# Slide 1 - LBO workshop: what a sponsor is buying\n\nPLACEHOLDER - synthetic content for pipeline testing\n\nA private equity fund buys a company using mostly borrowed money.\n\nReturns come from three levers: debt paydown, EBITDA growth, multiple expansion.\n\nWorked number: buy at 8x EBITDA of 50m = 400m, fund 60% with debt = 240m.", "formulas": [{ "latex": "8 \\times 50 = 400", "plain": "eight times EBITDA of 50 million gives a 400 million purchase price" }], "tables": [], "confidence": 0.99, "illegible_regions": [] },
+      { "page": 2, "markdown": "# Slide 2 - Sources and uses\n\nPLACEHOLDER - synthetic content for pipeline testing\n\nUses: purchase price 400m + fees 10m = 410m.\n\nSources: senior debt 200m, mezzanine 40m, sponsor equity 170m.\n\nRule of thumb: total debt of 4-5x EBITDA is normal for a stable business.", "formulas": [], "tables": [{ "caption": "Sources and uses", "rows": [["Sources", "£m"], ["Senior debt", "200"], ["Mezzanine", "40"], ["Sponsor equity", "170"]] }], "confidence": 0.99, "illegible_regions": [] },
+      { "page": 3, "markdown": "# Slide 3 - Exit and returns\n\nPLACEHOLDER - synthetic content for pipeline testing\n\nExit in year 5 at 8x on EBITDA of 70m = 560m enterprise value.\n\nNet debt at exit 120m, so equity value 440m versus 170m invested.\n\nMOIC = 440 / 170 = 2.6x; IRR roughly 21% over five years.", "formulas": [{ "latex": "MOIC = \\frac{440}{170} = 2.6x", "plain": "multiple of invested capital is 440 divided by 170, about 2.6 times" }], "tables": [], "confidence": 0.99, "illegible_regions": [] }
+    ]
+  },
+  "model": "claude-opus-5",
+  "confidence": 0.99,
+  "prompt_version": 1,
+  "pageCount": 3,
+  "rawText": "--- page 1 ---\nSlide 1 - LBO workshop: what a sponsor is buying\n\n--- page 2 ---\nSlide 2 - Sources and uses\n\n--- page 3 ---\nSlide 3 - Exit and returns",
+  "usage": { "input_tokens": 2100, "output_tokens": 900, "cache_read_input_tokens": 0 }
+}

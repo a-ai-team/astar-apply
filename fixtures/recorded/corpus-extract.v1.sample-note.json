@@ -1,0 +1,22 @@
+{
+  "_note": "PLACEHOLDER — synthetic content for pipeline testing. Shape of ExtractionResult (src/lib/corpus/extract.ts) for fixtures/corpus/sample-note.png. Hand-authored on 2026-08-25 because the API key had no credit; re-record with `npx tsx scripts/dev/record-extraction.ts` (TODO(james)).",
+  "extraction": {
+    "pages": [
+      {
+        "page": 1,
+        "markdown": "PLACEHOLDER — synthetic content for pipeline testing\n\n# Spring week prep — my notes\n\n- Apply **early**: most spring week deadlines close by late October.\n- Coffee chats: ask one specific question, send a two-line thank you.\n- Know one recent deal in the sector you say you like.\n- Accounting basics: *Net income → CFO → change in cash*.\n- EV = Equity value + net debt + minority interest + preferred.\n\nWorked number: equity value £500m, debt £200m, cash £80m ⇒ EV = £620m.",
+        "formulas": [
+          { "latex": "EV = \\text{Equity value} + \\text{Net debt} + \\text{Minority interest} + \\text{Preferred}", "plain": "Enterprise value equals equity value plus net debt plus minority interest plus preferred stock" },
+          { "latex": "EV = 500 + (200 - 80) = 620", "plain": "EV equals 500 plus net debt of 120, giving 620 million pounds" }
+        ],
+        "tables": [],
+        "confidence": 0.96,
+        "illegible_regions": []
+      }
+    ]
+  },
+  "model": "claude-opus-5",
+  "confidence": 0.96,
+  "prompt_version": 1,
+  "usage": { "input_tokens": 1420, "output_tokens": 410, "cache_read_input_tokens": 0 }
+}
