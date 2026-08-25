@@ -1,6 +1,6 @@
 # Loop 03 — Technicals taxonomy & content model
 
-_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: merged. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 curriculum skeleton in DB (topics → subtopics → lessons, + questions), `LessonRenderer` for any valid Lesson JSON, curriculum browsing and a 10-week learning path; two hand-written sample lessons prove the renderer.
 ## Out of scope
@@ -20,11 +20,11 @@ W1 Finance foundations · W2 Accounting concepts · W3 Accounting walkthroughs �
 ## Risks
 block types frozen (add, never rename); KaTeX CSS only on lesson routes.
 ## Acceptance checks
-- [ ] lint/typecheck/build
-- [ ] vitest both schemas (missing `one_liner` fails approvable)
-- [ ] `seed -- 03` idempotent, `db/check` shows 9 topics, ≥ 40 subtopics, 2 approved lessons, path with 50 items
-- [ ] Playwright `e2e/03-technicals.spec.ts` (9 cards → EqV/EV → lesson has six required blocks by testid → your-turn reveal → `/home/path` 10 weeks; admin JSON edit reflected)
-- [ ] student GET of a draft lesson → 404
+- [x] lint/typecheck/build
+- [x] vitest both schemas (missing `one_liner` fails approvable) — 16 new tests, 47/47 total
+- [x] `seed -- 03` idempotent (ran 3×), `db:check` 21/21: 9 topics, 53 subtopics, 2 approved lessons, 6 approved questions, path with 50 items
+- [x] Playwright `e2e/03-technicals.spec.ts` 3/3 (9 cards → EqV/EV → lesson has six required blocks by testid → your-turn reveal → widget slider → `/home/path` 10 weeks; admin JSON edit reflected) — full suite 13/13
+- [x] student GET of a draft lesson → 404 (e2e test 2; RLS hides non-approved rows)
 
 ## Tasks
 - [x] migration
@@ -35,8 +35,8 @@ block types frozen (add, never rename); KaTeX CSS only on lesson routes.
 - [x] `EvBridge`
 - [x] curriculum pages
 - [x] path pages
-- [ ] admin editor
-- [ ] Playwright/docs/retro
+- [x] admin editor
+- [x] Playwright/docs/retro
 
 ## Blocked-on-human (defaults)
 free topics → Accounting + EqV/EV; sequencing → table above.
@@ -46,4 +46,47 @@ free topics → Accounting + EqV/EV; sequencing → table above.
 _(record blockers here during the run)_
 
 ## Retro
-_(fill at end of loop; include "Decisions taken by default")_
+- **Shipped:** migration `0004_technicals` (6 tables, enums `topics_kind/subtopics_kind/questions_kind`,
+  read-approved + staff RLS, grants, `subtopics.target_questions`), `src/lib/content/{lesson-schema,
+  question-schema,taxonomy,queries}.ts` (+16 vitest), `CURRICULUM` 9 topics / 53 subtopics with
+  `source_section` labels, `is_free` (Accounting, EqV/EV), `walkthrough` flags, `target_questions`
+  (Σ 347), `DEFAULT_PATH` 10 × 5; `content/lessons/{ev-bridge-basics,three-statement-links}.json`
+  (hand-written, approved, every block type incl. `scenario`, `ev_bridge` widget, `key_metrics`) +
+  `content/questions/*.json` (6, approved); `scripts/content/{validate,load}.ts` (`npm run
+  content:validate|content:load`), `scripts/seed/03-taxonomy.ts`; `LessonRenderer` + 13 block
+  components + `Reveal`/`QuickFire`, `Markdown` (react-markdown 10 + remark-gfm/math + rehype-katex;
+  KaTeX CSS only via the renderer), `EvBridge` widget (7 sliders → animated SVG waterfall);
+  `/home/technicals`, `/[topic]`, `/[topic]/[lesson]`, `/home/path`, `/[week]` (noindex);
+  `/admin/lessons`, `/admin/lessons/[id]` (live zod + approval warnings, preview tab, `saveLesson`
+  → `revalidateTag('lesson:'+slug,'max')` + `refresh()`); nav enabled; `db:check` 21/21;
+  `e2e/03-technicals.spec.ts` 3/3; `docs/TECHNICALS.md`.
+- **Slipped:** nothing in scope. Widgets other than `ev_bridge` are placeholders (as planned);
+  no lesson *create* UI (lessons come from `content/` + seed/Loop 04); `revalidateTag` is a no-op
+  today because no `use cache` scope tags lessons yet (pages are dynamic under cookies) — harmless.
+- **Decisions taken by default:** free = Accounting + EqV/EV (`TODO(james)` in taxonomy.ts);
+  `~/.claude/skills/ib-daily-lesson` absent → plan's 10-week table; curriculum topic slugs reuse
+  the Loop 01 tag slugs (`why-banking` = "Markets & why banking", `fit-behavioural`) so corpus tags
+  and curriculum share one vocabulary; one planned lesson per subtopic with lesson slug = subtopic
+  slug (path items resolve `lesson_id` lazily — 2/38 resolvable now); `worked_calc` arithmetic is
+  re-evaluated by `evalExpr` at approval time (±0.5 %); `reading_minutes ≤ 12` enforced for
+  approval; difficulty-4 calculation questions must carry `numbers`; `topics.level` is free text
+  (`foundation|core|advanced`); topics/subtopics carry a `status` so Loop 09 can add industry
+  modules as drafts.
+- **Loop 04 must know:** (1) Schema exports — `LessonBodySchema`, `LessonBlockSchema`, `BLOCK_TYPES`,
+  `REQUIRED_FOR_APPROVAL`, `validateLessonBody()`, `approvalProblems(body,{walkthrough})`,
+  `assertApprovable()`, `evalExpr()`, types `LessonBody`/`LessonBlock` from
+  `src/lib/content/lesson-schema.ts`; `QuestionSchema`, `validateQuestion()`, `splitQuestion()`,
+  `assertQuestionApprovable()`, `flashcardBack()`, `QUESTION_ROW_KEYS` from `question-schema.ts`.
+  Use `zodOutputFormat(LessonBodySchema)` directly (zod 4, discriminated union on `type`; `widget.props`
+  is `record(string, unknown)`, `canonical_answer.seconds` defaults 45). (2) Targets — `CURRICULUM[i]
+  .subtopics[j].target_questions` (Σ 347) and `walkthrough` (scenario required); `findSubtopic(slug)`
+  gives `{topic, subtopic}`. (3) Load path — write `content/lessons/<slug>.json` as `{slug,
+  subtopic_slug, title, ordinal, status, generated_by, prompt_version, body}` and
+  `content/questions/<slug>.json` as Question JSON, then `validateContentDir(root)` +
+  `loadContent(db, root)` from `scripts/content/{validate,load}.ts` (upsert on slug; `approved`
+  rows are gated by the approval rules before any write). Path items for lesson slug = subtopic slug
+  get their `lesson_id` when `seed -- 03` is re-run after loading. `lessons.generated_by`/
+  `prompt_version` columns exist; `questions.generated_by` is set to `"human"` by `loadContent` —
+  pass model ids through the file if needed (add a field). (4) Lesson pages read under RLS with the
+  cookie client, so nothing non-`approved` leaks; the admin editor's approval gate is the same
+  `approvalProblems()` used by `validate.ts`.

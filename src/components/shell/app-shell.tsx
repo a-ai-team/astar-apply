@@ -22,6 +22,7 @@ export const ADMIN_NAV: NavItem[] = [
   { href: "/admin/users", label: "Users" },
   { href: "/admin/corpus", label: "Corpus" },
   { href: "/admin/feedback", label: "Feedback" },
+  { href: "/admin/lessons", label: "Lessons" },
 ];
 
 export function AppShell({ session, nav, children }: { session: Session; nav: NavItem[]; children: ReactNode }) {

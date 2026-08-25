@@ -26,6 +26,12 @@ export default function AdminPage() {
             <CardDescription>Thumbs-down answers from the mentor chatbot with the chunks it retrieved.</CardDescription>
           </Card>
         </Link>
+        <Link href="/admin/lessons">
+          <Card className="hover:border-muted">
+            <CardTitle>Lessons</CardTitle>
+            <CardDescription>Curriculum lessons as JSON: validate, preview, approve.</CardDescription>
+          </Card>
+        </Link>
       </div>
     </>
   );
