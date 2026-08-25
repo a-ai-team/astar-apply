@@ -1,6 +1,6 @@
 # Loop 03 — Technicals taxonomy & content model
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 curriculum skeleton in DB (topics → subtopics → lessons, + questions), `LessonRenderer` for any valid Lesson JSON, curriculum browsing and a 10-week learning path; two hand-written sample lessons prove the renderer.
 ## Out of scope
@@ -27,7 +27,7 @@ block types frozen (add, never rename); KaTeX CSS only on lesson routes.
 - [ ] student GET of a draft lesson → 404
 
 ## Tasks
-- [ ] migration
+- [x] migration
 - [ ] schemas + tests
 - [ ] taxonomy finalisation (free = Accounting, EqV/EV)
 - [ ] seed + 2 lessons + 6 questions
