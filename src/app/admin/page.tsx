@@ -14,10 +14,12 @@ export default function AdminPage() {
             <CardDescription>Everyone with an account, and their role.</CardDescription>
           </Card>
         </Link>
-        <Card className="opacity-60">
-          <CardTitle>Corpus</CardTitle>
-          <CardDescription>Mentor uploads — arrives in Loop 01.</CardDescription>
-        </Card>
+        <Link href="/admin/corpus">
+          <Card className="hover:border-muted">
+            <CardTitle>Corpus</CardTitle>
+            <CardDescription>Mentor uploads: photos, PDFs, notes and Q&amp;A → reviewable chunks.</CardDescription>
+          </Card>
+        </Link>
       </div>
     </>
   );

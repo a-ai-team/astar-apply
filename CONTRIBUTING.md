@@ -17,6 +17,11 @@ stack. `supabase link --project-ref nvigkfmrxtxvylbhfcwa` once, then:
 |---|---|
 | `npm run db:migrate` | `supabase db push --linked` — applies `supabase/migrations/*.sql` to the remote project |
 | `npm run seed -- 00` | creates the three `e2e-*@astar.test` users (idempotent) |
+| `npm run seed -- 01` | ingests `fixtures/corpus/*` → ≥ 40 approved, embedded corpus chunks (idempotent; needs seed 00) |
+| `npm run db:check` | verifies the corpus schema on the remote project (tables, HNSW, RLS, functions, bucket) |
+| `npm run corpus:process -- <id>` / `npm run reembed` | re-run extraction+chunking for one source / re-embed approved chunks after a provider switch |
+| `npm run fixtures:build` | regenerates `fixtures/corpus/sample-note.png` and the (uncommitted) 3-page sample PDF |
+| `npm run cache:check` | proves prompt-cache reads on the extraction prompt (spends a few cents) |
 | `npm run test:unit` | vitest (`src/**/*.test.ts`, `scripts/**/*.test.ts`) |
 | `npm run test:e2e` | Playwright against `next start` on port 3100, signing in via service-role magic links |
 | `npm run typecheck` | `next typegen && tsc --noEmit` |
