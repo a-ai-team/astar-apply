@@ -1,0 +1,40 @@
+{
+  "slug": "depreciation-up-10",
+  "topic_slug": "accounting",
+  "subtopic_slug": "three-statement-links",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Depreciation increases by £10m and the tax rate is 25 %. Walk me through the three statements with numbers, and tell me the net change in cash.",
+  "model_answer_md": "Income statement: operating profit falls by £10m; tax falls by £2.5m; net income falls by £7.5m.\n\nCash flow statement: start with net income −£7.5m, add back the £10m of depreciation because it is non-cash, so cash is **up £2.5m**.\n\nBalance sheet: cash +£2.5m and PP&E −£10m, so total assets are down £7.5m; retained earnings are down £7.5m through net income. Both sides fall by £7.5m and it balances. The only real cash effect is the tax saving.",
+  "key_points": [
+    "Net income −£10m × (1 − 25 %) = −£7.5m",
+    "Depreciation added back on CFS: cash +£2.5m",
+    "PP&E −£10m, cash +£2.5m → assets −£7.5m",
+    "Retained earnings −£7.5m, balances"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the tax rate were 0 %?",
+      "answer_md": "Net income −£10m, add back +£10m, cash unchanged. Assets −£10m (PP&E), equity −£10m."
+    },
+    {
+      "question": "Why might a company *want* higher depreciation?",
+      "answer_md": "Lower taxable profit means lower cash tax today — accelerated depreciation is effectively a tax deferral."
+    }
+  ],
+  "weak_answer_note": "Says cash falls because depreciation is a cost, or drops net income by the full £10m with no tax shield.",
+  "numbers": {
+    "inputs": {
+      "depreciation_increase": 10,
+      "tax_rate": 0.25
+    },
+    "answer": 2.5
+  },
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depreciation",
+    "walkthrough",
+    "tax-shield"
+  ],
+  "status": "approved"
+}

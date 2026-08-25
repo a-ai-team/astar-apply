@@ -1,0 +1,113 @@
+{
+  "slug": "three-statement-links",
+  "subtopic_slug": "three-statement-links",
+  "title": "How the three statements link",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"Walk me through what happens to the three statements when…\" is the single most common technical question at spring-week and summer-internship interviews. It is popular because it cannot be memorised as a fact: you have to *move* a number through the income statement, the cash flow statement and the balance sheet in the right order and prove it balances at the end.\n\nThe good news is that every version of the question — depreciation, inventory, a debt raise, a write-down — uses the same three links. Learn the links once and the walkthroughs become mechanical."
+      },
+      {
+        "type": "concept",
+        "heading": "Three statements, three links",
+        "md": "Each statement answers a different question about the same company over the same period:\n\n- **Income statement (IS)** — *did we make a profit?* Revenue down to net income, on an accruals basis (recorded when earned, not when the cash moves).\n- **Cash flow statement (CFS)** — *where did the cash actually go?* Starts from net income, fixes the non-cash items, then shows investing and financing.\n- **Balance sheet (BS)** — *what do we own and owe right now?* A snapshot; assets = liabilities + equity, always.\n\nThe links that tie them together:\n\n1. **Net income → CFS.** The first line of the cash flow statement is net income from the income statement.\n2. **Net income → BS.** Net income (less dividends) flows into *retained earnings* inside shareholders' equity.\n3. **Closing cash → BS.** The last line of the cash flow statement is the change in cash, which updates the cash line of the balance sheet.\n\nAnything else on the balance sheet that changes (PP&E, inventory, debt) also appears somewhere on the CFS, which is how the whole thing stays balanced."
+      },
+      {
+        "type": "mechanics",
+        "md": "The order to walk in is always **IS → CFS → BS**, and the sanity check at the end is *assets − liabilities − equity = 0*.\n\n**Income statement.** Work out the effect on operating profit, then apply tax. With a tax rate $t$, a pre-tax change of $\\Delta$ changes net income by $\\Delta \\times (1 - t)$.\n\n**Cash flow statement.** Start with the change in net income. Then *undo* anything that was in net income but was not cash (depreciation, amortisation, write-downs, stock-based pay) and *add* anything that was cash but not in net income (capex, working-capital movements, debt raised or repaid). The total is the change in cash.\n\n**Balance sheet.** Update cash (from the CFS), update whichever other asset or liability moved, and update retained earnings by the change in net income. Then check both sides.\n\nOne rule of thumb that saves time: on the balance sheet, an **asset going down** (other than cash) is a **source of cash**; an **asset going up** is a **use of cash**. Liabilities are the reverse."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Depreciation goes up by £10m**, tax rate 25 %. This is the classic version — everyone gets asked it.",
+        "steps": [
+          { "label": "IS: operating profit", "expr": "-10", "value": -10, "unit": "£m" },
+          { "label": "IS: tax saved", "expr": "10 * 25%", "value": 2.5, "unit": "£m" },
+          { "label": "IS: net income", "expr": "-10 * (1 - 25%)", "value": -7.5, "unit": "£m" },
+          { "label": "CFS: net income + add back depreciation", "expr": "-7.5 + 10", "value": 2.5, "unit": "£m" },
+          { "label": "BS: assets (cash +2.5, PP&E −10)", "expr": "2.5 - 10", "value": -7.5, "unit": "£m" },
+          { "label": "BS: equity (retained earnings)", "expr": "-7.5", "value": -7.5, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Depreciation is a cost, so cash goes down.\"**\n\nNo — depreciation is an *accounting* charge that spreads the cost of a machine you already paid for. The cash left when you bought the machine (capex, years ago). Recording depreciation today lowers profit and therefore lowers **tax**, which is real cash. So higher depreciation actually leaves the company with slightly *more* cash: the £2.5m tax saving in the example.\n\nThe related trap is forgetting tax altogether and saying net income falls by the full £10m. Interviewers listen for the $(1 - t)$."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "If depreciation rises by £10m at a 25 % tax rate: on the income statement operating profit falls by £10m, tax falls by £2.5m, so net income is down £7.5m. On the cash flow statement net income is down £7.5m but depreciation is non-cash so I add the £10m back, and cash is up £2.5m. On the balance sheet cash is up £2.5m and PP&E is down £10m, so total assets are down £7.5m; on the other side retained earnings are down £7.5m through net income. Both sides fall by £7.5m, so it balances.",
+        "seconds": 45
+      },
+      {
+        "type": "scenario",
+        "prompt": "Depreciation increases by £10m. Tax rate 25 %.",
+        "statements": {
+          "is": [
+            { "line": "Depreciation", "delta": 10, "note": "Non-cash charge" },
+            { "line": "Operating profit", "delta": -10 },
+            { "line": "Tax", "delta": -2.5, "note": "25 % of £10m" },
+            { "line": "Net income", "delta": -7.5 }
+          ],
+          "cfs": [
+            { "line": "Net income", "delta": -7.5 },
+            { "line": "Add back depreciation", "delta": 10, "note": "Non-cash, so reversed" },
+            { "line": "Net change in cash", "delta": 2.5 }
+          ],
+          "bs": [
+            { "line": "Cash", "delta": 2.5 },
+            { "line": "PP&E", "delta": -10, "note": "Accumulated depreciation up" },
+            { "line": "Retained earnings", "delta": -7.5, "note": "Net income" }
+          ]
+        },
+        "check": "Assets: +2.5 − 10 = −7.5. Liabilities + equity: −7.5. Balances."
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company buys **£20m of inventory on credit** (it has not paid the supplier yet). Walk through the three statements at the moment of purchase, then say what changes when the inventory is sold for £30m in cash a month later (ignore tax on the sale for the first pass, then add it at 25 %).",
+        "model_answer_md": "**At purchase.** Income statement: nothing — no sale has happened, and inventory is not an expense until it is sold. Cash flow statement: inventory up £20m is a use of cash (−20), but accounts payable up £20m is a source (+20), so net change in cash is zero. Balance sheet: inventory +20 (asset), accounts payable +20 (liability). Balances, no cash moved.\n\n**At sale (before tax).** Income statement: revenue +30, cost of goods sold +20, operating profit +10. Cash flow statement: net income +10, inventory falling by 20 is a source of cash (+20), so cash is up 30 — exactly the sale proceeds. Balance sheet: cash +30, inventory −20 → assets +10; retained earnings +10. Balances.\n\n**With 25 % tax.** Net income is +7.5 instead of +10; cash is up 27.5 (30 received less 2.5 tax, assuming tax is paid in cash); assets +7.5, retained earnings +7.5. Still balances.",
+        "rubric": [
+          "Says the income statement is untouched at the moment of purchase",
+          "Shows the inventory and payables movements cancelling on the cash flow statement",
+          "At sale, records revenue and cost of goods sold separately",
+          "Applies tax with (1 − t) and re-checks the balance"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Which line appears on all three statements?", "a": "Net income: it closes the income statement, opens the cash flow statement and flows into retained earnings on the balance sheet." },
+          { "q": "If you could only see one statement, which would you pick?", "a": "The cash flow statement — it shows what actually happened to cash and lets you reconstruct much of the other two." },
+          { "q": "Accounts receivable rises by £5m. Cash effect?", "a": "Cash down £5m: customers owe more, so revenue was booked that has not been collected." },
+          { "q": "Why does a £10m write-down of an asset not reduce cash by £10m?", "a": "It is a non-cash charge — like depreciation, it lowers profit and tax but the cash left long ago (if ever). Cash actually rises by the tax saving." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Net income links the income statement to both the others; the change in cash closes the loop — walk IS → CFS → BS and check it balances.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "Name the three links between the statements without notes",
+          "Walk a depreciation change through all three statements in under a minute, with tax",
+          "Handle a working-capital change (inventory, receivables, payables) at purchase and at sale",
+          "Prove any walkthrough balances using assets − liabilities − equity = 0"
+        ]
+      },
+      {
+        "type": "key_metrics",
+        "rows": [
+          { "metric": "Net income", "definition": "Revenue less all expenses, interest and tax", "why_it_matters": "The bridge between all three statements" },
+          { "metric": "Depreciation & amortisation", "definition": "Non-cash spreading of past capex and intangibles", "why_it_matters": "Reduces tax without reducing cash; added back on the CFS" },
+          { "metric": "Change in net working capital", "definition": "Movement in receivables + inventory − payables", "why_it_matters": "Where profitable companies quietly run out of cash" }
+        ]
+      }
+    ]
+  }
+}

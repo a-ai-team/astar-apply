@@ -35,3 +35,216 @@ export function isTopicSlug(s: string): s is TopicSlug {
 export function topicLabel(slug: string): string {
   return TOPICS.find((t) => t.slug === slug)?.label ?? slug;
 }
+
+// ---------------------------------------------------------------------------------------------
+// Curriculum (Loop 03). Nine topics → ~50 subtopics, seeded into `topics`/`subtopics` by
+// `scripts/seed/03-taxonomy.ts`. `source_section` is the 400Q section *label* only (structure,
+// never text). `target_questions` is the Loop 04 question-writer target per subtopic
+// (≈ proportional to the 400Q counts in docs/research/400q-taxonomy.md; total ≈ 350).
+// Free topics (TODO(james): confirm) default to Accounting + EqV/EV, matching the reference
+// site's free tier. Add subtopics freely; never rename a slug once seeded.
+
+export type TopicKind = "core" | "foundation" | "fit" | "industry";
+export type SubtopicKind = "concept" | "calculation" | "mixed";
+export type TopicLevel = "foundation" | "core" | "advanced";
+
+export type CurriculumSubtopic = {
+  slug: string;
+  title: string;
+  kind: SubtopicKind;
+  source_section: string;
+  target_questions: number;
+  /** Walkthrough subtopics require a `scenario` block in their lessons before approval. */
+  walkthrough?: boolean;
+};
+
+export type CurriculumTopic = {
+  slug: TopicSlug;
+  title: string;
+  kind: TopicKind;
+  level: TopicLevel;
+  is_free: boolean;
+  summary: string;
+  source_section: string;
+  subtopics: CurriculumSubtopic[];
+};
+
+const sub = (slug: string, title: string, kind: SubtopicKind, source_section: string, target_questions: number, walkthrough = false): CurriculumSubtopic =>
+  ({ slug, title, kind, source_section, target_questions, walkthrough });
+
+export const CURRICULUM: CurriculumTopic[] = [
+  {
+    slug: "finance-foundations", title: "Finance foundations", kind: "foundation", level: "foundation", is_free: false,
+    summary: "Time value of money, discounting, NPV and IRR — the five ideas every later topic leans on.",
+    source_section: "Finance concepts",
+    subtopics: [
+      sub("time-value-of-money", "Time value of money", "concept", "Finance concepts", 3),
+      sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 3),
+      sub("pv-npv", "Present value and NPV", "calculation", "Finance concepts", 4),
+      sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 3),
+      sub("wacc-intro", "WACC: a first look", "mixed", "Finance concepts", 3),
+    ],
+  },
+  {
+    slug: "accounting", title: "Accounting", kind: "core", level: "core", is_free: true,
+    summary: "The three statements, how they link, and the statement walkthroughs interviewers love.",
+    source_section: "Accounting – concepts / calculations",
+    subtopics: [
+      sub("three-statements-overview", "The three statements at a glance", "concept", "Accounting – concepts", 6),
+      sub("income-statement", "Income statement", "concept", "Accounting – concepts", 4),
+      sub("balance-sheet", "Balance sheet", "concept", "Accounting – concepts", 4),
+      sub("cash-flow-statement", "Cash flow statement", "concept", "Accounting – concepts", 6),
+      sub("three-statement-links", "How the three statements link", "mixed", "Accounting – concepts", 6, true),
+      sub("working-capital", "Working capital", "mixed", "Accounting – concepts", 6),
+      sub("depreciation-and-capex", "Depreciation, capex and non-cash items", "calculation", "Accounting – calculations", 6, true),
+      sub("single-step-walkthroughs", "Single-step walkthroughs", "calculation", "Accounting – calculations", 8, true),
+      sub("multi-step-walkthroughs", "Multi-step walkthroughs", "calculation", "Accounting – calculations", 8, true),
+      sub("deferred-taxes-and-other-items", "Deferred taxes, leases and other items", "mixed", "Accounting – calculations", 6),
+    ],
+  },
+  {
+    slug: "eqv-ev", title: "Equity value vs enterprise value", kind: "core", level: "core", is_free: true,
+    summary: "What each value means, the bridge between them, and which metrics pair with which.",
+    source_section: "Equity value & enterprise value – concepts / calculations",
+    subtopics: [
+      sub("equity-and-enterprise-value", "Equity value and enterprise value", "concept", "EqV & EV – concepts", 9),
+      sub("ev-bridge-calculations", "The EqV → EV bridge", "calculation", "EqV & EV – calculations", 9),
+      sub("diluted-shares", "Diluted share count", "calculation", "EqV & EV – calculations", 6),
+      sub("ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions", "mixed", "EqV & EV – concepts", 6),
+      sub("pairing-metrics-with-values", "Pairing metrics with the right value", "concept", "EqV & EV – concepts", 4),
+    ],
+  },
+  {
+    slug: "valuation", title: "Valuation", kind: "core", level: "core", is_free: false,
+    summary: "The three core methodologies, the multiples they use, and how to pick between them.",
+    source_section: "Valuation methodologies / metrics & multiples",
+    subtopics: [
+      sub("valuation-methodologies", "The three methodologies", "concept", "Valuation methodologies", 9),
+      sub("comparable-companies", "Comparable companies", "mixed", "Valuation methodologies", 8),
+      sub("precedent-transactions", "Precedent transactions", "mixed", "Valuation methodologies", 6),
+      sub("multiples-and-metrics", "Multiples and metrics", "calculation", "Valuation metrics & multiples", 12),
+      sub("choosing-and-presenting", "Choosing a method and presenting a range", "concept", "Valuation metrics & multiples", 6),
+      sub("other-methodologies", "Other methods: SOTP, liquidation, LBO valuation", "concept", "Valuation methodologies", 4),
+    ],
+  },
+  {
+    slug: "dcf", title: "DCF", kind: "core", level: "core", is_free: false,
+    summary: "Free cash flow, the discount rate and terminal value — built step by step with real numbers.",
+    source_section: "DCF – assumptions & analysis / the discount rate",
+    subtopics: [
+      sub("dcf-overview", "What a DCF is doing", "concept", "DCF – assumptions & analysis", 8),
+      sub("unlevered-free-cash-flow", "Unlevered free cash flow", "calculation", "DCF – assumptions & analysis", 9),
+      sub("projections-and-assumptions", "Projections and assumptions", "mixed", "DCF – assumptions & analysis", 9),
+      sub("dcf-sensitivities", "Sensitivities and sanity checks", "mixed", "DCF – assumptions & analysis", 6),
+      sub("cost-of-equity-capm", "Cost of equity and CAPM", "calculation", "DCF – the discount rate", 12),
+      sub("wacc", "WACC", "calculation", "DCF – the discount rate", 12),
+      sub("terminal-value", "Terminal value", "calculation", "DCF – assumptions & analysis", 9),
+      sub("levered-dcf-and-variants", "Levered DCF and other variants", "concept", "DCF – the discount rate", 8),
+    ],
+  },
+  {
+    slug: "ma", title: "M&A", kind: "core", level: "advanced", is_free: false,
+    summary: "Why companies buy each other, and whether the deal is accretive or dilutive.",
+    source_section: "Merger models – concepts / calculations",
+    subtopics: [
+      sub("why-companies-acquire", "Why companies acquire", "concept", "Merger models – concepts", 8),
+      sub("accretion-dilution-concepts", "Accretion / dilution: the idea", "concept", "Merger models – concepts", 8),
+      sub("accretion-dilution-calculations", "Accretion / dilution: the numbers", "calculation", "Merger models – calculations", 9),
+      sub("purchase-price-allocation", "Purchase price allocation and goodwill", "mixed", "Merger models – calculations", 6),
+      sub("synergies-and-deal-structure", "Synergies, consideration and deal structure", "mixed", "Merger models – concepts", 6),
+    ],
+  },
+  {
+    slug: "lbo", title: "LBO", kind: "core", level: "advanced", is_free: false,
+    summary: "How private equity buys with debt, and the mental maths that gets you through the interview.",
+    source_section: "LBO models – concepts / calculations",
+    subtopics: [
+      sub("lbo-overview", "What an LBO is", "concept", "LBO models – concepts", 8),
+      sub("sources-and-uses", "Sources and uses", "calculation", "LBO models – calculations", 4),
+      sub("debt-tranches", "Debt tranches and covenants", "concept", "LBO models – concepts", 8),
+      sub("returns-irr-mom", "Returns: IRR and money multiple", "calculation", "LBO models – calculations", 6),
+      sub("lbo-mental-maths", "LBO mental maths", "calculation", "LBO models – calculations", 4),
+    ],
+  },
+  {
+    slug: "why-banking", title: "Markets & why banking", kind: "fit", level: "foundation", is_free: false,
+    summary: "What banks actually do, why you want in, and how to talk about markets and deals.",
+    source_section: "Understanding banking / Why banking",
+    subtopics: [
+      sub("what-banks-do", "What investment banks do", "concept", "Understanding banking", 6),
+      sub("why-banking-why-firm", "Why banking, why this firm", "concept", "Why banking / Why our firm", 8),
+      sub("market-awareness", "Market awareness", "concept", "Understanding banking", 4),
+      sub("deals-and-commercial-awareness", "Talking about deals", "concept", "Discussing transaction experience", 6),
+    ],
+  },
+  {
+    slug: "fit-behavioural", title: "Fit & behavioural", kind: "fit", level: "foundation", is_free: false,
+    summary: "Your story, strengths, failures and CV — plus the brain teasers that sneak into fit rounds.",
+    source_section: "Fit / behavioural",
+    subtopics: [
+      sub("big-five-fit", "The big five fit questions", "concept", "The Big 5 fit questions", 8),
+      sub("strengths-weaknesses-failures", "Strengths, weaknesses and failures", "concept", "Strengths & weaknesses / Flaws & failures", 8),
+      sub("teamwork-leadership", "Teamwork and leadership stories", "concept", "Teamwork / leadership", 4),
+      sub("cv-and-experience", "Walking through your CV", "concept", "Resume / CV", 4),
+      sub("brain-teasers", "Brain teasers", "calculation", "Outside the box", 4),
+    ],
+  },
+];
+
+export const FREE_TOPIC_SLUGS: readonly TopicSlug[] = CURRICULUM.filter((t) => t.is_free).map((t) => t.slug);
+
+export function curriculumTopic(slug: string): CurriculumTopic | undefined {
+  return CURRICULUM.find((t) => t.slug === slug);
+}
+
+export function findSubtopic(slug: string): { topic: CurriculumTopic; subtopic: CurriculumSubtopic } | undefined {
+  for (const topic of CURRICULUM) {
+    const subtopic = topic.subtopics.find((s) => s.slug === slug);
+    if (subtopic) return { topic, subtopic };
+  }
+  return undefined;
+}
+
+export const TOTAL_TARGET_QUESTIONS = CURRICULUM.reduce((n, t) => n + t.subtopics.reduce((m, s) => m + s.target_questions, 0), 0);
+
+// Default learning path: 10 weeks × 5 days; day 5 is a review placeholder (lesson_slug null).
+// `lesson_slug` is the planned lesson slug (one lesson per subtopic, slug = subtopic slug, except
+// the two Loop 03 hand-written lessons). Items whose lesson does not exist yet are stored with
+// `lesson_id = null` and resolved when Loop 04 loads the lesson.
+export type PathDay = { day: number; label: string; lesson_slug: string | null; question_set?: string[] };
+export type PathWeek = { week: number; title: string; topic_slug: TopicSlug; days: PathDay[] };
+
+const week = (week: number, title: string, topic_slug: TopicSlug, lessons: [string, string][]): PathWeek => ({
+  week, title, topic_slug,
+  days: [
+    ...lessons.map(([lesson_slug, label], i) => ({ day: i + 1, label, lesson_slug })),
+    { day: 5, label: "Review: flashcards + 5-question drill", lesson_slug: null },
+  ],
+});
+
+export const DEFAULT_PATH = {
+  slug: "default-10-week",
+  title: "10-week technicals path",
+  description: "Foundations → accounting → EqV/EV → valuation → DCF → M&A → LBO → fit and a full mock. Four lessons a week plus a review day.",
+  weeks: [
+    week(1, "Finance foundations", "finance-foundations", [["time-value-of-money", "Time value of money"], ["discount-rates-and-risk", "Discount rates and risk"], ["pv-npv", "Present value and NPV"], ["irr-and-payback", "IRR and payback"]]),
+    week(2, "Accounting concepts", "accounting", [["three-statements-overview", "The three statements at a glance"], ["income-statement", "Income statement"], ["balance-sheet", "Balance sheet"], ["cash-flow-statement", "Cash flow statement"]]),
+    week(3, "Accounting walkthroughs", "accounting", [["three-statement-links", "How the three statements link"], ["working-capital", "Working capital"], ["single-step-walkthroughs", "Single-step walkthroughs"], ["multi-step-walkthroughs", "Multi-step walkthroughs"]]),
+    week(4, "Equity value vs enterprise value", "eqv-ev", [["equity-and-enterprise-value", "Equity value and enterprise value"], ["ev-bridge-basics", "The EqV → EV bridge"], ["diluted-shares", "Diluted share count"], ["ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions"]]),
+    week(5, "Valuation & multiples", "valuation", [["valuation-methodologies", "The three methodologies"], ["comparable-companies", "Comparable companies"], ["precedent-transactions", "Precedent transactions"], ["multiples-and-metrics", "Multiples and metrics"]]),
+    week(6, "DCF assumptions", "dcf", [["dcf-overview", "What a DCF is doing"], ["unlevered-free-cash-flow", "Unlevered free cash flow"], ["projections-and-assumptions", "Projections and assumptions"], ["dcf-sensitivities", "Sensitivities and sanity checks"]]),
+    week(7, "DCF discount rate & terminal value", "dcf", [["cost-of-equity-capm", "Cost of equity and CAPM"], ["wacc", "WACC"], ["terminal-value", "Terminal value"], ["levered-dcf-and-variants", "Levered DCF and other variants"]]),
+    week(8, "M&A", "ma", [["why-companies-acquire", "Why companies acquire"], ["accretion-dilution-concepts", "Accretion / dilution: the idea"], ["accretion-dilution-calculations", "Accretion / dilution: the numbers"], ["purchase-price-allocation", "Purchase price allocation and goodwill"]]),
+    week(9, "LBO", "lbo", [["lbo-overview", "What an LBO is"], ["sources-and-uses", "Sources and uses"], ["debt-tranches", "Debt tranches and covenants"], ["returns-irr-mom", "Returns: IRR and money multiple"]]),
+    {
+      week: 10, title: "Fit + full mock", topic_slug: "fit-behavioural" as TopicSlug,
+      days: [
+        { day: 1, label: "The big five fit questions", lesson_slug: "big-five-fit" },
+        { day: 2, label: "Why banking, why this firm", lesson_slug: "why-banking-why-firm" },
+        { day: 3, label: "Walking through your CV", lesson_slug: "cv-and-experience" },
+        { day: 4, label: "Full mock: 15 timed questions (Loop 07)", lesson_slug: null },
+        { day: 5, label: "Review: weak areas + flashcards", lesson_slug: null },
+      ],
+    },
+  ] as PathWeek[],
+};

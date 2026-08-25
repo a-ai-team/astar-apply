@@ -1,0 +1,33 @@
+{
+  "slug": "inventory-bought-on-credit",
+  "topic_slug": "accounting",
+  "subtopic_slug": "working-capital",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A company buys £20m of inventory on credit. Walk me through the three statements, and then explain what changes if it pays the supplier a month later.",
+  "model_answer_md": "At purchase, nothing hits the income statement — inventory is not an expense until it is sold. On the cash flow statement, inventory rising by £20m is a use of cash (−£20m) but accounts payable rising by £20m is a source (+£20m), so the net change in cash is nil. On the balance sheet, inventory is up £20m on the asset side and payables are up £20m on the liability side, so it balances without any cash moving.\n\nWhen the supplier is paid a month later, the income statement is still untouched. Payables fall by £20m, which is a use of cash on the cash flow statement, so cash falls £20m. On the balance sheet, cash −£20m and payables −£20m: both sides fall by £20m and it still balances. The inventory only touches the income statement when it is sold, as cost of goods sold.",
+  "key_points": [
+    "No income statement impact at purchase or at payment",
+    "Inventory up is a use of cash; payables up is a source — they cancel",
+    "Paying the supplier is when cash actually leaves",
+    "Cost of goods sold is recognised at sale, not at purchase"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the inventory is then sold for £30m cash?",
+      "answer_md": "Revenue +£30m, COGS +£20m, pre-tax profit +£10m. Cash +£30m; inventory −£20m is a source of cash on the CFS. Assets +£10m, retained earnings +£10m (before tax)."
+    },
+    {
+      "question": "Why do fast-growing retailers often have negative operating cash flow?",
+      "answer_md": "Because inventory and receivables grow ahead of sales — the working-capital build absorbs cash even while profits look healthy."
+    }
+  ],
+  "weak_answer_note": "Expenses the inventory immediately on the income statement, or forgets that the payables movement offsets the inventory movement on the cash flow statement.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "working-capital",
+    "walkthrough"
+  ],
+  "status": "approved"
+}

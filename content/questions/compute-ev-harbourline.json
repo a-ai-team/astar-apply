@@ -1,0 +1,45 @@
+{
+  "slug": "compute-ev-harbourline",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "A company has a share price of £4.20 and 250m diluted shares. It carries £500m of debt, £120m of cash, £30m of preferred shares, £25m of non-controlling interest and £45m of lease liabilities. What is its enterprise value?",
+  "model_answer_md": "Equity value = 4.20 × 250 = £1,050m.\n\nNet debt = 500 − 120 = £380m.\n\nEV = 1,050 + 380 + 30 + 25 + 45 = **£1,530m**.\n\nEach add-on is a claim that ranks ahead of ordinary shareholders and that a buyer would have to deal with; cash is subtracted because the buyer gets it back on day one.",
+  "key_points": [
+    "Equity value £1,050m from diluted shares",
+    "Net debt £380m",
+    "Add preferred, NCI and leases: £100m",
+    "EV = £1,530m"
+  ],
+  "follow_ups": [
+    {
+      "question": "If leases were excluded, what would EV be — and when would you exclude them?",
+      "answer_md": "£1,485m. Exclude them when the EBITDA you are comparing against is *after* lease costs (pre-IFRS 16 style), so numerator and denominator are consistent."
+    },
+    {
+      "question": "The company then pays a £50m dividend. New EV?",
+      "answer_md": "Still £1,530m: equity value falls £50m and net debt rises £50m (cash down), which cancel in the bridge."
+    }
+  ],
+  "weak_answer_note": "Uses basic rather than diluted shares, subtracts NCI, or adds cash.",
+  "numbers": {
+    "inputs": {
+      "share_price": 4.2,
+      "diluted_shares": 250,
+      "debt": 500,
+      "cash": 120,
+      "preferred": 30,
+      "nci": 25,
+      "leases": 45
+    },
+    "answer": 1530
+  },
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "ev",
+    "bridge",
+    "calculation"
+  ],
+  "status": "approved"
+}
