@@ -16,3 +16,6 @@ Next.js (App Router, `src/app`), TypeScript, Tailwind. npm. Deployed on Vercel (
 - Branch names: `feat/...`, `fix/...`, `chore/...`.
 - Run `npm run lint` and `npm run build` before opening a PR.
 - Keep secrets in `.env.local` (gitignored); document required vars in `.env.example`.
+
+## Private area
+`/` is public "Coming soon". Real site lives at `/home`, gated by `PRIVATE_ACCESS_KEY` via `src/proxy.ts` — see `docs/PRIVATE_AREA.md`.
