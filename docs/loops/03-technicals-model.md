@@ -28,8 +28,8 @@ block types frozen (add, never rename); KaTeX CSS only on lesson routes.
 
 ## Tasks
 - [x] migration
-- [ ] schemas + tests
-- [ ] taxonomy finalisation (free = Accounting, EqV/EV)
+- [x] schemas + tests
+- [x] taxonomy finalisation (free = Accounting, EqV/EV)
 - [ ] seed + 2 lessons + 6 questions
 - [ ] markdown/KaTeX + renderer
 - [ ] `EvBridge`
