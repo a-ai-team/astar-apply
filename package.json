@@ -11,15 +11,24 @@
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "db:migrate": "supabase db push --linked",
-    "seed": "tsx scripts/seed/run.ts"
+    "seed": "tsx scripts/seed/run.ts",
+    "eval": "tsx scripts/eval/run.ts",
+    "db:check": "tsx scripts/db/check.ts",
+    "reembed": "tsx scripts/corpus/reembed.ts",
+    "corpus:process": "tsx scripts/corpus/process.ts",
+    "cache:check": "tsx scripts/dev/cache-check.ts",
+    "fixtures:build": "tsx scripts/dev/make-fixtures.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
     "@supabase/ssr": "^0.12.5",
     "@supabase/supabase-js": "^2.112.4",
     "next": "16.3.2",
+    "pdfjs-dist": "^6.2.108",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
@@ -30,6 +39,7 @@
     "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
+    "pdf-lib": "^1.17.1",
     "tailwindcss": "^4",
     "tsx": "^4.23.12",
     "typescript": "^5",

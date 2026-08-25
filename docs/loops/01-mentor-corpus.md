@@ -1,6 +1,6 @@
 # Loop 01 — Mentor corpus ingestion
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 a mentor/admin uploads photos, PDFs, notes and Q&A pairs; each becomes a `corpus_source` with type-aware `corpus_chunks` (embeddings, tsvector, tags, page refs); staff browse, edit, tag, approve. Nothing student-facing.
 ## Out of scope
@@ -30,9 +30,9 @@ handwriting confidence < 0.6 → `in_review`; Vercel 4.5 MB body → browser sig
 - [ ] unauthenticated `POST /api/corpus/x/process` → 401/403
 
 ## Tasks
-- [ ] deps + `test:unit/test:e2e/seed/eval` scripts + `e2e/helpers/auth.ts`
-- [ ] `client.ts`, `embeddings.ts` + tests
-- [ ] migration 0002 + `scripts/db/check.ts`
+- [x] deps + `test:unit/test:e2e/seed/eval` scripts + `e2e/helpers/auth.ts`
+- [x] `client.ts`, `embeddings.ts` + tests
+- [x] migration 0002 + `scripts/db/check.ts`
 - [ ] `src/lib/content/taxonomy.ts` constant
 - [ ] extraction pipeline + recorded fixture
 - [ ] chunker/tagger/ingest + process route
