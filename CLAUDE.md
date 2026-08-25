@@ -47,3 +47,6 @@ when you touch `src/lib/ai`, `supabase`, `content`, `src/app`, or tests.
 ## Private area
 `/` is public "Coming soon". Real site lives at `/home`, gated by `PRIVATE_ACCESS_KEY` in
 `src/proxy.ts` (plus Supabase session from Loop 00) — see `docs/PRIVATE_AREA.md`.
+
+## Mentor chatbot
+`/home/mentor` streams cited answers from the mentor corpus — pipeline, modes (`CHAT_MODE`), evals: `docs/CHAT.md`.
