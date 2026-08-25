@@ -20,6 +20,12 @@ export default function AdminPage() {
             <CardDescription>Mentor uploads: photos, PDFs, notes and Q&amp;A → reviewable chunks.</CardDescription>
           </Card>
         </Link>
+        <Link href="/admin/feedback">
+          <Card className="hover:border-muted">
+            <CardTitle>Feedback</CardTitle>
+            <CardDescription>Thumbs-down answers from the mentor chatbot with the chunks it retrieved.</CardDescription>
+          </Card>
+        </Link>
       </div>
     </>
   );

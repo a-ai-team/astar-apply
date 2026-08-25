@@ -39,9 +39,9 @@ citation index mapping (recorded-response unit test); Node runtime + `maxDuratio
 - [x] rewrite + tests
 - [x] retrieve/RRF/rerank
 - [x] answer + cite + recorded test
-- [ ] SSE route + persistence + feedback route
-- [ ] chat UI
-- [ ] `/admin/feedback`
+- [x] SSE route + persistence + feedback route
+- [x] chat UI
+- [x] `/admin/feedback`
 - [ ] eval core + suites + fixtures
 - [ ] extract-400q + overlap
 - [ ] CI eval job

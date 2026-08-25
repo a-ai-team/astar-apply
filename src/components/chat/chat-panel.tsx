@@ -1,0 +1,96 @@
+"use client";
+
+// The conversation: message list + composer. Sends POST /api/chat, parses the SSE stream and
+// renders deltas/citations as they arrive; after `done` a brand-new thread navigates to its URL.
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createSseParser } from "@/lib/chat/sse";
+import type { ChatEvent, Citation, Rung } from "@/lib/chat/types";
+import { CitationDrawer } from "./citation-drawer";
+import { Composer } from "./composer";
+import { MessageBubble } from "./message-bubble";
+
+export type UiMessage = { id: string | null; role: "user" | "assistant"; text: string; citations: Citation[]; rung?: Rung; pending: boolean };
+
+export function ChatPanel({ threadId, title, initialMessages, initialFeedback }: { threadId: string | null; title?: string; initialMessages: UiMessage[]; initialFeedback: Record<string, 1 | -1> }) {
+  const router = useRouter();
+  const [messages, setMessages] = useState<UiMessage[]>(initialMessages);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [drawer, setDrawer] = useState<{ citation: Citation; index: number } | null>(null);
+  const bottom = useRef<HTMLDivElement>(null);
+  const liveThread = useRef<string | null>(threadId);
+
+  useEffect(() => { bottom.current?.scrollIntoView({ block: "end" }); }, [messages]);
+
+  const send = useCallback(async (text: string) => {
+    setError(null);
+    setBusy(true);
+    setMessages((m) => [...m, { id: null, role: "user", text, citations: [], pending: false }, { id: null, role: "assistant", text: "", citations: [], pending: true }]);
+    const patch = (fn: (a: UiMessage) => UiMessage) => setMessages((m) => { const copy = [...m]; const last = copy.length - 1; copy[last] = fn(copy[last]); return copy; });
+    try {
+      const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ threadId: liveThread.current ?? undefined, message: text }) });
+      if (!res.ok || !res.body) {
+        const body = await res.json().catch(() => ({}));
+        const msg = res.status === 429 ? "You've hit today's message cap — come back tomorrow." : (body.error ?? `Request failed (${res.status})`);
+        setMessages((m) => m.slice(0, -1));
+        setError(msg);
+        return;
+      }
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      const feed = createSseParser();
+      let newThread: string | null = null;
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        for (const ev of feed(decoder.decode(value, { stream: true })) as ChatEvent[]) {
+          if (ev.type === "delta") patch((a) => ({ ...a, text: a.text + ev.text }));
+          else if (ev.type === "citation") patch((a) => (a.citations.some((c) => c.chunk_id === ev.citation.chunk_id) ? a : { ...a, citations: [...a.citations, ev.citation] }));
+          else if (ev.type === "retrieval") patch((a) => ({ ...a, rung: ev.rung }));
+          else if (ev.type === "done") {
+            patch(() => ({ id: ev.messageId, role: "assistant", text: ev.content.text, citations: ev.content.citations, rung: ev.content.rung, pending: false }));
+            if (!liveThread.current && ev.threadId) newThread = ev.threadId;
+          } else if (ev.type === "error") {
+            patch((a) => ({ ...a, pending: false, text: a.text || "Something went wrong — please try again." }));
+            setError(ev.message);
+          }
+        }
+      }
+      if (newThread) {
+        liveThread.current = newThread;
+        router.replace(`/home/mentor/${newThread}`);
+      }
+      router.refresh();
+    } catch (e) {
+      patch((a) => ({ ...a, pending: false }));
+      setError(e instanceof Error ? e.message : "network error");
+    } finally {
+      setBusy(false);
+    }
+  }, [router]);
+
+  return (
+    <div className="flex min-h-0 flex-1 flex-col" data-testid="chat-panel">
+      <header className="flex items-center justify-between border-b border-border px-4 py-3 md:px-6">
+        <h1 className="truncate text-base font-semibold" data-testid="chat-title">{title ?? "Mentor"}</h1>
+        <span className="text-xs text-muted">Answers cite the mentor corpus</span>
+      </header>
+      <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6" data-testid="messages">
+        {messages.length === 0 && (
+          <div className="m-auto max-w-md text-center text-sm text-muted">
+            <p className="text-base font-medium text-fg">Ask a senior student who has done the process.</p>
+            <p className="mt-2">Spring weeks, CVs, &ldquo;why banking&rdquo;, EV vs equity value, DCFs — every answer cites the mentor&rsquo;s own notes when they cover it.</p>
+          </div>
+        )}
+        {messages.map((m, i) => (
+          <MessageBubble key={m.id ?? `m${i}`} {...m} vote={m.id ? initialFeedback[m.id] ?? null : null} onOpenCitation={(citation, index) => setDrawer({ citation, index })} />
+        ))}
+        {error && <p className="text-sm text-danger" role="alert" data-testid="chat-error">{error}</p>}
+        <div ref={bottom} />
+      </div>
+      <Composer disabled={busy} onSend={send} />
+      <CitationDrawer open={Boolean(drawer)} citation={drawer?.citation ?? null} index={drawer?.index ?? 0} onClose={() => setDrawer(null)} />
+    </div>
+  );
+}

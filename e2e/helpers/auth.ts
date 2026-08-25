@@ -32,3 +32,15 @@ export async function signInAs(page: Page, email: E2EUser, next = "/home") {
   const tokenHash = data.properties.hashed_token;
   await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(next)}`);
 }
+
+/** Clears today's usage_daily row for a test user (Loop 02: CHAT_DAILY_CAP=1 in e2e). */
+export async function resetDailyUsage(email: E2EUser) {
+  const client = admin();
+  const { data, error } = await client.auth.admin.listUsers({ perPage: 1000 });
+  if (error) throw error;
+  const user = data.users.find((u) => u.email === email);
+  if (!user) throw new Error(`${email} missing — run \`npm run seed -- 00\``);
+  const today = new Date().toISOString().slice(0, 10);
+  const { error: delError } = await client.from("usage_daily").delete().eq("user_id", user.id).eq("day", today);
+  if (delError) throw delError;
+}
