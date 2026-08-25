@@ -1,18 +1,56 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { ACCESS_COOKIE, expectedToken } from "@/lib/access";
+import { updateSession } from "@/lib/supabase/proxy";
+import { isStaff } from "@/lib/roles";
 
-// Gate everything under /home behind the shared access key. See docs/PRIVATE_AREA.md.
+/**
+ * Two gates (docs/PRIVATE_AREA.md):
+ *  1. Shared access key cookie for everything under /home and /admin (pre-launch).
+ *  2. Supabase session (refreshed here on every request) — /home needs a user,
+ *     /admin needs a staff role. Cookie/JWT-only checks; no DB queries (Next proxy guidance).
+ * Server Actions bypass this matcher: every action must also call verifySession() (src/lib/dal.ts).
+ */
 export async function proxy(request: NextRequest) {
-  const expected = await expectedToken();
-  const cookie = request.cookies.get(ACCESS_COOKIE)?.value;
-  if (expected && cookie === expected) return NextResponse.next();
+  const { pathname } = request.nextUrl;
+  const isPrivate = pathname.startsWith("/home") || pathname.startsWith("/admin");
 
-  const url = new URL("/unlock", request.url);
-  url.searchParams.set("next", request.nextUrl.pathname);
-  return NextResponse.redirect(url);
+  if (isPrivate) {
+    const expected = await expectedToken();
+    const cookie = request.cookies.get(ACCESS_COOKIE)?.value;
+    if (!expected || cookie !== expected) {
+      const url = new URL("/unlock", request.url);
+      url.searchParams.set("next", pathname);
+      return NextResponse.redirect(url);
+    }
+  }
+
+  const session = await updateSession(request);
+
+  if (isPrivate && !session.userId) {
+    const url = new URL("/login", request.url);
+    url.searchParams.set("next", pathname);
+    return redirectKeepingCookies(url, session.response);
+  }
+  if (pathname.startsWith("/admin") && !isStaff(session.role)) {
+    return redirectKeepingCookies(new URL("/home", request.url), session.response);
+  }
+  if (pathname === "/login" && session.userId) {
+    const next = request.nextUrl.searchParams.get("next");
+    const dest = next && next.startsWith("/") && !next.startsWith("//") ? next : "/home";
+    return redirectKeepingCookies(new URL(dest, request.url), session.response);
+  }
+
+  // Must return the response from updateSession (it carries refreshed auth cookies).
+  return session.response;
+}
+
+function redirectKeepingCookies(url: URL, from: NextResponse) {
+  const res = NextResponse.redirect(url);
+  for (const c of from.cookies.getAll()) res.cookies.set(c);
+  return res;
 }
 
 export const config = {
-  matcher: "/home/:path*",
+  matcher: ["/home/:path*", "/admin/:path*", "/login"],
 };

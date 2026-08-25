@@ -48,3 +48,7 @@ supabase/.temp
 .eval/
 fixtures/private/
 CLAUDE.local.md
+
+# playwright
+/test-results/
+/playwright-report/

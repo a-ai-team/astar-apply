@@ -1,24 +1,29 @@
-import type { Metadata } from "next";
-import Image from "next/image";
+import { verifySession } from "@/lib/dal";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 
-export const metadata: Metadata = {
-  title: "A* Apply — Home",
-  robots: { index: false, follow: false },
-};
-
-export default function HomePage() {
+export default async function HomePage() {
+  const session = await verifySession("/home");
   return (
-    <div className="flex flex-1 flex-col bg-black font-sans text-zinc-100">
-      <header className="flex items-center gap-4 border-b border-zinc-800 px-6 py-4">
-        <Image src="/logo.png" alt="A* Apply" width={120} height={120} className="h-auto w-24" />
-      </header>
-      <main className="flex flex-1 flex-col gap-4 px-6 py-10">
-        <h1 className="text-2xl font-semibold">Home</h1>
-        <p className="text-zinc-400">
-          Private area — only people with the access key can see this. Build the real
-          site here while the public page stays on &ldquo;Coming soon&rdquo;.
-        </p>
-      </main>
-    </div>
+    <>
+      <div>
+        <h1 className="text-2xl font-semibold" data-testid="home-heading">
+          Welcome back
+        </h1>
+        <p className="mt-1 text-sm text-muted">Signed in as {session.email}. The rest of the site is being built loop by loop.</p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          ["Mentor", "Ask a senior student who has done the process."],
+          ["Technicals", "The textbook for IB technicals that doesn't exist yet."],
+          ["Practice", "Question bank and spaced-repetition flashcards."],
+          ["Interviews", "AI mock interviews graded against model answers."],
+        ].map(([title, desc]) => (
+          <Card key={title} className="opacity-70">
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>{desc}</CardDescription>
+          </Card>
+        ))}
+      </div>
+    </>
   );
 }

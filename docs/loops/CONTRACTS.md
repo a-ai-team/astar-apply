@@ -30,7 +30,7 @@ These names, shapes and thresholds are fixed across Loops 01–10. A loop may *a
 | `industry_modules` (view) | industry | 0010 (Loop 09) |
 | `plans`, `subscriptions`, `entitlements`, `playbook_progress`, `demo_usage` | billing/launch | 0011 (Loop 10) |
 
-Conventions: `id uuid pk default gen_random_uuid()`, `created_at timestamptz default now()`, `updated_at` via trigger `set_updated_at()` (0002). Slugs `text unique` kebab-case. Enums named `<table>_<column>`. RLS role helpers (0002): `is_admin()`, `is_mentor()`, `is_staff()`; role read from `auth.jwt()->>'role'` (Loop 00).
+Conventions: `id uuid pk default gen_random_uuid()`, `created_at timestamptz default now()`, `updated_at` via trigger `set_updated_at()` (0002). Slugs `text unique` kebab-case. Enums named `<table>_<column>`. RLS role helpers (created in 0001, Loop 00): `is_admin()`, `is_mentor()`, `is_staff()`; role read from the JWT claim **`user_role`** (`auth.jwt()->>'user_role'`) — not `role`, which Supabase reserves for the Postgres role. `set_updated_at()` also ships in 0001.
 
 `content_status` enum: `draft | generated | in_review | approved | rejected | archived`. Only `approved` rows are served to students.
 
