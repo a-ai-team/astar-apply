@@ -2,7 +2,7 @@
 
 # A* Apply
 
-Spring week & finance application tracker from A* AI. Separate site from the main A* AI product; shares branding (`public/logo.png`).
+A new site from A* AI (what it does is TBD — do not describe it as an application tracker). Separate site from the main A* AI product; shares branding (`public/logo.png`).
 
 ## Team
 - Owners: James Wingfield (@WingfieldJames), Tesleem (president of BIG). More collaborators will join — keep everything discoverable and documented.
