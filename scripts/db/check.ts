@@ -1,4 +1,4 @@
-// `npm run db:check` — confirms the Loop 01 schema is live on the linked project: tables, HNSW
+// `npm run db:check` — confirms the Loop 01 + 02 schema is live on the linked project: tables, HNSW
 // index, RLS, retrieval functions, storage bucket. Uses the Supabase CLI (`supabase db query
 // --linked`) because catalog tables are not reachable through PostgREST. Exit 1 on any miss.
 import { execFileSync } from "node:child_process";
@@ -23,7 +23,12 @@ select json_build_object(
              and tablename = 'objects' and policyname like 'corpus bucket%'),
   'bucket', (select count(*) from storage.buckets where id = 'corpus' and public = false),
   'vector_dim', (select atttypmod from pg_attribute
-             where attrelid = 'public.corpus_chunks'::regclass and attname = 'embedding')
+             where attrelid = 'public.corpus_chunks'::regclass and attname = 'embedding'),
+  'chat_tables', (select count(*) from information_schema.tables where table_schema = 'public'
+             and table_name in ('chat_threads','chat_messages','chat_feedback','usage_daily')),
+  'chat_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity
+             and relname in ('chat_threads','chat_messages','chat_feedback','usage_daily')),
+  'increment_usage', (select count(*) from pg_proc where pronamespace = 'public'::regnamespace and proname = 'increment_usage')
 ) as report;
 `;
 
@@ -46,6 +51,9 @@ function main() {
     ["storage policies on bucket corpus", Number(r.storage_policies) >= 4],
     ["private bucket corpus exists", r.bucket === 1],
     ["embedding is vector(1024)", r.vector_dim === 1024],
+    ["Loop 02: chat_threads/chat_messages/chat_feedback/usage_daily exist", r.chat_tables === 4],
+    ["Loop 02: RLS enabled on all four chat tables", r.chat_rls === 4],
+    ["Loop 02: increment_usage() exists", r.increment_usage === 1],
   ];
   let ok = true;
   for (const [label, pass] of checks) {

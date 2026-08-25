@@ -35,7 +35,7 @@ citation index mapping (recorded-response unit test); Node runtime + `maxDuratio
 - [ ] `cache-check` shows cache reads > 0
 
 ## Tasks
-- [ ] migration 0003 + cap fn
+- [x] migration 0003 + cap fn
 - [ ] rewrite + tests
 - [ ] retrieve/RRF/rerank
 - [ ] answer + cite + recorded test
