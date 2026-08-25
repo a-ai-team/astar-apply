@@ -43,3 +43,8 @@ next-env.d.ts
 # supabase cli
 supabase/.temp
 !.env.example
+
+# local eval artefacts / private fixtures / personal Claude notes
+.eval/
+fixtures/private/
+CLAUDE.local.md

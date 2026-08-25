@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(supabase db reset*)",
+      "Bash(vercel env rm*)",
+      "Read(./.env.local)",
+      "Read(~/Desktop/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f docs/loops/CURRENT.md && { echo '--- docs/loops/CURRENT.md ---'; cat docs/loops/CURRENT.md; } || true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); cmd=$(printf '%s' \"$input\" | python3 -c 'import json,sys; print(json.load(sys.stdin).get(\"tool_input\",{}).get(\"command\",\"\"))' 2>/dev/null); case \"$cmd\" in *'git commit'*|*'git push'*) bash scripts/dev/precommit-check.sh ;; *) exit 0 ;; esac"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f docs/loops/CURRENT.md && printf -- '- %s heartbeat\\n' \"$(date '+%Y-%m-%d %H:%M')\" >> docs/loops/CURRENT.md || true"
+          }
+        ]
+      }
+    ]
+  }
+}

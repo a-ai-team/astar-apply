@@ -1,6 +1,6 @@
 # A* Apply — Master Plan
 
-*Owner: James Wingfield · Mentor #1: Tesleem · Last updated 2026-08-25*
+*Owner: James Wingfield · Mentor #1: Tesleem · Last updated 2026-08-25 (loop plans + overnight run protocol added)*
 
 ## What we are building
 
@@ -53,7 +53,7 @@ Not an application tracker. Separate site from the main A* AI product; shares th
 
 ## Loops
 
-Each loop follows `docs/loops/README.md`. Order matters; each is ~1–2 weeks of focused work.
+Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md` (schema names, JSON shapes, eval thresholds). Every loop has a full plan doc already. Run unattended, the whole set is ~24–30 h of agent time (~$130–160 API spend) — two overnight runs. Status values: planned · in-progress · merged · merged (partial) · open-pr · blocked.
 
 | # | Loop | Delivers | Status |
 |---|---|---|---|
@@ -67,7 +67,7 @@ Each loop follows `docs/loops/README.md`. Order matters; each is ~1–2 weeks of
 | 7 | [AI mock interviews](loops/07-mock-interviews.md) | Text mock interviews graded against model answers with rubric; then voice (Web Speech / Whisper) with pace/filler analysis | planned |
 | 8 | [Firm interview bank + Pulse](loops/08-firms-pulse.md) | Real-question bank by firm/stage/programme (mentor-sourced), market-news digest (Pulse) | planned |
 | 9 | [Industry modules](loops/09-industry-modules.md) | 18 industry/group technical modules from the 400Q industry taxonomy | planned |
-| 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook | planned |
+| 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook — **stays an open PR for James** | planned |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.
