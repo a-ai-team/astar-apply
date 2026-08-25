@@ -36,9 +36,9 @@ citation index mapping (recorded-response unit test); Node runtime + `maxDuratio
 
 ## Tasks
 - [x] migration 0003 + cap fn
-- [ ] rewrite + tests
-- [ ] retrieve/RRF/rerank
-- [ ] answer + cite + recorded test
+- [x] rewrite + tests
+- [x] retrieve/RRF/rerank
+- [x] answer + cite + recorded test
 - [ ] SSE route + persistence + feedback route
 - [ ] chat UI
 - [ ] `/admin/feedback`
