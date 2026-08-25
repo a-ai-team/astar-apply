@@ -57,7 +57,7 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 
 | # | Loop | Delivers | Status |
 |---|---|---|---|
-| 0 | [Foundations](loops/00-foundations.md) | Supabase + auth + roles, DB migrations, app shell/design system, admin area, CI (lint/build/eval) | planned |
+| 0 | [Foundations](loops/00-foundations.md) | Supabase + auth + roles, DB migrations, app shell/design system, admin area, CI (lint/build/eval) | merged |
 | 1 | [Mentor corpus ingestion](loops/01-mentor-corpus.md) | Upload UI for Tesleem (photos, PDFs, notes, Q&A), Claude-vision OCR/transcription, type-aware chunking, embeddings, corpus browser, tagging | planned |
 | 2 | [Mentor chatbot v1](loops/02-chatbot.md) | Hybrid RAG + rerank + citations, streaming chat UI, threads, feedback thumbs, eval harness with hidden 400Q set | planned |
 | 3 | [Technicals taxonomy & content model](loops/03-technicals-model.md) | Topics/subtopics/lessons/questions schema seeded from the 400Q taxonomy; lesson renderer; learning path (10-week default) | planned |
