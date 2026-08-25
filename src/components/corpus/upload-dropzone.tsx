@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { prepareUploads } from "@/app/admin/corpus/actions";
 
 type Item = { name: string; sourceId?: string; state: "queued" | "uploading" | "processing" | "done" | "error"; detail?: string };
-const BUCKET = process.env.NEXT_PUBLIC_CORPUS_BUCKET ?? "corpus";
+const BUCKET = "corpus"; // mirrors CORPUS_BUCKET (server); the browser only needs the name for signed uploads
 
 /**
  * Drop/select files → server action creates draft sources + signed upload URLs → the browser

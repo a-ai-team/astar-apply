@@ -12,6 +12,9 @@ jobs:
       # Build-time placeholders so `next build` succeeds without project secrets.
       NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder' }}
+      # Loop 01: unit tests never call the API; keep extraction/embeddings offline in CI.
+      CORPUS_EXTRACTION_MODE: fixture
+      EMBEDDINGS_PROVIDER: local
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

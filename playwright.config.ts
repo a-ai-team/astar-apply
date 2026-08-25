@@ -5,6 +5,10 @@ loadEnv({ path: ".env.local" });
 
 // Gate 1 needs a key; when .env.local has none, use a throwaway one. The webServer inherits it.
 process.env.PRIVATE_ACCESS_KEY ??= "e2e-access-key";
+// Loop 01: e2e never spends API credit — extraction returns the recorded fixture and embeddings
+// are the local hashed provider. The webServer inherits these.
+process.env.CORPUS_EXTRACTION_MODE ??= "fixture";
+process.env.EMBEDDINGS_PROVIDER ??= "local";
 
 const PORT = 3100;
 

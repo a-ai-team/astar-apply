@@ -58,7 +58,7 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | # | Loop | Delivers | Status |
 |---|---|---|---|
 | 0 | [Foundations](loops/00-foundations.md) | Supabase + auth + roles, DB migrations, app shell/design system, admin area, CI (lint/build/eval) | merged |
-| 1 | [Mentor corpus ingestion](loops/01-mentor-corpus.md) | Upload UI for Tesleem (photos, PDFs, notes, Q&A), Claude-vision OCR/transcription, type-aware chunking, embeddings, corpus browser, tagging | planned |
+| 1 | [Mentor corpus ingestion](loops/01-mentor-corpus.md) | Upload UI for Tesleem (photos, PDFs, notes, Q&A), Claude-vision OCR/transcription, type-aware chunking, embeddings, corpus browser, tagging | merged (partial) |
 | 2 | [Mentor chatbot v1](loops/02-chatbot.md) | Hybrid RAG + rerank + citations, streaming chat UI, threads, feedback thumbs, eval harness with hidden 400Q set | planned |
 | 3 | [Technicals taxonomy & content model](loops/03-technicals-model.md) | Topics/subtopics/lessons/questions schema seeded from the 400Q taxonomy; lesson renderer; learning path (10-week default) | planned |
 | 4 | [Technicals content generation](loops/04-content-generation.md) | Claude writes every lesson (concept → mechanics → worked calc → drill) and an original question bank (~350 Qs, follow-ups, difficulty), mentor review queue | planned |
