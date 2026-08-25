@@ -58,7 +58,7 @@ export async function retrieve(
     const q = rewrite.queries[i];
     const [vec, fts] = await Promise.all([
       db.rpc("match_corpus_chunks", { query_embedding: JSON.stringify(vectors[i]), n: PER_LIST, p_status: "approved", kinds }),
-      db.rpc("search_corpus_fts", { q, n: PER_LIST, p_status: "approved" }),
+      db.rpc("search_corpus_fts", { q: ftsQuery(q), n: PER_LIST, p_status: "approved" }),
     ]);
     if (vec.error) throw new Error(`match_corpus_chunks: ${vec.error.message}`);
     if (fts.error) throw new Error(`search_corpus_fts: ${fts.error.message}`);
@@ -96,6 +96,18 @@ export async function retrieve(
   const chunks = rr.order.map((id) => byId.get(id)!).filter(Boolean).slice(0, topN);
   record.reranked = chunks.map((c) => ({ id: c.id, label: c.label }));
   return { chunks, record };
+}
+
+const FTS_STOP = new Set("the a an of to in on for and or is are was were be been what how why when which who do does did i you it this that these those my me we our us can could should would will with about from at by as into than then there here please tell explain".split(" "));
+
+/**
+ * websearch_to_tsquery ANDs every term, which returns nothing for paraphrases ("best way to
+ * practise numerical tests"). OR the content words instead; ts_rank_cd still ranks chunks that
+ * match more of them higher, and RRF + the relevance floor keep single-word noise down.
+ */
+export function ftsQuery(q: string): string {
+  const words = q.toLowerCase().replace(/[^\p{L}\p{N}\s-]+/gu, " ").split(/\s+/).filter((w) => w.length > 1 && !FTS_STOP.has(w));
+  return words.length ? [...new Set(words)].join(" or ") : q;
 }
 
 /** "<Mentor> – <question | first heading | first words>" — the citation chip text and document title. */

@@ -42,9 +42,9 @@ citation index mapping (recorded-response unit test); Node runtime + `maxDuratio
 - [x] SSE route + persistence + feedback route
 - [x] chat UI
 - [x] `/admin/feedback`
-- [ ] eval core + suites + fixtures
-- [ ] extract-400q + overlap
-- [ ] CI eval job
+- [x] eval core + suites + fixtures
+- [x] extract-400q + overlap
+- [x] CI eval job
 - [ ] Playwright/curl/docs/retro
 
 ## Blocked-on-human (defaults)

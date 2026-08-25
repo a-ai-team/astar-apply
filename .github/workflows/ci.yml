@@ -15,6 +15,7 @@ jobs:
       # Loop 01: unit tests never call the API; keep extraction/embeddings offline in CI.
       CORPUS_EXTRACTION_MODE: fixture
       EMBEDDINGS_PROVIDER: local
+      CHAT_MODE: fixture
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,5 +27,46 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: npm run test:unit
-  # eval job (Loop 02+): runs `npm run eval -- --suite retrieval,chat` only on PRs touching
-  # src/lib/ai/** and only when the ANTHROPIC_API_KEY secret exists.
+  # Eval gate (Loop 02): `npm run eval -- --suite retrieval,chat` on PRs that touch the AI/chat
+  # code, when the secrets exist. Retrieval runs against the linked Supabase project (local
+  # embeddings → 0.70 threshold); the chat suite skips itself with `NO API CREDIT` / `NO API KEY`.
+  eval:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    needs: check
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      EMBEDDINGS_PROVIDER: local
+      CORPUS_EXTRACTION_MODE: fixture
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Detect AI/chat changes
+        id: changed
+        run: |
+          if git diff --name-only "origin/${{ github.base_ref }}"...HEAD | grep -Eq '^(src/lib/ai/|src/lib/chat/|scripts/eval/|fixtures/eval/)'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"; echo "eval: no AI/chat changes — skipped"
+          fi
+      - name: Check secrets
+        id: secrets
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "ok=false" >> "$GITHUB_OUTPUT"; echo "::warning::eval skipped — ANTHROPIC_API_KEY / SUPABASE_SERVICE_ROLE_KEY secrets missing"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.changed.outputs.run == 'true' && steps.secrets.outputs.ok == 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        if: steps.changed.outputs.run == 'true' && steps.secrets.outputs.ok == 'true'
+      - run: npm run eval -- --suite retrieval,chat --limit 20
+        if: steps.changed.outputs.run == 'true' && steps.secrets.outputs.ok == 'true'

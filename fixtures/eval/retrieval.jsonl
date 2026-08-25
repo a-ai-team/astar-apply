@@ -1,0 +1,61 @@
+{"_note": "PLACEHOLDER — synthetic content for pipeline testing. 60 original question → expected fixture chunk pairs (source title prefix + optional text substring) for recall@5. Loop 02."}
+{"id": "r01", "question": "When do spring week applications open and when should I apply?", "expected": {"source": "When should I start applying for spring weeks?"}}
+{"id": "r02", "question": "Is September too early to submit a spring week application?", "expected": {"source": "When should I start applying for spring weeks?"}}
+{"id": "r03", "question": "How many spring weeks should I apply to?", "expected": {"source": "How many spring week applications is a sensible number?"}}
+{"id": "r04", "question": "Is applying to 25 spring weeks too many?", "expected": {"source": "How many spring week applications is a sensible number?"}}
+{"id": "r05", "question": "What happens during a spring week each day?", "expected": {"source": "What does a spring week actually involve day to day?"}}
+{"id": "r06", "question": "What is the daily schedule on a spring insight week like?", "expected": {"source": "What does a spring week actually involve day to day?"}}
+{"id": "r07", "question": "Do first years get asked technical questions at spring week interviews?", "expected": {"source": "Do I need to know technicals for a first-year spring week interview?"}}
+{"id": "r08", "question": "How much accounting do I need for a spring week interview?", "expected": {"source": "Do I need to know technicals for a first-year spring week interview?"}}
+{"id": "r09", "question": "Should I bother applying to banks I don't know?", "expected": {"source": "Should I apply to spring weeks at firms I have never heard of?"}}
+{"id": "r10", "question": "Are less famous firms worth a spring week application?", "expected": {"source": "Should I apply to spring weeks at firms I have never heard of?"}}
+{"id": "r11", "question": "Does going to a non-target university hurt my spring week chances?", "expected": {"source": "What is a target school and does it matter for spring weeks?"}}
+{"id": "r12", "question": "What does target school mean?", "expected": {"source": "What is a target school and does it matter for spring weeks?"}}
+{"id": "r13", "question": "M&A or markets for my spring week — how do I decide?", "expected": {"source": "How do I choose between an M&A group and a markets programme"}}
+{"id": "r14", "question": "What should I wear on a spring week?", "expected": {"source": "What do I wear to a spring week?"}}
+{"id": "r15", "question": "Dress code for insight weeks at banks?", "expected": {"source": "What do I wear to a spring week?"}}
+{"id": "r16", "question": "Is it rude to cold email a banker?", "expected": {"source": "Is cold emailing bankers rude?"}}
+{"id": "r17", "question": "Can I email analysts I have never met?", "expected": {"source": "Is cold emailing bankers rude?"}}
+{"id": "r18", "question": "How do I ask for a coffee chat?", "expected": {"source": "How do I ask someone for a coffee chat without being awkward"}}
+{"id": "r19", "question": "What's a non-awkward way to request a quick call with an analyst?", "expected": {"source": "How do I ask someone for a coffee chat without being awkward"}}
+{"id": "r20", "question": "What do I say on a networking call?", "expected": {"source": "What should I actually say in a networking call?"}}
+{"id": "r21", "question": "Questions to ask during a coffee chat with a banker", "expected": {"source": "What should I actually say in a networking call?"}}
+{"id": "r22", "question": "How do I follow up after a call with someone at a bank?", "expected": {"source": "How do I follow up after a networking call?"}}
+{"id": "r23", "question": "Thank you message after networking call — what should it include?", "expected": {"source": "How do I follow up after a networking call?"}}
+{"id": "r24", "question": "Someone ignored my LinkedIn message, should I message again?", "expected": {"source": "Is it worth messaging people on LinkedIn who did not reply"}}
+{"id": "r25", "question": "How many people should I network with before applying to a firm?", "expected": {"source": "How many people should I speak to before applying to a firm?"}}
+{"id": "r26", "question": "I have no finance experience, what do I put on my CV?", "expected": {"source": "What if I do not have any finance experience for my CV?"}}
+{"id": "r27", "question": "CV with no internships — what can I include?", "expected": {"source": "What if I do not have any finance experience for my CV?"}}
+{"id": "r28", "question": "How do I prepare for the numerical reasoning test quickly?", "expected": {"source": "What is the fastest way to prepare for the numerical test?"}}
+{"id": "r29", "question": "Best way to practise numerical tests?", "expected": {"source": "What is the fastest way to prepare for the numerical test?"}}
+{"id": "r30", "question": "What should I do in the week before an assessment centre?", "expected": {"source": "What should I do the week before an assessment centre?"}}
+{"id": "r31", "question": "Assessment centre preparation the last seven days", "expected": {"source": "What should I do the week before an assessment centre?"}}
+{"id": "r32", "question": "How do I answer tell me about yourself?", "expected": {"source": "How do I answer the tell me about yourself question?"}}
+{"id": "r33", "question": "Structure for the tell me about yourself question", "expected": {"source": "How do I answer the tell me about yourself question?"}}
+{"id": "r34", "question": "How do I answer why this bank?", "expected": {"source": "How do I answer why this bank when they all look the same?"}}
+{"id": "r35", "question": "All the banks seem identical, how do I say why this firm?", "expected": {"source": "How do I answer why this bank when they all look the same?"}}
+{"id": "r36", "question": "How do I talk about a recent deal in an interview?", "expected": {"source": "How should I talk about a deal in the news?"}}
+{"id": "r37", "question": "What is a good deal to discuss and how should I structure it?", "expected": {"source": "How should I talk about a deal in the news?"}}
+{"id": "r38", "question": "I messed up an answer in an interview, how do I recover?", "expected": {"source": "How do I recover from a bad answer in an interview?"}}
+{"id": "r39", "question": "What are good questions to ask the interviewer at the end?", "expected": {"source": "What counts as a good question to ask at the end of an inter"}}
+{"id": "r40", "question": "Questions to ask at the end of a spring week interview", "expected": {"source": "What counts as a good question to ask at the end of an inter"}}
+{"id": "r41", "question": "What is the difference between equity value and enterprise value?", "expected": {"source": "What is the difference between equity value and enterprise v"}}
+{"id": "r42", "question": "Explain enterprise value vs equity value", "expected": {"source": "What is the difference between equity value and enterprise v"}}
+{"id": "r43", "question": "Why is cash subtracted in the enterprise value bridge?", "expected": {"source": "Why do you subtract cash when calculating enterprise value?"}}
+{"id": "r44", "question": "Why does EV use net debt rather than gross debt?", "expected": {"source": "Why do you subtract cash when calculating enterprise value?"}}
+{"id": "r45", "question": "Walk me through a 10 increase in depreciation on the three statements", "expected": {"source": "Walk me through how a ten pound increase in depreciation flo"}}
+{"id": "r46", "question": "How does depreciation going up affect the income statement, cash flow and balance sheet?", "expected": {"source": "Walk me through how a ten pound increase in depreciation flo"}}
+{"id": "r47", "question": "A company buys a machine for 100 in cash — walk me through the statements", "expected": {"source": "Walk me through the three statements when a company buys a m"}}
+{"id": "r48", "question": "What is working capital and why does it matter in interviews?", "expected": {"source": "What is working capital and why do interviewers care?"}}
+{"id": "r49", "question": "Explain WACC simply", "expected": {"source": "What is the weighted average cost of capital in plain Englis"}}
+{"id": "r50", "question": "What is the weighted average cost of capital?", "expected": {"source": "What is the weighted average cost of capital in plain Englis"}}
+{"id": "r51", "question": "Why unlevered free cash flow in a DCF?", "expected": {"source": "Why do you use unlevered free cash flow in a DCF?"}}
+{"id": "r52", "question": "Trading comps vs precedent transactions — what's the difference?", "expected": {"source": "What is the difference between a trading comp and a preceden"}}
+{"id": "r53", "question": "How do I explain a P/E multiple in one line?", "expected": {"source": "How do I explain a price to earnings multiple in one sentenc"}}
+{"id": "r54", "question": "How does a leveraged buyout make money without growth?", "expected": {"source": "How does an LBO make money if the company does not grow?"}}
+{"id": "r55", "question": "Where does the return come from in an LBO?", "expected": {"source": "How does an LBO make money if the company does not grow?"}}
+{"id": "r56", "question": "What happens to the applications in October of first year?", "expected": {"source": "A realistic first-year application timeline", "match": "October"}}
+{"id": "r57", "question": "What should I be doing between January and March for conversion?", "expected": {"source": "A realistic first-year application timeline", "match": "January"}}
+{"id": "r58", "question": "DCF explained in five sentences", "expected": {"source": "Technicals cheat sheet", "match": "Discounted cash flow"}}
+{"id": "r59", "question": "Explain an LBO in one paragraph", "expected": {"source": "Technicals cheat sheet", "match": "LBO"}}
+{"id": "r60", "question": "Depreciation walk with a worked number", "expected": {"source": "Technicals cheat sheet", "match": "depreciation"}}
