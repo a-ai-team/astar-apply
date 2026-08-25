@@ -10,7 +10,7 @@ import { NavLink, type NavItem } from "./nav-link";
 
 export const HOME_NAV: NavItem[] = [
   { href: "/home", label: "Home" },
-  { href: "/home/mentor", label: "Mentor", disabled: true },
+  { href: "/home/mentor", label: "Mentor" },
   { href: "/home/technicals", label: "Technicals", disabled: true },
   { href: "/home/practice", label: "Practice", disabled: true },
   { href: "/home/interviews", label: "Interviews", disabled: true },
@@ -20,6 +20,7 @@ export const ADMIN_NAV: NavItem[] = [
   { href: "/admin", label: "Overview" },
   { href: "/admin/users", label: "Users" },
   { href: "/admin/corpus", label: "Corpus" },
+  { href: "/admin/feedback", label: "Feedback" },
 ];
 
 export function AppShell({ session, nav, children }: { session: Session; nav: NavItem[]; children: ReactNode }) {
