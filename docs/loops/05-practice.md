@@ -26,11 +26,11 @@ FSRS defaults (`request_retention 0.9`); search only `approved`; flashcard keys 
 - [x] migration + view
 - [x] `src/lib/practice/srs.ts` + tests
 - [x] derivation seed
-- [ ] bank list/filters/card/`recordAttempt`
-- [ ] palette + search
-- [ ] decks + session + `reviewCard`
-- [ ] lesson complete/practise links
-- [ ] dashboard + streak
+- [x] bank list/filters/card/`recordAttempt`
+- [x] palette + search
+- [x] decks + session + `reviewCard`
+- [x] lesson complete/practise links
+- [x] dashboard + streak
 - [x] demo seed
 - [ ] Playwright/docs/retro
 

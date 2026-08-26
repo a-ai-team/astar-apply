@@ -7,13 +7,16 @@ import { signOut } from "@/app/auth/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { NavLink, type NavItem } from "./nav-link";
+import { CommandPalette } from "@/components/practice/command-palette";
 
 export const HOME_NAV: NavItem[] = [
   { href: "/home", label: "Home" },
   { href: "/home/mentor", label: "Mentor" },
   { href: "/home/technicals", label: "Technicals" },
   { href: "/home/path", label: "10-week path" },
-  { href: "/home/practice", label: "Practice", disabled: true },
+  { href: "/home/practice", label: "Practice" },
+  { href: "/home/flashcards", label: "Flashcards" },
+  { href: "/home/progress", label: "Progress" },
   { href: "/home/interviews", label: "Interviews", disabled: true },
 ];
 
@@ -52,6 +55,7 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
             <Image src="/logo.png" alt="A* Apply" width={80} height={80} className="h-auto w-16" />
           </Link>
           <div className="ml-auto flex items-center gap-3">
+            {nav === HOME_NAV && <CommandPalette />}
             <Badge tone={session.role === "student" ? "neutral" : "accent"}>{session.role}</Badge>
             <span className="hidden text-sm text-muted sm:inline" data-testid="user-email">
               {session.email}
