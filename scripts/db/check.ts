@@ -1,4 +1,4 @@
-// `npm run db:check` — confirms the Loop 01–06 schema is live on the linked project: tables, HNSW
+// `npm run db:check` — confirms the Loop 01–08 schema is live on the linked project: tables, HNSW
 // index, RLS, retrieval functions, storage bucket. Uses the Supabase CLI (`supabase db query
 // --linked`) because catalog tables are not reachable through PostgREST. Exit 1 on any miss.
 import { execFileSync } from "node:child_process";
@@ -59,7 +59,12 @@ select json_build_object(
   'interview_tables', (select count(*) from information_schema.tables where table_schema = 'public' and table_name in ('interviews','interview_turns')),
   'interview_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname in ('interviews','interview_turns')),
   'interview_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('interviews','interview_turns')),
-  'attempts_interview_fk', (select count(*) from pg_constraint where conname = 'attempts_interview_id_fkey')
+  'attempts_interview_fk', (select count(*) from pg_constraint where conname = 'attempts_interview_id_fkey'),
+  'firm_tables', (select count(*) from information_schema.tables where table_schema = 'public' and table_name in ('firms','firm_questions','firm_question_reports','pulse_digests')),
+  'firm_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname in ('firms','firm_questions','firm_question_reports','pulse_digests')),
+  'firm_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('firms','firm_questions','firm_question_reports','pulse_digests')),
+  'turn_firm_question', (select count(*) from information_schema.columns where table_schema = 'public' and table_name = 'interview_turns' and column_name = 'firm_question_id'),
+  'turn_one_question', (select count(*) from pg_constraint where conname = 'interview_turns_one_question')
 ) as report;
 `;
 
@@ -113,6 +118,11 @@ function main() {
     ["Loop 07: RLS enabled on both", r.interview_rls === 2],
     ["Loop 07: own + staff-read policies (4)", r.interview_policies === 4],
     ["Loop 07: attempts.interview_id FK → interviews", r.attempts_interview_fk === 1],
+    ["Loop 08: firms/firm_questions/firm_question_reports/pulse_digests exist", r.firm_tables === 4],
+    ["Loop 08: RLS enabled on all four", r.firm_rls === 4],
+    ["Loop 08: read-approved/own + staff policies (9)", Number(r.firm_policies) >= 9],
+    ["Loop 08: interview_turns.firm_question_id", r.turn_firm_question === 1],
+    ["Loop 08: interview_turns one-question check", r.turn_one_question === 1],
   ];
   let ok = true;
   for (const [label, pass] of checks) {

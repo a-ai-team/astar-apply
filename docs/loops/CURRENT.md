@@ -1,12 +1,12 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
-- **Loop:** 07 AI mock interviews (`docs/loops/07-mock-interviews.md`) — verify → PR
-- **Branch:** `feat/mock-interviews`
-- **Task:** 10 / 10 — all tasks done; acceptance 4/5 (grader eval skip-mode only)
-- **Last checks:** lint ✓ typecheck ✓ build ✓ test:unit 128/128 ✓ test:e2e 24/24 ✓ db:check 41/41 ✓ eval grader SKIPPED (no credit; fixture Spearman 0.921 / MAE 1.00)
-- **Blockers:** **ANTHROPIC_API_KEY still has no credit** — Loop 07 § Blocked has the re-run sequence (probe → `eval --suite grader` → record-grade → live drill). Carried for James: Loop 04 § Blocked, Loop 06 § Blocked 1–3, `VOYAGE_API_KEY` + `npm run reembed`, `supabase config push`, Google OAuth.
-- **Decisions taken by default this loop:** see Loop 07 § Retro (voice off, 120/90 s, late answers flagged, own-only pages, fixture fallbacks).
-- **Next action:** open PR from the template, `gh pr merge --squash --delete-branch --admin`, RUNLOG line, then set CURRENT.md to Loop 08.
+- **Loop:** 08 Firm interview bank + Pulse (`docs/loops/08-firms-pulse.md`) — in-progress
+- **Branch:** `feat/firms-pulse` (from `main` after Loop 07 #14)
+- **Task:** 1 / 10 done — migration 0009 applied (`db:check` 46/46); next: dossier fixtures + seed 08
+- **Last checks:** db:migrate ✓ db:check 46/46 ✓
+- **Blockers:** **ANTHROPIC_API_KEY still has no credit** — firm-question authoring and the Pulse digest run their fixture branches; live re-run commands go under Loop 08 § Blocked. Carried: Loop 04 § Blocked, 06 § Blocked 1–3, 07 § Blocked 1–4; `VOYAGE_API_KEY` + reembed; `supabase config push`; `PRIVATE_ACCESS_KEY`; Google OAuth; free-topic confirmation; staff view of students' interviews.
+- **Decisions taken by default this loop:** (1) `interview_turns.firm_question_id` + `question_id` nullable with a one-of check (Loop 07 retro option 2) so "Practise this" drills a firm question without a mirror `questions` row; (2) `firm_questions` unique on `(firm_id, question)` as the seed's natural key; (3) `firm_question_reports` gains `reviewed_at` + `promoted_question_id` for traceability.
+- **Next action:** write 14 dossier fixtures under `fixtures/firms/<slug>.json` (facts only from firms' own careers pages, `sources` = real careers URLs or empty, no logos) + `scripts/seed/08-firms.ts` (upsert on slug, `status='generated'`; sample Pulse digest `approved`).
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)

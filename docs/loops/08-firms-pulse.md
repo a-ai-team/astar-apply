@@ -1,6 +1,6 @@
 # Loop 08 — Firm interview bank + Pulse
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 firm-by-firm question bank with stage/programme/frequency/recency tags, dossiers with process timelines, reviewed "report a question" form, and a weekly AI-written Pulse digest with interview framing. Merges, but **all firm rows and Pulse digests stay `generated` (student-invisible) until James approves them in admin.**
 ## Out of scope
@@ -28,7 +28,7 @@ stale facts → "unverified" badge until approved; search cost capped; names in 
 - [ ] `/api/cron/pulse` without secret → 401
 
 ## Tasks
-- [ ] migration
+- [x] migration
 - [ ] dossier fixtures + seed
 - [ ] question authoring script + load
 - [ ] firm pages + timeline + filters + drill bridge
