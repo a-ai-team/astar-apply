@@ -1,0 +1,46 @@
+{
+  "slug": "compute-nav-per-share-thameside",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "A property company has gross rental income of £48m and non-recoverable costs of £6m. Valuers apply a 6 % cap rate. It carries £280m of debt and £20m of cash and has 400m diluted shares. What is NAV per share, and what is the premium or discount if the shares trade at £0.95?",
+  "model_answer_md": "NOI = 48 − 6 = £42m. Property value = 42 ÷ 0.06 = £700m. Net debt = 280 − 20 = £260m, so NAV = 700 − 260 = £440m, and NAV per share = 440 ÷ 400 = **£1.10**.\n\nAt £0.95 the shares trade at (0.95 − 1.10) ÷ 1.10 ≈ **a 13.6 % discount to NAV**. LTV is 280 ÷ 700 = 40 %.",
+  "key_points": [
+    "NOI £42m",
+    "Property value £700m at 6 %",
+    "NAV £440m after £260m net debt",
+    "NAV per share £1.10; about a 14 % discount at £0.95"
+  ],
+  "follow_ups": [
+    {
+      "question": "If the cap rate were 5.5 % instead, what would NAV per share be?",
+      "answer_md": "Value = 42 ÷ 0.055 ≈ £763.6m; NAV ≈ £503.6m; per share ≈ £1.26 — a 50 bp move adds about 15 % to NAV per share."
+    },
+    {
+      "question": "Why use diluted rather than basic shares?",
+      "answer_md": "Convertible bonds and share awards that are in the money will become shares, and NAV per share must be spread over everyone who will own it."
+    }
+  ],
+  "weak_answer_note": "Applies the cap rate to gross rent, forgets to net cash off debt, or divides by basic shares.",
+  "numbers": {
+    "inputs": {
+      "gross_rent": 48,
+      "non_recoverable_costs": 6,
+      "cap_rate": 0.06,
+      "debt": 280,
+      "cash": 20,
+      "diluted_shares": 400
+    },
+    "answer": 1.1
+  },
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "nav",
+    "calculation"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

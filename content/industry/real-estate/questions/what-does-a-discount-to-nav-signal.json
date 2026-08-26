@@ -1,0 +1,37 @@
+{
+  "slug": "what-does-a-discount-to-nav-signal",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-valuation-methods",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A property company's shares trade at a 25 % discount to its reported NAV per share. What might the market be telling you?",
+  "model_answer_md": "Several things at once, and a good answer separates them. The market may think the valuers are behind — that the cap rates in the NAV are lower than buyers would pay today, so the true NAV is smaller. It may be pricing the leverage: with debt fixed, a modest fall in asset values hits NAV per share hard, and a discount is the market's cushion. It may be charging for the costs the NAV ignores — head-office overhead, the tax and transaction costs of ever realising the values — or for a management team it does not trust to allocate capital.\n\nThe discount is also an opportunity: if you believe the assets, buying the shares is buying buildings at 75 pence in the pound, which is why persistent discounts attract takeover bids and share buybacks.",
+  "key_points": [
+    "Stale or optimistic valuation cap rates",
+    "Leverage magnifies any fall in values into NAV per share",
+    "Corporate costs, tax and liquidity that NAV excludes",
+    "Management or strategy discount",
+    "Discounts invite buybacks and bids"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why would a company trade at a premium to NAV?",
+      "answer_md": "Because the market expects rents or values to grow faster than the valuers assume, or values a scarce platform — a specialist logistics or student-housing operator, for example."
+    },
+    {
+      "question": "How would a buyback change NAV per share when the shares are at a discount?",
+      "answer_md": "It raises it: the company is retiring shares for less than the assets behind them, so remaining shareholders own more NAV each."
+    }
+  ],
+  "weak_answer_note": "Gives one reason only, or treats the discount as automatically 'wrong' without considering leverage or stale valuations.",
+  "numbers": null,
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "nav",
+    "second-order"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

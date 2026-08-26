@@ -1,0 +1,36 @@
+{
+  "slug": "what-is-noi",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What is net operating income for a property company, and how does it differ from EBITDA?",
+  "model_answer_md": "Net operating income (NOI) is the rent a portfolio earns less the property costs the landlord cannot pass on to tenants — management fees, insurance the leases do not cover, repairs and the running cost of empty space. It sits before interest, tax and depreciation.\n\nIt looks like EBITDA but is measured at the *building* level rather than the company level: corporate overheads are not deducted, and it is the number a cap rate is applied to. EBITDA would include head-office costs and is paired with an EV multiple derived from peers, not with a yield observed from building sales.",
+  "key_points": [
+    "Rent less non-recoverable property costs",
+    "Before interest, tax and depreciation",
+    "Measured per building or portfolio, excluding corporate overhead",
+    "Paired with a cap rate, not an EV multiple"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is depreciation not deducted?",
+      "answer_md": "Investment property is carried at fair value and revalued each year, so there is no depreciation charge to deduct — changes in value go through the revaluation line instead."
+    },
+    {
+      "question": "Which costs are typically recoverable under a UK lease?",
+      "answer_md": "Service charge and buildings insurance are usually recharged to tenants; the landlord bears management fees, letting costs and the costs of vacant units."
+    }
+  ],
+  "weak_answer_note": "Says NOI is 'basically EBITDA' without mentioning non-recoverable costs or that it excludes corporate overhead.",
+  "numbers": null,
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "noi",
+    "definition"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

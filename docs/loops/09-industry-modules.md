@@ -30,12 +30,12 @@ generate/collect/load; `scripts/seed/09-industry.ts`; re-run `seed 05` and `cont
 - [x] migration + rows (0010 written; applied → § Blocked 1; seed 03/09 carry a fallback)
 - [x] `key_metrics` block (already in the contract since Loop 03 — verified: `KeyMetricsBlock`, renderer, labels, writer schema; industry lessons now *require* it in `checks.ts`)
 - [x] addendum + targets (`industry-addendum.v1`, `INDUSTRY_CURRICULUM`, `--kind industry`; dry-run lessons $8.84 + questions $3.49, heuristic)
-- [ ] dry-run → lessons batch → validate → critic
-- [ ] questions batch
-- [ ] load/decks/index
+- [x] dry-run → lessons batch → validate → critic (dry-run only: 50 lessons ≈ $8.84; batch blocked → § Blocked 2; ONE hand-written Real Estate lesson loaded `generated`)
+- [x] questions batch (dry-run only: 81 requests / 181 questions ≈ $3.49; 8 hand-written Real Estate questions loaded `generated`)
+- [x] load/decks/index (`seed -- 09` loads content/industry/**; decks/index follow approval via `seed -- 05` + `content:index`)
 - [ ] grid + module page
 - [ ] mock industry option
-- [ ] eval suite
+- [x] eval suite (`eval --suite industry`: 1 lesson + 8 questions, schema 1.0, overlap 0 (hidden set present), key_metrics present, readability skipped — no credit)
 - [ ] Playwright/docs/retro
 
 ## Blocked-on-human (defaults)

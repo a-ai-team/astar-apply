@@ -1,0 +1,45 @@
+{
+  "slug": "cap-rate-shift-nav-and-ltv",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A portfolio has £30m of NOI valued at a 5 % cap rate, funded with £300m of debt and no cash. Cap rates move out to 6 %. What happens to NAV and to loan-to-value, and why does NAV move more than the property value?",
+  "model_answer_md": "At 5 % the property is worth 30 ÷ 0.05 = £600m; NAV is 600 − 300 = £300m and LTV is 50 %. At 6 % the property is worth 30 ÷ 0.06 = £500m, so value has fallen by about 17 %. NAV becomes 500 − 300 = **£200m**, a fall of a third, and LTV rises to 300 ÷ 500 = **60 %**.\n\nNAV moves more because the debt is fixed: the lenders' claim does not shrink when the buildings do, so the entire £100m loss lands on the shareholders. That is leverage — the same reason equity beta exceeds asset beta — and it is why lenders cap LTV and why NAV discounts widen when cap rates are expected to rise.",
+  "key_points": [
+    "Value falls from £600m to £500m (about 17 %)",
+    "NAV falls from £300m to £200m (a third)",
+    "LTV rises from 50 % to 60 %",
+    "Fixed debt means shareholders absorb the whole fall"
+  ],
+  "follow_ups": [
+    {
+      "question": "What could management do to protect NAV per share in that scenario?",
+      "answer_md": "Sell assets to cut debt before values fall, hedge interest costs, or avoid high LTV in the first place — the fall itself cannot be hedged cheaply."
+    },
+    {
+      "question": "At what cap rate would LTV reach the typical 65 % covenant?",
+      "answer_md": "Value would need to fall to 300 ÷ 0.65 ≈ £462m, which implies a cap rate of 30 ÷ 462 ≈ 6.5 %."
+    }
+  ],
+  "weak_answer_note": "Reports the value change but not the NAV change, or cannot explain why equity falls proportionally more than the assets.",
+  "numbers": {
+    "inputs": {
+      "noi": 30,
+      "cap_rate_before": 0.05,
+      "cap_rate_after": 0.06,
+      "debt": 300
+    },
+    "answer": 200
+  },
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "nav",
+    "ltv",
+    "calculation"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "why-lower-cap-rate-higher-value",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why does a lower cap rate mean a higher property value, and what pushes cap rates down?",
+  "model_answer_md": "Value is NOI divided by the cap rate, so for the same income a smaller denominator gives a bigger number: £42m of NOI is worth £700m at 6 % but £840m at 5 %. A lower cap rate simply means buyers are willing to accept less income per pound of price.\n\nCap rates fall when the income looks safer or likelier to grow, and when the alternatives pay less. Falling government bond yields, cheap debt, long leases to strong tenants and rents expected to rise all compress cap rates; the reverse widens them.",
+  "key_points": [
+    "Value = NOI ÷ cap rate, so the relationship is inverse",
+    "Lower cap rate = buyers accept a lower yield",
+    "Drivers: bond yields, cost of debt, lease quality, rent growth expectations",
+    "Prime assets compress most because their income is safest"
+  ],
+  "follow_ups": [
+    {
+      "question": "If interest rates rise 100 bp, do cap rates rise 100 bp?",
+      "answer_md": "Usually less and with a lag — cap rates track bond yields but the spread over them narrows or widens with sentiment, and valuations are only updated when transactions occur."
+    },
+    {
+      "question": "Which moves value more: a 50 bp cap-rate change or a 5 % rent change?",
+      "answer_md": "At a 6 % cap rate, 50 bp is roughly an 8–9 % value change, so it outweighs a 5 % change in rent."
+    }
+  ],
+  "weak_answer_note": "States the inverse relationship but cannot name a single driver of cap-rate movements.",
+  "numbers": null,
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "cap-rate",
+    "why"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

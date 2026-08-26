@@ -1,0 +1,94 @@
+{
+  "slug": "real-estate-noi-cap-rates",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "title": "NOI, cap rates and NAV",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Real-estate interviews rarely ask you to build a DCF. They ask you to do three things, in this order: turn a rent roll into **net operating income (NOI)**, turn NOI into a value with a **cap rate**, and turn that value into what the *shareholders* own — the **net asset value (NAV)**. Almost every follow-up is one of those three steps in disguise.\n\nThe interviewer is listening for whether you treat a building as what it is: a stream of rent with costs attached, owned partly by lenders. If you reach for EV/EBITDA and a WACC, you sound like a generalist who has wandered into the wrong room. If you say \"NOI over cap rate, less net debt, per share\", they relax.\n\nThis lesson gives you the whole chain with one set of numbers you can carry into the interview."
+      },
+      {
+        "type": "concept",
+        "heading": "A building is a bond with a leaky roof",
+        "md": "Think of a rented office block as a bond. The coupon is the rent; the price is what someone will pay today for that coupon. Two things make it messier than a bond: the coupon has *costs* taken out of it before the owner sees a penny, and the price depends on how nervous buyers feel about the future of that coupon.\n\n**Net operating income (NOI)** is the coupon after costs. Start with the rent the tenants actually pay, take off what the landlord cannot pass back to them — property management, insurance, repairs the leases do not cover, the running cost of empty floors — and what is left is NOI. It is *before* interest, before tax, and before any depreciation, because buildings are revalued every year rather than written down.\n\nThe **cap rate** (capitalisation rate, or *yield* in UK usage) is the coupon divided by the price: NOI ÷ value. A 6 % cap rate means buyers are paying about 16.7 times the annual NOI. A *lower* cap rate means a *higher* price for the same income — buyers are confident, or interest rates are low, or both. Prime London offices trade at lower cap rates than a retail park in a struggling town for exactly that reason.\n\n**Net asset value (NAV)** is what the shareholders own once the lenders are paid: the value of all the buildings, plus cash, minus debt. For a listed property company NAV per share is the number the share price is compared against, the way earnings per share is for an industrial company."
+      },
+      {
+        "type": "mechanics",
+        "md": "The chain, written out:\n\n$$\\text{NOI} = \\text{Gross rental income} - \\text{Non-recoverable property costs}$$\n\n$$\\text{Property value} = \\frac{\\text{NOI}}{\\text{Cap rate}}$$\n\n$$\\text{NAV} = \\text{Property value} + \\text{Cash} - \\text{Debt}$$\n\n$$\\text{NAV per share} = \\frac{\\text{NAV}}{\\text{Diluted shares}}$$\n\nWhere the symbols come from:\n\n- **Gross rental income** is the contracted rent for the year, sometimes called *passing rent*. If leases contain rent-free periods, the accountant smooths them; the valuer usually does not.\n- **Non-recoverable costs** are the landlord's share of running the estate. Under a typical UK lease the tenant pays service charge and insurance, so the leakage is often 10–15 % of rent for offices and more for shopping centres where empty units cost the landlord.\n- **Cap rate** is observed from recent sales of similar buildings — *comparable transactions*, in real-estate language. Valuers quote it to the nearest 25 basis points.\n- **Debt** means the mortgages and bonds secured on the portfolio; **cash** nets against it exactly as in the EqV → EV bridge.\n\nTwo habits that stop mistakes:\n\n1. Keep the cap rate and the NOI on the same basis. A cap rate quoted on *net* income cannot be applied to gross rent.\n2. Cap rates move in basis points and values move in percentages. A 50 bp fall in a 6 % cap rate lifts value by roughly 9 %, not by 0.5 %. Always convert."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Thameside Estates plc** owns a portfolio of regional offices. From its latest annual report and today's share price:\n\n- Gross rental income £48m; non-recoverable property costs £6m\n- Valuers apply a 6.0 % cap rate to the portfolio\n- Borrowings £280m, cash £20m\n- Diluted shares 400m; share price £0.95\n\nWalk the chain one line at a time:",
+        "steps": [
+          { "label": "Net operating income", "expr": "48 - 6", "value": 42, "unit": "£m" },
+          { "label": "Property value at a 6 % cap rate", "expr": "42 / 0.06", "value": 700, "unit": "£m" },
+          { "label": "Net debt", "expr": "280 - 20", "value": 260, "unit": "£m" },
+          { "label": "Net asset value", "expr": "700 - 260", "value": 440, "unit": "£m" },
+          { "label": "NAV per share", "expr": "440 / 400", "value": 1.1, "unit": "£" },
+          { "label": "Loan-to-value (debt ÷ property value)", "expr": "280 / 700", "value": 0.4, "unit": "ratio" }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"NOI is just EBITDA for buildings, so I'd value the company on EV/EBITDA like anything else.\"**\n\nHalf right, and the wrong half costs you. NOI does resemble EBITDA in that both sit before interest, tax and depreciation. But an EV/EBITDA multiple is *derived* from a peer group's share prices, while a cap rate is *observed* from actual building sales — and every building in the portfolio can carry a different one. Valuing property on a single company-level multiple throws away the information the market gives you asset by asset. Real-estate analysts go the other way: value the assets first, subtract the debt, and *then* ask whether the share price is above or below that NAV.\n\nThe second slip is using the cap rate as a discount rate. A cap rate already includes the market's growth expectation — it is closer to *discount rate minus growth* than to the discount rate itself. Dividing NOI by a WACC would badly undervalue a building with rising rents."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Net operating income is the rent a portfolio earns after the costs the landlord cannot recover from tenants, before interest, tax and depreciation. Dividing NOI by the cap rate — the yield buyers currently accept for that type of building — gives the property value. Take off net debt and you have the net asset value, which per share is what the share price is judged against. For Thameside, £42m of NOI at a 6 % cap rate is £700m of property; less £260m of net debt gives a £440m NAV, or £1.10 a share against a £0.95 share price.",
+        "seconds": 45
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Kestrel Logistics Property plc** owns warehouses let on long leases. Gross rental income is £30m and non-recoverable costs are £4.5m. Comparable warehouse sales point to a 5.0 % cap rate. The company has £200m of debt, £10m of cash and 250m diluted shares. What is NAV per share, and roughly how much would NAV per share change if the cap rate moved to 5.5 %?",
+        "model_answer_md": "NOI = 30 − 4.5 = **£25.5m**.\n\nProperty value = 25.5 ÷ 0.05 = **£510m**.\n\nNet debt = 200 − 10 = £190m, so NAV = 510 − 190 = **£320m**, or 320 ÷ 250 = **£1.28 a share**.\n\nAt a 5.5 % cap rate the property is worth 25.5 ÷ 0.055 ≈ £463.6m. NAV falls to about £273.6m, or **£1.09 a share** — a 50 bp move in the cap rate knocks roughly 15 % off NAV per share, because the debt does not move while the assets do.",
+        "rubric": [
+          "NOI of £25.5m after non-recoverable costs",
+          "Property value £510m from NOI ÷ cap rate",
+          "NAV £320m after net debt of £190m; £1.28 per share",
+          "Recognises that the cap-rate move hits NAV harder than property value because debt is fixed",
+          "Quotes the sensitivity in percentage terms, not basis points"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Cap rate rises from 5 % to 6 %, NOI unchanged — value up or down?", "a": "Down, by about a sixth: the same income is now capitalised at a higher yield." },
+          { "q": "Is depreciation deducted in NOI?", "a": "No — investment property is revalued each year, so NOI is a cash-style measure before depreciation." },
+          { "q": "What does LTV measure?", "a": "Debt as a share of property value — the real-estate version of leverage; lenders usually cap it around 50–60 %." },
+          { "q": "Why can NAV per share differ from the share price?", "a": "The market prices management, leverage, liquidity and expected rent growth; NAV prices only today's buildings." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "Rent less leakage is NOI; NOI over the cap rate is the value; value less net debt is what the shareholders own."
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build NOI from a rent roll and say which costs a landlord cannot recover.",
+          "I can explain a cap rate as a yield and convert a basis-point move into a value change.",
+          "I can walk from property value to NAV per share and compare it with the share price.",
+          "I can say why EV/EBITDA and a WACC-based DCF are the wrong first tools for a property company."
+        ]
+      },
+      {
+        "type": "key_metrics",
+        "rows": [
+          { "metric": "Net operating income (NOI)", "definition": "Gross rental income less the property costs the landlord cannot recover from tenants, before interest, tax and depreciation.", "why_it_matters": "It is the income every valuation starts from; interviewers check you know what leaks out between rent and NOI." },
+          { "metric": "Cap rate (yield)", "definition": "NOI divided by property value — the annual income yield a buyer accepts for that type of building.", "why_it_matters": "The single biggest driver of value; a 50 bp move can change value by close to 10 %." },
+          { "metric": "Net asset value (NAV)", "definition": "Property value plus cash less debt — the shareholders' share of the portfolio, usually quoted per share.", "why_it_matters": "Listed property companies are judged on premium or discount to NAV, not on P/E." },
+          { "metric": "Loan-to-value (LTV)", "definition": "Debt divided by property value.", "why_it_matters": "Shows how leveraged NAV is: at 40 % LTV a 10 % fall in values wipes about 17 % off NAV." },
+          { "metric": "Estimated rental value (ERV)", "definition": "The rent a building would let for today if it were vacant, as judged by the valuer.", "why_it_matters": "ERV above passing rent means reversion — future NOI growth built into the cap rate." },
+          { "metric": "WAULT", "definition": "Weighted average unexpired lease term — how many years of contracted rent remain across the portfolio.", "why_it_matters": "Longer income is safer income, so a long WAULT supports a lower cap rate." }
+        ]
+      }
+    ]
+  }
+}
