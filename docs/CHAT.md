@@ -51,3 +51,39 @@ Fixture mode still runs the real retrieval, so UI, persistence, feedback, caps a
 ## Scripts
 `scripts/dev/chat-cli.ts "question" [--mode live|fixture]`, `scripts/dev/api-probe.ts`,
 `scripts/dev/dump-chunks.ts`, `scripts/seed/02-chat.ts` (demo thread, `npm run seed -- 02`).
+
+## Fusion with Technicals (Loop 06) — `docs/loops/06-chat-technicals.md`
+- **Second source.** `content_chunks` (0007) holds one chunk per approved lesson block (tiny blocks
+  merged into the previous one; widgets skipped) and one per approved question, titled
+  `Technicals › <Topic> › <Lesson> › <Section>` / `Technicals › <Topic> › Q: <question>`. Built by
+  `npm run content:index` (`src/lib/content/{index-chunks,index-content}.ts`) and kept in step by
+  the approve / regenerate / lesson-save paths. Students never read the table; the route uses the
+  service-role client after `verifySession()`.
+- **Ladder by intent** (`retrieve.ts` `sourcesForIntent`): `technical` → corpus ∪ curriculum;
+  `fit | application | firm` → corpus; `offtopic` → nothing. Union: RRF per list → per-source
+  normalisation (best of each = 1.0) → `+0.05` on corpus ids (`CORPUS_BIAS`, the mentor wins a
+  near-tie) → floor → cap 24 → rerank → top-6. With the identity reranker the best lesson block and
+  best question are kept in the window ("offline ladder guarantee"). Rung = `corpus` if any corpus
+  chunk survived, else `lesson`, else `prior` (`rungFor`).
+- **Prompt** `chat-mentor.v2`: the ladder, the curriculum citation format and the "context from
+  the page" rules. Still static and cached.
+- **Thread context.** "Ask Mentor about this" (`AskMentorButton`, on `QuestionCard`, every lesson
+  block and flipped flashcards) → `/home/mentor/new?question=<uuid>[&attempt=<uuid>] |
+  ?lesson=<uuid>&block=<n>` → resolved through RLS (approved only, own attempt) → `ChatPanel`
+  auto-sends "Explain this … to me: <item>" with `context`, stored on `chat_threads.context` and
+  re-loaded every turn (`context.ts`). Live mode appends it as a `role: "system"` message after
+  the user turn (cached prefix untouched; falls back to a `<context>` block in the user turn if a
+  model rejects it). The header shows a chip linking back to the item.
+- **Citations** gain `kind: lesson | question` and `href`; chips for those kinds are links to
+  `/home/technicals/<topic>/<lesson>#block-<n>` (every block has that id) or `/home/practice/<slug>`.
+- **Disagreement detector** (`disagreement.ts`, `chat-disagreement.v1`): after an answer that cited
+  both a corpus and a curriculum chunk, Haiku returns `{ disagreement, summary }`; a hit files a
+  `content_reviews` row (`changes_requested`, reviewer = the `system-bot@astar.test` profile from
+  seed 00) per lesson/question involved — content is never edited — and `/admin/review` shows
+  `⚠ mentor disagrees`. Fixture mode never calls it; the path is unit-tested with
+  `fixtures/recorded/chat-disagreement.v1.sample.json` (re-record with
+  `scripts/dev/record-disagreement.ts` once credit exists).
+- **Eval.** `fixtures/eval/chat-curriculum.jsonl` (24 rows, extend as content is approved) →
+  chat suite `lesson_citation_rate` (≥ 0.80; any lesson|question citation) and
+  `expected_hit_rate` (exact slug). This pass runs in fixture mode when the API is unusable, so
+  it gates merges even without credit; `retrieval` keeps measuring corpus recall only.

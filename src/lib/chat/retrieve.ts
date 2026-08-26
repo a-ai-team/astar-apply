@@ -176,12 +176,22 @@ export async function retrieve(
   const byId = new Map(candidates.map((c) => [c.id, c]));
   let chunks = rr.order.map((id) => byId.get(id)!).filter(Boolean).slice(0, topN);
   // Offline ladder guarantee: with the identity reranker the top-N is just fused order, and a
-  // dense corpus can fill it with near-duplicate note windows. Keep the best curriculum chunk in
-  // the window so the answer can always reach the next rung. A real reranker's order stands.
-  if (rr.provider === "identity" && sources.includes("content") && !chunks.some((c) => c.origin === "content")) {
-    const bestContent = candidates.find((c) => c.origin === "content");
-    if (bestContent && chunks.length >= topN) chunks = [...chunks.slice(0, topN - 1), bestContent];
-    else if (bestContent) chunks = [...chunks, bestContent];
+  // dense corpus can fill it with near-duplicate note windows. Keep the best lesson block and the
+  // best bank question (when retrieved) in the window so the answer can always reach the next
+  // rung and cite the lesson. A real reranker's order stands.
+  if (rr.provider === "identity" && sources.includes("content")) {
+    for (const kind of ["lesson_block", "question"] as const) {
+      if (chunks.some((c) => c.content?.kind === kind)) continue;
+      const best = candidates.find((c) => c.content?.kind === kind);
+      if (!best) continue;
+      if (chunks.length >= topN) {
+        // drop the lowest-ranked chunk that is not the sole representative of the other content kind
+        const other = chunks.filter((c) => c.origin === "content").length === 1 ? chunks.findIndex((c) => c.origin === "content") : -1;
+        const drop = chunks.length - 1 === other ? chunks.length - 2 : chunks.length - 1;
+        chunks.splice(drop, 1);
+      }
+      chunks = [...chunks, best];
+    }
   }
   record.reranked = chunks.map((c) => ({ id: c.id, label: c.label, origin: c.origin }));
   return { chunks, record };

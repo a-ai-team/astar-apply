@@ -30,6 +30,24 @@ Every chunk: `id, source_id, mentor_id, kind, text, embedding, topic_tags[], ent
 5. **Fallback ladder**: mentor corpus → Technicals lessons (Loop 6) → Claude's own knowledge, and
    the answer *says which rung it used* ("Tesleem hasn't covered this; here's the standard answer").
 
+### As built (Loops 02 + 06)
+- Rewrite: Haiku live, regex heuristic offline. Intent decides the ladder: `technical` searches
+  corpus ∪ curriculum; `fit/application/firm` corpus only; `offtopic` nothing.
+- Curriculum retrieval unit = `content_chunks`: one chunk per approved lesson block (merged when
+  < 30 tokens, widgets skipped; anchor `#block-<n>`) and one per approved question, embedded with
+  the same provider as the corpus. Titles double as citation chips: `Technicals › Topic › Lesson ›
+  Section`.
+- Fusion: RRF per list → normalise per source (best = 1.0) → `+0.05` bias on corpus ids → floor
+  → cap 24 → rerank → top-6. The additive bias is on normalised scores because raw RRF scores are
+  ~1/61 per list; +0.05 on raw scores would be an override. Offline (identity rerank) the best
+  lesson block and best question are guaranteed a slot so the lesson rung is reachable.
+- Rung = corpus if any corpus chunk survived → lesson → prior; the prompt (`chat-mentor.v2`) tells
+  the model to say which rung it is on and how curriculum documents are titled.
+- Page context ("Ask Mentor about this") travels as a `role: "system"` message after the user
+  turn — never in the cached system prompt.
+- Corpus-vs-curriculum conflicts: Haiku detector → `content_reviews` row from `system-bot`; the
+  answer keeps the mentor's version, the content is flagged, never edited.
+
 ## Prompting notes
 - Persona prompt is stable and cached (`cache_control`); chunks and the question come after the
   breakpoint. Verify `usage.cache_read_input_tokens` > 0 in dev.

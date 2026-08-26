@@ -77,3 +77,13 @@ Students read/write through the cookie client under RLS; `db:check` covers all o
 - Actions live in `src/app/home/practice/actions.ts`; queries in `src/lib/practice/queries.ts`.
 - Seeds: `npm run seed -- 05` (idempotent; archives cards whose question lost approval; then seeds demo
   progress for `e2e-student` via `scripts/seed/practice/demo-progress.ts`). Re-run after every content load.
+
+## Mentor fusion (Loop 06)
+Approved lessons and questions are also retrievable by the Mentor chatbot through `content_chunks`
+(migration `0007_chat_technicals.sql`; `npm run content:index` rebuilds it, and approving, regenerating
+or saving an item re-indexes just that item). Every lesson block has a stable anchor `#block-<n>`
+(its index in `body.blocks`) that citation chips deep-link to, and an "Ask Mentor about this" link
+(also on question cards and flipped flashcards) that opens `/home/mentor/new?…` with the item as thread
+context. When the mentor corpus contradicts a lesson or question in a chat answer, a `system-bot`
+`content_reviews` row is filed and `/admin/review` shows `⚠ mentor disagrees`. Details: `docs/CHAT.md`
+§ Fusion.
