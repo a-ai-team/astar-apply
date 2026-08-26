@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { verifySession } from "@/lib/dal";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { feedbackForThread, getThread, listMessages } from "@/lib/chat/store";
+import { loadThreadContext } from "@/lib/chat/context";
 import { ChatPanel, type UiMessage } from "@/components/chat/chat-panel";
 
 export default async function ThreadPage({ params }: PageProps<"/home/mentor/[threadId]">) {
@@ -11,7 +12,11 @@ export default async function ThreadPage({ params }: PageProps<"/home/mentor/[th
   const db = createAdminClient();
   const thread = await getThread(db, session.userId, threadId);
   if (!thread) notFound();
-  const [messages, feedback] = await Promise.all([listMessages(db, threadId), feedbackForThread(db, session.userId, threadId)]);
+  const [messages, feedback, bundle] = await Promise.all([
+    listMessages(db, threadId),
+    feedbackForThread(db, session.userId, threadId),
+    loadThreadContext(db, thread.context, session.userId).catch(() => null),
+  ]);
   const initial: UiMessage[] = messages.map((m) => ({
     id: m.id,
     role: m.role,
@@ -20,5 +25,5 @@ export default async function ThreadPage({ params }: PageProps<"/home/mentor/[th
     rung: "rung" in m.content ? m.content.rung : undefined,
     pending: false,
   }));
-  return <ChatPanel threadId={threadId} title={thread.title} initialMessages={initial} initialFeedback={Object.fromEntries(feedback)} />;
+  return <ChatPanel threadId={threadId} title={thread.title} initialMessages={initial} initialFeedback={Object.fromEntries(feedback)} context={thread.context} contextChip={bundle ? { label: bundle.label, href: bundle.href } : null} />;
 }

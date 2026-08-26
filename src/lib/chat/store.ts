@@ -4,10 +4,10 @@
 import "server-only";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { HistoryTurn, MessageContent, RetrievalRecord } from "./types";
+import type { HistoryTurn, MessageContent, RetrievalRecord, ThreadContext } from "./types";
 import { HISTORY_TURNS } from "./rewrite";
 
-export type ThreadRow = { id: string; user_id: string; title: string; mentor_id: string | null; last_message_at: string | null; created_at: string; updated_at: string };
+export type ThreadRow = { id: string; user_id: string; title: string; mentor_id: string | null; context: ThreadContext | null; last_message_at: string | null; created_at: string; updated_at: string };
 export type MessageRow = {
   id: string; thread_id: string; role: "user" | "assistant"; content: MessageContent | { text: string };
   retrieval: RetrievalRecord | null; prompt_version: string | null; model: string | null; usage: unknown; latency_ms: number | null; created_at: string;
@@ -27,8 +27,8 @@ export async function listThreads(db: SupabaseClient, userId: string): Promise<T
   return (data ?? []) as ThreadRow[];
 }
 
-export async function createThread(db: SupabaseClient, userId: string, firstMessage: string): Promise<ThreadRow> {
-  const { data, error } = await db.from("chat_threads").insert({ user_id: userId, title: titleFrom(firstMessage) }).select("*").single();
+export async function createThread(db: SupabaseClient, userId: string, firstMessage: string, context: ThreadContext | null = null): Promise<ThreadRow> {
+  const { data, error } = await db.from("chat_threads").insert({ user_id: userId, title: titleFrom(firstMessage), context }).select("*").single();
   if (error || !data) throw error ?? new Error("thread insert failed");
   return data as ThreadRow;
 }

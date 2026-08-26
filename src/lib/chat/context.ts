@@ -101,3 +101,8 @@ export function renderLessonContext(l: { id: string; slug: string; title: string
     hint: section ? `${l.title} ${section}` : l.title, text: lines.filter(Boolean).join("\n"),
   };
 }
+
+/** The opening message of an "Ask Mentor" thread quotes the item so the title and transcript say what it is about. */
+export function firstMessageFor(b: Pick<ContextBundle, "kind" | "label">): string {
+  return b.kind === "question" ? `Explain this question to me: ${b.label.replace(/^Q:\s*/, "")}` : `Explain this lesson section to me: ${b.label}`;
+}

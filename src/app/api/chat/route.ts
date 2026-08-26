@@ -1,12 +1,15 @@
-// POST /api/chat — { threadId?, message } → SSE stream of ChatEvents (retrieval | delta | citation
-// | done | error). Verifies the session, enforces CHAT_DAILY_CAP via increment_usage(), persists
-// both messages. Node runtime; bridges the Anthropic SDK stream via an async generator.
+// POST /api/chat — { threadId?, message, context? } → SSE stream of ChatEvents (retrieval | delta
+// | citation | done | error). Verifies the session, enforces CHAT_DAILY_CAP via increment_usage(),
+// persists both messages. `context` ({ question_id | lesson_id, attempt_id?, block_index? }) is
+// stored on a new thread (chat_threads.context) and re-loaded for every later turn (Loop 06).
+// Node runtime; bridges the Anthropic SDK stream via an async generator.
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSession } from "@/lib/dal";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { chatDailyCap, resolveChatMode } from "@/lib/chat/mode";
 import { loadMentorNames, runPipeline } from "@/lib/chat/pipeline";
+import { loadThreadContext, parseThreadContext } from "@/lib/chat/context";
 import { sseResponse } from "@/lib/chat/sse";
 import { createThread, getThread, incrementUsage, insertAssistantMessage, insertUserMessage, loadHistory } from "@/lib/chat/store";
 import type { ChatEvent } from "@/lib/chat/types";
@@ -16,6 +19,7 @@ export const maxDuration = 60;
 const Body = z.object({
   threadId: z.string().uuid().optional(),
   message: z.string().trim().min(1).max(4000),
+  context: z.object({ question_id: z.string().uuid().optional(), lesson_id: z.string().uuid().optional(), attempt_id: z.string().uuid().optional(), block_index: z.number().int().min(0).optional() }).optional(),
 });
 
 export async function POST(req: Request) {
@@ -24,6 +28,7 @@ export async function POST(req: Request) {
   const parsed = Body.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "bad request", issues: parsed.error.issues }, { status: 400 });
   const { threadId, message } = parsed.data;
+  const requestedContext = parseThreadContext(parsed.data.context);
   const db = createAdminClient();
 
   const thread = threadId ? await getThread(db, session.userId, threadId) : null;
@@ -38,11 +43,13 @@ export async function POST(req: Request) {
 
   const mode = await resolveChatMode();
   const events = (async function* (): AsyncGenerator<ChatEvent> {
-    const t = thread ?? (await createThread(db, session.userId, message));
+    const t = thread ?? (await createThread(db, session.userId, message, requestedContext));
     const history = await loadHistory(db, t.id);
     await insertUserMessage(db, t.id, message);
     const mentorNames = await loadMentorNames(db);
-    const gen = runPipeline({ db, message, history, mode, mentorNames });
+    // Approved rows only; a stale or draft reference simply yields no context.
+    const context = await loadThreadContext(db, t.context, session.userId).catch((e) => { console.warn("chat: context load failed", e); return null; });
+    const gen = runPipeline({ db, message, history, mode, mentorNames, context });
     let r = await gen.next();
     while (!r.done) {
       const ev = r.value;
