@@ -1,4 +1,5 @@
-// /home/technicals — nine topic cards with subtopic/lesson counts and free badges.
+// /home/technicals — nine topic cards with subtopic/lesson counts and free badges, plus the link to
+// the industry modules (Loop 09; industry topics are listed on /home/technicals/industry, not here).
 import Link from "next/link";
 import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
@@ -9,7 +10,7 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 export default async function TechnicalsPage() {
   await verifySession("/home/technicals");
   const db = await createClient();
-  const overview = await topicOverview(db);
+  const overview = (await topicOverview(db)).filter(({ topic }) => topic.kind !== "industry");
   return (
     <>
       <div>
@@ -34,6 +35,16 @@ export default async function TechnicalsPage() {
             </Card>
           </Link>
         ))}
+        <Link href="/home/technicals/industry" data-testid="industry-link">
+          <Card className="h-full border-dashed hover:border-muted">
+            <div className="flex items-start justify-between gap-2">
+              <CardTitle>Industry &amp; group modules</CardTitle>
+              <Badge>advanced</Badge>
+            </div>
+            <CardDescription>How the framework changes for FIG, real estate, TMT, LevFin and 14 other groups — metrics, valuation methods, typical deals.</CardDescription>
+            <p className="mt-3 text-xs text-muted">18 modules</p>
+          </Card>
+        </Link>
       </div>
     </>
   );

@@ -1,4 +1,5 @@
-// /home/technicals/[topic] — subtopics in order, each with its (approved) lessons.
+// /home/technicals/[topic] — subtopics in order, each with its (approved) lessons. Industry modules
+// (Loop 09, `kind = 'industry'`) reuse this page with a family badge and a link back to the grid.
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +7,7 @@ import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { getTopic, listLessonSummaries, listSubtopics } from "@/lib/content/queries";
 import { Badge } from "@/components/ui/badge";
+import { INDUSTRY_FAMILY_LABELS, industryModule } from "@/lib/content/taxonomy";
 
 export async function generateMetadata({ params }: PageProps<"/home/technicals/[topic]">): Promise<Metadata> {
   const { topic } = await params;
@@ -22,14 +24,21 @@ export default async function TopicPage({ params }: PageProps<"/home/technicals/
   if (!topic) notFound();
   const subtopics = await listSubtopics(db, topic.id);
   const lessons = await listLessonSummaries(db, subtopics.map((s) => s.id));
+  const industry = topic.kind === "industry";
+  const family = industry ? ((topic as { group_family?: string | null }).group_family ?? industryModule(topic.slug)?.family ?? null) : null;
   return (
     <>
       <div>
-        <Link href="/home/technicals" className="text-sm text-muted hover:text-fg">← Technicals</Link>
+        {industry ? (
+          <Link href="/home/technicals/industry" className="text-sm text-muted hover:text-fg">← Industry modules</Link>
+        ) : (
+          <Link href="/home/technicals" className="text-sm text-muted hover:text-fg">← Technicals</Link>
+        )}
         <div className="mt-2 flex flex-wrap items-center gap-2">
           <h1 className="text-2xl font-semibold" data-testid="topic-heading">{topic.title}</h1>
           {topic.is_free && <Badge tone="accent">Free</Badge>}
           <Badge>{topic.level}</Badge>
+          {family && <Badge data-testid="industry-family-badge">{INDUSTRY_FAMILY_LABELS[family as keyof typeof INDUSTRY_FAMILY_LABELS] ?? family}</Badge>}
         </div>
         <p className="mt-1 max-w-2xl text-sm text-muted">{topic.summary}</p>
       </div>

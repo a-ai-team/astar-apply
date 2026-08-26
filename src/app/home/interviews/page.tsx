@@ -28,6 +28,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
   const db = await createClient();
   const [topics, history] = await Promise.all([drillTopics(db), listInterviews(db)]);
   const poolTotal = topics.filter((t) => MOCK_TOPICS.includes(t.slug)).reduce((s, t) => s + t.count, 0);
+  const industries = topics.filter((t) => t.kind === "industry");
   const mockCount = Math.min(MOCK_SIZE, poolTotal);
 
   return (
@@ -67,9 +68,18 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
           <p className="mt-4 text-sm" data-testid="mock-pool-note">
             {poolTotal === 0 ? "No approved questions yet." : poolTotal < MOCK_SIZE ? `Only ${poolTotal} approved questions exist right now, so this mock has ${mockCount} questions across ${topics.filter((t) => MOCK_TOPICS.includes(t.slug)).length} topic${topics.length === 1 ? "" : "s"}. It grows as content is approved.` : `${MOCK_SIZE} questions, stratified across ${topics.filter((t) => MOCK_TOPICS.includes(t.slug)).length} topics.`}
           </p>
-          <form action={startInterview} className="mt-4">
+          <form action={startInterview} className="mt-4 flex flex-col gap-3">
             <input type="hidden" name="mode" value="mock" />
-            <Button type="submit" disabled={poolTotal === 0} data-testid="start-mock">Start full mock</Button>
+            <label className="flex flex-col gap-1 text-sm">
+              <span className="text-xs text-muted">Add an industry module (optional)</span>
+              <select name="industry" defaultValue="" className="rounded-md border border-border bg-bg px-2 py-1.5 text-sm" data-testid="mock-industry" disabled={industries.length === 0}>
+                <option value="">{industries.length === 0 ? "No industry questions approved yet" : "Generalist only"}</option>
+                {industries.map((t) => (
+                  <option key={t.slug} value={t.slug}>{t.title} · {t.count} question{t.count === 1 ? "" : "s"}</option>
+                ))}
+              </select>
+            </label>
+            <div><Button type="submit" disabled={poolTotal === 0} data-testid="start-mock">Start full mock</Button></div>
           </form>
         </Card>
       </div>
@@ -101,7 +111,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
               return (
                 <li key={h.id}>
                   <Link href={href} className="flex flex-wrap items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-sm hover:border-accent" data-testid="history-item" data-status={h.status}>
-                    <span className="font-medium">{h.mode === "drill" ? `Drill · ${h.topic?.title ?? "topic"}` : "Full mock"}</span>
+                    <span className="font-medium">{h.mode === "drill" ? `Drill · ${h.topic?.title ?? "topic"}` : h.topic ? `Full mock · ${h.topic.title}` : "Full mock"}</span>
                     <span className="text-muted">{h.count} Q</span>
                     <Badge tone={s.tone}>{s.label}</Badge>
                     {h.overall_score != null && <span className="ml-auto tabular-nums">{Number(h.overall_score).toFixed(1)} / 10</span>}
