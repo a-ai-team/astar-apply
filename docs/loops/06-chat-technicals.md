@@ -27,7 +27,7 @@ system prompt v2 (ladder + content citation format, same cached structure); cont
 - [x] migration + fns
 - [x] indexer + approve hook
 - [x] union/ladder/bias/cap
-- [ ] prompt v2 + context injection
+- [x] prompt v2 + context injection
 - [ ] thread context + `/new`
 - [ ] `AskMentorButton` placements
 - [ ] content chips + anchors

@@ -1,11 +1,12 @@
 // The chat pipeline, mode-agnostic and persistence-free so the route handler, the CLI and the eval
 // harness all run the same code. Yields ChatEvents; the final `done` carries everything to store.
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v1";
+import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v2";
+import type { ContextBundle } from "./context";
 import { answerFixture, answerLive } from "./answer";
 import { retrieve, rungFor } from "./retrieve";
 import { rewriteQuery } from "./rewrite";
-import type { ChatEvent, ChatMode, HistoryTurn, RetrievedChunk, Rung } from "./types";
+import type { ChatEvent, ChatMode, HistoryTurn, RetrievedChunk, Rewrite, Rung } from "./types";
 
 export const PROMPT_VERSION = `${chatMentorPrompt.id}.v${chatMentorPrompt.version}`;
 
@@ -15,19 +16,21 @@ export type PipelineInput = {
   history: HistoryTurn[];
   mode: ChatMode;
   mentorNames?: Map<string, string>;
+  /** Loop 06: the question / lesson block the thread was opened from (already loaded). */
+  context?: ContextBundle | null;
 };
 
 export type DoneEvent = Extract<ChatEvent, { type: "done" }>;
 
 export async function* runPipeline(input: PipelineInput): AsyncGenerator<ChatEvent, DoneEvent> {
   const started = Date.now();
-  const rewrite = await rewriteQuery(input.message, input.history, input.mode);
+  const rewrite = withContextHint(await rewriteQuery(input.message, input.history, input.mode), input.context);
   const { chunks, record } = await retrieve(input.db, rewrite, { mode: input.mode, mentorNames: input.mentorNames });
   const rung: Rung = rungFor(chunks);
   yield { type: "retrieval", rewrite, chunks: chunks.map((c) => ({ id: c.id, label: c.label })), rung };
 
   const answer = input.mode === "live" ? answerLive : answerFixture;
-  const gen = answer({ question: input.message, history: input.history, chunks, rung });
+  const gen = answer({ question: input.message, history: input.history, chunks, rung, context: input.context ?? null });
   let result = await gen.next();
   while (!result.done) {
     yield result.value;
@@ -44,6 +47,19 @@ export async function* runPipeline(input: PipelineInput): AsyncGenerator<ChatEve
   };
   yield done;
   return done;
+}
+
+/**
+ * A thread opened from a question or lesson block: the item's text becomes an extra retrieval
+ * query and short follow-ups ("explain this") are treated as technical, so the ladder reaches
+ * the curriculum even when the message itself carries no keywords.
+ */
+export function withContextHint(rewrite: Rewrite, context?: ContextBundle | null): Rewrite {
+  if (!context) return rewrite;
+  const queries = [...new Set([...rewrite.queries, context.hint])].slice(0, 4);
+  const intent = rewrite.intent === "offtopic" || rewrite.intent === "application" ? "technical" : rewrite.intent;
+  const standalone = rewrite.standalone_question.length < 40 ? `${rewrite.standalone_question} (re: ${context.hint.slice(0, 160)})` : rewrite.standalone_question;
+  return { ...rewrite, queries, intent, standalone_question: standalone };
 }
 
 /** Loads a mentor_id → display name map for citation labels. */
