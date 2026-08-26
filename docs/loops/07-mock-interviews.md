@@ -29,7 +29,7 @@ grading latency (grade previous while reading next; polling); server-side timer 
 ## Tasks
 - [x] migration
 - [x] selection + tests
-- [ ] grader + recorded test
+- [x] grader + recorded test
 - [ ] report + validation
 - [ ] actions with ownership/timing
 - [ ] runner UI
