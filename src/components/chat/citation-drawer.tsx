@@ -10,7 +10,13 @@ export function CitationDrawer({ open, citation, index, onClose }: { open: boole
         <div className="flex flex-col gap-3" data-testid="citation-drawer">
           <blockquote className="border-l-2 border-accent pl-3 text-sm leading-relaxed text-fg">{citation.quote}</blockquote>
           <p className="text-xs text-muted">
-            From the mentor corpus · chunk <span className="font-mono">{citation.chunk_id.slice(0, 8)}</span>
+            {citation.kind === "corpus" ? "From the mentor corpus" : citation.kind === "lesson" ? "From a Technicals lesson" : "From the question bank"} · chunk <span className="font-mono">{citation.chunk_id.slice(0, 8)}</span>
+            {citation.href && (
+              <>
+                {" · "}
+                <a href={citation.href} className="text-accent hover:underline">open</a>
+              </>
+            )}
           </p>
         </div>
       )}

@@ -44,7 +44,7 @@ export default async function LessonPage({ params }: PageProps<"/home/technicals
           <span>{lesson.subtopic.kind}</span>
         </p>
       </div>
-      <LessonRenderer body={body.data} />
+      <LessonRenderer body={body.data} lessonId={lesson.id} />
       <LessonProgressControls lessonId={lesson.id} topicSlug={lesson.subtopic.topic.slug} completed={completed} />
     </>
   );

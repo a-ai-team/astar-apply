@@ -11,8 +11,9 @@ import { Markdown } from "@/components/lesson/markdown";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/cn";
+import { AskMentorButton } from "@/components/chat/ask-mentor-button";
 
-export type SessionCardView = { id: string; front: string; back_md: string; isNew: boolean; isDue: boolean; streak: number };
+export type SessionCardView = { id: string; questionId: string; front: string; back_md: string; isNew: boolean; isDue: boolean; streak: number };
 
 export function FlashcardSession({ cards, topicTitle }: { cards: SessionCardView[]; topicTitle: string }) {
   const [i, setI] = useState(0);
@@ -120,6 +121,11 @@ export function FlashcardSession({ cards, topicTitle }: { cards: SessionCardView
         )}
         {error && <p className="text-sm text-danger">{error}</p>}
       </div>
+      {flipped && (
+        <div>
+          <AskMentorButton target={{ kind: "question", questionId: card.questionId }} />
+        </div>
+      )}
     </div>
   );
 }

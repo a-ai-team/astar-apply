@@ -1,7 +1,11 @@
 // Renders any valid Lesson JSON (docs/loops/CONTRACTS.md) in the fixed template order the JSON
 // supplies. One component per block type; unknown types never reach here (zod rejects them).
 // KaTeX CSS is imported here so it only ships on routes that render lessons.
+// Loop 06: every block gets a stable anchor (`#block-<n>`, the index in body.blocks — citation
+// chips deep-link to it) and, when `lessonId` is given, an "Ask Mentor about this" link.
 import "katex/dist/katex.min.css";
+import { blockAnchor } from "@/lib/content/block-labels";
+import { AskMentorButton } from "@/components/chat/ask-mentor-button";
 import type { LessonBlock, LessonBody } from "@/lib/content/lesson-schema";
 import { WhyHere } from "./blocks/why-here";
 import { Concept } from "./blocks/concept";
@@ -35,11 +39,18 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
   }
 }
 
-export function LessonRenderer({ body }: { body: LessonBody }) {
+export function LessonRenderer({ body, lessonId }: { body: LessonBody; lessonId?: string }) {
   return (
     <article className="flex max-w-3xl flex-col gap-10" data-testid="lesson-renderer">
       {body.blocks.map((block, i) => (
-        <LessonBlockView key={`${block.type}-${i}`} block={block} />
+        <div key={`${block.type}-${i}`} id={blockAnchor(i)} data-block-index={i} className="scroll-mt-20 target:rounded-lg target:ring-2 target:ring-accent/40 target:ring-offset-4 target:ring-offset-bg">
+          <LessonBlockView block={block} />
+          {lessonId && block.type !== "widget" && (
+            <div className="mt-3">
+              <AskMentorButton size="xs" target={{ kind: "lesson", lessonId, blockIndex: i }} />
+            </div>
+          )}
+        </div>
       ))}
     </article>
   );
