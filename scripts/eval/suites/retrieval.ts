@@ -24,7 +24,8 @@ export async function run({ limit }: { limit: number | null }): Promise<SuiteRes
   const items: unknown[] = [];
   for (const p of pairs) {
     const rewrite = heuristicRewrite(p.question);
-    const { chunks } = await retrieve(db, rewrite, { mode: "fixture", topN: 5 });
+    // Corpus recall only: the Loop 06 union adds curriculum chunks, measured by the chat suite's lesson_citation_rate.
+    const { chunks } = await retrieve(db, rewrite, { mode: "fixture", topN: 5, sources: ["corpus"] });
     const want = p.expected.source.toLowerCase();
     const matchAt = chunks.findIndex((c) => {
       const title = titles.get(c.source_id) ?? "";

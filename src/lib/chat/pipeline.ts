@@ -3,7 +3,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v1";
 import { answerFixture, answerLive } from "./answer";
-import { retrieve } from "./retrieve";
+import { retrieve, rungFor } from "./retrieve";
 import { rewriteQuery } from "./rewrite";
 import type { ChatEvent, ChatMode, HistoryTurn, RetrievedChunk, Rung } from "./types";
 
@@ -23,7 +23,7 @@ export async function* runPipeline(input: PipelineInput): AsyncGenerator<ChatEve
   const started = Date.now();
   const rewrite = await rewriteQuery(input.message, input.history, input.mode);
   const { chunks, record } = await retrieve(input.db, rewrite, { mode: input.mode, mentorNames: input.mentorNames });
-  const rung: Rung = chunks.length ? "corpus" : "prior";
+  const rung: Rung = rungFor(chunks);
   yield { type: "retrieval", rewrite, chunks: chunks.map((c) => ({ id: c.id, label: c.label })), rung };
 
   const answer = input.mode === "live" ? answerLive : answerFixture;

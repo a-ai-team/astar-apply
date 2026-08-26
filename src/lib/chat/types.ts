@@ -13,11 +13,29 @@ export type Rewrite = {
   standalone_question: string;
 };
 
+/** Where a retrieved chunk came from: the mentor corpus (corpus_chunks) or the curriculum (content_chunks). */
+export type ChunkOrigin = "corpus" | "content";
+
+/** Deep-link data carried by curriculum chunks (Loop 06). */
+export type ContentRef = {
+  kind: "lesson_block" | "question";
+  lesson_id: string | null;
+  question_id: string | null;
+  block_index: number | null;
+  block_type: string | null;
+  slug: string;
+  topic_slug: string;
+};
+
 export type RetrievedChunk = {
   id: string;
+  /** corpus: corpus_sources.id · content: lessons.id / questions.id */
   source_id: string;
   mentor_id: string | null;
-  kind: ChunkKind;
+  kind: ChunkKind | ContentRef["kind"];
+  origin: ChunkOrigin;
+  /** Present when origin === "content". */
+  content?: ContentRef;
   ordinal: number;
   text: string;
   question: string | null;
@@ -43,7 +61,12 @@ export type Citation = {
   quote: string;
   start: number;
   end: number;
+  /** lesson|question citations: where the chip deep-links (`/home/technicals/<topic>/<lesson>#block-n` or `/home/practice/<slug>`). */
+  href?: string;
 };
+
+/** Where "Ask Mentor" was pressed (chat_threads.context). */
+export type ThreadContext = { lesson_id?: string; question_id?: string; attempt_id?: string; block_index?: number };
 
 export type Usage = { input_tokens: number; output_tokens: number; cache_read_input_tokens: number | null };
 
@@ -58,9 +81,13 @@ export type MessageContent = {
 export type RetrievalRecord = {
   queries: string[];
   intent: Intent;
-  candidates: { id: string; label: string; score: number; signals: RetrievedChunk["signals"] }[];
-  reranked: { id: string; label: string }[];
+  candidates: { id: string; label: string; score: number; signals: RetrievedChunk["signals"]; origin?: ChunkOrigin }[];
+  reranked: { id: string; label: string; origin?: ChunkOrigin }[];
   provider: { embeddings: string; rerank: string; mode: ChatMode };
+  /** Loop 06: which sources the ladder searched for this intent. */
+  sources?: ChunkOrigin[];
+  /** Loop 06: Haiku disagreement check ({ disagreement, summary }) when both rungs contributed. */
+  disagreement?: { disagreement: boolean; summary: string; review_id?: string | null } | null;
 };
 
 export type HistoryTurn = { role: "user" | "assistant"; text: string };

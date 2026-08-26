@@ -5,7 +5,7 @@
 import type Anthropic from "@anthropic-ai/sdk";
 import { MODEL_CHAT, OPUS_BETAS, OPUS_FALLBACKS, getClient } from "@/lib/ai/client";
 import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v1";
-import { buildDocuments, dedupeCitations, documentText, mapCitation } from "./cite";
+import { buildDocuments, citationFor, dedupeCitations, documentText, mapCitation } from "./cite";
 import type { ChatEvent, Citation, HistoryTurn, MessageContent, RetrievedChunk, Rung, Usage } from "./types";
 
 export const REFUSAL_TEXT = "Sorry — I can't help with that one. Ask me anything about applications, interviews or technicals and I'll do my best.";
@@ -94,14 +94,17 @@ export async function* answerFixture(input: AnswerInput): AsyncGenerator<AnswerE
     yield* emit("Start from first principles, keep the definition in one sentence, and attach one worked number. (Fixture mode: the live model would write the full standard answer here.)");
     return { content: { text, citations: [], rung: "prior", model: FIXTURE_MODEL, usage: null }, refused: false };
   }
-  yield* emit(`Here's what the mentor notes say about "${input.question.trim()}".\n\n`);
-  const top = input.chunks.slice(0, 3);
+  const corpus = input.chunks.filter((c) => c.origin !== "content").slice(0, 3);
+  const content = input.chunks.filter((c) => c.origin === "content").slice(0, 2);
+  // Ladder order: the mentor's notes first, then the curriculum (lesson blocks / bank questions).
+  const top = [...corpus, ...content];
+  yield* emit(corpus.length ? `Here's what the mentor notes say about "${input.question.trim()}".\n\n` : `The mentor hasn't covered "${input.question.trim()}" directly — here's what the Technicals curriculum says.\n\n`);
   for (let i = 0; i < top.length; i++) {
     const chunk = top[i];
     const full = documentText(chunk);
     const quote = bestSentence(chunk.answer ?? chunk.text, input.question);
     const start = Math.max(0, full.indexOf(quote));
-    const c: Citation = { chunk_id: chunk.id, source_id: chunk.source_id, kind: "corpus", label: chunk.label, quote, start, end: start + quote.length };
+    const c: Citation = citationFor(chunk, quote, start, start + quote.length);
     citations.push(c);
     yield* emit(`${i + 1}. ${quote}`);
     yield { type: "citation", citation: c, index: citations.length };

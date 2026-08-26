@@ -3,6 +3,7 @@
 // `content_block_location` citations whose `document_index` maps straight back to the chunk.
 import type Anthropic from "@anthropic-ai/sdk";
 import type { Citation, RetrievedChunk } from "./types";
+import { contentHref } from "./retrieve";
 
 export function buildDocuments(chunks: RetrievedChunk[]): Anthropic.Beta.BetaRequestDocumentBlock[] {
   return chunks.map((c) => ({
@@ -43,7 +44,16 @@ export function mapCitation(c: ApiCitation, chunks: RetrievedChunk[]): Citation 
       end = idx + quote.length;
     }
   }
-  return { chunk_id: chunk.id, source_id: chunk.source_id, kind: "corpus", label: chunk.label, quote: quote || full.slice(start, end), start, end };
+  return citationFor(chunk, quote || full.slice(start, end), start, end);
+}
+
+/** Builds a Citation for a chunk: `kind` and the deep link follow the chunk's origin (corpus | lesson | question). */
+export function citationFor(chunk: RetrievedChunk, quote: string, start: number, end: number): Citation {
+  const base = { chunk_id: chunk.id, source_id: chunk.source_id, label: chunk.label, quote, start, end };
+  if (chunk.origin === "content" && chunk.content) {
+    return { ...base, kind: chunk.content.kind === "lesson_block" ? "lesson" : "question", href: contentHref(chunk.content) };
+  }
+  return { ...base, kind: "corpus" };
 }
 
 /** De-duplicates by chunk (first quote wins) and assigns 1-based display indexes in order of appearance. */
