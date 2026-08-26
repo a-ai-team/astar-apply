@@ -1,6 +1,6 @@
 # Loop 10 — Launch (open PR)
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 public landing with unauthenticated demo chat, pricing with Stripe Checkout + Portal (test mode; `StripeStub` when no key), entitlement gating, SEO/metadata/sitemap, analytics (Vercel + PostHog no-op without key), legal templates, Non-Target playbook, `PUBLIC_LAUNCH` flag around the key gate. **Ships as an open PR labelled `needs-james`.**
 ## Out of scope
@@ -26,7 +26,7 @@ no Stripe keys → stub path (test env only) + recorded-fixture tests; landing c
 - [ ] Lighthouse CI on `/`: perf ≥ 85, SEO ≥ 95, a11y ≥ 90
 
 ## Tasks
-- [ ] migration + plans
+- [x] migration + plans (0011 written, unapplied → § Blocked 1; `PLANS`; `seed -- 10` no-ops with message)
 - [ ] entitlements + `can()` + `UpgradeCard` + gates
 - [ ] Stripe client/stub, actions, webhook + tests, sync script
 - [ ] pricing + success

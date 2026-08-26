@@ -1,12 +1,12 @@
 # CURRENT — live run state (rewrite after every task)
 
-- **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
-- **Loop:** 09 Industry modules (`docs/loops/09-industry-modules.md`) — merged (partial)
-- **Branch:** `feat/industry-modules`
-- **Task:** 10 / 10 — all tasks ticked; acceptance 4/7 (batches, readability, 17 decks blocked); PR open
-- **Last checks:** feat/industry-modules — lint ✓ typecheck ✓ build ✓ unit 150/150 ✓ e2e 29/29 ✓ eval industry PASS (readability skipped)
-- **Blockers:** **migration 0010 not applied — every Postgres path (db push / db query / migration list, direct host + pooler) is unreachable from this sandbox; James: `npm run db:migrate` from a normal shell.** **ANTHROPIC_API_KEY still has no credit** — the Loop 04 pipeline Loop 09 relies on has never run live; build migration `0010_industry.sql`, targets and seeds so one command fills the modules later. Carried: Loop 04 § Blocked, 06 § Blocked 1–3, 07 § Blocked 1–4, 08 § Blocked 1–4; `VOYAGE_API_KEY` + reembed; `supabase config push`; `PRIVATE_ACCESS_KEY`; Google OAuth; free-topic confirmation; staff view of students' interviews. `supabase db query --linked` hangs here (use PostgREST / `db:check`).
-- **Decisions taken by default this loop:** industry `group_family` lives in taxonomy.ts and is mirrored to the DB column when it exists; industry topics `is_free=false`; industry lessons must carry `key_metrics`.
-- **Next action:** merge PR, then Loop 10.
+- **Run started:** 2026-08-26 (2.5 h budget)
+- **Loop:** 10 Launch (`docs/loops/10-launch.md`) — in progress
+- **Branch:** `feat/launch`
+- **Task:** 1 / 10 done — migration 0011 (unapplied), `PLANS`, `seed -- 10` (SKIPPED: table absent)
+- **Last checks:** not yet run on this branch
+- **Blockers:** Postgres unreachable (0010 + 0011 unapplied); no Anthropic credit; no Stripe keys.
+- **Decisions taken by default this loop:** prices £0/£4.99/£9.99; feature keys per plan in `src/lib/billing/plans.ts`.
+- **Next action:** task 2 — entitlements + `can()` + `UpgradeCard` + gates.
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
