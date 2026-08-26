@@ -1,6 +1,6 @@
 # Loop 07 — AI mock interviews
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 text drills (5 Qs) and timed full mocks (15 Qs, 90 s each) graded per question against model answers with a rubric, focus-area report; voice mode (Web Speech API, audio never uploaded) with wpm/filler metrics behind `NEXT_PUBLIC_VOICE_MOCK=off`.
 ## Out of scope
@@ -27,7 +27,7 @@ grading latency (grade previous while reading next; polling); server-side timer 
 - [ ] other user's interview → 403 (unit-tested wrapper)
 
 ## Tasks
-- [ ] migration
+- [x] migration
 - [ ] selection + tests
 - [ ] grader + recorded test
 - [ ] report + validation

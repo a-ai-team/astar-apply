@@ -55,7 +55,11 @@ select json_build_object(
   'content_chunks_hnsw', (select count(*) from pg_indexes where schemaname = 'public' and indexname = 'content_chunks_embedding_hnsw' and indexdef ilike '%hnsw%'),
   'content_fns', (select count(*) from pg_proc where pronamespace = 'public'::regnamespace and proname in ('match_content_chunks','search_content_fts')),
   'thread_context', (select count(*) from information_schema.columns where table_schema = 'public' and table_name = 'chat_threads' and column_name = 'context'),
-  'approved_content_chunks', (select count(*) from public.content_chunks where status = 'approved')
+  'approved_content_chunks', (select count(*) from public.content_chunks where status = 'approved'),
+  'interview_tables', (select count(*) from information_schema.tables where table_schema = 'public' and table_name in ('interviews','interview_turns')),
+  'interview_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname in ('interviews','interview_turns')),
+  'interview_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('interviews','interview_turns')),
+  'attempts_interview_fk', (select count(*) from pg_constraint where conname = 'attempts_interview_id_fkey')
 ) as report;
 `;
 
@@ -105,6 +109,10 @@ function main() {
     ["Loop 06: match_content_chunks + search_content_fts", r.content_fns === 2],
     ["Loop 06: chat_threads.context", r.thread_context === 1],
     ["Loop 06: ≥ 1 approved content chunk (run `npm run content:index`)", Number(r.approved_content_chunks) >= 1],
+    ["Loop 07: interviews + interview_turns exist", r.interview_tables === 2],
+    ["Loop 07: RLS enabled on both", r.interview_rls === 2],
+    ["Loop 07: own + staff-read policies (4)", r.interview_policies === 4],
+    ["Loop 07: attempts.interview_id FK → interviews", r.attempts_interview_fk === 1],
   ];
   let ok = true;
   for (const [label, pass] of checks) {

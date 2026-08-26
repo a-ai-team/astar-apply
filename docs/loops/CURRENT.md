@@ -1,13 +1,12 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
-- **Loop:** 06 Chatbot ↔ Technicals fusion (`docs/loops/06-chat-technicals.md`) — in-progress
-- **Branch:** `feat/chat-technicals`
-- **Task:** 10 / 10 done — e2e/06-fusion.spec.ts 3/3 (21/21), docs (CHAT.md § Fusion, TECHNICALS.md, rag-design § As built), acceptance 5/6 (judged chat thresholds need credit), retro written, MASTER_PLAN → merged (partial). PR next.
-- **Last checks:** Loop 06: lint ✓ typecheck ✓ build ✓ test:unit 103/103 ✓ test:e2e 21/21 ✓ db:check all ✓ eval retrieval 0.867 ✓ chat lesson_citation_rate 0.958 (fixture) ✓ judged parts SKIPPED (no credit) · acceptance 5/6
-- **Blockers:** **ANTHROPIC_API_KEY still has no credit** (probed once in Loop 04; do not re-probe every wake-up — `npx tsx scripts/dev/api-probe.ts` when James says it is topped up). Loop 04 batches are blocked: the exact command sequence is in `docs/loops/04-content-generation.md` § Blocked. Loop 06 needs the API for the chat (fusion) eval (lesson-citation rate ≥ 80 %) — build the retriever/`content_chunks` (0007) + fixture-mode paths first and mark the eval blocked if credit is still absent. Only 6 approved questions + 2 approved lessons exist for `content_chunks` until the batches run.
-  Carried for James: top up credit → Loop 04 § Blocked sequence, then `npm run eval -- --suite chat` + `npm run cache:check`; `VOYAGE_API_KEY` + `npm run reembed`; `supabase config push`; `PRIVATE_ACCESS_KEY` in `.env.local`; Google OAuth; re-record extraction + chat fixtures; confirm free topics (Accounting + EqV/EV).
-- **Decisions taken by default this loop:** none yet
-- **Next action:** open PR from template, `gh pr merge --squash --delete-branch --admin`, RUNLOG line, then CURRENT → Loop 07 planned / task 0. (Older note:) read the Loop 05 retro in `docs/loops/05-practice.md` (`attempts` shape; `AskMentorButton` mounts under `data-testid="question-grade"` in `QuestionCard` and below the rate buttons in `FlashcardSession` — both client components; `search_content()` FTS reusable as a lesson/question candidate source; student pages use the cookie client; re-run `seed -- 05` after content loads), then `docs/loops/06-chat-technicals.md` + CONTRACTS.md (`content_chunks` in 0007, chat citations `kind: lesson|question`, fusion eval ≥ 80 %); do its "Research at start"; branch `feat/chat-technicals`; task 1. Seeds before e2e: `npm run seed -- 00 && CORPUS_EXTRACTION_MODE=fixture npm run seed -- 01 && npm run seed -- 02 && npm run seed -- 03 && npm run seed -- 04 && npm run seed -- 05`; e2e uses `workers: 1`.
+- **Loop:** 07 AI mock interviews (`docs/loops/07-mock-interviews.md`) — in-progress
+- **Branch:** `feat/mock-interviews` (from `main`; Loop 06 merged as #13)
+- **Task:** 1 / 10 — migration 0008 applied (`interviews`, `interview_turns`, `attempts.interview_id` FK); db:check +4 ✓
+- **Last checks:** db:check 41/41 ✓ (Loop 06: lint ✓ typecheck ✓ build ✓ unit 103/103 ✓ e2e 21/21 ✓)
+- **Blockers:** **ANTHROPIC_API_KEY still has no credit** — grader/report ship with a fixture branch (keyword coverage); `eval --suite grader` will print `NO API CREDIT — grader suite skipped`. Carried for James: top up credit → Loop 04 § Blocked sequence, Loop 06 § Blocked 1–3, then Loop 07 § Blocked; `VOYAGE_API_KEY` + `npm run reembed`; `supabase config push`; Google OAuth.
+- **Decisions taken by default this loop:** turns carry `attempt_id` + `shown_at` (server clock); mock topics = the 7 technical curriculum topics; late answers accepted but flagged.
+- **Next action:** task 2 — `src/lib/interviews/select.ts` (drill ≤ 5 without replacement, mock ≤ 15 stratified) + vitest.
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
