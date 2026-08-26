@@ -18,6 +18,7 @@ export const HOME_NAV: NavItem[] = [
   { href: "/home/flashcards", label: "Flashcards" },
   { href: "/home/progress", label: "Progress" },
   { href: "/home/interviews", label: "Interviews" },
+  { href: "/home/pulse", label: "Pulse" },
 ];
 
 export const ADMIN_NAV: NavItem[] = [
@@ -28,6 +29,9 @@ export const ADMIN_NAV: NavItem[] = [
   { href: "/admin/lessons", label: "Lessons" },
   { href: "/admin/review", label: "Review" },
   { href: "/admin/generation", label: "Generation" },
+  { href: "/admin/firms", label: "Firms" },
+  { href: "/admin/reports", label: "Reports" },
+  { href: "/admin/pulse", label: "Pulse" },
 ];
 
 export function AppShell({ session, nav, children }: { session: Session; nav: NavItem[]; children: ReactNode }) {

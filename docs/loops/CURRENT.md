@@ -3,10 +3,10 @@
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
 - **Loop:** 08 Firm interview bank + Pulse (`docs/loops/08-firms-pulse.md`) — in-progress
 - **Branch:** `feat/firms-pulse` (from `main` after Loop 07 #14)
-- **Task:** 4 / 10 done — `/home/interviews/firms` grid + `[slug]` dossier/`ProcessTimeline`/`FirmQuestionList` filters/guidance accordion/Practise this → `startDrillFor` (turn `firm_question_id`, no attempts row, Ask Mentor hidden); next: report form + 5/day limit + `/admin/reports`
+- **Task:** 5 / 10 done — `/home/interviews/report` + `reportQuestion` (5/day, UTC window) + `/admin/reports` approve→promote / reject; next: Pulse prompts + `scripts/pulse/generate.ts`
 - **Last checks:** db:migrate ✓ db:check 46/46 ✓
 - **Blockers:** **ANTHROPIC_API_KEY still has no credit** — firm-question authoring and the Pulse digest run their fixture branches; live re-run commands go under Loop 08 § Blocked. Carried: Loop 04 § Blocked, 06 § Blocked 1–3, 07 § Blocked 1–4; `VOYAGE_API_KEY` + reembed; `supabase config push`; `PRIVATE_ACCESS_KEY`; Google OAuth; free-topic confirmation; staff view of students' interviews.
 - **Decisions taken by default this loop:** (1) `interview_turns.firm_question_id` + `question_id` nullable with a one-of check (Loop 07 retro option 2) so "Practise this" drills a firm question without a mirror `questions` row; (2) `firm_questions` unique on `(firm_id, question)` as the seed's natural key; (3) `firm_question_reports` gains `reviewed_at` + `promoted_question_id` for traceability.
-- **Next action:** `/home/interviews/report` form + `reportQuestion` action (5/day via count on `firm_question_reports`), `/admin/reports` list + approve (promote to `firm_questions` `approved`, `reported_by`) / reject; vitest for the rate limit.
+- **Next action:** `pulse-search.v1` + `pulse-digest.v1` prompts; `scripts/pulse/generate.ts --week --dry-run` (Opus 5 + `web_search_20260209` max_uses 8 + allowed domains → structured call → `pulse_digests` generated; fixture branch from `fixtures/recorded/pulse-search.v1.sample.json` prints `NO API CREDIT — fixture digest` and writes `.eval/pulse-<week>.json`).
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
