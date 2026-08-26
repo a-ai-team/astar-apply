@@ -13,7 +13,8 @@ export type DifficultyMix = [number, number, number, number];
 export const DIFFICULTY_SHARES = [0.25, 0.3, 0.3, 0.15] as const;
 
 /** Rough expected output size per request, used by the dry-run estimate. */
-export const EXPECTED_OUTPUT_TOKENS = { lesson: 6500, questionEach: 900 } as const;
+// Output tokens are billed including adaptive thinking (effort high), so these are well above the visible JSON size.
+export const EXPECTED_OUTPUT_TOKENS = { lesson: 14000, questionEach: 1500 } as const;
 
 /** Subtopics whose lesson must embed a widget (the other subtopics get none). */
 export const REQUIRED_WIDGETS: Record<string, WidgetName> = {

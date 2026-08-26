@@ -31,12 +31,12 @@ cost (dry-run gate); batch wait (build review UI meanwhile, Monitor on the poll 
 ## Tasks
 - [x] migration
 - [x] prompts + targets
-- [ ] generate.ts + dry-run + one-lesson smoke
+- [x] generate.ts + dry-run + one-lesson smoke (smoke blocked — no API credit, see Blocked)
 - [x] checkers + tests
-- [ ] batch submit/poll/collect/resubmit
+- [x] batch submit/poll/collect/resubmit (collect exercised on fixtures/recorded/batch-results.jsonl; submit/poll/resubmit code paths untested live — no credit)
 - [ ] lessons batch → collect → validate → critic
 - [ ] questions batch → collect → validate
-- [ ] load/seed/approve
+- [x] load/seed/approve
 - [ ] review UI + regenerate-one
 - [ ] eval suites + auto-approve free topics
 - [ ] Playwright, `docs/research/content-pipeline.md`, retro

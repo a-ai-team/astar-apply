@@ -8,7 +8,7 @@ import { splitQuestion } from "../../src/lib/content/question-schema";
 import { validateContentDir } from "./validate";
 
 export async function loadContent(db: SupabaseClient, root = path.resolve("content")) {
-  const { lessons, questions, errors } = validateContentDir(root);
+  const { lessons, questions, questionMeta, errors } = validateContentDir(root);
   if (errors.length) throw new Error(`content invalid:\n${errors.join("\n")}`);
 
   const { data: topics, error: tErr } = await db.from("topics").select("id, slug");
@@ -27,6 +27,7 @@ export async function loadContent(db: SupabaseClient, root = path.resolve("conte
       {
         slug: l.slug, subtopic_id: sid, title: l.title, ordinal: l.ordinal ?? 1, body: l.body, body_version: body.version,
         reading_minutes: body.reading_minutes, status: l.status, generated_by: l.generated_by ?? "human", prompt_version: l.prompt_version ?? null,
+        review_note: l.check_problems?.length ? l.check_problems.join("\n") : null,
       },
       { onConflict: "slug" },
     );
@@ -38,13 +39,15 @@ export async function loadContent(db: SupabaseClient, root = path.resolve("conte
   for (const v of questions) {
     if (!v.ok) continue;
     const { row, body } = splitQuestion(v.value);
+    const meta = questionMeta.get(row.slug);
     const tid = topicId.get(row.topic_slug);
     if (!tid) throw new Error(`question ${row.slug}: topic ${row.topic_slug} not seeded`);
     const { error } = await db.from("questions").upsert(
       {
         slug: row.slug, topic_id: tid, subtopic_id: row.subtopic_slug ? (subtopicId.get(row.subtopic_slug) ?? null) : null,
         kind: row.kind, difficulty: row.difficulty, question: row.question, body, status: row.status,
-        source_topic: row.source_topic, tags: row.tags, generated_by: "human",
+        source_topic: row.source_topic, tags: row.tags, generated_by: meta?.generated_by ?? "human", prompt_version: meta?.prompt_version ?? null,
+        review_note: meta?.check_problems?.length ? meta.check_problems.join("\n") : null,
       },
       { onConflict: "slug" },
     );
