@@ -1,0 +1,11 @@
+{
+  "_note": "PLACEHOLDER — synthetic content for pipeline testing. A hand-authored stand-in for the pulse-search research pass (Opus 5 + web_search_20260209): the notes and result list a real run would produce, over the same invented stories as fixtures/pulse/sample-week.json. Every URL is on example.com on purpose.",
+  "prompt_version": "pulse-search.v1",
+  "results": [
+    { "title": "Synthetic sample — Northwind agrees £4.2bn Bramble deal", "url": "https://example.com/pulse/sample/northwind-bramble" },
+    { "title": "Synthetic sample — Bank of Albion holds at 4.25%", "url": "https://example.com/pulse/sample/bank-of-albion-hold" },
+    { "title": "Synthetic sample — Harrowgate cuts guidance", "url": "https://example.com/pulse/sample/harrowgate-guidance" }
+  ],
+  "notes": "Story 1 — Northwind Aerospace / Bramble Components: £4.2bn all-cash offer, 38% premium to undisturbed, £2.5bn bridge loan to be refinanced in bonds, vertical integration rationale. Source: https://example.com/pulse/sample/northwind-bramble\n\nStory 2 — Bank of Albion: held at 4.25% for a third meeting, 7–2 vote, dropped 'restrictive for an extended period', two-year yield down 12bp. Source: https://example.com/pulse/sample/bank-of-albion-hold\n\nStory 3 — Harrowgate Retail: FY EBITDA guidance cut £180m → £140m, shares −22%, net debt £520m, leverage 2.9x → 3.7x against a 4.0x covenant. Source: https://example.com/pulse/sample/harrowgate-guidance",
+  "searches_used": 3
+}
