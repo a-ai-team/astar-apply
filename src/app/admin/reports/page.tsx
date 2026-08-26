@@ -15,7 +15,7 @@ export default async function AdminReportsPage({ searchParams }: PageProps<"/adm
   const sp = await searchParams;
   const status = typeof sp.status === "string" && (STATUSES as readonly string[]).includes(sp.status) ? sp.status : "pending";
   const db = createAdminClient();
-  const { data, error } = await db.from("firm_question_reports").select("id, programme, stage, division, asked_at, context, question, status, created_at, firm:firms(slug, name), reporter:profiles(display_name)").eq("status", status).order("created_at", { ascending: false }).limit(200);
+  const { data, error } = await db.from("firm_question_reports").select("id, programme, stage, division, asked_at, context, question, status, created_at, firm:firms(slug, name), reporter:profiles!firm_question_reports_user_id_fkey(display_name)").eq("status", status).order("created_at", { ascending: false }).limit(200);
   if (error) throw error;
   const rows = (data ?? []) as unknown as Row[];
   return (
