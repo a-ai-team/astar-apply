@@ -1,0 +1,171 @@
+{
+  "_note": "PLACEHOLDER — original, hand-written questions generic to this firm's public programmes, for pipeline testing. Loaded as status=generated (student-invisible) until a human approves them in /admin/firms. recency_year is null everywhere: no provenance is claimed.",
+  "firm": "pjt-partners",
+  "questions": [
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why PJT Partners, and not one of our competitors?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Something specific about PJT Partners: a business it is known for, a deal, its strategy — combining strategic advisory with a leading restructuring practice and Park Hill\n- A person you have spoken to and what they told you about the culture\n- How that matches the way you like to work\n- Never answer with reputation alone — every applicant says 'prestige'",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": "Strategic Advisory",
+      "question": "Which of our businesses would you want to join and why Strategic Advisory?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Show you know what Strategic Advisory does at PJT Partners specifically\n- Tie it to a skill or experience of yours\n- Mention one recent piece of work by that business you have read about",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "'Entrepreneurial spirit' is one of the things we say we care about. When have you shown it?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Give one concrete story that fits the value without stretching\n- Say what you did, not what the group did\n- Explain why that value matters in client work at a bank",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "What are the advantages and disadvantages for a client of using an independent adviser like PJT Partners rather than a large bank?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Independence: no lending or trading conflicts, senior attention, discretion\n- Disadvantages: no balance sheet, so financing is arranged elsewhere\n- Give an example of a situation where each model wins\n- Show you understand how a boutique is paid",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why a boutique like PJT Partners rather than a bulge bracket for your first job?",
+      "stage": "hirevue",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Smaller teams, earlier responsibility, more senior exposure — with specifics\n- Acknowledge what you give up: platform breadth, training scale, brand recognition\n- Evidence you have actually spoken to people at both kinds of firm",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "Walk me through a leveraged buyout at a high level.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Buy with mostly debt, improve operations, pay down debt, exit at a multiple\n- Returns come from deleveraging, earnings growth and multiple expansion\n- Typical leverage and the equity cheque as a share of the purchase price\n- What makes a good LBO candidate: stable cash flows, low capex, scope to improve",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "What returns does a private equity fund target, and how is IRR different from a multiple of money?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Money multiple ignores time; IRR is the annualised rate that discounts the cash flows to zero\n- A 2x over three years is a very different IRR from 2x over seven\n- Funds typically target around 20% IRR and 2–3x, depending on strategy\n- Explain how leverage inflates IRR without changing the multiple",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Tell me about a time you had to deliver a piece of work to a deadline you thought was unrealistic.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Set the scene in one sentence: the task, the deadline, why it was tight\n- Say what you prioritised and what you consciously dropped\n- Show how you communicated early with whoever set the deadline\n- Give the outcome and one thing you would do differently",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Describe a situation where you disagreed with someone senior to you. What did you do?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Pick an example where you were respectful but did not just cave\n- Explain how you made the case with evidence rather than opinion\n- Show you accepted the final decision and made it work\n- Reflect on what the disagreement taught you about influencing",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Give an example of a time you worked in a team that was not functioning well.",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Diagnose why it was not working without blaming individuals\n- Describe the specific step you took to change the dynamic\n- Show the result in terms the team cared about\n- Keep it short: interviewers want the action, not the drama",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Tell me about a mistake you made and how you handled it.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Choose a real mistake with real consequences, not a humble-brag\n- Own it plainly in the first sentence\n- Explain how you fixed it and who you told\n- End with the habit you changed afterwards",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "When have you had to learn something technical very quickly?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Name the skill and why it mattered at the time\n- Describe your method: sources, practice, feedback\n- Quantify how fast and how well you got there\n- Link it to how you would learn the job in the first month",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "Walk me through your CV in two minutes.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Chronological but selective: three or four beats, not every line\n- Each beat ends with what it taught you or why it led to the next\n- Finish on why this role is the logical next step\n- Practise it out loud to hit two minutes",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "What do you do outside of your studies, and why?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- One or two interests with genuine depth beat a long list\n- Show commitment over time and something you have achieved in it\n- Make one link to a quality the job needs without forcing it",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "What would your friends say is your biggest weakness?",
+      "stage": "interview",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- A real weakness that is not fatal for the job\n- Evidence you have noticed it and a concrete thing you do about it\n- Do not offer a strength dressed up as a weakness",
+      "sources": []
+    }
+  ]
+}

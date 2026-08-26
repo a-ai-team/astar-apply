@@ -1,0 +1,171 @@
+{
+  "_note": "PLACEHOLDER — original, hand-written questions generic to this firm's public programmes, for pipeline testing. Loaded as status=generated (student-invisible) until a human approves them in /admin/firms. recency_year is null everywhere: no provenance is claimed.",
+  "firm": "goldman-sachs",
+  "questions": [
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why Goldman Sachs, and not one of our competitors?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Something specific about Goldman Sachs: a business it is known for, a deal, its strategy — its Asset & Wealth Management growth push and the One Goldman Sachs client approach\n- A person you have spoken to and what they told you about the culture\n- How that matches the way you like to work\n- Never answer with reputation alone — every applicant says 'prestige'",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": "Global Banking & Markets",
+      "question": "Which of our businesses would you want to join and why Global Banking & Markets?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Show you know what Global Banking & Markets does at Goldman Sachs specifically\n- Tie it to a skill or experience of yours\n- Mention one recent piece of work by that business you have read about",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "'Partnership' is one of the things we say we care about. When have you shown it?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Give one concrete story that fits the value without stretching\n- Say what you did, not what the group did\n- Explain why that value matters in client work at a bank",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "What do you think the biggest strategic question facing Goldman Sachs is right now?",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Show you know the firm's current direction: its Asset & Wealth Management growth push and the One Goldman Sachs client approach\n- Argue one question with a mechanism, not a list of headlines\n- Say what you would watch to know whether it is going well",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "How does Goldman Sachs make money, and which parts of the bank are doing well?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Split revenue into fees (advisory, underwriting), trading, net interest and asset management fees\n- Know the rough shape of the last results — direction, not decimals\n- Name one division that has been strong and one under pressure",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Tell me about a time you had to deliver a piece of work to a deadline you thought was unrealistic.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Set the scene in one sentence: the task, the deadline, why it was tight\n- Say what you prioritised and what you consciously dropped\n- Show how you communicated early with whoever set the deadline\n- Give the outcome and one thing you would do differently",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Describe a situation where you disagreed with someone senior to you. What did you do?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Pick an example where you were respectful but did not just cave\n- Explain how you made the case with evidence rather than opinion\n- Show you accepted the final decision and made it work\n- Reflect on what the disagreement taught you about influencing",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Give an example of a time you worked in a team that was not functioning well.",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Diagnose why it was not working without blaming individuals\n- Describe the specific step you took to change the dynamic\n- Show the result in terms the team cared about\n- Keep it short: interviewers want the action, not the drama",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Tell me about a mistake you made and how you handled it.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Choose a real mistake with real consequences, not a humble-brag\n- Own it plainly in the first sentence\n- Explain how you fixed it and who you told\n- End with the habit you changed afterwards",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "When have you had to learn something technical very quickly?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Name the skill and why it mattered at the time\n- Describe your method: sources, practice, feedback\n- Quantify how fast and how well you got there\n- Link it to how you would learn the job in the first month",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "Walk me through your CV in two minutes.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Chronological but selective: three or four beats, not every line\n- Each beat ends with what it taught you or why it led to the next\n- Finish on why this role is the logical next step\n- Practise it out loud to hit two minutes",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "What do you do outside of your studies, and why?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- One or two interests with genuine depth beat a long list\n- Show commitment over time and something you have achieved in it\n- Make one link to a quality the job needs without forcing it",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "What would your friends say is your biggest weakness?",
+      "stage": "interview",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- A real weakness that is not fatal for the job\n- Evidence you have noticed it and a concrete thing you do about it\n- Do not offer a strength dressed up as a weakness",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "Where do you see yourself in five years?",
+      "stage": "hirevue",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Show ambition inside the firm, not a plan to leave\n- Talk about the skills and responsibility you want, not the title\n- Acknowledge the plan will change and that you are open to that",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "Tell me about a deal or market story you have followed recently. Why did it interest you?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- One story, told with the key numbers: size, price, premium or move\n- Explain the rationale from both sides and what the market reaction said\n- Say what you think happens next and why\n- Connect it to the division you are applying to",
+      "sources": []
+    }
+  ]
+}
