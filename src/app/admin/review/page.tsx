@@ -33,6 +33,16 @@ export default async function ReviewQueuePage({ searchParams }: PageProps<"/admi
     if (error) throw error;
     questions = ((data ?? []) as unknown as QuestionRow[]).filter((q) => topic === "all" || q.topic?.slug === topic);
   }
+  // Loop 06: items the disagreement detector flagged (system-bot content_reviews rows) get a badge.
+  const flagged = new Set<string>();
+  {
+    const ids = [...lessons.map((l) => l.id), ...questions.map((q) => q.id)];
+    if (ids.length) {
+      const { data } = await db.from("content_reviews").select("target_id").in("target_id", ids).eq("decision", "changes_requested").like("comment", "[system-bot]%");
+      for (const r of data ?? []) flagged.add(r.target_id as string);
+    }
+  }
+  const conflict = (id: string) => flagged.has(id) && <Badge tone="danger" title="The mentor corpus disagreed with this item in a chat answer — see the review history" data-testid="conflict-badge">⚠ mentor disagrees</Badge>;
   const link = (p: Record<string, string>) => `/admin/review?${new URLSearchParams({ type, status, topic, ...p }).toString()}`;
   const tone = (s: string) => (s === "approved" ? "accent" : s === "rejected" ? "danger" : "neutral");
 
@@ -60,6 +70,7 @@ export default async function ReviewQueuePage({ searchParams }: PageProps<"/admi
                 <Link href={`/admin/review/lesson/${l.id}`} className="font-medium hover:underline" data-testid="review-lesson-link">{l.title}</Link>
                 <span className="text-xs text-muted">{l.subtopic?.topic.title} · {l.subtopic?.title} · {l.reading_minutes} min · {l.generated_by ?? "?"}</span>
                 {l.review_note && <span className="text-xs text-danger" title={l.review_note}>note</span>}
+                {conflict(l.id)}
                 <span className="ml-auto flex items-center gap-2 text-xs text-muted"><Badge tone={tone(l.status)}>{l.status}</Badge>{new Date(l.updated_at).toLocaleString("en-GB")}</span>
               </li>
             ))}
@@ -75,6 +86,7 @@ export default async function ReviewQueuePage({ searchParams }: PageProps<"/admi
                 <Link href={`/admin/review/question/${q.id}`} className="font-medium hover:underline" data-testid="review-question-link">{q.question.length > 110 ? `${q.question.slice(0, 110)}…` : q.question}</Link>
                 <span className="text-xs text-muted">{q.topic?.title} · {q.subtopic?.title ?? "—"} · {q.kind} · d{q.difficulty} · {q.generated_by ?? "?"}</span>
                 {q.review_note && <span className="text-xs text-danger" title={q.review_note}>note</span>}
+                {conflict(q.id)}
                 <span className="ml-auto flex items-center gap-2 text-xs text-muted"><Badge tone={tone(q.status)}>{q.status}</Badge>{new Date(q.updated_at).toLocaleString("en-GB")}</span>
               </li>
             ))}

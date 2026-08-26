@@ -80,7 +80,7 @@ export default async function FeedbackPage({ searchParams }: PageProps<"/admin/f
                 <span>· {new Date(r.created_at).toLocaleString("en-GB")}</span>
                 {m?.model && <span>· {m.model}</span>}
                 {m?.prompt_version && <span>· {m.prompt_version}</span>}
-                {m?.content?.rung && <span>· rung {m.content.rung}</span>}
+                {m?.content?.rung && <Badge tone={m.content.rung === "corpus" ? "accent" : "neutral"}>rung {m.content.rung}</Badge>}
                 {m && <Link href={`/home/mentor/${m.thread_id}`} className="ml-auto hover:text-fg">open thread →</Link>}
               </div>
               {r.comment && <p className="mt-2 text-sm italic text-fg">“{r.comment}”</p>}
@@ -108,7 +108,7 @@ export default async function FeedbackPage({ searchParams }: PageProps<"/admin/f
                         <ol className="mt-2 list-decimal space-y-1 pl-4" data-testid="feedback-chunks">
                           {m.retrieval.candidates.map((c) => (
                             <li key={c.id} className={cn(m.retrieval!.reranked.some((x) => x.id === c.id) ? "text-fg" : "")}>
-                              <Link href={`/admin/corpus?chunk=${c.id}`} className="hover:underline">{c.label}</Link>
+                              {c.origin === "content" ? <span title="curriculum chunk (content_chunks)">📖 {c.label}</span> : <Link href={`/admin/corpus?chunk=${c.id}`} className="hover:underline">{c.label}</Link>}
                               <span className="ml-1">({c.score.toFixed(4)}{c.signals.fts_rank ? ` · fts ${c.signals.fts_rank.toFixed(2)}` : ""}{c.signals.similarity ? ` · cos ${c.signals.similarity.toFixed(2)}` : ""})</span>
                             </li>
                           ))}

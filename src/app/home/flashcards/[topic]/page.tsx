@@ -18,7 +18,7 @@ export default async function DeckPage({ params }: PageProps<"/home/flashcards/[
   const db = await createClient();
   const deck = await getDeckSession(db, topic);
   if (!deck) notFound();
-  const cards = deck.cards.map((c) => ({ id: c.id, front: c.front, back_md: c.back_md, isNew: c.isNew, isDue: c.isDue, streak: c.state?.streak ?? 0 }));
+  const cards = deck.cards.map((c) => ({ id: c.id, questionId: c.question_id, front: c.front, back_md: c.back_md, isNew: c.isNew, isDue: c.isDue, streak: c.state?.streak ?? 0 }));
   return (
     <>
       <div>

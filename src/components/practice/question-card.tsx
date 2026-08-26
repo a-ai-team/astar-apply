@@ -1,8 +1,8 @@
 "use client";
 
 // Question bank attempt flow: think timer → reveal → follow-ups → self-grade → next.
-// Follow-ups are not separate attempts (Loop 05 default). Loop 07 mounts AskMentorButton /
-// AI grading below the self-grade row (see `data-testid="question-grade"`).
+// Follow-ups are not separate attempts (Loop 05 default). Loop 06 mounts AskMentorButton in the
+// grade section (carrying the attempt id once recorded); Loop 07 adds AI grading there too.
 import Link from "next/link";
 import { useEffect, useState, useTransition } from "react";
 import type { QuestionBody } from "@/lib/content/question-schema";
@@ -11,6 +11,7 @@ import { Markdown } from "@/components/lesson/markdown";
 import { Reveal } from "@/components/lesson/reveal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { AskMentorButton } from "@/components/chat/ask-mentor-button";
 
 export type SelfGrade = 1 | 2 | 3;
 export const GRADE_LABELS: Record<SelfGrade, string> = { 1: "Missed it", 2: "Partly", 3: "Nailed it" };
@@ -25,6 +26,7 @@ export function QuestionCard({ questionId, difficulty, body, nextHref, backHref 
   const [elapsed, setElapsed] = useState(0); // seconds since the card mounted, frozen once graded
   const [revealed, setRevealed] = useState(false);
   const [grade, setGrade] = useState<SelfGrade | null>(null);
+  const [attemptId, setAttemptId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const left = Math.max(0, total - elapsed);
@@ -39,8 +41,10 @@ export function QuestionCard({ questionId, difficulty, body, nextHref, backHref 
     setError(null);
     startTransition(async () => {
       const res = await recordAttempt({ questionId, selfGrade: g });
-      if (res.ok) setGrade(g);
-      else setError(res.error);
+      if (res.ok) {
+        setGrade(g);
+        setAttemptId(res.attemptId);
+      } else setError(res.error);
     });
   }
 
@@ -101,11 +105,15 @@ export function QuestionCard({ questionId, difficulty, body, nextHref, backHref 
                   ))}
                 </div>
                 {error && <p className="mt-2 text-sm text-danger">{error}</p>}
+                <div className="mt-3">
+                  <AskMentorButton target={{ kind: "question", questionId }} />
+                </div>
               </>
             ) : (
               <div className="flex flex-wrap items-center gap-3" data-testid="attempt-recorded">
                 <Badge tone="accent">Recorded: {GRADE_LABELS[grade]}</Badge>
                 <span className="text-xs text-muted">{elapsed}s on this question</span>
+                <AskMentorButton target={{ kind: "question", questionId, attemptId }} />
                 <div className="ml-auto flex gap-2">
                   <Link href={backHref} className="text-sm text-muted hover:text-fg">Back to bank</Link>
                   {nextHref ? (

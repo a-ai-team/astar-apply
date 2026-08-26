@@ -11,6 +11,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { approvalProblems, validateLessonBody } from "../../src/lib/content/lesson-schema";
 import { validateQuestion } from "../../src/lib/content/question-schema";
 import { findSubtopic } from "../../src/lib/content/taxonomy";
+import { indexLesson, indexQuestion } from "../../src/lib/content/index-content";
 
 loadEnv({ path: ".env.local" });
 
@@ -63,6 +64,8 @@ export async function applyApprovals(decisions: ApproveDecision[], db: SupabaseC
     if (data) {
       const { error: rErr } = await db.from("content_reviews").insert({ target_type: d.kind, target_id: data.id, reviewer_id: null, decision: "approved", comment: "auto-approved by scripts/content/approve.ts after `npm run eval -- --suite lessons,questions` passed" });
       if (rErr) throw new Error(`content_reviews ${d.slug}: ${rErr.message}`);
+      // Loop 06: make the item retrievable by Mentor straight away.
+      if (d.kind === "lesson") await indexLesson(db, data.id); else await indexQuestion(db, data.id);
     }
   }
   return n;

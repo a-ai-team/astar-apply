@@ -2,17 +2,25 @@
 
 // The conversation: message list + composer. Sends POST /api/chat, parses the SSE stream and
 // renders deltas/citations as they arrive; after `done` a brand-new thread navigates to its URL.
+// Loop 06: `context` (question / lesson block) rides along on the first request and is pinned as a
+// chip in the header; `autoSend` fires the opening message once (the "Ask Mentor" flow).
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createSseParser } from "@/lib/chat/sse";
-import type { ChatEvent, Citation, Rung } from "@/lib/chat/types";
+import type { ChatEvent, Citation, Rung, ThreadContext } from "@/lib/chat/types";
 import { CitationDrawer } from "./citation-drawer";
 import { Composer } from "./composer";
 import { MessageBubble } from "./message-bubble";
 
 export type UiMessage = { id: string | null; role: "user" | "assistant"; text: string; citations: Citation[]; rung?: Rung; pending: boolean };
 
-export function ChatPanel({ threadId, title, initialMessages, initialFeedback }: { threadId: string | null; title?: string; initialMessages: UiMessage[]; initialFeedback: Record<string, 1 | -1> }) {
+export type ContextChip = { label: string; href: string };
+
+export function ChatPanel({ threadId, title, initialMessages, initialFeedback, context, contextChip, autoSend }: {
+  threadId: string | null; title?: string; initialMessages: UiMessage[]; initialFeedback: Record<string, 1 | -1>;
+  context?: ThreadContext | null; contextChip?: ContextChip | null; autoSend?: string;
+}) {
   const router = useRouter();
   const [messages, setMessages] = useState<UiMessage[]>(initialMessages);
   const [busy, setBusy] = useState(false);
@@ -29,7 +37,7 @@ export function ChatPanel({ threadId, title, initialMessages, initialFeedback }:
     setMessages((m) => [...m, { id: null, role: "user", text, citations: [], pending: false }, { id: null, role: "assistant", text: "", citations: [], pending: true }]);
     const patch = (fn: (a: UiMessage) => UiMessage) => setMessages((m) => { const copy = [...m]; const last = copy.length - 1; copy[last] = fn(copy[last]); return copy; });
     try {
-      const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ threadId: liveThread.current ?? undefined, message: text }) });
+      const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ threadId: liveThread.current ?? undefined, message: text, context: liveThread.current ? undefined : context ?? undefined }) });
       if (!res.ok || !res.body) {
         const body = await res.json().catch(() => ({}));
         const msg = res.status === 429 ? "You've hit today's message cap — come back tomorrow." : (body.error ?? `Request failed (${res.status})`);
@@ -68,13 +76,29 @@ export function ChatPanel({ threadId, title, initialMessages, initialFeedback }:
     } finally {
       setBusy(false);
     }
-  }, [router]);
+  }, [router, context]);
+
+  // "Ask Mentor about this": send the opening message once, then behave like any thread.
+  const fired = useRef(false);
+  useEffect(() => {
+    if (!autoSend || fired.current || initialMessages.length) return;
+    fired.current = true;
+    void send(autoSend);
+  }, [autoSend, initialMessages.length, send]);
 
   return (
     <div className="flex min-h-0 flex-1 flex-col" data-testid="chat-panel">
       <header className="flex items-center justify-between border-b border-border px-4 py-3 md:px-6">
-        <h1 className="truncate text-base font-semibold" data-testid="chat-title">{title ?? "Mentor"}</h1>
-        <span className="text-xs text-muted">Answers cite the mentor corpus</span>
+        <div className="flex min-w-0 items-center gap-2">
+          <h1 className="truncate text-base font-semibold" data-testid="chat-title">{title ?? "Mentor"}</h1>
+          {contextChip && (
+            <Link href={contextChip.href} className="inline-flex max-w-xs items-center gap-1 truncate rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-xs text-fg hover:border-accent" title={contextChip.label} data-testid="thread-context">
+              <span className="text-accent">↩</span>
+              <span className="truncate">{contextChip.label}</span>
+            </Link>
+          )}
+        </div>
+        <span className="hidden text-xs text-muted sm:inline">Answers cite the mentor corpus and the Technicals curriculum</span>
       </header>
       <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6" data-testid="messages">
         {messages.length === 0 && (

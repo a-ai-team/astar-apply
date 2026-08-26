@@ -17,6 +17,7 @@ import { promptVersionFor } from "@/lib/content/generate/requests";
 import { existingFromDb } from "@/lib/content/generate/service";
 import { generateSync } from "@/lib/content/generate/sync";
 import { lessonTargets, questionTargets, type QuestionTarget } from "@/lib/content/generate/targets";
+import { indexLesson, indexQuestion } from "@/lib/content/index-content";
 
 export type ReviewState = { ok: boolean; errors: string[]; message?: string; at?: string };
 
@@ -56,8 +57,15 @@ export async function decideReview(_prev: ReviewState, formData: FormData): Prom
   const { data: row, error } = await db.from(table).update({ status, review_note: decision === "approved" ? null : comment }).eq("id", id).select("slug").maybeSingle();
   if (error) return { ok: false, errors: [error.message] };
   if (type === "lesson" && row) revalidateTag(`lesson:${row.slug}`, "max");
-  refresh();
-  return { ok: true, errors: [], message: `Recorded: ${decision.replace("_", " ")} → status ${status}`, at: new Date().toISOString() };
+  // Loop 06: keep content_chunks in step — approved → (re)index; anything else → chunks removed.
+  try {
+    const n = type === "lesson" ? await indexLesson(db, id) : await indexQuestion(db, id);
+    refresh();
+    return { ok: true, errors: [], message: `Recorded: ${decision.replace("_", " ")} → status ${status}${status === "approved" ? ` · ${n} chunk(s) indexed for Mentor` : ""}`, at: new Date().toISOString() };
+  } catch (e) {
+    refresh();
+    return { ok: true, errors: [], message: `Recorded: ${decision.replace("_", " ")} → status ${status} · chunk index failed (${(e as Error).message.slice(0, 120)}) — run \`npm run content:index\``, at: new Date().toISOString() };
+  }
 }
 
 export async function regenerateOne(_prev: ReviewState, formData: FormData): Promise<ReviewState> {
@@ -107,6 +115,7 @@ export async function regenerateOne(_prev: ReviewState, formData: FormData): Pro
   } catch (e) {
     return { ok: false, errors: [`regenerate failed: ${(e as Error).message.slice(0, 300)}`] };
   }
+  try { if (type === "lesson") await indexLesson(db, id); else await indexQuestion(db, id); } catch (e) { console.warn("content_chunks: reindex after regenerate failed", e); }
   refresh();
   return { ok: true, errors: [], message: "Regenerated — review the new draft", at: new Date().toISOString() };
 }

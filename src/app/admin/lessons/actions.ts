@@ -9,6 +9,7 @@ import { verifyStaff } from "@/lib/dal";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { approvalProblems, validateLessonBody } from "@/lib/content/lesson-schema";
 import { findSubtopic } from "@/lib/content/taxonomy";
+import { indexLesson } from "@/lib/content/index-content";
 
 export type SaveState = { ok: boolean; errors: string[]; savedAt?: string };
 
@@ -48,6 +49,8 @@ export async function saveLesson(_prev: SaveState, formData: FormData): Promise<
   if (error) return { ok: false, errors: [error.message] };
 
   revalidateTag(`lesson:${existing.slug}`, "max");
+  // Loop 06: content_chunks follow the status (approved → indexed, else removed).
+  try { await indexLesson(admin, id); } catch (e) { console.warn("content_chunks: reindex failed", e); }
   refresh();
   return { ok: true, errors: [], savedAt: new Date().toISOString() };
 }

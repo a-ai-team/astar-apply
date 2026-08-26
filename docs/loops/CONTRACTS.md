@@ -24,7 +24,7 @@ These names, shapes and thresholds are fixed across Loops 01–10. A loop may *a
 | `topics`, `subtopics`, `lessons`, `questions`, `learning_paths`, `learning_path_items` | curriculum | 0004 (Loop 03) |
 | `content_reviews`, `generation_runs` | review queue + batch runs | 0005 (Loop 04) |
 | `flashcards`, `reviews`, `card_state`, `attempts`, `lesson_progress` | practice | 0006 (Loop 05) |
-| `content_chunks` | lesson/question retrieval | 0007 (Loop 06) |
+| `content_chunks` | lesson/question retrieval (+ `chat_threads.context`) | 0007 (Loop 06) |
 | `interviews`, `interview_turns` | mocks | 0008 (Loop 07) |
 | `firms`, `firm_questions`, `firm_question_reports`, `pulse_digests` | firm bank + Pulse | 0009 (Loop 08) |
 | `industry_modules` (view) | industry | 0010 (Loop 09) |
@@ -67,7 +67,7 @@ Required for `approved`: `trap`, `canonical_answer`, `your_turn`, `quick_fire`, 
 Validator `src/lib/content/question-schema.ts`. Flashcards are derived: front = `question`, back = first paragraph of `model_answer_md` unless `body.flashcard_back`.
 
 ### Chat message (`chat_messages.content`)
-`{ text, citations: [{ chunk_id, source_id, kind: "corpus|lesson|question", label, quote, start, end }], rung: "corpus|lesson|prior", model, usage }`.
+`{ text, citations: [{ chunk_id, source_id, kind: "corpus|lesson|question", label, quote, start, end, href? }], rung: "corpus|lesson|prior", model, usage }` — `href` (Loop 06) is the deep link for lesson|question citations (`/home/technicals/<topic>/<lesson>#block-<n>` or `/home/practice/<slug>`).
 
 ### AI module (`src/lib/ai/`)
 - `client.ts` — one `Anthropic`; `MODEL_CHAT = MODEL_JUDGE = "claude-opus-5"`, `MODEL_FAST = "claude-haiku-4-5"`.

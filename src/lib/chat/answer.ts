@@ -1,11 +1,16 @@
 // Step 4–6: the answer. Live mode streams Opus 5 with server-side refusal fallbacks, adaptive
-// thinking (default), medium effort, cached system prompt and citation-enabled documents.
+// thinking (default), medium effort, cached system prompt and citation-enabled documents. Thread
+// context (Loop 06: the question / lesson block the student pressed "Ask Mentor" on) is appended
+// as a `role: "system"` message after the user turn, so the cached prefix never changes; a model
+// that rejects mid-conversation system messages (400) gets it as a <context> block in the user
+// turn instead.
 // Fixture mode composes a deterministic answer from the same chunks with real Citation objects,
 // so UI, persistence, feedback, caps and e2e are exercised without API spend.
-import type Anthropic from "@anthropic-ai/sdk";
 import { MODEL_CHAT, OPUS_BETAS, OPUS_FALLBACKS, getClient } from "@/lib/ai/client";
-import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v1";
-import { buildDocuments, dedupeCitations, documentText, mapCitation } from "./cite";
+import Anthropic from "@anthropic-ai/sdk";
+import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v2";
+import type { ContextBundle } from "./context";
+import { buildDocuments, citationFor, dedupeCitations, documentText, mapCitation } from "./cite";
 import type { ChatEvent, Citation, HistoryTurn, MessageContent, RetrievedChunk, Rung, Usage } from "./types";
 
 export const REFUSAL_TEXT = "Sorry — I can't help with that one. Ask me anything about applications, interviews or technicals and I'll do my best.";
@@ -16,7 +21,7 @@ export function chatModel(): string {
   return process.env.CHAT_MODEL || MODEL_CHAT;
 }
 
-export type AnswerInput = { question: string; history: HistoryTurn[]; chunks: RetrievedChunk[]; rung: Rung };
+export type AnswerInput = { question: string; history: HistoryTurn[]; chunks: RetrievedChunk[]; rung: Rung; context?: ContextBundle | null };
 export type AnswerEvent = Extract<ChatEvent, { type: "delta" | "citation" }>;
 export type AnswerResult = { content: MessageContent; refused: boolean };
 
@@ -24,41 +29,66 @@ export type AnswerResult = { content: MessageContent; refused: boolean };
 export async function* answerLive(input: AnswerInput): AsyncGenerator<AnswerEvent, AnswerResult> {
   const client = getClient();
   const documents = buildDocuments(input.chunks);
-  const userContent: Anthropic.Beta.BetaContentBlockParam[] = [
-    ...documents,
-    {
-      type: "text",
-      text:
-        (input.chunks.length === 0
-          ? "No mentor documents were retrieved for this question. Say so in your first sentence, then give the standard answer.\n\n"
-          : "") + `Student: ${input.question}`,
-    },
-  ];
-  const messages: Anthropic.Beta.BetaMessageParam[] = [
-    ...input.history.map((t) => ({ role: t.role, content: t.text })),
-    { role: "user", content: userContent },
-  ];
-  const stream = client.beta.messages.stream({
-    model: chatModel(),
-    max_tokens: MAX_TOKENS,
-    betas: [...OPUS_BETAS],
-    fallbacks: OPUS_FALLBACKS,
-    output_config: { effort: "medium" },
-    system: [{ type: "text", text: chatMentorPrompt.system, cache_control: { type: "ephemeral" } }],
-    messages,
-  });
+  const preface = input.chunks.length === 0
+    ? "No mentor or curriculum documents were retrieved for this question. Say so in your first sentence, then give the standard answer.\n\n"
+    : input.chunks.every((c) => c.origin === "content")
+      ? "No mentor documents were retrieved; the documents below come from the Technicals curriculum. Say so, answer from them and cite them.\n\n"
+      : "";
+  const build = (contextInUserTurn: boolean): Anthropic.Beta.BetaMessageParam[] => {
+    const userContent: Anthropic.Beta.BetaContentBlockParam[] = [
+      ...documents,
+      { type: "text", text: `${preface}${contextInUserTurn && input.context ? `<context>\n${input.context.text}\n</context>\n\n` : ""}Student: ${input.question}` },
+    ];
+    const messages: Anthropic.Beta.BetaMessageParam[] = [
+      ...input.history.map((t) => ({ role: t.role, content: t.text })),
+      { role: "user", content: userContent },
+    ];
+    if (input.context && !contextInUserTurn) messages.push(systemMessage(input.context.text));
+    return messages;
+  };
+  const open = (messages: Anthropic.Beta.BetaMessageParam[]) =>
+    client.beta.messages.stream({
+      model: chatModel(),
+      max_tokens: MAX_TOKENS,
+      betas: [...OPUS_BETAS],
+      fallbacks: OPUS_FALLBACKS,
+      output_config: { effort: "medium" },
+      system: [{ type: "text", text: chatMentorPrompt.system, cache_control: { type: "ephemeral" } }],
+      messages,
+    });
+  let stream = open(build(false));
   let text = "";
   const citations: Citation[] = [];
-  for await (const ev of stream) {
-    if (ev.type !== "content_block_delta") continue;
-    if (ev.delta.type === "text_delta") {
-      text += ev.delta.text;
-      yield { type: "delta", text: ev.delta.text };
-    } else if (ev.delta.type === "citations_delta") {
-      const c = mapCitation(ev.delta.citation, input.chunks);
-      if (c && !citations.some((x) => x.chunk_id === c.chunk_id)) {
-        citations.push(c);
-        yield { type: "citation", citation: c, index: citations.length };
+  try {
+    for await (const ev of stream) {
+      if (ev.type !== "content_block_delta") continue;
+      if (ev.delta.type === "text_delta") {
+        text += ev.delta.text;
+        yield { type: "delta", text: ev.delta.text };
+      } else if (ev.delta.type === "citations_delta") {
+        const c = mapCitation(ev.delta.citation, input.chunks);
+        if (c && !citations.some((x) => x.chunk_id === c.chunk_id)) {
+          citations.push(c);
+          yield { type: "citation", citation: c, index: citations.length };
+        }
+      }
+    }
+  } catch (e) {
+    // Fallback for models without mid-conversation system messages (README § Mid-conversation).
+    if (!(input.context && !text && isSystemRoleRejected(e))) throw e;
+    console.warn("chat: role 'system' rejected by model — sending context in the user turn");
+    stream = open(build(true));
+    for await (const ev of stream) {
+      if (ev.type !== "content_block_delta") continue;
+      if (ev.delta.type === "text_delta") {
+        text += ev.delta.text;
+        yield { type: "delta", text: ev.delta.text };
+      } else if (ev.delta.type === "citations_delta") {
+        const c = mapCitation(ev.delta.citation, input.chunks);
+        if (c && !citations.some((x) => x.chunk_id === c.chunk_id)) {
+          citations.push(c);
+          yield { type: "citation", citation: c, index: citations.length };
+        }
       }
     }
   }
@@ -78,6 +108,19 @@ export async function* answerLive(input: AnswerInput): AsyncGenerator<AnswerEven
   return { content: { text: fullText || text, citations: dedupeCitations(citations), rung: input.rung, model: final.model, usage }, refused: false };
 }
 
+/**
+ * The per-thread context as a mid-conversation operator message: `role: "system"` inside
+ * `messages`, after the user turn (Opus 5 / Fable 5; no beta). Kept out of the top-level `system`
+ * so the cached prefix is byte-identical across threads.
+ */
+export function systemMessage(text: string): Anthropic.Beta.BetaMessageParam {
+  return { role: "system", content: text };
+}
+
+export function isSystemRoleRejected(e: unknown): boolean {
+  return e instanceof Anthropic.BadRequestError && /role\s*'system'|system.*not supported/i.test(e.message);
+}
+
 const FIXTURE_MODEL = "fixture-v1";
 
 /** Deterministic answer from the top chunks. Same event shape as live, real citations (quote/start/end). */
@@ -89,19 +132,23 @@ export async function* answerFixture(input: AnswerInput): AsyncGenerator<AnswerE
     // Stream in word-ish pieces so the UI's incremental rendering is exercised.
     for (const piece of s.match(/\S+\s*|\s+/g) ?? []) yield { type: "delta", text: piece } as AnswerEvent;
   };
+  if (input.context) yield* emit(`You're asking about ${input.context.kind === "question" ? "the practice question" : "the lesson section"} "${input.context.label}". `);
   if (input.chunks.length === 0) {
     yield* emit(`${PRIOR_PREFIX} I don't have a mentor note on "${input.question.trim()}" yet, so treat this as the textbook version rather than a mentor's take. `);
     yield* emit("Start from first principles, keep the definition in one sentence, and attach one worked number. (Fixture mode: the live model would write the full standard answer here.)");
     return { content: { text, citations: [], rung: "prior", model: FIXTURE_MODEL, usage: null }, refused: false };
   }
-  yield* emit(`Here's what the mentor notes say about "${input.question.trim()}".\n\n`);
-  const top = input.chunks.slice(0, 3);
+  const corpus = input.chunks.filter((c) => c.origin !== "content").slice(0, 3);
+  const content = input.chunks.filter((c) => c.origin === "content").slice(0, 2);
+  // Ladder order: the mentor's notes first, then the curriculum (lesson blocks / bank questions).
+  const top = [...corpus, ...content];
+  yield* emit(corpus.length ? `Here's what the mentor notes say about "${input.question.trim()}".\n\n` : `The mentor hasn't covered "${input.question.trim()}" directly — here's what the Technicals curriculum says.\n\n`);
   for (let i = 0; i < top.length; i++) {
     const chunk = top[i];
     const full = documentText(chunk);
     const quote = bestSentence(chunk.answer ?? chunk.text, input.question);
     const start = Math.max(0, full.indexOf(quote));
-    const c: Citation = { chunk_id: chunk.id, source_id: chunk.source_id, kind: "corpus", label: chunk.label, quote, start, end: start + quote.length };
+    const c: Citation = citationFor(chunk, quote, start, start + quote.length);
     citations.push(c);
     yield* emit(`${i + 1}. ${quote}`);
     yield { type: "citation", citation: c, index: citations.length };
