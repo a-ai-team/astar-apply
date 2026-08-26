@@ -44,3 +44,12 @@ with live zod errors, approval warnings, preview; `saveLesson` server action).
 1. Copy `content/lessons/ev-bridge-basics.json`, change `slug`, `subtopic_slug`, `title`, body.
 2. `npm run content:validate` → fix errors → `npm run seed -- 03`.
 3. Open `/admin/lessons`, set status, save. Students see it once `approved`.
+
+## Generated content & review (Loop 04)
+Lessons and questions are written by Claude through the Batches pipeline described in
+`docs/research/content-pipeline.md` (`npm run content:generate` → `content:collect` → `content:load`
+→ `eval --suite lessons,questions` → `content:approve`). Generated rows land as `generated` (or
+`draft` with `review_note` when the automatic checks failed) and wait in `/admin/review`, where a
+mentor approves, requests changes (→ `in_review`, note stored on the row + `content_reviews`) or
+rejects, or regenerates the item synchronously with a note. `/admin/generation` shows every
+`generation_runs` row (dry-run estimates included). Migration `0005_content_review.sql`.

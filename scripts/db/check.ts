@@ -1,4 +1,4 @@
-// `npm run db:check` — confirms the Loop 01 + 02 + 03 schema is live on the linked project: tables, HNSW
+// `npm run db:check` — confirms the Loop 01 + 02 + 03 + 04 schema is live on the linked project: tables, HNSW
 // index, RLS, retrieval functions, storage bucket. Uses the Supabase CLI (`supabase db query
 // --linked`) because catalog tables are not reachable through PostgREST. Exit 1 on any miss.
 import { execFileSync } from "node:child_process";
@@ -39,7 +39,11 @@ select json_build_object(
   'subtopics', (select count(*) from public.subtopics where status = 'approved'),
   'approved_lessons', (select count(*) from public.lessons where status = 'approved'),
   'approved_questions', (select count(*) from public.questions where status = 'approved'),
-  'path_items', (select count(*) from public.learning_path_items i join public.learning_paths p on p.id = i.path_id where p.slug = 'default-10-week')
+  'path_items', (select count(*) from public.learning_path_items i join public.learning_paths p on p.id = i.path_id where p.slug = 'default-10-week'),
+  'review_tables', (select count(*) from information_schema.tables where table_schema = 'public' and table_name in ('content_reviews','generation_runs')),
+  'review_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname in ('content_reviews','generation_runs')),
+  'review_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('content_reviews','generation_runs')),
+  'review_note_cols', (select count(*) from information_schema.columns where table_schema = 'public' and column_name = 'review_note' and table_name in ('lessons','questions'))
 ) as report;
 `;
 
@@ -73,6 +77,10 @@ function main() {
     ["Loop 03: ≥ 2 approved lessons", Number(r.approved_lessons) >= 2],
     ["Loop 03: ≥ 6 approved questions", Number(r.approved_questions) >= 6],
     ["Loop 03: default-10-week path has 50 items", r.path_items === 50],
+    ["Loop 04: content_reviews + generation_runs exist", r.review_tables === 2],
+    ["Loop 04: RLS enabled on both", r.review_rls === 2],
+    ["Loop 04: staff policies on both", Number(r.review_policies) >= 2],
+    ["Loop 04: review_note on lessons + questions", r.review_note_cols === 2],
   ];
   let ok = true;
   for (const [label, pass] of checks) {

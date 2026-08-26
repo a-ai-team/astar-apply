@@ -26,6 +26,18 @@ export default function AdminPage() {
             <CardDescription>Thumbs-down answers from the mentor chatbot with the chunks it retrieved.</CardDescription>
           </Card>
         </Link>
+        <Link href="/admin/review">
+          <Card className="hover:border-muted">
+            <CardTitle>Review queue</CardTitle>
+            <CardDescription>Generated lessons and questions waiting for a mentor decision.</CardDescription>
+          </Card>
+        </Link>
+        <Link href="/admin/generation">
+          <Card className="hover:border-muted">
+            <CardTitle>Generation</CardTitle>
+            <CardDescription>Batch runs: dry-run estimates, submitted batches, collected results.</CardDescription>
+          </Card>
+        </Link>
         <Link href="/admin/lessons">
           <Card className="hover:border-muted">
             <CardTitle>Lessons</CardTitle>

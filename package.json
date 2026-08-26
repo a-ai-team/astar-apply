@@ -19,7 +19,10 @@
     "cache:check": "tsx scripts/dev/cache-check.ts",
     "fixtures:build": "tsx scripts/dev/make-fixtures.ts",
     "content:validate": "tsx scripts/content/validate.ts content",
-    "content:load": "tsx scripts/content/load.ts content"
+    "content:load": "tsx scripts/content/load.ts content",
+    "content:generate": "tsx scripts/content/generate.ts",
+    "content:collect": "tsx scripts/content/collect.ts",
+    "content:approve": "tsx scripts/content/approve.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",

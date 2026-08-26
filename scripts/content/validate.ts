@@ -11,6 +11,8 @@ export type LessonFile = {
   slug: string; subtopic_slug: string; title: string; ordinal: number;
   status: "draft" | "generated" | "in_review" | "approved" | "rejected" | "archived";
   generated_by: string | null; prompt_version: string | null; body: unknown;
+  /** Loop 04 provenance: problems the automatic checks found, kept on the file for reviewers. */
+  check_problems?: string[];
 };
 
 function jsonFiles(dir: string): string[] {
@@ -18,8 +20,11 @@ function jsonFiles(dir: string): string[] {
   return readdirSync(dir).filter((f) => f.endsWith(".json")).sort().map((f) => path.join(dir, f));
 }
 
-export function validateContentDir(root: string): { lessons: LessonFile[]; questions: ReturnType<typeof validateQuestion>[]; errors: string[] } {
+export type QuestionMeta = { generated_by: string | null; prompt_version: string | null; check_problems: string[] | null };
+
+export function validateContentDir(root: string): { lessons: LessonFile[]; questions: ReturnType<typeof validateQuestion>[]; questionMeta: Map<string, QuestionMeta>; errors: string[] } {
   const errors: string[] = [];
+  const questionMeta = new Map<string, QuestionMeta>();
   const lessons: LessonFile[] = [];
   for (const file of jsonFiles(path.join(root, "lessons"))) {
     const raw = JSON.parse(readFileSync(file, "utf8")) as LessonFile;
@@ -34,9 +39,10 @@ export function validateContentDir(root: string): { lessons: LessonFile[]; quest
   }
   const questions: ReturnType<typeof validateQuestion>[] = [];
   for (const file of jsonFiles(path.join(root, "questions"))) {
-    const raw = JSON.parse(readFileSync(file, "utf8")) as { topic_slug?: string; subtopic_slug?: string | null; status?: string };
+    const raw = JSON.parse(readFileSync(file, "utf8")) as { topic_slug?: string; subtopic_slug?: string | null; status?: string; generated_by?: string; prompt_version?: string; check_problems?: string[] };
     const rel = path.relative(root, file);
     const v = validateQuestion(raw);
+    if (v.ok) questionMeta.set(v.value.slug, { generated_by: raw.generated_by ?? null, prompt_version: raw.prompt_version ?? null, check_problems: raw.check_problems ?? null });
     if (!v.ok) { errors.push(...v.errors.map((e) => `${rel}: ${e}`)); continue; }
     if (!isTopicSlug(v.value.topic_slug)) errors.push(`${rel}: unknown topic_slug ${v.value.topic_slug}`);
     if (v.value.subtopic_slug && !findSubtopic(v.value.subtopic_slug)) errors.push(`${rel}: unknown subtopic_slug ${v.value.subtopic_slug}`);
@@ -45,7 +51,7 @@ export function validateContentDir(root: string): { lessons: LessonFile[]; quest
     }
     questions.push(v);
   }
-  return { lessons, questions, errors };
+  return { lessons, questions, questionMeta, errors };
 }
 
 if (require.main === module) {

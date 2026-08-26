@@ -8,25 +8,8 @@ import { hiddenDir, readJsonl } from "./index";
 
 loadEnv({ path: ".env.local" });
 
-export const N = 8;
-
-export function tokens(text: string): string[] {
-  return text.toLowerCase().replace(/[^\p{L}\p{N}\s]+/gu, " ").split(/\s+/).filter(Boolean);
-}
-
-export function ngrams(text: string, n = N): Set<string> {
-  const t = tokens(text);
-  const out = new Set<string>();
-  for (let i = 0; i + n <= t.length; i++) out.add(t.slice(i, i + n).join(" "));
-  return out;
-}
-
-/** Number of n-grams in `candidate` that also occur in `reference`. */
-export function overlapCount(candidate: string, reference: Set<string>, n = N): number {
-  let hits = 0;
-  for (const g of ngrams(candidate, n)) if (reference.has(g)) hits++;
-  return hits;
-}
+export { N, tokens, ngrams, overlapCount, isTrivialGram, jsonText } from "../../src/lib/content/overlap";
+import { N, ngrams, overlapCount } from "../../src/lib/content/overlap";
 
 function walk(p: string, out: string[] = []): string[] {
   if (!existsSync(p)) return out;
