@@ -1,0 +1,171 @@
+{
+  "_note": "PLACEHOLDER — original, hand-written questions generic to this firm's public programmes, for pipeline testing. Loaded as status=generated (student-invisible) until a human approves them in /admin/firms. recency_year is null everywhere: no provenance is claimed.",
+  "firm": "blackstone",
+  "questions": [
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why Blackstone, and not one of our competitors?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Something specific about Blackstone: a business it is known for, a deal, its strategy — scaling private markets across private equity, real estate, credit and infrastructure\n- A person you have spoken to and what they told you about the culture\n- How that matches the way you like to work\n- Never answer with reputation alone — every applicant says 'prestige'",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": "Private Equity",
+      "question": "Which of our businesses would you want to join and why Private Equity?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Show you know what Private Equity does at Blackstone specifically\n- Tie it to a skill or experience of yours\n- Mention one recent piece of work by that business you have read about",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "'Meritocracy' is one of the things we say we care about. When have you shown it?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Give one concrete story that fits the value without stretching\n- Say what you did, not what the group did\n- Explain why that value matters in client work at a bank",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "What are the advantages and disadvantages for a client of using an independent adviser like Blackstone rather than a large bank?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Independence: no lending or trading conflicts, senior attention, discretion\n- Disadvantages: no balance sheet, so financing is arranged elsewhere\n- Give an example of a situation where each model wins\n- Show you understand how a boutique is paid",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why a boutique like Blackstone rather than a bulge bracket for your first job?",
+      "stage": "hirevue",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Smaller teams, earlier responsibility, more senior exposure — with specifics\n- Acknowledge what you give up: platform breadth, training scale, brand recognition\n- Evidence you have actually spoken to people at both kinds of firm",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "What is happening in the M&A market at the moment?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Volumes and the direction of travel, with a rough number\n- The drivers: rates, financing availability, regulatory scrutiny, sponsor dry powder\n- One or two live deals as evidence\n- Which sectors are busiest and why",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why investment banking rather than consulting or a graduate scheme at a corporate?",
+      "stage": "interview",
+      "programme": "spring",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Concrete reasons tied to the work: transactions, numbers, client outcomes\n- Evidence you have tested the interest: societies, competitions, conversations\n- Honest about the hours, without dwelling on them\n- Avoid saying anything negative about the alternatives",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why this division rather than another part of the bank?",
+      "stage": "hirevue",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Show you know what the division actually does day to day\n- Link it to something you have done that resembles the work\n- Name one thing about the division's recent activity you found interesting",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "What do you think an analyst does in a typical week?",
+      "stage": "interview",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Modelling, pitch materials, deal process work, data gathering\n- Emphasise the supporting role and the attention to detail required\n- Show you have spoken to people who do the job",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Private Equity",
+      "question": "Walk me through the three financial statements and how they link.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Income statement to net income, into cash flow and retained earnings\n- Cash flow statement reconciles net income to cash via non-cash items and working capital\n- Balance sheet: cash and retained earnings are the bridges\n- Use a simple worked example with a single number",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Private Equity",
+      "question": "What is the difference between enterprise value and equity value?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Equity value is the claim of shareholders; enterprise value is the claim of all capital providers\n- Bridge: equity value plus debt and debt-like items, minus cash\n- Match numerator and denominator in multiples: EV with EBITDA, equity value with net income\n- Explain why cash is subtracted",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Private Equity",
+      "question": "Which valuation methods would you use to value a company, and which gives the highest value?",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Trading comparables, precedent transactions, DCF, LBO as a floor\n- Precedents usually highest because of the control premium\n- The DCF depends on assumptions so the answer is 'it depends' — say why\n- Show you can triangulate with a football field",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Private Equity",
+      "question": "If depreciation goes up by £10m, what happens to the three statements?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Income statement: operating profit down 10, net income down 7.5 at 25% tax\n- Cash flow: add back 10, so cash up 2.5\n- Balance sheet: PP&E down 10, cash up 2.5, retained earnings down 7.5 — balances\n- State the tax rate assumption before you start",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Private Equity",
+      "question": "How would you value a company with negative earnings?",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Revenue or gross-profit multiples, a DCF on forecast recovery, or precedent deals\n- Sum-of-the-parts if there are separable assets\n- Explain why P/E is meaningless here\n- Mention the extra weight on the terminal value",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Markets",
+      "question": "What moves the price of a bond, and what is duration?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Prices move inversely to yields; credit and rates are the two drivers\n- Duration is the sensitivity of price to a change in yield, in years\n- Longer maturity and lower coupon mean higher duration\n- Give the rule-of-thumb: price change ≈ −duration × change in yield",
+      "sources": []
+    }
+  ]
+}

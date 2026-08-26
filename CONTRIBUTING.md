@@ -18,6 +18,8 @@ stack. `supabase link --project-ref nvigkfmrxtxvylbhfcwa` once, then:
 | `npm run db:migrate` | `supabase db push --linked` — applies `supabase/migrations/*.sql` to the remote project |
 | `npm run seed -- 00` | creates the three `e2e-*@astar.test` users (idempotent) |
 | `npm run seed -- 01` | ingests `fixtures/corpus/*` → ≥ 40 approved, embedded corpus chunks (idempotent; needs seed 00) |
+| `npm run seed -- 08` | 14 firm dossiers + 210 firm questions (all `generated`, student-invisible) + the synthetic sample Pulse digest (approved) |
+| `npm run firms:author -- [--firm slug]` / `npm run pulse:generate -- [--dry-run]` | Loop 08 AI authoring: firm questions → fixtures; weekly Pulse digest → `pulse_digests` (fixture branch without API credit) |
 | `npm run db:check` | verifies the corpus schema on the remote project (tables, HNSW, RLS, functions, bucket) |
 | `npm run corpus:process -- <id>` / `npm run reembed` | re-run extraction+chunking for one source / re-embed approved chunks after a provider switch |
 | `npm run fixtures:build` | regenerates `fixtures/corpus/sample-note.png` and the (uncommitted) 3-page sample PDF |

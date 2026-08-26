@@ -1,0 +1,171 @@
+{
+  "_note": "PLACEHOLDER — original, hand-written questions generic to this firm's public programmes, for pipeline testing. Loaded as status=generated (student-invisible) until a human approves them in /admin/firms. recency_year is null everywhere: no provenance is claimed.",
+  "firm": "evercore",
+  "questions": [
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why Evercore, and not one of our competitors?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Something specific about Evercore: a business it is known for, a deal, its strategy — growing an independent advisory franchise in Europe from its London office\n- A person you have spoken to and what they told you about the culture\n- How that matches the way you like to work\n- Never answer with reputation alone — every applicant says 'prestige'",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": "Investment Banking",
+      "question": "Which of our businesses would you want to join and why Investment Banking?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Show you know what Investment Banking does at Evercore specifically\n- Tie it to a skill or experience of yours\n- Mention one recent piece of work by that business you have read about",
+      "sources": []
+    },
+    {
+      "category": "about_you",
+      "division": null,
+      "question": "'Client-first advice' is one of the things we say we care about. When have you shown it?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Give one concrete story that fits the value without stretching\n- Say what you did, not what the group did\n- Explain why that value matters in client work at a bank",
+      "sources": []
+    },
+    {
+      "category": "commercial",
+      "division": null,
+      "question": "What are the advantages and disadvantages for a client of using an independent adviser like Evercore rather than a large bank?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Independence: no lending or trading conflicts, senior attention, discretion\n- Disadvantages: no balance sheet, so financing is arranged elsewhere\n- Give an example of a situation where each model wins\n- Show you understand how a boutique is paid",
+      "sources": []
+    },
+    {
+      "category": "motivation",
+      "division": null,
+      "question": "Why a boutique like Evercore rather than a bulge bracket for your first job?",
+      "stage": "hirevue",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Smaller teams, earlier responsibility, more senior exposure — with specifics\n- Acknowledge what you give up: platform breadth, training scale, brand recognition\n- Evidence you have actually spoken to people at both kinds of firm",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "Which valuation methods would you use to value a company, and which gives the highest value?",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Trading comparables, precedent transactions, DCF, LBO as a floor\n- Precedents usually highest because of the control premium\n- The DCF depends on assumptions so the answer is 'it depends' — say why\n- Show you can triangulate with a football field",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "If depreciation goes up by £10m, what happens to the three statements?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Income statement: operating profit down 10, net income down 7.5 at 25% tax\n- Cash flow: add back 10, so cash up 2.5\n- Balance sheet: PP&E down 10, cash up 2.5, retained earnings down 7.5 — balances\n- State the tax rate assumption before you start",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "How would you value a company with negative earnings?",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Revenue or gross-profit multiples, a DCF on forecast recovery, or precedent deals\n- Sum-of-the-parts if there are separable assets\n- Explain why P/E is meaningless here\n- Mention the extra weight on the terminal value",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Markets",
+      "question": "What moves the price of a bond, and what is duration?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Prices move inversely to yields; credit and rates are the two drivers\n- Duration is the sensitivity of price to a change in yield, in years\n- Longer maturity and lower coupon mean higher duration\n- Give the rule-of-thumb: price change ≈ −duration × change in yield",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Markets",
+      "question": "Explain what a swap is and why a company might use one.",
+      "stage": "interview",
+      "programme": "graduate",
+      "frequency": "occasional",
+      "recency_year": null,
+      "guidance_md": "- Exchange of cash flows, typically fixed for floating interest\n- A borrower with floating debt fixes its cost; a lender hedges a fixed book\n- Notional is not exchanged; counterparty risk is on the mark-to-market\n- Give a one-line worked example",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "Walk me through a leveraged buyout at a high level.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Buy with mostly debt, improve operations, pay down debt, exit at a multiple\n- Returns come from deleveraging, earnings growth and multiple expansion\n- Typical leverage and the equity cheque as a share of the purchase price\n- What makes a good LBO candidate: stable cash flows, low capex, scope to improve",
+      "sources": []
+    },
+    {
+      "category": "technical",
+      "division": "Investment Banking",
+      "question": "What returns does a private equity fund target, and how is IRR different from a multiple of money?",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Money multiple ignores time; IRR is the annualised rate that discounts the cash flows to zero\n- A 2x over three years is a very different IRR from 2x over seven\n- Funds typically target around 20% IRR and 2–3x, depending on strategy\n- Explain how leverage inflates IRR without changing the multiple",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Tell me about a time you had to deliver a piece of work to a deadline you thought was unrealistic.",
+      "stage": "interview",
+      "programme": "summer",
+      "frequency": "very_common",
+      "recency_year": null,
+      "guidance_md": "- Set the scene in one sentence: the task, the deadline, why it was tight\n- Say what you prioritised and what you consciously dropped\n- Show how you communicated early with whoever set the deadline\n- Give the outcome and one thing you would do differently",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Describe a situation where you disagreed with someone senior to you. What did you do?",
+      "stage": "hirevue",
+      "programme": "spring",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Pick an example where you were respectful but did not just cave\n- Explain how you made the case with evidence rather than opinion\n- Show you accepted the final decision and made it work\n- Reflect on what the disagreement taught you about influencing",
+      "sources": []
+    },
+    {
+      "category": "behavioural",
+      "division": null,
+      "question": "Give an example of a time you worked in a team that was not functioning well.",
+      "stage": "ac",
+      "programme": "graduate",
+      "frequency": "common",
+      "recency_year": null,
+      "guidance_md": "- Diagnose why it was not working without blaming individuals\n- Describe the specific step you took to change the dynamic\n- Show the result in terms the team cared about\n- Keep it short: interviewers want the action, not the drama",
+      "sources": []
+    }
+  ]
+}

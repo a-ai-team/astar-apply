@@ -74,6 +74,21 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
         </Card>
       </div>
 
+      <div className="grid gap-4 md:grid-cols-2">
+        <Link href="/home/interviews/firms" data-testid="firms-card">
+          <Card className="h-full hover:border-accent">
+            <CardTitle>Firm question banks</CardTitle>
+            <CardDescription>What each bank tends to ask, by stage and programme, with a dossier and process timeline. Practise any question as a one-question drill.</CardDescription>
+          </Card>
+        </Link>
+        <Link href="/home/pulse" data-testid="pulse-card">
+          <Card className="h-full hover:border-accent">
+            <CardTitle>Pulse</CardTitle>
+            <CardDescription>The week&apos;s market stories with interview framing: the 30-second take, three talking points, and the questions they could prompt.</CardDescription>
+          </Card>
+        </Link>
+      </div>
+
       <section>
         <h2 className="text-lg font-semibold">History</h2>
         {history.length === 0 ? (

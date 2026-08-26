@@ -17,7 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { VoiceCapture } from "./voice-capture";
 
-export type RunnerTurn = { ordinal: number; questionId: string; question: string; difficulty: number; topicTitle: string; shownAt: string | null; answered: boolean; score: number | null; grade: Grade | null; attemptId: string | null };
+export type RunnerTurn = { ordinal: number; questionId: string; askMentor?: boolean; question: string; difficulty: number; topicTitle: string; shownAt: string | null; answered: boolean; score: number | null; grade: Grade | null; attemptId: string | null };
 
 type Graded = { score: number; grade: Grade; attemptId: string | null; late: boolean; durationS: number; gradedBy: string };
 
@@ -142,7 +142,7 @@ export function InterviewRunner({ interviewId, mode, secondsPerQuestion, turns, 
             </div>
           </>
         ) : (
-          <GradeReveal graded={graded} questionId={turn.questionId} onNext={next} isLast={turn.ordinal >= turns.length - 1} pending={pending || finishing} />
+          <GradeReveal graded={graded} questionId={turn.askMentor === false ? null : turn.questionId} onNext={next} isLast={turn.ordinal >= turns.length - 1} pending={pending || finishing} />
         )}
       </section>
       {done && <p className="text-xs text-muted">Almost there — the report is next.</p>}
@@ -151,7 +151,7 @@ export function InterviewRunner({ interviewId, mode, secondsPerQuestion, turns, 
   );
 }
 
-function GradeReveal({ graded, questionId, onNext, isLast, pending }: { graded: Graded; questionId: string; onNext: () => void; isLast: boolean; pending: boolean }) {
+function GradeReveal({ graded, questionId, onNext, isLast, pending }: { graded: Graded; questionId: string | null; onNext: () => void; isLast: boolean; pending: boolean }) {
   const g = graded.grade;
   return (
     <div className="mt-4 flex flex-col gap-4" data-testid="grade-reveal">
@@ -176,7 +176,7 @@ function GradeReveal({ graded, questionId, onNext, isLast, pending }: { graded: 
       <div className="rounded-md border border-border p-3 text-sm" data-testid="grade-feedback"><Markdown md={g.feedback_md} /></div>
       <p className="text-sm text-muted" data-testid="grade-tip"><span className="font-semibold text-fg">Interviewer would push on:</span> {g.mentor_tip_md}</p>
       <div className="flex flex-wrap items-center gap-3">
-        <AskMentorButton target={{ kind: "question", questionId, attemptId: graded.attemptId }} />
+        {questionId && <AskMentorButton target={{ kind: "question", questionId, attemptId: graded.attemptId }} />}
         <Button type="button" className="ml-auto" onClick={onNext} disabled={pending} data-testid="runner-next">{isLast ? (pending ? "Building your report…" : "Finish → report") : "Next question →"}</Button>
       </div>
     </div>

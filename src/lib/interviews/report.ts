@@ -81,7 +81,7 @@ export function reportFixture(input: ReportInput): ReportResult {
   }
   if (!focus_areas.length && input.lessons.length) {
     const l = input.lessons[0];
-    focus_areas.push({ topic: l.topic_slug, subtopic: l.subtopic_slug, reason: "No graded answers to analyse yet — start with the fundamentals.", lesson_slug: l.slug, deck: l.topic_slug });
+    focus_areas.push({ topic: l.topic_slug, subtopic: l.subtopic_slug, reason: scored.length ? "These questions are not mapped to a lesson yet (firm questions) — keep the fundamentals sharp." : "No graded answers to analyse yet — start with the fundamentals.", lesson_slug: l.slug, deck: l.topic_slug });
   }
   const summary = [
     `You averaged ${mean.toFixed(1)}/10 across ${scored.length} graded question${scored.length === 1 ? "" : "s"} in this ${input.mode}.`,

@@ -1,0 +1,62 @@
+{
+  "_note": "PLACEHOLDER — unverified draft for pipeline testing. Drafted from the firm's own public careers pages; every fact must be checked there before this row is approved in /admin/firms. No logos, names in plain text.",
+  "slug": "barclays",
+  "name": "Barclays",
+  "type": "bulge_bracket",
+  "founded": 1690,
+  "hq": "London, UK (1 Churchill Place)",
+  "headcount": "approx. 90,000 (2024)",
+  "scale_note": "UK-headquartered universal bank with a global investment bank.",
+  "divisions": [
+    "Investment Bank (Investment Banking, Global Markets, Research)",
+    "UK Corporate Bank",
+    "Private Bank & Wealth Management",
+    "Barclays UK",
+    "US Consumer Bank",
+    "Technology"
+  ],
+  "values": [
+    "Respect",
+    "Integrity",
+    "Service",
+    "Excellence",
+    "Stewardship"
+  ],
+  "process": [
+    {
+      "stage": "Online application",
+      "when": "Sep–Nov (spring/summer); rolling for graduate",
+      "notes": "CV, short motivation questions and programme preference. Early applications are reviewed first."
+    },
+    {
+      "stage": "Online assessments",
+      "when": "Days after applying",
+      "notes": "Numerical, situational-judgement or game-based tests depending on the programme; check the careers page for the current format."
+    },
+    {
+      "stage": "Video interview",
+      "when": "Within ~2 weeks of passing tests",
+      "notes": "Recorded (HireVue-style) answers to motivation, competency and commercial-awareness questions; ~2 minutes per answer."
+    },
+    {
+      "stage": "Assessment centre / final interviews",
+      "when": "Nov–Feb",
+      "notes": "Back-to-back interviews with bankers, sometimes a group exercise or case; technicals appear here for IBD."
+    },
+    {
+      "stage": "Offer",
+      "when": "Typically within 2 weeks of the final round",
+      "notes": "Spring-week converts to summer via an end-of-programme assessment at most banks."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Barclays Careers",
+      "url": "https://home.barclays/careers/"
+    },
+    {
+      "title": "Barclays early careers search",
+      "url": "https://search.jobs.barclays"
+    }
+  ]
+}

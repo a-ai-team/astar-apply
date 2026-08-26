@@ -28,7 +28,7 @@ export default async function InterviewRunnerPage({ params }: PageProps<"/home/i
   const runnerTurns: RunnerTurn[] = turns.flatMap((t) => {
     const q = questions.get(t.question_id);
     if (!q) return [];
-    return [{ ordinal: t.ordinal, questionId: q.id, question: q.question, difficulty: q.difficulty, topicTitle: q.topic_title, shownAt: t.shown_at, answered: Boolean(t.answered_at), score: t.score == null ? null : Number(t.score), grade: t.grade, attemptId: t.attempt_id }];
+    return [{ ordinal: t.ordinal, questionId: q.id, askMentor: q.source !== "firm", question: q.question, difficulty: q.difficulty, topicTitle: q.topic_title, shownAt: t.shown_at, answered: Boolean(t.answered_at), score: t.score == null ? null : Number(t.score), grade: t.grade, attemptId: t.attempt_id }];
   });
   const current = runnerTurns.find((t) => !t.answered) ?? null;
   if (interview.status === "in_progress" && current && !current.shownAt) {
@@ -37,7 +37,7 @@ export default async function InterviewRunnerPage({ params }: PageProps<"/home/i
     current.shownAt = now;
   }
   const abandoned = interview.status === "abandoned";
-  const title = interview.mode === "drill" ? `Drill · ${runnerTurns[0]?.topicTitle ?? "topic"}` : "Full mock";
+  const title = interview.mode === "drill" ? `${questions.get(runnerTurns[0]?.questionId ?? "")?.source === "firm" ? "Practise" : "Drill"} · ${runnerTurns[0]?.topicTitle ?? "topic"}` : "Full mock";
 
   return (
     <>

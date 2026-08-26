@@ -51,6 +51,29 @@ export async function startInterview(formData: FormData): Promise<void> {
   redirect(`/home/interviews/${created.id}`);
 }
 
+/**
+ * Loop 08 "Practise this": a 1-question drill on an approved firm question (Loop 07 retro note 1).
+ * Same runner, grader and report; the turn carries `firm_question_id` instead of `question_id`.
+ */
+export async function startDrillFor(formData: FormData): Promise<void> {
+  const session = await verifySession("/home/interviews/firms");
+  const firmQuestionId = String(formData.get("firmQuestionId") ?? "");
+  const back = String(formData.get("back") ?? "/home/interviews/firms");
+  if (!UUID.test(firmQuestionId)) redirect(back.startsWith("/home/") ? back : "/home/interviews/firms");
+  const db = await createClient();
+  const questions = await getInterviewQuestions(db, [firmQuestionId]);
+  if (!questions.get(firmQuestionId)) redirect(`${back.startsWith("/home/") ? back : "/home/interviews/firms"}?error=${encodeURIComponent("That question is not available to practise yet.")}`);
+  const { data: created, error } = await db
+    .from("interviews")
+    .insert({ user_id: session.userId, mode: "drill", topic_id: null, question_ids: [firmQuestionId], seconds_per_question: DRILL_SECONDS })
+    .select("id")
+    .single();
+  if (error || !created) throw new Error(error?.message ?? "could not create interview");
+  const { error: tErr } = await db.from("interview_turns").insert({ interview_id: created.id, ordinal: 0, question_id: null, firm_question_id: firmQuestionId, shown_at: new Date().toISOString() });
+  if (tErr) throw new Error(tErr.message);
+  redirect(`/home/interviews/${created.id}`);
+}
+
 const MetricsSchema = z.object({
   wpm: z.number().min(0).max(600).nullable().optional(),
   filler_count: z.number().int().min(0).max(500).optional(),
@@ -108,19 +131,24 @@ export async function submitTurn(input: SubmitTurnInput): Promise<SubmitTurnResu
   const graded = await gradeTurn({ question: q, answer: answerText, metrics, secondsAllowed: interview!.seconds_per_question }, mode);
 
   const db = await createClient();
-  const { data: attempt, error: aErr } = await db
-    .from("attempts")
-    .insert({ user_id: session.userId, question_id: q.id, mode: interview!.mode, self_grade: null, answer_text: answerText || null, ai_score: graded.score, ai_feedback: graded.grade, interview_id: interview!.id })
-    .select("id")
-    .single();
-  if (aErr) return { ok: false, error: aErr.message };
+  // Firm questions (Loop 08) are not `questions` rows, so they get no attempts row (attempts.question_id FK).
+  let attemptId: string | null = null;
+  if (q.source !== "firm") {
+    const { data: attempt, error: aErr } = await db
+      .from("attempts")
+      .insert({ user_id: session.userId, question_id: q.id, mode: interview!.mode, self_grade: null, answer_text: answerText || null, ai_score: graded.score, ai_feedback: graded.grade, interview_id: interview!.id })
+      .select("id")
+      .single();
+    if (aErr) return { ok: false, error: aErr.message };
+    attemptId = attempt.id as string;
+  }
   const { error: uErr } = await db
     .from("interview_turns")
-    .update({ attempt_id: attempt.id, answered_at: now.toISOString(), answer_text: answerText || null, transcript_meta: metrics, score: graded.score, grade: graded.grade, prompt_version: graded.prompt_version, graded_at: new Date().toISOString() })
+    .update({ attempt_id: attemptId, answered_at: now.toISOString(), answer_text: answerText || null, transcript_meta: metrics, score: graded.score, grade: graded.grade, prompt_version: graded.prompt_version, graded_at: new Date().toISOString() })
     .eq("id", turn.id);
   if (uErr) return { ok: false, error: uErr.message };
   const nextShown = nextTurn ? nextTurn.shown_at ?? (await serve(db, nextTurn.id)) : null;
-  return { ok: true, score: graded.score, grade: graded.grade, attemptId: attempt.id as string, late, durationS, next: nextTurn && nextShown ? { ordinal: nextTurn.ordinal, shownAt: nextShown } : null, gradedBy: graded.prompt_version };
+  return { ok: true, score: graded.score, grade: graded.grade, attemptId, late, durationS, next: nextTurn && nextShown ? { ordinal: nextTurn.ordinal, shownAt: nextShown } : null, gradedBy: graded.prompt_version };
 }
 
 async function serve(db: Awaited<ReturnType<typeof createClient>> | ReturnType<typeof createAdminClient>, turnId: string): Promise<string> {
