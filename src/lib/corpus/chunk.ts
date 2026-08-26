@@ -98,10 +98,15 @@ export function chunkText(markdown: string, kind: "paragraph" | "note" = "paragr
   let cur: string[] = [];
   let curTokens = 0;
 
+  // Number of leading blocks in `cur` that are overlap carried from the previous window. They are
+  // never allowed to cross a heading (Loop 02 retro: chunks used to open with the previous
+  // section's tail under the new section's heading, so labels were off by one section).
+  let carryCount = 0;
+
   const flush = () => {
     if (!cur.length) return;
     const body = cur.join("\n\n");
-    const text = heading && !body.startsWith(heading) ? `${heading}\n\n${body}` : body;
+    const text = heading && !cur.includes(heading) ? `${heading}\n\n${body}` : body;
     out.push({ kind, ordinal: out.length, text, token_count: estimateTokens(text) });
     // carry over trailing blocks worth ~15 % of the window as overlap
     const budget = Math.floor(curTokens * OVERLAP);
@@ -114,16 +119,28 @@ export function chunkText(markdown: string, kind: "paragraph" | "note" = "paragr
       carried += t;
     }
     cur = carry.length < cur.length ? carry : [];
+    carryCount = cur.length;
     curTokens = cur.reduce((s, b) => s + estimateTokens(b), 0);
   };
 
   for (const b of blocks) {
     const t = estimateTokens(b);
     if (isHeading(b)) {
-      if (curTokens >= MIN_WINDOW_TOKENS) flush();
-      // a heading starts a new section: drop overlap carried from the previous section
-      if (cur.length && curTokens < MIN_WINDOW_TOKENS && cur.every((x) => !isHeading(x))) {
-        // keep short preamble together with the new heading
+      // A heading starts a new section: drop overlap carried from the previous section, and flush
+      // whatever genuinely belongs to the old section (even if short) so it keeps the old label.
+      if (carryCount) {
+        cur = cur.slice(carryCount);
+        curTokens = cur.reduce((s, x) => s + estimateTokens(x), 0);
+        carryCount = 0;
+      }
+      // Short preambles (a title line, a one-sentence intro) stay with the next section instead of
+      // becoming a chunk of their own.
+      const bodyTokens = cur.filter((x) => !isHeading(x)).reduce((s, x) => s + estimateTokens(x), 0);
+      if (bodyTokens >= MIN_PAGE_TOKENS) {
+        flush();
+        cur = [];
+        carryCount = 0;
+        curTokens = 0;
       }
       heading = b;
       cur.push(b);

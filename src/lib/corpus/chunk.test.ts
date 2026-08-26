@@ -55,6 +55,20 @@ describe("chunkText", () => {
     });
     expect(overlaps).toBe(true);
   });
+  it("never carries the previous section's overlap under a new heading (Loop 02 retro bug)", () => {
+    const md = `# Depreciation walk\n\n${[1, 2, 3, 4, 5].map(para).join("\n\n")}\n\n## Equity value to enterprise value\n\n${[6, 7, 8].map(para).join("\n\n")}`;
+    const chunks = chunkText(md);
+    const ev = chunks.filter((c) => c.text.startsWith("## Equity value"));
+    expect(ev.length).toBeGreaterThanOrEqual(1);
+    for (const c of ev) {
+      expect(c.text.split("\n\n")[1]).toMatch(/^Paragraph [678]\./);
+      expect(c.text).not.toMatch(/Paragraph [1-5]\./);
+    }
+    // the last window of the first section keeps its own heading
+    const dep = chunks.filter((c) => c.text.startsWith("# Depreciation"));
+    expect(dep.some((c) => c.text.includes("Paragraph 5."))).toBe(true);
+    expect(dep.every((c) => !c.text.includes("Paragraph 6."))).toBe(true);
+  });
   it("keeps formula blocks intact", () => {
     const md = `# F\n\n${para(1)}\n\n$$\nEV = Eq + ND\n$$\n\n${para(2)}`;
     const blocks = splitBlocks(md);

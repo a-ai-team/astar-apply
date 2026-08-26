@@ -25,7 +25,7 @@ system prompt v2 (ladder + content citation format, same cached structure); cont
 
 ## Tasks
 - [x] migration + fns
-- [ ] indexer + approve hook
+- [x] indexer + approve hook
 - [ ] union/ladder/bias/cap
 - [ ] prompt v2 + context injection
 - [ ] thread context + `/new`
