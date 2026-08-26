@@ -24,7 +24,7 @@ FSRS defaults (`request_retention 0.9`); search only `approved`; flashcard keys 
 
 ## Tasks
 - [x] migration + view
-- [ ] `src/lib/practice/srs.ts` + tests
+- [x] `src/lib/practice/srs.ts` + tests
 - [ ] derivation seed
 - [ ] bank list/filters/card/`recordAttempt`
 - [ ] palette + search
