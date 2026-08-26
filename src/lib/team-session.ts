@@ -27,21 +27,38 @@ export type TeamSessionResult = { ok: true; userId: string } | { ok: false; erro
  * failures are logged and returned so the caller can decide what to do.
  */
 export async function establishTeamSession(): Promise<TeamSessionResult> {
+  // Serialise within this process: generating a magic link invalidates the previous one, so
+  // concurrent entries (a navigation plus its prefetches, all bounced to /auth/team) would
+  // otherwise race and fail. Each call still writes cookies to its own request.
+  const run = queue.then(establishTeamSessionNow, establishTeamSessionNow);
+  queue = run.then(noop, noop);
+  return run;
+}
+
+let queue: Promise<unknown> = Promise.resolve();
+const noop = () => undefined;
+
+async function establishTeamSessionNow(): Promise<TeamSessionResult> {
   try {
     const admin = createAdminClient();
     const email = teamUserEmail();
 
     const userId = await ensureTeamUser(admin, email);
 
-    const { data: link, error: linkError } = await admin.auth.admin.generateLink({ type: "magiclink", email });
-    if (linkError) throw linkError;
-    const token_hash = link.properties.hashed_token;
-
     const supabase = await createClient();
-    const { error: verifyError } = await supabase.auth.verifyOtp({ type: "magiclink", token_hash });
-    if (verifyError) throw verifyError;
-
-    return { ok: true, userId };
+    // One retry for the cross-instance race the in-process queue cannot cover.
+    let lastError: unknown;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const { data: link, error: linkError } = await admin.auth.admin.generateLink({ type: "magiclink", email });
+      if (linkError) throw linkError;
+      const { error: verifyError } = await supabase.auth.verifyOtp({
+        type: "magiclink",
+        token_hash: link.properties.hashed_token,
+      });
+      if (!verifyError) return { ok: true, userId };
+      lastError = verifyError;
+    }
+    throw lastError;
   } catch (e) {
     const error = e instanceof Error ? e.message : String(e);
     console.error("[team-session] failed to establish team session:", error);
