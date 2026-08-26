@@ -38,6 +38,17 @@ export function planNeededFor(feature: Feature): PlanId {
   return "ai";
 }
 
+/**
+ * May the StripeStub grant plans here? Dev/test only: NODE_ENV !== "production", or
+ * ALLOW_STUB_CHECKOUT=true (Playwright sets it for its `next start`, which runs as production).
+ * Never on Vercel production and never when a real Stripe key exists.
+ */
+export function stubGrantsAllowed(): boolean {
+  if (process.env.VERCEL_ENV === "production") return false;
+  if (process.env.STRIPE_SECRET_KEY) return false;
+  return process.env.NODE_ENV !== "production" || process.env.ALLOW_STUB_CHECKOUT === "true";
+}
+
 // Dev-only memory store: the StripeStub's "success" grants a plan even when 0011 is unapplied so
 // the gating e2e can run against the sandbox. Never used in production (setPlan refuses).
 // TODO(james): delete once 0011 is applied everywhere and the real Stripe path is wired.
@@ -50,7 +61,7 @@ export function isTableMissing(error: { code?: string; message?: string } | null
 
 /** Reads the user's entitlement. Table absent / no row → free. */
 export async function getEntitlement(db: SupabaseClient, userId: string): Promise<Entitlement> {
-  const mem = process.env.NODE_ENV !== "production" ? memoryPlans.get(userId) : undefined;
+  const mem = stubGrantsAllowed() ? memoryPlans.get(userId) : undefined;
   if (mem) return entitlementFor(mem, "memory");
   const { data, error } = await db.from("entitlements").select("plan_id, features").eq("user_id", userId).maybeSingle();
   if (error) {
@@ -77,7 +88,7 @@ export type SubscriptionPatch = {
 export async function setPlan(db: SupabaseClient, userId: string, plan: PlanId, sub?: SubscriptionPatch): Promise<Entitlement> {
   const ent = await db.from("entitlements").upsert({ user_id: userId, plan_id: plan, features: featuresFor(plan), computed_at: new Date().toISOString() }, { onConflict: "user_id" });
   if (ent.error) {
-    if (isTableMissing(ent.error) && process.env.NODE_ENV !== "production") {
+    if (isTableMissing(ent.error) && stubGrantsAllowed()) {
       console.warn("entitlements: table missing (0011 unapplied) — plan kept in memory for this process");
       memoryPlans.set(userId, plan);
       return entitlementFor(plan, "memory");

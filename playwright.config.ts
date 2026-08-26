@@ -13,6 +13,11 @@ process.env.EMBEDDINGS_PROVIDER ??= "local";
 // spend); the daily cap is 1 so the 429 path is exercised (e2e resets the student's usage first).
 process.env.CHAT_MODE = "fixture";
 process.env.CHAT_DAILY_CAP = "1";
+// Loop 10: the launch spec exercises the public flow (gate 1 off); the "flag off → 307 /unlock"
+// check runs separately with curl against a PUBLIC_LAUNCH=false server. No Stripe key → StripeStub.
+process.env.PUBLIC_LAUNCH = "true";
+process.env.ALLOW_STUB_CHECKOUT = "true"; // `next start` is NODE_ENV=production; let the stub grant plans to e2e users
+process.env.DEMO_CHAT_DAILY_CAP = "3";
 
 const PORT = 3100;
 

@@ -26,11 +26,24 @@ export async function unlockPrivateArea(page: Page, baseURL: string) {
  * `hashed_token` + our own route rather than `action_link` because the Supabase verify
  * endpoint redirects with a URL fragment / PKCE code that a fresh browser cannot exchange.
  */
-export async function signInAs(page: Page, email: E2EUser, next = "/home") {
+export type E2EPlan = "free" | "core" | "ai";
+
+/**
+ * Loop 10: every spec before 10 was written when all content was open, so signing in grants the
+ * `core` plan through the StripeStub success page (memory store when 0011 is unapplied; never in
+ * production). Pass `plan: "free"` to test the gates, or `null` to leave the plan untouched.
+ */
+export async function signInAs(page: Page, email: E2EUser, next = "/home", plan: E2EPlan | null = "core") {
   const { data, error } = await admin().auth.admin.generateLink({ type: "magiclink", email });
   if (error) throw error;
   const tokenHash = data.properties.hashed_token;
-  await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(next)}`);
+  if (!plan) {
+    await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(next)}`);
+    return;
+  }
+  await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(`/billing/success?stub=1&plan=${plan}&next=${encodeURIComponent(next)}`)}`);
+  await page.waitForSelector(`[data-testid="billing-success"][data-plan="${plan}"]`);
+  await page.goto(next);
 }
 
 /** Clears today's usage_daily row for a test user (Loop 02: CHAT_DAILY_CAP=1 in e2e). */

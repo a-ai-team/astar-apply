@@ -1,12 +1,12 @@
 // /billing/success — where Checkout lands. Real Stripe: the webhook has (or is about to) set the
 // plan; we just show the current entitlement. Stub (`?stub=1&plan=`): grants the plan directly,
-// NEVER in production (NODE_ENV guard) — the linked project is the only environment, so this is
+// NEVER in production (`stubGrantsAllowed()`: NODE_ENV !== production or ALLOW_STUB_CHECKOUT=true, never on Vercel production / with a Stripe key) — the linked project is the only environment, so this is
 // how the gating e2e flips e2e-student between free and core.
 import type { Metadata } from "next";
 import Link from "next/link";
 import { verifySession } from "@/lib/dal";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { getEntitlement, setPlan } from "@/lib/billing/entitlements";
+import { getEntitlement, setPlan, stubGrantsAllowed } from "@/lib/billing/entitlements";
 import { isPlanId, planById } from "@/lib/billing/plans";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { safeNext } from "@/lib/site";
@@ -22,7 +22,7 @@ export default async function BillingSuccessPage({ searchParams }: PageProps<"/b
   const wanted = typeof sp.plan === "string" && isPlanId(sp.plan) ? sp.plan : null;
   let note: string | null = null;
   if (stub && wanted) {
-    if (process.env.NODE_ENV === "production") {
+    if (!stubGrantsAllowed()) {
       note = "Stub checkout is disabled in production.";
     } else {
       const ent = await setPlan(db, session.userId, wanted, { status: "active", stripe_customer_id: null, stripe_subscription_id: null });
