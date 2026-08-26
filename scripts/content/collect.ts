@@ -155,7 +155,8 @@ async function main(argv = process.argv.slice(2)) {
     if (run && db) await updateRun(db, run.id, { status: "ended" });
   }
 
-  const r = await collectFromRows(rows, { out, critic, force, model, batch: true });
+  // Fixture files are hand-authored, so provenance must not claim a model wrote them.
+  const r = await collectFromRows(rows, { out, critic, force, model, batch: true, generatedBy: file ? `fixture:${path.basename(file)}` : undefined });
   printSummary(r);
   if (run && db) {
     await updateRun(db, run.id, { status: "collected", succeeded: r.summary.written + r.summary.draft, failed: r.summary.failed, cost_usd: r.summary.cost_usd, finished_at: new Date().toISOString(), params: { ...run.params, collect: { ...r.summary, out } } });
