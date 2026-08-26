@@ -131,3 +131,56 @@ Migration `0008_interviews.sql`: `interviews` (mode `drill|mock`, `question_ids 
 - **Loop 08 "Practise this"**: create a 1-question drill by inserting `interviews {mode:'drill',
   question_ids:[id], seconds_per_question}` + one `interview_turns` row (ordinal 0, `shown_at: now`) —
   `startInterview` only knows topics; add a `questionIds` path or a `startDrillFor(questionId)` action.
+
+## Firm interview bank + Pulse (Loop 08)
+Operator guide (approval workflow, commands): `docs/FIRMS_PULSE.md`.
+
+Migration `0009_firms_pulse.sql`: `firms` (slug, type `bulge_bracket|elite_boutique|uk_mid|buy_side|other`,
+dossier columns, `process jsonb [{stage, when, notes}]`, `sources`, `status content_status`),
+`firm_questions` (category / stage `hirevue|interview|ac` / programme / frequency / `recency_year` /
+`guidance_md` / `status` / `reported_by` / `generated_by`; unique on `(firm_id, question)`),
+`firm_question_reports` (student reports, `pending|approved|rejected`, `reviewer_id`, `reviewed_at`,
+`promoted_question_id`) and `pulse_digests` (`week_start date unique`, `body jsonb`, `status`, `model`,
+`prompt_version`). `interview_turns.firm_question_id` (one-of check with `question_id`) lets a firm
+question be drilled without a mirror `questions` row. RLS: students read `approved` firms, `approved`
+questions of `approved` firms and `approved` digests; own-insert on reports; staff all. `db:check` 46/46.
+- **Status gate.** Every row `seed -- 08` and `firms:author` writes is `generated` = **unverified and
+  invisible to students**; the only approved Loop 08 row is the synthetic sample digest
+  (`fixtures/pulse/sample-week.json`, week 2026-08-24, `prompt_version fixture:sample-week.v1`, which
+  the pages flag with a "sample" banner). Approve firms + their questions in `/admin/firms/[slug]`
+  (JSON editor with live `FirmSchema` validation, status select, per-question Approve/Reject, bulk
+  "Approve all unverified"); approve digests in `/admin/pulse`. A question needs **both** its own and
+  its firm's approval to be served.
+- **Data**: `fixtures/firms/<slug>.json` (14 dossiers from the firms' own careers pages, sources
+  listed) and `fixtures/firms/questions/<slug>.json` (15 hand-written questions each, 210 total,
+  `recency_year: null` — no fake provenance; guidance = "what a strong answer covers" as dash bullets).
+  Shapes: `src/lib/firms/schema.ts` (`FirmSchema`, `FirmQuestionSchema`, `AuthoredQuestionsSchema`).
+  `npm run seed -- 08` upserts firms on slug and questions on `(firm_id, question)`, refreshing content
+  but never touching `status` on an existing row; it also upserts the sample digest as `approved`.
+- **Authoring** (`npm run firms:author -- [--firm <slug>|all] [--write] [--dry-run]`): Opus 5 structured output
+  (`firm-questions.v1`), 10–15 questions per firm, written to `.eval/firms/<slug>.json` (`--write` replaces the fixture); without credit it
+  prints `NO API CREDIT` and keeps the hand-written file. Re-seed afterwards.
+- **Pages**: `/home/interviews/firms` (grid of approved firms with counts), `/home/interviews/firms/[slug]`
+  (dossier, `ProcessTimeline`, `FirmQuestionList` with stage / programme / category / division chips,
+  guidance accordion, **Practise this** → `startDrillFor(firmQuestionId)` creates a 1-question drill:
+  `interviews {mode:'drill', question_ids:[id]}` + one turn with `firm_question_id`; the runner/grader/
+  report load it through `getFirmInterviewQuestions`, deriving model answer + key points from
+  `guidance_md` via `gradeMaterialFromGuidance`), `/home/interviews/report` (`reportQuestion`, 5 per UTC
+  day counted on `firm_question_reports`), `/admin/reports` (approve → promoted to an `approved`
+  `firm_questions` row with `reported_by`, `recency_year` from `asked_at`, `generated_by report:<id>`).
+- **Pulse** (`src/lib/pulse/`): `generate.ts` — research pass (Opus 5 + server-side
+  `web_search_20260209`, `max_uses 8`, `allowed_domains` from `PULSE_ALLOWED_DOMAINS`, resumed on
+  `pause_turn`) then structured pass (`beta.messages.parse` + `DigestBodySchema`: 3–6 stories, each
+  `headline, take_md, talking_points[3], anchors, practice_qs, sources`), `enforceSources` keeps only
+  URLs the search actually returned (or allowed domains) and drops sourceless stories (fails under 3).
+  Fixture branch (no credit / `CHAT_MODE=fixture` / `--fixture`): recorded `fixtures/recorded/pulse-search.v1.sample.json`
+  + the sample body. `storeDigest` upserts on `week_start` as `generated` (`PULSE_AUTO_PUBLISH=true` →
+  `approved`), never downgrades an approved week, skips an existing week unless `--force`.
+  `npm run pulse:generate -- [--week YYYY-MM-DD] [--dry-run] [--force] [--fixture]` writes
+  `.eval/pulse-<week>.json`. **Cron**: `GET /api/cron/pulse` (`vercel.json` `0 6 * * 1`, Monday 06:00
+  UTC) requires `Authorization: Bearer <CRON_SECRET>` (401 otherwise, also when the var is unset;
+  `?week=`, `?force=1`, `?dry=1`), `maxDuration 300`. Pages `/home/pulse` (latest approved + archive)
+  and `/home/pulse/[week]` (Monday only; 404 otherwise) render `DigestView`.
+- **Env**: `CRON_SECRET`, `PULSE_AUTO_PUBLISH` (default false), `PULSE_ALLOWED_DOMAINS`, `PULSE_MODEL`.
+- **Tests**: `e2e/08-firms.spec.ts` (3; approves one firm in `beforeAll`, restores `generated` after);
+  vitest in `src/lib/firms`, `src/lib/pulse`, `src/components/firms`.

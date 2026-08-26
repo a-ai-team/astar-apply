@@ -50,3 +50,6 @@ when you touch `src/lib/ai`, `supabase`, `content`, `src/app`, or tests.
 
 ## Mentor chatbot
 `/home/mentor` streams cited answers from the mentor corpus — pipeline, modes (`CHAT_MODE`), evals: `docs/CHAT.md`.
+
+## Firm bank + Pulse
+Firm question banks, report form and the weekly Pulse digest (Loop 08) — all seeded rows stay `generated` until approved in admin; see `docs/FIRMS_PULSE.md`.
