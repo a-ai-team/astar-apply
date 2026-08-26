@@ -1,6 +1,6 @@
 # Loop 05 — Practice: question bank + flashcards
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 browse/filter approved questions (⌘K), attempt with reveal + self-grade, FSRS flashcard decks per topic, progress dashboard with streaks and lesson completion.
 ## Out of scope
@@ -23,7 +23,7 @@ FSRS defaults (`request_retention 0.9`); search only `approved`; flashcard keys 
 - [ ] unauthenticated `/home/practice` → `/login`
 
 ## Tasks
-- [ ] migration + view
+- [x] migration + view
 - [ ] `src/lib/practice/srs.ts` + tests
 - [ ] derivation seed
 - [ ] bank list/filters/card/`recordAttempt`
