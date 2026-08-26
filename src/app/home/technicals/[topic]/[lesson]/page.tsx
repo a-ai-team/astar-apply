@@ -9,6 +9,8 @@ import { getLesson } from "@/lib/content/queries";
 import { LessonBodySchema } from "@/lib/content/lesson-schema";
 import { LessonRenderer } from "@/components/lesson/lesson-renderer";
 import { Badge } from "@/components/ui/badge";
+import { isLessonComplete } from "@/lib/practice/queries";
+import { LessonProgressControls } from "@/components/practice/lesson-progress-controls";
 
 export async function generateMetadata({ params }: PageProps<"/home/technicals/[topic]/[lesson]">): Promise<Metadata> {
   const { lesson } = await params;
@@ -25,6 +27,7 @@ export default async function LessonPage({ params }: PageProps<"/home/technicals
   if (!lesson || lesson.subtopic.topic.slug !== topicSlug) notFound();
   const body = LessonBodySchema.safeParse(lesson.body);
   if (!body.success) notFound();
+  const completed = await isLessonComplete(db, lesson.id);
   return (
     <>
       <div>
@@ -42,6 +45,7 @@ export default async function LessonPage({ params }: PageProps<"/home/technicals
         </p>
       </div>
       <LessonRenderer body={body.data} />
+      <LessonProgressControls lessonId={lesson.id} topicSlug={lesson.subtopic.topic.slug} completed={completed} />
     </>
   );
 }

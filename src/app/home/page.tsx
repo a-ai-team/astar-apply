@@ -25,10 +25,13 @@ export default async function HomePage() {
             <CardDescription>The textbook for IB technicals that doesn&apos;t exist yet.</CardDescription>
           </Card>
         </Link>
-        {[
-          ["Practice", "Question bank and spaced-repetition flashcards."],
-          ["Interviews", "AI mock interviews graded against model answers."],
-        ].map(([title, desc]) => (
+        <Link href="/home/practice" data-testid="home-practice-card">
+          <Card className="hover:border-muted">
+            <CardTitle>Practice</CardTitle>
+            <CardDescription>Question bank, spaced-repetition flashcards and your progress.</CardDescription>
+          </Card>
+        </Link>
+        {[["Interviews", "AI mock interviews graded against model answers."]].map(([title, desc]) => (
           <Card key={title} className="opacity-70">
             <CardTitle>{title}</CardTitle>
             <CardDescription>{desc}</CardDescription>

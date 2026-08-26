@@ -1,4 +1,4 @@
-// `npm run db:check` — confirms the Loop 01 + 02 + 03 + 04 schema is live on the linked project: tables, HNSW
+// `npm run db:check` — confirms the Loop 01–05 schema is live on the linked project: tables, HNSW
 // index, RLS, retrieval functions, storage bucket. Uses the Supabase CLI (`supabase db query
 // --linked`) because catalog tables are not reachable through PostgREST. Exit 1 on any miss.
 import { execFileSync } from "node:child_process";
@@ -43,7 +43,13 @@ select json_build_object(
   'review_tables', (select count(*) from information_schema.tables where table_schema = 'public' and table_name in ('content_reviews','generation_runs')),
   'review_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname in ('content_reviews','generation_runs')),
   'review_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('content_reviews','generation_runs')),
-  'review_note_cols', (select count(*) from information_schema.columns where table_schema = 'public' and column_name = 'review_note' and table_name in ('lessons','questions'))
+  'review_note_cols', (select count(*) from information_schema.columns where table_schema = 'public' and column_name = 'review_note' and table_name in ('lessons','questions')),
+  'practice_tables', (select count(*) from information_schema.tables where table_schema = 'public' and table_name in ('flashcards','reviews','card_state','attempts','lesson_progress')),
+  'practice_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname in ('flashcards','reviews','card_state','attempts','lesson_progress')),
+  'practice_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('flashcards','reviews','card_state','attempts','lesson_progress')),
+  'practice_views', (select count(*) from information_schema.views where table_schema = 'public' and table_name in ('user_stats','user_activity_days')),
+  'search_content', (select count(*) from pg_proc where pronamespace = 'public'::regnamespace and proname = 'search_content'),
+  'tsv_cols', (select count(*) from information_schema.columns where table_schema = 'public' and column_name = 'tsv' and table_name in ('lessons','questions'))
 ) as report;
 `;
 
@@ -81,6 +87,12 @@ function main() {
     ["Loop 04: RLS enabled on both", r.review_rls === 2],
     ["Loop 04: staff policies on both", Number(r.review_policies) >= 2],
     ["Loop 04: review_note on lessons + questions", r.review_note_cols === 2],
+    ["Loop 05: flashcards/reviews/card_state/attempts/lesson_progress exist", r.practice_tables === 5],
+    ["Loop 05: RLS enabled on all five", r.practice_rls === 5],
+    ["Loop 05: own + staff policies on all five", Number(r.practice_policies) >= 10],
+    ["Loop 05: user_stats + user_activity_days views", r.practice_views === 2],
+    ["Loop 05: search_content() exists", r.search_content === 1],
+    ["Loop 05: tsv on lessons + questions", r.tsv_cols === 2],
   ];
   let ok = true;
   for (const [label, pass] of checks) {
