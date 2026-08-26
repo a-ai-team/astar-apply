@@ -1,4 +1,4 @@
-// `npm run db:check` — confirms the Loop 01–05 schema is live on the linked project: tables, HNSW
+// `npm run db:check` — confirms the Loop 01–06 schema is live on the linked project: tables, HNSW
 // index, RLS, retrieval functions, storage bucket. Uses the Supabase CLI (`supabase db query
 // --linked`) because catalog tables are not reachable through PostgREST. Exit 1 on any miss.
 import { execFileSync } from "node:child_process";
@@ -49,7 +49,13 @@ select json_build_object(
   'practice_policies', (select count(*) from pg_policies where schemaname = 'public' and tablename in ('flashcards','reviews','card_state','attempts','lesson_progress')),
   'practice_views', (select count(*) from information_schema.views where table_schema = 'public' and table_name in ('user_stats','user_activity_days')),
   'search_content', (select count(*) from pg_proc where pronamespace = 'public'::regnamespace and proname = 'search_content'),
-  'tsv_cols', (select count(*) from information_schema.columns where table_schema = 'public' and column_name = 'tsv' and table_name in ('lessons','questions'))
+  'tsv_cols', (select count(*) from information_schema.columns where table_schema = 'public' and column_name = 'tsv' and table_name in ('lessons','questions')),
+  'content_chunks', (select count(*) from information_schema.tables where table_schema = 'public' and table_name = 'content_chunks'),
+  'content_chunks_rls', (select count(*) from pg_class where relnamespace = 'public'::regnamespace and relrowsecurity and relname = 'content_chunks'),
+  'content_chunks_hnsw', (select count(*) from pg_indexes where schemaname = 'public' and indexname = 'content_chunks_embedding_hnsw' and indexdef ilike '%hnsw%'),
+  'content_fns', (select count(*) from pg_proc where pronamespace = 'public'::regnamespace and proname in ('match_content_chunks','search_content_fts')),
+  'thread_context', (select count(*) from information_schema.columns where table_schema = 'public' and table_name = 'chat_threads' and column_name = 'context'),
+  'approved_content_chunks', (select count(*) from public.content_chunks where status = 'approved')
 ) as report;
 `;
 
@@ -93,6 +99,12 @@ function main() {
     ["Loop 05: user_stats + user_activity_days views", r.practice_views === 2],
     ["Loop 05: search_content() exists", r.search_content === 1],
     ["Loop 05: tsv on lessons + questions", r.tsv_cols === 2],
+    ["Loop 06: content_chunks exists", r.content_chunks === 1],
+    ["Loop 06: RLS enabled on content_chunks", r.content_chunks_rls === 1],
+    ["Loop 06: HNSW index on content_chunks.embedding", r.content_chunks_hnsw === 1],
+    ["Loop 06: match_content_chunks + search_content_fts", r.content_fns === 2],
+    ["Loop 06: chat_threads.context", r.thread_context === 1],
+    ["Loop 06: ≥ 1 approved content chunk (run `npm run content:index`)", Number(r.approved_content_chunks) >= 1],
   ];
   let ok = true;
   for (const [label, pass] of checks) {

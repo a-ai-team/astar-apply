@@ -1,13 +1,13 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
-- **Loop:** 05 Practice: question bank + flashcards (`docs/loops/05-practice.md`) — done, PR opening
-- **Branch:** `feat/practice`
-- **Task:** 10 / 10 — docs + retro written; acceptance 5/5
+- **Loop:** 06 Chatbot ↔ Technicals fusion (`docs/loops/06-chat-technicals.md`) — in-progress
+- **Branch:** `feat/chat-technicals`
+- **Task:** 1 / 10 done — migration 0007 applied (content_chunks, chat_threads.context, match_content_chunks, search_content_fts); db:check 36/37 (chunk count fills after content:index)
 - **Last checks:** Loop 05: lint ✓ typecheck ✓ build ✓ test:unit 81/81 ✓ test:e2e 18/18 ✓ db:check 31/31 ✓ seed 05 idempotent ✓ · acceptance 5/5
-- **Blockers:** **ANTHROPIC_API_KEY still has no credit** (probed once in Loop 04; do not re-probe every wake-up — `npx tsx scripts/dev/api-probe.ts` when James says it is topped up). Loop 04 batches are blocked: the exact command sequence is in `docs/loops/04-content-generation.md` § Blocked. Loop 05 needs no API calls; it has only **6 approved questions + 2 approved lessons** to derive flashcards from until the batches run — build against `status = 'approved'` and expect ≈ 350 later.
+- **Blockers:** **ANTHROPIC_API_KEY still has no credit** (probed once in Loop 04; do not re-probe every wake-up — `npx tsx scripts/dev/api-probe.ts` when James says it is topped up). Loop 04 batches are blocked: the exact command sequence is in `docs/loops/04-content-generation.md` § Blocked. Loop 06 needs the API for the chat (fusion) eval (lesson-citation rate ≥ 80 %) — build the retriever/`content_chunks` (0007) + fixture-mode paths first and mark the eval blocked if credit is still absent. Only 6 approved questions + 2 approved lessons exist for `content_chunks` until the batches run.
   Carried for James: top up credit → Loop 04 § Blocked sequence, then `npm run eval -- --suite chat` + `npm run cache:check`; `VOYAGE_API_KEY` + `npm run reembed`; `supabase config push`; `PRIVATE_ACCESS_KEY` in `.env.local`; Google OAuth; re-record extraction + chat fixtures; confirm free topics (Accounting + EqV/EV).
-- **Decisions taken by default this loop:** mastery two-in-a-row; follow-ups not attempts; self_grade 1–3; FSRS fuzz off / max 365 d; UTC streak days (see loop doc retro)
-- **Next action:** open PR, squash-merge, move to Loop 06.
+- **Decisions taken by default this loop:** none yet
+- **Next action:** task 2 — fix chunker heading bug, `scripts/content/index-content.ts`, approve hook. (Older note:) read the Loop 05 retro in `docs/loops/05-practice.md` (`attempts` shape; `AskMentorButton` mounts under `data-testid="question-grade"` in `QuestionCard` and below the rate buttons in `FlashcardSession` — both client components; `search_content()` FTS reusable as a lesson/question candidate source; student pages use the cookie client; re-run `seed -- 05` after content loads), then `docs/loops/06-chat-technicals.md` + CONTRACTS.md (`content_chunks` in 0007, chat citations `kind: lesson|question`, fusion eval ≥ 80 %); do its "Research at start"; branch `feat/chat-technicals`; task 1. Seeds before e2e: `npm run seed -- 00 && CORPUS_EXTRACTION_MODE=fixture npm run seed -- 01 && npm run seed -- 02 && npm run seed -- 03 && npm run seed -- 04 && npm run seed -- 05`; e2e uses `workers: 1`.
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)

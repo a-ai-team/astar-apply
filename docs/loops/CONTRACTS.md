@@ -24,7 +24,7 @@ These names, shapes and thresholds are fixed across Loops 01–10. A loop may *a
 | `topics`, `subtopics`, `lessons`, `questions`, `learning_paths`, `learning_path_items` | curriculum | 0004 (Loop 03) |
 | `content_reviews`, `generation_runs` | review queue + batch runs | 0005 (Loop 04) |
 | `flashcards`, `reviews`, `card_state`, `attempts`, `lesson_progress` | practice | 0006 (Loop 05) |
-| `content_chunks` | lesson/question retrieval | 0007 (Loop 06) |
+| `content_chunks` | lesson/question retrieval (+ `chat_threads.context`) | 0007 (Loop 06) |
 | `interviews`, `interview_turns` | mocks | 0008 (Loop 07) |
 | `firms`, `firm_questions`, `firm_question_reports`, `pulse_digests` | firm bank + Pulse | 0009 (Loop 08) |
 | `industry_modules` (view) | industry | 0010 (Loop 09) |

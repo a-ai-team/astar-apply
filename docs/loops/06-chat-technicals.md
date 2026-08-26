@@ -1,6 +1,6 @@
 # Loop 06 — Chatbot ↔ Technicals fusion
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
+_Status: in-progress. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md`._
 ## Goal
 bot also retrieves from approved lessons/questions with "Technicals › EqV/EV › The bridge" citations; "Ask Mentor about this" on every question card/lesson block/flashcard opens a pre-contextualised thread; full ladder corpus → lesson → prior, evaluated.
 ## Out of scope
@@ -24,7 +24,7 @@ system prompt v2 (ladder + content citation format, same cached structure); cont
 - [ ] disagreement path unit-tested with recorded response
 
 ## Tasks
-- [ ] migration + fns
+- [x] migration + fns
 - [ ] indexer + approve hook
 - [ ] union/ladder/bias/cap
 - [ ] prompt v2 + context injection
