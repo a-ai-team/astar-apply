@@ -17,7 +17,7 @@ export const HOME_NAV: NavItem[] = [
   { href: "/home/practice", label: "Practice" },
   { href: "/home/flashcards", label: "Flashcards" },
   { href: "/home/progress", label: "Progress" },
-  { href: "/home/interviews", label: "Interviews", disabled: true },
+  { href: "/home/interviews", label: "Interviews" },
 ];
 
 export const ADMIN_NAV: NavItem[] = [

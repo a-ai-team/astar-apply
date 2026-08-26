@@ -32,7 +32,7 @@ grading latency (grade previous while reading next; polling); server-side timer 
 - [x] grader + recorded test
 - [x] report + validation
 - [x] actions with ownership/timing
-- [ ] runner UI
+- [x] runner UI
 - [ ] report UI
 - [ ] speech metrics + `VoiceCapture` behind flag
 - [ ] grader fixtures + suite (+ one rubric-anchor tune)
