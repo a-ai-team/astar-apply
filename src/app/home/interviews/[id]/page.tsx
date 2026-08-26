@@ -16,12 +16,13 @@ export const metadata: Metadata = { title: "Mock interview — A* Apply", robots
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export default async function InterviewRunnerPage({ params }: PageProps<"/home/interviews/[id]">) {
-  await verifySession("/home/interviews");
+  const session = await verifySession("/home/interviews");
   const { id } = await params;
   if (!UUID.test(id)) notFound();
   const db = await createClient();
   const interview = await getInterview(db, id);
-  if (!interview) notFound();
+  // Own interviews only — staff RLS read access does not make someone else's mock a page (TODO(james): admin view in a later loop).
+  if (!interview || interview.user_id !== session.userId) notFound();
   if (interview.status === "completed") redirect(`/home/interviews/${id}/report`);
   const [turns, questions] = await Promise.all([getTurns(db, id), getInterviewQuestions(db, interview.question_ids)]);
   const runnerTurns: RunnerTurn[] = turns.flatMap((t) => {

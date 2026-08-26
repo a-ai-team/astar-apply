@@ -21,12 +21,13 @@ function mean(xs: number[]): number | null {
 }
 
 export default async function InterviewReportPage({ params }: PageProps<"/home/interviews/[id]/report">) {
-  await verifySession("/home/interviews");
+  const session = await verifySession("/home/interviews");
   const { id } = await params;
   if (!UUID.test(id)) notFound();
   const db = await createClient();
   const interview = await getInterview(db, id);
-  if (!interview) notFound();
+  // Own interviews only — staff RLS read access does not make someone else's mock a page (TODO(james): admin view in a later loop).
+  if (!interview || interview.user_id !== session.userId) notFound();
   if (interview.status === "in_progress") redirect(`/home/interviews/${id}`);
   const [turns, questions] = await Promise.all([getTurns(db, id), getInterviewQuestions(db, interview.question_ids)]);
   const graded = turns.filter((t) => t.grade && t.score != null);
