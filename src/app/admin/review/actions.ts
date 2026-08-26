@@ -86,9 +86,9 @@ export async function regenerateOne(_prev: ReviewState, formData: FormData): Pro
       if (!target) return { ok: false, errors: [`no curriculum subtopic ${subtopicSlug}`] };
       const row = await generateSync(getClient(), target, { note: note || null });
       if (!row.ok) return { ok: false, errors: [`writer failed: ${row.error}`] };
-      const r = checkLesson(row.output, { walkthrough: target.walkthrough, reference: null });
+      const r = checkLesson(row.output, { walkthrough: target.walkthrough, industry: Boolean(target.industry), reference: null });
       if (!r.value) return { ok: false, errors: r.problems };
-      const { error } = await db.from("lessons").update({ title: r.value.title, body: r.value.body, body_version: r.value.body.version, reading_minutes: r.value.body.reading_minutes, status: r.ok ? "generated" : "draft", generated_by: row.model ?? "claude-opus-5", prompt_version: promptVersionFor("lesson"), review_note: r.problems.length ? r.problems.join("\n") : null }).eq("id", id);
+      const { error } = await db.from("lessons").update({ title: r.value.title, body: r.value.body, body_version: r.value.body.version, reading_minutes: r.value.body.reading_minutes, status: r.ok ? "generated" : "draft", generated_by: row.model ?? "claude-opus-5", prompt_version: promptVersionFor("lesson", Boolean(target.industry)), review_note: r.problems.length ? r.problems.join("\n") : null }).eq("id", id);
       if (error) return { ok: false, errors: [error.message] };
       revalidateTag(`lesson:${data.slug}`, "max");
     } else {
@@ -109,7 +109,7 @@ export async function regenerateOne(_prev: ReviewState, formData: FormData): Pro
       if (!v.ok) return { ok: false, errors: v.errors };
       const { slug: _s, topic_slug: _t, subtopic_slug: _st, kind, difficulty, question, status: _status, source_topic, tags, ...body } = v.value;
       void _s; void _t; void _st; void _status;
-      const { error } = await db.from("questions").update({ kind, difficulty, question, body, source_topic, tags, status: r.ok ? "generated" : "draft", generated_by: row.model ?? "claude-opus-5", prompt_version: promptVersionFor("questions"), review_note: r.problems.length ? r.problems.join("\n") : null }).eq("id", id);
+      const { error } = await db.from("questions").update({ kind, difficulty, question, body, source_topic, tags, status: r.ok ? "generated" : "draft", generated_by: row.model ?? "claude-opus-5", prompt_version: promptVersionFor("questions", Boolean(target.industry)), review_note: r.problems.length ? r.problems.join("\n") : null }).eq("id", id);
       if (error) return { ok: false, errors: [error.message] };
     }
   } catch (e) {

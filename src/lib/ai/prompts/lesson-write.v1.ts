@@ -3,6 +3,7 @@
 // every request in the batch; per-lesson facts go in the user turn via `lessonWriteUser()`.
 import { CURRICULUM } from "@/lib/content/taxonomy";
 import { BLOCK_TYPES, WIDGET_NAMES } from "@/lib/content/lesson-schema";
+import { industryUserLines, type IndustryContext } from "./industry-addendum.v1";
 
 const taxonomy = CURRICULUM.map((t) => `- ${t.title} (${t.slug}, ${t.level}): ${t.subtopics.map((s) => `${s.title} [${s.slug}${s.walkthrough ? ", walkthrough" : ""}]`).join("; ")}`).join("\n");
 
@@ -59,6 +60,8 @@ export type LessonWriteInput = {
   sibling_titles: string[];
   prior_one_liners: string[];
   required_widget: string | null;
+  /** Loop 09: set for industry-module lessons (the system prompt then carries the industry addendum). */
+  industry?: IndustryContext | null;
   note?: string | null;
 };
 
@@ -72,6 +75,7 @@ export function lessonWriteUser(i: LessonWriteInput): string {
     `One-liners from lessons already written (stay consistent, do not contradict): ${i.prior_one_liners.length ? i.prior_one_liners.map((s) => `"${s}"`).join(" | ") : "none yet"}.`,
     `Required widget: ${i.required_widget ?? "none"}.`,
   ];
+  if (i.industry) lines.push(...industryUserLines(i.industry));
   if (i.note) lines.push(`Reviewer note from the previous draft — fix this specifically: ${i.note}`);
   return lines.join("\n");
 }

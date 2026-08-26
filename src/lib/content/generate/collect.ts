@@ -8,7 +8,7 @@ import { checkLesson, checkQuestionSet, type Reference } from "./checks";
 import type { ParsedRow } from "./batch";
 import { usageCost, type Usage } from "./cost";
 import { promptVersionFor } from "./requests";
-import { parseCustomId, targetFromCustomId, type ExistingContent, type Target } from "./targets";
+import { contentPathFor, parseCustomId, targetFromCustomId, type ExistingContent, type Target } from "./targets";
 
 /** content/lessons/<slug>.json (scripts/content/validate.ts LessonFile + Loop 04 provenance fields). */
 export type LessonFileOut = {
@@ -47,21 +47,21 @@ export function collectRow(row: ParsedRow, opts: CollectOptions, taken = new Set
   const generatedBy = opts.generatedBy ?? (row.model || opts.model);
 
   if (target.kind === "lesson") {
-    const r = checkLesson(row.output, { walkthrough: target.walkthrough, reference: opts.reference });
+    const r = checkLesson(row.output, { walkthrough: target.walkthrough, industry: Boolean(target.industry), reference: opts.reference });
     if (!r.value) return { ...base, kind: "lesson", status: "failed", problems: r.problems, warnings: r.warnings, retryable: true, cost_usd: cost, output: row.output };
     const file: LessonFileOut = {
       slug: target.slug, subtopic_slug: target.subtopic_slug, title: r.value.title, ordinal: 1,
-      status: r.ok ? "generated" : "draft", generated_by: generatedBy, prompt_version: promptVersionFor("lesson"), body: r.value.body,
+      status: r.ok ? "generated" : "draft", generated_by: generatedBy, prompt_version: promptVersionFor("lesson", Boolean(target.industry)), body: r.value.body,
       ...(r.problems.length ? { check_problems: r.problems } : {}), ...(r.warnings.length ? { check_warnings: r.warnings } : {}),
     };
-    return { ...base, kind: "lesson", status: r.ok ? "written" : "draft", problems: r.problems, warnings: r.warnings, retryable: false, cost_usd: cost, files: [{ path: `lessons/${target.slug}.json`, json: file }], output: r.ok ? undefined : row.output };
+    return { ...base, kind: "lesson", status: r.ok ? "written" : "draft", problems: r.problems, warnings: r.warnings, retryable: false, cost_usd: cost, files: [{ path: contentPathFor(target, `${target.slug}.json`), json: file }], output: r.ok ? undefined : row.output };
   }
 
   const r = checkQuestionSet(row.output, { topic_slug: target.topic_slug, subtopic_slug: target.subtopic_slug, source_topic: target.source_section, qkind: target.qkind, count: target.count, mix: target.mix, taken, reference: opts.reference });
   if (!r.value) return { ...base, kind: "questions", status: "failed", problems: r.problems, warnings: r.warnings, retryable: true, cost_usd: cost, output: row.output };
   const files = r.value.map((q) => ({
-    path: `questions/${q.slug}.json`,
-    json: { ...q, status: r.ok ? ("generated" as const) : ("draft" as const), generated_by: generatedBy, prompt_version: promptVersionFor("questions"), ...(r.problems.length ? { check_problems: r.problems } : {}), ...(r.warnings.length ? { check_warnings: r.warnings } : {}) } satisfies QuestionFileOut,
+    path: contentPathFor(target, `${q.slug}.json`),
+    json: { ...q, status: r.ok ? ("generated" as const) : ("draft" as const), generated_by: generatedBy, prompt_version: promptVersionFor("questions", Boolean(target.industry)), ...(r.problems.length ? { check_problems: r.problems } : {}), ...(r.warnings.length ? { check_warnings: r.warnings } : {}) } satisfies QuestionFileOut,
   }));
   return { ...base, kind: "questions", status: r.ok ? "written" : "draft", problems: r.problems, warnings: r.warnings, retryable: false, cost_usd: cost, files, output: r.ok ? undefined : row.output };
 }

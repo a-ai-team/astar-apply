@@ -19,6 +19,8 @@ stack. `supabase link --project-ref nvigkfmrxtxvylbhfcwa` once, then:
 | `npm run seed -- 00` | creates the three `e2e-*@astar.test` users (idempotent) |
 | `npm run seed -- 01` | ingests `fixtures/corpus/*` → ≥ 40 approved, embedded corpus chunks (idempotent; needs seed 00) |
 | `npm run seed -- 08` | 14 firm dossiers + 210 firm questions (all `generated`, student-invisible) + the synthetic sample Pulse digest (approved) |
+| `npm run seed -- 09` | 18 industry modules (`topics kind='industry'` + lesson subtopics) and `content/industry/**` (hand-written Real Estate lesson + 8 questions, `generated`); re-run `seed -- 05` + `content:index` after approvals |
+| `npm run content:generate -- lessons\|questions --kind industry --all [--dry-run]` | Loop 09 batches for the 18 modules (industry addendum; files land in `content/industry/<module>/`); `npm run eval -- --suite industry` gates them |
 | `npm run firms:author -- [--firm slug]` / `npm run pulse:generate -- [--dry-run]` | Loop 08 AI authoring: firm questions → fixtures; weekly Pulse digest → `pulse_digests` (fixture branch without API credit) |
 | `npm run db:check` | verifies the corpus schema on the remote project (tables, HNSW, RLS, functions, bucket) |
 | `npm run corpus:process -- <id>` / `npm run reembed` | re-run extraction+chunking for one source / re-embed approved chunks after a provider switch |

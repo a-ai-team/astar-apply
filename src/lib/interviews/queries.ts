@@ -64,15 +64,18 @@ export async function listInterviews(db: SupabaseClient, limit = 20): Promise<In
 }
 
 /** Topics that have at least one approved question, with counts — the drill picker. */
-export async function drillTopics(db: SupabaseClient): Promise<{ slug: string; title: string; count: number }[]> {
-  const { data, error } = await db.from("questions").select("status, topic:topics!inner(slug, title, ordinal)").eq("status", "approved");
+export type DrillTopic = { slug: string; title: string; kind: string; count: number };
+
+/** Topics with ≥ 1 approved question (industry modules included, `kind = 'industry'`), curriculum order. */
+export async function drillTopics(db: SupabaseClient): Promise<DrillTopic[]> {
+  const { data, error } = await db.from("questions").select("status, topic:topics!inner(slug, title, kind, ordinal)").eq("status", "approved");
   if (error) throw error;
-  const m = new Map<string, { slug: string; title: string; ordinal: number; count: number }>();
+  const m = new Map<string, { slug: string; title: string; kind: string; ordinal: number; count: number }>();
   for (const r of data ?? []) {
-    const t = r.topic as unknown as { slug: string; title: string; ordinal: number };
+    const t = r.topic as unknown as { slug: string; title: string; kind: string; ordinal: number };
     const cur = m.get(t.slug) ?? { ...t, count: 0 };
     cur.count++;
     m.set(t.slug, cur);
   }
-  return [...m.values()].sort((a, b) => a.ordinal - b.ordinal).map(({ slug, title, count }) => ({ slug, title, count }));
+  return [...m.values()].sort((a, b) => a.ordinal - b.ordinal).map(({ slug, title, kind, count }) => ({ slug, title, kind, count }));
 }

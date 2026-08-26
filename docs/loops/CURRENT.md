@@ -1,12 +1,12 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
-- **Loop:** 08 Firm interview bank + Pulse (`docs/loops/08-firms-pulse.md`) — merged (partial)
-- **Branch:** `feat/firms-pulse` → squash-merged to `main`
-- **Task:** 10 / 10 done — `/admin/reports` FK-embed fix, `e2e/08-firms.spec.ts` 3/3 (27/27 overall), docs (`docs/FIRMS_PULSE.md`, TECHNICALS, CONTRIBUTING, CLAUDE.md), acceptance checks 6/6 (Pulse dry-run on the fixture branch), retro written, MASTER_PLAN `merged (partial)`, RUNLOG appended
-- **Last checks:** precommit ✓ lint ✓ typecheck ✓ build ✓ unit 147/147 ✓ e2e 27/27 ✓ cron curl 401/401/200 ✓
-- **Blockers:** **ANTHROPIC_API_KEY still has no credit** — Loop 08 § Blocked 1–2 (live Pulse, live authoring). Carried: Loop 04 § Blocked, 06 § Blocked 1–3, 07 § Blocked 1–4; `VOYAGE_API_KEY` + reembed; `supabase config push`; `PRIVATE_ACCESS_KEY`; Google OAuth; free-topic confirmation; staff view of students' interviews. `supabase db query --linked` hangs here (use PostgREST).
-- **Decisions taken by default this loop:** see Loop 08 § Retro (1–8).
-- **Next action:** Loop 09 Industry modules (`docs/loops/09-industry-modules.md`) — branch `feat/industry-modules` from fresh `main`, task 0.
+- **Loop:** 09 Industry modules (`docs/loops/09-industry-modules.md`) — merged (partial)
+- **Branch:** `feat/industry-modules`
+- **Task:** 10 / 10 — all tasks ticked; acceptance 4/7 (batches, readability, 17 decks blocked); PR open
+- **Last checks:** feat/industry-modules — lint ✓ typecheck ✓ build ✓ unit 150/150 ✓ e2e 29/29 ✓ eval industry PASS (readability skipped)
+- **Blockers:** **migration 0010 not applied — every Postgres path (db push / db query / migration list, direct host + pooler) is unreachable from this sandbox; James: `npm run db:migrate` from a normal shell.** **ANTHROPIC_API_KEY still has no credit** — the Loop 04 pipeline Loop 09 relies on has never run live; build migration `0010_industry.sql`, targets and seeds so one command fills the modules later. Carried: Loop 04 § Blocked, 06 § Blocked 1–3, 07 § Blocked 1–4, 08 § Blocked 1–4; `VOYAGE_API_KEY` + reembed; `supabase config push`; `PRIVATE_ACCESS_KEY`; Google OAuth; free-topic confirmation; staff view of students' interviews. `supabase db query --linked` hangs here (use PostgREST / `db:check`).
+- **Decisions taken by default this loop:** industry `group_family` lives in taxonomy.ts and is mirrored to the DB column when it exists; industry topics `is_free=false`; industry lessons must carry `key_metrics`.
+- **Next action:** merge PR, then Loop 10.
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)

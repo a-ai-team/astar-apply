@@ -1,0 +1,36 @@
+{
+  "slug": "what-is-a-cap-rate",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What is a cap rate and where does it come from?",
+  "model_answer_md": "A cap rate is net operating income divided by property value — the annual income yield a buyer accepts for a building of that type, location and lease quality. A 5 % cap rate means paying twenty times NOI.\n\nIt is observed rather than modelled: valuers take recent sales of comparable buildings, work out the yield each buyer paid, and apply the result to the portfolio, adjusting for lease length, tenant strength and condition.",
+  "key_points": [
+    "NOI ÷ value, expressed as a yield",
+    "Observed from comparable building sales",
+    "Adjusted for location, lease length and tenant quality",
+    "Lower cap rate means higher value for the same income"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does a prime office carry a lower cap rate than a secondary retail park?",
+      "answer_md": "Its income is seen as safer and more likely to grow, so buyers accept a lower yield — they pay more per pound of NOI."
+    },
+    {
+      "question": "Is a cap rate the same as a discount rate?",
+      "answer_md": "No. A cap rate already nets off expected growth; it is roughly the discount rate minus the growth rate, which is why it is lower than a WACC."
+    }
+  ],
+  "weak_answer_note": "Calls it a discount rate or cannot say that it comes from comparable transactions.",
+  "numbers": null,
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "cap-rate",
+    "definition"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

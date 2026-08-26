@@ -1,0 +1,36 @@
+{
+  "slug": "why-nav-not-pe-for-property",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-noi-cap-rates",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why are listed property companies valued on net asset value rather than on a P/E multiple?",
+  "model_answer_md": "Because the assets can be valued directly. Each building has an observable market price — comparable sales give a cap rate, and NOI ÷ cap rate gives a value — so adding up the portfolio and subtracting debt produces a NAV that is far more reliable than capitalising accounting earnings.\n\nReported earnings are also distorted for property companies: revaluation gains and losses flow through the income statement, so net income swings with the market even when rents are unchanged. NAV per share strips that noise out and lets you compare the share price with what the buildings are worth today.",
+  "key_points": [
+    "Assets have observable market values via cap rates",
+    "NAV = property value + cash − debt",
+    "IFRS earnings are distorted by revaluation movements",
+    "Share price is judged as a premium or discount to NAV"
+  ],
+  "follow_ups": [
+    {
+      "question": "What earnings measure do real-estate analysts use instead of net income?",
+      "answer_md": "An adjusted or recurring earnings figure that excludes revaluation gains and disposals — in Europe the EPRA earnings measure — so that the dividend can be judged against cash-like income."
+    },
+    {
+      "question": "When might P/E still be useful?",
+      "answer_md": "For businesses that earn fees rather than rent — property developers, brokers and fund managers — whose value comes from activity, not from a stock of buildings."
+    }
+  ],
+  "weak_answer_note": "Says 'because that's the convention' without linking NAV to observable building values or explaining the revaluation distortion.",
+  "numbers": null,
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "nav",
+    "valuation"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -7,6 +7,7 @@ import { MODEL_CHAT } from "@/lib/ai/client";
 import { lessonWritePrompt, lessonWriteUser } from "@/lib/ai/prompts/lesson-write.v1";
 import { questionWritePrompt, questionWriteUser } from "@/lib/ai/prompts/question-write.v1";
 import { contentCriticPrompt, contentCriticUser } from "@/lib/ai/prompts/content-critic.v1";
+import { industryAddendumPrompt } from "@/lib/ai/prompts/industry-addendum.v1";
 import { LessonCriticSchema, LessonWriteSchema, QuestionCriticSchema, QuestionWriteSchema } from "./schemas";
 import type { Target } from "./targets";
 
@@ -18,14 +19,18 @@ export function contentModel(): string {
   return process.env.CONTENT_MODEL || MODEL_CHAT;
 }
 
-export function promptVersionFor(kind: "lesson" | "questions"): string {
-  return kind === "lesson" ? `${lessonWritePrompt.id}.v${lessonWritePrompt.version}` : `${questionWritePrompt.id}.v${questionWritePrompt.version}`;
+/** `lesson-write.v1`, or `lesson-write.v1+industry-addendum.v1` for industry targets (Loop 09). */
+export function promptVersionFor(kind: "lesson" | "questions", industry = false): string {
+  const base = kind === "lesson" ? `${lessonWritePrompt.id}.v${lessonWritePrompt.version}` : `${questionWritePrompt.id}.v${questionWritePrompt.version}`;
+  return industry ? `${base}+${industryAddendumPrompt.id}.v${industryAddendumPrompt.version}` : base;
 }
 
 export type BatchRequest = { custom_id: string; params: Anthropic.Messages.MessageCreateParamsNonStreaming };
 
+/** Static system text; industry targets get the (equally static) addendum appended so the cached prefix is stable per kind. */
 export function systemFor(target: Target): string {
-  return target.kind === "lesson" ? lessonWritePrompt.system : questionWritePrompt.system;
+  const base = target.kind === "lesson" ? lessonWritePrompt.system : questionWritePrompt.system;
+  return target.industry ? `${base}\n\n${industryAddendumPrompt.system}` : base;
 }
 export function userFor(target: Target, note?: string | null): string {
   return target.kind === "lesson" ? lessonWriteUser({ ...target.input, note }) : questionWriteUser({ ...target.input, note });

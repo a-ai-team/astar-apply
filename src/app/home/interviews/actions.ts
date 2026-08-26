@@ -15,7 +15,7 @@ import { gradeTurn } from "@/lib/interviews/grade";
 import { checkOwnership } from "@/lib/interviews/ownership";
 import { getInterview, getInterviewQuestions, getTurns } from "@/lib/interviews/queries";
 import { buildReport, loadLessonIndex, type ReportTurn } from "@/lib/interviews/report";
-import { loadPool, selectDrill, selectMock } from "@/lib/interviews/select";
+import { loadPool, MOCK_TOPICS, selectDrill, selectMock } from "@/lib/interviews/select";
 import { DRILL_SECONDS, LATE_GRACE_SECONDS, MOCK_SECONDS, type Grade, type InterviewMode, type TranscriptMeta } from "@/lib/interviews/types";
 import { typedMetrics } from "@/lib/interviews/speech-metrics";
 
@@ -28,15 +28,21 @@ export async function startInterview(formData: FormData): Promise<void> {
   const session = await verifySession("/home/interviews");
   const mode = String(formData.get("mode") ?? "") as InterviewMode;
   const topicSlug = String(formData.get("topic") ?? "").trim();
+  // Loop 09: a full mock may add one industry module (`industry_topic_id` on the interview) so
+  // 3–4 of its questions join the generalist round-robin.
+  const industrySlug = String(formData.get("industry") ?? "").trim();
   if (mode !== "drill" && mode !== "mock") throw new Error("bad mode");
   if (mode === "drill" && !/^[a-z0-9-]+$/.test(topicSlug)) throw new Error("bad topic");
+  if (industrySlug && !/^[a-z0-9-]+$/.test(industrySlug)) throw new Error("bad industry");
   const db = await createClient();
   const pool = await loadPool(db, mode === "drill" ? topicSlug : undefined);
-  const sel = mode === "drill" ? selectDrill(pool, topicSlug) : selectMock(pool);
+  const mockTopics = mode === "mock" && industrySlug ? [...MOCK_TOPICS, industrySlug] : undefined;
+  const sel = mode === "drill" ? selectDrill(pool, topicSlug) : selectMock(pool, mockTopics ? { topics: mockTopics } : {});
   if (!sel.ids.length) redirect(`/home/interviews?error=${encodeURIComponent(mode === "drill" ? `No approved questions in ${topicSlug} yet.` : "No approved questions yet.")}`);
   let topicId: string | null = null;
-  if (mode === "drill") {
-    const { data: t } = await db.from("topics").select("id").eq("slug", topicSlug).maybeSingle();
+  const wantedSlug = mode === "drill" ? topicSlug : industrySlug;
+  if (wantedSlug) {
+    const { data: t } = await db.from("topics").select("id").eq("slug", wantedSlug).maybeSingle();
     topicId = (t?.id as string | undefined) ?? null;
   }
   const { data: created, error } = await db

@@ -1,0 +1,36 @@
+{
+  "slug": "revaluation-gains-and-earnings",
+  "topic_slug": "real-estate",
+  "subtopic_slug": "real-estate-valuation-methods",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A property company reports net income up 80 % in a year when its rents barely changed. How is that possible, and how would an analyst read it?",
+  "model_answer_md": "Investment property is held at fair value, so when valuers cut the portfolio's cap rate the resulting uplift goes through the income statement as a revaluation gain. A 25 bp compression across a large portfolio can produce a gain many times bigger than a year's rental profit, so net income jumps even though nothing changed in the buildings.\n\nAn analyst strips the revaluation out and looks at recurring or adjusted earnings — rent less costs less interest — to judge whether the dividend is covered, and then looks at the revaluation separately through NAV per share. Treating the 80 % jump as 'profit growth' is the classic generalist error.",
+  "key_points": [
+    "Fair-value revaluation gains flow through net income",
+    "Small cap-rate moves create large non-cash gains",
+    "Recurring earnings exclude revaluations and disposals",
+    "NAV per share is where the revaluation belongs"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does the revaluation gain affect cash flow?",
+      "answer_md": "No — it is non-cash. The cash flow statement shows the same rent and interest as before."
+    },
+    {
+      "question": "Where else does the gain show up?",
+      "answer_md": "In the balance sheet: investment property is carried at the new value, so equity and NAV per share rise by the same amount."
+    }
+  ],
+  "weak_answer_note": "Assumes the company must have bought buildings or raised rents, or cannot explain why net income and NOI diverge.",
+  "numbers": null,
+  "source_topic": "Industry – Real Estate",
+  "tags": [
+    "real-estate",
+    "earnings",
+    "revaluation"
+  ],
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}
