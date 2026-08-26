@@ -30,11 +30,11 @@ no Stripe keys → stub path (test env only) + recorded-fixture tests; landing c
 - [x] entitlements + `can()` + `UpgradeCard` + gates (lessons TOC+card, bank free-topics filter, question page, drills/mocks incl. firm Practise-this, decks, SRS analytics card)
 - [x] Stripe client/stub, actions, webhook + tests, sync script (6 vitest cases on 3 recorded fixtures + computed signatures)
 - [x] pricing + success (`/pricing`, `/billing/success`, `/billing/portal`)
-- [ ] landing + demo chat + cap
-- [ ] playbook content + checklist
-- [ ] SEO + legal
-- [ ] analytics
-- [ ] `PUBLIC_LAUNCH` flag + `PRIVATE_AREA.md`
+- [x] landing + demo chat + cap (`/`, `DemoChat`, `POST /api/demo-chat` corpus-only fixture, 3/day hashed IP memory + `demo_usage`)
+- [x] playbook content + checklist (7 sections `content/playbook/*.json`, `/non-target`, `Checklist` → `playbook_progress` else localStorage)
+- [x] SEO + legal (root metadata + OG image, `sitemap.ts`, `robots.ts`, JSON-LD Organization/WebSite/Product/Article, `/privacy` + `/terms` draft-flagged)
+- [x] analytics (`@vercel/analytics` + PostHog provider no-op without key; events signup / lesson_complete / chat_message / checkout_started / subscribed)
+- [x] `PUBLIC_LAUNCH` flag + `PRIVATE_AREA.md`
 - [ ] Lighthouse + Playwright + docs + retro; open PR, do not merge
 
 ## Blocked-on-human (defaults)

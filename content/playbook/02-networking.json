@@ -1,0 +1,14 @@
+{
+  "_comment": "Original content (Loop 10).",
+  "slug": "networking",
+  "ordinal": 2,
+  "title": "Networking playbook",
+  "summary": "Cold email, LinkedIn and the 20-minute call: templates and the exact sequence.",
+  "blocks": [
+    { "type": "md", "md": "**The sequence**\n\n1. Build a list of 30 people: analysts and associates, one to four years out of university, at the banks you are applying to. Prioritise anyone from your university, your city, your society or your course.\n2. Message ten a week. Expect a 20–30 % reply rate; that is normal, not rejection.\n3. Every reply becomes a 20-minute call. Every call ends with one more name.\n4. Two weeks before the deadline, go back to the people you spoke to and tell them you have applied. Ask nothing; let them offer." },
+    { "type": "template", "title": "Cold email (under 90 words)", "md": "Subject: [Your uni] student — quick question about [Bank] [team]\n\nHi [First name],\n\nI'm a second-year [course] student at [University] applying for [Bank]'s summer analyst programme this cycle. I noticed you moved from [their uni / previous role] into [team] and would really value 15 minutes on how you found the process and what the team actually looks for.\n\nHappy to work around your diary — mornings before 9 usually suit bankers best, I'm told.\n\nThanks either way,\n[Name] · [LinkedIn URL]" },
+    { "type": "template", "title": "LinkedIn connection note (300 characters)", "md": "Hi [First name] — [University] student applying to [Bank] this cycle. Saw you joined [team] from [their background] and would love 15 minutes on your experience if you ever have a gap. Thanks! [Name]" },
+    { "type": "template", "title": "The call: five questions in order", "md": "1. How did you get from [their uni / background] to [team]?\n2. What does a typical week look like for an analyst on your desk right now?\n3. What separated the summer analysts who got return offers from the ones who didn't?\n4. When you interview candidates, what is the first thing that tells you someone has prepared properly?\n5. Is there anyone else on the team you'd suggest I speak to?\n\nSend a three-line thank-you the same day. Mention one specific thing they said." },
+    { "type": "md", "md": "**Rules**\n\n- Never attach a CV unless asked. Never ask for a referral in the first message.\n- Fifteen minutes means fifteen minutes. End it yourself.\n- Keep a spreadsheet: name, bank, team, date messaged, replied, call date, follow-up date, notes. The follow-up is where the value is." }
+  ]
+}

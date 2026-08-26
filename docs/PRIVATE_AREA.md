@@ -5,8 +5,16 @@ The public site (`/`) is a "Coming soon" page. The real app lives under `/home` 
 
 | Gate | What | Where it's checked | How to pass |
 |---|---|---|---|
-| 1. Access key | Shared team key → `astar_access` cookie (30 days, httpOnly) | `src/proxy.ts` → `/unlock` | Ask James or Tesleem for `PRIVATE_ACCESS_KEY`. Removed at public launch (Loop 10). |
+| 1. Access key | Shared team key → `astar_access` cookie (30 days, httpOnly) | `src/proxy.ts` → `/unlock` | Ask James or Tesleem for `PRIVATE_ACCESS_KEY`. **Skipped when `PUBLIC_LAUNCH=true`** (Loop 10); default `false` keeps it. |
 | 2. Account | Supabase Auth session (magic link). `/admin` additionally needs role `admin` or `mentor`. | `src/proxy.ts` (cookie/JWT only) **and** `src/lib/dal.ts` in every layout, page, action and route handler | Sign in at `/login` |
+
+## Public launch flag (Loop 10)
+`PUBLIC_LAUNCH` (default unset/`false`) keeps gate 1. Setting `PUBLIC_LAUNCH=true` in Vercel makes
+`/home` and `/admin` reachable with just a Supabase session (gate 2 never switches off). Playwright
+sets `PUBLIC_LAUNCH=true` for its own server so the launch spec exercises the public flow; the
+"flag off" behaviour is checked with `curl -sI http://localhost:3100/home` → `307 /unlock?next=/home`.
+Public pages (`/`, `/pricing`, `/non-target`, `/privacy`, `/terms`) are outside the matcher and never
+gated. `/billing/*` needs a session (DAL), not the key.
 
 ## Flow
 1. `/home/*` or `/admin/*` without the key cookie → `302 /unlock?next=…`. Correct key → cookie set → back.

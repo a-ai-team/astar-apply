@@ -6,7 +6,8 @@ import { isStaff } from "@/lib/roles";
 
 /**
  * Two gates (docs/PRIVATE_AREA.md):
- *  1. Shared access key cookie for everything under /home and /admin (pre-launch).
+ *  1. Shared access key cookie for everything under /home and /admin (pre-launch). Skipped when
+ *     PUBLIC_LAUNCH === "true" (Loop 10); the session gate below always applies.
  *  2. Supabase session (refreshed here on every request) — /home needs a user,
  *     /admin needs a staff role. Cookie/JWT-only checks; no DB queries (Next proxy guidance).
  * Server Actions bypass this matcher: every action must also call verifySession() (src/lib/dal.ts).
@@ -15,7 +16,7 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isPrivate = pathname.startsWith("/home") || pathname.startsWith("/admin");
 
-  if (isPrivate) {
+  if (isPrivate && !isPublicLaunch()) {
     const expected = await expectedToken();
     const cookie = request.cookies.get(ACCESS_COOKIE)?.value;
     if (!expected || cookie !== expected) {
@@ -43,6 +44,11 @@ export async function proxy(request: NextRequest) {
 
   // Must return the response from updateSession (it carries refreshed auth cookies).
   return session.response;
+}
+
+/** Loop 10: `PUBLIC_LAUNCH=true` removes gate 1. Anything else (unset, "false", typos) keeps it. */
+export function isPublicLaunch(): boolean {
+  return process.env.PUBLIC_LAUNCH === "true";
 }
 
 function redirectKeepingCookies(url: URL, from: NextResponse) {
