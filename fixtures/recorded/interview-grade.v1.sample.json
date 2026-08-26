@@ -1,0 +1,39 @@
+{
+  "_note": "PLACEHOLDER — synthetic content for pipeline testing. Hand-authored in the shape of an Opus 5 structured-output response to interview-grade.v1 (no API credit in Loop 07; re-record with scripts/dev/record-grade.ts once credit exists).",
+  "prompt_version": "interview-grade.v1",
+  "question": {
+    "id": "55555555-5555-4555-8555-555555555555",
+    "slug": "placeholder-net-debt-bridge",
+    "question": "A company has an equity value of £1,000m, debt of £400m and cash of £100m. What is its enterprise value, and why do you subtract the cash?",
+    "difficulty": 4,
+    "topic_slug": "eqv-ev",
+    "topic_title": "Equity value vs enterprise value",
+    "model_answer_md": "Enterprise value is £1,300m: equity value £1,000m plus net debt of £300m (debt £400m less cash £100m). Cash is subtracted because an acquirer effectively gets it back on day one — it can be used to repay debt — so it is not part of the price of the operating business.",
+    "key_points": ["EV = equity value + net debt", "Net debt = debt − cash = £300m", "EV = £1,300m", "Cash is subtracted because the acquirer gets it back / it can pay down debt"],
+    "weak_answer_note": "Adding cash instead of subtracting it, or subtracting it twice; forgetting to state the number.",
+    "numbers": { "inputs": { "equity_value": 1000, "debt": 400, "cash": 100 }, "answer": 1300 }
+  },
+  "answer": "So EV is equity value plus net debt, um, net debt is debt minus cash so 400 minus 100 is 300, so EV is 1,300 million. You take cash off because when you buy the company you get the cash, it's not really part of the operating business.",
+  "metrics": { "wpm": 148, "filler_count": 1, "fillers": ["um"], "duration_s": 22, "voice": true },
+  "response": {
+    "id": "msg_placeholder_grade_01",
+    "type": "message",
+    "role": "assistant",
+    "model": "claude-opus-5",
+    "content": [
+      { "type": "text", "text": "{\"hit\":[\"EV = equity value + net debt\",\"Net debt = debt − cash = £300m\",\"EV = £1,300m\",\"Cash is subtracted because the acquirer gets it back / it can pay down debt\"],\"missed\":[],\"accuracy\":4,\"structure\":3,\"depth\":2,\"feedback_md\":\"You went straight to the formula, computed net debt correctly and landed on £1,300m — exactly what the interviewer wants to hear first. Your reason for subtracting cash (\\\"you get the cash, it's not really part of the operating business\\\") is right; tighten it by adding that the acquirer can use that cash to pay down the debt it just took on, which is why cash and debt net against each other. Say the number with its units, \\\"£1,300 million\\\", and you have a ten.\",\"mentor_tip_md\":\"An interviewer would now ask whether you would still subtract all of the cash if part of it were needed to run the business day to day.\"}" }
+    ],
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": { "input_tokens": 1440, "output_tokens": 210, "cache_creation_input_tokens": 0, "cache_read_input_tokens": 1180 }
+  },
+  "parsed_output": {
+    "hit": ["EV = equity value + net debt", "Net debt = debt − cash = £300m", "EV = £1,300m", "Cash is subtracted because the acquirer gets it back / it can pay down debt"],
+    "missed": [],
+    "accuracy": 4,
+    "structure": 3,
+    "depth": 2,
+    "feedback_md": "You went straight to the formula, computed net debt correctly and landed on £1,300m — exactly what the interviewer wants to hear first. Your reason for subtracting cash (\"you get the cash, it's not really part of the operating business\") is right; tighten it by adding that the acquirer can use that cash to pay down the debt it just took on, which is why cash and debt net against each other. Say the number with its units, \"£1,300 million\", and you have a ten.",
+    "mentor_tip_md": "An interviewer would now ask whether you would still subtract all of the cash if part of it were needed to run the business day to day."
+  }
+}
