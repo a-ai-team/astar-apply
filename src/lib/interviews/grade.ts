@@ -132,7 +132,10 @@ export function gradeFixture(input: GradeInput): GradeResult {
   const sentences = answer ? answer.split(/[.!?]+\s|\n+/).filter((s) => s.trim().length > 12).length : 0;
   const offTopic = words.length < 3 || (hit.length === 0 && words.length < 60);
 
-  let accuracy = offTopic ? 0 : Math.round(ratio * 4);
+  // Rubric-anchor tune (Loop 07, one pass against fixtures/eval/grader.jsonl): a partial answer that
+  // lands at least one key point sits at 1–3 on accuracy, not 0–2 — the un-tuned rounding scored
+  // human-5 partials as 3s (fixture MAE 1.30 → see the loop retro).
+  let accuracy = offTopic ? 0 : Math.min(4, Math.round(ratio * 4) + (hit.length && ratio < 0.999 ? 1 : 0));
   const expected = q.numbers?.answer != null ? Number(q.numbers.answer) : null;
   let wrongNumber = false;
   if (expected != null && Number.isFinite(expected) && !offTopic) {

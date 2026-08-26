@@ -35,7 +35,7 @@ grading latency (grade previous while reading next; polling); server-side timer 
 - [x] runner UI
 - [x] report UI
 - [x] speech metrics + `VoiceCapture` behind flag
-- [ ] grader fixtures + suite (+ one rubric-anchor tune)
+- [x] grader fixtures + suite (+ one rubric-anchor tune)
 - [ ] demo seed, Playwright, docs, retro
 
 ## Blocked-on-human (defaults)

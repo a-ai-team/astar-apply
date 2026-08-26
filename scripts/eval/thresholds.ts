@@ -5,4 +5,6 @@ export const THRESHOLDS = {
   // Loop 04
   lessons: { schema_rate: 1, readability: 4, overlap_hits: 0 },
   questions: { schema_rate: 1, mix_max_abs_diff: 0.15, mix_min_n: 40, overlap_hits: 0 },
+  // Loop 07: live grader vs 40 hand-labelled answers
+  grader: { spearman: 0.7, mae: 1.0, empty_max: 1 },
 } as const;

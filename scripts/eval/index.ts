@@ -25,6 +25,7 @@ export const SUITES: Record<string, () => Promise<{ run: SuiteFn }>> = {
   chat: () => import("./suites/chat"),
   lessons: () => import("./suites/lessons"),
   questions: () => import("./suites/questions"),
+  grader: () => import("./suites/grader"),
 };
 
 export function readJsonl<T>(file: string): T[] {
