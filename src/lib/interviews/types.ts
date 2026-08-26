@@ -57,7 +57,8 @@ export type TurnRow = {
   id: string;
   interview_id: string;
   ordinal: number;
-  question_id: string;
+  question_id: string;                 // effective id: questions.id or firm_questions.id (see getTurns)
+  firm_question_id: string | null;     // Loop 08: set when the turn drills a firm question
   attempt_id: string | null;
   shown_at: string | null;
   answered_at: string | null;

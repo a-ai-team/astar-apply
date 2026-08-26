@@ -31,7 +31,7 @@ stale facts → "unverified" badge until approved; search cost capped; names in 
 - [x] migration
 - [x] dossier fixtures + seed
 - [x] question authoring script + load
-- [ ] firm pages + timeline + filters + drill bridge
+- [x] firm pages + timeline + filters + drill bridge
 - [ ] report form + rate limit + admin promote
 - [ ] Pulse prompts + generate
 - [ ] cron route + `vercel.json`
