@@ -67,7 +67,7 @@ Required for `approved`: `trap`, `canonical_answer`, `your_turn`, `quick_fire`, 
 Validator `src/lib/content/question-schema.ts`. Flashcards are derived: front = `question`, back = first paragraph of `model_answer_md` unless `body.flashcard_back`.
 
 ### Chat message (`chat_messages.content`)
-`{ text, citations: [{ chunk_id, source_id, kind: "corpus|lesson|question", label, quote, start, end }], rung: "corpus|lesson|prior", model, usage }`.
+`{ text, citations: [{ chunk_id, source_id, kind: "corpus|lesson|question", label, quote, start, end, href? }], rung: "corpus|lesson|prior", model, usage }` — `href` (Loop 06) is the deep link for lesson|question citations (`/home/technicals/<topic>/<lesson>#block-<n>` or `/home/practice/<slug>`).
 
 ### AI module (`src/lib/ai/`)
 - `client.ts` — one `Anthropic`; `MODEL_CHAT = MODEL_JUDGE = "claude-opus-5"`, `MODEL_FAST = "claude-haiku-4-5"`.

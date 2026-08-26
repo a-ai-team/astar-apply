@@ -39,7 +39,7 @@ export async function rewriteQuery(message: string, history: HistoryTurn[], mode
   }
 }
 
-const TECHNICAL = /\b(enterprise value|equity value|\bev\b|ebitda|dcf|wacc|terminal value|free cash flow|balance sheet|income statement|cash flow|depreciation|working capital|net debt|multiple|comps|comparable|precedent|accretion|dilution|synerg|lbo|leveraged|moic|irr|npv|valuation|goodwill|deferred tax|amortis|capex|leverage ratio|interest|debt|equity|merger|acquisition)\b/i;
+const TECHNICAL = /\b(enterprise value|equity value|\bev\b|ebitda|dcf|wacc|terminal value|free cash flow|balance sheet|income statement|cash flow|depreciation|working capital|net debt|multiple|comps|comparable|precedent|accretion|dilution|synerg|lbo|leveraged|moic|irr|npv|valuation|goodwill|deferred tax|amortis|capex|leverage ratio|interest|debt|equity|merger|acquisition|(?:three|3|financial) statements?|inventory|payables?|receivables?|accounts payable|retained earnings|net income|operating profit|revenue|tax rate|diluted shares|market cap|non-controlling|minority interest|preferred shares|lease liabilit|assets?|liabilit(?:y|ies)|shareholders?|one-liner)\b/i;
 const FIT = /\b(why (banking|this firm|us|ib|investment banking)|strength|weakness|tell me about yourself|behavio|competenc|walk me through your cv|motivat|team ?work|leadership|failure|conflict)\b/i;
 const APPLICATION = /\b(spring week|spring insight|insight week|summer (analyst|intern)|internship|off-cycle|\bcv\b|cover letter|application|apply|applying|deadline|assessment centre|hirevue|numerical test|psychometric|network|coffee chat|linkedin|timeline|when should i|how many|non-target|target school)\b/i;
 const OFFTOPIC = /^(hi|hello|hey|thanks|thank you|ok|okay|cheers)\b[!. ]*$/i;
