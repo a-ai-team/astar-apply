@@ -32,7 +32,7 @@ cost (dry-run gate); batch wait (build review UI meanwhile, Monitor on the poll 
 - [x] migration
 - [x] prompts + targets
 - [ ] generate.ts + dry-run + one-lesson smoke
-- [ ] checkers + tests
+- [x] checkers + tests
 - [ ] batch submit/poll/collect/resubmit
 - [ ] lessons batch → collect → validate → critic
 - [ ] questions batch → collect → validate
