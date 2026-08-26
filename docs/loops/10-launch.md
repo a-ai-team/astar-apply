@@ -27,9 +27,9 @@ no Stripe keys → stub path (test env only) + recorded-fixture tests; landing c
 
 ## Tasks
 - [x] migration + plans (0011 written, unapplied → § Blocked 1; `PLANS`; `seed -- 10` no-ops with message)
-- [ ] entitlements + `can()` + `UpgradeCard` + gates
-- [ ] Stripe client/stub, actions, webhook + tests, sync script
-- [ ] pricing + success
+- [x] entitlements + `can()` + `UpgradeCard` + gates (lessons TOC+card, bank free-topics filter, question page, drills/mocks incl. firm Practise-this, decks, SRS analytics card)
+- [x] Stripe client/stub, actions, webhook + tests, sync script (6 vitest cases on 3 recorded fixtures + computed signatures)
+- [x] pricing + success (`/pricing`, `/billing/success`, `/billing/portal`)
 - [ ] landing + demo chat + cap
 - [ ] playbook content + checklist
 - [ ] SEO + legal

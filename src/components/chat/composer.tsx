@@ -2,6 +2,7 @@
 
 import { useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui";
+import { track } from "@/lib/analytics/client";
 
 export function Composer({ disabled, onSend }: { disabled: boolean; onSend: (text: string) => void }) {
   const [value, setValue] = useState("");
@@ -11,6 +12,7 @@ export function Composer({ disabled, onSend }: { disabled: boolean; onSend: (tex
     const text = value.trim();
     if (!text || disabled) return;
     onSend(text);
+    track("chat_message", { length: text.length });
     setValue("");
     ref.current?.focus();
   }

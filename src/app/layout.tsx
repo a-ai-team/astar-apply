@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
+import { AnalyticsProvider } from "@/components/analytics/provider";
+import { SITE } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "A* Apply",
-  description: "A* Apply, from A* AI. Coming soon.",
+  metadataBase: new URL(SITE.url),
+  title: { default: SITE.name, template: `%s — ${SITE.name}` },
+  description: SITE.description,
+  applicationName: SITE.name,
+  openGraph: { type: "website", siteName: SITE.name, title: SITE.name, description: SITE.description, locale: "en_GB" },
+  twitter: { card: "summary_large_image", title: SITE.name, description: SITE.description },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -23,7 +30,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Suspense fallback={null}>
+          <AnalyticsProvider userId={null} />
+        </Suspense>
+      </body>
     </html>
   );
 }

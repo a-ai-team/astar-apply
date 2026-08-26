@@ -6,6 +6,9 @@ import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { getDeckSession } from "@/lib/practice/queries";
 import { FlashcardSession } from "@/components/practice/flashcard-session";
+import { getSessionEntitlement } from "@/lib/billing/session";
+import { can } from "@/lib/billing/entitlements";
+import { UpgradeCard } from "@/components/billing/upgrade-card";
 
 export async function generateMetadata({ params }: PageProps<"/home/flashcards/[topic]">): Promise<Metadata> {
   const { topic } = await params;
@@ -18,6 +21,8 @@ export default async function DeckPage({ params }: PageProps<"/home/flashcards/[
   const db = await createClient();
   const deck = await getDeckSession(db, topic);
   if (!deck) notFound();
+  const ent = await getSessionEntitlement();
+  const unlocked = can(ent, "flashcards_all", { isFree: deck.topic.is_free });
   const cards = deck.cards.map((c) => ({ id: c.id, questionId: c.question_id, front: c.front, back_md: c.back_md, isNew: c.isNew, isDue: c.isDue, streak: c.state?.streak ?? 0 }));
   return (
     <>
@@ -29,7 +34,7 @@ export default async function DeckPage({ params }: PageProps<"/home/flashcards/[
         </p>
       </div>
       <div className="max-w-2xl">
-        <FlashcardSession cards={cards} topicTitle={deck.topic.title} />
+        {unlocked ? <FlashcardSession cards={cards} topicTitle={deck.topic.title} /> : <UpgradeCard feature="flashcards_all" />}
       </div>
     </>
   );

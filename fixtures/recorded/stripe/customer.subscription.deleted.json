@@ -1,0 +1,22 @@
+{
+  "_comment": "PLACEHOLDER — synthetic Stripe event for pipeline testing (cancellation → free).",
+  "id": "evt_1Test0000000000000000003",
+  "object": "event",
+  "api_version": "2026-07-30.basil",
+  "created": 1756201200,
+  "livemode": false,
+  "pending_webhooks": 1,
+  "request": { "id": "req_test_3", "idempotency_key": null },
+  "type": "customer.subscription.deleted",
+  "data": {
+    "object": {
+      "id": "sub_TestSubscription001",
+      "object": "subscription",
+      "status": "canceled",
+      "customer": "cus_TestCustomer001",
+      "metadata": {},
+      "items": { "object": "list", "data": [ { "id": "si_Test001", "object": "subscription_item", "current_period_end": 1758878400, "price": { "id": "price_test_ai_999", "object": "price" }, "quantity": 1 } ] },
+      "livemode": false
+    }
+  }
+}
