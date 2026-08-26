@@ -1,5 +1,8 @@
-// `npm run content:generate -- lessons|questions (--all | --topic a,b | --slug s1,s2) [--dry-run]
-//   [--sync] [--wait] [--force] [--no-db] [--out content] [--model id]`
+// `npm run content:generate -- lessons|questions (--all | --topic a,b | --slug s1,s2) [--kind industry]
+//   [--dry-run] [--sync] [--wait] [--force] [--no-db] [--out content] [--model id]`
+// `--kind industry` (Loop 09) targets the 18 industry modules (INDUSTRY_CURRICULUM) instead of the
+// generalist curriculum: the system prompt gains the industry addendum and files land under
+// content/industry/<module>/{lessons,questions}/.
 // Builds one request per target (lesson per subtopic; questions per subtopic × kind, counts from
 // taxonomy.ts), estimates the cost (count_tokens, or a chars/3.5 heuristic when that call fails),
 // refuses to submit above CONTENT_MAX_BATCH_USD, then either submits a Message Batch (default),
@@ -47,11 +50,13 @@ export function printEstimate(e: Estimate, kind: string, model: string) {
 async function main(argv = process.argv.slice(2)) {
   const kind = argv[0] as "lessons" | "questions";
   if (kind !== "lessons" && kind !== "questions") {
-    console.error("usage: npm run content:generate -- lessons|questions (--all | --topic a,b | --slug s1,s2) [--dry-run] [--sync] [--wait] [--force] [--no-db] [--out content]");
+    console.error("usage: npm run content:generate -- lessons|questions (--all | --topic a,b | --slug s1,s2) [--kind industry] [--dry-run] [--sync] [--wait] [--force] [--no-db] [--out content]");
     process.exit(1);
   }
   const out = path.resolve(arg(argv, "--out") ?? "content");
-  const filter: TargetFilter = { topics: list(arg(argv, "--topic")), slugs: list(arg(argv, "--slug")), all: argv.includes("--all"), force: argv.includes("--force") };
+  const kindArg = arg(argv, "--kind");
+  if (kindArg && kindArg !== "industry" && kindArg !== "generalist") { console.error("generate: --kind must be industry or generalist"); process.exit(1); }
+  const filter: TargetFilter = { topics: list(arg(argv, "--topic")), slugs: list(arg(argv, "--slug")), all: argv.includes("--all"), force: argv.includes("--force"), kind: (kindArg as TargetFilter["kind"]) ?? "generalist" };
   if (!filter.all && !filter.topics?.length && !filter.slugs?.length) {
     console.error("generate: pick --all, --topic <slugs> or --slug <subtopic slugs>");
     process.exit(1);
@@ -67,7 +72,7 @@ async function main(argv = process.argv.slice(2)) {
   const estimate = await estimateTargets(targets, model);
   printEstimate(estimate, kind, model);
   const db = noDb ? null : (await import("../seed/env")).adminClient();
-  const params = { model, prompt_version: promptVersionFor(kind === "lessons" ? "lesson" : "questions"), filter, custom_ids: targets.map((t) => t.custom_id), estimate, out };
+  const params = { model, prompt_version: promptVersionFor(kind === "lessons" ? "lesson" : "questions", filter.kind === "industry"), filter, custom_ids: targets.map((t) => t.custom_id), estimate, out };
 
   if (!estimate.within_cap) {
     if (db) await insertRun(db, { kind, params: { ...params, aborted: "over cap" }, status: "failed", requested: targets.length, cost_usd: estimate.usd });

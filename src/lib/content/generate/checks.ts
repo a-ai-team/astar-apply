@@ -13,9 +13,11 @@ export type CheckResult<T> = { ok: boolean; value: T | null; problems: string[];
 
 export type Reference = Set<string> | null;
 
-export function lessonProblems(body: LessonBody, opts: { walkthrough?: boolean; reference?: Reference } = {}): { problems: string[]; warnings: string[] } {
+export function lessonProblems(body: LessonBody, opts: { walkthrough?: boolean; industry?: boolean; reference?: Reference } = {}): { problems: string[]; warnings: string[] } {
   const problems = approvalProblems(body, { walkthrough: opts.walkthrough });
   const warnings: string[] = [];
+  // Loop 09: an industry lesson must carry the metrics table the addendum asks for.
+  if (opts.industry && !body.blocks.some((b) => b.type === "key_metrics")) problems.push("industry lesson has no key_metrics block");
   const qf = body.blocks.filter((b) => b.type === "quick_fire");
   for (const b of qf) if (b.type === "quick_fire" && b.pairs.length !== 4) problems.push(`quick_fire has ${b.pairs.length} pairs, needs exactly 4`);
   if (qf.length > 1) problems.push(`lesson has ${qf.length} quick_fire blocks, needs exactly 1`);
@@ -34,7 +36,7 @@ export function lessonProblems(body: LessonBody, opts: { walkthrough?: boolean; 
 }
 
 /** Raw writer output → checked contract body. `value` is set whenever the schema passes (even with problems). */
-export function checkLesson(raw: unknown, opts: { walkthrough?: boolean; reference?: Reference } = {}): CheckResult<{ title: string; body: LessonBody }> {
+export function checkLesson(raw: unknown, opts: { walkthrough?: boolean; industry?: boolean; reference?: Reference } = {}): CheckResult<{ title: string; body: LessonBody }> {
   const parsed = LessonWriteSchema.safeParse(raw);
   if (!parsed.success) {
     return { ok: false, value: null, problems: parsed.error.issues.map((i) => `schema ${i.path.join(".") || "(root)"}: ${i.message}`), warnings: [] };

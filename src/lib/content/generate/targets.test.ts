@@ -80,3 +80,26 @@ describe("cost", () => {
     expect(usageCost({ input_tokens: 0, output_tokens: 0, cache_read_input_tokens: 1_000_000 }, "claude-opus-5")).toBeCloseTo(0.5);
   });
 });
+
+describe("industry targets (Loop 09)", () => {
+  it("--kind industry selects the 18 modules: 50 lessons / 181 questions with the addendum context and content/industry paths", async () => {
+    const { lessonTargets, questionTargets, contentPathFor, targetFromCustomId } = await import("./targets");
+    const empty = { lessons: [], questions: [] };
+    const lessons = lessonTargets(empty, { all: true, kind: "industry" });
+    expect(lessons).toHaveLength(50);
+    expect(lessons.every((t) => t.industry && t.input.industry?.module_slug === t.topic_slug)).toBe(true);
+    const re = lessons.find((t) => t.slug === "real-estate-noi-cap-rates")!;
+    expect(re.industry?.family).toBe("coverage");
+    expect(re.industry?.sibling_lessons).toHaveLength(2);
+    expect(contentPathFor(re, "x.json")).toBe("industry/real-estate/lessons/x.json");
+    const questions = questionTargets(empty, { all: true, kind: "industry" });
+    expect(questions.reduce((n, t) => n + t.count, 0)).toBe(181);
+    expect(questions.every((t) => t.industry)).toBe(true);
+    // Generalist runs are unchanged.
+    expect(lessonTargets(empty, { all: true }).every((t) => t.industry === null)).toBe(true);
+    expect(contentPathFor(lessonTargets(empty, { all: true })[0], "x.json")).toBe("lessons/x.json");
+    // custom_id round-trip finds industry subtopics too.
+    const back = targetFromCustomId("lesson:real-estate-noi-cap-rates", empty);
+    expect(back?.kind === "lesson" && back.industry?.module_title).toBe("Real Estate");
+  });
+});

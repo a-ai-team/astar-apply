@@ -1,6 +1,7 @@
 // Question writer prompt (Loop 04). One Batches request per subtopic × kind; structured output
 // QuestionWriteSchema ({ questions: [...] }). Static system (cached); per-request facts in the user turn.
 import { CURRICULUM } from "@/lib/content/taxonomy";
+import { industryUserLines, type IndustryContext } from "./industry-addendum.v1";
 
 const taxonomy = CURRICULUM.map((t) => `- ${t.title} (${t.slug}): ${t.subtopics.map((s) => `${s.title} [${s.slug}]`).join("; ")}`).join("\n");
 
@@ -52,6 +53,8 @@ export type QuestionWriteInput = {
   mix: [number, number, number, number];
   source_section: string;
   existing_questions: string[];
+  /** Loop 09: set for industry-module questions. */
+  industry?: IndustryContext | null;
   note?: string | null;
 };
 
@@ -62,6 +65,7 @@ export function questionWriteUser(i: QuestionWriteInput): string {
     `Interview-guide section this maps to (label only, for scope): ${i.source_section}.`,
     `Questions that already exist for this subtopic (do not duplicate): ${i.existing_questions.length ? i.existing_questions.map((q) => `"${q}"`).join(" | ") : "none"}.`,
   ];
+  if (i.industry) lines.push(...industryUserLines(i.industry).slice(0, 2), `Tag every question with "${i.industry.module_slug}" and ask what this group's interviewers ask (metrics, valuation methods, typical deals) — not generalist questions.`);
   if (i.note) lines.push(`Reviewer note from the previous draft — fix this specifically: ${i.note}`);
   return lines.join("\n");
 }

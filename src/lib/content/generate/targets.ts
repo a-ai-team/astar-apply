@@ -1,7 +1,8 @@
 // What to generate: one lesson per subtopic (slug = subtopic slug) and one question request per
 // subtopic × kind, with counts from taxonomy.ts `target_questions` (Σ 347) and the 25/30/30/15
 // difficulty ladder. Pure functions — the CLI and the admin route both build targets from here.
-import { CURRICULUM, findSubtopic, type CurriculumSubtopic, type CurriculumTopic } from "../taxonomy";
+import { ALL_CURRICULUM, CURRICULUM, findSubtopic, INDUSTRY_CURRICULUM, industryModule, type CurriculumSubtopic, type CurriculumTopic } from "../taxonomy";
+import type { IndustryContext } from "@/lib/ai/prompts/industry-addendum.v1";
 import type { LessonWriteInput } from "@/lib/ai/prompts/lesson-write.v1";
 import type { QuestionWriteInput } from "@/lib/ai/prompts/question-write.v1";
 import type { WidgetName } from "../lesson-schema";
@@ -37,6 +38,8 @@ export type LessonTarget = {
   slug: string;
   subtopic_slug: string;
   topic_slug: string;
+  /** Loop 09: set when the subtopic belongs to an industry module (addendum + content/industry/** path). */
+  industry: IndustryContext | null;
   walkthrough: boolean;
   input: LessonWriteInput;
   expected_output_tokens: number;
@@ -51,6 +54,7 @@ export type QuestionTarget = {
   count: number;
   mix: DifficultyMix;
   source_section: string;
+  industry: IndustryContext | null;
   input: QuestionWriteInput;
   expected_output_tokens: number;
 };
@@ -100,11 +104,32 @@ export function questionKindsFor(sub: CurriculumSubtopic): { kind: QuestionKind;
   ];
 }
 
-export type TargetFilter = { topics?: string[]; slugs?: string[]; all?: boolean; force?: boolean };
+/** `kind: "industry"` (Loop 09, `--kind industry`) selects the 18 industry modules instead of the generalist curriculum. */
+export type TargetFilter = { topics?: string[]; slugs?: string[]; all?: boolean; force?: boolean; kind?: "generalist" | "industry" };
 
 function selectedTopics(f: TargetFilter): CurriculumTopic[] {
-  if (f.topics?.length) return CURRICULUM.filter((t) => f.topics!.includes(t.slug));
-  return CURRICULUM;
+  if (f.topics?.length) return ALL_CURRICULUM.filter((t) => f.topics!.includes(t.slug));
+  if (f.slugs?.length) return ALL_CURRICULUM;
+  return f.kind === "industry" ? INDUSTRY_CURRICULUM : CURRICULUM;
+}
+
+/** Industry context for a subtopic's module, or null for generalist topics. */
+export function industryContextFor(topic: CurriculumTopic, sub: CurriculumSubtopic): IndustryContext | null {
+  if (topic.kind !== "industry") return null;
+  const m = industryModule(topic.slug);
+  return {
+    module_slug: topic.slug,
+    module_title: topic.title,
+    family: topic.group_family ?? m?.family ?? "other",
+    source_count: m?.source_count ?? 0,
+    sibling_lessons: topic.subtopics.filter((s) => s.slug !== sub.slug).map((s) => s.title),
+  };
+}
+
+/** Where a target's files go under content/: `lessons/` · `questions/` or `industry/<module>/{lessons,questions}/`. */
+export function contentPathFor(target: Target, file: string): string {
+  const kind = target.kind === "lesson" ? "lessons" : "questions";
+  return target.industry ? `industry/${target.topic_slug}/${kind}/${file}` : `${kind}/${file}`;
 }
 
 /** One lesson per subtopic that has no lesson yet (unless `force` or the slug is named explicitly). */
@@ -119,12 +144,14 @@ export function lessonTargets(existing: ExistingContent, f: TargetFilter = {}): 
       if (f.slugs?.length && !named) continue;
       if (!named && !f.force && bySubtopic.has(sub.slug)) continue;
       const siblings = topic.subtopics.filter((s) => s.slug !== sub.slug).map((s) => s.title);
+      const industry = industryContextFor(topic, sub);
       out.push({
         kind: "lesson",
         custom_id: lessonCustomId(sub.slug),
         slug: sub.slug,
         subtopic_slug: sub.slug,
         topic_slug: topic.slug,
+        industry,
         walkthrough: Boolean(sub.walkthrough),
         input: {
           subtopic_slug: sub.slug,
@@ -135,6 +162,7 @@ export function lessonTargets(existing: ExistingContent, f: TargetFilter = {}): 
           sibling_titles: siblings,
           prior_one_liners: priorOneLiners,
           required_widget: REQUIRED_WIDGETS[sub.slug] ?? null,
+          industry,
         },
         expected_output_tokens: EXPECTED_OUTPUT_TOKENS.lesson,
       });
@@ -154,6 +182,7 @@ export function questionTargets(existing: ExistingContent, f: TargetFilter = {})
         const haveKind = have.filter((q) => q.kind === kind);
         const missing = f.force ? count : Math.max(0, count - haveKind.length);
         if (missing === 0) continue;
+        const industry = industryContextFor(topic, sub);
         out.push({
           kind: "questions",
           custom_id: questionsCustomId(sub.slug, kind),
@@ -163,6 +192,7 @@ export function questionTargets(existing: ExistingContent, f: TargetFilter = {})
           count: missing,
           mix: difficultyMix(missing),
           source_section: sub.source_section,
+          industry,
           input: {
             subtopic_slug: sub.slug,
             subtopic_title: sub.title,
@@ -172,6 +202,7 @@ export function questionTargets(existing: ExistingContent, f: TargetFilter = {})
             mix: difficultyMix(missing),
             source_section: sub.source_section,
             existing_questions: have.map((q) => q.question),
+            industry,
           },
           expected_output_tokens: EXPECTED_OUTPUT_TOKENS.questionEach * missing,
         });

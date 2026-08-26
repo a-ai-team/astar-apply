@@ -27,9 +27,9 @@ generate/collect/load; `scripts/seed/09-industry.ts`; re-run `seed 05` and `cont
 - [ ] Playwright `e2e/09-industry.spec.ts` (approve one RE lesson in setup → visible → `key_metrics` renders → deck exists → module drill starts)
 
 ## Tasks
-- [ ] migration + rows
-- [ ] `key_metrics` block
-- [ ] addendum + targets
+- [x] migration + rows (0010 written; applied → § Blocked 1; seed 03/09 carry a fallback)
+- [x] `key_metrics` block (already in the contract since Loop 03 — verified: `KeyMetricsBlock`, renderer, labels, writer schema; industry lessons now *require* it in `checks.ts`)
+- [x] addendum + targets (`industry-addendum.v1`, `INDUSTRY_CURRICULUM`, `--kind industry`; dry-run lessons $8.84 + questions $3.49, heuristic)
 - [ ] dry-run → lessons batch → validate → critic
 - [ ] questions batch
 - [ ] load/decks/index

@@ -3,30 +3,31 @@
 // content/. Idempotent: upserts on slug / (topic_id, slug) / (path_id, week, day).
 import path from "node:path";
 import { adminClient } from "./env";
-import { CURRICULUM, DEFAULT_PATH } from "../../src/lib/content/taxonomy";
+import { ALL_CURRICULUM, CURRICULUM, DEFAULT_PATH, INDUSTRY_CURRICULUM } from "../../src/lib/content/taxonomy";
 import { loadContent } from "../content/load";
 
 export async function seedTaxonomy() {
   const db = adminClient();
 
-  // Topics
+  // Topics (generalist ordinals 0–8; industry modules 100+ so they sort after — Loop 09)
   const topicId = new Map<string, string>();
-  for (const [i, t] of CURRICULUM.entries()) {
-    const { data, error } = await db
-      .from("topics")
-      .upsert(
-        { slug: t.slug, title: t.title, kind: t.kind, ordinal: i, level: t.level, is_free: t.is_free, summary: t.summary, source_section: t.source_section, status: "approved" },
-        { onConflict: "slug" },
-      )
-      .select("id")
-      .single();
-    if (error || !data) throw error ?? new Error(`topic ${t.slug}`);
-    topicId.set(t.slug, data.id);
+  let warnedFamily = false;
+  for (const [i, t] of ALL_CURRICULUM.entries()) {
+    const ordinal = t.kind === "industry" ? 100 + INDUSTRY_CURRICULUM.indexOf(t) : i;
+    const row = { slug: t.slug, title: t.title, kind: t.kind, ordinal, level: t.level, is_free: t.is_free, summary: t.summary, source_section: t.source_section, status: "approved" };
+    let res = await db.from("topics").upsert({ ...row, group_family: t.group_family ?? null }, { onConflict: "slug" }).select("id").single();
+    if (res.error && /group_family/.test(res.error.message)) {
+      // Migration 0010 not applied yet (Loop 09 § Blocked): the family still lives in taxonomy.ts.
+      if (!warnedFamily) { console.warn("seed 03: topics.group_family missing — run `npm run db:migrate` (0010_industry.sql); seeding without it"); warnedFamily = true; }
+      res = await db.from("topics").upsert(row, { onConflict: "slug" }).select("id").single();
+    }
+    if (res.error || !res.data) throw res.error ?? new Error(`topic ${t.slug}`);
+    topicId.set(t.slug, res.data.id);
   }
 
   // Subtopics
   let nSub = 0;
-  for (const t of CURRICULUM) {
+  for (const t of ALL_CURRICULUM) {
     for (const [j, s] of t.subtopics.entries()) {
       const { error } = await db.from("subtopics").upsert(
         { topic_id: topicId.get(t.slug)!, slug: s.slug, title: s.title, ordinal: j, kind: s.kind, source_section: s.source_section, target_questions: s.target_questions, status: "approved" },
@@ -36,7 +37,7 @@ export async function seedTaxonomy() {
       nSub++;
     }
   }
-  console.log(`seed 03: ${CURRICULUM.length} topics, ${nSub} subtopics`);
+  console.log(`seed 03: ${CURRICULUM.length} topics + ${INDUSTRY_CURRICULUM.length} industry modules, ${nSub} subtopics`);
 
   // Content (lessons + questions) from content/
   const loaded = await loadContent(db, path.resolve("content"));
