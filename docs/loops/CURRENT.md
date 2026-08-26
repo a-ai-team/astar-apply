@@ -3,7 +3,7 @@
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
 - **Loop:** 04 Technicals content generation (`docs/loops/04-content-generation.md`) — planned
 - **Branch:** `feat/content-generation`
-- **Task:** 6 / 11 — pipeline lib + CLIs done (generate/collect/approve, seed 04, dry-run $8.99 lessons / ~$8 questions heuristic); next review UI + /admin/generation
+- **Task:** 10 / 11 — review UI, /admin/generation, API routes, eval suites lessons/questions, e2e 04 (1/1) done; next docs + retro + PR
 - **Last checks:** Loop 03: lint ✓ typecheck ✓ build ✓ test:unit 47/47 ✓ test:e2e 13/13 ✓ db:check 21/21 ✓ acceptance 5/5
 - **Blockers:** **ANTHROPIC_API_KEY has no credit** (`credit balance is too low`, `npx tsx scripts/dev/api-probe.ts`). Loop 04 is a Batches loop — it cannot generate content without credit. Build everything that does not call Claude (migration 0005, prompts, checkers + tests, batch parser with recorded fixtures, review UI, load/approve scripts) and run `--dry-run`; mark generation tasks blocked and leave status `merged (partial)` if credit is still absent.
   Carried for James: top up credit then `npm run eval -- --suite chat` + `npm run cache:check`; `VOYAGE_API_KEY` + `npm run reembed`; `supabase config push`; `PRIVATE_ACCESS_KEY` in `.env.local`; Google OAuth; re-record extraction + chat fixtures; confirm free topics (Accounting + EqV/EV).

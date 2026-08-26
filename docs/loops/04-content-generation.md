@@ -37,8 +37,8 @@ cost (dry-run gate); batch wait (build review UI meanwhile, Monitor on the poll 
 - [ ] lessons batch → collect → validate → critic
 - [ ] questions batch → collect → validate
 - [x] load/seed/approve
-- [ ] review UI + regenerate-one
-- [ ] eval suites + auto-approve free topics
+- [x] review UI + regenerate-one (regenerate needs credit — wired, untested live)
+- [x] eval suites + auto-approve free topics (suites run; readability skipped NO API CREDIT; approve.ts ready, nothing to approve yet)
 - [ ] Playwright, `docs/research/content-pipeline.md`, retro
 
 ## Blocked-on-human (defaults)

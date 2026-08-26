@@ -23,6 +23,8 @@ export type SuiteFn = (opts: { limit: number | null }) => Promise<SuiteResult>;
 export const SUITES: Record<string, () => Promise<{ run: SuiteFn }>> = {
   retrieval: () => import("./suites/retrieval"),
   chat: () => import("./suites/chat"),
+  lessons: () => import("./suites/lessons"),
+  questions: () => import("./suites/questions"),
 };
 
 export function readJsonl<T>(file: string): T[] {
