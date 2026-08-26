@@ -35,7 +35,7 @@ stale facts → "unverified" badge until approved; search cost capped; names in 
 - [x] report form + rate limit + admin promote
 - [x] Pulse prompts + generate
 - [x] cron route + `vercel.json`
-- [ ] Pulse pages
+- [x] Pulse pages
 - [ ] admin firm editor
 - [ ] Playwright/docs/retro; merge (data gated by status)
 
