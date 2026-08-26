@@ -184,3 +184,40 @@ questions of `approved` firms and `approved` digests; own-insert on reports; sta
 - **Env**: `CRON_SECRET`, `PULSE_AUTO_PUBLISH` (default false), `PULSE_ALLOWED_DOMAINS`, `PULSE_MODEL`.
 - **Tests**: `e2e/08-firms.spec.ts` (3; approves one firm in `beforeAll`, restores `generated` after);
   vitest in `src/lib/firms`, `src/lib/pulse`, `src/components/firms`.
+
+## Industry / group modules (Loop 09)
+Migration `0010_industry.sql`: `topics.group_family` (`coverage | product | other`), the 18 industry
+`topics` rows (`kind = 'industry'`, ordinals 100+, `is_free = false`, `status approved`) and the view
+`industry_modules` (security invoker: per-module subtopic / approved lesson / approved question /
+flashcard counts). **Not yet applied** — see `docs/loops/09-industry-modules.md` § Blocked 1; until
+then `seed 03` upserts the rows without `group_family` and `listIndustryModules()` aggregates the
+same counts from the base tables (the family always comes from `taxonomy.ts`).
+- **Source of truth**: `INDUSTRY_MODULES` in `src/lib/content/taxonomy.ts` — slug, title, family,
+  400Q section *label* + question *count*, summary, lesson subjects. `INDUSTRY_CURRICULUM` turns each
+  module into a `CurriculumTopic` with one subtopic per lesson: lessons 2 / 3 / 4 by source count
+  (< 8 / 8–12 / > 12), questions = count to the nearest 5 (min 8) split across the lessons →
+  **50 lessons, 181 questions** across 18 modules. `ALL_CURRICULUM` = generalist + industry;
+  `findSubtopic()` searches both; `isContentTopicSlug()` accepts either for `topic_slug`.
+- **Content** lives in `content/industry/<module>/{lessons,questions}/*.json` (same file shapes;
+  `validateContentDir` walks it; `loadContent` loads it). An industry lesson **must** carry a
+  `key_metrics` block (`checks.ts` and the `industry` eval suite enforce it; the renderer's
+  `KeyMetrics` table has existed since Loop 03).
+- **Generation**: `npm run content:generate -- lessons|questions --kind industry --all` targets the
+  modules; `systemFor()` appends `src/lib/ai/prompts/industry-addendum.v1.ts` (metrics that replace
+  EBITDA → valuation methods → typical deals → what interviewers probe) to the static writer prompt,
+  `industryUserLines()` adds the module facts to the user turn, and `prompt_version` records
+  `lesson-write.v1+industry-addendum.v1`. Dry-run (heuristic, no credit): lessons ≈ $8.84,
+  questions ≈ $3.49. `npm run eval -- --suite industry`: schema 100 %, overlap 0, `key_metrics`
+  present, readability ≥ 4 on ≤ 10 lessons (skipped without credit).
+- **Pages**: `/home/technicals/industry` (grid grouped by family, "Coming soon" until a module has an
+  approved lesson; `data-testid="industry-card"`), module page = `/home/technicals/<module>` (the
+  topic page with a family badge and a link back to the grid); the generalist grid hides industry
+  topics and links to the industry grid. Decks (`/home/flashcards`) and drills (`/home/interviews`)
+  pick industry modules up automatically once questions are approved (`drillTopics` returns `kind`).
+- **Mock interviews**: the full-mock form has an "Add an industry module" select (`mock-industry`);
+  `startInterview` adds that module to the round-robin topics and stores it in `interviews.topic_id`
+  (default decision — no new column without a migration; a mock with a topic shows as
+  "Full mock · <module>").
+- **Seeds/tests**: `npm run seed -- 09` (seed 03 + report per module); `e2e/09-industry.spec.ts`
+  (approves the Real Estate lesson + 8 questions and derives their cards in `beforeAll`, restores in
+  `afterAll`); vitest in `taxonomy.test.ts`, `targets.test.ts`.

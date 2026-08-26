@@ -57,6 +57,9 @@ npm run content:validate && npm run content:load                   # or: npm run
 npm run eval -- --suite lessons,questions                          # schema 100 %, overlap 0, readability ≥ 4, mix ±15 %
 npm run content:approve -- --topic accounting,eqv-ev               # only after the evals pass
 ```
+Industry modules (Loop 09) use the same pipeline with `--kind industry` (adds the industry addendum,
+writes to `content/industry/<module>/`); the sequence is in `docs/loops/09-industry-modules.md` § Blocked 2.
+
 `--sync` runs targets one at a time (streamed, with refusal fallbacks) — use `--slug wacc --sync` for
 the one-lesson smoke test. `--wait` polls and collects in one go. `/admin/generation` can start,
 refresh and collect runs too (it loads the DB directly; content/ files still come from the CLI).
