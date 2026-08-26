@@ -29,8 +29,8 @@ cost (dry-run gate); batch wait (build review UI meanwhile, Monitor on the poll 
 - [ ] Playwright `e2e/04-review.spec.ts` (mentor requests changes → `in_review` + review row → student cannot open)
 
 ## Tasks
-- [ ] migration
-- [ ] prompts + targets
+- [x] migration
+- [x] prompts + targets
 - [ ] generate.ts + dry-run + one-lesson smoke
 - [ ] checkers + tests
 - [ ] batch submit/poll/collect/resubmit
