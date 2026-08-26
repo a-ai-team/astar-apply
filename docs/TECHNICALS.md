@@ -87,3 +87,47 @@ or saving an item re-indexes just that item). Every lesson block has a stable an
 context. When the mentor corpus contradicts a lesson or question in a chat answer, a `system-bot`
 `content_reviews` row is filed and `/admin/review` shows `⚠ mentor disagrees`. Details: `docs/CHAT.md`
 § Fusion.
+
+## Mock interviews (Loop 07)
+Migration `0008_interviews.sql`: `interviews` (mode `drill|mock`, `question_ids uuid[]` fixed at start,
+`seconds_per_question`, status `in_progress|completed|abandoned`, `overall_score`, `report jsonb`) and
+`interview_turns` (one per question: `shown_at`/`answered_at` on the **server clock**, `answer_text`,
+`transcript_meta {wpm, filler_count, fillers, duration_s, late, voice}`, `score` /10, `grade jsonb`,
+`attempt_id`); `attempts.interview_id` gains its FK. Own-row RLS + staff read; `db:check` +4.
+- **Selection** (`src/lib/interviews/select.ts`, pure + seeded RNG): drill = up to 5 approved questions
+  from one topic without replacement (difficulties 1–3, any difficulty if that leaves fewer than 5);
+  mock = up to 15 round-robin across the 7 technical topics (`MOCK_TOPICS`), ordered easy → hard. With
+  today's 6 approved questions a drill has 3 turns and a mock 6 — the hub says so.
+- **Grader** (`grade.ts`, prompt `interview-grade.v1`): Opus 5 `beta.messages.parse` +
+  `betaZodOutputFormat(GradeSchema)`, effort medium, `max_tokens` 2000, cached rubric (≥ 1024 tokens),
+  refusal fallbacks. User turn = `renderQuestionContext()` from Loop 06 (question, model answer, key
+  points, weak-answer note) + the answer + delivery metrics. Score /10 = accuracy 0–4 + structure 0–3
+  + depth 0–3; wrong numbers cap accuracy at 1 and the total at 3. **Fixture branch** (`CHAT_MODE`
+  resolution → `fixture` without credit, always in Playwright/CI): keyword coverage of the key points
+  (`gradeFixture`) — deterministic, monotone in coverage; against `fixtures/eval/grader.jsonl` it scores
+  Spearman 0.92 / MAE 1.00. A live failure also falls back to it (`prompt_version` records which ran).
+- **Report** (`report.ts`, prompt `interview-report.v1`): `{summary_md, focus_areas[≤3]}`; every
+  `lesson_slug` is validated against approved lessons in the same topic and invalid entries are
+  replaced by the lowest-scoring subtopics' lessons (`validateReport`); fixture = `reportFixture`.
+- **Actions** (`src/app/home/interviews/actions.ts`): `startInterview` (form → redirect to runner),
+  `submitTurn` (loads with the service-role client → `checkOwnership` gives a stranger an explicit 403;
+  duration from `shown_at`; late = over the limit + 10 s grace, accepted but flagged; grades; writes the
+  `attempts` row with `ai_score`/`ai_feedback`/`interview_id`; serves the next turn), `markTurnShown`,
+  `finishInterview` (overall = mean of graded turns, report, `completed`), `abandonInterview`.
+- **UI**: `/home/interviews` (drill picker per topic with pool counts, full mock, history),
+  `/home/interviews/[id]` (`InterviewRunner`: countdown from the server-stamped `shown_at`, textarea,
+  mocks auto-submit at zero, grade reveal with hit/missed/feedback/tip and **Ask Mentor** carrying
+  `{question_id, attempt_id}`), `/home/interviews/[id]/report` (score card incl. Delivery /100 when
+  metrics exist, focus areas → lesson / deck / practice links, per-question accordion). Pages are
+  own-only (a stranger, staff included, gets 404).
+- **Voice** (`VoiceCapture`, `NEXT_PUBLIC_VOICE_MOCK=on`): Web Speech API dictation in the browser
+  (Chrome/Edge; Safari partial; Firefox none); audio never leaves the device — only the transcript and
+  `speech-metrics.ts` numbers (wpm, fillers, `deliveryScore` /100) are sent with the answer.
+- **Eval**: `npm run eval -- --suite grader` — 40 hand-scored answers (10 excellent / 15 partial /
+  10 wrong / 5 empty); live thresholds Spearman ≥ 0.7, MAE ≤ 1.0, empty ≤ 1; without credit it prints
+  `NO API CREDIT — grader suite skipped` and the fixture grader's numbers (not gated).
+- **Seeds/tests**: `npm run seed -- 07` (a completed Accounting drill for the e2e student);
+  `e2e/07-interviews.spec.ts` (3); 26 vitest in `src/lib/interviews` + `scripts/eval/suites/grader.test.ts`.
+- **Loop 08 "Practise this"**: create a 1-question drill by inserting `interviews {mode:'drill',
+  question_ids:[id], seconds_per_question}` + one `interview_turns` row (ordinal 0, `shown_at: now`) —
+  `startInterview` only knows topics; add a `questionIds` path or a `startDrillFor(questionId)` action.
