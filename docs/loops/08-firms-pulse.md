@@ -29,7 +29,7 @@ stale facts → "unverified" badge until approved; search cost capped; names in 
 
 ## Tasks
 - [x] migration
-- [ ] dossier fixtures + seed
+- [x] dossier fixtures + seed
 - [ ] question authoring script + load
 - [ ] firm pages + timeline + filters + drill bridge
 - [ ] report form + rate limit + admin promote

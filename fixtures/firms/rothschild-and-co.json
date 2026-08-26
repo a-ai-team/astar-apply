@@ -1,0 +1,49 @@
+{
+  "_note": "PLACEHOLDER — unverified draft for pipeline testing. Drafted from the firm's own public careers pages; every fact must be checked there before this row is approved in /admin/firms. No logos, names in plain text.",
+  "slug": "rothschild-and-co",
+  "name": "Rothschild & Co",
+  "type": "elite_boutique",
+  "founded": 1810,
+  "hq": "Paris, France (London office at New Court)",
+  "headcount": "approx. 4,000 (2024)",
+  "scale_note": "Family-controlled group; among the most active M&A advisers by deal count in Europe.",
+  "divisions": [
+    "Global Advisory (M&A, Debt Advisory & Restructuring, Equity Advisory)",
+    "Wealth & Asset Management",
+    "Merchant Banking (Five Arrows)"
+  ],
+  "values": [
+    "Independence",
+    "Long-term relationships",
+    "Family ownership",
+    "Global network"
+  ],
+  "process": [
+    {
+      "stage": "Online application",
+      "when": "Aug–Oct (summer); rolling for graduate",
+      "notes": "CV and cover letter; boutiques read the cover letter, so tailor it."
+    },
+    {
+      "stage": "First-round interviews",
+      "when": "Sep–Nov",
+      "notes": "One or two 30-minute calls with analysts/associates: fit, deal discussion and technicals from the first question."
+    },
+    {
+      "stage": "Superday",
+      "when": "Oct–Dec",
+      "notes": "Several back-to-back interviews with senior bankers; expect deeper technicals and a 'walk me through a deal' discussion."
+    },
+    {
+      "stage": "Offer",
+      "when": "Within days of the superday",
+      "notes": "Smaller classes, so timing varies by office."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Rothschild & Co Careers",
+      "url": "https://www.rothschildandco.com/en/careers/"
+    }
+  ]
+}

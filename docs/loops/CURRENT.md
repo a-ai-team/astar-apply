@@ -3,10 +3,10 @@
 - **Run started:** 2026-08-25 23:13 (14 h cap → 2026-08-26 13:13)
 - **Loop:** 08 Firm interview bank + Pulse (`docs/loops/08-firms-pulse.md`) — in-progress
 - **Branch:** `feat/firms-pulse` (from `main` after Loop 07 #14)
-- **Task:** 1 / 10 done — migration 0009 applied (`db:check` 46/46); next: dossier fixtures + seed 08
+- **Task:** 2 / 10 done — 14 dossier fixtures + `seed -- 08` (firms `generated`, sample digest `approved`); next: question authoring script + fixture load
 - **Last checks:** db:migrate ✓ db:check 46/46 ✓
 - **Blockers:** **ANTHROPIC_API_KEY still has no credit** — firm-question authoring and the Pulse digest run their fixture branches; live re-run commands go under Loop 08 § Blocked. Carried: Loop 04 § Blocked, 06 § Blocked 1–3, 07 § Blocked 1–4; `VOYAGE_API_KEY` + reembed; `supabase config push`; `PRIVATE_ACCESS_KEY`; Google OAuth; free-topic confirmation; staff view of students' interviews.
 - **Decisions taken by default this loop:** (1) `interview_turns.firm_question_id` + `question_id` nullable with a one-of check (Loop 07 retro option 2) so "Practise this" drills a firm question without a mirror `questions` row; (2) `firm_questions` unique on `(firm_id, question)` as the seed's natural key; (3) `firm_question_reports` gains `reviewed_at` + `promoted_question_id` for traceability.
-- **Next action:** write 14 dossier fixtures under `fixtures/firms/<slug>.json` (facts only from firms' own careers pages, `sources` = real careers URLs or empty, no logos) + `scripts/seed/08-firms.ts` (upsert on slug, `status='generated'`; sample Pulse digest `approved`).
+- **Next action:** `scripts/firms/author.ts` (Opus 5 structured, `AuthoredQuestionsSchema`, 10–15 per firm, writes `fixtures/firms/questions/<slug>.json`) + hand-written fixture files for all 14 firms; `seed -- 08` loads them `generated`.
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)

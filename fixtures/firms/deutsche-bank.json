@@ -1,0 +1,58 @@
+{
+  "_note": "PLACEHOLDER — unverified draft for pipeline testing. Drafted from the firm's own public careers pages; every fact must be checked there before this row is approved in /admin/firms. No logos, names in plain text.",
+  "slug": "deutsche-bank",
+  "name": "Deutsche Bank",
+  "type": "bulge_bracket",
+  "founded": 1870,
+  "hq": "Frankfurt, Germany",
+  "headcount": "approx. 90,000 (2024)",
+  "scale_note": "Germany's largest bank; a global corporate and investment bank.",
+  "divisions": [
+    "Investment Bank (Origination & Advisory, Fixed Income & Currencies)",
+    "Corporate Bank",
+    "Private Bank",
+    "Asset Management (DWS)",
+    "Technology, Data & Innovation"
+  ],
+  "values": [
+    "Integrity",
+    "Sustainable performance",
+    "Client centricity",
+    "Innovation",
+    "Discipline",
+    "Partnership"
+  ],
+  "process": [
+    {
+      "stage": "Online application",
+      "when": "Sep–Nov (spring/summer); rolling for graduate",
+      "notes": "CV, short motivation questions and programme preference. Early applications are reviewed first."
+    },
+    {
+      "stage": "Online assessments",
+      "when": "Days after applying",
+      "notes": "Numerical, situational-judgement or game-based tests depending on the programme; check the careers page for the current format."
+    },
+    {
+      "stage": "Video interview",
+      "when": "Within ~2 weeks of passing tests",
+      "notes": "Recorded (HireVue-style) answers to motivation, competency and commercial-awareness questions; ~2 minutes per answer."
+    },
+    {
+      "stage": "Assessment centre / final interviews",
+      "when": "Nov–Feb",
+      "notes": "Back-to-back interviews with bankers, sometimes a group exercise or case; technicals appear here for IBD."
+    },
+    {
+      "stage": "Offer",
+      "when": "Typically within 2 weeks of the final round",
+      "notes": "Spring-week converts to summer via an end-of-programme assessment at most banks."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Deutsche Bank Careers",
+      "url": "https://careers.db.com"
+    }
+  ]
+}

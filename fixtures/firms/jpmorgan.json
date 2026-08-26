@@ -1,0 +1,58 @@
+{
+  "_note": "PLACEHOLDER — unverified draft for pipeline testing. Drafted from the firm's own public careers pages; every fact must be checked there before this row is approved in /admin/firms. No logos, names in plain text.",
+  "slug": "jpmorgan",
+  "name": "J.P. Morgan",
+  "type": "bulge_bracket",
+  "founded": 2000,
+  "hq": "New York, US",
+  "headcount": "approx. 300,000 (JPMorgan Chase, 2024)",
+  "scale_note": "Largest US bank by assets; the 2000 merger of J.P. Morgan and Chase Manhattan; heritage back to 1799.",
+  "divisions": [
+    "Investment Banking",
+    "Markets",
+    "Securities Services",
+    "Payments",
+    "Asset & Wealth Management",
+    "Commercial Banking",
+    "Technology"
+  ],
+  "values": [
+    "Exceptional client service",
+    "Operational excellence",
+    "A commitment to integrity, fairness and responsibility",
+    "A great team and winning culture"
+  ],
+  "process": [
+    {
+      "stage": "Online application",
+      "when": "Sep–Nov (spring/summer); rolling for graduate",
+      "notes": "CV, short motivation questions and programme preference. Early applications are reviewed first."
+    },
+    {
+      "stage": "Online assessments",
+      "when": "Days after applying",
+      "notes": "Numerical, situational-judgement or game-based tests depending on the programme; check the careers page for the current format."
+    },
+    {
+      "stage": "Video interview",
+      "when": "Within ~2 weeks of passing tests",
+      "notes": "Recorded (HireVue-style) answers to motivation, competency and commercial-awareness questions; ~2 minutes per answer."
+    },
+    {
+      "stage": "Assessment centre / final interviews",
+      "when": "Nov–Feb",
+      "notes": "Back-to-back interviews with bankers, sometimes a group exercise or case; technicals appear here for IBD."
+    },
+    {
+      "stage": "Offer",
+      "when": "Typically within 2 weeks of the final round",
+      "notes": "Spring-week converts to summer via an end-of-programme assessment at most banks."
+    }
+  ],
+  "sources": [
+    {
+      "title": "J.P. Morgan Careers",
+      "url": "https://careers.jpmorgan.com"
+    }
+  ]
+}

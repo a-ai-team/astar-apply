@@ -1,0 +1,54 @@
+{
+  "_note": "PLACEHOLDER — unverified draft for pipeline testing. Drafted from the firm's own public careers pages; every fact must be checked there before this row is approved in /admin/firms. No logos, names in plain text.",
+  "slug": "blackstone",
+  "name": "Blackstone",
+  "type": "buy_side",
+  "founded": 1985,
+  "hq": "New York, US",
+  "headcount": "approx. 4,700 (2024)",
+  "scale_note": "World's largest alternative asset manager by assets under management.",
+  "divisions": [
+    "Private Equity",
+    "Real Estate",
+    "Credit & Insurance",
+    "Multi-Asset Investing",
+    "Infrastructure",
+    "Growth",
+    "Life Sciences"
+  ],
+  "values": [
+    "Excellence",
+    "Integrity",
+    "Innovation",
+    "Meritocracy",
+    "Teamwork"
+  ],
+  "process": [
+    {
+      "stage": "Online application",
+      "when": "Aug–Sep",
+      "notes": "CV, cover letter and programme preference."
+    },
+    {
+      "stage": "Video / phone screen",
+      "when": "Sep–Oct",
+      "notes": "Recorded video or a short call on motivation and commercial awareness."
+    },
+    {
+      "stage": "Interviews and case",
+      "when": "Oct–Dec",
+      "notes": "Rounds with investment professionals; a modelling or case exercise is common for investing roles."
+    },
+    {
+      "stage": "Offer",
+      "when": "Within ~2 weeks",
+      "notes": "Class sizes are small; decisions are made office by office."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Blackstone Careers",
+      "url": "https://www.blackstone.com/careers/"
+    }
+  ]
+}

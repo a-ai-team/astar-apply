@@ -1,0 +1,59 @@
+{
+  "_note": "PLACEHOLDER — unverified draft for pipeline testing. Drafted from the firm's own public careers pages; every fact must be checked there before this row is approved in /admin/firms. No logos, names in plain text.",
+  "slug": "morgan-stanley",
+  "name": "Morgan Stanley",
+  "type": "bulge_bracket",
+  "founded": 1935,
+  "hq": "New York, US (1585 Broadway)",
+  "headcount": "approx. 80,000 (2024)",
+  "scale_note": "Global leader across investment banking, wealth and investment management.",
+  "divisions": [
+    "Investment Banking",
+    "Sales & Trading",
+    "Research",
+    "Wealth Management",
+    "Investment Management",
+    "Technology",
+    "Operations"
+  ],
+  "values": [
+    "Put clients first",
+    "Do the right thing",
+    "Lead with exceptional ideas",
+    "Commit to diversity and inclusion",
+    "Give back"
+  ],
+  "process": [
+    {
+      "stage": "Online application",
+      "when": "Sep–Nov (spring/summer); rolling for graduate",
+      "notes": "CV, short motivation questions and programme preference. Early applications are reviewed first."
+    },
+    {
+      "stage": "Online assessments",
+      "when": "Days after applying",
+      "notes": "Numerical, situational-judgement or game-based tests depending on the programme; check the careers page for the current format."
+    },
+    {
+      "stage": "Video interview",
+      "when": "Within ~2 weeks of passing tests",
+      "notes": "Recorded (HireVue-style) answers to motivation, competency and commercial-awareness questions; ~2 minutes per answer."
+    },
+    {
+      "stage": "Assessment centre / final interviews",
+      "when": "Nov–Feb",
+      "notes": "Back-to-back interviews with bankers, sometimes a group exercise or case; technicals appear here for IBD."
+    },
+    {
+      "stage": "Offer",
+      "when": "Typically within 2 weeks of the final round",
+      "notes": "Spring-week converts to summer via an end-of-programme assessment at most banks."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Morgan Stanley Careers",
+      "url": "https://www.morganstanley.com/careers"
+    }
+  ]
+}

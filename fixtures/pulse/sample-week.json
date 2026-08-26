@@ -1,0 +1,79 @@
+{
+  "_note": "PLACEHOLDER — synthetic content for pipeline testing. Every company, number and source below is invented so /home/pulse renders without a live digest. It is seeded approved on purpose (the only approved Loop 08 row) and should be replaced by the first human-approved weekly digest.",
+  "week_start": "2026-08-24",
+  "model": "fixture",
+  "prompt_version": "fixture:sample-week.v1",
+  "body": {
+    "intro_md": "**Sample week.** Three invented stories written the way Pulse frames real ones: what happened, why a banker cares, three things you could say in an interview, and the questions it might prompt.",
+    "stories": [
+      {
+        "headline": "Northwind Aerospace agrees £4.2bn all-cash takeover of Bramble Components",
+        "take_md": "Northwind Aerospace (fictional) agreed to buy Bramble Components (fictional), a supplier of landing-gear actuators, for £4.2bn in cash — a 38% premium to the undisturbed price. The deal is funded with a £2.5bn bridge loan to be refinanced in the bond market plus cash on hand. Bankers care because it is a classic vertical integration story: the buyer secures a critical supplier, the premium has to be justified by synergies, and the financing choice (all debt, no equity) says something about how confident the board is in cash flows.",
+        "talking_points": [
+          "A 38% premium is only defensible if run-rate synergies, capitalised, exceed the premium paid — ask what the synergy number is and how much is cost versus revenue.",
+          "All-cash funding with a bridge loan means the buyer's leverage jumps; the market will watch the rating agencies' reaction and the spread on the take-out bonds.",
+          "Vertical deals attract less antitrust attention than horizontal ones, but supply-of-inputs foreclosure is exactly what regulators now probe."
+        ],
+        "anchors": [
+          "Fictional precedent: 2019 — a similar aerospace supplier deal was refinanced within nine months when spreads tightened.",
+          "Rule of thumb: premiums in UK public M&A have clustered around 30–45% over the past decade."
+        ],
+        "practice_qs": [
+          {
+            "q": "Walk me through how you would decide whether the 38% premium is justified.",
+            "a": "Start from the value created: estimate annual synergies, tax-effect them, capitalise at the buyer's cost of capital or a synergy multiple, subtract integration costs. Compare that capitalised value to the premium paid (£4.2bn less the undisturbed market cap). If synergies cover the premium with a margin, value accrues to the buyer's shareholders; if not, the buyer is paying away the value to the target's shareholders. Then sanity-check against precedent premiums and the accretion/dilution on EPS given all-debt funding."
+          },
+          {
+            "q": "Why might the board choose all-cash rather than issuing shares?",
+            "a": "Cash avoids diluting existing shareholders and signals confidence that cash flows can service the debt; it is also simpler for target shareholders to value. The trade-off is higher leverage and refinancing risk on the bridge. Shares would share risk with the target's holders and preserve the rating, at the cost of dilution and a longer, more conditional process."
+          }
+        ],
+        "sources": [
+          { "title": "Synthetic sample — not a real article", "url": "https://example.com/pulse/sample/northwind-bramble" }
+        ]
+      },
+      {
+        "headline": "Bank of Albion holds rates at 4.25% but signals cuts if wage growth keeps slowing",
+        "take_md": "The fictional central bank held its policy rate at 4.25% for a third meeting, with two of nine members voting for a cut. The statement dropped the phrase 'restrictive for an extended period' and pointed to slowing private-sector wage growth. For a bank, the rate path drives net interest income, the cost of leveraged financing, and the discount rates in every valuation the M&A team runs. A dovish tilt tends to lift equities, tighten credit spreads and reopen the IPO window.",
+        "talking_points": [
+          "A hold with a dovish statement moves markets almost as much as a cut: the two-year gilt yield (fictional) fell 12bp on the day.",
+          "Lower rates lower the WACC, so DCF values rise — but also compress bank net interest margins, which is why bank shares can lag a rally.",
+          "Leveraged buyouts become cheaper to finance, so sponsors' bid capacity rises before any cut is delivered."
+        ],
+        "anchors": [
+          "Fictional anchor: the 2024–25 easing cycle saw the first cut arrive two meetings after the guidance language softened."
+        ],
+        "practice_qs": [
+          {
+            "q": "How does a cut in the base rate affect the valuation of a company you are advising?",
+            "a": "Through the discount rate: the risk-free rate feeds the cost of equity via CAPM and the cost of debt directly, so the WACC falls and the present value of future cash flows rises. Second-order effects matter too — cheaper debt can raise the target's optimal leverage, and if the company is a bank, lower rates squeeze its own margins, so the effect on its cash flows may be negative even as the discount rate falls."
+          }
+        ],
+        "sources": [
+          { "title": "Synthetic sample — not a real article", "url": "https://example.com/pulse/sample/bank-of-albion-hold" }
+        ]
+      },
+      {
+        "headline": "Harrowgate Retail cuts full-year guidance; shares fall 22% as debt covenants come into view",
+        "take_md": "Harrowgate Retail (fictional), a mid-cap UK fashion chain, cut full-year EBITDA guidance from £180m to £140m, blaming weak footfall and markdowns. The shares fell 22%. With £520m of net debt, leverage moves from 2.9x to 3.7x against a 4.0x covenant — which is why the restructuring desks, not just the equity analysts, read the statement. Bankers care because a guidance cut of this size changes the company's strategic options: a rights issue, asset sales, a covenant reset or, if things deteriorate, a debt-for-equity swap.",
+        "talking_points": [
+          "Leverage is a ratio: EBITDA falling 22% moved net debt/EBITDA by nearly a full turn without the company borrowing a pound more.",
+          "The equity fell more than EBITDA because equity is the residual claim — a fixed debt load makes equity value a leveraged bet on operating performance.",
+          "Covenant headroom, not the absolute debt number, is what dictates the timeline for a restructuring conversation."
+        ],
+        "anchors": [
+          "Fictional anchor: UK retail restructurings in the early 2020s typically began with a covenant waiver before any balance-sheet solution."
+        ],
+        "practice_qs": [
+          {
+            "q": "Why did the equity fall 22% when EBITDA guidance fell about 22%? Should they move one-for-one?",
+            "a": "Not necessarily, and usually not. Enterprise value falls with EBITDA (roughly one-for-one if the multiple holds), but debt is fixed, so the percentage fall in equity value is amplified by leverage. Here EV was about 8x £180m = £1.44bn with £520m debt, so equity ≈ £920m; at £140m EBITDA on the same multiple EV ≈ £1.12bn and equity ≈ £600m — a 35% fall. A 22% share-price fall actually implies the market either expects a recovery or applied a higher multiple to trough earnings."
+          }
+        ],
+        "sources": [
+          { "title": "Synthetic sample — not a real article", "url": "https://example.com/pulse/sample/harrowgate-guidance" }
+        ]
+      }
+    ]
+  }
+}
