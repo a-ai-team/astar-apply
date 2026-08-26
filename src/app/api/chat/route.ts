@@ -10,6 +10,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { chatDailyCap, resolveChatMode } from "@/lib/chat/mode";
 import { loadMentorNames, runPipeline } from "@/lib/chat/pipeline";
 import { loadThreadContext, parseThreadContext } from "@/lib/chat/context";
+import { fileDisagreement } from "@/lib/chat/disagreement";
 import { sseResponse } from "@/lib/chat/sse";
 import { createThread, getThread, incrementUsage, insertAssistantMessage, insertUserMessage, loadHistory } from "@/lib/chat/store";
 import type { ChatEvent } from "@/lib/chat/types";
@@ -49,7 +50,11 @@ export async function POST(req: Request) {
     const mentorNames = await loadMentorNames(db);
     // Approved rows only; a stale or draft reference simply yields no context.
     const context = await loadThreadContext(db, t.context, session.userId).catch((e) => { console.warn("chat: context load failed", e); return null; });
-    const gen = runPipeline({ db, message, history, mode, mentorNames, context });
+    const gen = runPipeline({
+      db, message, history, mode, mentorNames, context,
+      // Mentor corpus vs curriculum conflict → flag the lesson/question for review (never edit it).
+      onDisagreement: (d, content) => fileDisagreement(db, d, content, { threadId: t.id, messageId: null, question: message }),
+    });
     let r = await gen.next();
     while (!r.done) {
       const ev = r.value;

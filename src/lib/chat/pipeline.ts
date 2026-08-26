@@ -4,6 +4,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { chatMentorPrompt } from "@/lib/ai/prompts/chat-mentor.v2";
 import type { ContextBundle } from "./context";
 import { answerFixture, answerLive } from "./answer";
+import { detectDisagreement, splitByOrigin, type Disagreement } from "./disagreement";
 import { retrieve, rungFor } from "./retrieve";
 import { rewriteQuery } from "./rewrite";
 import type { ChatEvent, ChatMode, HistoryTurn, RetrievedChunk, Rewrite, Rung } from "./types";
@@ -18,6 +19,8 @@ export type PipelineInput = {
   mentorNames?: Map<string, string>;
   /** Loop 06: the question / lesson block the thread was opened from (already loaded). */
   context?: ContextBundle | null;
+  /** Loop 06: called with a detected corpus-vs-curriculum conflict and the curriculum chunks involved; returns review ids. */
+  onDisagreement?: (d: Disagreement, content: RetrievedChunk[]) => Promise<string[]>;
 };
 
 export type DoneEvent = Extract<ChatEvent, { type: "done" }>;
@@ -35,6 +38,18 @@ export async function* runPipeline(input: PipelineInput): AsyncGenerator<ChatEve
   while (!result.done) {
     yield result.value;
     result = await gen.next();
+  }
+  // Loop 06: when both rungs contributed, ask Haiku whether they contradict each other. Live
+  // mode only (null in fixture mode); the route files the content_reviews row.
+  const disagreement = result.value.refused ? null : await detectDisagreement({ question: input.message, answer: result.value.content.text, chunks, citations: result.value.content.citations }, input.mode);
+  record.disagreement = disagreement;
+  if (disagreement?.disagreement && input.onDisagreement) {
+    try {
+      const ids = await input.onDisagreement(disagreement, splitByOrigin(chunks, result.value.content.citations).content);
+      record.disagreement = { ...disagreement, review_id: ids[0] ?? null };
+    } catch (e) {
+      console.warn("chat: could not file disagreement review", e);
+    }
   }
   const done: DoneEvent = {
     type: "done",

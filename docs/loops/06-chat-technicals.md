@@ -31,7 +31,7 @@ system prompt v2 (ladder + content citation format, same cached structure); cont
 - [x] thread context + `/new`
 - [x] `AskMentorButton` placements
 - [x] content chips + anchors
-- [ ] disagreement detector + badge
+- [x] disagreement detector + badge
 - [ ] fixture + suite
 - [ ] Playwright, `rag-design.md` as-built, retro
 
