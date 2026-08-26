@@ -58,12 +58,14 @@ export function summarise(rows: { id: string; band: string; human: number; score
   const human = rows.map((r) => r.human);
   const scored = rows.map((r) => r.score);
   const empties = rows.filter((r) => r.band === "empty");
-  const byBand: Record<string, number> = {};
-  for (const b of ["excellent", "partial", "wrong", "empty"]) {
+  const bandMean = (b: string) => {
     const xs = rows.filter((r) => r.band === b);
-    byBand[`mean_${b}`] = xs.length ? xs.reduce((s, r) => s + r.score, 0) / xs.length : 0;
-  }
-  return { n: rows.length, spearman: spearman(human, scored), mae: mae(human, scored), empty_max: empties.length ? Math.max(...empties.map((r) => r.score)) : 0, ...byBand };
+    return xs.length ? xs.reduce((s, r) => s + r.score, 0) / xs.length : 0;
+  };
+  return {
+    n: rows.length, spearman: spearman(human, scored), mae: mae(human, scored), empty_max: empties.length ? Math.max(...empties.map((r) => r.score)) : 0,
+    mean_excellent: bandMean("excellent"), mean_partial: bandMean("partial"), mean_wrong: bandMean("wrong"), mean_empty: bandMean("empty"),
+  };
 }
 
 export async function run({ limit }: { limit: number | null }): Promise<SuiteResult> {
