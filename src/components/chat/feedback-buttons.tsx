@@ -5,8 +5,9 @@ import { cn } from "@/lib/cn";
 
 function Thumb({ down }: { down?: boolean }) {
   return (
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={down ? { transform: "rotate(180deg)" } : undefined}>
-      <path d="M5 7v7H2.5V7zM5 7l2.8-5c1 0 1.7.8 1.7 1.8V6h3.3c.9 0 1.6.8 1.4 1.7l-.9 5.1c-.1.7-.7 1.2-1.4 1.2H5" />
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={cn(down && "rotate-180")}>
+      <path d="M5 7.5v6H2.5a.5.5 0 0 1-.5-.5V8a.5.5 0 0 1 .5-.5H5Z" />
+      <path d="M5 7.5 8 2.3a1.4 1.4 0 0 1 2.6.9L10 6.5h2.8a1.2 1.2 0 0 1 1.2 1.4l-.9 4.6a1.2 1.2 0 0 1-1.2 1H5" />
     </svg>
   );
 }
@@ -28,7 +29,7 @@ export function FeedbackButtons({ messageId, initial }: { messageId: string; ini
       setBusy(false);
     }
   }
-  const base = "flex h-7 w-7 items-center justify-center rounded-full text-muted transition hover:text-fg";
+  const base = "flex h-7 w-7 items-center justify-center rounded-full border border-transparent text-muted transition hover:border-border hover:text-fg focus-visible:border-border focus-visible:outline-none disabled:opacity-60";
   return (
     <div className="flex items-center gap-1" data-testid="feedback">
       <button type="button" aria-label="Thumbs up" aria-pressed={vote === 1} className={cn(base, vote === 1 && "text-accent hover:text-accent")} onClick={() => send(1)} disabled={busy} data-testid="thumbs-up"><Thumb /></button>
