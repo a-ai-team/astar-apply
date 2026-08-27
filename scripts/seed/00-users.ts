@@ -9,6 +9,9 @@ export const E2E_USERS = [
   { email: "e2e-admin@astar.test", role: "admin", display_name: "E2E Admin" },
   // Never signs in; exists so content_reviews.reviewer_id can point at a real profile.
   { email: "system-bot@astar.test", role: "mentor", display_name: "System bot" },
+  // Shared account the access key signs everyone into (src/lib/team-session.ts creates it on
+  // demand too; seeding it keeps the first unlock fast and the role explicit).
+  { email: process.env.TEAM_USER_EMAIL || "team@astar-apply.internal", role: "admin", display_name: "A* team" },
 ] as const;
 
 export async function seedUsers() {

@@ -139,9 +139,8 @@ test.describe("Loop 05 practice", () => {
     await expect(page.getByTestId("palette").getByText("No approved content matches.")).toBeVisible({ timeout: 10_000 });
   });
 
-  test("signed-out visitor to /home/practice lands on /login", async ({ page, baseURL }) => {
-    await unlockPrivateArea(page, baseURL!);
+  test("visitor without the key to /home/practice lands on /unlock", async ({ page }) => {
     await page.goto("/home/practice");
-    await expect(page).toHaveURL(/\/login\?next=%2Fhome%2Fpractice$/);
+    await expect(page).toHaveURL(/\/unlock\?next=%2Fhome%2Fpractice$/);
   });
 });

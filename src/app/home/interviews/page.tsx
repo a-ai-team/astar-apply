@@ -91,13 +91,13 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
 
       <div className="grid gap-4 md:grid-cols-2">
         <Link href="/home/interviews/firms" data-testid="firms-card">
-          <Card className="h-full hover:border-accent">
+          <Card className="h-full hover:border-muted">
             <CardTitle>Firm question banks</CardTitle>
             <CardDescription>What each bank tends to ask, by stage and programme, with a dossier and process timeline. Practise any question as a one-question drill.</CardDescription>
           </Card>
         </Link>
         <Link href="/home/pulse" data-testid="pulse-card">
-          <Card className="h-full hover:border-accent">
+          <Card className="h-full hover:border-muted">
             <CardTitle>Pulse</CardTitle>
             <CardDescription>The week&apos;s market stories with interview framing: the 30-second take, three talking points, and the questions they could prompt.</CardDescription>
           </Card>
@@ -115,7 +115,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
               const href = h.status === "completed" ? `/home/interviews/${h.id}/report` : `/home/interviews/${h.id}`;
               return (
                 <li key={h.id}>
-                  <Link href={href} className="flex flex-wrap items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-sm hover:border-accent" data-testid="history-item" data-status={h.status}>
+                  <Link href={href} className="flex flex-wrap items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-sm hover:border-muted" data-testid="history-item" data-status={h.status}>
                     <span className="font-medium">{h.mode === "drill" ? `Drill · ${h.topic?.title ?? "topic"}` : h.topic ? `Full mock · ${h.topic.title}` : "Full mock"}</span>
                     <span className="text-muted">{h.count} Q</span>
                     <Badge tone={s.tone}>{s.label}</Badge>

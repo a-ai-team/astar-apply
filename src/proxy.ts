@@ -10,6 +10,9 @@ import { isStaff } from "@/lib/roles";
  *     PUBLIC_LAUNCH === "true" (Loop 10); the session gate below always applies.
  *  2. Supabase session (refreshed here on every request) — /home needs a user,
  *     /admin needs a staff role. Cookie/JWT-only checks; no DB queries (Next proxy guidance).
+ * Single door: the key is the only credential. A valid key cookie without a Supabase session
+ * (expired, or cleared) goes to /auth/team, which signs the browser into the shared admin
+ * "team" user. Magic-link login (/login) is retained for later but unlinked.
  * Server Actions bypass this matcher: every action must also call verifySession() (src/lib/dal.ts).
  */
 export async function proxy(request: NextRequest) {
@@ -29,7 +32,7 @@ export async function proxy(request: NextRequest) {
   const session = await updateSession(request);
 
   if (isPrivate && !session.userId) {
-    const url = new URL("/login", request.url);
+    const url = new URL("/auth/team", request.url);
     url.searchParams.set("next", pathname);
     return redirectKeepingCookies(url, session.response);
   }

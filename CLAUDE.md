@@ -4,7 +4,7 @@
 
 AI-supported finance-careers resource from A* AI, built with student mentors. Two products: the
 **Mentor chatbot** (RAG over mentors' own material) and **Technicals** (curriculum, question bank,
-flashcards, mock interviews). Not an application tracker. Shares A* branding (`public/logo.png`).
+flashcards, mock interviews). Not an application tracker. Shares A* branding (`public/wordmark.png`).
 
 ## Start here — every session
 1. Read `docs/loops/CURRENT.md` (live state: loop, branch, task, blockers, next action).
@@ -46,7 +46,8 @@ when you touch `src/lib/ai`, `supabase`, `content`, `src/app`, or tests.
 
 ## Private area
 `/` is public "Coming soon". Real site lives at `/home`, gated by `PRIVATE_ACCESS_KEY` in
-`src/proxy.ts` (plus Supabase session from Loop 00) — see `docs/PRIVATE_AREA.md`.
+`src/proxy.ts`; the key alone signs the browser into a shared admin "team" Supabase session
+(`src/lib/team-session.ts`). Magic-link login is kept but unlinked — see `docs/PRIVATE_AREA.md`.
 
 ## Mentor chatbot
 `/home/mentor` streams cited answers from the mentor corpus — pipeline, modes (`CHAT_MODE`), evals: `docs/CHAT.md`.

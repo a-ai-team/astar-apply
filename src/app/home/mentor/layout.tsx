@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { verifySession } from "@/lib/dal";
-import { createAdminClient } from "@/lib/supabase/admin";
-import { listThreads } from "@/lib/chat/store";
 import { ChatLayout } from "@/components/chat/chat-layout";
+import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = { title: "Mentor — A* Apply", robots: { index: false, follow: false } };
 
 export default async function MentorLayout({ children }: LayoutProps<"/home/mentor">) {
-  const session = await verifySession("/home/mentor");
-  const threads = await listThreads(createAdminClient(), session.userId);
-  return <ChatLayout threads={threads.map((t) => ({ id: t.id, title: t.title, last_message_at: t.last_message_at }))}>{children}</ChatLayout>;
+  await verifySession("/home/mentor");
+  // Undo the app-shell padding so the chat runs edge to edge; only the message list scrolls.
+  return (
+    <div className="-my-8 flex min-h-0 flex-1 flex-col md:-mx-8">
+      <ChatLayout>{children}</ChatLayout>
+    </div>
+  );
 }

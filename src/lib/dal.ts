@@ -24,10 +24,13 @@ export const getSession = cache(async (): Promise<Session | null> => {
   };
 });
 
-/** Redirects to /login when there is no valid session. */
+/**
+ * Redirects to /auth/team when there is no valid session: with a valid access-key cookie that
+ * route re-establishes the shared team session, otherwise it bounces to /unlock.
+ */
 export async function verifySession(next?: string): Promise<Session> {
   const session = await getSession();
-  if (!session) redirect(next ? `/login?next=${encodeURIComponent(next)}` : "/login");
+  if (!session) redirect(next ? `/auth/team?next=${encodeURIComponent(next)}` : "/auth/team");
   return session;
 }
 

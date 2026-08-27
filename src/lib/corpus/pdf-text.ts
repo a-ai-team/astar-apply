@@ -4,7 +4,10 @@ export type PdfText = { pageCount: number; pages: string[] };
 
 export async function extractPdfText(data: Uint8Array): Promise<PdfText> {
   const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  const doc = await pdfjs.getDocument({ data, useSystemFonts: true }).promise;
+  // A Node Buffer is a Uint8Array subclass but cannot be structured-cloned into pdfjs's
+  // worker port (DataCloneError) — always hand pdfjs a plain, owned Uint8Array copy.
+  const bytes = Uint8Array.from(data);
+  const doc = await pdfjs.getDocument({ data: bytes, useSystemFonts: true }).promise;
   const pages: string[] = [];
   for (let i = 1; i <= doc.numPages; i++) {
     const page = await doc.getPage(i);

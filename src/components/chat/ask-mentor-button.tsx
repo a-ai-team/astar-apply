@@ -27,7 +27,7 @@ export function AskMentorButton({ target, size = "sm", className, label = "Ask M
     <Link
       href={askMentorHref(target)}
       className={cn(
-        "inline-flex items-center gap-1 rounded-md border border-border bg-surface text-muted hover:border-accent hover:text-fg",
+        "inline-flex items-center gap-1 rounded-md border border-border bg-surface text-muted hover:border-muted hover:text-fg",
         size === "sm" ? "px-2.5 py-1.5 text-sm" : "px-2 py-1 text-xs",
         className,
       )}

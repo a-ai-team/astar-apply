@@ -99,7 +99,7 @@ export default async function CorpusListPage({ searchParams }: PageProps<"/admin
 
 function FilterChip({ href, active, children }: { href: string; active: boolean; children: React.ReactNode }) {
   return (
-    <Link href={href} className={`rounded-full border px-2.5 py-1 ${active ? "border-accent bg-accent/10 text-accent" : "border-border text-muted hover:text-fg"}`}>
+    <Link href={href} className={`rounded-full border px-2.5 py-1 ${active ? "border-fg/40 bg-surface text-fg" : "border-border text-muted hover:text-fg"}`}>
       {children}
     </Link>
   );

@@ -39,7 +39,7 @@ export function ReportForm({ firms }: { firms: { id: string; name: string }[] })
         <textarea name="question" required minLength={10} maxLength={600} rows={3} className={field} data-testid="report-question" />
       </label>
       {state.errors.length > 0 && <ul className="rounded-md border border-danger/40 bg-danger/10 p-3 text-sm text-danger" data-testid="report-errors">{state.errors.map((e) => <li key={e}>{e}</li>)}</ul>}
-      {state.ok && state.message && <p className="rounded-md border border-accent/40 bg-accent/10 p-3 text-sm" data-testid="report-success">{state.message}{state.remaining != null ? ` (${state.remaining} more today)` : ""}</p>}
+      {state.ok && state.message && <p className="rounded-md border border-accent/40 bg-surface p-3 text-sm" data-testid="report-success">{state.message}{state.remaining != null ? ` (${state.remaining} more today)` : ""}</p>}
       <div><Button type="submit" disabled={pending} data-testid="report-submit">{pending ? "Sending…" : "Send for review"}</Button></div>
     </form>
   );

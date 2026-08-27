@@ -7,7 +7,7 @@ test.describe("Loop 00 foundations", () => {
     await signInAs(page, "e2e-student@astar.test", "/home");
     await expect(page).toHaveURL(/\/home$/);
     await expect(page.getByTestId("app-shell")).toBeVisible();
-    await expect(page.getByTestId("home-heading")).toHaveText("Welcome back");
+    await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
     await expect(page.getByTestId("user-email")).toHaveText("e2e-student@astar.test");
   });
 
@@ -26,10 +26,16 @@ test.describe("Loop 00 foundations", () => {
     await expect(page.getByTestId("users-table")).toContainText("e2e-student@astar.test");
   });
 
-  test("signed-out visitor to /home lands on /login", async ({ page, baseURL }) => {
+  test("key cookie without a Supabase session is signed into the team account", async ({ page, baseURL }) => {
     await unlockPrivateArea(page, baseURL!);
     await page.goto("/home");
-    await expect(page).toHaveURL(/\/login\?next=%2Fhome$/);
-    await expect(page.getByTestId("login-form")).toBeVisible();
+    await expect(page).toHaveURL(/\/home$/);
+    await expect(page.getByTestId("app-shell")).toBeVisible();
+  });
+
+  test("visitor without the key lands on /unlock", async ({ page }) => {
+    await page.goto("/home");
+    await expect(page).toHaveURL(/\/unlock\?next=%2Fhome$/);
+    await expect(page.getByTestId("unlock-heading")).toHaveText("Enter the team key");
   });
 });
