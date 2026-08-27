@@ -1,6 +1,7 @@
 // / — public landing (Loop 10). Hero + DemoChat, curriculum preview, "Couldn't I just ask AI?",
 // placeholder uni strip + testimonials (clearly marked), pricing teaser, footer legal. Indexable.
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getSession } from "@/lib/dal";
 import { CURRICULUM, INDUSTRY_MODULES } from "@/lib/content/taxonomy";
@@ -9,6 +10,12 @@ import { SITE } from "@/lib/seo";
 import { SiteFooter, SiteHeader } from "@/components/site/chrome";
 import { DemoChat } from "@/components/landing/demo-chat";
 import { JsonLd } from "@/components/site/json-ld";
+import { NeuralField } from "@/components/home/neural-field";
+import { Reveal } from "@/components/home/reveal";
+import { ScrollStage } from "@/components/home/scroll-progress";
+import { MENTORS, credentialLine, portraitSrc } from "@/content/mentors";
+
+const lead = MENTORS.find((m) => m.live) ?? MENTORS[0];
 
 export const metadata: Metadata = {
   title: { absolute: "A* Apply — Ask a mentor who got in" },
@@ -37,10 +44,11 @@ export default async function LandingPage() {
   const core = CURRICULUM.filter((t) => t.kind !== "fit");
   const cta = session ? { href: "/home", label: "Open the app" } : { href: "/login?next=/home", label: "Start free" };
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-fg">
+    <div className="flex min-h-screen flex-col bg-bg text-fg" suppressHydrationWarning>
+      <script dangerouslySetInnerHTML={{ __html: "document.currentScript.parentElement.setAttribute('data-js','')" }} />
       <JsonLd
         data={[
-          { "@context": "https://schema.org", "@type": "Organization", name: SITE.publisher, url: SITE.url, logo: `${SITE.url}/logo.png` },
+          { "@context": "https://schema.org", "@type": "Organization", name: SITE.publisher, url: SITE.url, logo: `${SITE.url}/wordmark.png` },
           { "@context": "https://schema.org", "@type": "WebSite", name: SITE.name, url: SITE.url, description: SITE.description },
           {
             "@context": "https://schema.org", "@type": "Product", name: `${SITE.name} Core`, description: SITE.description, brand: { "@type": "Brand", name: SITE.publisher },
@@ -50,23 +58,38 @@ export default async function LandingPage() {
       />
       <SiteHeader session={session} />
       <main className="flex-1">
-        <section className="mx-auto w-full max-w-6xl px-6 pb-12 pt-16 sm:pt-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted">Investment banking interview prep</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-6xl" data-testid="hero-heading">Ask a mentor who got in.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted">Interview-framed technicals, a graded question bank, AI mocks — and a chatbot that answers the way a mentor would, citing his own material rather than the internet&apos;s. Built for UK undergrads going for spring weeks and summers.</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href={cta.href} className="inline-flex h-11 items-center rounded-md bg-accent px-6 text-sm font-medium text-accent-fg" data-testid="hero-cta">{cta.label}</Link>
-            <Link href="/pricing" className="inline-flex h-11 items-center rounded-md border border-border px-6 text-sm">See pricing</Link>
+        <ScrollStage className="relative isolate overflow-hidden" data-testid="landing-hero">
+          <NeuralField className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
+          <div className="mx-auto flex w-full max-w-[880px] flex-col items-center px-6 pb-20 pt-20 text-center sm:pt-28" style={{ transform: "translateY(calc(var(--scroll-p, 0) * -24px))" }}>
+            <Reveal as="p" className="text-[0.8rem] uppercase tracking-[0.2em] text-muted">Investment banking interview prep</Reveal>
+            <Reveal as="h1" delay={80} className="mt-6 font-display text-[clamp(2.75rem,7.2vw,5.5rem)] font-medium leading-[0.98] tracking-[-0.02em] text-fg [text-wrap:balance]" data-testid="hero-heading">
+              Ask a mentor who got in.
+            </Reveal>
+            <Reveal as="p" delay={160} className="mt-7 max-w-xl text-[1.05rem] leading-relaxed text-muted [text-wrap:pretty] md:text-lg">
+              Interview-framed technicals, a graded question bank, AI mocks — and a Mentor that answers the way a senior student would, citing their own material rather than the internet&apos;s. Built for UK undergrads going for spring weeks and summers.
+            </Reveal>
+            <Reveal delay={240} className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Link href={cta.href} className="inline-flex h-11 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-accent-fg transition hover:brightness-110" data-testid="hero-cta">{cta.label}</Link>
+              <Link href="/pricing" className="inline-flex h-11 items-center justify-center rounded-full border border-border px-6 text-sm text-fg transition hover:border-muted">See pricing</Link>
+            </Reveal>
+            <Reveal delay={360} y={10} className="mt-16 flex flex-col items-center">
+              <Image src={portraitSrc(lead)} alt={lead.name} width={144} height={144} priority data-field-focus className="h-28 w-28 rounded-full object-cover ring-1 ring-accent/40 shadow-[0_0_48px_-8px_rgba(212,181,113,0.35)] md:h-32 md:w-32" />
+              <p className="mt-5 font-display text-[1.35rem] font-medium leading-none tracking-[-0.01em] text-fg">{lead.name}</p>
+              <p className="mt-2 max-w-md text-[0.7rem] uppercase tracking-[0.16em] text-muted [text-wrap:balance]">{credentialLine(lead)}</p>
+            </Reveal>
           </div>
-          <div className="mt-12 max-w-3xl">
-            <h2 className="mb-3 text-sm font-medium text-muted">Try it — three questions a day, no account.</h2>
+        </ScrollStage>
+
+        <section className="mx-auto w-full max-w-[760px] px-6 pb-20">
+          <Reveal>
+            <p className="mb-4 text-center text-[0.7rem] uppercase tracking-[0.16em] text-muted">Try it — three questions a day, no account</p>
             <DemoChat />
-          </div>
+          </Reveal>
         </section>
 
         <section className="border-t border-border bg-surface/40">
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
-            <h2 className="text-2xl font-semibold sm:text-3xl">The curriculum, in interview order</h2>
+            <h2 className="font-display text-[clamp(1.9rem,3.6vw,2.6rem)] font-medium leading-[1.05] tracking-[-0.015em] text-fg [text-wrap:balance]">The curriculum, in interview order</h2>
             <p className="mt-2 max-w-2xl text-muted">{core.length} generalist topics and {INDUSTRY_MODULES.length} industry modules. Every lesson ends with the canonical 45-second answer, the trap interviewers set, and four quick-fire pairs.</p>
             <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-testid="curriculum-preview">
               {core.map((t, i) => (
@@ -82,7 +105,7 @@ export default async function LandingPage() {
         </section>
 
         <section className="mx-auto w-full max-w-6xl px-6 py-16" data-testid="vs-ai">
-          <h2 className="text-2xl font-semibold sm:text-3xl">&ldquo;Couldn&apos;t I just ask AI?&rdquo;</h2>
+          <h2 className="font-display text-[clamp(1.9rem,3.6vw,2.6rem)] font-medium leading-[1.05] tracking-[-0.015em] text-fg [text-wrap:balance]">&ldquo;Couldn&apos;t I just ask AI?&rdquo;</h2>
           <p className="mt-2 max-w-2xl text-muted">You could. Here is what you would be missing.</p>
           <div className="mt-8 overflow-x-auto rounded-lg border border-border">
             <table className="w-full text-sm">
@@ -115,7 +138,7 @@ export default async function LandingPage() {
 
         <section className="border-t border-border bg-surface/40">
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
-            <h2 className="text-2xl font-semibold sm:text-3xl">Start free. Upgrade when you need the rest.</h2>
+            <h2 className="font-display text-[clamp(1.9rem,3.6vw,2.6rem)] font-medium leading-[1.05] tracking-[-0.015em] text-fg [text-wrap:balance]">Start free. Upgrade when you need the rest.</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3" data-testid="pricing-teaser">
               {PLANS.map((p) => (
                 <Link key={p.id} href={`/pricing?plan=${p.id}`} className="rounded-lg border border-border bg-bg p-5 hover:border-accent">

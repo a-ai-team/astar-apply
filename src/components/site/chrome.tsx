@@ -13,7 +13,7 @@ export function SiteHeader({ session }: { session: Session | null }) {
     <header className="border-b border-border">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-3">
         <Link href="/" className="flex items-center gap-2" aria-label="A* Apply home">
-          <Image src="/logo.png" alt="A* Apply" width={96} height={96} className="h-auto w-20" priority />
+          <Image src="/wordmark.png" alt="A* Apply" width={140} height={54} className="h-auto w-28" priority />
         </Link>
         <nav className="flex items-center gap-4 text-sm" aria-label="Primary">
           {PUBLIC_NAV.map((n) => <Link key={n.href} href={n.href} className="text-muted hover:text-fg">{n.label}</Link>)}
