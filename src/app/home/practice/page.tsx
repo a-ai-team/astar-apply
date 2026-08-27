@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "Practice — A* Apply", robots: { in
 
 function Chip({ href, active, children, testId }: { href: string; active: boolean; children: React.ReactNode; testId?: string }) {
   return (
-    <Link href={href} className={cn("rounded-full border px-3 py-1 text-xs transition", active ? "border-accent bg-accent text-accent-fg" : "border-border bg-surface text-muted hover:text-fg")} data-testid={testId} aria-current={active ? "true" : undefined}>
+    <Link href={href} className={cn("rounded-full border px-3 py-1 text-xs transition", active ? "border-fg/40 bg-surface text-fg" : "border-border bg-surface text-muted hover:text-fg")} data-testid={testId} aria-current={active ? "true" : undefined}>
       {children}
     </Link>
   );

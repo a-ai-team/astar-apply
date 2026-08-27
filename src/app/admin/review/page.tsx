@@ -51,12 +51,12 @@ export default async function ReviewQueuePage({ searchParams }: PageProps<"/admi
       <h1 className="text-2xl font-semibold" data-testid="review-heading">Review queue</h1>
       <p className="text-sm text-muted">{lessons.length} lesson{lessons.length === 1 ? "" : "s"} · {questions.length} question{questions.length === 1 ? "" : "s"}. Generated content waits here until a mentor approves it; only <span className="font-mono">approved</span> rows reach students. Batch runs live under <Link href="/admin/generation" className="underline">Generation</Link>.</p>
       <div className="flex flex-wrap gap-2 text-xs" data-testid="review-filters">
-        {["all", "lesson", "question"].map((t) => <Link key={t} href={link({ type: t })} className={`rounded-full border px-3 py-1 ${type === t ? "border-accent text-accent" : "border-border text-muted"}`}>{t}</Link>)}
+        {["all", "lesson", "question"].map((t) => <Link key={t} href={link({ type: t })} className={`rounded-full border px-3 py-1 ${type === t ? "border-fg/40 bg-surface text-fg" : "border-border text-muted"}`}>{t}</Link>)}
         <span className="mx-1 text-muted">·</span>
-        {["queue", ...STATUSES].map((s) => <Link key={s} href={link({ status: s })} className={`rounded-full border px-3 py-1 ${status === s ? "border-accent text-accent" : "border-border text-muted"}`}>{s}</Link>)}
+        {["queue", ...STATUSES].map((s) => <Link key={s} href={link({ status: s })} className={`rounded-full border px-3 py-1 ${status === s ? "border-fg/40 bg-surface text-fg" : "border-border text-muted"}`}>{s}</Link>)}
         <span className="mx-1 text-muted">·</span>
-        <Link href={link({ topic: "all" })} className={`rounded-full border px-3 py-1 ${topic === "all" ? "border-accent text-accent" : "border-border text-muted"}`}>all topics</Link>
-        {CURRICULUM.map((t) => <Link key={t.slug} href={link({ topic: t.slug })} className={`rounded-full border px-3 py-1 ${topic === t.slug ? "border-accent text-accent" : "border-border text-muted"}`}>{t.title}</Link>)}
+        <Link href={link({ topic: "all" })} className={`rounded-full border px-3 py-1 ${topic === "all" ? "border-fg/40 bg-surface text-fg" : "border-border text-muted"}`}>all topics</Link>
+        {CURRICULUM.map((t) => <Link key={t.slug} href={link({ topic: t.slug })} className={`rounded-full border px-3 py-1 ${topic === t.slug ? "border-fg/40 bg-surface text-fg" : "border-border text-muted"}`}>{t.title}</Link>)}
       </div>
 
       {lessons.length === 0 && questions.length === 0 && <p className="text-sm text-muted" data-testid="review-empty">Nothing to review with these filters.</p>}

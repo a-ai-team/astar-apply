@@ -22,7 +22,7 @@ export default async function AdminReportsPage({ searchParams }: PageProps<"/adm
     <>
       <h1 className="text-2xl font-semibold" data-testid="reports-heading">Reported questions</h1>
       <p className="text-sm text-muted">{rows.length} {status}. Approving adds the question to the firm&apos;s bank as <span className="font-mono">approved</span> with the year it was asked as its recency; the firm itself must be approved under <Link href="/admin/firms" className="underline">Firms</Link> for students to see it.</p>
-      <div className="flex gap-2 text-xs">{STATUSES.map((s) => <Link key={s} href={`/admin/reports?status=${s}`} className={`rounded-full border px-3 py-1 ${status === s ? "border-accent text-accent" : "border-border text-muted"}`}>{s}</Link>)}</div>
+      <div className="flex gap-2 text-xs">{STATUSES.map((s) => <Link key={s} href={`/admin/reports?status=${s}`} className={`rounded-full border px-3 py-1 ${status === s ? "border-fg/40 bg-surface text-fg" : "border-border text-muted"}`}>{s}</Link>)}</div>
       {rows.length === 0 ? (
         <p className="text-sm text-muted" data-testid="reports-empty">Nothing here.</p>
       ) : (
