@@ -29,10 +29,10 @@ function prng(seed: number) {
   };
 }
 
-function makeNodes(rand: () => number): Node[] {
+function makeNodes(rand: () => number, count = NODE_COUNT): Node[] {
   const nodes: Node[] = [];
-  for (let i = 0; i < NODE_COUNT; i++) {
-    const t = (i + 0.5) / NODE_COUNT + (rand() - 0.5) * 0.9 / NODE_COUNT;
+  for (let i = 0; i < count; i++) {
+    const t = (i + 0.5) / count + (rand() - 0.5) * 0.9 / count;
     const a = -Math.PI / 2 + (t - 0.5) * ARC;
     const r = 0.55 + Math.sqrt(rand()) * 0.4;
     nodes.push({ a, r, da: 0.012 + rand() * 0.014, dr: 0.008 + rand() * 0.012, p1: rand() * Math.PI * 2, p2: rand() * Math.PI * 2, f1: 0.05 + rand() * 0.06, f2: 0.03 + rand() * 0.05, bright: 0, x: 0, y: 0 });
@@ -81,7 +81,8 @@ export function BrainHalo({ size, state, className }: { size: number; state: Sta
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const R = size / 2;
     const rand = prng(0x5eed + size);
-    const nodes = makeNodes(rand);
+    // Small halos (the sticky strip) get far fewer nodes so they read as hairlines, not a mesh.
+    const nodes = makeNodes(rand, size < 120 ? 22 : NODE_COUNT);
     const glow = glowSprite(size * 0.62, dpr);
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const signals: Signal[] = [];
