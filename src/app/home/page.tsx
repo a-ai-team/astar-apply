@@ -1,43 +1,21 @@
-import Link from "next/link";
 import { verifySession } from "@/lib/dal";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { Closing, Hero, HowItWorks, Mentors, Suite, Thesis } from "@/components/home/sections";
+
+// Marks the landing wrapper as JS-driven before first paint so `[data-js] [data-reveal]` can hide
+// content for the scroll reveals; without JS everything simply renders visible.
+const MARK_JS = "document.currentScript.parentElement.setAttribute('data-js','')";
 
 export default async function HomePage() {
-  const session = await verifySession("/home");
+  await verifySession("/home");
   return (
-    <>
-      <div>
-        <h1 className="text-2xl font-semibold" data-testid="home-heading">
-          Welcome back
-        </h1>
-        <p className="mt-1 text-sm text-muted">Signed in as {session.email}. The rest of the site is being built loop by loop.</p>
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Link href="/home/mentor" data-testid="home-mentor-card">
-          <Card className="hover:border-muted">
-            <CardTitle>Mentor</CardTitle>
-            <CardDescription>Ask a senior student who has done the process.</CardDescription>
-          </Card>
-        </Link>
-        <Link href="/home/technicals" data-testid="home-technicals-card">
-          <Card className="hover:border-muted">
-            <CardTitle>Technicals</CardTitle>
-            <CardDescription>The textbook for IB technicals that doesn&apos;t exist yet.</CardDescription>
-          </Card>
-        </Link>
-        <Link href="/home/practice" data-testid="home-practice-card">
-          <Card className="hover:border-muted">
-            <CardTitle>Practice</CardTitle>
-            <CardDescription>Question bank, spaced-repetition flashcards and your progress.</CardDescription>
-          </Card>
-        </Link>
-        {[["Interviews", "AI mock interviews graded against model answers."]].map(([title, desc]) => (
-          <Card key={title} className="opacity-70">
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{desc}</CardDescription>
-          </Card>
-        ))}
-      </div>
-    </>
+    <div className="-mx-4 -my-8 flex flex-col md:-mx-8" data-testid="home-landing" suppressHydrationWarning>
+      <script dangerouslySetInnerHTML={{ __html: MARK_JS }} />
+      <Hero />
+      <Thesis />
+      <HowItWorks />
+      <Mentors />
+      <Suite />
+      <Closing />
+    </div>
   );
 }

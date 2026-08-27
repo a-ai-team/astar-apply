@@ -51,3 +51,19 @@ test.describe("Hover nav under the logo", () => {
     await expect(admin).toHaveAttribute("href", "/admin");
   });
 });
+
+// /home landing (feat/home-landing): hero CTA, neural field, mentor bench.
+test.describe("/home landing", () => {
+  test("hero, field and bench render; CTA opens the Mentor", async ({ page, baseURL }) => {
+    await unlockPrivateArea(page, baseURL!);
+    await signInAs(page, "e2e-student@astar.test", "/home");
+    await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
+    await expect(page.getByTestId("neural-field")).toBeAttached();
+    await expect(page.getByTestId("home-mentor-card")).toHaveAttribute("href", "/home/mentor");
+    await page.getByTestId("mentor-grid").scrollIntoViewIfNeeded();
+    await expect(page.getByTestId("mentor-tile").first()).toContainText("Tesleem Fowora");
+    await expect(page.getByTestId("mentor-seat")).toHaveCount(3);
+    await page.getByTestId("home-mentor-card").click();
+    await expect(page).toHaveURL(/\/home\/mentor/);
+  });
+});

@@ -7,7 +7,7 @@ test.describe("Loop 00 foundations", () => {
     await signInAs(page, "e2e-student@astar.test", "/home");
     await expect(page).toHaveURL(/\/home$/);
     await expect(page.getByTestId("app-shell")).toBeVisible();
-    await expect(page.getByTestId("home-heading")).toHaveText("Welcome back");
+    await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
     await expect(page.getByTestId("user-email")).toHaveText("e2e-student@astar.test");
   });
 

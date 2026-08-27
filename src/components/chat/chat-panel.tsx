@@ -14,6 +14,7 @@ import { createSseParser } from "@/lib/chat/sse";
 import type { ChatEvent, Citation, Rung, ThreadContext } from "@/lib/chat/types";
 import { cn } from "@/lib/cn";
 import { BrainHalo } from "./brain-halo";
+import { MENTORS, credentialLine } from "@/content/mentors";
 import { CitationDrawer } from "./citation-drawer";
 import { Composer } from "./composer";
 import { MessageBubble } from "./message-bubble";
@@ -113,7 +114,7 @@ export function ChatPanel({ threadId, initialMessages, initialFeedback, context,
               <Image src="/mentors/tesleem.jpg" alt="Tesleem Fowora" width={144} height={144} priority className="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full object-cover ring-1 ring-accent/40 shadow-[0_0_48px_-8px_rgba(212,181,113,0.35)]" />
             </div>
             <h1 className="-mt-14 font-display text-[2.25rem] font-medium leading-none tracking-[-0.015em] text-fg [text-wrap:balance]">Tesleem Fowora</h1>
-            <p className="mt-4 max-w-md text-[0.8rem] uppercase tracking-[0.18em] text-muted [text-wrap:balance]">President, LSESU Business &amp; Investment Group&nbsp;· Private Equity Summer Analyst, HarbourVest</p>
+            <p className="mt-4 max-w-md text-[0.8rem] uppercase tracking-[0.18em] text-muted [text-wrap:balance]">{credentialLine(MENTORS[0])}</p>
           </div>
         )}
         {messages.length > 0 && (
