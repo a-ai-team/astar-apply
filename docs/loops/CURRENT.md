@@ -11,7 +11,8 @@
 
 ### Interlude — /home landing (2026-08-27)
 - **Branch:** `feat/home-landing` (off-loop polish, no DB/env/AI). `/home` is now a Mentor-led landing: full-bleed scroll-linked neural field (`src/components/home/neural-field.tsx`), once-only reveals (`reveal.tsx`), mentor bench from `src/content/mentors.ts` (add a mentor = one entry + `public/mentors/<slug>.jpg`). e2e `home-heading` text is now "Ask the people who actually got in."
-- **Next action:** open PR, squash merge, then Loop 10.
+- **Header (feat/header-nav):** sticky horizontal small-caps nav of the five products (`src/components/shell/app-header.tsx`), rule only once scrolled, right cluster = search icon · initials (→ Progress) · Sign out. Path/Flashcards/Pulse reachable from their parents. `--shell-header-h` is 6.5rem below md (nav on its own row), 4rem at md+.
+- **Next action:** merge #27 ✓ → merge header PR → James applies 0011 and merges #17 → Loop 10 follow-ups.
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
 - 2026-08-27 19:40 heartbeat

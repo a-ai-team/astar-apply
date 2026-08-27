@@ -8,7 +8,8 @@ test.describe("Loop 00 foundations", () => {
     await expect(page).toHaveURL(/\/home$/);
     await expect(page.getByTestId("app-shell")).toBeVisible();
     await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
-    await expect(page.getByTestId("user-email")).toHaveText("e2e-student@astar.test");
+    await expect(page.getByTestId("user-avatar")).toHaveText("E");
+    await expect(page.getByTestId("user-avatar")).toHaveAttribute("title", "e2e-student@astar.test");
   });
 
   test("student is redirected away from /admin", async ({ page, baseURL }) => {

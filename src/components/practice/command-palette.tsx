@@ -51,11 +51,15 @@ export function CommandPalette() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="hidden items-center gap-2 rounded-md border border-border bg-surface px-3 py-1.5 text-xs text-muted hover:text-fg sm:flex"
+        className="flex h-8 w-8 items-center justify-center rounded-full text-muted transition hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         data-testid="palette-open"
         aria-label="Search (⌘K)"
+        title="Search  ⌘K"
       >
-        Search <kbd className="rounded border border-border px-1">⌘K</kbd>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden>
+          <circle cx="7" cy="7" r="4.5" />
+          <path d="M10.5 10.5 14 14" />
+        </svg>
       </button>
       {open && (
         <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 p-4 pt-[12vh]" onClick={() => setOpen(false)} data-testid="palette">

@@ -12,8 +12,12 @@
   --accent: #d4b571;
   --accent-fg: #0a1020;
   --danger: #e4766b;
-  /* Fixed app-shell header height (src/components/shell/app-shell.tsx sets h-16). */
-  --shell-header-h: 4rem;
+  /* App-shell header height (src/components/shell/app-header.tsx): h-16, plus a 2.5rem nav row
+     below md where the primary nav drops to its own line. */
+  --shell-header-h: 6.5rem;
+}
+@media (min-width: 48rem) {
+  :root { --shell-header-h: 4rem; }
 }
 
 

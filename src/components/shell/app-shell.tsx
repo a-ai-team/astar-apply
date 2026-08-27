@@ -2,22 +2,20 @@ import type { ReactNode } from "react";
 import type { Session } from "@/lib/dal";
 import { isStaff } from "@/lib/roles";
 import { signOut } from "@/app/auth/actions";
-import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { NavItem } from "./nav-link";
-import { NavMenu } from "./nav-menu";
+import { AppHeader } from "./app-header";
 import { CommandPalette } from "@/components/practice/command-palette";
 
+// Products only. Path lives under Technicals, Flashcards under Practice, Pulse under Interviews,
+// Progress behind the initials avatar.
 export const HOME_NAV: NavItem[] = [
   { href: "/home", label: "Home" },
   { href: "/home/mentor", label: "Mentor" },
   { href: "/home/technicals", label: "Technicals" },
-  { href: "/home/path", label: "10-week path" },
   { href: "/home/practice", label: "Practice" },
-  { href: "/home/flashcards", label: "Flashcards" },
-  { href: "/home/progress", label: "Progress" },
   { href: "/home/interviews", label: "Interviews" },
-  { href: "/home/pulse", label: "Pulse" },
 ];
 
 export const ADMIN_NAV: NavItem[] = [
@@ -38,30 +36,29 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
   const staffItem: NavItem | null = isStaff(session.role)
     ? { href: nav === ADMIN_NAV ? "/home" : "/admin", label: nav === ADMIN_NAV ? "Back to app" : "Admin" }
     : null;
+  const right = (
+    <>
+      {nav === HOME_NAV && <CommandPalette />}
+      <Link
+        href="/home/progress"
+        className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-sm font-medium text-fg transition hover:border-muted"
+        title={session.email ?? undefined}
+        aria-label="Your progress"
+        data-testid="user-avatar"
+      >
+        {initial}
+      </Link>
+      <form action={signOut}>
+        <Button type="submit" variant="ghost" size="sm" data-testid="sign-out">
+          Sign out
+        </Button>
+      </form>
+    </>
+  );
   return (
     <div className="flex min-h-screen flex-1 flex-col bg-bg text-fg" data-testid="app-shell">
-      {/* Fixed h-16 so routes can size against --shell-header-h (globals.css) without measuring. */}
-      <header className="flex h-16 shrink-0 items-center justify-between border-b border-border px-4 py-2 md:px-6">
-        <NavMenu items={nav} staffItem={staffItem} />
-        <div className="ml-auto flex items-center gap-3">
-          {nav === HOME_NAV && <CommandPalette />}
-          <Badge tone={session.role === "student" ? "neutral" : "accent"}>{session.role}</Badge>
-          <span className="hidden text-sm text-muted sm:inline" data-testid="user-email">
-            {session.email}
-          </span>
-          <span
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-sm font-medium text-fg"
-            aria-hidden
-          >
-            {initial}
-          </span>
-          <form action={signOut}>
-            <Button type="submit" variant="ghost" size="sm" data-testid="sign-out">
-              Sign out
-            </Button>
-          </form>
-        </div>
-      </header>
+      {/* Sticky; h-16 at md+ so routes can size against --shell-header-h (globals.css). */}
+      <AppHeader items={nav} staffItem={staffItem} right={right} />
       <main className="flex min-h-0 flex-1 flex-col gap-6 px-4 py-8 md:px-8">{children}</main>
     </div>
   );
