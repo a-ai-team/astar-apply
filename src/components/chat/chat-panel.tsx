@@ -107,8 +107,9 @@ export function ChatPanel({ threadId, title, initialMessages, initialFeedback, c
             <Image src="/mentors/tesleem.jpg" alt="Tesleem Fowora" width={144} height={144} priority className="h-32 w-32 shrink-0 rounded-full object-cover ring-2 ring-border sm:h-36 sm:w-36" />
             <div className="text-center sm:text-left">
               <p className="text-xl font-semibold text-fg">Tesleem Fowora</p>
-              <p className="mt-1 text-sm text-muted">Your mentor · President of BIG</p>
-              <p className="mt-3">Ask a senior student who has done the process. Spring weeks, CVs, &ldquo;why banking&rdquo;, EV vs equity value, DCFs — every answer cites Tesleem&rsquo;s own notes when they cover it.</p>
+              <p className="mt-1 text-sm font-medium text-fg/80">President, LSESU Business &amp; Investment Group · Private Equity Summer Analyst, HarbourVest</p>
+              <p className="mt-1 text-xs text-muted">Spring weeks at Evercore, Perella Weinberg and Rothschild &amp; Co · LSE</p>
+              <p className="mt-3">Ask someone who has actually done the process — spring weeks, CVs, &ldquo;why banking&rdquo;, EV vs equity value, DCFs. Every answer cites Tesleem&rsquo;s own notes when they cover it.</p>
             </div>
           </div>
         )}
