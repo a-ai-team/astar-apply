@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 type Tone = "neutral" | "accent" | "danger";
 const tones: Record<Tone, string> = {
   neutral: "border-border bg-surface text-muted",
-  accent: "border-accent/40 bg-accent/10 text-accent",
+  accent: "border-fg/30 bg-surface text-fg",
   danger: "border-danger/40 bg-danger/10 text-danger",
 };
 

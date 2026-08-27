@@ -50,7 +50,7 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
             {session.email}
           </span>
           <span
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-fg"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-sm font-medium text-fg"
             aria-hidden
           >
             {initial}
