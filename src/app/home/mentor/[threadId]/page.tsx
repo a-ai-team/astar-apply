@@ -1,3 +1,4 @@
+// thread history hidden for now — James, 2026-08-27 (routable but unlinked)
 import { notFound } from "next/navigation";
 import { verifySession } from "@/lib/dal";
 import { createAdminClient } from "@/lib/supabase/admin";

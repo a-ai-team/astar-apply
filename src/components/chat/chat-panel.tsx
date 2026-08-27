@@ -1,7 +1,9 @@
 "use client";
 
 // The conversation: message list + composer. Sends POST /api/chat, parses the SSE stream and
-// renders deltas/citations as they arrive; after `done` a brand-new thread navigates to its URL.
+// renders deltas/citations as they arrive; after `done` a brand-new thread's id is kept in memory
+// (`liveThread`) so follow-ups append to the same server thread — we stay on /home/mentor rather
+// than navigating to /home/mentor/[threadId] (thread history hidden for now — James, 2026-08-27).
 // Loop 06: `context` (question / lesson block) rides along on the first request and is pinned as a
 // chip in the header; `autoSend` fires the opening message once (the "Ask Mentor" flow).
 import Image from "next/image";
@@ -66,10 +68,7 @@ export function ChatPanel({ threadId, title, initialMessages, initialFeedback, c
           }
         }
       }
-      if (newThread) {
-        liveThread.current = newThread;
-        router.replace(`/home/mentor/${newThread}`);
-      }
+      if (newThread) liveThread.current = newThread;
       router.refresh();
     } catch (e) {
       patch((a) => ({ ...a, pending: false }));

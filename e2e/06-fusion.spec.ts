@@ -18,11 +18,14 @@ test.describe("Loop 06 chatbot ↔ technicals fusion", () => {
     await page.getByTestId("reveal-answer").click();
     const ask = page.getByTestId("question-grade").getByTestId("ask-mentor").first();
     await expect(ask).toHaveAttribute("href", /\/home\/mentor\/new\?question=[0-9a-f-]{36}$/);
+    // The landing page auto-sends the opening message; the thread is persisted server-side but the
+    // page stays put (thread history hidden for now). Capture the id from the /api/chat stream.
+    const chatRes = page.waitForResponse((r) => r.url().includes("/api/chat") && r.request().method() === "POST", { timeout: 45_000 });
     await ask.click();
-
-    // The landing page auto-sends the opening message and navigates to the new thread.
-    await expect(page).toHaveURL(/\/home\/mentor\/[0-9a-f-]{36}$/, { timeout: 45_000 });
+    await expect(page).toHaveURL(/\/home\/mentor\/new\?question=/);
     await expect(page.getByTestId("user-bubble").first()).toContainText("What is enterprise value");
+    const threadId = ((await (await chatRes).text()).match(/"threadId":"([0-9a-f-]{36})"/) ?? [])[1]!;
+    expect(threadId).toMatch(/^[0-9a-f-]{36}$/);
     await expect(page.getByTestId("thread-context")).toContainText("What is enterprise value");
     const bubble = page.getByTestId("assistant-bubble").first();
     await expect(bubble.getByTestId("citation-chip").first()).toBeVisible({ timeout: 45_000 });
@@ -31,15 +34,15 @@ test.describe("Loop 06 chatbot ↔ technicals fusion", () => {
     const href = (await lessonChip.getAttribute("data-href"))!;
     expect(href).toMatch(/^\/home\/technicals\/[a-z0-9-]+\/[a-z0-9-]+#block-\d+$/);
 
-    // Persisted: reload keeps the chip + context; the stored thread carries the question context.
-    await page.reload();
-    await expect(page.getByTestId("thread-context")).toBeVisible();
-    const threadId = page.url().match(/\/home\/mentor\/([0-9a-f-]{36})$/)![1];
+    // Persisted: the stored thread carries the question context and the cited lesson; the (unlinked)
+    // thread page still renders it with the context chip.
     const { data: thread } = await admin().from("chat_threads").select("context").eq("id", threadId).single();
     expect(thread?.context).toMatchObject({ question_id: expect.stringMatching(/^[0-9a-f-]{36}$/) });
     const { data: msgs } = await admin().from("chat_messages").select("role, content").eq("thread_id", threadId).eq("role", "assistant");
     const citations = (msgs?.[0]?.content as { citations: { kind: string; href?: string }[]; rung: string }).citations;
     expect(citations.some((c) => c.kind === "lesson" && c.href === href)).toBe(true);
+    await page.goto(`/home/mentor/${threadId}`);
+    await expect(page.getByTestId("thread-context")).toBeVisible();
 
     // Chip → lesson page scrolled to the cited block, which is highlighted and carries its own Ask Mentor link.
     await page.locator('[data-testid="citation-chip"][data-kind="lesson"]').first().click();
@@ -58,7 +61,7 @@ test.describe("Loop 06 chatbot ↔ technicals fusion", () => {
     const trap = page.locator('[data-testid="block-trap"]').locator("xpath=ancestor::div[@data-block-index]");
     const idx = await trap.getAttribute("data-block-index");
     await trap.getByTestId("ask-mentor").click();
-    await expect(page).toHaveURL(/\/home\/mentor\/[0-9a-f-]{36}$/, { timeout: 45_000 });
+    await expect(page).toHaveURL(/\/home\/mentor\/new\?lesson=/, { timeout: 45_000 });
     await expect(page.getByTestId("user-bubble").first()).toContainText("The trap");
     await expect(page.getByTestId("thread-context")).toHaveAttribute("href", new RegExp(`/home/technicals/eqv-ev/ev-bridge-basics#block-${idx}$`));
     await expect(page.getByTestId("assistant-bubble").first().getByTestId("citation-chip").first()).toBeVisible({ timeout: 45_000 });
