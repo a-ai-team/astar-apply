@@ -1,5 +1,9 @@
 "use client";
 
+// One message. User turns are a quiet ivory-on-surface pill; assistant turns are un-boxed prose
+// behind a single gold hairline (gold is reserved for the send button, citation numerals and the
+// halo — the hairline is the one exception that marks "the mentor is speaking"). Assistant text
+// is markdown (headings / bold / lists / KaTeX) rendered through the shared <Markdown>.
 import { cn } from "@/lib/cn";
 import type { Citation, Rung } from "@/lib/chat/types";
 import { Markdown } from "@/components/lesson/markdown";
@@ -18,26 +22,33 @@ export type BubbleProps = {
 };
 
 export function MessageBubble({ id, role, text, citations, rung, pending, vote, onOpenCitation }: BubbleProps) {
-  if (role === "user") {
+  const mine = role === "user";
+
+  if (mine) {
     return (
       <div className="flex justify-end" data-testid="user-bubble">
-        <div className="max-w-[70%] whitespace-pre-wrap rounded-2xl rounded-br-md border border-border bg-surface px-4 py-3 text-[0.95rem] leading-[1.7] text-fg" data-testid="bubble-text">
-          {text}
+        <div className="max-w-[70%] rounded-2xl rounded-br-md border border-border bg-surface px-4 py-2.5 text-[0.95rem] leading-[1.6] text-fg">
+          <div className="whitespace-pre-wrap" data-testid="bubble-text">{text}</div>
         </div>
       </div>
     );
   }
+
   return (
     <div className="group flex justify-start" data-testid="assistant-bubble" data-pending={pending ? "1" : undefined}>
-      <div className="min-w-0 max-w-full border-l border-accent/50 pl-5">
+      <div className="w-full min-w-0 border-l border-accent/50 pl-5">
         {rung && rung !== "corpus" && (
-          <p className="mb-2 text-[0.7rem] uppercase tracking-[0.14em] text-muted" data-testid="rung">
+          <p className="mb-2 text-[0.7rem] uppercase tracking-[0.12em] text-muted" data-testid="rung">
             {rung === "prior" ? "Standard answer — not from the mentor corpus" : "From the curriculum"}
           </p>
         )}
         <div className="text-fg" data-testid="bubble-text">
-          {text ? <Markdown md={text} className="prose-chat" /> : null}
-          {pending && <span className="ml-0.5 inline-block h-[1.05em] w-px animate-caret bg-accent align-[-0.2em]" aria-label="Typing" />}
+          {text ? (
+            <Markdown md={text} className="prose-chat" />
+          ) : (
+            pending && <span className="sr-only">Thinking</span>
+          )}
+          {pending && <span className="ml-0.5 inline-block h-[1.1em] w-px animate-caret bg-accent align-[-0.2em]" aria-label="Typing" />}
         </div>
         {citations.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2" data-testid="citations">
@@ -47,7 +58,7 @@ export function MessageBubble({ id, role, text, citations, rung, pending, vote, 
           </div>
         )}
         {id && !pending && (
-          <div className={cn("mt-3 flex justify-end opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 has-[[aria-pressed=true]]:opacity-100")}>
+          <div className={cn("mt-3 flex justify-end opacity-0 transition-opacity duration-200", "group-hover:opacity-100 group-focus-within:opacity-100")}>
             <FeedbackButtons messageId={id} initial={vote} />
           </div>
         )}
