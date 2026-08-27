@@ -1,6 +1,6 @@
 import { chromium } from "@playwright/test";
 const OUT = "/private/tmp/claude-501/-Users-jameswingfield-dev-astar-apply/1faa7c78-d985-402d-b3a5-324e8ce63f83/scratchpad";
-const BASE = "http://localhost:3010";
+const BASE = "http://localhost:3001";
 const KEY = "astar-team";
 const sizes = [[1440, 900], [390, 844]];
 const browser = await chromium.launch();
@@ -20,10 +20,9 @@ for (const [w, h] of sizes) {
   };
   await shot("home", "/home");
   await shot("technicals", "/home/technicals");
-  const topic = await page.locator('a[href^="/home/technicals/"]').first().getAttribute("href");
+  const topic = "/home/technicals/eqv-ev";
   await page.goto(`${BASE}${topic}`, { waitUntil: "networkidle" });
-  const lesson = await page.locator('a[href^="/home/technicals/"]').evaluateAll((as) => as.map((a) => a.getAttribute("href")).find((h) => h.split("/").length >= 5));
-  if (lesson) await page.goto(`${BASE}${lesson}`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE}/home/technicals/eqv-ev/ev-bridge-basics`, { waitUntil: "networkidle" });
   await shot("lesson");
   await shot("practice", "/home/practice");
   await shot("mentor-empty", "/home/mentor");
