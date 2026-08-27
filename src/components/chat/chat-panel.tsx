@@ -4,6 +4,7 @@
 // renders deltas/citations as they arrive; after `done` a brand-new thread navigates to its URL.
 // Loop 06: `context` (question / lesson block) rides along on the first request and is pinned as a
 // chip in the header; `autoSend` fires the opening message once (the "Ask Mentor" flow).
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -102,9 +103,13 @@ export function ChatPanel({ threadId, title, initialMessages, initialFeedback, c
       </header>
       <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6" data-testid="messages">
         {messages.length === 0 && (
-          <div className="m-auto max-w-md text-center text-sm text-muted">
-            <p className="text-base font-medium text-fg">Ask a senior student who has done the process.</p>
-            <p className="mt-2">Spring weeks, CVs, &ldquo;why banking&rdquo;, EV vs equity value, DCFs — every answer cites the mentor&rsquo;s own notes when they cover it.</p>
+          <div className="m-auto flex max-w-lg flex-col items-center gap-5 text-sm text-muted sm:flex-row sm:items-center sm:gap-6" data-testid="mentor-intro">
+            <Image src="/mentors/tesleem.jpg" alt="Tesleem Fowora" width={144} height={144} priority className="h-32 w-32 shrink-0 rounded-full object-cover ring-2 ring-border sm:h-36 sm:w-36" />
+            <div className="text-center sm:text-left">
+              <p className="text-xl font-semibold text-fg">Tesleem Fowora</p>
+              <p className="mt-1 text-sm text-muted">Your mentor · President of BIG</p>
+              <p className="mt-3">Ask a senior student who has done the process. Spring weeks, CVs, &ldquo;why banking&rdquo;, EV vs equity value, DCFs — every answer cites Tesleem&rsquo;s own notes when they cover it.</p>
+            </div>
           </div>
         )}
         {messages.map((m, i) => (
