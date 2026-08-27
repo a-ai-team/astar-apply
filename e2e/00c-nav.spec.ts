@@ -1,52 +1,43 @@
 import { test, expect } from "@playwright/test";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
 
-// Requires `npm run seed -- 00`. The left sidebar is gone: navigation lives in a hover dropdown
-// under the logo (src/components/shell/nav-menu.tsx).
-test.describe("Hover nav under the logo", () => {
-  test("hidden until hovered → hover shows the menu → Technicals navigates → hidden again", async ({ page, baseURL }) => {
+// Requires `npm run seed -- 00`. Primary nav is a sticky horizontal bar of the five products
+// (src/components/shell/app-header.tsx); no sidebar, no dropdown.
+test.describe("Sticky horizontal nav", () => {
+  test("five product links → Technicals navigates and is current → header gains its rule on scroll", async ({ page, baseURL }) => {
     await unlockPrivateArea(page, baseURL!);
     await signInAs(page, "e2e-student@astar.test", "/home");
     await expect(page.getByTestId("app-shell")).toBeVisible();
     await expect(page.getByTestId("side-nav")).toHaveCount(0);
-
-    const logo = page.getByTestId("nav-logo");
-    await expect(logo).toBeVisible();
-    await expect(logo).toHaveAttribute("aria-expanded", "false");
     await expect(page.getByTestId("nav-menu")).toHaveCount(0);
 
-    await logo.hover();
-    const menu = page.getByTestId("nav-menu");
-    await expect(menu).toBeVisible();
-    await expect(logo).toHaveAttribute("aria-expanded", "true");
-    await expect(menu.getByRole("menuitem")).toHaveText(["Home", "Mentor", "Technicals", "10-week path", "Practice", "Flashcards", "Progress", "Interviews", "Pulse"]);
-    await expect(menu.getByTestId("nav-staff-link")).toHaveCount(0); // students never see Admin
+    const nav = page.getByTestId("nav-bar");
+    await expect(nav).toBeVisible();
+    await expect(nav.getByRole("link")).toHaveText(["Home", "Mentor", "Technicals", "Practice", "Interviews"]);
+    await expect(nav.getByRole("link", { name: "Home" })).toHaveAttribute("aria-current", "page");
+    await expect(nav.getByTestId("nav-staff-link")).toHaveCount(0); // students never see Admin
 
-    // Moving from the logo into the panel keeps it open (150 ms grace), then a click navigates.
-    await menu.getByRole("menuitem", { name: "Technicals" }).hover();
-    await expect(menu).toBeVisible();
-    await menu.getByRole("menuitem", { name: "Technicals" }).click();
+    // Right cluster is just search · initials · sign out — no role badge, no email.
+    await expect(page.getByTestId("palette-open")).toBeVisible();
+    await expect(page.getByTestId("user-avatar")).toHaveText("E");
+    await expect(page.getByTestId("user-email")).toHaveCount(0);
+
+    const header = page.getByTestId("app-header");
+    await expect(header).not.toHaveAttribute("data-scrolled", "");
+    await page.mouse.wheel(0, 600);
+    await expect(header).toHaveAttribute("data-scrolled", "");
+    await expect(header).toBeInViewport(); // sticky
+
+    await nav.getByRole("link", { name: "Technicals" }).click();
     await expect(page).toHaveURL(/\/home\/technicals$/);
-
-    // Not hovered → not visible. Then hover again: Technicals is the active item.
-    await page.mouse.move(600, 400);
-    await expect(page.getByTestId("nav-menu")).toHaveCount(0);
-    await logo.hover();
-    await expect(page.getByTestId("nav-menu").getByRole("menuitem", { name: "Technicals" })).toHaveAttribute("aria-current", "page");
-
-    // Keyboard: Escape closes; Enter on the focused logo opens.
-    await page.keyboard.press("Escape");
-    await expect(page.getByTestId("nav-menu")).toHaveCount(0);
-    await page.mouse.move(600, 400);
-    await logo.focus();
-    await expect(page.getByTestId("nav-menu")).toBeVisible();
+    await expect(page.getByTestId("nav-bar").getByRole("link", { name: "Technicals" })).toHaveAttribute("aria-current", "page");
+    await expect(page.getByTestId("nav-bar").getByRole("link", { name: "Home" })).not.toHaveAttribute("aria-current", "page");
   });
 
-  test("staff see Admin below a divider", async ({ page, baseURL }) => {
+  test("staff see Admin at the end of the bar", async ({ page, baseURL }) => {
     await unlockPrivateArea(page, baseURL!);
     await signInAs(page, "e2e-admin@astar.test", "/home");
-    await page.getByTestId("nav-logo").hover();
-    const admin = page.getByTestId("nav-menu").getByTestId("nav-staff-link");
+    const admin = page.getByTestId("nav-bar").getByTestId("nav-staff-link");
     await expect(admin).toHaveText("Admin");
     await expect(admin).toHaveAttribute("href", "/admin");
   });

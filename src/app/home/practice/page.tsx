@@ -30,6 +30,10 @@ export default async function PracticePage({ searchParams }: PageProps<"/home/pr
       <div>
         <h1 className="text-2xl font-semibold" data-testid="practice-heading">Practice</h1>
         <p className="mt-1 text-sm text-muted">Say the answer out loud, reveal, grade yourself. Press ⌘K to search any question or lesson.</p>
+        <p className="mt-3 flex gap-5 text-[0.7rem] uppercase tracking-[0.14em]">
+          <Link href="/home/flashcards" className="text-muted transition hover:text-fg">Flashcards →</Link>
+          <Link href="/home/progress" className="text-muted transition hover:text-fg">Progress →</Link>
+        </p>
       </div>
 
       <div className="flex flex-col gap-3" data-testid="bank-filters">
