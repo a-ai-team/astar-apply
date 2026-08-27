@@ -69,7 +69,7 @@ function glowSprite(size: number, dpr: number): HTMLCanvasElement {
 export function BrainHalo({ size, state, className }: { size: number; state: State; className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const stateRef = useRef<State>(state);
-  stateRef.current = state;
+  useEffect(() => { stateRef.current = state; }, [state]);
 
   useEffect(() => {
     const canvas = ref.current;
