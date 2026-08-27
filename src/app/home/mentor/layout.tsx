@@ -4,8 +4,8 @@ import { verifySession } from "@/lib/dal";
 import { ChatLayout } from "@/components/chat/chat-layout";
 import "katex/dist/katex.min.css";
 
-// Display serif for the mentor chat only (exposed as --font-display, see globals.css `.mentor-theme`).
-const display = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["500", "600"], display: "swap" });
+// Display serif for the mentor chat only (--font-cormorant → `font-display` utility via @theme in globals.css).
+const display = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["latin"], weight: ["500", "600"], display: "swap" });
 
 export const metadata: Metadata = { title: "Mentor — A* Apply", robots: { index: false, follow: false } };
 
