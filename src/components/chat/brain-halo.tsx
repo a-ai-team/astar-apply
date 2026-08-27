@@ -14,11 +14,11 @@ const NODE_COUNT = 56;
 const ARC = (230 * Math.PI) / 180;
 const LINK_RANGE = 0.28;
 const IDLE_SIGNALS = 3;
-const IVORY = "239, 233, 220";
-const GOLD = "212, 181, 113";
+export const IVORY = "239, 233, 220";
+export const GOLD = "212, 181, 113";
 
 /** mulberry32 — small seeded PRNG so every mount draws the same constellation. */
-function prng(seed: number) {
+export function prng(seed: number) {
   let s = seed >>> 0;
   return () => {
     s = (s + 0x6d2b79f5) >>> 0;

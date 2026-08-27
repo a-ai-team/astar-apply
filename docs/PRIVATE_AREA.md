@@ -1,6 +1,6 @@
 # Private area — one door
 
-The public site (`/`) is a "Coming soon" page. The real app lives under `/home` (students) and
+The public site (`/`) is a "Coming soon" page. The real app lives under `/home` (students; `/home` itself is the Mentor-led landing page, roster in `src/content/mentors.ts`) and
 `/admin` (staff). **Entering the team key is the only thing needed to get in.** User accounts
 (magic-link sign-in, per-person roles) come later; the code for them is kept but unlinked.
 
