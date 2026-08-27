@@ -7,10 +7,10 @@ export default function Home() {
         <Image
           src="/logo.png"
           alt="A* Apply"
-          width={480}
-          height={480}
+          width={700}
+          height={271}
           priority
-          className="h-auto w-72 sm:w-96"
+          className="h-auto w-72 sm:w-[28rem]"
         />
         <p className="text-lg text-zinc-400">Coming soon.</p>
       </main>

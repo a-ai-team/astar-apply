@@ -23,7 +23,7 @@ export function FirmQuestionList({ questions, practise, backHref, canPractise }:
   const divisions = useMemo(() => [...new Set(questions.map((q) => q.division ?? "Any division"))].sort(), [questions]);
   const shown = useMemo(() => filterQuestions(questions, f), [questions, f]);
   const chip = (key: keyof Filters, value: string, label: string) => (
-    <button key={`${key}-${value}`} type="button" onClick={() => setF({ ...f, [key]: value })} className={cn("rounded-full border px-3 py-1 text-xs", f[key] === value ? "border-accent text-accent" : "border-border text-muted hover:text-fg")} data-testid={`filter-${key}-${value}`} aria-pressed={f[key] === value}>{label}</button>
+    <button key={`${key}-${value}`} type="button" onClick={() => setF({ ...f, [key]: value })} className={cn("rounded-full border px-3 py-1 text-xs", f[key] === value ? "border-fg/40 bg-surface text-fg" : "border-border text-muted hover:text-fg")} data-testid={`filter-${key}-${value}`} aria-pressed={f[key] === value}>{label}</button>
   );
 
   return (

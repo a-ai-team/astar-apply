@@ -39,7 +39,7 @@ export function ChunkEditor({ chunk, onDone }: { chunk: CorpusChunkRow; onDone: 
           const on = tags.includes(t.slug);
           return (
             <button key={t.slug} type="button" onClick={() => setTags(on ? tags.filter((x) => x !== t.slug) : [...tags, t.slug])}
-              className={`rounded-full border px-2 py-0.5 text-[11px] ${on ? "border-accent bg-accent/10 text-accent" : "border-border text-muted"}`}>
+              className={`rounded-full border px-2 py-0.5 text-[11px] ${on ? "border-fg/40 bg-surface text-fg" : "border-border text-muted"}`}>
               {t.slug}
             </button>
           );
