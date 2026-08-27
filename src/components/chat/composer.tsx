@@ -4,6 +4,7 @@
 // button — the one place in the chat that spends gold on a control.
 import { useCallback, useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { cn } from "@/lib/cn";
+import { track } from "@/lib/analytics/client";
 
 const MAX_ROWS = 6;
 
@@ -28,6 +29,7 @@ export function Composer({ disabled, onSend }: { disabled: boolean; onSend: (tex
     const text = value.trim();
     if (!text || disabled) return;
     onSend(text);
+    track("chat_message", { length: text.length });
     setValue("");
     ref.current?.focus();
   }

@@ -1,0 +1,28 @@
+{
+  "_comment": "PLACEHOLDER — synthetic Stripe event for pipeline testing (upgrade core → ai).",
+  "id": "evt_1Test0000000000000000002",
+  "object": "event",
+  "api_version": "2026-07-30.basil",
+  "created": 1756200600,
+  "livemode": false,
+  "pending_webhooks": 1,
+  "request": { "id": "req_test_2", "idempotency_key": null },
+  "type": "customer.subscription.updated",
+  "data": {
+    "object": {
+      "id": "sub_TestSubscription001",
+      "object": "subscription",
+      "status": "active",
+      "customer": "cus_TestCustomer001",
+      "metadata": { "user_id": "11111111-1111-4111-8111-111111111111", "plan": "core" },
+      "items": {
+        "object": "list",
+        "data": [
+          { "id": "si_Test001", "object": "subscription_item", "current_period_end": 1758878400, "current_period_start": 1756200600, "price": { "id": "price_test_ai_999", "object": "price", "currency": "gbp", "unit_amount": 999, "recurring": { "interval": "month" } }, "quantity": 1 }
+        ]
+      },
+      "livemode": false
+    },
+    "previous_attributes": { "items": {} }
+  }
+}

@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { sendMagicLink, type LoginState } from "@/app/auth/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { track } from "@/lib/analytics/client";
 
 export function LoginForm({ next, initialError }: { next: string; initialError?: string }) {
   const [state, action, pending] = useActionState<LoginState, FormData>(sendMagicLink, {});
@@ -17,7 +18,7 @@ export function LoginForm({ next, initialError }: { next: string; initialError?:
   }
 
   return (
-    <form action={action} className="flex w-full flex-col gap-3" data-testid="login-form">
+    <form action={action} onSubmit={() => track("signup", { method: "magic_link" })} className="flex w-full flex-col gap-3" data-testid="login-form">
       <input type="hidden" name="next" value={next} />
       <label className="text-sm text-muted" htmlFor="email">
         Email

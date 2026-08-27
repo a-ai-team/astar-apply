@@ -6,12 +6,20 @@ The public site (`/`) is a "Coming soon" page. The real app lives under `/home` 
 
 | Step | What | Where | How to pass |
 |---|---|---|---|
-| 1. Team key | Shared key → `astar_access` cookie (30 days, httpOnly) | `src/proxy.ts` → `/unlock` | Ask James or Tesleem for `PRIVATE_ACCESS_KEY`. |
+| 1. Team key | Shared key → `astar_access` cookie (30 days, httpOnly) | `src/proxy.ts` → `/unlock` | Ask James or Tesleem for `PRIVATE_ACCESS_KEY`. **Skipped when `PUBLIC_LAUNCH=true`** (Loop 10); default `false` keeps it. |
 | 2. Team session | Supabase Auth session for one shared **admin** user (`TEAM_USER_EMAIL`, display name "A* team"), established automatically behind the key | `src/lib/team-session.ts`, called from the `unlock` action and `/auth/team` | Nothing — happens on unlock. |
 
 Why keep Supabase at all? Everything downstream (`verifySession()`, RLS, the `user_role` JWT
 claim, `/admin` staff checks) is built on a Supabase session, and user accounts will reuse it
 unchanged. The team session just makes "the key" satisfy it.
+
+## Public launch flag (Loop 10)
+`PUBLIC_LAUNCH` (default unset/`false`) keeps gate 1. Setting `PUBLIC_LAUNCH=true` in Vercel makes
+`/home` and `/admin` reachable with just a Supabase session (gate 2 never switches off). Playwright
+sets `PUBLIC_LAUNCH=true` for its own server so the launch spec exercises the public flow; the
+"flag off" behaviour is checked with `curl -sI http://localhost:3100/home` → `307 /unlock?next=/home`.
+Public pages (`/`, `/pricing`, `/non-target`, `/privacy`, `/terms`) are outside the matcher and never
+gated. `/billing/*` needs a session (DAL), not the key.
 
 ## Flow
 1. `/home/*` or `/admin/*` without the key cookie → `302 /unlock?next=…`.

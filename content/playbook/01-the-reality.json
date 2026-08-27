@@ -1,0 +1,12 @@
+{
+  "_comment": "Original content (Loop 10). Structure inspired by public playbooks; every sentence is ours.",
+  "slug": "the-reality",
+  "ordinal": 1,
+  "title": "The reality",
+  "summary": "What 'non-target' actually changes about your odds, and what it does not.",
+  "blocks": [
+    { "type": "md", "md": "Most London analyst classes are still weighted towards a dozen universities. That is a fact about *screening*, not about *ability*: a first-round interviewer cannot tell which university you attend from how you walk through a DCF. The gap opens earlier, at the CV sift, and it closes the moment you are in a room.\n\nSo the job is to get into rooms. Everything else in this playbook is about that." },
+    { "type": "md", "md": "**Three things that are true**\n\n1. Spring weeks convert. At most banks the majority of summer analysts came through the spring week, and spring-week screening is lighter because you are a first-year with nothing on your CV yet. If you are in first year, this is your best shot and it closes in October–November.\n2. Referrals move CVs. A named analyst or associate who vouches for you moves your application from a pile of two thousand to a pile of twenty.\n3. Technicals are the great equaliser. Non-target candidates who *clearly* know the material stand out precisely because interviewers expect them not to." },
+    { "type": "md", "md": "**Three things that are not true**\n\n- \"They don't take people from my uni.\" Look up the bank on LinkedIn and filter by your university. There is almost always someone.\n- \"I need a 1:1 and a hedge-fund internship.\" You need a 2:1 trajectory, one relevant thing you did on purpose, and evidence you can do the job.\n- \"Networking is for extroverts.\" It is a process with a template. Section 2." }
+  ]
+}

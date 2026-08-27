@@ -3,6 +3,7 @@ import Link from "next/link";
 import { completeLesson, uncompleteLesson } from "@/app/home/practice/actions";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { TrackSubmit } from "@/components/analytics/track-submit";
 
 export function LessonProgressControls({ lessonId, topicSlug, completed }: { lessonId: string; topicSlug: string; completed: boolean }) {
   return (
@@ -16,10 +17,10 @@ export function LessonProgressControls({ lessonId, topicSlug, completed }: { les
           </form>
         </>
       ) : (
-        <form action={completeLesson}>
+        <TrackSubmit action={completeLesson} event="lesson_complete" props={{ lesson_id: lessonId, topic: topicSlug }}>
           <input type="hidden" name="lessonId" value={lessonId} />
           <Button type="submit" size="sm" data-testid="lesson-complete">Mark complete</Button>
-        </form>
+        </TrackSubmit>
       )}
       <div className="ml-auto flex gap-2">
         <Link href={`/home/practice?topic=${topicSlug}`} data-testid="lesson-practise">

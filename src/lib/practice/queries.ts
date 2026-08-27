@@ -44,10 +44,12 @@ export function bankHref(f: BankFilter, patch: Partial<BankFilter> = {}): string
 
 const SUMMARY = "id, slug, kind, difficulty, question, tags, topic:topics!inner(slug, title)";
 
-export async function listQuestions(db: SupabaseClient, f: BankFilter): Promise<{ rows: QuestionSummary[]; total: number; page: number; pages: number }> {
+export async function listQuestions(db: SupabaseClient, f: BankFilter, opts: { topicSlugs?: string[] } = {}): Promise<{ rows: QuestionSummary[]; total: number; page: number; pages: number }> {
   const page = f.page ?? 1;
   let q = db.from("questions").select(SUMMARY, { count: "exact" }).eq("status", "approved").order("difficulty").order("slug");
   if (f.topic) q = q.eq("topic.slug", f.topic);
+  // Loop 10: free plan → free topics only.
+  if (opts.topicSlugs) q = q.in("topic.slug", opts.topicSlugs.length ? opts.topicSlugs : ["__none__"]);
   if (f.difficulty) q = q.eq("difficulty", f.difficulty);
   if (f.kind) q = q.eq("kind", f.kind);
   const from = (page - 1) * PAGE_SIZE;

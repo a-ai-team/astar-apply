@@ -8,6 +8,9 @@ import { listTopics } from "@/lib/content/queries";
 import { bankHref, DIFFICULTY_LABELS, listQuestions, parseBankFilter } from "@/lib/practice/queries";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/cn";
+import { getSessionEntitlement } from "@/lib/billing/session";
+import { can } from "@/lib/billing/entitlements";
+import { UpgradeCard } from "@/components/billing/upgrade-card";
 
 export const metadata: Metadata = { title: "Practice — A* Apply", robots: { index: false, follow: false } };
 
@@ -23,7 +26,14 @@ export default async function PracticePage({ searchParams }: PageProps<"/home/pr
   await verifySession("/home/practice");
   const f = parseBankFilter(await searchParams);
   const db = await createClient();
-  const [topics, { rows, total, page, pages }] = await Promise.all([listTopics(db), listQuestions(db, f)]);
+  // Loop 10 gate: free users see the bank restricted to free topics (RLS still applies on top).
+  const ent = await getSessionEntitlement();
+  const fullBank = can(ent, "bank_full");
+  const allTopics = await listTopics(db);
+  const topics = fullBank ? allTopics : allTopics.filter((t) => t.is_free);
+  const freeSlugs = topics.map((t) => t.slug);
+  if (!fullBank && f.topic && !freeSlugs.includes(f.topic)) f.topic = undefined;
+  const { rows, total, page, pages } = await listQuestions(db, f, fullBank ? undefined : { topicSlugs: freeSlugs });
 
   return (
     <>
@@ -51,7 +61,8 @@ export default async function PracticePage({ searchParams }: PageProps<"/home/pr
         </div>
       </div>
 
-      <p className="text-xs text-muted" data-testid="bank-count">{total} question{total === 1 ? "" : "s"}</p>
+      <p className="text-xs text-muted" data-testid="bank-count">{total} question{total === 1 ? "" : "s"}{!fullBank && " (free topics)"}</p>
+      {!fullBank && <UpgradeCard feature="bank_full" compact />}
 
       {rows.length === 0 ? (
         <div className="rounded-lg border border-border bg-surface p-6 text-sm text-muted" data-testid="bank-empty">

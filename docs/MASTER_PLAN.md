@@ -67,7 +67,7 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 7 | [AI mock interviews](loops/07-mock-interviews.md) | Text mock interviews graded against model answers with rubric; then voice (Web Speech / Whisper) with pace/filler analysis | merged (partial) |
 | 8 | [Firm interview bank + Pulse](loops/08-firms-pulse.md) | Real-question bank by firm/stage/programme (mentor-sourced), market-news digest (Pulse) | merged (partial) |
 | 9 | [Industry modules](loops/09-industry-modules.md) | 18 industry/group technical modules from the 400Q industry taxonomy | merged (partial) |
-| 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook — **stays an open PR for James** | planned |
+| 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook — **stays an open PR for James** | open-pr |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.

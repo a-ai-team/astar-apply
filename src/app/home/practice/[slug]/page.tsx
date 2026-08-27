@@ -10,6 +10,10 @@ import { QuestionBodySchemaLoose } from "@/lib/practice/question-body";
 import { attemptsForQuestion, bankHref, DIFFICULTY_LABELS, getQuestion, nextQuestionSlug, parseBankFilter } from "@/lib/practice/queries";
 import { QuestionCard, GRADE_LABELS, type SelfGrade } from "@/components/practice/question-card";
 import { Badge } from "@/components/ui/badge";
+import { getSessionEntitlement } from "@/lib/billing/session";
+import { can } from "@/lib/billing/entitlements";
+import { UpgradeCard } from "@/components/billing/upgrade-card";
+import { getTopic } from "@/lib/content/queries";
 
 export async function generateMetadata({ params }: PageProps<"/home/practice/[slug]">): Promise<Metadata> {
   const { slug } = await params;
@@ -25,6 +29,19 @@ export default async function QuestionPage({ params, searchParams }: PageProps<"
   if (!q) notFound();
   const body = QuestionBodySchemaLoose.safeParse(q.body);
   if (!body.success) notFound();
+  const [ent, topic] = await Promise.all([getSessionEntitlement(), getTopic(db, q.topic.slug)]);
+  const unlocked = can(ent, "bank_full", { isFree: topic?.is_free ?? false });
+  if (!unlocked) {
+    return (
+      <>
+        <div>
+          <Link href={bankHref(f)} className="text-sm text-muted hover:text-fg" data-testid="back-to-bank">← Practice</Link>
+          <h1 className="mt-3 text-2xl font-semibold" data-testid="question-text">{q.question}</h1>
+        </div>
+        <UpgradeCard feature="bank_full" />
+      </>
+    );
+  }
   const [next, history] = await Promise.all([nextQuestionSlug(db, q, f), attemptsForQuestion(db, q.id)]);
   const qs = bankHref(f, { page: undefined }).replace("/home/practice", "");
   return (

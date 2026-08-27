@@ -12,6 +12,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { startInterview } from "./actions";
+import { getSessionEntitlement } from "@/lib/billing/session";
+import { can } from "@/lib/billing/entitlements";
+import { UpgradeCard } from "@/components/billing/upgrade-card";
 
 export const metadata: Metadata = { title: "Mock interviews — A* Apply", robots: { index: false, follow: false } };
 
@@ -26,7 +29,8 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
   const sp = await searchParams;
   const error = typeof sp.error === "string" ? sp.error : null;
   const db = await createClient();
-  const [topics, history] = await Promise.all([drillTopics(db), listInterviews(db)]);
+  const [topics, history, ent] = await Promise.all([drillTopics(db), listInterviews(db), getSessionEntitlement()]);
+  const aiUnlocked = can(ent, "ai_drills");
   const poolTotal = topics.filter((t) => MOCK_TOPICS.includes(t.slug)).reduce((s, t) => s + t.count, 0);
   const industries = topics.filter((t) => t.kind === "industry");
   const mockCount = Math.min(MOCK_SIZE, poolTotal);
@@ -39,6 +43,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
       </div>
       {error && <p className="rounded-md border border-danger/40 bg-danger/10 p-3 text-sm text-danger" data-testid="interviews-error">{error}</p>}
 
+      {!aiUnlocked && <UpgradeCard feature="ai_drills" />}
       <div className="grid gap-4 md:grid-cols-2">
         <Card data-testid="drill-card">
           <CardTitle>Topic drill</CardTitle>
@@ -55,7 +60,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
                     <span className="text-sm">
                       {t.title} <span className="text-xs text-muted">· {Math.min(t.count, DRILL_SIZE)} of {t.count} question{t.count === 1 ? "" : "s"}{t.count < DRILL_SIZE ? " (small pool)" : ""}</span>
                     </span>
-                    <Button type="submit" size="sm" variant="secondary" data-testid={`start-drill-${t.slug}`}>Start drill</Button>
+                    <Button type="submit" size="sm" variant="secondary" data-testid={`start-drill-${t.slug}`} disabled={!aiUnlocked}>Start drill</Button>
                   </form>
                 </li>
               ))}
@@ -79,7 +84,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
                 ))}
               </select>
             </label>
-            <div><Button type="submit" disabled={poolTotal === 0} data-testid="start-mock">Start full mock</Button></div>
+            <div><Button type="submit" disabled={poolTotal === 0 || !aiUnlocked} data-testid="start-mock">Start full mock</Button></div>
           </form>
         </Card>
       </div>

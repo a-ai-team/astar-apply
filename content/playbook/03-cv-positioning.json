@@ -1,0 +1,13 @@
+{
+  "_comment": "Original content (Loop 10).",
+  "slug": "cv-positioning",
+  "ordinal": 3,
+  "title": "CV positioning",
+  "summary": "One page, four sections, every line a result. What a screener reads in eight seconds.",
+  "blocks": [
+    { "type": "md", "md": "A screener spends under ten seconds on a first pass. They look at: university and degree line, predicted grade, the most recent experience, and whether anything finance-shaped exists. Your job is to make those four things impossible to miss and then earn the second read." },
+    { "type": "md", "md": "**Layout**\n\n- One page. Education first while you are a student. Predicted grade in bold on the degree line, with the actual first-year mark if it is 65+.\n- Sections: Education · Experience · Positions of responsibility · Skills & interests. No summary paragraph, no photo, no colours.\n- Bullets start with a verb and end with a number: *Analysed 12 UK retailers' filings to build a comparable set; presented recommendation to the society's 40-person investment committee.*" },
+    { "type": "md", "md": "**Manufacturing finance-shaped lines**\n\nIf you have no internship, create the evidence yourself — and be honest that you did:\n\n- Run a stock pitch at the investment society (or found one; three members counts).\n- Complete a documented modelling project: a three-statement model of a listed UK company, on GitHub or a shared drive, linked from the CV.\n- A part-time job is not a weakness. *Handled £4k of daily cash reconciliation* is a line about trust and numbers.\n- Spring-week or insight-day attendance goes under Experience with the bank's name, even if it was virtual." },
+    { "type": "md", "md": "**The cover letter / motivation answers**\n\nThree paragraphs: why banking (a specific moment, not 'fast-paced environment'), why this bank (one deal, one team, one person you spoke to), why you (two pieces of evidence). Under 300 words. Every application form question is a variant of one of these three." }
+  ]
+}

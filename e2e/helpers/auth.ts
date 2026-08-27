@@ -24,7 +24,7 @@ export async function unlockPrivateArea(page: Page, baseURL: string) {
 // verifications to 30 per 5 min per IP (supabase/config.toml `token_verifications`), and the
 // suite plus the team-session verifications would exceed that if every test verified afresh.
 // Access tokens last 1 h, far longer than a run, and nothing here signs out server-side.
-const sessionCookies = new Map<E2EUser, Cookie[]>();
+const sessionCookies = new Map<string, Cookie[]>();
 
 /**
  * Signs in as a seeded e2e user: `auth.admin.generateLink({ type: "magiclink" })` with the
@@ -34,8 +34,17 @@ const sessionCookies = new Map<E2EUser, Cookie[]>();
  * (Magic-link login is unlinked in the UI — the team key is the only door — but per-role
  * behaviour is still tested through it.)
  */
-export async function signInAs(page: Page, email: E2EUser, next = "/home") {
-  const cached = sessionCookies.get(email);
+export type E2EPlan = "free" | "core" | "ai";
+
+/**
+ * Loop 10: every spec before 10 was written when all content was open, so signing in grants the
+ * `core` plan through the StripeStub success page (memory store when 0011 is unapplied; never in
+ * production). Pass `plan: "free"` to test the gates, or `null` to leave the plan untouched.
+ * Cookies are cached per user + plan so the Supabase verification rate limit is not exceeded.
+ */
+export async function signInAs(page: Page, email: E2EUser, next = "/home", plan: E2EPlan | null = "core") {
+  const cacheKey = `${email}|${plan ?? ""}`;
+  const cached = sessionCookies.get(cacheKey);
   if (cached) {
     await clearSupabaseCookies(page);
     await page.context().addCookies(cached);
@@ -45,9 +54,15 @@ export async function signInAs(page: Page, email: E2EUser, next = "/home") {
   const { data, error } = await admin().auth.admin.generateLink({ type: "magiclink", email });
   if (error) throw error;
   const tokenHash = data.properties.hashed_token;
-  await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(next)}`);
+  if (plan) {
+    await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(`/billing/success?stub=1&plan=${plan}&next=${encodeURIComponent(next)}`)}`);
+    await page.waitForSelector(`[data-testid="billing-success"][data-plan="${plan}"]`);
+    await page.goto(next);
+  } else {
+    await page.goto(`/auth/confirm?token_hash=${encodeURIComponent(tokenHash)}&type=magiclink&next=${encodeURIComponent(next)}`);
+  }
   const cookies = (await page.context().cookies()).filter((c) => c.name.startsWith("sb-"));
-  if (cookies.length) sessionCookies.set(email, cookies);
+  if (cookies.length) sessionCookies.set(cacheKey, cookies);
 }
 
 async function clearSupabaseCookies(page: Page) {

@@ -11,6 +11,8 @@ import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { resolveChatMode } from "@/lib/chat/mode";
+import { getSessionEntitlement } from "@/lib/billing/session";
+import { can } from "@/lib/billing/entitlements";
 import { gradeTurn } from "@/lib/interviews/grade";
 import { checkOwnership } from "@/lib/interviews/ownership";
 import { getInterview, getInterviewQuestions, getTurns } from "@/lib/interviews/queries";
@@ -32,6 +34,8 @@ export async function startInterview(formData: FormData): Promise<void> {
   // 3–4 of its questions join the generalist round-robin.
   const industrySlug = String(formData.get("industry") ?? "").trim();
   if (mode !== "drill" && mode !== "mock") throw new Error("bad mode");
+  // Loop 10 gate: AI drills/mocks are Core.
+  if (!can(await getSessionEntitlement(), mode === "drill" ? "ai_drills" : "ai_mocks")) redirect("/home/interviews?error=" + encodeURIComponent("AI drills and mocks are part of Core — see /pricing."));
   if (mode === "drill" && !/^[a-z0-9-]+$/.test(topicSlug)) throw new Error("bad topic");
   if (industrySlug && !/^[a-z0-9-]+$/.test(industrySlug)) throw new Error("bad industry");
   const db = await createClient();
@@ -63,6 +67,7 @@ export async function startInterview(formData: FormData): Promise<void> {
  */
 export async function startDrillFor(formData: FormData): Promise<void> {
   const session = await verifySession("/home/interviews/firms");
+  if (!can(await getSessionEntitlement(), "ai_drills")) redirect("/home/interviews?error=" + encodeURIComponent("AI drills are part of Core — see /pricing."));
   const firmQuestionId = String(formData.get("firmQuestionId") ?? "");
   const back = String(formData.get("back") ?? "/home/interviews/firms");
   if (!UUID.test(firmQuestionId)) redirect(back.startsWith("/home/") ? back : "/home/interviews/firms");

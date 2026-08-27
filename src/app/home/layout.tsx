@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { verifySession } from "@/lib/dal";
 import { AppShell, HOME_NAV } from "@/components/shell/app-shell";
+import { IdentifyUser } from "@/components/analytics/identify";
 
 export const metadata: Metadata = {
   title: "A* Apply",
@@ -11,6 +12,7 @@ export default async function HomeLayout({ children }: LayoutProps<"/home">) {
   const session = await verifySession("/home");
   return (
     <AppShell session={session} nav={HOME_NAV}>
+      <IdentifyUser userId={session.userId} />
       {children}
     </AppShell>
   );

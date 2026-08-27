@@ -1,0 +1,35 @@
+{
+  "_comment": "Original content (Loop 10). Checklist items carry stable keys for playbook_progress.",
+  "slug": "timeline",
+  "ordinal": 6,
+  "title": "Timeline & checklist",
+  "summary": "The cycle month by month, with a checklist that saves your progress.",
+  "blocks": [
+    { "type": "md", "md": "UK recruiting runs a year ahead. Spring weeks open in August–September of first year and close by November; summer analyst applications open in August of second year and many close by October, with rolling review. Treat 1 September as the start of the season, whatever year you are in." },
+    { "type": "checklist", "title": "June – August (before the season)", "items": [
+      { "key": "summer-cv", "label": "One-page CV in the four-section format, reviewed by two people" },
+      { "key": "summer-list", "label": "Target list: 10 banks × the programme you are eligible for, with deadlines in a calendar" },
+      { "key": "summer-network", "label": "Networking list of 30 names, first 10 messages sent" },
+      { "key": "summer-accounting", "label": "Accounting and EqV vs EV lessons completed (the free topics)" },
+      { "key": "summer-model", "label": "Own three-statement model of one UK company started" }
+    ] },
+    { "type": "checklist", "title": "September – October (applications)", "items": [
+      { "key": "autumn-apply", "label": "Applications submitted in the first two weeks of each window (rolling review)" },
+      { "key": "autumn-tests", "label": "Practised numerical / situational tests for each bank's provider" },
+      { "key": "autumn-calls", "label": "Five networking calls completed, thank-yous sent" },
+      { "key": "autumn-technicals", "label": "Valuation and DCF canonical answers memorised; 3 timed drills passed" },
+      { "key": "autumn-story", "label": "Why banking / why this bank / why you — written and said aloud under 90 seconds" }
+    ] },
+    { "type": "checklist", "title": "November – January (interviews)", "items": [
+      { "key": "winter-mock", "label": "Two full mocks completed with scores above 7/10" },
+      { "key": "winter-firm", "label": "Firm question bank read for every interview booked" },
+      { "key": "winter-pulse", "label": "One market story and one deal ready to discuss, refreshed weekly" },
+      { "key": "winter-followup", "label": "Told every contact you spoke to which stage you reached" }
+    ] },
+    { "type": "checklist", "title": "February – May (offers and plan B)", "items": [
+      { "key": "spring-offcycle", "label": "Off-cycle and boutique applications live if no summer offer by February" },
+      { "key": "spring-bigfour", "label": "Big Four TS / valuations applications considered as a parallel route" },
+      { "key": "spring-retro", "label": "Written a one-page retro of every rejection: stage, reason if known, fix" }
+    ] }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "Original content (Loop 10).",
+  "slug": "building-your-edge",
+  "ordinal": 5,
+  "title": "Building your edge",
+  "summary": "The three things a non-target candidate can be visibly better at than everyone else.",
+  "blocks": [
+    { "type": "md", "md": "You cannot change your university. You can be the most prepared person in the room, and interviewers notice preparation more than pedigree." },
+    { "type": "md", "md": "**Technicals, to the canonical answer.** Every core question in this app has a 45-second canonical answer. Learn them until you can say them without thinking, then learn the trap under each one. When a non-target candidate nails the three-statement walk, the interviewer relaxes; when a target candidate fumbles it, the brand does not save them.\n\n**A live view on markets.** Read Pulse every Monday. Have one story you can talk about for two minutes with a number in it, and one deal you can explain in three sentences (what, why, what it was worth).\n\n**A model you built.** A three-statement or simple DCF of a UK company, in your own spreadsheet, that you can open on a laptop and talk through. Almost nobody at interview has this. It is the single most convincing piece of evidence that you can do the job." },
+    { "type": "md", "md": "**Delivery.** Say answers out loud, on a timer, to a wall if necessary. Record yourself once. Most candidates are 30 % too long and say 'basically' every twelve seconds. The mock-interview tool grades content; you grade delivery." }
+  ]
+}
