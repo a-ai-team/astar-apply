@@ -32,7 +32,7 @@ export default async function FirmsPage({ searchParams }: PageProps<"/home/inter
           {firms.map((f) => (
             <li key={f.id}>
               <Link href={`/home/interviews/firms/${f.slug}`} data-testid="firm-card" data-slug={f.slug}>
-                <Card className="h-full hover:border-accent">
+                <Card className="h-full hover:border-muted">
                   <CardTitle>{f.name}</CardTitle>
                   <CardDescription>{f.hq ?? ""}</CardDescription>
                   <div className="mt-3 flex flex-wrap gap-1.5 text-xs"><Badge>{LABELS.type[f.type]}</Badge><Badge tone="accent">{f.question_count} question{f.question_count === 1 ? "" : "s"}</Badge></div>

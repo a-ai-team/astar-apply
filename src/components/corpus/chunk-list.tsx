@@ -45,7 +45,7 @@ export function ChunkList({ chunks }: { chunks: CorpusChunkRow[] }) {
               )}
               <div className="mt-2 flex flex-wrap gap-1 text-[11px] text-muted">
                 {c.topic_tags.map((t) => <span key={t} className="rounded-full border border-border px-2 py-0.5">{t}</span>)}
-                {(c.entities.firms ?? []).map((f) => <span key={f} className="rounded-full border border-accent/30 px-2 py-0.5 text-accent">{f}</span>)}
+                {(c.entities.firms ?? []).map((f) => <span key={f} className="rounded-full border border-border px-2 py-0.5 text-muted">{f}</span>)}
               </div>
             </>
           )}
