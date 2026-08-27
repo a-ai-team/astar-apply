@@ -5,13 +5,15 @@
 // (`liveThread`) so follow-ups append to the same server thread — we stay on /home/mentor rather
 // than navigating to /home/mentor/[threadId] (thread history hidden for now — James, 2026-08-27).
 // Loop 06: `context` (question / lesson block) rides along on the first request and is pinned as a
-// chip in the header; `autoSend` fires the opening message once (the "Ask Mentor" flow).
+// chip above the messages (`title` is accepted but no longer shown — the app header is enough); `autoSend` fires the opening message once (the "Ask Mentor" flow).
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createSseParser } from "@/lib/chat/sse";
 import type { ChatEvent, Citation, Rung, ThreadContext } from "@/lib/chat/types";
+import { cn } from "@/lib/cn";
+import { BrainHalo } from "./brain-halo";
 import { CitationDrawer } from "./citation-drawer";
 import { Composer } from "./composer";
 import { MessageBubble } from "./message-bubble";
@@ -20,7 +22,7 @@ export type UiMessage = { id: string | null; role: "user" | "assistant"; text: s
 
 export type ContextChip = { label: string; href: string };
 
-export function ChatPanel({ threadId, title, initialMessages, initialFeedback, context, contextChip, autoSend }: {
+export function ChatPanel({ threadId, initialMessages, initialFeedback, context, contextChip, autoSend }: {
   threadId: string | null; title?: string; initialMessages: UiMessage[]; initialFeedback: Record<string, 1 | -1>;
   context?: ThreadContext | null; contextChip?: ContextChip | null; autoSend?: string;
 }) {
@@ -86,40 +88,64 @@ export function ChatPanel({ threadId, title, initialMessages, initialFeedback, c
     void send(autoSend);
   }, [autoSend, initialMessages.length, send]);
 
+  const busyHalo: "idle" | "thinking" = busy ? "thinking" : "idle";
+
   return (
-    <div className="flex min-h-0 flex-1 flex-col" data-testid="chat-panel">
-      <header className="flex items-center justify-between border-b border-border px-4 py-3 md:px-6">
-        <div className="flex min-w-0 items-center gap-2">
-          <h1 className="truncate text-base font-semibold" data-testid="chat-title">{title ?? "Mentor"}</h1>
-          {contextChip && (
-            <Link href={contextChip.href} className="inline-flex max-w-xs items-center gap-1 truncate rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-xs text-fg hover:border-accent" title={contextChip.label} data-testid="thread-context">
-              <span className="text-accent">↩</span>
-              <span className="truncate">{contextChip.label}</span>
-            </Link>
-          )}
-        </div>
-        <span className="hidden text-xs text-muted sm:inline">Answers cite the mentor corpus and the Technicals curriculum</span>
-      </header>
-      <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 md:px-6" data-testid="messages">
-        {messages.length === 0 && (
-          <div className="m-auto flex max-w-lg flex-col items-center gap-5 text-sm text-muted sm:flex-row sm:items-center sm:gap-6" data-testid="mentor-intro">
-            <Image src="/mentors/tesleem.jpg" alt="Tesleem Fowora" width={144} height={144} priority className="h-32 w-32 shrink-0 rounded-full object-cover ring-2 ring-border sm:h-36 sm:w-36" />
-            <div className="text-center sm:text-left">
-              <p className="text-xl font-semibold text-fg">Tesleem Fowora</p>
-              <p className="mt-1 text-sm font-medium text-fg/80">President, LSESU Business &amp; Investment Group · Private Equity Summer Analyst, HarbourVest</p>
-              <p className="mt-1 text-xs text-muted">Spring weeks at Evercore, Perella Weinberg and Rothschild &amp; Co · LSE</p>
-              <p className="mt-3">Ask someone who has actually done the process — spring weeks, CVs, &ldquo;why banking&rdquo;, EV vs equity value, DCFs. Every answer cites Tesleem&rsquo;s own notes when they cover it.</p>
+    <div className="flex h-[calc(100dvh-var(--shell-header-h))] min-h-0 flex-col" data-testid="chat-panel">
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 md:px-6" data-testid="messages">
+        {messages.length > 0 && (
+          <div className="sticky top-0 z-10 -mx-4 border-b border-border/70 bg-bg/95 px-4 backdrop-blur md:-mx-6 md:px-6">
+            <div className="mx-auto flex w-full max-w-[760px] items-center gap-3 py-1">
+              <div className="relative h-[72px] w-[72px] shrink-0">
+                <BrainHalo size={72} state={busyHalo} className="absolute inset-0" />
+                <Image src="/mentors/tesleem.jpg" alt="Tesleem Fowora" width={80} height={80} className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full object-cover ring-1 ring-accent/40" />
+              </div>
+              <p className="font-display text-[1.05rem] font-medium tracking-[-0.01em] text-fg">Tesleem Fowora</p>
+              {contextChip && <ContextPill chip={contextChip} className="ml-auto" />}
             </div>
           </div>
         )}
-        {messages.map((m, i) => (
-          <MessageBubble key={m.id ?? `m${i}`} {...m} vote={m.id ? initialFeedback[m.id] ?? null : null} onOpenCitation={(citation, index) => setDrawer({ citation, index })} />
-        ))}
-        {error && <p className="text-sm text-danger" role="alert" data-testid="chat-error">{error}</p>}
+        {messages.length === 0 && (
+          <div className="flex flex-1 flex-col items-center justify-center pb-[12vh] pt-6 text-center" data-testid="mentor-intro">
+            {contextChip && <ContextPill chip={contextChip} className="mb-8" />}
+            <div className="relative h-[360px] w-[360px] max-w-full">
+              <BrainHalo size={360} state={busyHalo} className="absolute inset-0" />
+              <Image src="/mentors/tesleem.jpg" alt="Tesleem Fowora" width={144} height={144} priority className="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full object-cover ring-1 ring-accent/40 shadow-[0_0_48px_-8px_rgba(212,181,113,0.35)]" />
+            </div>
+            <h1 className="-mt-14 font-display text-[2.25rem] font-medium leading-none tracking-[-0.015em] text-fg [text-wrap:balance]">Tesleem Fowora</h1>
+            <p className="mt-4 max-w-md text-[0.8rem] uppercase tracking-[0.18em] text-muted [text-wrap:balance]">President, LSESU Business &amp; Investment Group · Private Equity Summer Analyst, HarbourVest</p>
+          </div>
+        )}
+        {messages.length > 0 && (
+          <div className="mx-auto flex w-full max-w-[760px] flex-col gap-6 py-8">
+            {messages.map((m, i) => (
+              <div key={m.id ?? `m${i}`} className="animate-msg-in">
+                <MessageBubble {...m} vote={m.id ? initialFeedback[m.id] ?? null : null} onOpenCitation={(citation, index) => setDrawer({ citation, index })} />
+              </div>
+            ))}
+          </div>
+        )}
+        {error && (
+          <div className="mx-auto w-full max-w-[760px] pb-4">
+            <p className="border-l border-danger/70 pl-4 text-[0.8rem] leading-relaxed text-muted" role="alert" data-testid="chat-error">{error}</p>
+          </div>
+        )}
         <div ref={bottom} />
       </div>
-      <Composer disabled={busy} onSend={send} />
+      <div className="shrink-0 px-4 pb-5 pt-2 md:px-6">
+        <Composer disabled={busy} onSend={send} />
+      </div>
       <CitationDrawer open={Boolean(drawer)} citation={drawer?.citation ?? null} index={drawer?.index ?? 0} onClose={() => setDrawer(null)} />
     </div>
+  );
+}
+
+// Loop 06 context ("Ask Mentor about this"): a hairline pill linking back to the question / block.
+function ContextPill({ chip, className }: { chip: ContextChip; className?: string }) {
+  return (
+    <Link href={chip.href} className={cn("inline-flex max-w-xs items-center gap-2 truncate rounded-full border border-border px-3 py-1 text-[0.7rem] uppercase tracking-[0.12em] text-muted transition hover:border-accent/60 hover:text-fg", className)} title={chip.label} data-testid="thread-context">
+      <span className="text-accent" aria-hidden>↩</span>
+      <span className="truncate normal-case tracking-normal">{chip.label}</span>
+    </Link>
   );
 }

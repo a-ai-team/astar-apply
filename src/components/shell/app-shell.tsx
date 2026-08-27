@@ -40,7 +40,8 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
     : null;
   return (
     <div className="flex min-h-screen flex-1 flex-col bg-bg text-fg" data-testid="app-shell">
-      <header className="flex items-center justify-between border-b border-border px-4 py-2 md:px-6">
+      {/* Fixed h-16 so routes can size against --shell-header-h (globals.css) without measuring. */}
+      <header className="flex h-16 shrink-0 items-center justify-between border-b border-border px-4 py-2 md:px-6">
         <NavMenu items={nav} staffItem={staffItem} />
         <div className="ml-auto flex items-center gap-3">
           {nav === HOME_NAV && <CommandPalette />}
@@ -61,7 +62,7 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
           </form>
         </div>
       </header>
-      <main className="flex flex-1 flex-col gap-6 px-4 py-8 md:px-8">{children}</main>
+      <main className="flex min-h-0 flex-1 flex-col gap-6 px-4 py-8 md:px-8">{children}</main>
     </div>
   );
 }
