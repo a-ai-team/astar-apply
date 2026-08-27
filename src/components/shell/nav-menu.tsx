@@ -68,7 +68,7 @@ export function NavMenu({ items, staffItem }: { items: NavItem[]; staffItem: Nav
         }}
         data-testid="nav-logo"
       >
-        <Image src="/logo.png" alt="A* Apply" width={140} height={54} priority className="h-auto w-28" />
+        <Image src="/wordmark.png" alt="A* Apply" width={140} height={54} priority className="h-auto w-28" />
       </button>
       {open && (
         <nav

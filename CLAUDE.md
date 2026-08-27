@@ -4,7 +4,7 @@
 
 AI-supported finance-careers resource from A* AI, built with student mentors. Two products: the
 **Mentor chatbot** (RAG over mentors' own material) and **Technicals** (curriculum, question bank,
-flashcards, mock interviews). Not an application tracker. Shares A* branding (`public/logo.png`).
+flashcards, mock interviews). Not an application tracker. Shares A* branding (`public/wordmark.png`).
 
 ## Start here — every session
 1. Read `docs/loops/CURRENT.md` (live state: loop, branch, task, blockers, next action).

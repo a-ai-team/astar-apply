@@ -5,7 +5,7 @@ export default function Home() {
     <div className="flex flex-1 flex-col items-center justify-center bg-black font-sans">
       <main className="flex flex-col items-center gap-6 px-8 py-24 text-center">
         <Image
-          src="/logo.png"
+          src="/wordmark.png"
           alt="A* Apply"
           width={700}
           height={271}
