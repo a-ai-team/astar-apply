@@ -1,0 +1,37 @@
+{
+  "slug": "why-do-precedents-exceed-comps",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "control-premium"
+  ],
+  "question": "Why do precedent transactions usually imply a higher value than trading comparables?",
+  "model_answer_md": "Because the two are pricing different things.\n\nA trading multiple prices a **minority stake**. You buy shares, you receive dividends, and you cannot change how the business is run.\n\nA precedent prices **control**. The acquirer can replace the board, change the strategy, cut duplicated costs and redirect capital — and it has to persuade the existing shareholders to sell, which means paying above the market price. On top of that, a strategic buyer expects synergies it will not get from any other target, and part of that value ends up in the price.\n\nSo the gap is the control premium plus whatever synergy the buyer conceded. Marlow's precedents carry a 30 % median premium, which is exactly why the set prices at 12.5× against 11.0× in the public market.",
+  "key_points": [
+    "Comps price a minority stake; precedents price control",
+    "Control brings the right to change strategy, management and costs",
+    "Shareholders must be paid above market to give up their shares",
+    "Strategic buyers concede part of expected synergies in the price",
+    "Marlow: 30 % median premium → 12.5× vs 11.0×"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does a strategic buyer pay more than a financial sponsor?",
+      "answer_md": "Usually yes. A strategic buyer can fold the target into an existing business and take out duplicated cost, so it can justify a higher price. A sponsor has no synergies and is bound by the returns it must deliver and the leverage available, which caps what it can pay. Sponsors win when they see an operational improvement the strategic buyers have missed, or when the strategic buyers face competition problems."
+    },
+    {
+      "question": "Could a precedent ever be lower than trading comps?",
+      "answer_md": "Yes — a distressed or forced sale, where the seller needed to transact, or a deal struck when the sector was rated far lower than it is now. That is why the date and the circumstances of each deal matter as much as the multiple."
+    }
+  ],
+  "weak_answer_note": "Says 'because there is a premium' without explaining what the premium buys, or attributes the gap to acquirer irrationality.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

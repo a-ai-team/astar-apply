@@ -1,0 +1,37 @@
+{
+  "slug": "ltm-vs-ntm-multiples",
+  "subtopic_slug": "comparable-companies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "ltm-ntm"
+  ],
+  "question": "What is the difference between an LTM and an NTM multiple, and which do you use?",
+  "model_answer_md": "**LTM** is the last twelve months — reported, historical, and therefore hard to dispute. **NTM** is the next twelve months — forecast, usually consensus broker estimates.\n\nMarkets price the future, so **NTM is the working standard** for comps. A company growing 12 % a year looks expensive on trailing earnings and reasonable on forward ones, and that difference is real information rather than a distortion.\n\nLTM is the sanity check. If the two tell very different stories, the forecast is doing a lot of work and I would want to know why.\n\nThe rule that matters is consistency: an NTM multiple applied to an LTM metric silently misprices the company by a year of growth. Whichever you pick, the peers and the target must be on the same basis.",
+  "key_points": [
+    "LTM = reported history; NTM = consensus forecast",
+    "NTM is standard because markets price the future",
+    "LTM is the cross-check when the two diverge",
+    "Never mix an NTM multiple with an LTM metric",
+    "Peers and target must be on the same basis"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which would you use just after a large acquisition?",
+      "answer_md": "NTM, on a pro-forma basis. LTM only contains a few months of the acquired business, so a trailing multiple divides the full post-deal enterprise value by a partial-year metric and makes the company look far more expensive than it is. The forward figures should include a full year of the acquisition."
+    },
+    {
+      "question": "Where do the forward numbers come from?",
+      "answer_md": "Consensus estimates from brokers covering the stock, aggregated by a data provider. For a company with thin coverage — one or two analysts — the consensus is barely a consensus, and I would say so and lean more on LTM."
+    }
+  ],
+  "weak_answer_note": "Defines the two terms correctly but never states that NTM is the working standard, or misses that mixing the basis of the multiple and the metric is the actual error.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

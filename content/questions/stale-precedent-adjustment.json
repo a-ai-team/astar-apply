@@ -1,0 +1,37 @@
+{
+  "slug": "stale-precedent-adjustment",
+  "subtopic_slug": "precedent-transactions",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "stale-deals"
+  ],
+  "question": "You have four precedent transactions but the highest multiple comes from a deal struck in 2021. How do you handle it?",
+  "model_answer_md": "You have three options, and the important thing is to pick one openly rather than quietly leave it in.\n\n**Exclude it**, on the grounds that 2021 priced a different world — near-zero rates, cheap debt, peak sector sentiment. Clean, but you lose a data point from an already thin set.\n\n**Keep it and footnote it**, showing the median with and without so the reader can see how much rests on one deal.\n\n**Re-rate it.** If the sector's trading multiples have fallen 25 % since, apply that haircut to the deal multiple to approximate what the same transaction would clear at today.\n\nI would usually show the median both ways. With four deals, dropping one shifts the median considerably, so the honest presentation is the range rather than a single number that hides the choice.\n\nWhat you must not do is present the median as though all four deals were equally current.",
+  "key_points": [
+    "Three options: exclude, footnote, or re-rate for the cycle",
+    "2021 deals priced near-zero rates and peak sentiment",
+    "With four deals, dropping one moves the median a long way",
+    "Show the median with and without — the range is the honest answer",
+    "The unforgivable version is silently averaging deals from different worlds"
+  ],
+  "follow_ups": [
+    {
+      "question": "What specifically was different about 2021?",
+      "answer_md": "Near-zero policy rates, so discount rates were low and cheap leverage let sponsors bid aggressively; abundant capital chasing deals; and in several sectors, peak post-pandemic sentiment. A multiple struck then reflects a cost of capital that no longer exists, which is why it is not simply an old data point but a differently-priced one."
+    },
+    {
+      "question": "What if the whole sector has re-rated since?",
+      "answer_md": "Then re-rating is the most defensible route: measure how far the trading comps have moved between the deal date and now, and apply that shift to the deal multiple. You are assuming the control premium held constant while the underlying rating changed, which is a reasonable approximation — and I would state it as an assumption."
+    }
+  ],
+  "weak_answer_note": "Silently includes the stale deal in the median, or excludes it without saying so — in a four-deal set that single choice moves the answer materially.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

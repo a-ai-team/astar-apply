@@ -1,0 +1,37 @@
+{
+  "slug": "rank-the-methods-highest-to-lowest",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "ranking"
+  ],
+  "question": "Rank the three methodologies from highest to lowest value, and explain the ranking.",
+  "model_answer_md": "The usual ordering is **precedents highest, then trading comps, with the DCF anywhere**.\n\nPrecedents sit on top because an acquirer buys control. It can change the strategy, replace management and take out cost, so it pays a premium over the undisturbed share price — commonly 20–40 %.\n\nTrading comps sit below because a public shareholder buys a minority stake and gets no such rights.\n\nThe DCF is the wild card. It reflects your growth and discount-rate assumptions rather than the market's mood, so it can land above or below both — often below when the sector is highly rated, and above when the market is pessimistic.\n\nFor Marlow: precedents 12.5× → £13.88 a share, comps 11.0× → £12.00, DCF £8.67–£10.33. That is the textbook ordering, but I would say it is a tendency, not a rule.",
+  "key_points": [
+    "Precedents usually highest — control premium plus synergies",
+    "Trading comps below — a minority stake buys no control",
+    "The DCF varies; it tracks your assumptions, not the market",
+    "Marlow: £13.88 / £12.00 / £8.67–10.33 follows the usual order",
+    "State it as a tendency, not a law"
+  ],
+  "follow_ups": [
+    {
+      "question": "When could a DCF be the highest of the three?",
+      "answer_md": "When the market is pessimistic about the sector, or when the company's value is genuinely long-dated and the near-term multiple looks bad — a business investing heavily now for cash flows in years six to ten. A DCF captures that; a forward multiple on depressed current earnings does not."
+    },
+    {
+      "question": "What if the precedents are stale?",
+      "answer_md": "Then they price a different world — a 2021 deal was struck at near-zero rates and much higher multiples. I would either exclude those deals, footnote them clearly, or adjust for how the sector has re-rated since, and I would say out loud which choice I made."
+    }
+  ],
+  "weak_answer_note": "Gives the ordering as a fixed rule with no mechanism, or says precedents are higher 'because acquirers overpay', which invites the question of why buyers are systematically irrational.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

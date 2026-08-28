@@ -1,0 +1,145 @@
+{
+  "slug": "valuation-methodologies",
+  "subtopic_slug": "valuation-methodologies",
+  "title": "The three methods, and how to rank them",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"How would you value a company?\" is asked in almost every interview, and almost everyone can name the three methods. The question that follows is the one that sorts the room: **which of them gives the highest number, and why?**\n\nThat second question is not really about arithmetic. It is checking whether you know what each method is *measuring* — because the three answers differ for reasons that are perfectly logical once you can articulate them, and completely mysterious if you have only memorised a list.\n\nThis lesson runs all three on one company, Marlow Instruments, so you can see the three answers side by side and say something intelligent about the gaps between them."
+      },
+      {
+        "type": "concept",
+        "heading": "Two ways of asking what a business is worth",
+        "md": "Every valuation method is one of two kinds of question.\n\n**\"What are similar businesses worth?\"** — you look outward, at prices other people are paying, and apply those prices to your company. Two methods do this:\n\n- **Comparable companies** uses the multiples that similar *listed* businesses trade at right now. It tells you what the public market thinks companies like this are worth today.\n- **Precedent transactions** uses the multiples paid in recent *acquisitions* of similar businesses. It tells you what a buyer was prepared to pay to own one outright.\n\n**\"What is this business worth on its own terms?\"** — you look inward, at the cash the company itself is expected to produce:\n\n- **Discounted cash flow** projects the company's own free cash flow, discounts it back, and adds a terminal value. It never looks at what anyone else is paying.\n\nThat split explains almost everything about how the three behave. The market-based methods move when sentiment moves. The DCF moves when your assumptions move. And the acquisition-based method sits above the trading one, because buying *all* of a company costs more per pound of earnings than buying a few shares of it."
+      },
+      {
+        "type": "mechanics",
+        "md": "Each method ends at an **enterprise value**, and each then needs the same bridge back to a share price:\n\n$$\\text{Equity value} = \\text{EV} - \\text{Debt} - \\text{Leases} + \\text{Cash}, \\qquad \\text{Share price} = \\frac{\\text{Equity value}}{\\text{Diluted shares}}$$\n\nMarlow's bridge items are constant across all three methods: debt £240m, IFRS 16 leases £30m, cash £60m — so **£210m of net debt** comes off every enterprise value — and 120m shares.\n\nThe methods differ only in how they reach that enterprise value:\n\n- **Comps** — take the median EV/EBITDA of the peer group and multiply by Marlow's own EBITDA.\n- **Precedents** — take the median EV/EBITDA paid in recent deals and multiply by the same EBITDA.\n- **DCF** — build the cash flows and discount them; the output is a range, not a point.\n\nBecause the denominator is the same £150m of EBITDA in the first two, the entire difference between comps and precedents is the multiple — which is the control premium, made visible."
+      },
+      {
+        "type": "predict",
+        "prompt": "Trading comps value Marlow at an enterprise value of £1,650m. Before you see the precedent transactions number — where will it land?",
+        "options": [
+          { "label": "Higher than £1,650m", "correct": true },
+          { "label": "Lower than £1,650m" },
+          { "label": "About the same — they use the same EBITDA" },
+          { "label": "Impossible to say without knowing the sector" }
+        ],
+        "explain_md": "Precedents come out at **£1,875m**, about 14 % higher. The EBITDA is identical; only the multiple changes, from 11.0× to 12.5×.\n\nThat gap is the **control premium**. A buyer acquiring the whole company gets something a shareholder buying 100 shares does not: the right to replace management, change strategy, refinance the balance sheet and fold the business into their own. They pay for that right, and they often expect synergies on top. So in most market conditions deal multiples sit above trading multiples — and an interviewer expects you to name the reason, not just the direction."
+      },
+      {
+        "type": "widget",
+        "widget": "football_field",
+        "props": {
+          "subject": { "name": "Marlow Instruments plc", "ebitda": 150, "netDebt": 210, "shares": 120 },
+          "peers": [
+            { "name": "Brantwood Sensors", "evEbitda": 11.0, "growth": 0.08, "margin": 0.16 },
+            { "name": "Thornbury Optics", "evEbitda": 9.0, "growth": 0.04, "margin": 0.157 },
+            { "name": "Larkfield Controls", "evEbitda": 12.0, "growth": 0.12, "margin": 0.167 },
+            { "name": "Penrose Metrology", "evEbitda": 8.0, "growth": 0.03, "margin": 0.16 },
+            { "name": "Halden Labs", "evEbitda": 12.0, "growth": 0.10, "margin": 0.167 }
+          ],
+          "methods": [
+            { "label": "Trading comps", "low": 1200, "high": 1800, "mid": 1650 },
+            { "label": "Precedent transactions", "low": 1650, "high": 2100, "mid": 1875 },
+            { "label": "DCF", "low": 1250, "high": 1450, "mid": 1350 }
+          ],
+          "currentPrice": 9.0,
+          "mode": "field"
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Marlow Instruments plc.** EBITDA £150m, 120m shares, net debt £210m (debt £240m plus £30m of leases, less £60m of cash). The shares trade at **£9.00**.\n\nRun all three methods and bridge each one to a share price.",
+        "steps": [
+          { "label": "Comps: median peer multiple 11.0× on Marlow's EBITDA", "expr": "11.0 * 150", "value": 1650, "unit": "£m" },
+          { "label": "…bridge to equity value", "expr": "1650 - 210", "value": 1440, "unit": "£m" },
+          { "label": "…per share", "expr": "1440 / 120", "value": 12, "unit": "£" },
+          { "label": "Precedents: median deal multiple 12.5×", "expr": "12.5 * 150", "value": 1875, "unit": "£m" },
+          { "label": "…per share after the same bridge", "expr": "(1875 - 210) / 120", "value": 13.88, "unit": "£" },
+          { "label": "DCF: low end of the range, per share", "expr": "(1250 - 210) / 120", "value": 8.67, "unit": "£" },
+          { "label": "DCF: high end of the range, per share", "expr": "(1450 - 210) / 120", "value": 10.33, "unit": "£" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "One judgement call changes the comps answer. The peer multiples run from 8.0× to 12.0×, and their **mean** is 10.4× rather than the median 11.0× — Penrose Metrology at 8.0× drags the average down.\n\nRe-run the comps route on the mean and see how much the choice is worth.",
+        "steps": [
+          { "label": "Mean peer multiple applied to Marlow's EBITDA", "expr": "10.4 * 150", "value": 1560, "unit": "£m" },
+          { "label": "Bridge to equity value", "expr": "1560 - 210", "value": 1350, "unit": "£m", "blank": true },
+          { "label": "Per share on the mean", "expr": "1350 / 120", "value": 11.25, "unit": "£", "blank": true },
+          { "label": "What the median-versus-mean choice is worth per share", "expr": "12.00 - 11.25", "value": 0.75, "unit": "£", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"The DCF is the most accurate, so it gives the right answer.\"**\n\nThis sounds like the sophisticated response, and interviewers hear it constantly. It confuses *theoretically pure* with *reliable*.\n\nA DCF is the only method that values the business on its own cash flows rather than on what other people are paying, and that is a genuine strength. But it is also the method that depends most heavily on numbers nobody can know: growth five years out, the terminal growth rate, the discount rate. Move the discount rate by a single percentage point and the answer can shift by more than the entire gap between comps and precedents.\n\nThat is why a DCF is presented as a **range** and cross-checked against the market methods. Marlow's DCF spans £1,250–1,450m — a £200m spread on one company, from assumptions that all looked reasonable when they were typed in. If your DCF disagrees wildly with both market methods, the honest reading is usually that one of your assumptions is wrong, not that the market is."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "There are three core methods. Comparable companies applies the trading multiples of similar listed businesses to the company's own metrics — a snapshot of what the market pays today. Precedent transactions applies multiples paid in recent acquisitions, which include a control premium and so usually come out highest. A discounted cash flow values the business from its own projected cash flows and a discount rate; it is the purest in theory and the most sensitive in practice. You run all three, present a range, and explain why they differ.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "When there is no EBITDA, the ranking reshuffles",
+            "md": "Marlow is a comfortable case: it earns money, so every method works. Point the same three at a loss-making software business and the picture changes.\n\n**Comps stop running on EBITDA.** With EBITDA negative, the multiple is meaningless, so the sector moves up the income statement to EV/Revenue — or, for subscription businesses, **EV/ARR** on annual recurring revenue. The peer set has to be matched on *growth*, not just industry, because a company growing 40 % and one growing 10 % will never trade at the same revenue multiple.\n\n**The DCF carries more weight than usual**, because it is the only method that can express the thing the whole valuation rests on: a path from losing money now to generating cash later. It is still the most sensitive method — arguably more so here — but excluding it would leave you valuing a business purely on someone else's optimism.\n\n**Precedents still tend to be highest**, though the premium is often paid for the customer base and the technology rather than for cost synergies.",
+            "example_q": "Marlow spins out a software unit with £40m of ARR growing 35 % a year and negative EBITDA. Which valuation methods can you actually use?",
+            "answer_md": "Not EV/EBITDA or P/E — both denominators are negative, so the multiples are meaningless.\n\nI would run **EV/ARR comps** against subscription peers matched on growth rather than size, because growth is what drives the revenue multiple in that sector. I would cross-check against **precedent transactions** on the same EV/ARR basis, which will sit higher for control. And I would put real weight on a **long-horizon DCF**, since it is the only method that captures the route to profitability that the whole valuation depends on.\n\nAs a sanity check on whatever multiple comes out, I would look at the **Rule of 40** — revenue growth plus free cash flow margin. At 35 % growth this unit needs a free cash flow margin better than −5 % to clear the bar, which tells you whether the growth is being bought at a sustainable price."
+          },
+          "healthcare": {
+            "heading": "Pipeline value sits outside all three methods",
+            "md": "Healthcare splits cleanly in two, and which half you are in decides whether this chapter applies at all.\n\nA pharmaceutical company with **marketed products** values much like Marlow: it has revenue, EBITDA and earnings, so comps, precedents and a DCF all work in the normal way.\n\nA **clinical-stage biotech** does not. There may be no revenue at all, and the entire value sits in drugs that might never reach a patient. All three methods have to be rebuilt:\n\n- **Comps** become EV per programme, or EV/peak sales — the projected annual revenue if a drug reaches the market — because there is no current metric to divide by.\n- **Precedents** are dominated by large pharmaceutical companies buying pipelines, and the headline price often includes milestone payments contingent on later success.\n- **The DCF becomes a risk-adjusted NPV**: each programme's projected cash flows multiplied by its probability of reaching the market, then discounted. That probability is the assumption the whole valuation turns on.",
+            "example_q": "How would you value a company with three Phase 3 assets and no revenue?",
+            "answer_md": "I would value it programme by programme with a risk-adjusted NPV. For each asset: forecast peak annual sales, build a revenue curve from launch to patent expiry, take the cash flows, then multiply by the probability of approval — for a Phase 3 asset that is typically somewhere around a half to two-thirds, depending on the indication. Discount those probability-weighted flows, sum the three programmes, and add net cash, which for a biotech is a large part of the answer.\n\nI would cross-check against **precedent transactions** for similar-stage assets, since that is what an acquirer has actually paid. I would be honest that trading **comps are weak** here — the peer set has no earnings, so any multiple is really a proxy for sentiment about the pipeline rather than a valuation."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Penrose Metrology** has EBITDA of **£80m**, net debt of **£130m** and **50m shares**, trading at **£10.20**. Apply the comps median of 11.0×, the precedent median of 12.5×, and a DCF range of **£780–900m** enterprise value. Give the implied share price under each method, rank them, and say something about the market price.",
+        "model_answer_md": "Each method gives an enterprise value; the same bridge takes each one to a share price — subtract £130m of net debt, divide by 50m shares.\n\n- **Comps:** 11.0 × 80 = £880m EV → £750m equity → **£15.00 per share**\n- **Precedents:** 12.5 × 80 = £1,000m EV → £870m equity → **£17.40 per share**\n- **DCF:** £780–900m EV → £650–770m equity → **£13.00–£15.40 per share**\n\nThe ranking is the usual one: **precedents above comps above the DCF**, with the DCF range overlapping the comps figure at its top end.\n\nThe striking thing is the market price. At £10.20 Penrose trades below *every* method, including the bottom of the DCF range. That is worth a sentence rather than a shrug: either the market doubts the forecasts underlying the DCF, or the peer group is richer than Penrose deserves — it is the slowest grower of the set at 3 % — or something company-specific is weighing on it, such as thin trading liquidity or a governance concern. I would want to know which before presenting the range as a target.",
+        "rubric": [
+          "Bridges enterprise value to equity value for each method rather than quoting EV as a price",
+          "Divides by 50m shares to reach a per-share figure in all three cases",
+          "Reaches £15.00, £17.40 and £13.00–£15.40",
+          "Ranks precedents above comps above the DCF, and says why precedents lead",
+          "Notices the £10.20 market price sits below every method and offers at least one credible reason"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Which method has a control premium built into it?", "a": "Precedent transactions — the multiples come from deals where a buyer acquired the whole company." },
+          { "q": "Which method is most sensitive to its assumptions?", "a": "The DCF. Small moves in the discount rate or terminal growth swing the answer more than anything in the market methods." },
+          { "q": "What does a comps valuation actually tell you?", "a": "What the public market is paying for similar businesses today — a relative view, not an absolute one." },
+          { "q": "Why present a range rather than a single number?", "a": "Every method rests on judgement. The zone where the methods overlap is the part you can defend." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Comps say what the market pays today, precedents say what a buyer paid for control, and a DCF says what the cash is worth — so precedents usually sit highest and the DCF moves most.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can name the three methods and say what question each one answers.",
+          "I can explain why precedent transactions usually give the highest value, using the control premium.",
+          "I can bridge an enterprise value from any method back to a share price.",
+          "I can say why a DCF is shown as a range rather than a number.",
+          "I can comment sensibly when the market price sits outside every method's range."
+        ]
+      }
+    ]
+  }
+}

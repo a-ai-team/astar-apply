@@ -1,0 +1,37 @@
+{
+  "slug": "dcf-below-market-three-hypotheses",
+  "subtopic_slug": "choosing-and-presenting",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "reconciliation"
+  ],
+  "question": "Your DCF values Marlow at £8.67–£10.33 a share but the comps say £12.00. Give three hypotheses and how you would test each.",
+  "model_answer_md": "**One — my projections are too conservative.** I have Marlow growing 6 %, while the peers holding up the median grow 10–12 %. *Test:* compare my forecast against broker consensus and management guidance; if I am materially below both, the gap is mine.\n\n**Two — the peer set is too rich.** Larkfield and Halden both trade at 12.0× and both grow twice as fast as Marlow. *Test:* recompute the median excluding them, or plot each peer's multiple against growth and read Marlow off that line at 6 % rather than taking a flat median.\n\n**Three — something company-specific.** A stretched balance sheet, customer concentration, a governance issue or thin liquidity, none of which appears in a peer multiple. *Test:* look at what the shares did around recent results, and check whether the discount is long-standing or recent.\n\nThe market at £9.00 sits inside my DCF range and below both market-based methods, which makes hypotheses two and three the more likely — the market seems to agree with my cash flow view.",
+  "key_points": [
+    "Hypothesis 1: my forecast is too conservative — test against consensus and guidance",
+    "Hypothesis 2: the peer set is too rich — recompute without the fast growers, or regress on growth",
+    "Hypothesis 3: company-specific discount — balance sheet, concentration, governance, liquidity",
+    "The market price sits inside the DCF range, which is itself evidence",
+    "Name the test for each hypothesis, not just the hypothesis"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which is most likely for Marlow?",
+      "answer_md": "The peer set. Marlow grows 6 % and the median is being held at 11.0× by two companies growing 10–12 %. A growth-adjusted read would put Marlow nearer 9–10×, which lands around £10–11 a share — much closer to both the DCF and the market. The simplest explanation is usually that the median is not the right statistic for this company."
+    },
+    {
+      "question": "What would you change first?",
+      "answer_md": "The peer median. I would plot EV/EBITDA against growth for the five peers and read Marlow off the line at 6 %, rather than applying a median drawn from a set with a much higher average growth rate. That is a two-minute change and it tests the most likely hypothesis directly."
+    }
+  ],
+  "weak_answer_note": "Concludes the shares are undervalued because comps are higher, without considering that the peer set or the analyst's own forecast might be the thing that is wrong.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

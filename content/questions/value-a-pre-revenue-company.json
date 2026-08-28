@@ -1,0 +1,37 @@
+{
+  "slug": "value-a-pre-revenue-company",
+  "subtopic_slug": "choosing-and-presenting",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "pre-revenue"
+  ],
+  "question": "How would you value a company with no revenue yet?",
+  "model_answer_md": "You cannot use any current-year multiple, so you value the **future** and discount it back, then triangulate with whatever external evidence exists.\n\nThe main approach is a long-dated DCF that runs until the business is profitable — accepting that most of the value will sit in the later years and the terminal period, and being explicit that the assumptions are carrying the answer.\n\nThen cross-check. Apply a **forward multiple** to the first year of meaningful revenue and discount that back. Look at what investors paid in recent **funding rounds** for similar businesses. Look at **precedents** for pre-revenue acquisitions in the sector.\n\nUnderneath, value the **drivers**: the size of the market, a defensible share of it, and the margin at maturity. Those three assumptions are the valuation; everything else is arithmetic.\n\nAnd present a genuinely wide range. A narrow range here would be false precision.",
+  "key_points": [
+    "No current metric works — value the future and discount it",
+    "Long-dated DCF, with most value in the later years",
+    "Cross-check with a forward multiple on the first real revenue year",
+    "Funding rounds and pre-revenue precedents as external evidence",
+    "Market size × achievable share × mature margin — those three drive everything"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which single assumption matters most?",
+      "answer_md": "The mature margin, usually, because it converts a revenue forecast into cash and the terminal value magnifies it. Change a terminal margin from 15 % to 25 % and the valuation can move by half. That is the number I would sensitise hardest and the one I would expect to be challenged on."
+    },
+    {
+      "question": "What is the venture-capital method?",
+      "answer_md": "You estimate what the company will be worth at exit — typically a multiple of forecast revenue or earnings in the exit year — then discount that back at a very high required return, often 30–50 %, reflecting the chance of failure. It is a blunt instrument, but it makes the two things that matter explicit: the exit value and the probability-weighted cost of getting there."
+    }
+  ],
+  "weak_answer_note": "Reaches straight for EV/Revenue when there is no revenue to divide by, or proposes a DCF without acknowledging that nearly all the value sits in assumptions about years five and beyond.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

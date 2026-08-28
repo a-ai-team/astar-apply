@@ -1,0 +1,37 @@
+{
+  "slug": "when-is-dcf-the-only-option",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "dcf"
+  ],
+  "question": "When is a DCF the only method you can realistically use?",
+  "model_answer_md": "When there is nothing to compare against.\n\nThat happens with a genuinely **unique asset** — a single infrastructure concession, a mine with a specific ore body, a company whose business model has no listed equivalent. It also happens when the value is **long-dated and lumpy**: a project that generates nothing for six years and then a great deal, where any current-year multiple is meaningless.\n\nA third case is a company in transition — mid-turnaround, or shifting from one model to another — where today's earnings describe neither the past nor the future.\n\nIn all of those, comps and precedents would be borrowing multiples from businesses that are not really alike, which is worse than having no comparison at all. But I would still hunt for a sanity check: an asset-level transaction, a replacement cost, or what a buyer paid for something structurally similar.",
+  "key_points": [
+    "Unique assets with no listed equivalent",
+    "Long-dated or lumpy cash flows that no current multiple captures",
+    "Companies mid-transition, where today's earnings describe nothing",
+    "Bad comps are worse than no comps",
+    "Still look for one external sanity check"
+  ],
+  "follow_ups": [
+    {
+      "question": "How do you sanity-check a DCF with no comparables?",
+      "answer_md": "Work backwards. Ask what growth and margin the current market price implies and judge whether that is plausible — a reverse DCF. Check what share of the value sits in the terminal period; if it is 85 %, the answer is really a terminal-value assumption wearing a forecast. And cross-check the implied exit multiple against anything vaguely analogous, even from an adjacent sector."
+    },
+    {
+      "question": "What discount rate would you use for a unique asset?",
+      "answer_md": "Build it from the closest observable proxies: a beta from listed companies with similar cash-flow risk even in a different sector, the risk-free rate of the currency the cash flows are in, and a capital structure reflecting what the asset could actually support. Then be honest that it is an estimate and run the valuation across a range of rates rather than a single point."
+    }
+  ],
+  "weak_answer_note": "Says 'when there are no comparables' and stops, without naming the situations that produce that or acknowledging the DCF still needs a sanity check.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

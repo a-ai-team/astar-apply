@@ -234,6 +234,7 @@ kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chap
 | Loop | Chapter | Content | Status |
 |---|---|---|---|
 | 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
+| 15 | Valuation | 5 lessons (Marlow Instruments), 31 questions, `football_field` (range chart + comps picker), cheat sheet | `generated` — paid topic, awaiting mentor approval |
 | 14 | EqV vs EV | 4 lessons (Harbourline), 28 questions, `tsm_dilution` · `lease_toggle` · `multiple_matcher`, cheat sheet | **approved** (free topic) — part of 63 flashcards, 231 chunks |
 | 13 | Accounting | 8 lessons (Kestrel Foods), 40 questions, `faded_walk` · `cash_cycle` · `filings_toggle`, cheat sheet | **approved** (free topic, auto-approved on green evals) — 41 flashcards, 166 chunks |
 

@@ -1,0 +1,38 @@
+{
+  "slug": "tmt-ev-arr-rule-of-40",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "saas"
+  ],
+  "question": "What is EV/ARR, and how does the Rule of 40 affect the multiple a software company deserves?",
+  "model_answer_md": "**ARR** is annual recurring revenue — the subscription base, stripped of one-off implementation and services income. EV/ARR prices that base, and it is the working multiple in software because most of these companies have no meaningful EBITDA.\n\nThe **Rule of 40** says revenue growth plus free cash flow margin should clear roughly 40. A company growing 50 % while burning 20 % of revenue scores 30; one growing 20 % at a 25 % margin scores 45.\n\nIt matters because it prices the trade-off software companies constantly make. Growth bought by burning cash is worth less than growth that funds itself — and a company below 40 is spending more to grow than the growth is returning.\n\nSo the multiple is not read off a flat median. Analysts plot EV/ARR against growth, or against the Rule of 40 score, and read the target off that line at its own numbers.",
+  "key_points": [
+    "ARR = the recurring subscription base, excluding one-off services revenue",
+    "EV/ARR is standard because most software companies have no useful EBITDA",
+    "Rule of 40 = growth % + FCF margin %, with 40 as the rough pass mark",
+    "It prices the trade-off between growth and cash burn",
+    "Read the multiple off a line against growth, not from a flat median"
+  ],
+  "follow_ups": [
+    {
+      "question": "Two companies both score 30 on the Rule of 40. Do they deserve the same multiple?",
+      "answer_md": "Not necessarily. A company growing 50 % with a −20 % margin has a different future from one growing 10 % with a +20 % margin, even at the same score. High growth with burn can still compound into a much larger business if the unit economics work; slow growth with modest cash generation is closer to a mature company. The market generally pays more for the growth, provided the burn is funded and the payback on customer acquisition is short."
+    },
+    {
+      "question": "Where does net revenue retention come in?",
+      "answer_md": "It is arguably the single best quality signal. Retention above 100 % means the existing customer base grows on its own through upsell and expansion, even before any new customers are won. A company at 120 % net retention has a fundamentally different growth cost from one at 95 %, and it usually earns a premium multiple for it."
+    }
+  ],
+  "weak_answer_note": "Defines the Rule of 40 as a formula without saying what trade-off it captures, or treats it as a pass/fail test rather than one input into where on the line a company sits.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

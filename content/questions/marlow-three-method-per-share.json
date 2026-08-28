@@ -1,0 +1,49 @@
+{
+  "slug": "marlow-three-method-per-share",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "marlow",
+    "per-share"
+  ],
+  "question": "Marlow Instruments has EBITDA of £150m, net debt of £210m and 120m shares. Comps imply 11.0× EV/EBITDA, precedents 12.5×, and the DCF gives an enterprise value of £1,250–1,450m. What does each method imply per share?",
+  "model_answer_md": "Each method gives an enterprise value; subtract the £210m of net debt to reach equity, then divide by 120m shares.\n\n**Comps at 11.0×:** EV = 11.0 × 150 = £1,650m → equity 1,650 − 210 = £1,440m → **£12.00 a share**.\n\n**Precedents at 12.5×:** EV = 12.5 × 150 = £1,875m → equity £1,665m → **£13.88 a share**.\n\n**DCF £1,250–1,450m:** equity £1,040–1,240m → **£8.67 to £10.33 a share**.\n\nAgainst a market price of £9.00, the DCF brackets where the shares actually trade while both market-based methods sit above it. That gap is the interesting part of the analysis, not an error.",
+  "key_points": [
+    "Every method produces EV first — always bridge to equity before dividing",
+    "Net debt of £210m = debt 240 + leases 30 − cash 60",
+    "Comps 11.0× → £12.00; precedents 12.5× → £13.88",
+    "DCF £1,250–1,450m EV → £8.67–£10.33",
+    "Market at £9.00 sits below both relative methods"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which number would you show a seller?",
+      "answer_md": "The precedent range, because it is what buyers have actually paid for control of comparable businesses — which is exactly the transaction the seller is contemplating. I would show the whole football field, but a seller's realistic expectation is anchored on precedents, not on where minority shares trade."
+    },
+    {
+      "question": "Why is the market at £9.00 when comps say £12.00?",
+      "answer_md": "Three candidates worth testing. The market may expect Marlow's 6 % growth to disappoint relative to peers growing 8–12 %. The peer set may be too rich — dropping the two 12.0× names pulls the median down. Or there is something company-specific: a weak balance sheet, a governance concern, or thin liquidity. I would check the growth gap first, since it is the largest observable difference."
+    }
+  ],
+  "numbers": {
+    "inputs": {
+      "ebitda": 150,
+      "net_debt": 210,
+      "shares": 120,
+      "comps_multiple": 11.0,
+      "precedent_multiple": 12.5,
+      "dcf_ev_low": 1250,
+      "dcf_ev_high": 1450
+    },
+    "answer": 12.0
+  },
+  "weak_answer_note": "Divides enterprise value by the share count without removing net debt, or forgets that the £30m of leases is part of net debt.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

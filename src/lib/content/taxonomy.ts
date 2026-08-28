@@ -132,12 +132,14 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "The three core methodologies, the multiples they use, and how to pick between them.",
     source_section: "Valuation methodologies / metrics & multiples",
     subtopics: [
-      sub("valuation-methodologies", "The three methodologies", "concept", "Valuation methodologies", 9),
-      sub("comparable-companies", "Comparable companies", "mixed", "Valuation methodologies", 8),
+      // Loop 15: five lessons carry the chapter. `other-methodologies` (SOTP, liquidation, LBO
+      // valuation) is named in the cheat sheet's "you may hear" box — deferred, slug kept.
+      sub("valuation-methodologies", "The three methodologies", "concept", "Valuation methodologies", 7),
+      sub("comparable-companies", "Comparable companies", "mixed", "Valuation methodologies", 6),
       sub("precedent-transactions", "Precedent transactions", "mixed", "Valuation methodologies", 6),
-      sub("multiples-and-metrics", "Multiples and metrics", "calculation", "Valuation metrics & multiples", 12),
+      sub("multiples-and-metrics", "Multiples and metrics", "calculation", "Valuation metrics & multiples", 6),
       sub("choosing-and-presenting", "Choosing a method and presenting a range", "concept", "Valuation metrics & multiples", 6),
-      sub("other-methodologies", "Other methods: SOTP, liquidation, LBO valuation", "concept", "Valuation methodologies", 4),
+      { ...sub("other-methodologies", "Other methods: SOTP, liquidation, LBO valuation", "concept", "Valuation methodologies", 0), deferred: true },
     ],
   },
   {

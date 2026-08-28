@@ -1,0 +1,37 @@
+{
+  "slug": "how-do-you-choose-peers",
+  "subtopic_slug": "comparable-companies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "peers"
+  ],
+  "question": "How do you choose the companies that go into a peer set?",
+  "model_answer_md": "You are trying to assemble businesses that deserve to be priced the same way, so the filters are economic, not just descriptive.\n\nThe ones that matter most are **growth** and **margins** — they explain more of the difference between multiples than anything else. Then **business model** (what the company actually sells and to whom), **size**, **geography** and **capital intensity**.\n\nAim for five to ten names. Fewer and one peer dominates the median; many more and you have stopped being selective.\n\nThe test is whether you can justify each name in a sentence. In Marlow's set, Penrose at 8.0× grows 3 % and Larkfield at 12.0× grows 12 % — both belong, and the spread between them is information, not noise.",
+  "key_points": [
+    "Growth and margins explain most of the difference between multiples",
+    "Then business model, size, geography, capital intensity",
+    "Five to ten names is the working range",
+    "You must be able to defend every name in one sentence",
+    "A wide spread is information about growth, not a flaw"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if there are only two good peers?",
+      "answer_md": "I would use them, say clearly that the set is thin, and widen the frame — adding adjacent sub-sectors or overseas listings with a note on why they are comparable, and leaning harder on precedents and a DCF. A two-name median is not a median; I would show both multiples individually rather than pretending to a statistic."
+    },
+    {
+      "question": "Would you include a much larger sector leader?",
+      "answer_md": "Usually as context rather than in the median. Scale leaders often carry a premium for liquidity, index membership and market position that the target cannot claim, so including them lifts the median for a reason that has nothing to do with the target's economics. I would show the name, exclude it from the calculation and explain the choice."
+    }
+  ],
+  "weak_answer_note": "Answers 'companies in the same industry' and stops, with no mention of growth or margin — the two things that actually drive the difference in multiples.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

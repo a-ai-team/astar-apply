@@ -1,0 +1,299 @@
+{
+  "slug": "precedent-transactions",
+  "subtopic_slug": "precedent-transactions",
+  "title": "Precedent transactions and the control premium",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"Why do precedent transactions usually give a higher value than trading comps?\" is one of the most reliable questions in the set, because the answer separates two very different mental models.\n\nOne candidate says buyers overpay. The other says buyers are purchasing something a shareholder cannot buy — **control** — and pay a rational price for it. Only the second answer survives a follow-up.\n\nThis lesson builds Marlow's precedent set from four deals, shows the two routes to an offer price, and gives you a defensible position on the question everyone eventually asks: how old is too old?"
+      },
+      {
+        "type": "concept",
+        "heading": "You are buying the right to change things",
+        "md": "Buy 100 shares in Marlow and you own a fraction of the cash flows. You cannot change the strategy, replace the chief executive, refinance the balance sheet or merge Marlow into another business. You are a passenger.\n\nBuy the whole company and all of those become yours. That bundle of rights is **control**, and it has value on its own — separately from the cash flows the business already produces. A buyer will pay for it because control lets them do things the current owners are not doing: cut duplicated costs, sell more through their own distribution, change the capital structure, or simply run it better.\n\nSo the price paid in an acquisition has two parts: what the business is worth as it stands, plus what the buyer expects to unlock by controlling it. Expressed against the undisturbed share price — the price before any leak or announcement moved it — that second part is the **control premium**, and in the UK it typically runs somewhere between twenty and forty per cent.\n\nPrecedent transactions is simply the comps method run on that population of prices. Same arithmetic, different universe — and a universe that includes the premium by construction."
+      },
+      {
+        "type": "mechanics",
+        "md": "The build mirrors comps, with two differences that matter:\n\n1. **Screen for deals, not companies** — acquisitions of similar businesses, usually within the last two or three years, matched on sector and size.\n2. **Use the enterprise value actually paid**, over the target's EBITDA at the time of the deal.\n3. **Take the median** of those multiples and apply it to your company's metric.\n4. **Bridge to equity value and per share**, exactly as before.\n\nThe second difference is that you can approach the same answer from the other end. Rather than applying a *multiple*, apply the median **premium** to the company's undisturbed share price:\n\n$$\\text{Implied offer} = \\text{Undisturbed price} \\times (1 + \\text{median premium})$$\n\nThe two routes rarely agree, and the gap is informative. The multiple route asks \"what have buyers paid per pound of EBITDA?\" The premium route asks \"how far above the market has a buyer had to reach?\" If a company already trades near deal multiples, the multiple route will imply barely any premium at all — which tells you the market has already priced in an approach.\n\nPrecedents are also weaker evidence than comps, and you should say so unprompted: deals are infrequent, terms are often undisclosed, and each one was struck in its own financing conditions."
+      },
+      {
+        "type": "predict",
+        "prompt": "You find a 2021 deal in the sector struck at 16.0× EBITDA, when interest rates were near zero. Marlow's current precedent median is 12.5×. What should you do with it?",
+        "options": [
+          {
+            "label": "Include it, but flag it — or exclude it and say why",
+            "correct": true
+          },
+          {
+            "label": "Include it without comment; it is a real deal at a real price"
+          },
+          {
+            "label": "Exclude it silently; stale deals are simply wrong"
+          },
+          {
+            "label": "Include it and adjust the multiple downward by a fixed factor"
+          }
+        ],
+        "explain_md": "Including it raises the median, so the choice moves your answer — which is exactly why it has to be a stated judgement rather than a silent one.\n\nA 16.0× multiple struck when borrowing was almost free is evidence about *2021*, not about today. Cheap debt lets a buyer pay more for the same cash flows, so deal multiples across that period sit above what the same assets would fetch now.\n\nBoth choices are defensible; neither is defensible in silence. The strong answer is: \"I would show the set with and without it, because the financing environment has changed materially and that deal is doing a lot of work in the median.\" What loses marks is quietly dropping an inconvenient data point, or leaving it in and letting it flatter your number without comment."
+      },
+      {
+        "type": "widget",
+        "widget": "football_field",
+        "props": {
+          "subject": {
+            "name": "Marlow Instruments plc",
+            "ebitda": 150,
+            "netDebt": 210,
+            "shares": 120
+          },
+          "peers": [
+            {
+              "name": "Brantwood Sensors",
+              "evEbitda": 11.0,
+              "growth": 0.08,
+              "margin": 0.16
+            },
+            {
+              "name": "Thornbury Optics",
+              "evEbitda": 9.0,
+              "growth": 0.04,
+              "margin": 0.157
+            },
+            {
+              "name": "Larkfield Controls",
+              "evEbitda": 12.0,
+              "growth": 0.12,
+              "margin": 0.167
+            },
+            {
+              "name": "Penrose Metrology",
+              "evEbitda": 8.0,
+              "growth": 0.03,
+              "margin": 0.16
+            },
+            {
+              "name": "Halden Labs",
+              "evEbitda": 12.0,
+              "growth": 0.1,
+              "margin": 0.167
+            }
+          ],
+          "methods": [
+            {
+              "label": "Trading comps",
+              "low": 1200,
+              "high": 1800,
+              "mid": 1650
+            },
+            {
+              "label": "Precedent transactions",
+              "low": 1650,
+              "high": 2100,
+              "mid": 1875
+            },
+            {
+              "label": "Precedents (premium route)",
+              "low": 1560,
+              "high": 1700,
+              "mid": 1614
+            },
+            {
+              "label": "DCF",
+              "low": 1250,
+              "high": 1450,
+              "mid": 1350
+            }
+          ],
+          "currentPrice": 9.0,
+          "mode": "field"
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Four acquisitions of comparable businesses over the last three years** (£m):\n\n| Deal | Target EBITDA | EV paid | Premium |\n|---|---|---|---|\n| Orme Group / Dunmore Instruments | 90 | 1,170 | 32 % |\n| Sponsor / Calder Metrology | 60 | 720 | 28 % |\n| Vantor plc / Skerry Sensors | 140 | 1,960 | 38 % |\n| Sponsor / Lyle Optics | 45 | 495 | 25 % |\n\nBuild the multiples, take the median, and run **both** routes for Marlow — the multiple route and the premium route off its £9.00 undisturbed price.",
+        "steps": [
+          {
+            "label": "Orme / Dunmore EV/EBITDA",
+            "expr": "1170 / 90",
+            "value": 13,
+            "unit": "×"
+          },
+          {
+            "label": "Sponsor / Calder",
+            "expr": "720 / 60",
+            "value": 12,
+            "unit": "×"
+          },
+          {
+            "label": "Vantor / Skerry",
+            "expr": "1960 / 140",
+            "value": 14,
+            "unit": "×"
+          },
+          {
+            "label": "Sponsor / Lyle",
+            "expr": "495 / 45",
+            "value": 11,
+            "unit": "×"
+          },
+          {
+            "label": "Median of four — average of the middle two, 12.0 and 13.0",
+            "expr": "(12 + 13) / 2",
+            "value": 12.5,
+            "unit": "×"
+          },
+          {
+            "label": "Median premium — average of 28 % and 32 %",
+            "expr": "(28 + 32) / 2",
+            "value": 30,
+            "unit": "%"
+          },
+          {
+            "label": "Multiple route: EV for Marlow",
+            "expr": "12.5 * 150",
+            "value": 1875,
+            "unit": "£m"
+          },
+          {
+            "label": "…bridge to equity value",
+            "expr": "1875 - 210",
+            "value": 1665,
+            "unit": "£m"
+          },
+          {
+            "label": "…implied offer per share",
+            "expr": "1665 / 120",
+            "value": 13.88,
+            "unit": "£"
+          },
+          {
+            "label": "Premium route: £9.00 undisturbed, up 30 %",
+            "expr": "9.00 * 1.30",
+            "value": 11.7,
+            "unit": "£"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "The Vantor / Skerry deal at 14.0× is the richest in the set, and Skerry was the largest and fastest-growing of the four targets. **Take it out** and rebuild on the remaining three: 13.0×, 12.0×, 11.0×.\n\nWith three deals the median is simply the middle one.",
+        "steps": [
+          {
+            "label": "New median of 11.0, 12.0 and 13.0",
+            "expr": "12.0",
+            "value": 12,
+            "unit": "×",
+            "blank": true
+          },
+          {
+            "label": "Marlow's implied EV on the new median",
+            "expr": "12.0 * 150",
+            "value": 1800,
+            "unit": "£m"
+          },
+          {
+            "label": "Bridge to equity value",
+            "expr": "1800 - 210",
+            "value": 1590,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Implied offer per share",
+            "expr": "1590 / 120",
+            "value": 13.25,
+            "unit": "£",
+            "blank": true
+          },
+          {
+            "label": "What removing one deal cost the offer",
+            "expr": "13.88 - 13.25",
+            "value": 0.63,
+            "unit": "£"
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Precedents are higher because acquirers overpay.\"**\n\nThis is the answer that sounds worldly and ends the conversation badly, because the obvious follow-up — *\"so buyers are systematically irrational?\"* — has no good reply.\n\nBuyers pay more because they receive more. A shareholder buys a claim on cash flows. An acquirer buys the right to change how those cash flows are generated: to strip out duplicated head-office costs, push the product through their own sales channel, refinance cheaply, or replace a management team they think is underperforming. That is a genuinely different asset, and it commands a genuinely higher price.\n\nThe premium being *rational* does not mean every premium is *justified* — plenty of deals destroy value, usually because the synergies were optimistic. But the structural reason precedents sit above comps is control, not error.\n\nThe practical consequence is which method you reach for. Precedents are the reference point when a company is actually being sold, because that is the population of prices you are joining. For valuing a company that is going to stay listed, comps are the more honest guide."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Precedent transactions apply the multiples paid in recent acquisitions of comparable companies. They usually sit above trading comps because the price includes a control premium — typically twenty to forty per cent over the undisturbed share price — reflecting control itself and the synergies a buyer expects. They are less reliable than comps: deals are infrequent, terms are sometimes undisclosed, and each was struck in its own market conditions. You would use deals from the last two or three years in the same sector and of similar size, and show the premium alongside the multiple.",
+        "seconds": 50
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Premiums paid for growth and for the customer base",
+            "md": "Technology precedents look strange next to trading comps, and the gap is often much wider than the twenty-to-forty per cent you would expect elsewhere.\n\nPart of it is the metric. Deals for subscription businesses are struck on **EV/Revenue or EV/ARR**, not EBITDA, because the target frequently has none. So a set of software precedents at 8× revenue against a sector trading at 5× is a 60 % gap on the face of it.\n\nThe reasons behind it are specific to the sector. Buyers pay for the **customer base** — a book of recurring contracts that would take years to build — and for technology they would otherwise have to develop. Genuinely comparable assets are scarce, so competitive processes run hot. And financial sponsors will lever recurring revenue harder than they would lever a cyclical manufacturer, which raises what they can afford to pay.\n\nTiming matters more here than in most sectors. Take-private premiums in software have been unusually large in weak markets, when public valuations fell faster than private ones.",
+            "example_q": "Why might a set of software precedents show 8× revenue when the sector currently trades at 5×?",
+            "answer_md": "Partly the control premium, but the gap is too wide for that alone, so I would look at three other things.\n\nFirst, **what the buyer is acquiring**: a base of recurring contracts and a technology stack they would otherwise have to build, which is worth more to them than to a passive shareholder. Second, **scarcity** — there are few genuinely comparable assets, so processes are competitive and the winner pays for the privilege. Third, **financing**: sponsors will lever predictable subscription revenue far harder than a cyclical business, and more debt capacity means a higher affordable price.\n\nI would also check *when* those deals were struck. If they cluster in a period when public multiples had fallen sharply, the 8× reflects a moment when private and public valuations had diverged — which makes it weaker evidence for a deal today."
+          },
+          "healthcare": {
+            "heading": "Contingent consideration makes the headline number ambiguous",
+            "md": "Pharmaceutical acquisitions frequently do not have a single price, and that breaks the arithmetic of a precedent set.\n\nBecause the value of a drug depends on events that have not happened yet — trial readouts, regulatory approval, sales targets — buyers and sellers bridge the disagreement with **contingent payments**: milestone payments triggered by specific events, or **contingent value rights**, tradeable instruments that pay out if a defined milestone is hit.\n\nSo a deal reported as \"£2bn plus up to £500m in milestones\" has at least three defensible enterprise values: the £2bn upfront, the £2.5bn headline including everything, or a risk-adjusted figure somewhere between, weighting the milestones by how likely they are.\n\nNone of those is the single right answer. What matters is that you **state which convention you are using and apply it consistently** across every deal in the set. Mixing an upfront-only figure for one deal with a headline-inclusive figure for another produces a median that means nothing.\n\nThe usual metric alongside is **EV per unit of peak sales**, since the target rarely has current revenue to divide by.",
+            "example_q": "A biotech is acquired for £2bn upfront plus £500m in milestones. What enterprise value do you record for the precedent?",
+            "answer_md": "I would show more than one, and be explicit about the convention.\n\nThe **upfront £2bn** is the certain consideration — what the buyer paid on day one. The **£2.5bn headline** is the maximum, only reached if every milestone is achieved. In between sits a **risk-adjusted figure**: the milestones weighted by their probability, so if they hang on a Phase 3 readout with roughly a 60 % chance, you would add about £300m and record around £2.3bn.\n\nMy preference is the risk-adjusted number as the primary, with the upfront shown alongside, because that is closest to what the buyer actually expects to pay. The critical part is consistency: whichever convention I choose has to be applied to every deal in the set, or the median is comparing different things.\n\nI would also quote the multiple on **peak sales**, since a clinical-stage target has no current revenue to divide by."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Halden Labs** has received an approach. Using the precedent median of **12.5×** and the median premium of **30 %**, give two implied offer values per share. Halden has **EBITDA £125m**, **net debt £180m**, **60m shares**, and trades at **£22.00** undisturbed. Which would the board be citing — and what should you notice about the gap?",
+        "model_answer_md": "**Multiple route:** 12.5 × 125 = £1,562.5m enterprise value, less £180m of net debt = £1,382.5m of equity, over 60m shares = **£23.04 per share**.\n\n**Premium route:** £22.00 × 1.30 = **£28.60 per share**.\n\nThe two are more than £5 apart, and the reason is worth stating: **Halden already trades at 12.0× EBITDA** — its £1,500m enterprise value over £125m — which is almost exactly the precedent median. So applying deal multiples to a company already priced like a deal target adds almost nothing: £23.04 is a mere 5 % premium to the market price, which no board would accept as a takeover offer.\n\nThe premium route asks a different question — how far above the market does a buyer normally have to reach — and gets a much bigger answer precisely because Halden's own multiple is already high.\n\nA board would cite the **higher** figure, and that is legitimate, but I would attach a caution: the 30 % premium is a median drawn from targets that were mostly trading *below* deal multiples before they were approached. Halden is not, so a buyer paying £28.60 would be at roughly 15.5× — above every deal in the set. That is the number the defence adviser has to justify.",
+        "rubric": [
+          "Runs both routes and reaches £23.04 and £28.60",
+          "Bridges enterprise value to equity correctly (less £180m) and divides by 60m shares",
+          "Computes or recognises Halden's own multiple of 12.0×",
+          "Explains that the multiple route adds little premium because Halden already trades near deal multiples",
+          "Says which figure a board would cite, with a caveat rather than as a flat assertion"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "What is a typical UK control premium?",
+            "a": "Roughly 20–40 % over the undisturbed share price, varying with sector and competitive tension."
+          },
+          {
+            "q": "Why 'undisturbed'?",
+            "a": "Because leaks and announcements move the price. You measure the premium from before the market knew."
+          },
+          {
+            "q": "Who usually pays more — a strategic buyer or a financial sponsor?",
+            "a": "Usually the strategic, because they can realise synergies a sponsor cannot."
+          },
+          {
+            "q": "Biggest weakness of precedent transactions?",
+            "a": "There are few of them, they age quickly, and the terms are often not disclosed in full."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Precedents sit above comps because the buyer is purchasing control, not because they blundered — and the premium route and the multiple route answer two different questions.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can explain why precedent multiples exceed trading multiples, using control rather than error.",
+          "I can build a precedent set, take the median, and bridge to an implied offer per share.",
+          "I can run the premium route off an undisturbed price and say why it differs from the multiple route.",
+          "I can give a defensible answer on stale deals instead of dropping them silently.",
+          "I can name the three real weaknesses of the method without being prompted."
+        ]
+      }
+    ]
+  }
+}

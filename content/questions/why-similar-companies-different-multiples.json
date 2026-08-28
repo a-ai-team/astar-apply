@@ -1,0 +1,37 @@
+{
+  "slug": "why-similar-companies-different-multiples",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "drivers"
+  ],
+  "question": "Why might two companies in the same sector, with similar margins, trade at very different multiples?",
+  "model_answer_md": "Because a multiple prices **expectations**, not this year's profit.\n\nThe first candidate is always **growth**. A company compounding at 12 % will earn far more in five years than one growing at 3 %, and the multiple capitalises that. In Marlow's peer set, Larkfield trades at 12.0× on 12 % growth and Penrose at 8.0× on 3 % — four turns apart with comparable margins today.\n\nThen: **returns on capital** (growth funded cheaply is worth more than growth bought with heavy investment), **durability** of the competitive position, **risk** in the cash flows, and **capital intensity**, which decides how much of that EBITDA becomes cash.\n\nThere are also technical reasons that have nothing to do with the business — index membership, free float, thin liquidity, or a large shareholder overhanging the stock.\n\nIf I had one question, it would be about growth: it explains most of the spread in most sectors.",
+  "key_points": [
+    "Multiples price expected future profit, not current profit",
+    "Growth is the dominant driver — Larkfield 12.0× at 12 % vs Penrose 8.0× at 3 %",
+    "Return on capital: cheap growth beats expensive growth",
+    "Durability, risk and capital intensity all move the multiple",
+    "Technical factors — liquidity, float, index membership — matter too"
+  ],
+  "follow_ups": [
+    {
+      "question": "Give three concrete reasons Larkfield might deserve its premium over Penrose.",
+      "answer_md": "It grows at 12 % against 3 %, so more of its value sits in future years. It is over three times the size, which usually brings better liquidity and index eligibility. And if that growth is organic rather than acquired, it needs less capital per pound of new revenue, so more of the EBITDA converts to cash. I would check the third by comparing capex to sales."
+    },
+    {
+      "question": "How does leverage affect P/E differently from EV/EBITDA?",
+      "answer_md": "Leverage leaves EV/EBITDA essentially unchanged — more debt raises enterprise value and lowers equity value by roughly the same amount. P/E moves a lot: interest reduces net income and the share count falls if debt funded a buyback, so a levered company can show a lower P/E without being any cheaper. That asymmetry is the reason to reach for EV/EBITDA when leverage differs."
+    }
+  ],
+  "weak_answer_note": "Says 'the market prices them differently' or lists factors with no ranking — growth is the one that matters most and should be named first.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "spot-the-error-comps-bridge",
+  "subtopic_slug": "comparable-companies",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:spot",
+    "bridge",
+    "error"
+  ],
+  "question": "An analyst writes: \"Marlow's peers trade at a median 11.0× EV/EBITDA. Marlow's EBITDA is £150m, so its enterprise value is £1,650m. With 120m shares that is £13.75 a share, against £9.00 in the market — Marlow is 53 % undervalued.\" Which line is wrong, and what is the right answer?",
+  "model_answer_md": "The error is in the third sentence: the analyst divides **enterprise value** by the share count. Enterprise value belongs to lenders and shareholders together, so dividing it by shares gives a number that belongs to nobody.\n\nYou have to bridge to equity value first. Marlow's net debt is £240m of borrowings plus £30m of leases less £60m of cash = **£210m**.\n\nEquity value = 1,650 − 210 = **£1,440m** → 1,440 ÷ 120 = **£12.00 a share**.\n\nSo the implied upside against £9.00 is about 33 %, not 53 %. The direction of the conclusion survives; the size of it does not. Forgetting the bridge overstated the value by £1.75 a share.",
+  "key_points": [
+    "The mistake is dividing EV, not equity value, by the share count",
+    "EV is a claim shared by lenders and shareholders",
+    "Net debt = 240 debt + 30 leases − 60 cash = £210m",
+    "Correct equity value £1,440m → £12.00 a share",
+    "Upside is 33 %, not 53 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "What else is commonly forgotten in that bridge?",
+      "answer_md": "Preferred stock and non-controlling interests, which are both added to reach enterprise value and must therefore come back out. Marlow has neither, which makes its bridge unusually clean — most real companies have at least one. Restricted cash is another: it cannot be netted off as freely as ordinary cash."
+    },
+    {
+      "question": "Do the leases belong in there?",
+      "answer_md": "Yes, under IFRS 16 the £30m lease liability is a debt-like claim, so it belongs in net debt — provided your EBITDA is on the post-IFRS 16 basis that excludes the rent. The rule is consistency: capitalise the leases in both the enterprise value and the metric, or in neither."
+    }
+  ],
+  "weak_answer_note": "Spots that the number 'looks wrong' without naming the missing bridge, or corrects the arithmetic but leaves out the leases and reaches £12.25.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "thornbury-implied-ev-from-peers",
+  "subtopic_slug": "comparable-companies",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "thornbury",
+    "comps"
+  ],
+  "question": "Value Thornbury Optics using its own peer set — Brantwood 11.0×, Larkfield 12.0×, Penrose 8.0×, Halden 12.0× and Marlow at its market multiple of 8.6×. Thornbury has EBITDA of £110m, net debt of £140m and 50m shares. What is the implied value per share?",
+  "model_answer_md": "Order the five multiples: 8.0×, 8.6×, **11.0×**, 12.0×, 12.0×. The median is **11.0×**.\n\nEnterprise value = 11.0 × 110 = **£1,210m**.\n\nEquity value = 1,210 − 140 = **£1,070m**.\n\nPer share = 1,070 ÷ 50 = **£21.40**.\n\nThornbury actually trades at £17.00 (equity £850m, or 9.0× EBITDA), so the peer median implies about 26 % upside. Before believing that, I would ask whether Thornbury deserves the median: it grows 4 % against a peer-set range of 3–12 %, which is a decent reason for it to trade below its peers rather than a mispricing.",
+  "key_points": [
+    "Median of 8.0, 8.6, 11.0, 12.0, 12.0 is 11.0×",
+    "EV = 11.0 × 110 = £1,210m",
+    "Equity = 1,210 − 140 net debt = £1,070m",
+    "Per share = 1,070 ÷ 50 = £21.40",
+    "Thornbury trades at £17.00 — check whether slow growth justifies the discount"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why might Thornbury trade below the median?",
+      "answer_md": "Growth. It expands 4 % a year while Larkfield and Halden manage 10–12 %, and those two are the names holding the median up. A slower grower trading below a set full of faster ones is usually correct pricing rather than an opportunity — which is why you check growth before calling anything cheap."
+    },
+    {
+      "question": "What happens if you drop Marlow from the set?",
+      "answer_md": "The remaining four are 8.0×, 11.0×, 12.0×, 12.0×, so the median becomes the average of the middle two: (11.0 + 12.0) ÷ 2 = 11.5×. That lifts the implied EV to £1,265m and the value to about £22.50 a share. One name moving the answer by a pound is exactly why you show the range alongside the median."
+    }
+  ],
+  "numbers": {
+    "inputs": {
+      "ebitda": 110,
+      "net_debt": 140,
+      "shares": 50,
+      "median_multiple": 11.0
+    },
+    "answer": 21.4
+  },
+  "weak_answer_note": "Takes the mean of the five multiples instead of the median, or divides enterprise value by the share count without deducting the £140m of net debt.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

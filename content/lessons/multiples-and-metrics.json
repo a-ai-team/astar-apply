@@ -1,0 +1,141 @@
+{
+  "slug": "multiples-and-metrics",
+  "subtopic_slug": "multiples-and-metrics",
+  "title": "Which multiple, when — and why similar companies differ",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You already know that pre-interest metrics pair with enterprise value and post-interest ones with equity value. That rule stops you making a mistake. It does not tell you which of the four or five *legitimate* multiples to reach for, and it does not tell you why two companies in the same industry, with the same margin, trade three turns apart.\n\nThose are the two questions interviewers actually ask, and the second is a depth test. \"Why might two similar companies trade at different multiples?\" has an easy first answer — growth — and a much better second answer. Candidates who stop at growth get a follow-up they have not prepared for."
+      },
+      {
+        "type": "concept",
+        "heading": "A multiple is a discounted cash flow you have not written down",
+        "md": "When you say a company is worth 11 times its EBITDA, you are making the same claim a DCF makes — that today's value equals tomorrow's cash, discounted — but you are compressing every assumption into a single number and letting the market supply it.\n\nThat compression is why the choice of multiple matters. Each one draws the line at a different point in the income statement, and where you draw it decides which differences between companies you keep and which you throw away:\n\n- Draw it at **revenue** and you keep scale and growth, and discard every question of whether the company can turn sales into profit.\n- Draw it at **EBITDA** and you keep operating profitability, and discard how the assets were funded and how fast they are being written down.\n- Draw it at **EBIT** and you keep depreciation — which is a rough proxy for how asset-hungry the business is.\n- Draw it at **net income** and you keep everything: interest, tax, the capital structure, the lot.\n\nSo the question \"which multiple?\" is really \"which differences am I trying to see?\""
+      },
+      {
+        "type": "mechanics",
+        "md": "**The working menu.** In a UK generalist interview you need five, with a one-line reason for each:\n\n| Multiple | Reach for it when |\n|---|---|\n| EV/EBITDA | The default for comparing operating businesses across a sector |\n| EV/EBIT | Capital intensity differs — depreciation is a real cost you want to keep |\n| EV/Revenue | Earnings are negative or too immature to mean anything |\n| P/E | You are valuing the equity directly, or leverage *is* the story — banks, insurers |\n| EV/(EBITDA − capex) | A crude cash-earnings check when peers spend very differently on assets |\n\n**Why similar companies still differ.** Rearranging the compressed-DCF idea, a higher multiple is justified by any of:\n\n- **Growth** — more future cash per pound of today's earnings.\n- **Margins and their direction** — a business expanding its margin is buying you tomorrow's earnings cheaply.\n- **Returns on capital** — two companies can grow equally, but the one that needs less capital to do it converts growth into cash.\n- **Risk** — customer concentration, cyclicality, regulation, a single key product.\n- **Liquidity and size** — a thinly traded small-cap trades at a discount to a large-cap on nothing but tradability.\n\nName three of those in an answer, with the specific pair in front of you, and you are past the depth test."
+      },
+      {
+        "type": "predict",
+        "prompt": "Marlow and Brantwood Sensors run essentially the same EBITDA margin — 16.7 % against 16.0 %. Brantwood is forecast to grow 8 % next year; Marlow 6 %. All else equal, which should trade on the higher EV/EBITDA?",
+        "options": [
+          { "label": "Brantwood, the faster grower", "correct": true },
+          { "label": "Marlow — a lower growth rate means less risk" },
+          { "label": "The same — identical margins mean identical multiples" },
+          { "label": "It cannot be determined without the P/E ratios" }
+        ],
+        "explain_md": "Brantwood. Hold the margin still and growth is the only thing moving, so every pound of Brantwood's EBITDA today buys you more EBITDA in future years than a pound of Marlow's does. A multiple is a compressed DCF, and a DCF pays more for a stream that grows faster.\n\nIn the real peer table Brantwood trades at **11.0×** and Marlow at **8.6×** — a wider gap than two points of growth alone would justify, which is your cue to look for the other drivers: returns on capital, risk, size and liquidity."
+      },
+      {
+        "type": "widget",
+        "widget": "multiple_matcher",
+        "props": {
+          "metrics": [
+            { "label": "Revenue", "kind": "ev" },
+            { "label": "EBITDA", "kind": "ev" },
+            { "label": "EBIT", "kind": "ev" },
+            { "label": "EBITDA − capex", "kind": "ev" },
+            { "label": "Unlevered free cash flow", "kind": "ev" },
+            { "label": "Net income", "kind": "equity" },
+            { "label": "Earnings per share", "kind": "equity" },
+            { "label": "Book equity", "kind": "equity" }
+          ]
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Marlow at today's price.** The shares are £9.00, there are 120m of them, so equity value is £1,080m; adding £240m of borrowings and £30m of leases and taking out £60m of cash gives an enterprise value of £1,290m. Against EBITDA of £150m, EBIT of £110m, net income of £72m and revenue of £900m, that is four multiples from the same company.\n\nThen the peer comparison that makes the point about drivers: **Larkfield Controls** grows 12 % a year, **Penrose Metrology** grows 3 %, and their EBITDA margins are 16.7 % and 16.0 % — near enough identical.",
+        "steps": [
+          { "label": "Marlow EV/EBITDA", "expr": "1290 / 150", "value": 8.6, "unit": "×" },
+          { "label": "Marlow EV/EBIT", "expr": "1290 / 110", "value": 11.73, "unit": "×" },
+          { "label": "Marlow P/E", "expr": "1080 / 72", "value": 15, "unit": "×" },
+          { "label": "Marlow EV/Revenue", "expr": "1290 / 900", "value": 1.43, "unit": "×" },
+          { "label": "Larkfield EV/EBITDA", "expr": "2400 / 200", "value": 12, "unit": "×" },
+          { "label": "Penrose EV/EBITDA", "expr": "640 / 80", "value": 8, "unit": "×" },
+          { "label": "The gap between them, in turns", "expr": "12 - 8", "value": 4, "unit": "×" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now the capital-intensity point, which is where EV/EBIT earns its place. Depreciation is a real cost — it is the price of the assets being used up — and EBITDA pretends it is not there. The size of the step from EV/EBITDA up to EV/EBIT tells you how asset-hungry a business is.\n\n**Penrose** has EBITDA of £80m and EBIT of £55m, so £25m of depreciation against an enterprise value of £640m. **Larkfield** has EBITDA of £200m and EBIT of £150m — £50m of depreciation on an enterprise value of £2,400m. Work out which one the market is really paying more for.",
+        "steps": [
+          { "label": "Penrose EV/EBITDA", "expr": "640 / 80", "value": 8, "unit": "×" },
+          { "label": "Penrose EV/EBIT", "expr": "640 / 55", "value": 11.64, "unit": "×", "blank": true },
+          { "label": "Penrose: the step-up from EBITDA to EBIT", "expr": "11.64 / 8", "value": 1.46, "unit": "×", "blank": true },
+          { "label": "Larkfield EV/EBIT", "expr": "2400 / 150", "value": 16, "unit": "×" },
+          { "label": "Larkfield: the step-up", "expr": "16 / 12", "value": 1.33, "unit": "×", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"EV/EBITDA is always better than P/E, because it's capital-structure neutral.\"**\n\nHalf of this is true and the conclusion does not follow. Neutral is not the same as better — it depends entirely on what you are trying to see.\n\nThere are three situations where P/E is the right tool and EV/EBITDA is the wrong one. For **banks and insurers**, interest is not a financing cost sitting below the operating line — it *is* the revenue, so there is no meaningful EBITDA to build an enterprise value on. Where **leverage is the story**, stripping it out throws away the thing you are analysing. And when you are simply asking what the **shares** are worth to a shareholder, the metric a shareholder receives is earnings after everything.\n\nThe deeper problem is that EBITDA ignores capital expenditure altogether. A business that must spend heavily every year just to stand still looks identical to a capital-light one on EV/EBITDA, and completely different on EV/EBIT or on cash earnings. Say that, and you have answered the follow-up before it arrives."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A multiple pairs a value with a metric belonging to the same claimants: enterprise value with pre-interest metrics, equity value with post-interest ones. EV/EBITDA is the default because it is neutral to capital structure and depreciation policy. Use EV/EBIT when capital intensity differs, EV/Revenue when earnings are negative, and P/E for financials or when you are valuing the equity directly. Two similar companies trade differently because of growth, margins, returns on capital, risk and liquidity — not because one is mispriced.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "EV/ARR and the Rule of 40",
+            "md": "Subscription software breaks the standard menu, because EBITDA is usually negative and revenue is unusually informative. The base becomes **annual recurring revenue** — the annualised value of subscriptions currently in force — and the multiple becomes EV/ARR.\n\nWhat justifies one company's 12× ARR against another's 5×? The market's shorthand is the **Rule of 40**: add the revenue growth rate to the free-cash-flow margin, and a total above 40 earns a premium. It is deliberately crude, and its point is that growth and profitability are exchangeable. Growing 50 % while burning 10 % of revenue scores the same 40 as growing 15 % at a 25 % margin.\n\nWhat the rule cannot tell you is whether the growth will *last*. That is why the follow-up question is always about **net revenue retention** — what last year's customers spend this year. Above 120 % means the existing base grows without a single new logo, and that is the number that actually earns a premium multiple.",
+            "example_q": "Company A grows 50 % a year with a −20 % free-cash-flow margin. Company B grows 20 % at a +25 % margin. Which deserves the higher EV/ARR?",
+            "answer_md": "On the Rule of 40 they are level: A scores 30 and so does B, so the shorthand does not separate them. I would go to what the rule leaves out.\n\nThe questions I would want answered are how durable A's growth is — net revenue retention, whether it is buying growth with sales spend that will not repeat — and how much capital A still needs before it funds itself, because a −20 % margin means further dilution or debt. B is self-funding, which removes a whole category of risk.\n\nMy instinct is that A commands a higher multiple if retention is above about 120 %, and a lower one if the growth is bought rather than earned. I would present it as a range rather than picking a winner, because the honest answer depends on a retention figure neither of us has."
+          },
+          "healthcare": {
+            "heading": "EV/peak sales, and why P/E still rules big pharma",
+            "md": "Healthcare splits into three groups that are valued on three different bases, and knowing which is which is most of the answer.\n\n**Large pharmaceutical companies** are stable, highly cash-generative and lightly levered, so they behave like consumer staples and trade on **P/E**. Nobody quotes EV/EBITDA for them, because there is no interesting leverage story to strip out.\n\n**Clinical-stage companies** have negative earnings by construction. The comparison metric becomes enterprise value against **risk-adjusted peak sales** — the highest annual revenue a drug is expected to reach, multiplied by the probability it gets approved at all. It is a strange-looking multiple because it divides a value today by a revenue figure perhaps eight years out, but it is the only base that exists.\n\n**Medtech and diagnostics** sit in between: real revenue, gross margins around 60–70 %, so EV/EBITDA and EV/Revenue both work as they would in any industrial sector.",
+            "example_q": "Why would you never quote EV/EBITDA for a Phase 2 biotech?",
+            "answer_md": "Because the denominator is negative and would produce a meaningless number — and even if you forced it positive, EBITDA would be telling you about this year's research spending rather than anything about value.\n\nA clinical-stage company's value sits almost entirely in an option: a drug that either reaches the market and generates substantial revenue, or fails and generates none. Present-day operating profit has no relationship to that.\n\nSo I would use a risk-adjusted NPV of the pipeline as the primary method, and cross-check it against enterprise value over risk-adjusted peak sales for similar-stage companies. I would also state the probability of success I am assuming, because that assumption drives the answer far more than the multiple does."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Two peers trade on **exactly the same headline multiple of 12.0× EV/EBITDA**. Larkfield Controls grows 12 %, runs a 16.7 % EBITDA margin, and spends **8 % of revenue** on capital expenditure (revenue £1,200m, EBITDA £200m, EV £2,400m). Halden Labs grows 10 % at the same margin, but spends only **3 % of revenue** (revenue £750m, EBITDA £125m, EV £1,500m). An MD asks which is cheaper. Answer with numbers.",
+        "model_answer_md": "On the headline they are identical, so I would move to a multiple that survives the difference in capital intensity — enterprise value over EBITDA less capital expenditure, which is a rough measure of the cash the business actually keeps.\n\nLarkfield spends 8 % of £1,200m, so £96m: 2,400 ÷ (200 − 96) = **23.1×**.\nHalden spends 3 % of £750m, so £22.5m: 1,500 ÷ (125 − 22.5) = **14.6×**.\n\nOn cash earnings Halden is materially cheaper — not marginally, but by more than a third — and the identical headline multiple was hiding it. The driver is capital intensity: Larkfield has to reinvest most of its EBITDA to keep running, so far less of it reaches the people who own the company.\n\nI would qualify that with growth. Larkfield grows two points faster, and some of its capital expenditure is presumably buying that growth rather than merely replacing worn-out assets — so the gap is not pure mispricing. But if I had to pick one as better value on these numbers, it would be Halden, and I would want the split between maintenance and growth capex before committing.",
+        "rubric": [
+          "Computes a capex-adjusted multiple rather than asserting a view",
+          "Reaches roughly 23× for Larkfield and roughly 15× for Halden",
+          "Names capital intensity as the driver of the difference",
+          "Weighs Larkfield's faster growth as a partial justification",
+          "Gives an actual view, and says what further information would settle it"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What does P/E pair with, and why?", "a": "Equity value — earnings are struck after interest and tax, so they belong to shareholders alone." },
+          { "q": "When do you reach for EV/Revenue?", "a": "When earnings are negative or too immature to be informative — early-stage or heavily loss-making businesses." },
+          { "q": "Express a multiple as an idea, not a formula.", "a": "A compressed DCF: higher growth, lower risk and better returns on capital all buy a higher multiple." },
+          { "q": "Why is EV/Net income never used?", "a": "It mismatches the claimants — enterprise value is before debt is served, net income is after." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Pick the multiple that keeps the difference you care about: EBITDA to compare operations, EBIT when assets are being consumed at different rates, revenue when there are no earnings, and P/E when the equity itself is the question.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can name five multiples and give a one-line reason for reaching for each.",
+          "I can explain why EV/EBITDA is the default without claiming it is always superior.",
+          "I can give three specific reasons two similar companies trade at different multiples.",
+          "I can compute a capex-adjusted multiple and say what it reveals that the headline hides.",
+          "I can say what happens to P/E versus EV/EBITDA when a company takes on more debt."
+        ]
+      }
+    ]
+  }
+}

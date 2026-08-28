@@ -1,0 +1,37 @@
+{
+  "slug": "sotp-when-and-how",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "sotp"
+  ],
+  "question": "What is a sum-of-the-parts valuation, and when would you use one?",
+  "model_answer_md": "You value each business segment separately on its own appropriate multiple, add them together, then subtract net debt and unallocated corporate costs to reach equity value.\n\nYou reach for it when a company's divisions are so different that a single multiple describes none of them — a group with a fast-growing software arm and a mature industrial arm, say. Applying one blended multiple to the whole would undervalue the software and overvalue the industrials.\n\nThe practical difficulties are real. Segment disclosure is often thin, so you may not have clean EBITDA by division. **Corporate costs** sit above the segments and have to be allocated or capitalised separately — forget them and you overstate the value. And the result frequently exceeds the market capitalisation, which is the **conglomerate discount**: the market's judgement that the group is worth less held together than broken up.\n\nThat gap is usually the point of the analysis — it is the argument for a break-up or a spin-off.",
+  "key_points": [
+    "Value each segment on its own multiple, then aggregate",
+    "Used when divisions have genuinely different economics",
+    "Corporate costs must be allocated or capitalised and deducted",
+    "Segment disclosure is often the binding constraint",
+    "A SOTP above market cap = the conglomerate discount, and often the pitch"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why would a SOTP exceed the market capitalisation?",
+      "answer_md": "The conglomerate discount. Investors may struggle to value the mix, the group may allocate capital poorly between divisions, or the corporate centre may cost more than it adds. It can also be a holding-company or liquidity discount. That gap is exactly what an activist points at when arguing for a break-up."
+    },
+    {
+      "question": "How do you handle corporate costs?",
+      "answer_md": "Either allocate them across the segments in proportion to revenue or EBITDA before applying multiples, or value the operating segments gross and then subtract the capitalised value of the unallocated centre — often the annual cost times a modest multiple. Both are defensible; leaving them out entirely is not, and it is the most common error in a SOTP."
+    }
+  ],
+  "weak_answer_note": "Describes adding up the segments but omits corporate costs and net debt, or does not know what the conglomerate discount is.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

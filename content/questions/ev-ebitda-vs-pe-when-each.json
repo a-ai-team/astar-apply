@@ -1,0 +1,37 @@
+{
+  "slug": "ev-ebitda-vs-pe-when-each",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "multiples"
+  ],
+  "question": "When would you use EV/EBITDA rather than P/E?",
+  "model_answer_md": "EV/EBITDA whenever capital structure gets in the way of the comparison, which is most of the time.\n\nEBITDA sits above interest, so it belongs to lenders and shareholders together and pairs with enterprise value. That makes it **capital-structure neutral**: two identical businesses, one funded with debt and one without, show the same EV/EBITDA but very different P/Es. If you are comparing operating performance across companies with different leverage, EV/EBITDA is the honest choice.\n\nP/E is after interest and tax, so it belongs to shareholders alone. It is useful when the capital structures are genuinely similar, when you want the return to equity holders, or in sectors where it is the market convention — banks especially, where interest is revenue and EBITDA is meaningless.\n\nEBITDA's weakness is that it ignores capital intensity: it treats a company replacing its assets every five years the same as one replacing them every twenty.",
+  "key_points": [
+    "EBITDA is pre-interest → pairs with EV; net income is post-interest → pairs with equity",
+    "EV/EBITDA is neutral to how the company is funded",
+    "P/E works when structures are similar or the sector demands it",
+    "Banks: interest is revenue, so EBITDA is meaningless — use P/E and P/BV",
+    "EBITDA ignores capital intensity, which is its real weakness"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about banks?",
+      "answer_md": "Neither EV/EBITDA nor enterprise value works. Interest is a bank's revenue rather than a financing cost, and debt is raw material rather than funding, so the whole EV bridge breaks down. Banks are valued on P/E and price-to-book, with return on equity explaining where in the range they sit."
+    },
+    {
+      "question": "What about a very capital-heavy company?",
+      "answer_md": "EBITDA flatters it, because the assets being consumed never appear. I would use EV/EBIT, which charges depreciation, or EV/(EBITDA − capex), which charges the cash actually spent keeping the business running. Between two companies with identical EBITDA, the one spending twice as much on capex is worth less."
+    }
+  ],
+  "weak_answer_note": "Says EV/EBITDA is 'better' without the pre- versus post-interest logic, or fails to name a case where P/E is the right tool.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

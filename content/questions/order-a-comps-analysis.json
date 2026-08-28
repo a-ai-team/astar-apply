@@ -1,0 +1,37 @@
+{
+  "slug": "order-a-comps-analysis",
+  "subtopic_slug": "comparable-companies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:order",
+    "process"
+  ],
+  "question": "Put the steps of a trading comparables analysis in the right order.",
+  "model_answer_md": "1. **Select the peer set** — five to ten listed companies matching business model, growth, margins and size.\n2. **Gather the financials** — market data and forecasts for each name.\n3. **Calendarise** so every company is on the same year end, otherwise you are comparing different periods.\n4. **Build enterprise value and the multiples** for each peer.\n5. **Take the median** (and note the mean and the spread).\n6. **Apply the median multiple** to the target's own metric.\n7. **Bridge from enterprise value to equity value**, then divide by diluted shares.\n\nThe two steps candidates skip are calendarisation and the final bridge — and the bridge is where the marks are actually lost.",
+  "key_points": [
+    "Peers first, and defend every name in the set",
+    "Calendarise before comparing multiples",
+    "Build EV per peer, then the multiples",
+    "Median for the headline, mean and spread for context",
+    "Apply to the target's metric, then bridge EV → equity → per share"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why calendarise?",
+      "answer_md": "Because a company with a March year end and one with a December year end are quoting different twelve-month periods. In a fast-moving sector that difference alone can move a multiple by a turn, and you would be attributing to valuation what is really a calendar artefact."
+    },
+    {
+      "question": "Why the median rather than the mean?",
+      "answer_md": "The median resists a single distorted peer — one company on a takeover rumour or with a collapsed earnings number. For Marlow's set the median is 11.0× and the mean 10.4×; I would quote the median and mention the spread, because the range matters as much as the midpoint."
+    }
+  ],
+  "weak_answer_note": "Jumps from 'pick peers' straight to 'apply the multiple', skipping calendarisation and, more damagingly, the bridge back to equity value.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}
