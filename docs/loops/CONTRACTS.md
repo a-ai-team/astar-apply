@@ -89,6 +89,36 @@ Validator `src/lib/content/question-schema.ts`. Flashcards are derived: front = 
 | grader | Spearman ≥ 0.7, MAE ≤ 1.0 vs 40 hand-labelled answers | 07 |
 | industry | schema 100 %, overlap 0 | 09 |
 
+### Technicals v2 (Loops 11–18) — additions, never renames
+_Design: `docs/research/technicals-v2/{00-syllabus,01-interactive-teaching,02-lens-design}.md`. Implemented by Loop 11; filled by Loops 12–18._
+
+**New lesson block types** (appended to the Lesson JSON union; validator `lesson-schema.ts`):
+```jsonc
+{ "type": "predict", "prompt": "…", "options": [{ "label": "…", "correct": true }], "explain_md": "…" },   // 2–4 options, exactly one correct; sits immediately before a widget
+{ "type": "fill_numbers", "md": "…", "steps": [{ "label": "…", "expr": "500 - 120", "value": 380, "unit": "£m", "blank": true }] },   // ≥ 1 blank; graded client-side by evalExpr against `value` (±0.5 %)
+{ "type": "order_steps", "prompt": "…", "steps": ["…", "…"] },   // 3–8 steps; the given order is the correct order
+{ "type": "lens", "slot": "after-concept|after-mechanics|after-worked-calc|before-your-turn",
+  "variants": { "tmt": { "heading": "…", "md": "…", "example_q": "…", "answer_md": "…" }, "healthcare": { … } } },
+{ "type": "template", "kind": "three_statement_grid|dcf_sheet|paper_lbo|deal_summary", "props": {} }   // printable artefact block
+```
+- `LENSES` in `taxonomy.ts` = `[{ slug: "tmt", label, module_slug: "tmt" }, { slug: "healthcare", label, module_slug: "healthcare-biotech" }]`. Add, never rename.
+- Lens rule (`lensProblems()` in `generate/checks.ts`, run by `content:validate` and the admin gate): a lesson with any `lens` block must provide every `LENSES` slug in every `lens` block. Lens selection = `?lens=<slug>` search param mirrored to `localStorage["astar.lens"]`; default generalist; no DB column.
+- `WIDGET_NAMES` gains: `discount_dial, tv_share, gordon_vs_exit, wacc_builder, beta_relever, football_field, tsm_dilution, cash_cycle, multiple_matcher, accretion_rule, ppa_goodwill, synergy_npv, paper_lbo, lease_toggle, nci_vs_equity, deferred_tax, faded_walk`. The four placeholders (`three_statement, filings_toggle, dcf_sensitivity, lbo_returns`) become real. A widget's `props` are authored in the content file (the batch writer still emits `{}`).
+- Approval for v2 lessons (`assertApprovable(body, { walkthrough, v2: true })`): existing rules + ≥ 1 `predict` + the widget named in the chapter spec + lens rule. `reading_minutes ≤ 12` unchanged (widgets don't count).
+- Pure maths lives in `src/lib/finance/` — Loop 11 creates `{statements,bridge,discount,dcf,wacc,shares,merger,lbo}.ts`; chapter loops may add modules (e.g. `working-capital.ts`) but never re-implement maths a widget or `fill_numbers` grading already imports.
+
+**Question tags** (no schema change; `tags: string[]`): `depth:sa-core|sa-stretch|ft-only` (required from Loop 12), `lens:tmt|healthcare` (lens questions only; hidden from the generalist bank), `format:verbal|fill|order|spot` (default `verbal`). `flashcards` are derived only from `depth:sa-core` and `sa-stretch` questions without a `lens:` tag.
+
+**Cheat sheet** (`content/cheatsheets/<topic_slug>.json`, validator `src/lib/content/cheatsheet-schema.ts`, route `/home/technicals/[topic]/cheatsheet`, print CSS):
+```jsonc
+{ "topic_slug": "dcf", "formulas": [{ "name": "…", "latex": "…", "note": "…" }], "canonical": [{ "q": "…", "a": "…" }],
+  "traps": ["…"], "one_liners": ["…"], "you_may_hear": ["…"] }   // you_may_hear = ft-only items, named not taught
+```
+
+**Taxonomy**: `CurriculumSubtopic.deferred?: true` hides a subtopic from the topic page until it has an approved lesson; `target_questions` is rewritten by each chapter loop to the v2 counts (`00-syllabus.md` § 8). Slugs are never removed.
+
+**Eval**: `lessons` suite additionally asserts the lens rule and `predict` presence on v2 lessons; thresholds unchanged (schema 100 %, overlap 0, readability ≥ 4 when credit).
+
 ### Rough budget
 | Loop | Agent tokens | API spend | Wall time |
 |---|---|---|---|
