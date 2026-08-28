@@ -66,6 +66,32 @@ export function irr(cashFlows: number[], opts: IrrOpts = {}): number | null {
   return (lo + hi) / 2;
 }
 
+/**
+ * Discount exponent for period n under the mid-year convention (n − 0.5): cash arrives evenly
+ * through the year, not all on 31 December. Named separately from `periodExponent` because the
+ * Foundations chapter teaches the convention explicitly.
+ */
+export function midYearExponent(n: number): number {
+  return periodExponent(n, { midYear: true });
+}
+
+/**
+ * Present value of £1 a year for `years` years — the annuity factor. `annuityFactor(0.08, 5)`
+ * is 3.9927, so a £0.6m-a-year saving is worth 0.6 × 3.9927 = £2.396m today.
+ * Falls back to the plain sum when the mid-year convention is on (the closed form assumes year-end).
+ */
+export function annuityFactor(rate: number, years: number, opts: DiscountOpts = {}): number {
+  const n = Math.max(0, Math.floor(years));
+  if (n === 0) return 0;
+  if (opts.midYear) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) sum += discountFactor(rate, i, opts);
+    return sum;
+  }
+  if (rate === 0) return n;
+  return (1 - (1 + rate) ** -n) / rate;
+}
+
 /** Money multiple (MoM / MOIC). */
 export function moneyMultiple(exit: number, entry: number): number {
   if (entry === 0) return 0;

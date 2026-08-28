@@ -1,0 +1,38 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "what-does-discount-rate-represent",
+  "subtopic_slug": "time-value-of-money",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "What does a discount rate actually represent?",
+  "model_answer_md": "It is the **return an investor could earn elsewhere on an investment of similar risk** — the opportunity cost of putting money into this particular set of cash flows rather than the next best alternative.\n\nThat definition does two jobs at once. It captures the price of waiting, because the alternative investment would have been compounding in the meantime. And it captures risk, because the alternative you compare against is one of *matching* risk: a safe cash flow is measured against a gilt, a risky one against something with a similar chance of disappointing.\n\nSo when someone says a company is discounted at 11 %, they are saying investors could get roughly 11 % elsewhere for taking on that much risk — and this business has to clear that bar.",
+  "key_points": [
+    "Opportunity cost of capital — the return available elsewhere at similar risk",
+    "Prices waiting and risk in a single number",
+    "Risk-matched: the comparison must be to an alternative of similar risk",
+    "It is a required return, not a forecast of what the company will earn",
+    "Not primarily an inflation adjustment"
+  ],
+  "follow_ups": [
+    {
+      "question": "Who sets it?",
+      "answer_md": "The market, not the company. It is inferred from what investors currently demand — the risk-free rate from government bonds, the equity risk premium from long-run market data, and the company's own risk from its beta and its borrowing rates. A company can choose which rate to *use*, but it cannot decide what investors require."
+    },
+    {
+      "question": "Is the rate higher for equity or for debt?",
+      "answer_md": "Equity, always, for the same company. Lenders have a contract and are paid before shareholders, so they take less risk and accept less return. Shareholders hold the residual claim — everything left after everyone else is paid — so they demand more. WACC blends the two."
+    }
+  ],
+  "weak_answer_note": "Defines it circularly as 'the rate you use to discount', or reaches for inflation first. A weak answer also treats it as a company decision rather than something the market imposes.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "discount-rate",
+    "cost-of-capital"
+  ]
+}

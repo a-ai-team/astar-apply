@@ -1,0 +1,39 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "npv-vs-irr-conflict",
+  "subtopic_slug": "pv-npv",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "When can NPV and IRR disagree about which project to choose, and which would you follow?",
+  "model_answer_md": "They only disagree for **mutually exclusive** projects — where choosing one rules out the other — and the disagreement comes from two sources.\n\n**Scale.** A small project can have a spectacular IRR while adding little value. 40 % on £10,000 beats 12 % on £5m as a percentage and loses badly in pounds.\n\n**Timing.** A project whose cash arrives early has a high IRR; one that pays more in total but later has a higher NPV. The two rank them differently because IRR implicitly assumes every interim pound is **reinvested at the IRR itself**, while NPV assumes reinvestment at the cost of capital — the more defensible assumption, particularly when the IRR is high.\n\nI would **follow NPV**, because it measures value in pounds and shareholders are made better off by pounds, not by percentages. IRR is still worth quoting alongside it, as a quick read on how much cushion there is before the project stops adding value.",
+  "key_points": [
+    "Conflicts only arise between mutually exclusive projects",
+    "Scale differences — a high rate on a small base creates little value",
+    "Timing differences — early cash flatters IRR",
+    "IRR assumes reinvestment at the IRR; NPV assumes the cost of capital",
+    "Follow NPV, because value is measured in pounds",
+    "Quote IRR alongside as a measure of cushion"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you show this on a chart?",
+      "answer_md": "Plot NPV on the vertical axis against the discount rate on the horizontal for both projects — the NPV profiles. Each curve slopes down and crosses zero at that project's IRR. Where the two curves intersect is the crossover rate: below it one project has the higher NPV, above it the other does, even though their IRRs never change. That picture makes it obvious that the ranking depends on the discount rate you actually face."
+    },
+    {
+      "question": "When would you still lead with IRR?",
+      "answer_md": "When the audience thinks in rates and capital is not the constraint — private equity is the obvious case, where funds are marketed and measured on IRR. It is also a natural way to express the cushion in a project: saying 'the IRR is 15 % against an 11 % cost of capital' communicates the margin faster than an NPV in pounds. Sponsors normally quote it alongside a money multiple precisely to cover IRR's blindness to scale and time."
+    }
+  ],
+  "weak_answer_note": "Says they 'can sometimes differ' without identifying scale, timing or the reinvestment assumption, or fails to commit to NPV as the tie-breaker. Claiming they conflict for independent projects is wrong — there both rules give the same accept/reject answer.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-stretch",
+    "format:order",
+    "npv",
+    "irr"
+  ]
+}

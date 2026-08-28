@@ -1,0 +1,39 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "lens-tmt-rates-and-growth-valuations",
+  "subtopic_slug": "time-value-of-money",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Why did high-growth technology valuations fall further than telecoms when interest rates rose?",
+  "model_answer_md": "Because their value sits at a different point in time, and discounting compounds.\n\nA mature telecoms operator earns most of its value from the next few years: the network is built, subscribers already pay, and the cash arrives soon. A high-growth software company may generate little or nothing for several years, with most of its value in cash flows a decade out.\n\nAn extra percentage point on the discount rate barely touches a cash flow arriving next year, because you divide by 1.01 once. It takes a large bite out of one arriving in year ten, because you divide by 1.01 ten times over. So the same rise in rates removes a much larger share of the software company's value.\n\nBankers borrow the bond term and call this **duration**: high-growth equity behaves like a long-dated bond. Nothing about either business had to change — the repricing was arithmetic about *when* the cash arrives.",
+  "key_points": [
+    "Value is the present value of future cash flows, so timing drives rate sensitivity",
+    "Growth companies are back-end loaded; mature ones are front-loaded",
+    "The discount factor compounds, so distant cash flows lose disproportionately",
+    "This is duration — long-duration equity behaves like a long-dated bond",
+    "Neither business needed to deteriorate for the valuations to move"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which kinds of companies are least sensitive to rate moves?",
+      "answer_md": "Those whose value is concentrated in near-term, predictable cash flows — mature consumer staples, regulated utilities with contracted returns, and businesses on low multiples where most of the value is current earnings rather than future growth. A high multiple is essentially a statement that most of the value lies far in the future, which is exactly what makes it rate-sensitive."
+    },
+    {
+      "question": "Does the effect reverse when rates fall?",
+      "answer_md": "Yes, and symmetrically — the same arithmetic runs the other way, so long-duration growth names rally hardest when rate expectations drop. That is roughly what happened as expectations turned. The caveat is that rates are not the only thing moving: falling rates often accompany a weakening economy, which can hurt the earnings forecasts at the same time as it helps the discount rate."
+    }
+  ],
+  "weak_answer_note": "Says growth stocks are 'riskier' or 'more speculative' without the duration mechanism, or attributes the fall entirely to sentiment. A weak answer never explains why the timing of cash flows is what makes the discount rate bite harder.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "discounting",
+    "duration"
+  ]
+}

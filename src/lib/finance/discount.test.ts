@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { discountFactor, impliedRateFromMultiple, irr, moneyMultiple, multipleFromRate, npv, npvFromZero, pv, ruleOf72 } from "./discount";
+import { annuityFactor, discountFactor, impliedRateFromMultiple, irr, midYearExponent, moneyMultiple, multipleFromRate, npv, npvFromZero, periodExponent, pv, ruleOf72 } from "./discount";
+import { wacc } from "./wacc";
 
 describe("pv", () => {
   it("discounts one year at 10 %", () => {
@@ -83,5 +84,70 @@ describe("mental-maths shortcuts", () => {
 
   it("multipleFromRate is the inverse", () => {
     expect(multipleFromRate(impliedRateFromMultiple(2.5, 5), 5)).toBeCloseTo(2.5, 4);
+  });
+});
+
+// --- Loop 12 (Foundations / `discount_dial`) ---------------------------------------------------
+describe("annuityFactor", () => {
+  it("matches the spec pin: 8 % over 5 years = 3.9927", () => {
+    expect(annuityFactor(0.08, 5)).toBeCloseTo(3.9927, 4);
+  });
+
+  it("prices Ashdown's £0.6m-a-year saving at £2.396m", () => {
+    expect(0.6 * annuityFactor(0.08, 5)).toBeCloseTo(2.3956, 3);
+  });
+
+  it("equals the sum of the individual discount factors", () => {
+    const summed = [1, 2, 3, 4].reduce((s, n) => s + discountFactor(0.1, n), 0);
+    expect(annuityFactor(0.1, 4)).toBeCloseTo(summed, 10);
+  });
+
+  it("is just the year count at a zero rate, and zero for no years", () => {
+    expect(annuityFactor(0, 5)).toBe(5);
+    expect(annuityFactor(0.08, 0)).toBe(0);
+  });
+
+  it("is higher under the mid-year convention (cash arrives sooner)", () => {
+    expect(annuityFactor(0.08, 5, { midYear: true })).toBeGreaterThan(annuityFactor(0.08, 5));
+  });
+});
+
+describe("midYearExponent", () => {
+  it("pulls each period back half a year", () => {
+    expect(midYearExponent(1)).toBe(0.5);
+    expect(midYearExponent(3)).toBe(2.5);
+  });
+
+  it("agrees with periodExponent under the midYear option", () => {
+    expect(midYearExponent(4)).toBe(periodExponent(4, { midYear: true }));
+  });
+});
+
+describe("discount_dial pins", () => {
+  it("£1m in 3 years at 8 % is worth £0.7938m", () => {
+    expect(pv(1, 0.08, 3)).toBeCloseTo(0.7938, 4);
+  });
+
+  it("IRR of −£2.0m then £0.6m × 5 is about 15.24 %", () => {
+    expect(irr([-2, 0.6, 0.6, 0.6, 0.6, 0.6])).toBeCloseTo(0.1524, 4);
+  });
+
+  it("NPV is zero at the IRR — the crossing the dial marks", () => {
+    const flows = [-2, 0.6, 0.6, 0.6, 0.6, 0.6];
+    const r = irr(flows);
+    expect(r).not.toBeNull();
+    expect(npvFromZero(flows, r as number)).toBeCloseTo(0, 6);
+  });
+
+  it("the WACC preset feeds the dial: 50/50 funding at 14 % and 6 % pre-tax, no tax, is 10 %", () => {
+    expect(wacc({ equityValue: 3, debtValue: 3, costOfEquity: 0.14, costOfDebt: 0.06, taxRate: 0 }).wacc).toBeCloseTo(0.1, 10);
+  });
+
+  it("the WACC preset with tax: Hollins Pies is 9.0 %", () => {
+    expect(wacc({ equityValue: 6, debtValue: 4, costOfEquity: 0.12, costOfDebt: 0.06, taxRate: 0.25 }).wacc).toBeCloseTo(0.09, 10);
+  });
+
+  it("rule of 72: doubling in 5 years is roughly 14 %", () => {
+    expect(ruleOf72(0.144)).toBeCloseTo(5, 1);
   });
 });

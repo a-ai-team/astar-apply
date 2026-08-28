@@ -1,0 +1,46 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "compute-npv-new-shop",
+  "subtopic_slug": "pv-npv",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Ashdown Bakeries can open a thirteenth shop. The fit-out costs £2.0m today and the shop is expected to generate £0.6m a year for five years. At an 8 % discount rate, what is the NPV — and should Ashdown go ahead?",
+  "model_answer_md": "The cash flows are level, so use an annuity factor rather than discounting five years one at a time:\n\n$$\\text{Annuity factor} = \\frac{1 - 1.08^{-5}}{0.08} = 3.993$$\n\nPresent value of the inflows = 0.6 × 3.993 = **£2.396m**.\n\n$$NPV = 2.396 - 2.0 = \\mathbf{+£0.396m}$$\n\nSo yes — the shop clears the 8 % hurdle with about £0.4m of value to spare. For context, the implied IRR is around **15 %**, so there is a reasonable cushion before the project stops adding value.",
+  "key_points": [
+    "Annuity factor at 8 % over 5 years is 3.993",
+    "PV of inflows = 0.6 × 3.993 = £2.396m",
+    "NPV = 2.396 − 2.0 = +£0.396m",
+    "Positive NPV means it beats the 8 % hurdle, so proceed",
+    "Implied IRR of roughly 15 % shows how much cushion there is"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens at Ashdown's real cost of capital of 11.3 %?",
+      "answer_md": "The NPV falls to about **+£0.199m** — still positive, but roughly half the cushion. That is the more honest number, because 11.3 % is Ashdown's actual blended cost of funding rather than the round 8 % used for illustration. The decision does not change, but the margin for error roughly halves."
+    },
+    {
+      "question": "What if the cash flows came in 20 % below forecast?",
+      "answer_md": "At £0.48m a year the PV of the inflows is 0.48 × 3.993 = £1.917m, so the NPV becomes about **−£0.084m** — the project turns marginally value-destroying, and the IRR falls to roughly 6 %. A 20 % forecasting miss is entirely plausible for a new shop, so this is the sensitivity worth flagging."
+    }
+  ],
+  "weak_answer_note": "Adds the five £0.6m inflows undiscounted to £3.0m and declares a £1.0m profit, forgets to subtract the £2.0m outlay, or discounts the outlay as though it were a future cash flow.",
+  "numbers": {
+    "inputs": {
+      "annual_cash_flow": 0.6,
+      "years": 5,
+      "rate": 0.08,
+      "outlay": 2.0
+    },
+    "answer": 0.396
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "npv",
+    "calculation"
+  ]
+}

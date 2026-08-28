@@ -84,11 +84,13 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "Time value of money, discounting, NPV and IRR — the five ideas every later topic leans on.",
     source_section: "Finance concepts",
     subtopics: [
-      sub("time-value-of-money", "Time value of money", "concept", "Finance concepts", 3),
-      sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 3),
-      sub("pv-npv", "Present value and NPV", "calculation", "Finance concepts", 4),
-      sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 3),
-      sub("wacc-intro", "WACC: a first look", "mixed", "Finance concepts", 3),
+      // Loop 12: three lessons carry the chapter; `discount-rates-and-risk` folds into lesson 1 and
+      // `irr-and-payback` into lesson 2, so both are deferred (slugs kept — never removed).
+      sub("time-value-of-money", "Time value of money", "mixed", "Finance concepts", 4),
+      { ...sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 0), deferred: true },
+      sub("pv-npv", "Present value, NPV and IRR", "calculation", "Finance concepts", 4),
+      { ...sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 0), deferred: true },
+      sub("wacc-intro", "WACC: a first look", "mixed", "Finance concepts", 4),
     ],
   },
   {

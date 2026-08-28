@@ -4,6 +4,7 @@ import type { WidgetBlock, WidgetName } from "@/lib/content/lesson-schema";
 import { EvBridge } from "@/components/widgets/ev-bridge";
 import { ThreeStatement } from "@/components/widgets/three-statement";
 import { DcfSensitivity } from "@/components/widgets/dcf-sensitivity";
+import { DiscountDial } from "@/components/widgets/discount-dial";
 import { Section } from "../section";
 
 /**
@@ -15,6 +16,7 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   ev_bridge: EvBridge as ComponentType<Record<string, unknown>>,
   three_statement: ThreeStatement as ComponentType<Record<string, unknown>>,
   dcf_sensitivity: DcfSensitivity as ComponentType<Record<string, unknown>>,
+  discount_dial: DiscountDial as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

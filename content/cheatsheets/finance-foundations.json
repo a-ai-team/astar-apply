@@ -1,0 +1,82 @@
+{
+  "topic_slug": "finance-foundations",
+  "formulas": [
+    {
+      "name": "Present value of one cash flow",
+      "latex": "PV = \\frac{CF}{(1+r)^n}",
+      "note": "Mid-year convention uses the exponent n − 0.5, which always raises the value. £1.0m in 3 years at 8 % = £0.79m."
+    },
+    {
+      "name": "Annuity factor (level cash flows)",
+      "latex": "\\text{AF} = \\frac{1-(1+r)^{-n}}{r}",
+      "note": "Multiply the annual cash flow by this instead of discounting each year. At 8 % over 5 years it is 3.99 — worth memorising."
+    },
+    {
+      "name": "Net present value",
+      "latex": "NPV = \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t} - I_0",
+      "note": "Positive means the project beats the discount rate. Ashdown's shop: 0.6 × 3.99 − 2.0 = +£0.40m."
+    },
+    {
+      "name": "Internal rate of return",
+      "latex": "NPV(r = IRR) = 0",
+      "note": "No formula — find it by trial. Accept when IRR exceeds the cost of capital. The shop's IRR is 15.2 %."
+    },
+    {
+      "name": "Rule of 72",
+      "latex": "\\text{years to double} \\approx \\frac{72}{r\\,\\%}",
+      "note": "Doubling in 5 years implies roughly 14 %. The fastest sanity check on any IRR quoted at you."
+    },
+    {
+      "name": "Weighted average cost of capital",
+      "latex": "WACC = \\frac{E}{D+E}k_e + \\frac{D}{D+E}k_d(1-t)",
+      "note": "Market-value weights; (1 − t) on debt only. Ashdown: ⅔ × 14 % + ⅓ × 6 % = 11.3 %."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "Why do we discount?",
+      "a": "A pound today can be invested, and a future pound might not arrive. The rate is the return available elsewhere at similar risk — it prices waiting and worry, not inflation."
+    },
+    {
+      "q": "What is NPV?",
+      "a": "Present value of the inflows minus what you spend today. Positive means the project earns more than the discount rate, so it creates value."
+    },
+    {
+      "q": "What is IRR?",
+      "a": "The discount rate at which NPV is zero — the project's own rate of return. Accept when it beats the cost of capital. It is a rate, not an amount."
+    },
+    {
+      "q": "What is WACC?",
+      "a": "The blended return every funder needs, weighted by how much each put in. It discounts unlevered free cash flow, because that cash belongs to all of them."
+    },
+    {
+      "q": "Why is equity more expensive than debt?",
+      "a": "Shareholders are the residual claim — paid last, with no contract — so they demand more. Interest is also contractual and tax-deductible."
+    },
+    {
+      "q": "Why not fund everything with debt?",
+      "a": "Debt lowers WACC at first, but each pound makes the equity riskier so its cost rises, lenders re-price, and distress costs appear. WACC is a shallow U."
+    }
+  ],
+  "traps": [
+    "Discounting is not inflation-adjusting — it prices opportunity cost and risk. Just don't mix nominal cash flows with a real rate.",
+    "IRR is a rate, not a profit: 40 % on £10k beats nothing against 12 % on £5m.",
+    "More debt does not lower WACC forever — the cost of equity rises as leverage does.",
+    "The (1 − t) belongs on debt only; dividends are not tax-deductible.",
+    "Payback ignores the time value of money and every pound after the payback date.",
+    "Never compare cash amounts from different years without discounting them first."
+  ],
+  "one_liners": [
+    "A pound later is a pound discounted for waiting and for worry.",
+    "NPV says how much; IRR says how fast. When they disagree, follow NPV.",
+    "WACC is what every funder together needs to be paid.",
+    "Distant cash flows don't fade — they collapse, because the discount compounds."
+  ],
+  "you_may_hear": [
+    "Modified IRR (MIRR) — fixes IRR's assumption that cash is reinvested at the IRR itself.",
+    "Projects with multiple IRRs, where the cash flows change sign more than once.",
+    "Adjusted present value (APV) — value the business unlevered, then add the tax shield separately.",
+    "Real versus nominal rates — discount real cash flows at a real rate, nominal at nominal.",
+    "Continuous compounding and the e^{-rt} form of the discount factor."
+  ]
+}

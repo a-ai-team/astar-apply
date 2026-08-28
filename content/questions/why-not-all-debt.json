@@ -1,0 +1,39 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-not-all-debt",
+  "subtopic_slug": "wacc-intro",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "If debt is cheaper than equity, why doesn't a company fund itself entirely with debt?",
+  "model_answer_md": "Because the cheapness does not survive being scaled up. Debt does lower WACC at first — interest is tax-deductible and lenders accept a low return — but three forces push back as leverage rises.\n\n**The cost of equity climbs.** Every pound of debt ranks ahead of the owners, so the residual claim becomes more volatile. Part of the cheap money's cost is simply transferred onto the equity rather than eliminated.\n\n**Lenders re-price.** Past a certain leverage the bank stops being relaxed: rates rise, covenants tighten, and new borrowing gets harder.\n\n**Distress becomes real.** A heavily indebted company loses customers, suppliers, staff and strategic options — costs that never appear in the WACC formula but are entirely real.\n\nSo WACC traces a shallow **U**: falling at first, flattening, then rising. In theory the optimum is the bottom of that U; in practice nobody can locate it precisely, which is why companies target a leverage *range* rather than a point.",
+  "key_points": [
+    "Cost of equity rises with leverage as the residual claim gets riskier",
+    "Lenders re-price and tighten terms beyond a certain point",
+    "Financial distress carries real costs outside the formula",
+    "WACC is U-shaped: falls, flattens, then rises",
+    "The theoretical optimum is the bottom of the U, but it cannot be located precisely",
+    "Firms therefore target a range, and keep headroom for flexibility"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where is the minimum, in practice?",
+      "answer_md": "It varies enormously by business, and nobody can pin it down to a decimal. Stable, asset-backed cash flows — utilities, regulated infrastructure, mature telecoms — support far more leverage than volatile ones, so their optimum sits at much higher debt levels. In practice companies pick a target credit rating or a leverage band, which is a proxy for staying near the flat part of the U while keeping the flexibility to borrow when they need to."
+    },
+    {
+      "question": "How does this relate to trade-off theory and pecking-order theory?",
+      "answer_md": "Trade-off theory is exactly the U I described: the tax shield pulls leverage up, distress costs push it down, and the optimum is where they balance. Pecking-order theory offers a different explanation of what firms actually do — they prefer internal funds first, then debt, then equity last, because issuing equity signals that management thinks the shares are expensive. Naming both is usually enough at this level."
+    }
+  ],
+  "weak_answer_note": "Mentions only 'bankruptcy risk' without the mechanism by which the cost of equity itself rises, or asserts that WACC keeps falling with leverage. A weak answer also treats the optimum as a precisely computable number.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "wacc",
+    "capital-structure"
+  ]
+}
