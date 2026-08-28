@@ -2,7 +2,7 @@
 
 - **Run started:** — (Technicals v2 run not started; planning merged/PR'd 2026-08-28)
 - **Loop:** 11 Technicals v2 platform (`docs/loops/11-technicals-platform.md`) — **planned**
-- **Branch:** `feat/technicals-v2-plan` (docs-only PR: research + Loops 11–18 plans) → next build branch `feat/technicals-platform`
+- **Branch:** `feat/technicals-v2-plan` (docs-only PR **#29**: research + Loops 11–18 plans) → next build branch `feat/technicals-platform`
 - **Task:** 0 / 10 of Loop 11
 - **Last checks:** — (docs only)
 - **Blockers:** none for Loop 11 (no migration, no credit needed). Chapter loops 12–18 need Loop 11 merged.
