@@ -1,0 +1,36 @@
+{
+  "slug": "can-ev-be-negative",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Can enterprise value be negative? What would that tell you?",
+  "model_answer_md": "Yes, and it is not an arithmetic mistake. It happens when a company's cash exceeds its equity value plus its other claims.\n\nTake Tarrant Digital: 60m shares at £8.00 gives an equity value of £480m, it owes £90m and holds £600m of cash. EV = 480 + 90 − 600 = **−£30m**. The cash alone is £10.00 per share against a share price of £8.00.\n\nThe market is saying it expects that cash to be destroyed — burned on operations that will not earn a return. A negative EV is a statement about expected future losses, not a free lunch.\n\nThe first things I would check are the burn rate and how long the cash lasts, whether the cash is actually accessible, and whether there are obligations off the balance sheet. It shows up most often in distressed businesses and in early-stage companies that have just raised money.",
+  "key_points": [
+    "Yes — when cash exceeds equity value plus other claims",
+    "Tarrant Digital: 480 + 90 − 600 = −£30m, with £10.00 of cash per £8.00 share",
+    "The market is pricing in the destruction of that cash",
+    "Check the burn rate, whether the cash is accessible, and off-balance-sheet claims",
+    "Most common in distress and in early-stage companies after a raise"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would you check first?",
+      "answer_md": "The cash burn and the resulting runway, then whether the cash is genuinely available rather than restricted, and finally any obligations that do not appear on the balance sheet."
+    },
+    {
+      "question": "What multiple would you use for a company like that?",
+      "answer_md": "Not an EV multiple — a negative numerator makes it meaningless. You would fall back on the cash per share, a sum of the parts, or a probability-weighted view of what the operations might eventually be worth."
+    }
+  ],
+  "weak_answer_note": "Says EV can never be negative, or spots that it can but calls it an obvious buying opportunity without asking why the market is pricing the cash so cheaply.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

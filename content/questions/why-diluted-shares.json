@@ -1,0 +1,35 @@
+{
+  "slug": "why-diluted-shares",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "diluted-shares",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why do we use diluted rather than basic shares when calculating equity value?",
+  "model_answer_md": "Because the people holding options and similar instruments are shareholders-in-waiting, and a buyer ends up paying for them.\n\nIn a takeover, anyone holding an option worth exercising will exercise it. Those shares come into existence and take a slice of the proceeds. If you valued the company on the basic count you would be pricing a smaller pie than the one actually being sold, and you would understate what the equity is worth.\n\nThe qualification is that only instruments **in the money** count. An option with a strike above the current share price is worthless today, so nobody would exercise it and it adds nothing.",
+  "key_points": [
+    "Options and similar instruments become real shares in a takeover",
+    "A buyer pays for every share that will exist, not just today's",
+    "Basic share counts understate equity value",
+    "Only in-the-money instruments are included"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about options that are out of the money?",
+      "answer_md": "They are excluded. Nobody exercises an option to buy at £6 when the shares trade at £4 — it has no value and creates no dilution."
+    },
+    {
+      "question": "How do restricted stock units fit in?",
+      "answer_md": "They are added at their full count. There is no strike price to pay, so there are no proceeds to offset them — every RSU becomes a share."
+    }
+  ],
+  "weak_answer_note": "Says 'you always use diluted' without explaining that the buyer has to pay for those shares, or forgets that out-of-the-money options are excluded.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

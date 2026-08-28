@@ -1,0 +1,35 @@
+{
+  "slug": "rsus-and-warrants",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "diluted-shares",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "How do restricted stock units and warrants differ from options in a diluted share count?",
+  "model_answer_md": "**RSUs** are the simplest. There is no strike price — the employee is simply given the shares once they vest — so there are no proceeds to offset and no buyback step. Every RSU adds one share to the diluted count.\n\n**Warrants** behave almost exactly like options. The holder pays an exercise price, so the company collects cash and the treasury-stock method applies in the same way. The differences are mostly about who holds them and why: warrants are often issued to lenders or investors rather than staff, and tend to run for longer.\n\nSo the practical rule is: if the holder pays something to convert, run the treasury-stock method; if they pay nothing, add the full count.",
+  "key_points": [
+    "RSUs have no strike, so no proceeds and no buyback — add them in full",
+    "Warrants carry an exercise price and follow the treasury-stock method",
+    "Warrants usually go to investors or lenders rather than employees",
+    "The test is whether the holder pays anything to convert"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about performance shares that only vest if targets are hit?",
+      "answer_md": "They are contingent, so treatment varies. A common approach is to include them if the targets look likely to be met, and to say explicitly that you have made that judgement."
+    },
+    {
+      "question": "Do expired or lapsed warrants matter?",
+      "answer_md": "No — once they have expired they cannot become shares, so they drop out of the count entirely. Just make sure the figures you are using are current."
+    }
+  ],
+  "weak_answer_note": "Treats RSUs like options and runs a buyback calculation on them, when there are no proceeds to buy anything back with.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

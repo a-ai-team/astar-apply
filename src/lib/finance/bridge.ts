@@ -80,3 +80,40 @@ export function pairsWith(metric: string): MetricPairing | null {
   if ((EQUITY_METRICS as readonly string[]).some((m) => m.toLowerCase() === norm)) return "equity";
   return null;
 }
+
+export type LeaseInputs = {
+  /** EBITDA *as reported under IFRS 16*, i.e. with the rent already out of operating costs. */
+  ebitda: number;
+  /** EBIT is broadly unaffected by capitalisation — the rent is replaced by right-of-use depreciation. */
+  ebit: number;
+  equityValue: number;
+  debt: number;
+  cash: number;
+  preferred?: number;
+  nci?: number;
+  /** Lease liability added to the bridge when leases are capitalised. */
+  leaseLiability: number;
+  /** The old cash rent, which sits back in operating costs when they are not. */
+  annualRent: number;
+};
+
+export type LeaseView = { ebitda: number; ebit: number; ev: number; evEbitda: number };
+
+/**
+ * The same company seen with and without IFRS 16 lease capitalisation (Loop 14, `lease_toggle`).
+ *
+ * Capitalising moves rent out of operating costs (EBITDA up) *and* puts a lease liability into the
+ * bridge (EV up). Both sides move together, so the multiple barely shifts — which is why the only
+ * real sin is applying one treatment to the target and the other to its comparables.
+ */
+export function leaseView(i: LeaseInputs, capitalised: boolean): LeaseView {
+  const ebitda = capitalised ? i.ebitda : i.ebitda - i.annualRent;
+  const ev = equityToEnterprise(i.equityValue, {
+    debt: i.debt,
+    cash: i.cash,
+    preferred: i.preferred,
+    nci: i.nci,
+    leases: capitalised ? i.leaseLiability : 0,
+  });
+  return { ebitda, ebit: i.ebit, ev, evEbitda: ebitda === 0 ? 0 : ev / ebitda };
+}

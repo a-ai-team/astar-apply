@@ -67,7 +67,8 @@ test.describe("Loop 11 platform", () => {
     await page.goto(EQV_LESSON);
     await expect(page).toHaveURL(/\?lens=tmt$/);
     await expect(page.getByTestId("lens-badge")).toHaveText(/TMT/i);
-    await expect(page.getByText("Tech: net cash, and an enterprise value below the market cap")).toBeVisible();
+    // Assert structurally, not by prose: chapter loops rewrite lens headings (Loop 14 did).
+    await expect(page.getByTestId("block-lens")).toBeVisible();
 
     // Back to generalist: the badge goes, the hint returns, the URL is clean.
     await page.getByTestId("lens-picker").selectOption("");

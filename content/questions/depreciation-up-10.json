@@ -34,7 +34,9 @@
   "tags": [
     "depreciation",
     "walkthrough",
-    "tax-shield"
+    "tax-shield",
+    "depth:sa-core",
+    "format:verbal"
   ],
   "status": "approved"
 }

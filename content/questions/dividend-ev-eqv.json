@@ -1,0 +1,42 @@
+{
+  "slug": "dividend-ev-eqv",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Harbourline pays a £50m dividend out of its cash. What happens to equity value and enterprise value?",
+  "model_answer_md": "Equity value falls by £50m, to **£1,000m** — the cash has left the company and gone to the shareholders, so the shares are worth less by exactly what was paid out.\n\nEnterprise value does not change. Cash drops from £120m to £70m, so net debt rises from £380m to £430m. The £50m fall in equity value and the £50m rise in net debt cancel each other in the bridge, and EV stays at **£1,530m**.\n\nThat is the pattern to recognise: paying money out to shareholders moves value between the two measures rather than creating or destroying it at the operating level.",
+  "key_points": [
+    "Equity value falls by the dividend, to £1,000m",
+    "Cash falls £50m so net debt rises to £430m",
+    "The two moves offset, leaving EV at £1,530m",
+    "Distributions shift value between the measures rather than changing the business"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about a share buyback of the same size?",
+      "answer_md": "Same effect on EV. Cash falls £50m and net debt rises £50m; equity value falls £50m in total, though here it is spread over fewer shares, so the price per share need not fall."
+    },
+    {
+      "question": "And a special dividend funded by new borrowing?",
+      "answer_md": "EV is still unchanged. Debt rises £50m and equity value falls £50m — the money reaches shareholders via the lenders rather than from the cash pile, but the bridge nets out the same way."
+    }
+  ],
+  "weak_answer_note": "Says both values fall by £50m, or that EV falls because the company has less cash — missing that the bridge subtracts cash, so less cash raises net debt.",
+  "numbers": {
+    "inputs": {
+      "dividend": 50,
+      "opening_eqv": 1050,
+      "opening_ev": 1530
+    },
+    "answer": 1530
+  },
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

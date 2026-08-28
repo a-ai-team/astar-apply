@@ -1,0 +1,35 @@
+{
+  "slug": "what-is-equity-value",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "equity-and-enterprise-value",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What is equity value, and how do you calculate it?",
+  "model_answer_md": "Equity value is what the ordinary shareholders' claim on a business is worth. You get it by taking the share price and multiplying by the **diluted** share count — for Harbourline, £4.20 across 250m shares, so £1,050m.\n\nThe important word is *diluted*. Options and other instruments that will turn into shares represent people who are effectively shareholders already, and a buyer has to pay for them, so they belong in the count. Using the basic count understates what the equity is worth.\n\nEquity value is the number the market quotes every second of the trading day, usually under the name market capitalisation.",
+  "key_points": [
+    "Share price × diluted shares",
+    "The ordinary shareholders' claim, ranking last",
+    "Diluted, not basic — options are shareholders-in-waiting",
+    "Quoted continuously by the market as market capitalisation"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why diluted rather than basic?",
+      "answer_md": "Because a buyer has to pay for every share that will exist, not just the ones that exist today. In-the-money options will be exercised in a takeover, so the acquirer is buying those shares too."
+    },
+    {
+      "question": "Is equity value the same as market capitalisation?",
+      "answer_md": "Effectively yes for a listed company, though market cap is often quoted on the basic count. The careful version uses diluted shares, which is what you want for a valuation."
+    }
+  ],
+  "weak_answer_note": "Says 'the value of the company' without identifying whose claim it is, or uses basic shares and never mentions dilution.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

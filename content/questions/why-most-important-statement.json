@@ -27,7 +27,9 @@
   "source_topic": "Accounting – concepts",
   "tags": [
     "three-statements",
-    "cash-flow"
+    "cash-flow",
+    "depth:sa-core",
+    "format:verbal"
   ],
   "status": "approved"
 }

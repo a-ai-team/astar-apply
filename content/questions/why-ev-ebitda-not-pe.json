@@ -1,0 +1,35 @@
+{
+  "slug": "why-ev-ebitda-not-pe",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Why do bankers usually lead with EV/EBITDA rather than P/E?",
+  "model_answer_md": "Because EV/EBITDA is neutral to how a company is financed, and P/E is not.\n\nEBITDA is struck before interest, so it does not care whether a company is funded with debt or equity. Enterprise value covers all the providers of that funding. Put them together and you get a multiple that describes the operating business, which is what you want when comparing companies that have made different borrowing decisions.\n\nP/E sits after interest on both sides. Take two identical businesses, load one with debt, and its net income falls while its equity value falls too — but not proportionately, because leverage magnifies the earnings effect. Their P/E ratios will differ even though the underlying operations are the same.\n\nEBITDA is not perfect. It ignores capital intensity, working capital and tax entirely, so a business that has to spend heavily just to stand still looks better on EBITDA than it deserves to.",
+  "key_points": [
+    "EBITDA is pre-interest, so the multiple is capital-structure-neutral",
+    "P/E is distorted by leverage on both the numerator and the denominator",
+    "EV/EBITDA lets you compare businesses rather than balance sheets",
+    "EBITDA ignores capex, working capital and tax — its main weakness"
+  ],
+  "follow_ups": [
+    {
+      "question": "When would P/E be the better multiple?",
+      "answer_md": "For banks and insurers, where interest is the business itself and EV has no real meaning, and for mature companies where the market genuinely thinks in earnings-per-share terms."
+    },
+    {
+      "question": "What are the main flaws in EBITDA?",
+      "answer_md": "It flatters capital-intensive businesses by ignoring the capex needed to sustain them, and it takes no account of tax or working-capital demands. Sometimes EV/EBIT is a fairer comparison because depreciation is at least a proxy for capital intensity."
+    }
+  ],
+  "weak_answer_note": "Says EBITDA is 'closer to cash flow' without mentioning capital structure, which is the actual reason for the preference.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

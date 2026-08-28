@@ -1,0 +1,35 @@
+{
+  "slug": "identical-companies-different-leverage",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A candidate says: 'These two companies have identical operations, so any sensible multiple should give the same answer for both.' One is debt-free and the other is heavily borrowed. Where does that reasoning break?",
+  "model_answer_md": "It breaks on the word *any*. Some multiples will match and some will not, and knowing which is the point.\n\n**EV/EBITDA will be the same.** EBITDA is struck before interest and enterprise value covers all the funders, so neither side of that ratio notices the debt.\n\n**P/E will differ.** The borrowed company pays interest, so its net income is lower, and its equity value is lower too — but not by the same proportion. Leverage magnifies whatever is left over for shareholders, and the tax deductibility of interest adds a further wrinkle. So the two P/E ratios come out apart even though the businesses are identical.\n\nThat is exactly why EV/EBITDA is the default for comparisons: it isolates the operations. If you want to compare on P/E you first have to ask whether the capital structures are similar enough for the comparison to mean anything.",
+  "key_points": [
+    "EV/EBITDA matches — both sides are indifferent to financing",
+    "P/E differs because interest reduces net income and leverage magnifies the residual",
+    "The tax shield on interest adds a further distortion",
+    "This is the case for EV/EBITDA as the default comparison multiple"
+  ],
+  "follow_ups": [
+    {
+      "question": "How does the tax shield affect the P/E?",
+      "answer_md": "Interest is deductible, so the after-tax cost of debt is lower than the headline rate. That softens the hit to net income and makes the levered company's earnings fall by less than the interest bill suggests."
+    },
+    {
+      "question": "At what point does leverage start to hurt the equity story?",
+      "answer_md": "Once the risk of distress becomes real, shareholders demand a higher return and the equity multiple compresses. Modest leverage can lift returns; heavy leverage eventually makes the equity look more like an option than a claim on earnings."
+    }
+  ],
+  "weak_answer_note": "Agrees that all multiples should match, or spots that P/E differs but cannot explain why leverage moves earnings and equity value by different proportions.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:spot"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

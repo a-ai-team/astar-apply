@@ -1,0 +1,42 @@
+{
+  "slug": "equity-raise-kept-as-cash",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Harbourline issues £100m of new shares and holds the money as cash. What happens to equity value and enterprise value?",
+  "model_answer_md": "Equity value rises by £100m, to **£1,150m**. There are more shares in issue and the company holds £100m more in the bank, so the total value of the equity is higher — though each existing share is worth roughly what it was, since the new shareholders paid fair value for their stake.\n\nEnterprise value is unchanged. Cash rises £100m, so net debt falls from £380m to £280m, and that £100m fall exactly offsets the £100m rise in equity value. EV stays at **£1,530m**.\n\nOnce again the operating business has not changed, so the measure designed to capture the operating business does not move.",
+  "key_points": [
+    "Equity value rises by the £100m raised, to £1,150m",
+    "Cash rises £100m so net debt falls to £280m",
+    "The moves offset and EV holds at £1,530m",
+    "Existing shareholders are not diluted in value if the shares were issued at fair value"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if it then spends the money on capital expenditure?",
+      "answer_md": "Cash falls, net debt rises back towards £380m, and EV rises with it. The company has converted cash into productive assets, which is a real change to the business."
+    },
+    {
+      "question": "What if it uses the money to buy another company?",
+      "answer_md": "EV rises by the price paid, and whether that was a good idea shows up over time in the earnings the acquisition delivers relative to what was spent."
+    }
+  ],
+  "weak_answer_note": "Claims EV rises because the company is now bigger, forgetting that raising equity and sitting on the proceeds changes only the funding, not the operations.",
+  "numbers": {
+    "inputs": {
+      "equity_raised": 100,
+      "opening_eqv": 1050,
+      "opening_ev": 1530
+    },
+    "answer": 1530
+  },
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

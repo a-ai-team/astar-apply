@@ -1,0 +1,44 @@
+{
+  "slug": "net-debt-given-not-cash",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Marlow Foods trades at £12.50 with 80m diluted shares. You are told its **net debt is negative £80m**, and it has £15m of non-controlling interests and £20m of lease liabilities. What is its enterprise value?",
+  "model_answer_md": "Equity value is 12.50 × 80 = **£1,000m**.\n\nNet debt is already given as −£80m, so there is nothing further to do with borrowings or cash — the netting has been done for you. This is where candidates trip: they add the net debt and then go looking for a cash figure to subtract as well, double-counting it.\n\nEV = 1,000 + (−80) + 15 + 20 = **£955m**.\n\nA negative net debt means Marlow holds more cash than borrowings, so its enterprise value comes out *below* its equity value. That is not an error; it just means the market is paying for a business that comes with a cash pile attached.",
+  "key_points": [
+    "Equity value £1,000m from 12.50 × 80m",
+    "Net debt is supplied as −£80m — do not subtract cash again",
+    "Add NCI £15m and leases £20m",
+    "EV = £955m, below equity value because of the net cash"
+  ],
+  "follow_ups": [
+    {
+      "question": "What does a negative net debt sign mean here?",
+      "answer_md": "That cash exceeds borrowings. It reduces enterprise value, so EV sits below equity value — the opposite of the usual industrial picture."
+    },
+    {
+      "question": "Why are leases listed separately from net debt?",
+      "answer_md": "Because net debt conventionally covers borrowings and cash only. Lease liabilities are a separate line, added when the EBITDA you are comparing against is before lease costs."
+    }
+  ],
+  "weak_answer_note": "Adds net debt and then subtracts a cash figure as well, or flips the sign and reaches £1,115m.",
+  "numbers": {
+    "inputs": {
+      "share_price": 12.5,
+      "diluted_shares": 80,
+      "net_debt": -80,
+      "nci": 15,
+      "leases": 20
+    },
+    "answer": 955
+  },
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "leases-in-the-bridge",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "How do lease liabilities fit into enterprise value?",
+  "model_answer_md": "Under IFRS 16 a lease sits on the balance sheet as a liability, with a matching right-of-use asset, and the rent that used to be an operating cost becomes depreciation plus interest. That does two things at once: it creates a debt-like obligation, and it lifts EBITDA, because rent has left operating costs.\n\nSo the rule is consistency rather than a fixed answer. If the EBITDA you are using is post-IFRS 16 — that is, before lease costs — then add the lease liability to EV. If you are working with an EBITDA that still has rent charged against it, leave the liability out.\n\nFor Harbourline both routes are defensible: £1,530m over £170m gives 9.0×, and £1,485m over £158m gives 9.4×. What you must not do is mix them.",
+  "key_points": [
+    "IFRS 16 puts a lease liability on the balance sheet and lifts EBITDA",
+    "Add the liability when EBITDA is measured before lease costs",
+    "Leave it out when rent is still charged in the EBITDA you are using",
+    "Harbourline: 9.0× including leases on both sides, 9.4× excluding them from both"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens to EV/EBITDA when you capitalise leases?",
+      "answer_md": "Both the numerator and the denominator rise, so the multiple moves only slightly — and it can move either way depending on the lease profile. The mistake would be lifting only one of them."
+    },
+    {
+      "question": "What if your comparable companies report under different standards?",
+      "answer_md": "Then you have to put them on the same basis before comparing, usually by capitalising rent for the ones that have not, or by stripping leases out of everybody. Say which adjustment you made."
+    }
+  ],
+  "weak_answer_note": "Says leases are 'always added' with no mention of the matching EBITDA treatment, which is the whole point of the question.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

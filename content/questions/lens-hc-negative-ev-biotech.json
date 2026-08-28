@@ -1,0 +1,37 @@
+{
+  "slug": "lens-hc-negative-ev-biotech",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A clinical-stage biotech is trading at an enterprise value close to zero. What is the market telling you?",
+  "model_answer_md": "That it expects the cash to be spent without producing anything of value.\n\nA biotech that has recently raised money can hold cash worth a large fraction of its market capitalisation. Put that through the bridge and enterprise value collapses towards zero, or below it. Since EV is meant to be the market's valuation of the operating business, an EV near zero says the market is assigning almost no value to the pipeline — and may be assuming the trials will fail and the money will be burned along the way.\n\nIt is a signal, not a bargain. Buying a pound of cash for eighty pence only works if you can stop the company spending it, and a shareholder cannot.\n\nWhat I would look at is the runway against the burn rate, when the next data readout lands, and what the pipeline would be worth if it succeeded — because that readout, not the balance sheet, is what the valuation actually turns on.",
+  "key_points": [
+    "Cash from a recent raise can approach or exceed the market cap",
+    "An EV near zero means the market ascribes almost no value to the pipeline",
+    "It is a statement about expected burn, not a free lunch",
+    "Look at runway, burn rate and the timing of the next readout",
+    "The upcoming data, not the balance sheet, drives the valuation"
+  ],
+  "follow_ups": [
+    {
+      "question": "What catalysts would change the picture?",
+      "answer_md": "A positive trial readout, a partnership or licensing deal that validates the science, or a regulatory milestone. Any of these can re-rate the pipeline overnight, which is why the value is so binary."
+    },
+    {
+      "question": "Would you use a multiple here at all?",
+      "answer_md": "No. There is no meaningful earnings or EBITDA base. You would use a risk-adjusted NPV — probability-weighting the cash flows from each programme — and sanity-check it against the cash per share."
+    }
+  ],
+  "weak_answer_note": "Calls it an obvious buy because the shares trade below the cash pile, without asking why the market expects that cash to be destroyed.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "treasury-stock-method",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "diluted-shares",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Harbourline has 240m basic shares trading at £4.20, and 20m employee options with a £2.10 strike. What is the diluted share count, and what is the equity value?",
+  "model_answer_md": "The strike is below the market price, so the options are in the money and will be exercised.\n\nThe treasury-stock method assumes the company uses the exercise proceeds to buy its own shares back:\n\n- Proceeds: 20m × £2.10 = **£42m**\n- Shares repurchased at the market price: £42m ÷ £4.20 = **10m**\n- Net new shares: 20m issued less 10m bought back = **10m**\n- Diluted count: 240m + 10m = **250m**\n\nEquity value is 4.20 × 250 = **£1,050m**.\n\nThe reason for the buyback step is that the company genuinely receives cash when options are exercised, so the dilution is not the full 20m — it is only the part the proceeds cannot offset.",
+  "key_points": [
+    "Options are in the money at £2.10 against £4.20",
+    "Proceeds 20 × 2.10 = £42m",
+    "Buyback 42 ÷ 4.20 = 10m shares",
+    "Net dilution 10m → 250m diluted shares",
+    "Equity value £1,050m"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the share price doubled to £8.40?",
+      "answer_md": "Proceeds stay at £42m because they are set by the strike, but they now buy back only 5m shares. Net dilution rises to 15m and the diluted count becomes 255m — a higher price means more dilution, not less."
+    },
+    {
+      "question": "What if the strike were above the share price?",
+      "answer_md": "The options would be out of the money and excluded entirely. The diluted count would simply be the 240m basic shares."
+    }
+  ],
+  "weak_answer_note": "Adds all 20m options to the basic count and reaches 260m, ignoring the cash the company collects on exercise.",
+  "numbers": {
+    "inputs": {
+      "basic_shares": 240,
+      "options": 20,
+      "strike": 2.1,
+      "share_price": 4.2
+    },
+    "answer": 250
+  },
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

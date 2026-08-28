@@ -1,0 +1,35 @@
+{
+  "slug": "share-price-doubles-ev",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "equity-and-enterprise-value",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A candidate says: 'Harbourline's share price has doubled overnight, so its enterprise value has doubled too — from £1,430m to £2,860m.' Nothing else about the company has changed. What is wrong with that?",
+  "model_answer_md": "The error is treating enterprise value as if it scales with the share price. It does not, because only one part of it does.\n\nEquity value genuinely doubles: £1,050m becomes £2,100m. But net debt is unchanged at £380m — the borrowings and the cash sit on the balance sheet and take no notice of the share price. So enterprise value goes from £1,430m to £2,480m, a rise of £1,050m, which is **73 %**, not 100 %.\n\nThe general point is that EV rises by the *increase in equity value*, in pounds, not by the same percentage. The more debt a company carries, the further apart those two percentages get.",
+  "key_points": [
+    "Only the equity component moves with the share price",
+    "Net debt of £380m is unaffected by the share price",
+    "EqV 1,050 → 2,100; EV 1,430 → 2,480",
+    "EV rises by the same £1,050m, but that is 73 %, not 100 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the company refinanced its debt at the same time?",
+      "answer_md": "Refinancing swaps one borrowing for another, so net debt is broadly unchanged and EV is unchanged with it. Only the amount of debt matters here, not its terms."
+    },
+    {
+      "question": "Does the cash balance change when the share price moves?",
+      "answer_md": "No. Cash is a balance-sheet fact. That is exactly why the two values move by different percentages."
+    }
+  ],
+  "weak_answer_note": "Agrees that EV doubles, or spots that something is wrong but cannot say which part of the bridge is fixed.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:spot"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,208 @@
+{
+  "slug": "diluted-shares",
+  "subtopic_slug": "diluted-shares",
+  "title": "Diluted shares and the treasury-stock method",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Every equity value you will ever quote is a share price multiplied by a share count. The price is on a screen and nobody argues about it. The count is a judgement, and that is where interviewers go looking.\n\nThe question sounds administrative — \"how do you get to diluted shares?\" — but it is really testing whether you know that a company has promised shares to people who do not own them yet. Employees hold options. Investors hold convertible bonds. All of those become real shares if the price is right, and every one of them shrinks the slice belonging to today's shareholders.\n\nGet this wrong and every downstream number is wrong with it: equity value, enterprise value, the P/E, the price you tell a client their company is worth."
+      },
+      {
+        "type": "concept",
+        "heading": "An option is a promise to sell shares cheaply",
+        "md": "When Harbourline grants an employee an option with a **strike price** of £2.10, it has promised to sell them a new share for £2.10 whenever they choose to ask.\n\nWhether that promise costs anything depends entirely on today's price:\n\n- Share trading at **£4.20** — the employee pays £2.10 for something worth £4.20. They will exercise. The option is **in the money**.\n- Share trading at **£1.80** — nobody pays £2.10 for a £1.80 share. The option is **out of the money** and, for counting purposes, does not exist.\n\nSo the first move is always to throw away the options that are under water. Only the in-the-money ones can dilute you.\n\nThe second move is the one candidates skip. When those options *are* exercised, the company does not just hand over shares — it **collects the strike price in cash**. That cash is real, and the standard convention is to assume the company immediately spends it buying its own shares back at the market price. Those repurchased shares cancel out part of the dilution.\n\nThat convention is the **treasury-stock method**, and the number that matters is what is left over: shares issued, minus shares bought back."
+      },
+      {
+        "type": "mechanics",
+        "md": "Four steps, in this order:\n\n1. **Discard** every option whose strike sits at or above the share price.\n2. **Proceeds** = number of in-the-money options × their strike price. This is the cash the company receives.\n3. **Shares repurchased** = proceeds ÷ current share price. Note the asymmetry: money comes in at the *strike*, and buys shares back at the *market price*.\n4. **Net new shares** = options exercised − shares repurchased. Add that to basic shares.\n\n$$\\text{Diluted shares} = \\text{Basic} + \\left(\\text{Options}_{ITM} - \\frac{\\text{Options}_{ITM} \\times \\text{Strike}}{\\text{Share price}}\\right)$$\n\nTwo instruments behave differently and both come up:\n\n- **Restricted stock units** have no strike. The employee pays nothing, so there are no proceeds and no buyback — add the **full count**.\n- **Convertible bonds** are handled by the *if-converted* method: if the share price is above the conversion price, assume the bond turns into shares (principal ÷ conversion price) and **remove that debt from the bridge**. If it is below, leave it sitting in the bridge as debt."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline's share price doubles from £4.20 to £8.40 overnight. The same 20m options at a £2.10 strike are still outstanding. Do they now dilute more, less, or exactly the same?",
+        "options": [
+          {
+            "label": "More — net dilution rises to 15m shares",
+            "correct": true
+          },
+          {
+            "label": "Less — a higher price means the buyback absorbs more of them"
+          },
+          {
+            "label": "Exactly the same — the option count has not changed"
+          },
+          {
+            "label": "Nothing — they were already in the money"
+          }
+        ],
+        "explain_md": "Dilution **rises**, which surprises most people.\n\nThe proceeds are fixed by the strike, not the market: 20m × £2.10 is still £42m however high the shares go. But that £42m now buys back only 42 ÷ 8.40 = **5m shares** instead of 10m. So the net dilution grows from 10m to **15m shares**, and the diluted count moves from 250m to 255m.\n\nThe intuition worth keeping: a rising share price makes the company's own buyback money less powerful, so deeper in-the-money options bite harder. Options are most dilutive when the shares have done best."
+      },
+      {
+        "type": "widget",
+        "widget": "tsm_dilution",
+        "props": {
+          "basicShares": 240,
+          "options": [
+            {
+              "count": 20,
+              "strike": 2.1
+            }
+          ],
+          "sharePrice": 4.2,
+          "convertible": {
+            "principal": 60,
+            "conversionPrice": 3
+          }
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc.** Basic shares 240m. Outstanding: 20m employee options with a strike of £2.10. The shares trade at **£4.20**.\n\nThe strike is below the market price, so the options are in the money and all four steps apply.",
+        "steps": [
+          {
+            "label": "Cash the company collects on exercise",
+            "expr": "20 * 2.10",
+            "value": 42,
+            "unit": "£m"
+          },
+          {
+            "label": "Shares it buys back with that cash",
+            "expr": "42 / 4.20",
+            "value": 10,
+            "unit": "m"
+          },
+          {
+            "label": "Net new shares (20m issued less 10m bought back)",
+            "expr": "20 - 10",
+            "value": 10,
+            "unit": "m"
+          },
+          {
+            "label": "Diluted share count",
+            "expr": "240 + 10",
+            "value": 250,
+            "unit": "m"
+          },
+          {
+            "label": "Equity value at £4.20",
+            "expr": "4.20 * 250",
+            "value": 1050,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now run the same options through the **£8.40** share price from the prediction above, and see the dilution grow. Fill in the two lines that carry the point.",
+        "steps": [
+          {
+            "label": "Proceeds (unchanged — set by the strike)",
+            "expr": "20 * 2.10",
+            "value": 42,
+            "unit": "£m"
+          },
+          {
+            "label": "Shares bought back at the higher price",
+            "expr": "42 / 8.40",
+            "value": 5,
+            "unit": "m",
+            "blank": true
+          },
+          {
+            "label": "Net new shares",
+            "expr": "20 - 5",
+            "value": 15,
+            "unit": "m",
+            "blank": true
+          },
+          {
+            "label": "Diluted share count",
+            "expr": "240 + 15",
+            "value": 255,
+            "unit": "m"
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"There are 20m options outstanding, so add 20m shares.\"**\n\nThis is the single most common error on this question, and it overstates the count by exactly the buyback.\n\nTwo things are wrong with it. First, it ignores the cash: the company is *paid* £42m when those options are exercised, and that money does not vanish — the convention assumes it goes straight back into buying shares. Only the **net** figure of 10m dilutes.\n\nSecond, it counts options that will never be exercised. If Harbourline's shares fell to £1.80, not one of those £2.10 options would be worth exercising, and the diluted count would sit right back at the basic 240m.\n\nThe symmetric mistake is to apply the treasury-stock method to **restricted stock units**. There is no strike on an RSU, so there are no proceeds and no buyback — those add in full."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Start from basic shares, then add the net effect of in-the-money options using the treasury-stock method: assume they are exercised, the company collects the strike proceeds, and it spends that cash buying shares back at the market price. Only the difference dilutes. Options below the strike are ignored entirely, and RSUs add in full because there are no proceeds. In-the-money convertibles are treated as converted — add the shares and take the debt out of the bridge. Harbourline's 20m options at £2.10 against a £4.20 share add 10m net, taking 240m basic to 250m diluted.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Option-heavy cap tables, where dilution is the story",
+            "md": "In technology this stops being a rounding adjustment and becomes one of the main things you check.\n\nSoftware companies pay a large slice of compensation in equity, because it conserves cash and ties employees to the outcome. The consequence is that a mature listed software business can carry 10–15 % of its share count in options and unvested RSUs, and a recently listed one considerably more. Ignore that and the market capitalisation you quote is materially too small.\n\nThere is a second, subtler effect. Because the share prices are volatile, the *same* option pool swings between diluting heavily and not existing at all. A grant struck at last year's peak may be entirely under water today and back in the money after one good quarter — so the diluted count is not a fixed property of the company, it moves with the price.\n\nConvertible bonds are also far more common here than in industrials, so check the conversion price before deciding whether an instrument belongs in the debt line or the share count.",
+            "example_q": "Why might a software company's diluted share count sit far above its basic count?",
+            "answer_md": "Because it pays people in equity. A large share of compensation is options and restricted stock, so there is a big pool of shares promised but not yet issued, and much of it is in the money after a strong run in the share price.\n\nI would treat the two instruments differently: options go through the treasury-stock method, so only the net shares after the assumed buyback count, while RSUs have no strike and therefore add in full. I would also check for convertible bonds, because if the shares are above the conversion price those become equity and leave the debt line — which changes both the share count and the bridge at the same time."
+          },
+          "healthcare": {
+            "heading": "Warrants attached to a biotech fundraising",
+            "md": "Biotechs raise money repeatedly, and the instruments they issue leave a trail through the share count.\n\nA typical raise attaches **warrants** to the new shares — a sweetener giving the investor the right to buy more stock later at a set price. Mechanically a warrant behaves exactly like an option: check whether it is in the money, apply the treasury-stock method, and add only the net shares. The only real difference is who holds it. Options sit with employees; warrants sit with outside investors, and they are usually issued in far larger blocks relative to the company's size.\n\nThat matters because a small biotech may go through several financing rounds before it earns a penny of revenue. Each round adds shares, and each set of warrants adds a contingent claim on top. By the time a drug reaches the market, the founding shareholders can own a small fraction of what they started with — which is why, in this sector, the diluted count often tells you more about the company's funding history than any single line on the balance sheet.",
+            "example_q": "A biotech issued 5m warrants at a £1.00 exercise price and the shares now trade at £3.00. What is the diluted effect?",
+            "answer_md": "The warrants are in the money, so they count. Exercise brings in 5m × £1.00 = £5m of proceeds, and at £3.00 a share that buys back about 1.67m shares. So the net dilution is roughly **3.3m shares**, not the full 5m.\n\nI would treat them exactly as I would employee options — the treasury-stock method does not care who holds the instrument. The thing I would want to know next is whether there are further tranches from earlier rounds, because biotechs tend to layer these up with each financing, and it is the accumulated total rather than any single tranche that moves the equity value."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Calder Media** has 60m basic shares trading at **£8.00**. It has granted **9m options at a £5.00 strike** and **3m restricted stock units**. What is its diluted share count?",
+        "model_answer_md": "The options are in the money at £5.00 against £8.00, so they go through the treasury-stock method:\n\n- Proceeds = 9m × £5.00 = **£45m**\n- Shares repurchased = 45 ÷ 8.00 = **5.625m**\n- Net new shares = 9 − 5.625 = **3.375m**\n\nThe RSUs are different. There is no strike, so Calder receives nothing and buys nothing back — all **3m** are added in full.\n\n$$\\text{Diluted} = 60 + 3.375 + 3 = \\mathbf{66.375\\text{m}}$$\n\nSo about **66.4m shares**, and equity value would be 8.00 × 66.375 = £531m. The point worth saying out loud is that the 9m options only added 3.375m, while the much smaller RSU grant added its entire 3m — the strike is what does the work.",
+        "rubric": [
+          "Applies the treasury-stock method to the options only",
+          "Computes proceeds of £45m and a buyback of 5.625m shares",
+          "Adds the RSUs in full, with no buyback, and says why",
+          "Reaches roughly 66.4m diluted shares",
+          "States the out-of-the-money rule, or notes it does not bite here"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "The strike is above the share price. What is the effect on the diluted count?",
+            "a": "None. The option is out of the money and is ignored entirely."
+          },
+          {
+            "q": "Why does the method assume the company buys shares back?",
+            "a": "Because exercise hands the company the strike proceeds in cash, and the convention is that it spends them repurchasing shares — so only the net dilution counts."
+          },
+          {
+            "q": "RSUs: treasury-stock method or full count?",
+            "a": "Full count. There is no strike, so no proceeds and nothing to buy back with."
+          },
+          {
+            "q": "An in-the-money convertible bond — debt or shares?",
+            "a": "Shares. Assume it converts, add principal ÷ conversion price, and take the debt out of the bridge."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Only in-the-money options dilute, and only by the net shares left after the company spends the strike proceeds buying stock back — RSUs, having no strike, add in full.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can apply the treasury-stock method to a set of options and reach a diluted count.",
+          "I can explain why out-of-the-money options are ignored completely.",
+          "I can say which way dilution moves when the share price rises, and why.",
+          "I can treat RSUs and convertible bonds correctly rather than lumping them in with options.",
+          "I can connect a diluted count to the equity value it produces."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "why-subtract-cash",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why does the bridge subtract cash?",
+  "model_answer_md": "Because the buyer receives it. On the day the deal completes, the cash in the target's accounts belongs to the acquirer, and they can use it immediately to pay down the debt they have just inherited.\n\nSo the economic cost of owning the operating business is the equity plus the debt *less* whatever cash comes back. If a company has £500m of borrowings and £120m of cash, the buyer is really taking on £380m of net obligation.\n\nThe honest caveat is that not all cash is truly available. Some is working float the business needs to keep the lights on, and some may be held somewhere it cannot easily be moved. A careful analyst deducts only the excess.",
+  "key_points": [
+    "The buyer takes ownership of the cash on completion",
+    "It can be applied straight against the inherited debt",
+    "Debt less cash gives net debt — £380m for Harbourline",
+    "Not all cash is available: operating float and restricted balances are exceptions"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about restricted cash?",
+      "answer_md": "If it cannot be moved or spent — held against a covenant, or locked in a jurisdiction — it is not really available to repay debt, so a careful valuation leaves it out of the deduction. That raises EV."
+    },
+    {
+      "question": "How much cash does a business need to operate?",
+      "answer_md": "It varies, but a common rule of thumb is one to two per cent of revenue, or whatever minimum balance the company itself discloses."
+    }
+  ],
+  "weak_answer_note": "Says 'because that is the formula', or claims cash is subtracted because it is not part of the business — it is, it is just recoverable.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

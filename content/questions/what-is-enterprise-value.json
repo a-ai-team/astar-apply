@@ -28,7 +28,9 @@
   "tags": [
     "ev",
     "equity-value",
-    "definitions"
+    "definitions",
+    "depth:sa-core",
+    "format:verbal"
   ],
   "status": "approved"
 }

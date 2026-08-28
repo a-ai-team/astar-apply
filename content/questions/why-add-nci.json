@@ -1,0 +1,35 @@
+{
+  "slug": "why-add-nci",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Why do you add non-controlling interests when building enterprise value?",
+  "model_answer_md": "It is a consistency fix. When a parent controls a subsidiary it consolidates **all** of that subsidiary's revenue and EBITDA into its accounts, even if it only owns, say, 70 % of it. The 30 % it does not own is shown as a non-controlling interest.\n\nSo the EBITDA you are about to divide into represents 100 % of the subsidiary, while the parent's equity value only reflects its 70 % share. If you left NCI out, the numerator would describe less of the business than the denominator, and the multiple would come out artificially low.\n\nAdding NCI back puts both sides on the same footing. It is the same instinct that decides every other line of the bridge: make the value and the metric describe the same set of claims.",
+  "key_points": [
+    "Consolidation brings in 100 % of a controlled subsidiary's earnings",
+    "Equity value reflects only the parent's share of it",
+    "Without adding NCI the multiple is understated",
+    "The rule is to match the numerator and the denominator"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about associates accounted for under the equity method?",
+      "answer_md": "The opposite treatment. Their earnings are *not* in consolidated EBITDA — only a one-line share of profit is — so their carrying value is usually subtracted from EV to keep the two sides matched."
+    },
+    {
+      "question": "Does it matter if the NCI is tiny?",
+      "answer_md": "Not much in practice, and analysts often ignore an immaterial one. Say that you would check its size before deciding how much care it deserves."
+    }
+  ],
+  "weak_answer_note": "Says NCI is 'debt-like' with no further reasoning, or subtracts it because it is not owned by shareholders.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "ev-multiples-vs-equity-multiples",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Which metrics pair with enterprise value and which pair with equity value, and why?",
+  "model_answer_md": "The test is where the metric sits relative to interest.\n\nAnything measured **before** interest belongs to everyone who funded the business — lenders and shareholders alike — so it pairs with **enterprise value**. Revenue, EBITDA, EBIT and unlevered free cash flow are all in this group.\n\nAnything measured **after** interest has already had the lenders paid, so what is left belongs to shareholders only. That pairs with **equity value**. Net income, earnings per share, levered free cash flow and book equity are in this group.\n\nThe reason it matters is that a mismatch produces a number that means nothing. Harbourline's equity value over EBITDA gives 6.18×, which looks like a cheap multiple but is simply comparing a shareholders-only value with an everybody metric.",
+  "key_points": [
+    "Pre-interest metrics belong to all capital providers → EV",
+    "Post-interest metrics belong to shareholders only → equity value",
+    "EV: revenue, EBITDA, EBIT, unlevered FCF",
+    "Equity: net income, EPS, levered FCF, book equity",
+    "A mismatch such as EqV/EBITDA at 6.18× is meaningless"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where do the free cash flow variants sit?",
+      "answer_md": "Unlevered free cash flow is before interest, so it goes with EV. Levered free cash flow is after interest and after debt service, so it goes with equity value."
+    },
+    {
+      "question": "And book value of equity?",
+      "answer_md": "With equity value — hence price-to-book. It is a shareholders' claim measured after everything owed to lenders."
+    }
+  ],
+  "weak_answer_note": "Recites the pairs as a list to memorise without giving the pre-versus-post-interest test that generates them.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

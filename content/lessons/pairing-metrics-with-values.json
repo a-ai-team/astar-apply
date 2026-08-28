@@ -1,0 +1,224 @@
+{
+  "slug": "pairing-metrics-with-values",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "title": "Pairing metrics with the right value",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "This is the lesson that explains why the previous three exist.\n\nInterviewers rarely ask \"what is enterprise value?\" on its own. They ask *\"why do we use EV/EBITDA rather than just dividing market cap by EBITDA?\"* — and that question separates people who have memorised a bridge from people who understand what the two values actually are.\n\nThe rule underneath it is short enough to say in one breath, and it governs every multiple you will ever build in a comps table. It also sets up the moment the framework breaks: a company whose enterprise value comes out **negative**. That sounds like an error. It isn't, and knowing what it means is a reliable way to look composed when an interviewer is trying to unsettle you."
+      },
+      {
+        "type": "concept",
+        "heading": "Match the numerator to whoever owns the denominator",
+        "md": "Think about who has a claim on each line of the income statement as you travel down it.\n\n**Revenue, EBITDA and EBIT** all sit *above* the interest line. The money is there before the lenders have been paid a penny — it belongs to everyone who funded the business: shareholders and lenders together. The value that belongs to everyone is **enterprise value**.\n\n**Net income and earnings per share** sit *below* the interest line. The lenders have already been paid, and the tax has been settled. What remains belongs to shareholders alone — and the value that belongs to shareholders alone is **equity value**.\n\nSo the rule is a matching exercise:\n\n| The denominator | Who it belongs to | Its partner |\n|---|---|---|\n| Revenue, EBITDA, EBIT, unlevered free cash flow | Everyone who financed the business | Enterprise value |\n| Net income, EPS, levered free cash flow, book equity | Shareholders only | Equity value |\n\nMix them and you get a number that has no meaning. Divide Harbourline's £1,050m equity value by its £170m of EBITDA and you get 6.2× — a figure that compares what the *shareholders* own against a profit that the *lenders* have a prior claim on. It is not a cheap multiple; it is a nonsensical one."
+      },
+      {
+        "type": "mechanics",
+        "md": "The practical consequence is that **EV multiples are capital-structure-neutral and equity multiples are not**.\n\nTake two businesses that are operationally identical — same revenue, same margins, same growth. Load one with debt and leave the other unlevered. Their EV/EBITDA multiples will be broadly the same, because both EV and EBITDA sit above the financing decision. Their P/E ratios will differ substantially, because the levered company pays interest, so its net income is lower and its shares are riskier.\n\nThat is why EV/EBITDA is the default when comparing companies across a sector: it strips out how each one chose to fund itself and compares the underlying operations. P/E is still useful — it is what an equity investor actually experiences — but you have to remember that some of the difference between two P/Es is leverage rather than quality.\n\nA short answer to \"which do I use?\": lead with **EV/EBITDA** for most industrials, consumer and business-services companies; add **EV/EBIT** where depreciation policies differ a lot; use **EV/Revenue** when EBITDA is negative or too small to be meaningful; and use **P/E** where the capital structure is genuinely part of the business, which is why banks are valued on P/E and P/B rather than on any EV multiple at all."
+      },
+      {
+        "type": "predict",
+        "prompt": "Two companies are operationally identical — same revenue, same EBITDA, same growth. One carries £500m of debt; the other has none. Which multiple differs between them?",
+        "options": [
+          {
+            "label": "EV/EBITDA"
+          },
+          {
+            "label": "P/E",
+            "correct": true
+          },
+          {
+            "label": "Both, by roughly the same amount"
+          },
+          {
+            "label": "Neither — identical operations mean identical multiples"
+          }
+        ],
+        "explain_md": "**P/E** differs; EV/EBITDA broadly does not.\n\nEnterprise value already counts the debt as part of what a buyer must clear, and EBITDA is measured before any interest is paid — so both halves of EV/EBITDA are blind to how the company is financed. The two businesses look alike, which is exactly what you want when comparing operations.\n\nP/E cannot be blind to it. The levered company pays interest, so its net income is lower, and its equity is riskier because lenders are paid first. Both effects move the P/E. If you compared these two companies on P/E alone, you would be measuring their financing decisions and calling it a difference in quality."
+      },
+      {
+        "type": "widget",
+        "widget": "multiple_matcher",
+        "props": {
+          "metrics": [
+            {
+              "label": "Revenue",
+              "kind": "ev"
+            },
+            {
+              "label": "EBITDA",
+              "kind": "ev"
+            },
+            {
+              "label": "EBIT",
+              "kind": "ev"
+            },
+            {
+              "label": "Unlevered free cash flow",
+              "kind": "ev"
+            },
+            {
+              "label": "Net income",
+              "kind": "equity"
+            },
+            {
+              "label": "Earnings per share",
+              "kind": "equity"
+            },
+            {
+              "label": "Levered free cash flow",
+              "kind": "equity"
+            },
+            {
+              "label": "Book value of equity",
+              "kind": "equity"
+            }
+          ]
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc**, carried forward from the bridge: enterprise value **£1,530m**, equity value **£1,050m**, EBITDA **£170m**, net income **£71m**, revenue **£1,400m**.\n\nThe first two lines are the multiples you would actually quote. The third is the mismatch, shown so you can hear how wrong it sounds.",
+        "steps": [
+          {
+            "label": "EV / EBITDA — the default operating multiple",
+            "expr": "1530 / 170",
+            "value": 9,
+            "unit": "×"
+          },
+          {
+            "label": "P/E — equity value over net income",
+            "expr": "1050 / 71",
+            "value": 14.79,
+            "unit": "×"
+          },
+          {
+            "label": "The mismatch: equity value over EBITDA",
+            "expr": "1050 / 170",
+            "value": 6.18,
+            "unit": "×"
+          },
+          {
+            "label": "EV / Revenue — the fallback when EBITDA is thin",
+            "expr": "1530 / 1400",
+            "value": 1.09,
+            "unit": "×"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "**Tarrant Digital** has 60m shares trading at **£8.00**, holds **£600m of cash** and owes **£90m of debt**. Work out its enterprise value — and then work out what the market is really saying.",
+        "steps": [
+          {
+            "label": "Equity value",
+            "expr": "60 * 8.00",
+            "value": 480,
+            "unit": "£m"
+          },
+          {
+            "label": "Add the debt",
+            "expr": "480 + 90",
+            "value": 570,
+            "unit": "£m"
+          },
+          {
+            "label": "Subtract the cash — this is enterprise value",
+            "expr": "570 - 600",
+            "value": -30,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Cash held per share",
+            "expr": "600 / 60",
+            "value": 10,
+            "unit": "£",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"A negative enterprise value must mean I've made an arithmetic mistake.\"**\n\nIt usually doesn't, and this is a favourite way to test composure. Tarrant Digital's enterprise value really is **−£30m**: it holds £10.00 of cash per share while the shares change hands at £8.00.\n\nRead literally, the market is valuing the operating business at *less than nothing* — you could buy every share, take the cash, settle the debt, and be left with £30m plus a company. So why doesn't someone do it?\n\nUsually because one of these is true:\n\n- **The market expects the cash to be burned.** A business losing money will consume that pile, so a pound inside the company is worth less than a pound outside it. This is the common case, and it is the answer to give first.\n- **The cash is not really available** — it may be trapped in overseas subsidiaries, pledged against obligations, or needed for working capital.\n- **Something is missing from the balance sheet** — litigation, pension deficits, onerous leases.\n\nThe weak answer is \"the shares are cheap, buy them\". The strong answer names the mechanism and says what you would check first."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Match the numerator to whoever the denominator belongs to. Revenue, EBITDA and EBIT are earned before interest, so they belong to lenders and shareholders together and pair with enterprise value. Net income and EPS come after interest, so they belong to shareholders alone and pair with equity value. Mixing them makes a leveraged company look cheap or expensive for reasons that have nothing to do with its operations. Harbourline trades on 9.0× EV/EBITDA and 14.8× P/E; dividing its equity value by EBITDA would give a meaningless 6.2×.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "When there is no EBITDA to divide by",
+            "md": "A large share of listed software companies report negative EBITDA, and many that report a positive figure are still investing so heavily that it is not a fair picture of the business. So the default multiple is unusable, and the sector reaches one line further up the income statement.\n\n**EV/Revenue** is the working multiple, and for subscription businesses the sharper version is **EV/ARR** — enterprise value over annual recurring revenue, the annualised value of contracts currently in force. ARR is preferred because it strips out one-off implementation fees and tells you what the company would collect next year if it never signed another customer.\n\nBoth still pair with enterprise value, and for the ordinary reason: revenue sits above the interest line, so it belongs to everyone who financed the business. The pairing rule does not bend just because the company is loss-making.\n\nWhat *does* change is how much interpretation the multiple needs. Two companies on 8× ARR can be worth very different things depending on growth rate, gross margin and churn — which is why the sector leans on the Rule of 40 and net revenue retention to decide whether a given multiple is deserved.",
+            "example_q": "Why do investors quote EV/ARR for a SaaS company rather than a P/E?",
+            "answer_md": "Mostly because there is often no meaningful E. These businesses spend heavily on acquiring customers, so net income is frequently negative and a P/E would be either meaningless or wildly volatile.\n\nAnnual recurring revenue is the most reliable forward-looking number they have — it is contracted, it recurs, and it strips out one-off fees — so it stands in as the best available proxy for future cash flow. It pairs with enterprise value rather than equity value because revenue is earned before any interest is paid, so it belongs to lenders and shareholders together.\n\nI would add that the multiple on its own says very little. I would want the growth rate, gross margin and net revenue retention alongside it, because those are what justify one company trading at 8× ARR and another at 3×."
+          },
+          "healthcare": {
+            "heading": "When enterprise value approaches zero",
+            "md": "The negative-enterprise-value case, which looks like an edge case elsewhere, is a recurring feature of biotech.\n\nA clinical-stage company holds a large cash pile from its last raise and generates no revenue. If a trial disappoints, the share price can fall until the equity is worth less than the cash on the balance sheet — and the enterprise value goes through zero into negative territory. The market is stating something specific: it expects that cash to be spent on programmes that will not pay for themselves.\n\nAt that point the whole multiple framework stops helping. There is no EBITDA, revenue is zero or trivial, so EV/Revenue is undefined, and P/E is meaningless without earnings. Nothing in the comps toolkit has anything to divide by.\n\nSo the sector values these companies from the asset up instead: estimate what each drug in the pipeline would earn if approved, weight it by the probability of getting there, discount it, and add the cash. That is risk-adjusted NPV, and it is why a healthcare analyst reaches for a pipeline model where a generalist would reach for a comps table.",
+            "example_q": "A biotech's enterprise value is −£40m. What is the market telling you?",
+            "answer_md": "That it expects the company to destroy the cash it holds. The shares are worth less than the net cash on the balance sheet, so the market is placing a negative value on the operating business — the pipeline is seen as a liability that will consume the cash rather than an asset that will return it.\n\nThe first thing I would check is the burn rate and the runway: how long the cash lasts, and what the next clinical readout is. If a major trial has just failed, this is a rational price rather than a mispricing.\n\nI would also be careful before calling it cheap. The cash is only worth its face value to a shareholder if it is returned or spent well, and in a company with no revenue neither is guaranteed. And I would not try to value it on multiples at all — with no earnings and effectively no revenue there is nothing to divide by, so I would move to a risk-adjusted pipeline valuation."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Marlow Foods** — the company from the bridge lesson — has enterprise value **£955m**, equity value **£1,000m**, EBITDA **£95m**, EBIT **£70m**, net income **£48m** and revenue **£820m**. Give EV/EBITDA, EV/EBIT, EV/Revenue and the P/E, then say which one you would lead with and why.",
+        "model_answer_md": "$$\\text{EV/EBITDA} = \\frac{955}{95} = \\mathbf{10.1\\times} \\qquad \\text{EV/EBIT} = \\frac{955}{70} = \\mathbf{13.6\\times}$$\n\n$$\\text{EV/Revenue} = \\frac{955}{820} = \\mathbf{1.16\\times} \\qquad \\text{P/E} = \\frac{1{,}000}{48} = \\mathbf{20.8\\times}$$\n\nI would lead with **EV/EBITDA at 10.1×**. For a food producer it is the cleanest comparison: it is neutral to how each competitor has funded itself, and EBITDA is a reasonable proxy for the operating cash the business throws off before capital-structure choices.\n\nI would show EV/EBIT alongside it, because food production is capital-intensive and depreciation policies differ between companies with new and old plants — EBIT captures that, EBITDA hides it.\n\nOne thing worth flagging: the P/E of 20.8× looks high next to the EV/EBITDA of 10.1×, and part of that gap is simply that Marlow has **net cash**. Enterprise value is *below* equity value here, so the EV multiples are flattered relative to the P/E. That is a financing artefact, not a sign the shares are expensive.",
+        "rubric": [
+          "All four multiples paired correctly — EV with EBITDA, EBIT and revenue; equity value with net income",
+          "Arithmetic right to within rounding (10.1×, 13.6×, 1.16×, 20.8×)",
+          "Picks one multiple to lead with and gives an operating reason",
+          "Mentions EV/EBIT as the check where depreciation differs between comparables",
+          "Notices that net cash explains part of the gap between the P/E and the EV multiples"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Unlevered free cash flow pairs with which value?",
+            "a": "Enterprise value — it is measured before interest, so it belongs to lenders and shareholders together."
+          },
+          {
+            "q": "Book value of equity pairs with which value?",
+            "a": "Equity value. That is the price-to-book ratio, the standard multiple for banks."
+          },
+          {
+            "q": "Can enterprise value be negative?",
+            "a": "Yes — when cash exceeds equity value plus the other claims. It usually signals expected cash burn or distress, not a bargain."
+          },
+          {
+            "q": "When would you use EV/Revenue at all?",
+            "a": "When EBITDA is negative or too small to be meaningful — typically early-stage or heavily loss-making companies."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Metrics above the interest line belong to everyone and pair with enterprise value; metrics below it belong to shareholders and pair with equity value — mixing the two measures leverage and calls it quality.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can state the pairing rule and justify it by who has a claim on each line.",
+          "I can explain why EV/EBITDA is capital-structure-neutral and P/E is not.",
+          "I can compute a set of multiples and say which one I would lead with for a given sector.",
+          "I can explain what a negative enterprise value means and what I would check first.",
+          "I can say when to fall back on EV/Revenue, and why banks break the framework entirely."
+        ]
+      }
+    ]
+  }
+}
