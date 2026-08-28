@@ -20,3 +20,6 @@
 - Loop 04/09 batches were never run (credit exists now — optional top-ups after the chapters land).
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
+- 2026-08-28 13:10 heartbeat
+- 2026-08-28 13:25 heartbeat
+- 2026-08-28 13:30 heartbeat

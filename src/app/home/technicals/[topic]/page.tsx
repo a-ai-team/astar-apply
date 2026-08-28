@@ -7,7 +7,7 @@ import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { getTopic, listLessonSummaries, listSubtopics } from "@/lib/content/queries";
 import { Badge } from "@/components/ui/badge";
-import { INDUSTRY_FAMILY_LABELS, industryModule } from "@/lib/content/taxonomy";
+import { INDUSTRY_FAMILY_LABELS, curriculumTopic, industryModule } from "@/lib/content/taxonomy";
 import { hasCheatSheet } from "@/lib/content/cheatsheets";
 
 export async function generateMetadata({ params }: PageProps<"/home/technicals/[topic]">): Promise<Metadata> {
@@ -23,8 +23,14 @@ export default async function TopicPage({ params }: PageProps<"/home/technicals/
   const db = await createClient();
   const topic = await getTopic(db, slug);
   if (!topic) notFound();
-  const subtopics = await listSubtopics(db, topic.id);
-  const lessons = await listLessonSummaries(db, subtopics.map((s) => s.id));
+  const allSubtopics = await listSubtopics(db, topic.id);
+  const lessons = await listLessonSummaries(db, allSubtopics.map((s) => s.id));
+  // Loop 11/12: a `deferred` subtopic is folded into a sibling lesson — keep its slug in the
+  // taxonomy but hide the empty row until it actually has a lesson.
+  const deferred = new Set(
+    (curriculumTopic(topic.slug)?.subtopics ?? []).filter((s) => s.deferred).map((s) => s.slug),
+  );
+  const subtopics = allSubtopics.filter((s) => !deferred.has(s.slug) || lessons.some((l) => l.subtopic_id === s.id));
   const industry = topic.kind === "industry";
   const family = industry ? ((topic as { group_family?: string | null }).group_family ?? industryModule(topic.slug)?.family ?? null) : null;
   return (

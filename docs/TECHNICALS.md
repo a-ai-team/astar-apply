@@ -230,6 +230,11 @@ index). Contract additions (new block types `predict`, `fill_numbers`, `order_st
 kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chapter each from its spec —
 35 lessons, 135 core + 38 stretch + 26 lens questions. This section is rewritten by Loop 18.
 
+### Chapters (shipped)
+| Loop | Chapter | Content | Status |
+|---|---|---|---|
+| 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
+
 ### Platform (Loop 11, shipped)
 - **Maths**: `src/lib/finance/{statements,bridge,discount,dcf,wacc,shares,merger,lbo}.ts` — pure
   functions, 132 vitest cases. Widgets are thin views over them and `fill_numbers` grading uses the

@@ -1,0 +1,38 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "irr-definition-and-decision",
+  "subtopic_slug": "pv-npv",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "What is the internal rate of return, and how do you use it to make a decision?",
+  "model_answer_md": "IRR is the **discount rate at which a project's NPV is exactly zero** — the project's own rate of return, implied by its cash flows rather than imposed from outside.\n\nThe decision rule is to **accept when the IRR exceeds your cost of capital**, because that means the project earns more than the money costs. It is the same test as a positive NPV, read from the other direction: if the IRR is above your hurdle rate, then discounting at that hurdle rate must leave you above zero.\n\nAshdown's thirteenth shop has an IRR of about 15 % against a cost of capital near 11 %, so both rules say go ahead — and the gap between the two tells you how much the assumptions could deteriorate before the answer changes.",
+  "key_points": [
+    "The discount rate that sets NPV to zero",
+    "Accept when IRR > cost of capital",
+    "Equivalent to the NPV rule for a single conventional project",
+    "It is a rate, so it says nothing about the size of the value created",
+    "Found by trial and error — there is no closed-form solution"
+  ],
+  "follow_ups": [
+    {
+      "question": "What are the limitations of IRR?",
+      "answer_md": "Three. It is a rate, so it ignores scale — 40 % on £10,000 creates less value than 12 % on £5m. It assumes interim cash flows are reinvested at the IRR itself, which is heroic for a high IRR. And it can mislead when comparing mutually exclusive projects with different sizes or timing. When IRR and NPV conflict, follow NPV."
+    },
+    {
+      "question": "Can a project have two IRRs?",
+      "answer_md": "Yes. If the cash flows change sign more than once — say an outflow, then inflows, then a large closure or clean-up cost at the end — the NPV curve can cross zero more than once, giving multiple mathematically valid IRRs. None of them is meaningful on its own, which is another reason to fall back on NPV."
+    }
+  ],
+  "weak_answer_note": "Calls IRR 'the return the project makes' without saying it is the rate where NPV equals zero, or describes it as a profit figure. Failing to give a decision rule at all is the most common gap.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "irr",
+    "investment-decision"
+  ]
+}

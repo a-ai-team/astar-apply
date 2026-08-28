@@ -1,0 +1,38 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "npv-rule-and-meaning",
+  "subtopic_slug": "pv-npv",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "What is net present value, and what does a positive NPV tell you?",
+  "model_answer_md": "NPV is the present value of everything a project brings in, minus what you have to spend today:\n\n$$NPV = \\sum \\frac{CF_t}{(1+r)^t} - I_0$$\n\nA **positive NPV means the project earns more than the discount rate**. Since the discount rate is the return available elsewhere at the same risk, clearing it means the project creates value beyond the next best alternative — so you do it.\n\nThe key thing is that NPV is measured **in pounds**, so it tells you *how much* value is created. Ashdown's thirteenth shop has an NPV of about £0.4m at 8 %: not just 'a good project', but roughly £400,000 of value added on a £2m outlay.",
+  "key_points": [
+    "PV of inflows minus the cash spent today",
+    "NPV > 0 means the return beats the discount rate, so value is created",
+    "Measured in pounds, so it says how much — unlike IRR, which is a rate",
+    "The hurdle is the cost of capital, i.e. the next best alternative at that risk",
+    "NPV = 0 means the project earns exactly the required return"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would you ever take a negative-NPV project?",
+      "answer_md": "Occasionally, when the model is missing something real. A project can be negative on its own numbers but open a strategic option — access to a market, a capability, a customer relationship that leads to further work. The honest framing is that the option has value the spreadsheet has not captured, so you should try to size it rather than waving at 'strategic value' to justify a bad number."
+    },
+    {
+      "question": "Two projects have the same NPV but one is twice the size. Which do you prefer?",
+      "answer_md": "The smaller one, other things equal — it produces the same value from half the capital, so the return per pound invested is higher and the rest of the money is free for something else. This is exactly where NPV alone is insufficient and you would also look at IRR or a profitability index. It also matters whether the capital is genuinely constrained."
+    }
+  ],
+  "weak_answer_note": "States the formula without saying what the discount rate represents, or claims a positive NPV simply means 'the project is profitable' — profit and value creation above the cost of capital are different tests.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "npv",
+    "investment-decision"
+  ]
+}

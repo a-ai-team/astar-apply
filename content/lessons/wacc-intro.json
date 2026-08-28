@@ -1,0 +1,134 @@
+{
+  "slug": "wacc-intro",
+  "subtopic_slug": "wacc-intro",
+  "title": "WACC: the blended price of money",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You now know that cash flows get discounted, and that the rate prices waiting and risk. WACC is where that rate actually comes from.\n\nIt is one of the three or four things interviewers ask *every* candidate, usually in a chain: what is WACC, how do you calculate it, why is equity more expensive than debt, and why not fund everything with debt. That chain is designed to find the exact point at which a memorised answer runs out — which is normally the last question.\n\nThis lesson gets you the concept and one clean worked blend. Building the cost of equity properly with CAPM, and relevering betas, comes later in the DCF chapter."
+      },
+      {
+        "type": "concept",
+        "heading": "Two groups fund the business, and they want different things",
+        "md": "Ashdown Bakeries is funded from two pockets. The owners have put in **equity**, and a bank has lent it **debt**. Both expect a return, and their returns are not the same size — because their positions are not the same.\n\n**Lenders** have a contract. They are paid a set amount of interest on set dates, they are paid *before* the owners get anything, and if the business collapses they get whatever is left first. Low risk, so they accept a low return.\n\n**Owners** have a claim on whatever is left over after everyone else — suppliers, staff, lenders, the taxman. That could be a great deal or nothing at all. Higher risk, so they demand a higher return.\n\nSo the company faces two prices for money, and it uses both. The **weighted average cost of capital** is just the blend: each group's required return, weighted by how much of the funding they provided.\n\nOne twist makes debt cheaper still. Interest is deducted before tax is calculated, so borrowing reduces the tax bill. The government effectively pays a share of the interest, which is why the debt cost enters the blend **after tax**."
+      },
+      {
+        "type": "mechanics",
+        "md": "$$WACC = \\frac{E}{D+E} \\times k_e \\; + \\; \\frac{D}{D+E} \\times k_d \\times (1 - t)$$\n\nwhere $E$ and $D$ are the **market values** of equity and debt, $k_e$ is the cost of equity, $k_d$ the cost of debt before tax, and $t$ the tax rate.\n\nThree things to get right, because each is a question in its own right:\n\n- **Market values, not book values.** The weights should reflect what the funding is worth today, not what it was recorded at years ago. For equity that means market capitalisation.\n- **The $(1-t)$ sits on debt only.** Dividends are not tax-deductible, so there is no equivalent adjustment for equity. This is one of the most common follow-ups.\n- **WACC discounts unlevered free cash flow.** It is the blended return owed to *everyone* who funded the business, so it belongs with the cash flow available to everyone — before interest is paid out. Pairing WACC with a post-interest cash flow double-counts the debt."
+      },
+      {
+        "type": "predict",
+        "prompt": "Ashdown swaps £1m of equity funding for £1m of extra bank debt at the same 8 % rate, leaving the cost of equity and everything else unchanged. What happens to its WACC?",
+        "options": [
+          { "label": "It falls, from about 11.3 % to about 10 %", "correct": true },
+          { "label": "It is unchanged — the total funding is the same" },
+          { "label": "It rises, because debt adds risk" },
+          { "label": "It falls to the after-tax cost of debt, 6 %" }
+        ],
+        "explain_md": "On these inputs it falls to exactly **10 %**: the weights shift from ⅔/⅓ to ½/½, and you are moving money from a 14 % source to a 6 % source.\n\nBut read the question again — it *told you* to hold the cost of equity fixed. In reality it would not stay at 14 %: more debt in front of the owners makes their residual claim riskier, so they would demand more. That assumption is precisely the trap in the next section, and this prediction is how you feel it working."
+      },
+      {
+        "type": "widget",
+        "widget": "discount_dial",
+        "props": {
+          "mode": "npv",
+          "cashflows": [0.6, 0.6, 0.6, 0.6, 0.6],
+          "outlay": 2.0,
+          "wacc": { "E": 4, "D": 2, "ke": 0.14, "kd": 0.08, "t": 0.25 }
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Ashdown is funded by **£4m of equity** and **£2m of bank debt**. The bank charges **8 %**; the owners expect **14 %** for the risk they are taking; the tax rate is **25 %**.\n\nThen the pay-off: use that WACC instead of the rough 8 % from the last lesson, and see what happens to the thirteenth shop.",
+        "steps": [
+          { "label": "After-tax cost of debt", "expr": "8% * (1 - 25%)", "value": 0.06, "unit": "" },
+          { "label": "Equity weight", "expr": "4 / 6", "value": 0.667, "unit": "" },
+          { "label": "Equity contribution to the blend", "expr": "(4 / 6) * 14%", "value": 0.0933, "unit": "" },
+          { "label": "Debt contribution to the blend", "expr": "(2 / 6) * 6%", "value": 0.02, "unit": "" },
+          { "label": "WACC", "expr": "0.0933 + 0.02", "value": 0.1133, "unit": "" },
+          { "label": "The shop's NPV at 11.33 % instead of 8 %", "expr": "0.6 * ((1 - 1.1133^-5) / 0.1133) - 2.0", "value": 0.199, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "The bank offers Ashdown a cheaper rate of **6 %** if it takes more debt: **£3m of debt and £3m of equity**. The owners, seeing the extra leverage, now want **16 %**. Tax is still 25 %. Work out whether the cheaper debt actually helped.",
+        "steps": [
+          { "label": "After-tax cost of debt", "expr": "6% * (1 - 25%)", "value": 0.045, "unit": "", "blank": true },
+          { "label": "Equity contribution", "expr": "(3 / 6) * 16%", "value": 0.08, "unit": "", "blank": true },
+          { "label": "Debt contribution", "expr": "(3 / 6) * 4.5%", "value": 0.0225, "unit": "" },
+          { "label": "New WACC", "expr": "0.08 + 0.0225", "value": 0.1025, "unit": "", "blank": true },
+          { "label": "Change against the original 11.33 %", "expr": "0.1025 - 0.1133", "value": -0.0108, "unit": "" }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Debt is cheaper than equity, so more debt always lowers WACC.\"**\n\nThis is the single most productive follow-up an interviewer has, because the first half of the sentence is true and the conclusion does not follow.\n\nMore debt does lower WACC at first — interest is tax-deductible and lenders accept a low return. But three things push back as leverage rises:\n\n- **Equity gets riskier.** Every pound of debt sits in front of the owners. Their claim becomes more volatile, so the cost of equity climbs. The cheap money is not free; part of its cost is transferred onto the equity.\n- **Lenders re-price.** Past a certain leverage the bank stops being relaxed. Rates rise, covenants tighten.\n- **Distress becomes real.** A heavily indebted company loses customers, suppliers and options — costs that never appear in the formula.\n\nSo WACC traces a shallow **U**: falling at first, flattening, then rising. The right answer names the U and says the theoretical optimum is where it bottoms out — while admitting that in practice nobody can locate that point precisely, which is why companies target a range rather than a number."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "WACC is the average return a company must earn to satisfy everyone who funds it, weighted by how much each group put in. Equity costs more than debt because shareholders are paid last and bear the residual risk, while interest is contractual and tax-deductible — so debt enters after tax. Ashdown's WACC is about 11 %: two-thirds equity at 14 %, one-third debt at 6 % after tax. We use it to discount unlevered free cash flow, because that is the cash belonging to all providers of capital.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Almost no debt, and a high cost of equity",
+            "md": "Software companies and telecoms operators sit at opposite ends of the capital-structure spectrum, and comparing them is a good way to show you understand *why* the formula has weights at all.\n\nA young software business has little to pledge as collateral — its assets are code and people, both of which walk out of the door in a downturn — and its cash flows are volatile. Lenders are therefore cautious, so it is funded almost entirely by equity. Its WACC ends up close to its cost of equity, often somewhere around 10–12 %.\n\nA mature telecom is the mirror image. It owns physical networks, its subscribers pay every month with low churn, and the cash flows are predictable enough that lenders will fund a large share cheaply. Heavy, cheap, tax-deductible debt pulls its WACC down towards 6–7 %.\n\nThe trap is to read that gap as \"the telecom is a better business\". It isn't. A lower WACC reflects lower risk and more borrowing capacity, not higher quality — and the software company's higher rate is exactly what its riskier cash flows deserve.",
+            "example_q": "Why does a telecoms company typically have a lower WACC than a software company?",
+            "answer_md": "Mostly because of what it can borrow against and how stable its cash flows are. The telecom owns hard assets and has predictable, contracted subscriber revenue, so lenders will fund a large share of it cheaply — and that interest is tax-deductible, which lowers the blend further. Its equity is also less volatile, so the cost of equity is lower to begin with: a lower beta.\n\nThe software company has few pledgeable assets and volatile cash flows, so it is funded largely by equity at a higher required return, and its WACC sits close to that cost of equity. I would add that the lower WACC does not make the telecom the better investment — it is a statement about risk and debt capacity, not about returns."
+          },
+          "healthcare": {
+            "heading": "Where the risk should live",
+            "md": "A single-asset biotech looks like the riskiest thing imaginable, so candidates often reach for a dramatic cost of equity — 25 %, say. It is worth understanding why analysts usually don't.\n\nThe cost of equity in the standard framework compensates investors for risk they **cannot diversify away** — risk that moves with the market as a whole. Whether a particular drug passes its Phase 3 readout is almost entirely *specific* to that drug. It is not correlated with the economy, and an investor holding twenty biotechs has largely diversified it away. On that logic it does not belong in the discount rate at all.\n\nSo the typical treatment is a cost of equity in the low-to-mid teens — higher than a mature pharma company, but nothing like 25 % — with the trial risk handled where it belongs: by probability-weighting the cash flows, as the NPV lesson showed.\n\nThe practical point for an interview is that you should be able to say *which* risks go in the rate and which go in the cash flows. Getting that split right is what separates a rehearsed answer from an understood one.",
+            "example_q": "Should a single-asset biotech have a 25 % cost of equity?",
+            "answer_md": "Probably not, and the reason is where the risk sits. A discount rate compensates for undiversifiable, market-correlated risk. Whether one drug passes its trial is idiosyncratic — an investor holding a basket of biotechs diversifies most of it away — so inflating the rate to 25 % is putting drug-specific risk in the wrong place.\n\nI would use a cost of equity in the low-to-mid teens, reflecting the genuinely higher market sensitivity of an early-stage, cash-burning company, and handle the trial risk explicitly by probability-weighting the cash flows. That is more transparent too: the probability of success is an assumption someone can challenge, whereas a 25 % rate hides the same judgement inside a single number."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A rival, **Hollins Pies**, is funded by **£6m of equity costing 12 %** and **£4m of debt at 6 %**, with a **25 %** tax rate. What is its WACC — and what would you conclude from the fact that it is lower than Ashdown's?",
+        "model_answer_md": "After-tax cost of debt is 6 % × (1 − 0.25) = **4.5 %**. The weights are 6/10 equity and 4/10 debt:\n\n$$WACC = 0.6 \\times 12\\% + 0.4 \\times 4.5\\% = 7.2\\% + 1.8\\% = \\mathbf{9.0\\%}$$\n\nAgainst Ashdown's 11.3 %, Hollins is meaningfully cheaper to fund — but I would be careful about what that means. It is cheaper for two quite different reasons, and I would want to know which is doing the work.\n\nEither Hollins is genuinely **lower risk** — steadier cash flows, so both its lenders and its owners accept less — or it is simply **more levered**, carrying 40 % debt against Ashdown's 33 % and picking up more of the tax shield. The first would be a sign of a better business; the second is a financing choice that also makes its equity riskier.\n\nIf I were using this to value Hollins, I would use its WACC to discount its unlevered free cash flows — not apply Ashdown's rate to Hollins, or vice versa.",
+        "rubric": [
+          "Takes the cost of debt after tax (4.5 %, not 6 %)",
+          "Uses funding weights of 60/40 and reaches 9.0 %",
+          "States what WACC would then be used for (discounting unlevered free cash flow)",
+          "Distinguishes lower risk from higher leverage as reasons for the lower rate",
+          "Avoids concluding that a lower WACC simply means a better company"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Why is the cost of equity higher than the cost of debt?", "a": "Shareholders are the residual claim — paid last, with no contract — so they demand more for the extra risk." },
+          { "q": "What is the (1 − t) doing in the formula?", "a": "Interest is tax-deductible, so borrowing cuts the tax bill and debt's true cost is lower than the headline rate." },
+          { "q": "Which cash flow does WACC discount?", "a": "Unlevered free cash flow — the cash available to all providers of capital, before interest." },
+          { "q": "A company funded entirely by equity — what is its WACC?", "a": "Its cost of equity. There is nothing to blend it with." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**WACC is what every funder together needs to be paid — equity weighted at its required return, debt at its after-tax cost — and it discounts the cash that belongs to all of them.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can define WACC conceptually, without reciting the formula first.",
+          "I can compute a WACC from market-value weights and an after-tax cost of debt.",
+          "I can explain why equity costs more than debt, and why only debt is tax-adjusted.",
+          "I can explain why more debt does not lower WACC forever, and describe the U-shape.",
+          "I can say which cash flow WACC belongs with, and why pairing it with a post-interest figure is wrong."
+        ]
+      }
+    ]
+  }
+}
