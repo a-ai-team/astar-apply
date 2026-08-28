@@ -1,0 +1,38 @@
+{
+  "slug": "walk-me-through-a-dcf",
+  "subtopic_slug": "dcf-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "dcf",
+    "walkthrough"
+  ],
+  "question": "Take me through how you would build a DCF.",
+  "model_answer_md": "Five steps.\n\nFirst, **project unlevered free cash flow** — usually five years. Start at EBIT, tax it as though the company had no debt, add back depreciation and amortisation, then subtract capital expenditure and the increase in working capital.\n\nSecond, **pick a discount rate**. Because that cash belongs to every provider of capital, the matching rate is WACC — the blend of what shareholders and lenders each require.\n\nThird, **discount each year** back to today at that rate.\n\nFourth, **put a terminal value on everything after the forecast**, either by growing the final year's cash flow forever or by applying an exit multiple to final-year EBITDA, and discount that back too.\n\nFifth, **add the two together** to get enterprise value, subtract net debt and any other claims to reach equity value, and divide by diluted shares for a value per share.\n\nFor Harbourline that gives about £1,548m of enterprise value and roughly £4.27 a share.",
+  "key_points": [
+    "Project unlevered free cash flow, typically five years",
+    "Discount at WACC, because the cash flow is available to all funders",
+    "Terminal value covers everything beyond the forecast and is discounted too",
+    "Explicit period plus discounted terminal value = enterprise value",
+    "Bridge from enterprise value to equity value, then divide by diluted shares"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which step is the answer most sensitive to?",
+      "answer_md": "The terminal value, and the discount rate that sits underneath it. For Harbourline the terminal value is about **76 %** of enterprise value, so the two inputs in its denominator — WACC and the growth rate — do most of the work. Moving each by one point takes the valuation from roughly £1.2bn to £2.3bn. The operating assumptions matter, but nothing like as much."
+    },
+    {
+      "question": "Why unlevered rather than levered cash flow?",
+      "answer_md": "Because unlevered free cash flow is what the operating business produces before anyone is paid interest, so it belongs to lenders and shareholders alike. That makes it the natural partner for WACC, which is itself a blend across those same funders, and the pair gives you enterprise value. Levered cash flow is after interest, belongs only to shareholders, and would have to be discounted at the cost of equity instead."
+    }
+  ],
+  "weak_answer_note": "Reciting the five steps with no numbers, forgetting that the terminal value also has to be discounted, or stopping at enterprise value without bridging to equity. Saying 'discount the cash flows' without naming WACC, or naming WACC without being able to say why it is the right rate, both invite the obvious follow-up.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

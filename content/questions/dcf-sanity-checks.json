@@ -1,0 +1,38 @@
+{
+  "slug": "dcf-sanity-checks",
+  "subtopic_slug": "projections-and-assumptions",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "projections",
+    "sanity-checks"
+  ],
+  "question": "You have just finished building a DCF. What would you check before showing it to anyone?",
+  "model_answer_md": "Four checks, in the order I would run them.\n\n**The implied share price against the market.** If the model says £4.27 and the shares trade at £4.20, that is reassuring. If it says double, I want to know why before anyone else asks.\n\n**The terminal value's share of the total.** Sixty to eighty per cent is normal — Harbourline is 76 %. Above about 85 % and the forecast is barely contributing; the answer is really just the terminal assumption.\n\n**The implied exit multiple against the implied growth rate.** Each terminal method implies the other. Harbourline's 2 % growth implies 7.5 times, close to where it trades today, so the two methods agree. If the growth assumption implied 15 times, something is wrong.\n\n**Capex against D&A, and margins against history.** Does the terminal year describe a business in equilibrium, and are the margins ones this company has actually achieved?",
+  "key_points": [
+    "Compare the implied share price with the market price",
+    "Terminal value should be roughly 60–80 % of enterprise value",
+    "Cross-check implied exit multiple against implied growth rate",
+    "Terminal year should show capex ≈ D&A and mid-cycle margins",
+    "Compare forecast margins with the company's own history"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which of those fails most often in practice?",
+      "answer_md": "The margin check. Forecasts drift upward almost by default — a small annual improvement compounds into a terminal margin the company has never achieved, and because it lands in the terminal year it gets capitalised into perpetuity. The fix is to plot the forecast margin against ten years of history on one chart: if the line leaves the historical range, either there is a specific reason you can name or the assumption needs pulling back."
+    },
+    {
+      "question": "What if the terminal value is 90 % of your enterprise value?",
+      "answer_md": "I would treat it as a signal that the model is not really telling me much. Two responses. Extend the explicit forecast — ten years rather than five — so more of the value is built from cash flows you have actually reasoned about and the business reaches steady state before the perpetuity starts. And present the answer as a range driven by the terminal assumption, saying plainly that this is a bet on the long-run margin rather than a forecast of the next five years."
+    }
+  ],
+  "weak_answer_note": "Checking only that the spreadsheet has no errors. The question is about whether the *answer* is credible, not whether the arithmetic works. Not knowing what a normal terminal-value share looks like leaves you with no yardstick at all.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

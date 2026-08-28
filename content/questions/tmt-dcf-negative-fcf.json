@@ -1,0 +1,39 @@
+{
+  "slug": "tmt-dcf-negative-fcf",
+  "subtopic_slug": "dcf-overview",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "dcf",
+    "growth"
+  ],
+  "question": "How would you build a DCF for a software company that is burning cash and will not be profitable for five years?",
+  "model_answer_md": "The method does not change; what changes is where the value sits and how honest you have to be about it.\n\n**Extend the explicit forecast.** Five years is useless here — the company is still loss-making at the end of it. I would forecast ten or more, long enough for the business to reach the margin it will plausibly settle at. That way the transition to profitability happens inside the model, where it can be argued about, rather than being buried in a terminal assumption.\n\n**Accept that the terminal value dominates.** Even with a longer forecast, the great majority of the value will sit in the terminal period. That is not a flaw to hide — it is the honest description of what you are buying, which is a bet on the steady-state margin.\n\n**Make the terminal margin the headline assumption.** For a subscription business the sensible anchor is gross margin less a sustainable level of sales and marketing spend, benchmarked against mature software companies rather than against the company's current spending, which is deliberately elevated to buy growth.\n\nAnd I would sense-check the whole thing against EV/Revenue multiples for peers at similar growth, because at this stage the market is pricing on revenue anyway.",
+  "key_points": [
+    "Extend the forecast — ten years or more — so profitability arrives inside the model",
+    "Expect the terminal value to dominate, and say so rather than hiding it",
+    "The terminal margin is the key assumption; benchmark it against mature peers",
+    "Current sales and marketing spend is elevated to buy growth, so it is not the steady state",
+    "Cross-check against EV/Revenue multiples for peers at similar growth rates"
+  ],
+  "follow_ups": [
+    {
+      "question": "What multiple would you cross-check against?",
+      "answer_md": "EV/Revenue, since EBITDA is negative and any earnings-based multiple is meaningless. For subscription businesses EV/ARR is the sharper version, because annual recurring revenue strips out one-off services income. The multiple should be read against growth and retention together — a company growing 40 % with net revenue retention above 120 % deserves a very different number from one growing 15 %. The Rule of 40, growth plus margin, is a rough way of comparing companies making different trade-offs between the two."
+    },
+    {
+      "question": "Is a DCF even worth building for a company like this?",
+      "answer_md": "It is worth building precisely because it forces the assumptions into the open. A revenue multiple contains an implicit view about future margins and growth; a DCF makes you state it. What I would not do is present the output as a precise number — I would show it as a range driven by the terminal margin, alongside the revenue multiples, and be explicit that the valuation is a judgement about what this business looks like in a decade rather than a forecast of next year."
+    }
+  ],
+  "weak_answer_note": "Saying a DCF cannot be used at all. Or keeping a five-year forecast and letting the terminal value carry a company that is still loss-making in the final year, which makes the terminal assumption arbitrary rather than reasoned.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

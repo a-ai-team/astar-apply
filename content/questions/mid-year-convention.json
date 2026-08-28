@@ -1,0 +1,38 @@
+{
+  "slug": "mid-year-convention",
+  "subtopic_slug": "dcf-sensitivities",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "mid-year",
+    "discounting"
+  ],
+  "question": "What is the mid-year convention, and which way does it move a valuation?",
+  "model_answer_md": "The standard discounting formula assumes every year's cash arrives in a single lump on the last day of the year. In reality it arrives steadily throughout — so on average it turns up around the middle.\n\nThe mid-year convention corrects for that by discounting each forecast year over half a year less: year one at 0.5 years rather than 1.0, year two at 1.5, and so on.\n\nCash arriving sooner is worth more, so it always **raises** the valuation.\n\nHow much depends on where the value sits. For Harbourline it lifts the present value of the explicit cash flows from £364m to about £378m, taking enterprise value from £1,548m to roughly **£1,562m** — an increase of about **0.9 %**. The effect is modest here precisely because three-quarters of the value is in the terminal value, which is conventionally still discounted at the full final-year factor.\n\nSo it is a refinement worth knowing and worth mentioning, not something that changes a conclusion.",
+  "key_points": [
+    "Standard discounting assumes cash arrives on the last day of each year",
+    "Mid-year discounts each year over half a year less: 0.5, 1.5, 2.5…",
+    "Cash sooner is worth more, so it always increases the value",
+    "Harbourline: EV rises from £1,548m to about £1,562m, roughly +0.9 %",
+    "The effect is small because the terminal value is still discounted at the full factor"
+  ],
+  "follow_ups": [
+    {
+      "question": "How should the terminal value be treated?",
+      "answer_md": "There are two conventions and they give noticeably different answers, so the important thing is to say which you are using. The common approach — and the one behind the £1,562m above — discounts the terminal value at the **full** final-year factor, on the reasoning that it represents a stock of value as at the end of year five. The alternative applies the same half-year adjustment to it, which for Harbourline would lift enterprise value to roughly £1,608m, nearer a 4 % uplift. The difference is entirely in that choice, not in the arithmetic."
+    },
+    {
+      "question": "When does the convention matter most?",
+      "answer_md": "When most of the value sits in the explicit forecast rather than the terminal value — so longer forecast periods, and businesses whose cash flows are front-loaded. For a company with a ten-year forecast and a terminal share in the high 50s, the adjustment touches far more of the total and the uplift is correspondingly larger. For Harbourline, with 76 % in the terminal value, it barely moves. It also matters more at higher discount rates, since half a year of discounting is worth more when the rate is high."
+    }
+  ],
+  "weak_answer_note": "Saying it 'increases value by 3–4 %' as a memorised figure — the size depends entirely on how much value sits in the explicit period and how the terminal value is treated. Getting the direction wrong, or not knowing why cash arriving sooner is worth more.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

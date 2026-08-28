@@ -1,0 +1,37 @@
+{
+  "slug": "order-the-dcf-steps",
+  "subtopic_slug": "dcf-overview",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:order",
+    "dcf",
+    "walkthrough"
+  ],
+  "question": "Put the steps of a DCF into the order you would carry them out: discount each year's cash flow at WACC; project unlevered free cash flow; subtract net debt and other claims to reach equity value; estimate WACC; calculate a terminal value and discount it back.",
+  "model_answer_md": "The order is:\n\n1. **Project unlevered free cash flow** for the explicit forecast period.\n2. **Estimate WACC** — the rate that matches a cash flow belonging to all funders.\n3. **Discount each year's cash flow** back to today at that rate.\n4. **Calculate a terminal value** for everything after the forecast, and discount it back as well.\n5. **Subtract net debt and other claims** from enterprise value to reach equity value, then divide by diluted shares.\n\nThe two easy slips are discounting before you have a rate, and forgetting that step 4 has its own discounting — the terminal value is a year-five number and has to be brought back like everything else.",
+  "key_points": [
+    "Cash flows first, then the rate, then the discounting",
+    "Terminal value is calculated and then discounted, not just added",
+    "Enterprise value comes before the bridge to equity",
+    "Divide by diluted, not basic, shares at the end"
+  ],
+  "follow_ups": [
+    {
+      "question": "Could you calculate the terminal value before discounting the explicit years?",
+      "answer_md": "Yes — the order between those two is arbitrary, since neither depends on the other. What is not arbitrary is that both come after you have a discount rate, and that the terminal value gets discounted at the final year's factor before being added. In a spreadsheet you would build the whole cash flow line first, then apply one discount-factor row across all of it, terminal value included."
+    },
+    {
+      "question": "Where does the equity bridge sit relative to the share count?",
+      "answer_md": "Bridge first, then divide. Take enterprise value, subtract net debt, preferred, non-controlling interests and capitalised leases to get equity value, and only then divide by the diluted share count. Dividing enterprise value by shares gives you a number with no meaning — it is a per-share figure for a value that includes the lenders' claim."
+    }
+  ],
+  "weak_answer_note": "Discounting before estimating a rate, or treating the terminal value as something you simply add on without discounting it. Bridging to equity before the terminal value is included is the other common ordering error.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

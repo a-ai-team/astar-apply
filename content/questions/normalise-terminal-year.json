@@ -1,0 +1,38 @@
+{
+  "slug": "normalise-terminal-year",
+  "subtopic_slug": "terminal-value",
+  "kind": "concept",
+  "difficulty": 4,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "terminal-value",
+    "normalisation"
+  ],
+  "question": "What has to be true of the final forecast year before you can apply a terminal value to it?",
+  "model_answer_md": "It has to describe a business in **equilibrium**, because the perpetuity formula assumes that year repeats forever with only modest growth on top. Four things in particular.\n\n**Capex ≈ D&A.** A company growing at the economy's rate is replacing what wears out, not expanding. If the final year still shows capex well above depreciation, you are capitalising a company that keeps investing heavily without the growth that investment should buy.\n\n**Working capital growing only with revenue.** No step-changes in payment terms or inventory efficiency — those are one-offs and cannot repeat forever.\n\n**Margins at a sustainable, mid-cycle level.** Not a peak. If the final year is a good year, the perpetuity assumes every year is a good year.\n\n**Growth already faded** to the terminal rate, so there is no discontinuity between the last forecast year and the perpetuity.\n\nBecause the terminal value is usually three-quarters of the answer, an error here dominates everything else in the model.",
+  "key_points": [
+    "The final year must represent a steady state, not a snapshot",
+    "Capex should have converged on D&A",
+    "Working capital grows in line with revenue, with no one-off improvements",
+    "Margins at mid-cycle, not peak",
+    "Growth already faded to the terminal rate — no discontinuity"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you handle a cyclical company?",
+      "answer_md": "Normalise to mid-cycle explicitly. Take the average margin across a full cycle — often seven to ten years, covering at least one downturn — rather than whatever the final forecast year happens to show, and say clearly that this is what you have done. If the forecast ends near a peak, capitalising it assumes the peak is permanent and can overstate the value by a wide margin. Some practitioners extend the forecast so it ends at a genuine mid-cycle point, which is cleaner but requires forecasting the cycle itself."
+    },
+    {
+      "question": "What if the company will still be growing quickly in year five?",
+      "answer_md": "Then year five is the wrong place to stop. Extend the explicit forecast until growth has faded — ten years is common for high-growth businesses — so the fade happens where it is visible and defensible rather than being handled by an abrupt jump into a 2 % perpetuity. Applying a terminal value to a company still compounding at 15 % implies an instantaneous collapse in growth that no business actually experiences, and it makes the terminal number essentially arbitrary."
+    }
+  ],
+  "weak_answer_note": "Only mentioning growth and missing capex, working capital and margins. At this level the interviewer wants the full normalisation checklist, and specifically the capex-versus-D&A convergence, which is the one candidates most often omit.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

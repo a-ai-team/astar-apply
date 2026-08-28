@@ -1,0 +1,45 @@
+{
+  "slug": "hc-rnpv-basics",
+  "subtopic_slug": "projections-and-assumptions",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "lens:healthcare",
+    "rnpv",
+    "projections"
+  ],
+  "question": "A drug in development would generate £100m of cash flow in a given year if it reaches the market, but it has only a 30 % chance of approval. What figure goes into the forecast for that year, and why not just use a higher discount rate instead?",
+  "model_answer_md": "You put **£30m** into the forecast — the cash flow multiplied by the probability of success — and then discount that at a normal rate:\n\n$$100 \\times 0.30 = \\mathbf{£30\\text{m}}$$\n\nThe probability adjustment happens **before** discounting, not instead of it.\n\nThe reason not to bury the risk in the discount rate is that trial failure is a **binary** event. The drug either gets approved and earns roughly £100m, or it fails and earns nothing. There is no version of the world where it earns £30m. A high discount rate implies a cash flow that is smoothly uncertain around its expected value, which describes the wrong shape of risk entirely.\n\nProbability-weighting also keeps the discount rate comparable across companies, so a reader can still see which of two biotechs the market treats as riskier — and it forces the probability of success out into the open, where it can be argued about. That is exactly where the disagreement usually is.",
+  "key_points": [
+    "Multiply the cash flow by the probability of success, then discount normally",
+    "£100m × 30 % = £30m into the forecast for that year",
+    "Trial failure is binary — the outcome is roughly £100m or nothing",
+    "A high discount rate implies smooth uncertainty, which is the wrong shape",
+    "Probability-weighting keeps rates comparable and makes the key assumption visible"
+  ],
+  "follow_ups": [
+    {
+      "question": "What sort of success probability would a Phase 3 drug carry?",
+      "answer_md": "Much higher than one still in Phase 2 — broadly in the region of half to two-thirds, against something closer to a quarter or a third at Phase 2, and lower again earlier. The exact figures vary a great deal by therapeutic area, with oncology historically among the harder. The important discipline is to use a rate grounded in published industry data for that phase and indication, state it explicitly, and show what the valuation does if you are wrong by ten points — because that sensitivity usually matters more than anything else in the model."
+    },
+    {
+      "question": "Does the discount rate stay the same as for a profitable pharma company?",
+      "answer_md": "Broadly, yes — that is rather the point. Once the drug-specific risk sits in the cash flows, the rate only needs to compensate for risk an investor cannot diversify away, and whether one trial reads out well is largely idiosyncratic. So a cost of equity in the low-to-mid teens is typical, higher than a large diversified pharma because the company is smaller, earlier and more sensitive to funding conditions, but nothing like the 25 % people reach for when they are trying to price trial risk in the rate."
+    }
+  ],
+  "weak_answer_note": "Discounting the full £100m and raising the rate to compensate — the mistake the question is built to catch. Or applying the probability twice, once to the cash flow and again through an inflated rate, which double-counts the risk.",
+  "numbers": {
+    "inputs": {
+      "cash_flow_if_approved": 100,
+      "probability_of_success": 0.3
+    },
+    "answer": 30
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

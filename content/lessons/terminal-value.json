@@ -1,0 +1,136 @@
+{
+  "slug": "terminal-value",
+  "subtopic_slug": "terminal-value",
+  "title": "Terminal value: the three-quarters you cannot skip",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You have just spent four lessons forecasting five years of cash flow in careful detail. Here is the uncomfortable truth about that work: for Harbourline it accounts for roughly a quarter of the answer. The other three-quarters comes from a single line called **terminal value** — one number standing in for every year after the forecast ends.\n\nInterviewers know this, which is why the question is never just \"how do you calculate terminal value?\". It is that, then \"which method do you prefer?\", then \"your growth rate implies a multiple of 7.5× — the peers trade at 8.5×, so what?\". That last one is where prepared answers run out, and it is the one this lesson is really for."
+      },
+      {
+        "type": "concept",
+        "heading": "One number for the rest of time",
+        "md": "A company does not stop trading at the end of your forecast. But you cannot forecast forever either — beyond about five years your year-by-year estimates are guesses dressed up as arithmetic. So you draw a line, and value everything past it in one go.\n\nThere are two ways to do that, and they come at the problem from opposite directions.\n\nThe **perpetuity growth method** (usually called the *Gordon growth* method, after the economist who wrote it down) is theoretical. It assumes the business settles into a steady state and grows gently forever. Take the final forecast year's cash flow, grow it one more year, and divide by the discount rate less that growth rate.\n\nThe **exit multiple method** is empirical. It assumes you sell the business at the end of the forecast for whatever similar businesses are worth then — so take the final year's EBITDA and apply a multiple drawn from today's trading comparables.\n\nNeither is more correct. The useful move, and the one that gets you marks, is to run both: **each method implies the answer the other would have given.** A growth rate implies a multiple. A multiple implies a growth rate. If they disagree wildly, one of your assumptions is not defensible."
+      },
+      {
+        "type": "mechanics",
+        "md": "**Perpetuity growth.** With $FCF_n$ the final forecast year's cash flow, $g$ the perpetual growth rate and $r$ the discount rate:\n\n$$TV = \\frac{FCF_n \\times (1+g)}{r - g}$$\n\nThe $(1+g)$ matters — you are valuing the *next* year's cash flow onwards, not the one you already forecast. And note the denominator: it is a *difference* between two small numbers, which is why the whole valuation is so twitchy. At $r$ = 8 % and $g$ = 2 % the denominator is 6 points. Push $g$ to 3 % and it falls to 5 — a sixth smaller, so the terminal value jumps by a fifth.\n\n**Exit multiple.**\n\n$$TV = \\text{EBITDA}_n \\times \\text{multiple}$$\n\n**The two cross-checks.** Rearranging the first formula gives you the growth rate any terminal value implies:\n\n$$g_{\\text{implied}} = \\frac{TV \\times r - FCF_n}{TV + FCF_n}$$\n\nand dividing a Gordon terminal value by final-year EBITDA gives the multiple it implies. Quote both in an interview and you have answered the follow-up before it arrives.\n\n**Then discount it.** The terminal value is expressed in year-5 money, so it is discounted five years, not six — it sits *at* the end of year 5, the same date as the final cash flow."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline's terminal value uses 2 % perpetual growth. If you moved that to 3 % and changed nothing else, roughly how much would the enterprise value rise?",
+        "options": [
+          { "label": "About 5 %" },
+          { "label": "About 20 %", "correct": true },
+          { "label": "About 50 %" },
+          { "label": "It would not change — growth is already in the cash flows" }
+        ],
+        "explain_md": "About **20 %**, and the reason is the denominator. At 8 % discount and 2 % growth you are dividing by 6 points; at 3 % growth you divide by 5. That is a sixth less, so the terminal value rises by roughly a fifth — and since terminal value is about three-quarters of Harbourline's enterprise value, most of that increase lands in the final answer.\n\nThis is why one percentage point on terminal growth is not a detail. It is one of the two numbers your whole valuation rests on, and an interviewer changing it mid-question is testing whether you know that."
+      },
+      {
+        "type": "widget",
+        "widget": "gordon_vs_exit",
+        "props": {
+          "finalFcf": 102.3,
+          "finalEbitda": 231.9,
+          "wacc": 0.08,
+          "growth": 0.02,
+          "exitMultiple": 8.5
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc**, the company running through this chapter. Its final forecast year — FY5 — produces **£102.3m** of unlevered free cash flow and **£231.9m** of EBITDA. The discount rate is **8.0 %**, and the five forecast years discount back to **£364m** of present value.\n\nNow value everything after FY5, both ways. Long-run growth of **2 %** is a defensible assumption for a UK logistics business: roughly the rate the economy grows in nominal terms, which is the ceiling a mature company can sustain forever. The peers trade at **8.5×** EBITDA.",
+        "steps": [
+          { "label": "Gordon: grow FY5 cash flow one more year", "expr": "102.3 * (1 + 2%)", "value": 104.35, "unit": "£m" },
+          { "label": "Gordon: divide by (WACC − g)", "expr": "104.35 / (8% - 2%)", "value": 1739.1, "unit": "£m" },
+          { "label": "The multiple that terminal value implies", "expr": "1739.1 / 231.9", "value": 7.5, "unit": "×" },
+          { "label": "Discount it back five years", "expr": "1739.1 / (1 + 8%)^5", "value": 1183.6, "unit": "£m" },
+          { "label": "Enterprise value, Gordon method", "expr": "364.3 + 1183.6", "value": 1547.9, "unit": "£m" },
+          { "label": "Share of value sitting in the terminal", "expr": "1183.6 / 1547.9", "value": 0.765, "unit": "" },
+          { "label": "Exit multiple: 8.5× FY5 EBITDA", "expr": "8.5 * 231.9", "value": 1971.2, "unit": "£m" },
+          { "label": "The growth rate that terminal value implies", "expr": "(1971.2 * 8% - 102.3) / (1971.2 + 102.3)", "value": 0.0267, "unit": "" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "The two methods have not agreed. Gordon at 2 % growth gave £1,739m and implied a 7.5× multiple; the peers trade at 8.5×, which implies 2.7 % growth instead. Finish the exit-multiple case and see how much that one turn of multiple is worth.",
+        "steps": [
+          { "label": "Discount the 8.5× terminal value back five years", "expr": "1971.2 / (1 + 8%)^5", "value": 1341.5, "unit": "£m", "blank": true },
+          { "label": "Enterprise value, exit-multiple method", "expr": "364.3 + 1341.5", "value": 1705.8, "unit": "£m", "blank": true },
+          { "label": "The gap between the two methods", "expr": "1705.8 - 1547.9", "value": 157.9, "unit": "£m" },
+          { "label": "That gap as a share of the Gordon answer", "expr": "157.9 / 1547.9", "value": 0.102, "unit": "", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Terminal growth is the company's growth rate.\"**\n\nIt is not. It is the rate the company grows *forever*, and forever is a very long time.\n\nHarbourline grows revenue at 4–6 % across the forecast. Put 5 % into the terminal formula and you have assumed it keeps that up permanently — which means that at some point it becomes larger than the UK economy, then larger than every economy. The maths does not stop you; it just quietly produces a number that cannot be true.\n\nThe ceiling is long-run **nominal GDP growth**: real growth plus inflation, so roughly 2–3 % for a developed economy. Anything above that needs a specific argument, and \"the company is growing fast at the moment\" is not one — fast growth belongs in the forecast years, not the perpetuity.\n\nThe failure mode is worse than being wrong, because it is invisible. A 5 % perpetuity does not error; it just inflates the answer by half and waits for an interviewer to ask what it implies."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Terminal value captures everything after the forecast period. There are two methods. The perpetuity growth method takes the final year's cash flow, grows it one more year and divides by the discount rate less the perpetual growth rate. The exit multiple method applies a current trading multiple to the final year's EBITDA. Each implies the other, so I calculate both and check they agree. For Harbourline, 2 % growth gives about £1.7bn, which implies roughly 7.5 times FY5 EBITDA — close enough to the 8.5× the peers trade at to be credible.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "When the multiple is the entire answer",
+            "md": "Harbourline's terminal value is about three-quarters of its enterprise value, and that is a *mature* business whose cash flows are already large. For a software company still growing 20 % a year in the final forecast year, the share routinely runs past 85 %. The forecast you laboured over is decoration; the terminal assumption is the valuation.\n\nThat changes what you should argue about. Picking an exit multiple of 15× for a fast-growing business is not really a statement about multiples — it is a bet that investors a decade from now will still pay a premium for growth that has, by then, mostly happened. Run the cross-check and that bet becomes explicit: a 15× exit multiple on a company generating modest cash will often imply perpetual growth of 5 % or more, which is above the ceiling any economy allows.\n\nThe honest presentation states the implied growth rate alongside the multiple and lets the reader judge it. The dishonest one quotes the multiple and hopes nobody divides.",
+            "example_q": "Your exit multiple implies 6 % perpetual growth. Defend it.",
+            "answer_md": "I would not defend it as a perpetual growth rate, because 6 % forever is above long-run nominal GDP and implies the company eventually outgrows the economy. What I would say is that the multiple is doing a different job: it reflects what a buyer might pay at exit for a business still growing quickly at that point, and the implied-growth cross-check is stretching a steady-state formula over a company that has not reached a steady state.\n\nThe fix is to extend the forecast until growth has genuinely faded — ten years rather than five — and then apply the perpetuity. If the implied growth still comes out at 6 %, the multiple is too high and I would lower it."
+          },
+          "healthcare": {
+            "heading": "There is no perpetuity after the patent expires",
+            "md": "The perpetuity formula assumes cash flows continue and grow gently. For a drug approaching the end of its patent, the opposite happens: generic competitors enter and revenue falls by something like 80–90 % within two years. Applying a growth perpetuity to that final year does not overstate the value slightly — it values a cliff as though it were a plateau.\n\nSo pharmaceutical analysts do not use one. They forecast explicitly through **loss of exclusivity** — the date the patent protection ends — model the collapse, and then apply a small perpetuity, or none at all, to whatever tail of generic-era sales survives. Where a company has several drugs, each is modelled to its own expiry date and the results added, which is why a pharma valuation is often a stack of small DCFs rather than one.\n\nThe general lesson travels beyond healthcare: a perpetuity is only appropriate once the business has reached a state you believe can persist. If it has not, extend the forecast until it has.",
+            "example_q": "How would you handle terminal value for a drug losing exclusivity in 2031?",
+            "answer_md": "I would not put a growth perpetuity on it. I would forecast explicitly to 2031, then model the erosion — typically most of the revenue gone within about two years of generics entering — and carry a small residual tail forward.\n\nThat tail is what gets the terminal value, if anything does, and it should be valued at very low or zero growth because the product is in decline rather than a steady state. If the company has other drugs still on patent, I would value each to its own expiry and sum them, so the pipeline's value is visible separately rather than buried in one perpetuity that quietly assumes the cliff never happens."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A different company. Its final forecast year produces **£60m** of unlevered free cash flow and **£150m** of EBITDA. The discount rate is **9 %**, and you think 2.5 % perpetual growth is fair. Comparable companies trade at **7×** EBITDA.\n\nCalculate the terminal value both ways, run each cross-check, and say which answer you would take to a managing director.",
+        "model_answer_md": "**Perpetuity growth.** Grow the final year's cash flow one more year and divide by the discount rate less growth:\n\n$$TV = \\frac{60 \\times 1.025}{0.09 - 0.025} = \\frac{61.5}{0.065} = £946\\text{m}$$\n\nCross-check it against EBITDA: 946 ÷ 150 = **6.3×**.\n\n**Exit multiple.** 7 × 150 = **£1,050m**. Its implied growth rate is\n\n$$g = \\frac{1{,}050 \\times 0.09 - 60}{1{,}050 + 60} = \\frac{34.5}{1{,}110} = \\mathbf{3.1\\%}$$\n\n**Reading it.** The two are close — £946m against £1,050m, about 11 % apart, which is agreement by the standards of this exercise. My growth assumption implies 6.3×, a little below where peers actually trade at 7×, and their multiple implies 3.1 % growth, a little above my 2.5 %. Both cross-checks point the same way: my assumption is mildly conservative.\n\nI would present the range £946m–£1,050m rather than choose. If forced to pick one I would lean on the exit multiple, because it is anchored in observable prices — but I would flag that 3.1 % perpetual growth is at the upper end of what is defensible, so the true answer probably sits between the two.",
+        "rubric": [
+          "Grows the final-year cash flow by one year before dividing — uses 61.5, not 60",
+          "Computes both terminal values: £946m and £1,050m",
+          "Runs both cross-checks — the implied multiple of 6.3× and the implied growth of 3.1 %",
+          "Comments on whether the two methods agree rather than just reporting them",
+          "Notes that 3.1 % perpetual growth is near the ceiling of what is defensible"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Which method do bankers actually use?", "a": "The exit multiple in practice, because it is anchored in observable prices — with the perpetuity as the cross-check. Academics prefer it the other way round." },
+          { "q": "What if the growth rate exceeds the discount rate?", "a": "The formula breaks — the denominator goes negative and the terminal value comes out negative. It is telling you the assumption is nonsense, not that the company is worthless." },
+          { "q": "Why discount the terminal value five years and not six?", "a": "Because it is valued as at the end of year 5 — the same date as the final forecast cash flow." },
+          { "q": "What share of a DCF usually sits in the terminal value?", "a": "Typically 60–80 % for a mature business, and higher for a growth company. Harbourline's is about 76 %." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Terminal value is most of your answer — so calculate it both ways, and let each method tell you what the other one assumed.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can calculate terminal value by perpetuity growth and by exit multiple.",
+          "I can convert between the two — quoting the multiple a growth rate implies, and the growth rate a multiple implies.",
+          "I can say why terminal growth is capped at long-run nominal GDP, and what goes wrong above it.",
+          "I can explain why the terminal value is discounted five years rather than six.",
+          "I can state roughly what share of a valuation the terminal value should represent, and notice when it is too high."
+        ]
+      }
+    ]
+  }
+}

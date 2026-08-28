@@ -1,0 +1,47 @@
+{
+  "slug": "ufcf-from-ebit",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "ufcf",
+    "calculation"
+  ],
+  "question": "Harbourline's first forecast year shows EBIT of £127.2m, depreciation and amortisation of £63.6m, capital expenditure of £70.0m and a £7.2m increase in working capital. Tax is 25 %. What is unlevered free cash flow?",
+  "model_answer_md": "Start at EBIT and tax it as though there were no debt:\n\n$$\\text{NOPAT} = 127.2 \\times (1 - 0.25) = £95.4\\text{m}$$\n\nAdd back the depreciation and amortisation, because it reduced EBIT without moving any cash, then take out the two real cash costs of running and growing the business:\n\n$$95.4 + 63.6 - 70.0 - 7.2 = \\mathbf{£81.8\\text{m}}$$\n\nNotice capital expenditure is slightly above D&A here — £70.0m against £63.6m. That is what you expect from a company still growing: it is replacing what wears out and adding a little more.",
+  "key_points": [
+    "Tax EBIT at the full rate — no interest deduction, because this is unlevered",
+    "NOPAT = 127.2 × 0.75 = £95.4m",
+    "Add back D&A (£63.6m) as a non-cash charge",
+    "Subtract capex (£70.0m) and the increase in working capital (£7.2m)",
+    "UFCF = £81.8m"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the company also paid £30m of interest that year?",
+      "answer_md": "Nothing changes. Unlevered free cash flow is struck before interest by construction — that is the whole point of the word *unlevered*. The £30m does not appear in the cash flow at all; the effect of debt shows up twice elsewhere, in the after-tax cost of debt inside WACC and in the net-debt subtraction on the equity bridge. Deducting it here would double-count the financing."
+    },
+    {
+      "question": "And if D&A were £10m higher, at £73.6m?",
+      "answer_md": "Two offsetting effects. EBIT falls by £10m to £117.2m, so NOPAT falls by £7.5m to £87.9m — but you add back the full £73.6m rather than £63.6m, which is £10m more. Net effect: **UFCF rises by £2.5m** to £84.3m. That £2.5m is the tax shield, £10m × 25 %. It is the same mechanism as the classic depreciation walkthrough."
+    }
+  ],
+  "weak_answer_note": "Deducting interest, or taxing at a rate that reflects the actual interest deduction — both break the 'unlevered' premise. Forgetting the working-capital line, or getting its sign wrong: an *increase* in working capital consumes cash and is subtracted.",
+  "numbers": {
+    "inputs": {
+      "ebit": 127.2,
+      "tax_rate": 0.25,
+      "da": 63.6,
+      "capex": 70.0,
+      "change_in_nwc": 7.2
+    },
+    "answer": 81.8
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

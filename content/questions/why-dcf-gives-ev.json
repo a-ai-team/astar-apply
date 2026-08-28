@@ -1,0 +1,38 @@
+{
+  "slug": "why-dcf-gives-ev",
+  "subtopic_slug": "dcf-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "dcf",
+    "enterprise-value"
+  ],
+  "question": "A DCF built on unlevered cash flow gives you enterprise value rather than equity value. Why?",
+  "model_answer_md": "Because of what the cash flow and the discount rate each represent.\n\nUnlevered free cash flow is struck **before interest**, so it is the cash the operating business throws off for everyone who funded it — lenders and shareholders together. WACC is the blended return those same providers require, weighted by how much each has put in.\n\nMatch a cash flow belonging to all funders with a rate demanded by all funders and the present value you get is the value of the whole operating business: enterprise value.\n\nTo reach equity value you then run the bridge — subtract net debt and anything else ranking ahead of shareholders. For Harbourline: £1,548m of enterprise value, less £380m of net debt, £30m of preferred, £25m of non-controlling interests and £45m of leases, gives £1,068m of equity, or about £4.27 a share.",
+  "key_points": [
+    "Unlevered cash flow is pre-interest, so it belongs to all providers of capital",
+    "WACC is the blended return those same providers require",
+    "Matching the two produces the value of the operating business",
+    "Enterprise value → equity value needs the bridge",
+    "Harbourline: £1,548m EV → £1,068m equity → £4.27 a share"
+  ],
+  "follow_ups": [
+    {
+      "question": "So how do you get from there to a share price?",
+      "answer_md": "Run the bridge in reverse of the way you built enterprise value: take EV, subtract net debt and the other claims that rank ahead of shareholders — preferred stock, non-controlling interests, capitalised leases, an unfunded pension deficit — and divide the result by the **diluted** share count. For Harbourline that is £1,548m down to £1,068m of equity across 250m shares, so £4.27 a share against a £4.20 market price."
+    },
+    {
+      "question": "Is there a version that gives equity value directly?",
+      "answer_md": "Yes — a levered DCF. You forecast free cash flow to equity, which is after interest and after debt repayments, and discount it at the **cost of equity** rather than WACC. The present value is then equity value straight away, with no bridge. It is rarely used in practice because the cash flow moves with the financing plan, which makes it harder to compare companies, but banks are valued this way because their debt is part of operations."
+    }
+  ],
+  "weak_answer_note": "Saying 'because it uses WACC' without explaining that the cash flow is also pre-interest. The insight is the *match* between numerator and denominator, not either one alone. Claiming a DCF gives equity value directly is the outright error.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

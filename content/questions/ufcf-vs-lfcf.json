@@ -1,0 +1,38 @@
+{
+  "slug": "ufcf-vs-lfcf",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "ufcf",
+    "lfcf"
+  ],
+  "question": "What is the difference between unlevered and levered free cash flow, and what does each one give you?",
+  "model_answer_md": "**Unlevered free cash flow** is struck before any financing. It is what the operations generate for every provider of capital, so it pairs with WACC and the present value is **enterprise value**.\n\n**Levered free cash flow** — free cash flow to equity — is what is left after interest has been paid and debt principal has been serviced or drawn. It belongs to shareholders only, so it pairs with the **cost of equity** and gives **equity value** directly, with no bridge.\n\nThe practical reason unlevered is the default is comparability. Two companies with identical operations but different debt loads produce the same unlevered cash flow, so the method values the business rather than the financing decision. Levered cash flow moves every time the capital structure does, which makes comparison across a peer set much harder.",
+  "key_points": [
+    "Unlevered is pre-interest; levered is post-interest and post-debt-service",
+    "Unlevered pairs with WACC → enterprise value",
+    "Levered pairs with the cost of equity → equity value directly",
+    "Unlevered is capital-structure neutral, so it compares businesses not financing",
+    "Levered is standard for banks, where debt is operational"
+  ],
+  "follow_ups": [
+    {
+      "question": "Should the two methods give the same answer?",
+      "answer_md": "In theory, yes — done consistently they should reconcile, because they are two routes to the same underlying value. In practice they rarely land in the same place. The levered route requires you to forecast the whole debt schedule and to relever the cost of equity as leverage changes each year; hold the cost of equity flat while debt is paid down and the answers drift apart. When they diverge materially it is nearly always a sign that the discount rate has not been kept consistent with the changing capital structure."
+    },
+    {
+      "question": "When would you actually use the levered version?",
+      "answer_md": "Banks and insurers, mainly. For them borrowing is not how the business is financed, it is the business — so an 'unlevered' bank cash flow does not describe anything real. You forecast distributable earnings instead, take out what regulation requires them to retain as capital, and discount the remainder at the cost of equity. Outside financials it also shows up in project finance, where the debt schedule is fixed by contract and equity holders genuinely see a residual."
+    }
+  ],
+  "weak_answer_note": "Getting the pairing backwards — discounting unlevered cash flow at the cost of equity, or levered at WACC. Also naming the difference as 'one includes debt' without saying which value each produces, which is the part that matters.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

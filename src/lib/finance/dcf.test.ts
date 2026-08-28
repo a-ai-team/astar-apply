@@ -10,6 +10,7 @@ import {
   terminalValueExitMultiple,
   terminalValueGordon,
   unleveredFreeCashFlow,
+  extendProjection,
 } from "./dcf";
 
 describe("unleveredFreeCashFlow", () => {
@@ -129,5 +130,98 @@ describe("sensitivityGrid", () => {
 describe("project", () => {
   it("grows a starting figure at a constant rate", () => {
     expect(project(100, 0.1, 3).map((v) => Math.round(v * 100) / 100)).toEqual([110, 121, 133.1]);
+  });
+});
+
+describe("extendProjection (Loop 16 — tv_share)", () => {
+  const HARBOURLINE = [81.8, 86.7, 92.4, 96.9, 102.3];
+
+  it("truncates when asked for fewer years than it has", () => {
+    expect(extendProjection(HARBOURLINE, 3, 0.02)).toEqual([81.8, 86.7, 92.4]);
+  });
+
+  it("returns the input unchanged at its own length", () => {
+    expect(extendProjection(HARBOURLINE, 5, 0.02)).toEqual(HARBOURLINE);
+  });
+
+  it("fades the last growth rate down to the terminal rate", () => {
+    const ten = extendProjection(HARBOURLINE, 10, 0.02);
+    expect(ten).toHaveLength(10);
+    // Final observed growth is 102.3 / 96.9 − 1 ≈ 5.57 %, fading to 2 % over five extra years.
+    const firstExtraGrowth = ten[5] / ten[4] - 1;
+    const lastExtraGrowth = ten[9] / ten[8] - 1;
+    expect(firstExtraGrowth).toBeLessThan(0.0557);
+    expect(lastExtraGrowth).toBeCloseTo(0.02, 3);
+    expect(firstExtraGrowth).toBeGreaterThan(lastExtraGrowth);
+  });
+
+  it("the terminal share falls as the projection lengthens, but never below half", () => {
+    const share = (years: number) => {
+      const flows = extendProjection(HARBOURLINE, years, 0.02);
+      const tv = terminalValueGordon({ finalFcf: flows[flows.length - 1], growth: 0.02, wacc: 0.08 });
+      return dcfValue({ cashFlows: flows, wacc: 0.08, terminalValue: tv }).terminalShare;
+    };
+    expect(share(5)).toBeCloseTo(0.765, 2);
+    expect(share(10)).toBeCloseTo(0.585, 2);
+    expect(share(10)).toBeLessThan(share(5));
+    expect(share(10)).toBeGreaterThan(0.5);
+  });
+
+  it("handles degenerate inputs", () => {
+    expect(extendProjection([], 5, 0.02)).toEqual([]);
+    expect(extendProjection(HARBOURLINE, 0, 0.02)).toEqual([]);
+    expect(extendProjection([100], 3, 0.02)).toEqual([100, 102, 104.04]);
+  });
+});
+
+describe("Harbourline plc — the Loop 16 chapter DCF", () => {
+  const CF = [81.8, 86.7, 92.4, 96.9, 102.3];
+  const FINAL_EBITDA = 231.9;
+  const WACC = 0.08;
+
+  it("Gordon growth at 2 % gives EV £1,548m with a 76 % terminal share", () => {
+    const tv = terminalValueGordon({ finalFcf: 102.3, growth: 0.02, wacc: WACC });
+    expect(tv).toBeCloseTo(1739.1, 0);
+    const v = dcfValue({ cashFlows: CF, wacc: WACC, terminalValue: tv });
+    expect(v.pvExplicit).toBeCloseTo(364.3, 0);
+    expect(v.pvTerminal).toBeCloseTo(1183.6, 0);
+    expect(v.enterpriseValue).toBeCloseTo(1547.9, 0);
+    expect(v.terminalShare).toBeCloseTo(0.765, 2);
+    expect(impliedExitMultiple({ tv, finalEbitda: FINAL_EBITDA })).toBeCloseTo(7.5, 1);
+  });
+
+  it("an 8.5× exit multiple gives EV £1,706m and implies 2.7 % growth", () => {
+    const tv = terminalValueExitMultiple({ finalEbitda: FINAL_EBITDA, multiple: 8.5 });
+    expect(tv).toBeCloseTo(1971.2, 0);
+    const v = dcfValue({ cashFlows: CF, wacc: WACC, terminalValue: tv });
+    expect(v.enterpriseValue).toBeCloseTo(1705.8, 0);
+    expect(impliedGrowth({ tv, finalFcf: 102.3, wacc: WACC })).toBeCloseTo(0.0267, 3);
+  });
+
+  it("bridges to £4.27 a share against a £4.20 market price", () => {
+    const tv = terminalValueGordon({ finalFcf: 102.3, growth: 0.02, wacc: WACC });
+    const { enterpriseValue } = dcfValue({ cashFlows: CF, wacc: WACC, terminalValue: tv });
+    const { equityValue, perShare } = equityValuePerShare({ enterpriseValue, netDebt: 380, otherClaims: 30 + 25 + 45, dilutedShares: 250 });
+    expect(equityValue).toBeCloseTo(1067.9, 0);
+    expect(perShare).toBeCloseTo(4.27, 2);
+  });
+
+  it("one point either way on WACC and g moves EV from about £1.2bn to £2.3bn", () => {
+    const ev = (wacc: number, growth: number) =>
+      dcfValue({ cashFlows: CF, wacc, terminalValue: terminalValueGordon({ finalFcf: 102.3, growth, wacc }) }).enterpriseValue;
+    expect(ev(0.09, 0.01)).toBeCloseTo(1193.9, 0);
+    expect(ev(0.08, 0.02)).toBeCloseTo(1547.9, 0);
+    expect(ev(0.07, 0.03)).toBeCloseTo(2252.6, 0);
+    expect(ev(0.07, 0.03) / ev(0.09, 0.01)).toBeGreaterThan(1.8);
+  });
+
+  it("mid-year lifts the explicit PV to £378m; the TV still sits at year-end", () => {
+    const tv = terminalValueGordon({ finalFcf: 102.3, growth: 0.02, wacc: WACC });
+    const mid = dcfValue({ cashFlows: CF, wacc: WACC, terminalValue: tv, midYear: true });
+    expect(mid.pvExplicit).toBeCloseTo(378.6, 0);
+    // The TV is discounted at the full final-year factor either way, so EV rises ~1 %, not 3–4 %.
+    // See the Loop 16 retro: the chapter spec assumed a mid-year TV too.
+    expect(mid.pvTerminal).toBeCloseTo(1183.6, 0);
+    expect(mid.enterpriseValue).toBeCloseTo(1562.2, 0);
   });
 });

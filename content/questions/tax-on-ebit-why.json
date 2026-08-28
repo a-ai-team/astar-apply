@@ -1,0 +1,38 @@
+{
+  "slug": "tax-on-ebit-why",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "tax",
+    "ufcf"
+  ],
+  "question": "In a DCF you tax EBIT rather than the company's actual pre-tax profit. Why?",
+  "model_answer_md": "Because the cash flow is meant to be unlevered, and the company's real tax bill is not.\n\nInterest is deductible, so a company with debt pays less tax than an identical company without it. If you used the actual tax charge, the benefit of that deduction — the tax shield — would be sitting inside your cash flow. You would then discount it at WACC, which **already** contains the same benefit through the after-tax cost of debt term. The shield would be counted twice.\n\nSo the convention is to tax EBIT at the full marginal rate, as though the company had no debt at all, and let WACC carry the tax shield on its own.\n\nFor Harbourline: EBIT of £127.2m taxed at 25 % gives £95.4m of NOPAT, regardless of what its interest bill actually is.",
+  "key_points": [
+    "Unlevered cash flow must be free of financing effects",
+    "Interest is tax-deductible, so the real tax charge already reflects debt",
+    "WACC carries the tax shield via the after-tax cost of debt",
+    "Using the actual tax charge would double-count the shield",
+    "Tax EBIT at the full marginal rate: 127.2 × 25 % for Harbourline"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the company has large loss carry-forwards?",
+      "answer_md": "Then the marginal rate overstates what it will actually pay for the next few years, and you have a choice. The cleaner approach is to keep taxing EBIT at the full rate in the cash flow and value the losses separately — project the cash tax they save, discount that stream, and add it to enterprise value as a distinct asset. That keeps the operating cash flow comparable with peers and puts a visible number on a benefit that expires. Burying a lower tax rate inside the forecast hides both."
+    },
+    {
+      "question": "Marginal or effective tax rate?",
+      "answer_md": "Marginal, generally — the statutory rate the company would pay on an extra pound of profit, since that is what a long-run forecast is projecting. The effective rate from the accounts is pulled around by one-off items, prior-year adjustments and the geographic mix of profits in that particular year. If the effective rate sits persistently below the statutory one for a structural reason, such as a genuinely different country mix, it is worth using something in between and saying why."
+    }
+  ],
+  "weak_answer_note": "Saying 'because it's unlevered' without explaining the double-count — that is the actual mechanism and the follow-up will find it. Using the effective rate from the accounts without noticing it embeds the interest deduction.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

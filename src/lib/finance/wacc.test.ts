@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { costOfEquityCapm, medianBeta, releverBeta, releveredBetaFromComps, unleverBeta, wacc } from "./wacc";
+import { costOfEquityCapm, leverageSweep, medianBeta, minimumWaccPoint, releverBeta, releveredBetaFromComps, unleverBeta, wacc } from "./wacc";
 
 describe("costOfEquityCapm", () => {
   it("Rf 4 % + β 1.2 × ERP 5.5 % = 10.6 %", () => {
@@ -103,5 +103,73 @@ describe("releveredBetaFromComps", () => {
     // Unlevered: A 0.9455, B 0.8980, C 0.9375 → median 0.9375, relevered at D/E 0.4 → ×1.3.
     expect(r.medianUnlevered).toBeCloseTo(0.9375, 3);
     expect(r.relevered).toBeCloseTo(1.2188, 3);
+  });
+});
+
+describe("leverageSweep (Loop 16 — wacc_builder)", () => {
+  const HARBOURLINE = { beta: 1.0, baseDebtToEquity: 590 / 1050, riskFree: 0.04, equityRiskPremium: 0.06, costOfDebt: 0.06, taxRate: 0.25 };
+
+  it("reproduces Harbourline's 8.0 % WACC at its actual 36 % debt weight", () => {
+    const [p] = leverageSweep({ ...HARBOURLINE, points: [590 / 1640] });
+    expect(p.costOfEquity).toBeCloseTo(0.1, 4);
+    expect(p.wacc).toBeCloseTo(0.0802, 3);
+  });
+
+  it("with beta fixed, WACC falls in a straight line as debt rises", () => {
+    const points = leverageSweep({ ...HARBOURLINE, relever: false, points: [0, 0.2, 0.4, 0.6] });
+    const waccs = points.map((p) => p.wacc);
+    expect(waccs[0]).toBeCloseTo(0.1, 4);
+    for (let i = 1; i < waccs.length; i++) expect(waccs[i]).toBeLessThan(waccs[i - 1]);
+    // Equal steps in leverage give equal steps in WACC — that is what "straight line" means.
+    expect(waccs[0] - waccs[1]).toBeCloseTo(waccs[1] - waccs[2], 4);
+    expect(points.every((p) => p.beta === 1)).toBe(true);
+  });
+
+  it("relevering bends the line into a U with a real minimum", () => {
+    const points = leverageSweep({ ...HARBOURLINE, relever: true });
+    const min = minimumWaccPoint(points);
+    expect(min).not.toBeNull();
+    expect(min!.debtWeight).toBeGreaterThan(0.2);
+    expect(min!.debtWeight).toBeLessThan(0.85);
+    // It genuinely turns back up rather than just flattening.
+    expect(points[points.length - 1].wacc).toBeGreaterThan(min!.wacc);
+    // Beta rises with leverage; the cost of debt only re-prices past the spread threshold.
+    expect(points[points.length - 1].beta).toBeGreaterThan(points[0].beta);
+    expect(points[0].costOfDebt).toBeCloseTo(0.06, 4);
+    expect(points[points.length - 1].costOfDebt).toBeGreaterThan(0.06);
+  });
+
+  it("removing the tax shield removes most of the debt advantage", () => {
+    const withTax = leverageSweep({ ...HARBOURLINE, relever: false, points: [0, 0.5] });
+    const noTax = leverageSweep({ ...HARBOURLINE, taxRate: 0, relever: false, points: [0, 0.5] });
+    const drop = (ps: typeof withTax) => ps[0].wacc - ps[1].wacc;
+    expect(drop(withTax)).toBeGreaterThan(drop(noTax));
+  });
+
+  it("minimumWaccPoint returns null for an empty sweep", () => {
+    expect(minimumWaccPoint([])).toBeNull();
+  });
+});
+
+describe("Harbourline's relevered beta (Loop 16 — beta_relever)", () => {
+  const comps = [
+    { name: "Calder Freight", leveredBeta: 1.2, debtToEquity: 0.6, taxRate: 0.25 },
+    { name: "Penrose Logistics", leveredBeta: 0.9, debtToEquity: 0.3, taxRate: 0.25 },
+    { name: "Thornbury Haulage", leveredBeta: 1.1, debtToEquity: 0.5, taxRate: 0.25 },
+  ];
+
+  it("unlevers to 0.83 / 0.73 / 0.80, medians at 0.80 and relevers to 1.14", () => {
+    const r = releveredBetaFromComps({ comps, targetDebtToEquity: 590 / 1050, targetTaxRate: 0.25 });
+    expect(r.unlevered.map((u) => Number(u.beta.toFixed(2)))).toEqual([0.83, 0.73, 0.8]);
+    expect(r.medianUnlevered).toBeCloseTo(0.8, 2);
+    expect(r.relevered).toBeCloseTo(1.137, 2);
+    expect(costOfEquityCapm({ riskFree: 0.04, beta: r.relevered, equityRiskPremium: 0.06 })).toBeCloseTo(0.1082, 3);
+  });
+
+  it("the unlevered median is unchanged by the target's capital structure", () => {
+    const a = releveredBetaFromComps({ comps, targetDebtToEquity: 0.1, targetTaxRate: 0.25 });
+    const b = releveredBetaFromComps({ comps, targetDebtToEquity: 2.0, targetTaxRate: 0.25 });
+    expect(a.medianUnlevered).toBeCloseTo(b.medianUnlevered, 6);
+    expect(b.relevered).toBeGreaterThan(a.relevered);
   });
 });

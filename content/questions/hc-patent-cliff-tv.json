@@ -1,0 +1,39 @@
+{
+  "slug": "hc-patent-cliff-tv",
+  "subtopic_slug": "terminal-value",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "terminal-value",
+    "patent-cliff"
+  ],
+  "question": "How would you handle the terminal value for a pharmaceutical company whose main drug loses patent protection in year seven?",
+  "model_answer_md": "I would not apply a growing perpetuity at all — at least not to that drug's cash flows.\n\nThe reason is that a perpetuity assumes modest growth forever, and a patent expiry is the opposite: generic competitors enter and revenue for that product typically collapses, often losing most of its value within a year or two. Growing it at 2 % describes the wrong world entirely.\n\nSo I would **forecast explicitly through the cliff** — extend the projection past year seven so the decline happens inside the model where it is visible — and then set a terminal value on whatever genuinely remains. That residual is usually small: a modest branded tail, since some patients and prescribers stay loyal, plus whatever the rest of the portfolio contributes.\n\nThe cleanest structure is to value the business in parts: the patented product as a finite stream ending at expiry, the pipeline separately on a probability-weighted basis, and only the durable base business carrying a perpetuity.\n\nThe general principle is that a perpetuity belongs on cash flows that plausibly continue — never on an asset with a known end date.",
+  "key_points": [
+    "A patent expiry is a cliff, not a growth rate — a perpetuity misdescribes it",
+    "Forecast explicitly through the expiry so the decline is visible",
+    "Terminal value applies only to what genuinely survives — a modest branded tail",
+    "Value the business in parts: patented product, pipeline, base business",
+    "Never apply a growing perpetuity to an asset with a known end date"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does the same apply to biologics?",
+      "answer_md": "The shape is gentler. Biosimilars are far harder and more expensive to develop and manufacture than small-molecule generics, and they need their own clinical work, so fewer competitors enter and prices fall more slowly. Erosion tends to be partial and gradual rather than the steep drop a small molecule sees. So you would still forecast the decline explicitly, but with a shallower slope and a meaningfully larger surviving tail — the principle is unchanged, only the steepness of the curve differs."
+    },
+    {
+      "question": "How do you value the pipeline alongside that?",
+      "answer_md": "Separately, and on a probability-weighted basis. Each programme gets its forecast cash flows multiplied by the chance it reaches the market for its phase, then discounted at a normal rate — the risk-adjusted NPV approach. Summing those gives a pipeline value you add to the base business. Keeping it separate matters because the assumptions are completely different in kind: the base business is about erosion curves, the pipeline is about probabilities of success, and blending them into one growth rate hides both."
+    }
+  ],
+  "weak_answer_note": "Applying a standard perpetuity and treating the cliff as a growth-rate adjustment. Or knowing the revenue falls but not proposing to forecast explicitly through it, which is the practical answer an interviewer wants.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

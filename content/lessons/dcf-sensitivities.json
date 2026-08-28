@@ -1,0 +1,138 @@
+{
+  "slug": "dcf-sensitivities",
+  "subtopic_slug": "dcf-sensitivities",
+  "title": "Sensitivities: why a DCF is a range, not a number",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You have built a DCF. It says Harbourline is worth £4.27 a share. The interviewer asks what it is worth, and the temptation is to say £4.27.\n\nDon't. Move the discount rate one point down and the growth rate one point up — both entirely defensible changes — and the same model says £7.09. Move them the other way and it says £2.86. A number you can swing by a factor of two is not an answer; it is one cell in a table.\n\nThis is the last lesson of the chapter because it reframes everything before it. \"Which assumptions is a DCF most sensitive to?\" is the question that separates candidates who have built a model from candidates who have only read about one, and the answer is not a list — it is an explanation of *why* those two inputs dominate."
+      },
+      {
+        "type": "concept",
+        "heading": "Two inputs carry almost all the uncertainty",
+        "md": "A DCF has dozens of assumptions. They do not matter equally, and the reason comes straight from the last lesson.\n\nAbout three-quarters of Harbourline's value sits in the terminal value, and the terminal value is a fraction whose denominator is the **discount rate minus the terminal growth rate**. Both of those numbers are small, so their difference is smaller still — and a fraction with a small denominator moves violently when that denominator changes.\n\nSo the ranking is:\n\n1. **The discount rate.** It hits twice: it discounts every forecast year, and it sits in the terminal denominator. A single point is worth hundreds of millions.\n2. **Terminal growth (or the exit multiple).** The other half of that denominator.\n3. **Operating margin.** Real money, but it only moves the cash flows, not the multiplier applied to them.\n4. **Revenue growth, capex, working capital.** These matter to the business enormously and to the valuation surprisingly little, because a change in year 3 revenue is one year of cash in a model dominated by the tail.\n\nThat is why the standard output is a **WACC against growth** grid rather than any other pair. You are sensitising the two inputs that own the answer."
+      },
+      {
+        "type": "mechanics",
+        "md": "**Building the table.** Pick a plausible band around each of your two drivers — conventionally ±1 percentage point in quarter- or half-point steps — recalculate the enterprise value in each cell, and present the grid with your base case in the middle.\n\nFor Harbourline, at a base of 8 % discount and 2 % growth:\n\n| | g = 1 % | g = 2 % | g = 3 % |\n|---|---|---|---|\n| **WACC 9 %** | £1,194m | | |\n| **WACC 8 %** | | **£1,548m** | |\n| **WACC 7 %** | | | £2,253m |\n\nThe diagonal is the point: the pessimistic corner is £1.19bn, the optimistic corner £2.25bn — nearly double — and every cell rests on assumptions a reasonable person could hold.\n\n**The mid-year convention.** The formulas so far assume every year's cash arrives on 31 December. In reality it arrives throughout the year, so discounting it a full year is slightly too harsh. The mid-year convention discounts each forecast year by half a year less — year 1 at 0.5 years, year 2 at 1.5, and so on.\n\nIt always **raises** the value, because you are assuming the cash reaches you sooner. For Harbourline the forecast years rise from £364m to £379m of present value, lifting the enterprise value to about £1,562m — roughly **1 %**. Know the direction and the rough size; you will not be asked to compute it."
+      },
+      {
+        "type": "predict",
+        "prompt": "Which single change moves Harbourline's enterprise value more: cutting the discount rate by one percentage point, or raising revenue growth by one percentage point in every one of the five forecast years?",
+        "options": [
+          { "label": "The discount rate cut", "correct": true },
+          { "label": "The revenue growth increase" },
+          { "label": "They move it by roughly the same amount" },
+          { "label": "Neither — both are inside the rounding" }
+        ],
+        "explain_md": "**The discount rate**, and not by a little.\n\nRaising revenue growth by a point lifts each forecast year's cash flow modestly, and compounds to a slightly larger final-year figure that feeds the terminal value. Worth real money — but it only touches the numerator.\n\nCutting the discount rate by a point does two things at once. It raises the present value of every single year, *and* it shrinks the terminal denominator from 6 points to 5 — which lifts the terminal value by a fifth on its own. Since the terminal value is about three-quarters of the total, that second effect dominates everything else in the model.\n\nThis is the intuition behind the whole lesson: the inputs that touch the *denominator* of the terminal value matter more than the inputs that touch the cash flows."
+      },
+      {
+        "type": "widget",
+        "widget": "dcf_sensitivity",
+        "props": {
+          "cashFlows": [81.8, 86.7, 92.4, 96.9, 102.3],
+          "finalFcf": 102.3,
+          "netDebt": 480,
+          "shares": 250,
+          "wacc": 0.08,
+          "growth": 0.02
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline's grid, corner to corner.** The base case discounts at **8 %** with **2 %** terminal growth and gives an enterprise value of **£1,548m**. Below, the two corners — and what each does to the value per share once you deduct the £480m of debt-like claims (£380m net debt plus £30m preferred, £25m non-controlling interests and £45m of leases) and divide by 250m shares.\n\nNotice how much larger the swing is than anything the operating assumptions could produce.",
+        "steps": [
+          { "label": "Base case: enterprise value", "expr": "364.3 + 1183.6", "value": 1547.9, "unit": "£m" },
+          { "label": "Base case: value per share", "expr": "(1547.9 - 480) / 250", "value": 4.27, "unit": "£" },
+          { "label": "Pessimistic corner (9 % / 1 %): per share", "expr": "(1193.9 - 480) / 250", "value": 2.86, "unit": "£" },
+          { "label": "Optimistic corner (7 % / 3 %): per share", "expr": "(2252.6 - 480) / 250", "value": 7.09, "unit": "£" },
+          { "label": "The optimistic corner as a multiple of the pessimistic", "expr": "2252.6 / 1193.9", "value": 1.887, "unit": "×" },
+          { "label": "Mid-year convention: enterprise value", "expr": "378.6 + 1183.6", "value": 1562.2, "unit": "£m" },
+          { "label": "What the mid-year convention is worth", "expr": "1562.2 / 1547.9 - 1", "value": 0.0092, "unit": "" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "The market values Harbourline's equity at £4.20 a share — £1,050m across 250m shares. Work out what enterprise value the market is implying, and where that sits against your base case. This is the calculation that turns a sensitivity table into an argument.",
+        "steps": [
+          { "label": "Market equity value", "expr": "4.20 * 250", "value": 1050, "unit": "£m" },
+          { "label": "Market-implied enterprise value", "expr": "1050 + 480", "value": 1530, "unit": "£m", "blank": true },
+          { "label": "Your base case, less the market's number", "expr": "1547.9 - 1530", "value": 17.9, "unit": "£m", "blank": true },
+          { "label": "That difference as a share of the market's value", "expr": "17.9 / 1530", "value": 0.0117, "unit": "", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"My DCF says the shares are worth £4.27.\"**\n\nSaying this loses you the point you were about to win. It tells the interviewer that you built a model and stopped, without asking how much confidence the output deserves.\n\nThe honest version is a range with the reason attached: *\"Between roughly £2.90 and £7.10 a share, depending on the discount rate and terminal growth. My base case is £4.27, which is close to where the market is — the model is really telling me the market's implied assumptions are around 8 % and 2 %.\"*\n\nThere is a second, subtler failure. A range of £2.90 to £7.10 is so wide it might seem useless, and candidates sometimes narrow it artificially to look more confident. Resist that. **The width is information.** It says the value depends almost entirely on two assumptions, so the productive conversation is about those assumptions rather than about the output — which is exactly what a client or a managing director wants to talk about anyway."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A DCF is most sensitive to the discount rate and the terminal growth rate or exit multiple, because most of the value sits in the terminal value and both of those inputs sit in its denominator. Operating assumptions — margin, then revenue growth and capex — matter next, but far less. So I present a sensitivity table of WACC against terminal growth and quote a range rather than a point. For Harbourline, one percentage point either way on each moves the value from about £1.2bn to £2.3bn around a £1.5bn base case.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "When the tail is 85 % of the answer",
+            "md": "Harbourline is a mature business generating cash from year one, and even there the terminal value is three-quarters of the valuation. For a loss-making software company that turns cash-positive in year six, the share routinely passes 85 % — and the sensitivity table stops being a supporting exhibit and becomes the valuation itself.\n\nThat changes which pair you sensitise. WACC against growth is still worth showing, but the assumption actually carrying the risk is the **terminal operating margin**: the profitability the business reaches once it stops spending everything on acquiring customers. Nobody knows whether that is 15 % or 35 %, and the gap between those two answers is larger than anything the discount rate can do.\n\nSo the useful grid for a growth company is terminal margin against exit multiple, presented alongside the conventional one. It makes the real bet visible instead of hiding it inside a single line of the model.",
+            "example_q": "What would you sensitise for a DCF of a loss-making software company?",
+            "answer_md": "I would still show WACC against terminal growth, because that is expected and it captures the discount-rate risk. But I would lead with a second grid: **terminal operating margin against exit multiple**, because for a company that is not yet profitable those two carry far more of the uncertainty.\n\nThe reason is where the value sits. With almost nothing in the early years, close to all the present value is in the terminal period, and the terminal period depends on a margin the company has never actually earned. A range of 15 % to 35 % on that margin moves the valuation more than a point of WACC ever will — so the honest presentation puts it on the page rather than burying it in an assumption cell."
+          },
+          "healthcare": {
+            "heading": "Probability is the third axis",
+            "md": "A drug valuation has an input a normal DCF does not: the chance the product ever reaches the market. A treatment in Phase 2 might have a 30–40 % probability of eventual approval, and that number multiplies every cash flow in the model.\n\nBecause it is a multiplier rather than a discount, its effect is close to linear and unusually large. Moving the probability of success from 40 % to 50 % raises a risk-adjusted valuation by about a quarter — far more than a percentage point of WACC would. That makes it the first thing to sensitise, ahead of the discount rate.\n\nThe second axis is usually **price per patient** or peak market share, which together determine how big the opportunity is if it does arrive. The resulting grid — probability against peak sales — is what a healthcare team actually argues over, because it separates the two genuinely uncertain questions: *does it work?* and *how much is it worth if it does?*",
+            "example_q": "What is the most sensitive input in a risk-adjusted NPV?",
+            "answer_md": "The probability of success. It multiplies every cash flow in the model, so its effect is roughly proportional — moving from 40 % to 50 % lifts the value by about a quarter, which is more than a full point of discount rate would do.\n\nAfter that I would sensitise peak sales, driven by price and market share, because that sets the size of the prize if the drug does reach the market. I would present probability against peak sales as the main grid and keep the WACC table as a secondary exhibit — for a clinical-stage asset the discount rate is genuinely one of the *less* consequential assumptions, which surprises people."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Back to **Marlow Instruments plc** — the lab-equipment maker you valued with comparables and precedents in the Valuation chapter. Its football field showed a DCF bar, and this is where that bar came from.\n\nMarlow's forecast: EBIT **£110m**, depreciation and amortisation **£40m**, capital expenditure **£45m**, an increase in working capital of **£5m**, tax at **25 %**. Cash flow grows **6 %** a year across the five-year forecast. Terminal growth is **2 %**, net debt is **£210m** and there are **120m** shares.\n\nBuild the enterprise value at a discount rate of **8.0 %** and again at **8.5 %**, and say what range you would put on the chart.",
+        "model_answer_md": "**Start with year 1 cash flow.** Tax the operating profit as though there were no debt, add back the non-cash charge, then take out what the business must reinvest:\n\n$$UFCF_1 = 110 \\times 0.75 + 40 - 45 - 5 = £72.5\\text{m}$$\n\nGrowing at 6 %, the five years are **72.5, 76.9, 81.5, 86.4** and **91.5**.\n\n**At 8.0 %.** The terminal value is 91.5 × 1.02 ÷ (0.08 − 0.02) = **£1,556m**, which discounts back to £1,059m. The five forecast years are worth £323m. Enterprise value: **£1,382m**.\n\n**At 8.5 %.** The terminal value falls to 91.5 × 1.02 ÷ (0.085 − 0.02) = £1,436m, worth £955m today, and the forecast years £319m. Enterprise value: **£1,274m**.\n\n**The range.** Half a percentage point of discount rate is worth about £108m — roughly 8 % of the value — so I would put **£1,270m to £1,380m** on the football field, and describe it as \"a DCF range of about £1.25–1.45bn\" when speaking, because a chart drawn to the nearest £50m is the honest level of precision for a model this assumption-dependent.\n\nThat is exactly the bar the Valuation chapter drew. Worth noticing what it sits next to: the comparables implied £1,650m and the precedents £1,875m, both above this. The DCF being the lowest of the three is common — it values the business standing alone, while the other two include what buyers pay for control and for a market that may be more optimistic than your assumptions.",
+        "rubric": [
+          "Builds unlevered free cash flow correctly: taxes EBIT, adds back D&A, subtracts capex and the working-capital increase to reach £72.5m",
+          "Grows the cash flows at 6 % and uses the final year (£91.5m) in the terminal value",
+          "Grows that final cash flow one more year before dividing by (WACC − g)",
+          "Reaches roughly £1,382m at 8.0 % and £1,274m at 8.5 %",
+          "States a range rather than a point, and rounds it to a level of precision the model can support",
+          "Explains why the DCF sits below the comparables and precedents on the chart"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Which way does the mid-year convention move the value, and by roughly how much?", "a": "Up — cash is assumed to arrive on average half a year sooner. For Harbourline it is worth about 1 %." },
+          { "q": "After the discount rate and terminal growth, what is the next most sensitive input?", "a": "The operating margin. It changes the cash flows, though not the multiplier applied to them." },
+          { "q": "Why sensitise WACC against growth rather than WACC against revenue?", "a": "Because those two are the terminal-value drivers, and the terminal value is most of the answer." },
+          { "q": "How wide should a sensitivity range be?", "a": "About a point either way on each driver. Much wider and you are no longer valuing the company, you are listing possibilities." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**A DCF produces a range, and the width of that range is the most useful thing it tells you — it shows exactly which two assumptions you are really arguing about.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can say which assumptions a DCF is most sensitive to, and explain why the terminal-value denominator is the reason.",
+          "I can build and read a WACC against terminal-growth sensitivity table.",
+          "I can present a valuation as a range with its drivers, rather than as a single number.",
+          "I can read a market price back into the table to infer the assumptions the market is making.",
+          "I can state which way the mid-year convention moves value and roughly how much it is worth.",
+          "I can build a full DCF end to end and place it alongside comparables and precedents on a football field."
+        ]
+      }
+    ]
+  }
+}

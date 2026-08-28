@@ -1,0 +1,212 @@
+{
+  "slug": "unlevered-free-cash-flow",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "title": "Unlevered free cash flow",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Unlevered free cash flow is the line every DCF is built on, and it is where most candidates lose marks — not because the formula is hard, but because they cannot say *why* it is built that way.\n\nTwo questions come as a pair. \"How do you calculate unlevered free cash flow?\" is the recall half. \"Why unlevered rather than levered?\" is the half that separates people, because answering it means understanding that the cash flow and the discount rate have to describe the same group of investors. Get that link and the rest of the model stops feeling arbitrary.\n\nIt is also the line where a sloppy answer does real damage. Say \"net income plus depreciation\" and you have quietly ignored capital spending and working capital, and started from a number that is already after interest."
+      },
+      {
+        "type": "concept",
+        "heading": "Cash for everyone who funded the business",
+        "md": "A company is funded by two groups: **lenders**, who are paid interest, and **shareholders**, who get whatever is left. Unlevered free cash flow is the cash the operations generate **before either group is paid** — so it belongs to both of them together.\n\nThat word *unlevered* simply means \"before the effect of debt\". You calculate the cash flow as though the company had no borrowings at all.\n\nWhy deliberately ignore something as real as interest? Because of a matching rule that runs through the whole model:\n\n> **The cash flow and the discount rate must describe the same investors.**\n\nWACC is the blended return required by lenders *and* shareholders together. So it has to be applied to cash that belongs to lenders and shareholders together — which is unlevered free cash flow. Do that and you get **enterprise value**, the value of the whole operating business.\n\nThe alternative is consistent too: *levered* free cash flow is what remains after interest, so it belongs to shareholders only, and you would discount it at the **cost of equity** to get equity value directly. Both routes are legitimate. Mixing them — discounting unlevered cash flow at the cost of equity, say — is not, and it is a favourite thing to test.\n\nThe unlevered route wins in practice because it separates the business from how it happens to be financed. Two identical companies with different debt loads produce the same unlevered cash flow, so you can compare them directly."
+      },
+      {
+        "type": "mechanics",
+        "md": "Start at **EBIT** — earnings before interest and tax — because that is the last line on the income statement that has not yet been touched by financing.\n\n$$\\text{UFCF} = \\text{EBIT} \\times (1 - t) + \\text{D\\&A} - \\text{Capex} - \\Delta\\text{NWC}$$\n\nFour moves, each with a reason:\n\n- **Tax EBIT at the full rate.** You are pretending there is no debt, so there is no interest to deduct and no tax saving from it. That saving — the tax shield — is not lost; it is picked up in the WACC, where the cost of debt is taken after tax. Counting it in both places would be double-counting.\n- **Add back depreciation and amortisation.** These are accounting charges that reduced profit without any money leaving the business, so add them back to get to cash.\n- **Subtract capital expenditure.** This is real money spent on assets, and it never appears on the income statement in the year it is spent. A company that stops investing looks temporarily wonderful on this line, which is exactly why the next lesson checks capex against depreciation.\n- **Subtract the increase in net working capital.** Growth ties cash up in receivables and inventory before customers pay. If working capital rises, cash falls by the same amount.\n\nThe result, after tax, is often called **NOPAT** — net operating profit after tax — and it is worth knowing the term because interviewers use it as shorthand for the first line of the calculation."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline raises £200m of new debt at 6 % interest. What happens to next year's unlevered free cash flow?",
+        "options": [
+          {
+            "label": "It falls, because the company now pays £12m of interest"
+          },
+          {
+            "label": "It rises, because of the tax shield on the interest"
+          },
+          {
+            "label": "It is unchanged",
+            "correct": true
+          },
+          {
+            "label": "It falls by the after-tax interest, £9m"
+          }
+        ],
+        "explain_md": "**Unchanged** — and this is the cleanest demonstration of what \"unlevered\" means.\n\nInterest is never in the calculation. You start at EBIT, which sits *above* interest on the income statement, and you tax it as though there were no borrowings at all. So an extra £200m of debt cannot touch this line by construction.\n\nThe debt does affect the valuation, just not here. It shows up in **two** other places: in the WACC, where more debt changes the weights and eventually the cost of equity, and in the **bridge** at the end, where an extra £200m of borrowings reduces equity value pound for pound.\n\nThat separation is the point of the unlevered approach. It lets you value the *business* in one place and its *financing* in another, instead of tangling them together."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "depreciation",
+          "amount": 10,
+          "taxRate": 0.25
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Harbourline's first forecast year. Revenue grows 6 % to **£1,272m**, and at a 15 % margin that gives EBITDA of **£190.8m**. Depreciation and amortisation run at 5 % of revenue — **£63.6m** — so EBIT is **£127.2m**.\n\nCapital expenditure is 5.5 % of revenue (**£70.0m**), higher than depreciation because the fleet is still growing. Net working capital rises by 10 % of the revenue increase: revenue is up £72m, so working capital absorbs **£7.2m**. Tax is **25 %**.",
+        "steps": [
+          {
+            "label": "EBIT",
+            "expr": "190.8 - 63.6",
+            "value": 127.2,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax on EBIT at the full 25 %",
+            "expr": "127.2 * 25%",
+            "value": 31.8,
+            "unit": "£m"
+          },
+          {
+            "label": "NOPAT",
+            "expr": "127.2 - 31.8",
+            "value": 95.4,
+            "unit": "£m"
+          },
+          {
+            "label": "Add back D&A (no cash left the business)",
+            "expr": "95.4 + 63.6",
+            "value": 159.0,
+            "unit": "£m"
+          },
+          {
+            "label": "Less capital expenditure",
+            "expr": "159.0 - 70.0",
+            "value": 89.0,
+            "unit": "£m"
+          },
+          {
+            "label": "Less the increase in working capital",
+            "expr": "89.0 - 7.2",
+            "value": 81.8,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Harbourline's **second** forecast year, same drivers. Revenue grows another 6 % to £1,348.3m, giving EBITDA of £202.2m and D&A of £67.4m, so EBIT is **£134.8m**. Capital expenditure is **£74.2m** and working capital absorbs **£7.6m**. Tax is still 25 %.\n\nFill in the three lines that carry the reasoning.",
+        "steps": [
+          {
+            "label": "Tax on EBIT",
+            "expr": "134.8 * 25%",
+            "value": 33.7,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "NOPAT",
+            "expr": "134.8 - 33.7",
+            "value": 101.1,
+            "unit": "£m"
+          },
+          {
+            "label": "Add back D&A",
+            "expr": "101.1 + 67.4",
+            "value": 168.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Less capital expenditure",
+            "expr": "168.5 - 74.2",
+            "value": 94.3,
+            "unit": "£m"
+          },
+          {
+            "label": "Less the increase in working capital",
+            "expr": "94.3 - 7.6",
+            "value": 86.7,
+            "unit": "£m",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Free cash flow is net income plus depreciation.\"**\n\nThis sounds close enough to be dangerous, and it is wrong three times over.\n\nIt **starts in the wrong place.** Net income is struck after interest, so it belongs to shareholders alone. Discount it at WACC and you have mixed the two conventions.\n\nIt **ignores capital expenditure.** For Harbourline that is £70m a year — the single largest cash item after tax. A haulier that stops buying lorries has not become more valuable; it has started shrinking.\n\nIt **ignores working capital.** Growth consumes cash before it produces any, and this version of the formula cannot see that at all.\n\nIf you want to start from net income, the honest route back is to add the after-tax interest you deducted. For Harbourline, with £30m of interest: net income is (127.2 − 30) × 0.75 = **£72.9m**, and adding back 30 × 0.75 = **£22.5m** returns you to **£95.4m** — exactly the NOPAT above. Same destination, more steps, more chances to slip."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Unlevered free cash flow is the cash the operations generate for everyone who funds the business, before any interest. Start with EBIT, tax it at the full rate as if there were no debt, add back depreciation and other non-cash charges, then subtract capital expenditure and the increase in net working capital. For Harbourline: £127m of EBIT, £95m after tax, plus £64m of D&A, less £70m of capex and £7m of working capital — about £82m. It is unlevered so that it pairs with WACC and gives enterprise value.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "When working capital pays you",
+            "md": "For Harbourline, growth eats cash: customers pay in arrears, so rising revenue means rising receivables and a £7.2m outflow.\n\nSubscription software inverts that. Customers are billed **annually in advance**, so the cash arrives on day one while the revenue is recognised a month at a time across the year. The unearned portion sits on the balance sheet as **deferred revenue** — a liability, because the company owes a service it has not yet delivered.\n\nIn the cash flow calculation, a rising deferred revenue balance is a working-capital **inflow**. So the ΔNWC line, which drags Harbourline's cash flow down, pushes a growing software company's cash flow *up*. That is why such a business can report an accounting loss while generating positive free cash flow — and why its cash flow can exceed its profit for years.\n\nOne adjustment to remember when comparing peers: some capitalise software development costs into capex while others expense them. Compare **capex plus capitalised development** across the group, or the one that capitalises will look artificially cash-generative.",
+            "example_q": "How can a SaaS company generate more free cash flow than its reported profit?",
+            "answer_md": "Mostly through deferred revenue. Customers pay for a year up front, so cash arrives immediately while revenue is recognised over the following twelve months. The unearned balance is a liability, and as it grows it acts as a working-capital inflow — which adds to free cash flow rather than subtracting from it, as growth normally would.\n\nThere are usually two smaller effects too: share-based compensation is a real cost that reduces profit without moving cash, and a software business is capital-light, so capex is small relative to depreciation. I would check whether the company capitalises development costs, because that flatters the profit line and moves the spending into capex where it is easier to miss."
+          },
+          "healthcare": {
+            "heading": "Where a drug's real capital spending sits",
+            "md": "Harbourline's investment is easy to see: it buys lorries, the cash appears as capex, and the asset depreciates over its life.\n\nA pharmaceutical company's main investment is **research and development**, and accounting rules treat it very differently. R&D is **expensed through the income statement as it is incurred** — it is not capitalised into an asset, because there is no certainty a drug will ever exist to depreciate. For a large pharma company that can be 15–20 % of revenue.\n\nThe consequence for a DCF is easy to get wrong. Because R&D has already been deducted before you reach EBIT, the investment is *already inside your starting number*. Applying a heavy capex assumption on top — as you would for a manufacturer — deducts the same spending twice and understates the value.\n\nSo for pharma, capex covers the physical estate — plants, laboratories, equipment — and is usually modest against R&D. The judgement worth voicing is that the company's real reinvestment rate is the R&D line, and cutting it would lift near-term cash flow while destroying the pipeline that the terminal value depends on.",
+            "example_q": "Where does a drug's development cost appear in a DCF, and what does that mean for capex?",
+            "answer_md": "It appears as an operating expense, not capex. R&D is expensed as incurred under both IFRS and US GAAP, so it has already been deducted by the time you reach EBIT — the investment is inside the starting number.\n\nThat means capex in a pharma DCF should only cover physical assets like plants and laboratories, which are usually small relative to R&D. Layering a manufacturer-style capex assumption on top would double-count the spending.\n\nI would also flag it as a modelling risk: cutting R&D raises free cash flow immediately, so a forecast that assumes falling R&D looks more valuable while quietly removing the pipeline that justifies the terminal value."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company reports **EBIT of £80m** and pays tax at **25 %**. Depreciation and amortisation are **£20m**, capital expenditure is **£28m**, receivables rose by **£6m**, payables rose by **£2m**, and it paid **£12m** of interest.\n\nWhat is its unlevered free cash flow?",
+        "model_answer_md": "**£48m.**\n\nStart at EBIT and tax it in full: £80m × 0.75 = **£60m** of NOPAT. The £12m of interest plays no part — this is an unlevered figure, so I calculate it as though the company had no debt.\n\nAdd back the £20m of D&A, since no cash left the business: **£80m**.\n\nSubtract capital expenditure of £28m: **£52m**.\n\nThen working capital. Receivables rising £6m is cash tied up in customers who have not yet paid. Payables rising £2m is cash *retained*, because the company has not yet paid its own suppliers. Net working capital therefore rose by £6m − £2m = **£4m**, a £4m outflow.\n\n£52m − £4m = **£48m**.\n\nThe figure is before any financing, which is exactly what lets me discount it at WACC and arrive at enterprise value.",
+        "rubric": [
+          "Taxes EBIT rather than profit before tax — the £12m of interest is excluded entirely",
+          "Adds back the full £20m of D&A",
+          "Subtracts capex of £28m",
+          "Nets the two working-capital moves to a £4m outflow rather than using £6m or £8m",
+          "States that the answer is before financing, so it pairs with WACC and gives enterprise value"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Should share-based compensation be added back as a non-cash charge?",
+            "a": "Mechanically it is non-cash, so many models add it back — but it genuinely dilutes shareholders, so plenty of analysts leave it as a cost. Say which you are doing and why."
+          },
+          {
+            "q": "What does levered free cash flow pair with?",
+            "a": "The cost of equity, because it is the cash left after lenders are paid. It gives you equity value directly."
+          },
+          {
+            "q": "Why tax EBIT at the full statutory rate?",
+            "a": "Because you are assuming no debt, so there is no interest deduction. The tax shield is captured in the WACC instead."
+          },
+          {
+            "q": "Net working capital rises by £5m. What is the cash effect?",
+            "a": "Minus £5m — cash has been tied up in the business."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Unlevered free cash flow is EBIT taxed as if there were no debt, plus non-cash charges, less capex and the increase in working capital — cash for every funder, which is why it pairs with WACC.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build unlevered free cash flow from EBIT in four moves and explain the reason for each.",
+          "I can say why the cash flow and the discount rate have to describe the same investors.",
+          "I can explain why raising debt does not change unlevered free cash flow.",
+          "I can spot why \"net income plus depreciation\" is the wrong answer, in three separate ways.",
+          "I can reconcile net income back to NOPAT by adding after-tax interest."
+        ]
+      }
+    ]
+  }
+}

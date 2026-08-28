@@ -130,3 +130,22 @@ export function project(start: number, rate: number, years: number): number[] {
   }
   return out;
 }
+
+/**
+ * Extend an explicit projection to `years` by fading the last observed growth rate linearly down
+ * to the terminal rate (Loop 16, backs `tv_share`). Real models taper towards steady state rather
+ * than holding the final year's growth, and the taper is what makes the terminal-value share fall
+ * as the projection lengthens. Shorter than the input simply truncates.
+ */
+export function extendProjection(cashFlows: number[], years: number, terminalGrowth: number): number[] {
+  if (cashFlows.length === 0 || years <= 0) return [];
+  if (years <= cashFlows.length) return cashFlows.slice(0, years);
+  const out = [...cashFlows];
+  const lastGrowth = cashFlows.length > 1 ? cashFlows[cashFlows.length - 1] / cashFlows[cashFlows.length - 2] - 1 : terminalGrowth;
+  const extra = years - cashFlows.length;
+  for (let i = 1; i <= extra; i++) {
+    const g = lastGrowth + ((terminalGrowth - lastGrowth) * i) / extra;
+    out.push(out[out.length - 1] * (1 + g));
+  }
+  return out;
+}

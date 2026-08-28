@@ -1,0 +1,38 @@
+{
+  "slug": "how-long-explicit-period",
+  "subtopic_slug": "projections-and-assumptions",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "projections",
+    "forecast-period"
+  ],
+  "question": "How many years should the explicit forecast period run for?",
+  "model_answer_md": "Long enough for the business to reach a steady state — which for most companies means **five to ten years**, and five by default.\n\nThe reason is what happens next. The terminal value assumes the company grows at a constant modest rate forever, so the final forecast year has to be a plausible starting point for that. If the company is still growing at 15 % in year five, a perpetuity at 2 % from year six is a cliff rather than a transition, and the model is not describing anything real.\n\nSo the test is not really about years, it is about convergence: forecast until growth has faded toward the economy's rate, margins have settled, and capex has come down to roughly D&A. Harbourline gets there in five, fading from 6 % to 4 %.\n\nA fast-growing business needs longer — ten years is common — precisely so that the fade happens inside the forecast where it is visible.",
+  "key_points": [
+    "Five years by default; ten for high-growth companies",
+    "The real test is whether the business has reached steady state",
+    "The final year has to be a credible base for the perpetuity",
+    "Growth should have faded, margins settled, capex ≈ D&A",
+    "Extending the forecast also reduces the terminal value's share of the answer"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does extending the forecast change the valuation?",
+      "answer_md": "It changes where the value comes from more than how much there is. Extending from five years to ten shifts value out of the terminal value and into the explicit period — for Harbourline the terminal share drops from about 76 % into the high 50s. The total does move, because you are now making explicit assumptions about years six to ten rather than letting a single growth rate cover them, but the main benefit is that more of the answer rests on reasoning you can show and defend."
+    },
+    {
+      "question": "What about a company with a finite life, like a mine or a patent?",
+      "answer_md": "Then you should not use a perpetuity at all. Forecast the full life of the asset — until the reserves are exhausted or the patent expires — and set the terminal value to whatever is genuinely left at the end, which might be a salvage value, a decommissioning cost, or nothing. Applying a growing perpetuity to an asset with a known end date assumes cash flows that cannot exist, and it will overstate the value substantially."
+    }
+  ],
+  "weak_answer_note": "Answering 'five years' as a rule with no reasoning. The point is convergence to steady state — five years is the usual consequence, not the principle. Not connecting the forecast length to the credibility of the terminal assumption.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

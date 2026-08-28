@@ -1,0 +1,45 @@
+{
+  "slug": "gordon-tv-calc",
+  "subtopic_slug": "terminal-value",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "terminal-value",
+    "calculation"
+  ],
+  "question": "Harbourline's final forecast year produces £102.3m of unlevered free cash flow. WACC is 8 % and long-run growth is 2 %. What is the terminal value?",
+  "model_answer_md": "Grow the final year's cash flow one more year, then capitalise it at the spread between the discount rate and the growth rate:\n\n$$TV = \\frac{102.3 \\times 1.02}{0.08 - 0.02} = \\frac{104.3}{0.06} = \\mathbf{£1,739\\text{m}}$$\n\nTwo details that decide whether this is right.\n\nThe numerator must be the **next** year's cash flow — hence the ×1.02. Using £102.3m unadjusted understates the terminal value by about 2 %.\n\nAnd this £1,739m is a **year-five** figure. It still has to be discounted back five years at 8 %, which gives £1,184m of present value. Adding it undiscounted is one of the most expensive mistakes available in a DCF.",
+  "key_points": [
+    "Grow the final year's cash flow by (1 + g) first: 102.3 × 1.02 = £104.3m",
+    "Divide by (WACC − g) = 0.06",
+    "Terminal value = £1,739m, expressed in year-five money",
+    "It must then be discounted back five years: PV = £1,184m",
+    "The spread in the denominator is what the answer is most sensitive to"
+  ],
+  "follow_ups": [
+    {
+      "question": "What exit multiple does that imply?",
+      "answer_md": "Divide the terminal value by final-year EBITDA: 1,739 ÷ 231.9 = **7.5 times**. That is the cross-check, and it is reassuring here — Harbourline trades at about 8.5 times today, so a 2 % perpetuity is implying a modest de-rating by year five, which is exactly what you would expect for a business whose growth has faded from 6 % to 4 %. If the implied multiple had come out at 15 times, the growth assumption would need rethinking."
+    },
+    {
+      "question": "How much does the answer move if growth goes to 3 %?",
+      "answer_md": "A great deal, because the denominator is small and shrinking. At 3 % the spread narrows from 0.06 to 0.05, so the terminal value becomes 102.3 × 1.03 ÷ 0.05 = **£2,107m** — a 21 % increase from a one-point change in the assumption. That leverage is the single most important thing to understand about terminal values, and it is why sensitivity tables always flex WACC against growth rather than the operating assumptions."
+    }
+  ],
+  "weak_answer_note": "Forgetting the (1 + g) in the numerator. Forgetting to discount the result back to today — it is a year-five value, not a present value. Dividing by WACC alone rather than by (WACC − g).",
+  "numbers": {
+    "inputs": {
+      "final_fcf": 102.3,
+      "wacc": 0.08,
+      "growth": 0.02
+    },
+    "answer": 1739
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

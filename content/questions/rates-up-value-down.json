@@ -1,0 +1,38 @@
+{
+  "slug": "rates-up-value-down",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "interest-rates",
+    "valuation"
+  ],
+  "question": "Interest rates rise by a percentage point. Walk me through what that does to company valuations.",
+  "model_answer_md": "It works through the discount rate, in a chain.\n\nThe risk-free rate is the first term in the cost of equity, so a one-point rise in gilt yields lifts the cost of equity by roughly a point — Harbourline's 10 % becomes 11 %. Lenders reprice too, so the cost of debt rises. Both feed into **WACC**, which rises by something close to a point once the weights are applied.\n\nEvery future cash flow is then discounted harder, and the effect compounds with time — so the value falls even though nothing about the businesses has changed.\n\nThe uneven part is the interesting bit. Because the damage compounds with the distance of the cash flow, companies whose value sits furthest in the future lose the most. A loss-making software company earning nothing for years is hit far harder than a mature utility collecting cash today. Bankers borrow the bond term and call it **duration**.\n\nThere is usually a second-order effect too: higher rates slow the economy, so the cash flow forecasts often come down as well.",
+  "key_points": [
+    "Risk-free rate feeds directly into the cost of equity and then WACC",
+    "Higher WACC discounts every future cash flow more heavily",
+    "The effect compounds, so distant cash flows suffer most",
+    "Long-duration, back-end-loaded companies fall hardest",
+    "Second-order: higher rates can also reduce the forecast cash flows"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which companies are hit hardest?",
+      "answer_md": "The ones whose value sits furthest out — high-growth businesses that are unprofitable now and expected to earn heavily in a decade, and companies with very high terminal-value shares. Biotech is an extreme case: a drug earning nothing until year eight is almost pure duration. At the other end, mature businesses with stable near-term cash flows — utilities, consumer staples — lose least, though heavily indebted ones face a separate problem when their debt has to be refinanced at the new rate."
+    },
+    {
+      "question": "Does the equity risk premium change too?",
+      "answer_md": "It can, and it usually moves the opposite way to how people assume. In a shock where rates rise because of stress rather than growth, investors demand more for equity risk, so the premium widens and the total cost of equity rises by more than the change in the risk-free rate. In a calmer environment where rates rise because the economy is strong, the premium can compress and partly offset it. In practice most banks hold the premium fixed as a house assumption, which is worth being honest about — it is a simplification, not a fact."
+    }
+  ],
+  "weak_answer_note": "Stopping at 'the discount rate goes up so value goes down' without explaining why the effect is uneven across companies — the duration point is what the question is really testing. Forgetting the cost of debt also rises, not just the cost of equity.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "terminal-growth-ceiling",
+  "subtopic_slug": "terminal-value",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "terminal-value",
+    "growth"
+  ],
+  "question": "What is the highest terminal growth rate you would use, and why?",
+  "model_answer_md": "No higher than long-run **nominal GDP growth** for the economy the company operates in — typically 2–3 % for a developed market.\n\nThe reason is arithmetic rather than convention. A company growing faster than the economy forever would, given enough time, become larger than the entire economy. That cannot happen, so any rate above it is describing something impossible.\n\nIn practice most valuations use something at or slightly below that ceiling: 2 % is a common default, with a lower figure for businesses in structural decline. Harbourline uses 2 %.\n\nThere is also a hard mathematical limit — the growth rate must be below WACC, or the denominator turns negative and the formula produces a meaningless answer. But that limit sits far above the economically sensible one, so GDP is the binding constraint in practice.",
+  "key_points": [
+    "Ceiling is long-run nominal GDP growth, roughly 2–3 % in developed markets",
+    "Faster than the economy forever means eventually exceeding the whole economy",
+    "2 % is a common working default; lower for declining businesses",
+    "g must also be strictly below WACC or the formula breaks",
+    "The economic ceiling binds well before the mathematical one"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if a company genuinely is growing at 10 %?",
+      "answer_md": "Then that growth belongs in the **explicit forecast**, not the perpetuity. Extend the forecast period until the growth has faded to a sustainable rate — ten years rather than five if necessary — and only then apply the terminal formula. The perpetuity is not meant to capture a growth phase; it is meant to capture the steady state that follows one. Putting 10 % into the terminal value is the single fastest way to produce an absurd valuation."
+    },
+    {
+      "question": "Should it be a real or a nominal rate?",
+      "answer_md": "Nominal, if the cash flows are nominal — which they almost always are, since forecasts are built in the currency of the day with inflation embedded in the revenue and cost lines. That is worth being explicit about, because a 2 % *real* growth assumption on top of, say, 2 % inflation is really 4 % nominal, which breaches the ceiling. Mixing a real rate with nominal cash flows, or the reverse, is a quiet and quite common error."
+    }
+  ],
+  "weak_answer_note": "Saying '2 to 3 %' as a memorised range without the reason. The GDP argument is what makes it defensible, and it is what lets you answer sensibly when the company genuinely is growing fast today.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

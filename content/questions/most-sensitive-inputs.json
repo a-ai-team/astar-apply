@@ -1,0 +1,38 @@
+{
+  "slug": "most-sensitive-inputs",
+  "subtopic_slug": "dcf-sensitivities",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "sensitivity",
+    "dcf"
+  ],
+  "question": "Which assumptions is a DCF most sensitive to?",
+  "model_answer_md": "**WACC and the terminal assumption**, well ahead of everything else.\n\nThe reason is structural. The terminal value is usually 60–80 % of enterprise value — 76 % for Harbourline — and both WACC and the growth rate sit in its **denominator**, as the spread `WACC − g`. That spread is small, so a one-point move in either input changes it proportionally a great deal.\n\nThe numbers make the point. Harbourline at 8 % and 2 % gives an enterprise value of £1,548m. Move to 9 % and 1 % and it falls to £1,193m. Move to 7 % and 3 % and it rises to £2,253m. That is nearly a two-fold range from one point either way on each input.\n\nOperating assumptions matter next — margin, then revenue growth, then capex — but a point of margin moves the answer far less than a point of WACC, because WACC hits every year *and* the terminal denominator.\n\nWhich is why the output is presented as a sensitivity table of WACC against growth, and quoted as a range.",
+  "key_points": [
+    "WACC and terminal growth dominate, because the terminal value dominates",
+    "Both sit in the small (WACC − g) denominator, so proportional moves are large",
+    "Harbourline: £1,193m at 9 %/1 %, £1,548m at 8 %/2 %, £2,253m at 7 %/3 %",
+    "Operating assumptions — margin, growth, capex — matter far less",
+    "Present the result as a WACC × growth table and quote a range"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you present that?",
+      "answer_md": "As a two-dimensional table with WACC down one axis and terminal growth across the other, usually five by five in quarter- or half-point steps around the base case, showing enterprise value or value per share in each cell. The base case sits in the middle and is highlighted. The point of showing it is honesty: it converts 'the company is worth £1,548m' into 'the company is worth somewhere between roughly £1.2bn and £2.3bn depending on two assumptions we cannot know', which is the truthful statement."
+    },
+    {
+      "question": "Why is the relationship not linear?",
+      "answer_md": "Because the two inputs act on a *difference* that appears in a denominator. Going from 8 %/2 % to 7 %/3 % narrows the spread from 6 points to 4 — a third smaller — and since the terminal value is inversely proportional to that spread, it jumps by roughly half. Move the other way and the spread widens to 8 points and the terminal value shrinks. The result is that the upside cells rise much faster than the downside cells fall, which is why the table is asymmetric."
+    }
+  ],
+  "weak_answer_note": "Naming revenue growth as the most sensitive input — intuitive but wrong, because it does not touch the terminal denominator. Or naming WACC without explaining that its power comes from the terminal value's share of the total.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

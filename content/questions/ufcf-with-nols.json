@@ -1,0 +1,46 @@
+{
+  "slug": "ufcf-with-nols",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "tax",
+    "nols"
+  ],
+  "question": "A company has £200m of accumulated tax losses and EBIT of £100m a year. Tax is 25 %. How would you handle that in a DCF?",
+  "model_answer_md": "I would keep the operating cash flow clean and treat the losses as a separate asset.\n\nIn the cash flow itself, tax EBIT at the full 25 % as usual — £25m a year, giving £75m of NOPAT. That keeps the unlevered cash flow comparable with peers who have no losses.\n\nThen value the losses on their own. At £100m of EBIT a year, the £200m of losses shelters profit for two years, saving £25m of cash tax in each. Discount those two savings at WACC — at 8 %, roughly £23.1m and £21.4m — so about **£44.5m** of present value, added to enterprise value as a distinct line.\n\nThe alternative is to model the cash tax directly inside the forecast, showing zero tax for two years and 25 % thereafter. That gives a similar answer but hides the benefit inside the operating cash flow, where it is harder to see and harder to compare.",
+  "key_points": [
+    "Keep the operating UFCF at the full marginal tax rate for comparability",
+    "Value the losses separately as a discounted stream of cash tax saved",
+    "£200m of losses against £100m EBIT shelters two years at £25m each",
+    "Discounted at 8 %: roughly £44.5m of present value",
+    "Add it to enterprise value as a distinct asset, not buried in the forecast"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why value them separately rather than just modelling a lower tax rate?",
+      "answer_md": "Three reasons. It keeps the operating cash flow comparable with peer companies that have no losses. It makes a temporary benefit visible as a finite number rather than hiding it inside a blended rate that a reader might mistake for permanent. And it forces you to state the assumptions the value actually depends on — how quickly profits absorb the losses, and whether local rules cap the annual usage, which many jurisdictions do."
+    },
+    {
+      "question": "Would an acquirer get the full value of those losses?",
+      "answer_md": "Often not. Most tax regimes restrict the use of carried-forward losses after a change of ownership — sometimes capping the annual amount, sometimes disallowing them if the business changes substantially. So in an M&A context the losses are usually worth materially less to a buyer than to the company standing alone, and that gap is a real negotiating point. In a valuation for a sale I would haircut them and flag the assumption."
+    }
+  ],
+  "weak_answer_note": "Applying a zero tax rate to the whole forecast, which massively overstates the benefit — the losses are finite. Or ignoring the losses entirely, which understates value. Not knowing that ownership changes can restrict their use is the gap at this level.",
+  "numbers": {
+    "inputs": {
+      "losses": 200,
+      "ebit": 100,
+      "tax_rate": 0.25,
+      "wacc": 0.08
+    },
+    "answer": 44.5
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

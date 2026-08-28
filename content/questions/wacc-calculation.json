@@ -1,0 +1,47 @@
+{
+  "slug": "wacc-calculation",
+  "subtopic_slug": "wacc",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "wacc",
+    "calculation"
+  ],
+  "question": "Harbourline has equity worth £1,050m and debt-like claims of £590m. Its cost of equity is 10.0 %, its pre-tax cost of debt is 6.0 % and tax is 25 %. What is its WACC?",
+  "model_answer_md": "Take the after-tax cost of debt first, since interest is deductible:\n\n$$k_d(1-t) = 6.0\\% \\times 0.75 = 4.5\\%$$\n\nThen the weights, on market values. Total capital is 1,050 + 590 = £1,640m, so equity is **64 %** and debt **36 %**:\n\n$$\\text{WACC} = 0.64 \\times 10.0\\% + 0.36 \\times 4.5\\% = 6.40\\% + 1.62\\% = \\mathbf{8.0\\%}$$\n\nOne detail worth stating out loud: the £590m is not just borrowings. It is £500m of debt plus £45m of capitalised leases and £30m of preferred stock — the same debt-like claims that appear on the enterprise-value bridge. Keeping the two consistent is what stops the valuation double-counting or missing a claim.",
+  "key_points": [
+    "After-tax cost of debt = 6.0 % × 0.75 = 4.5 %",
+    "Weights on market values: 1,050 / 1,640 = 64 % equity, 36 % debt",
+    "WACC = 0.64 × 10.0 % + 0.36 × 4.5 % = 8.0 %",
+    "Debt-like claims include leases and preferred, not just borrowings",
+    "Use the same definition of debt here as on the EV bridge"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would WACC be if the company had no debt at all?",
+      "answer_md": "It would equal the cost of equity — but not the 10 % above. With no debt the equity is less risky, so the beta would fall back to its unlevered level of about 0.80, giving a cost of equity of roughly 4 % + 0.80 × 6 % = **8.8 %**. That is the subtle part: an all-equity WACC is not simply the levered cost of equity with the debt term deleted, because removing the debt changes the cost of equity itself."
+    },
+    {
+      "question": "Should capitalised leases really go in the debt figure?",
+      "answer_md": "Yes, if you have treated them as debt-like in the enterprise-value bridge — and under IFRS 16 they sit on the balance sheet as a liability, so most people do. The rule is consistency rather than doctrine: whatever you count as a claim ahead of shareholders in the bridge should also carry a cost and a weight in WACC. Counting leases in one place and not the other is what produces valuations that quietly do not reconcile."
+    }
+  ],
+  "weak_answer_note": "Using the pre-tax 6 % in the blend, or applying (1 − t) to the cost of equity as well. Using book values for the weights instead of market values. Treating 'debt' as borrowings only when leases and preferred also rank ahead of shareholders.",
+  "numbers": {
+    "inputs": {
+      "equity_value": 1050,
+      "debt_value": 590,
+      "cost_of_equity": 0.1,
+      "cost_of_debt": 0.06,
+      "tax_rate": 0.25
+    },
+    "answer": 0.0802
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

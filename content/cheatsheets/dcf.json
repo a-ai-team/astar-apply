@@ -1,0 +1,90 @@
+{
+  "topic_slug": "dcf",
+  "formulas": [
+    {
+      "name": "Unlevered free cash flow",
+      "latex": "\\text{UFCF} = \\text{EBIT}(1-t) + \\text{D\\&A} - \\text{Capex} - \\Delta\\text{NWC}",
+      "note": "Harbourline FY1: 127.2 × 0.75 + 63.6 − 70.0 − 7.2 = £81.8m. Start at EBIT, tax it as if there were no debt — that is what makes it unlevered."
+    },
+    {
+      "name": "Cost of equity (CAPM)",
+      "latex": "k_e = R_f + \\beta \\times \\text{ERP}",
+      "note": "Harbourline: 4.0 % + 1.0 × 6.0 % = 10.0 %. Beta measures how the share moves with the market — the only risk a diversified investor is paid to take."
+    },
+    {
+      "name": "Weighted average cost of capital",
+      "latex": "\\text{WACC} = \\frac{E}{V}k_e + \\frac{D}{V}k_d(1-t)",
+      "note": "Harbourline: 0.64 × 10.0 % + 0.36 × 4.5 % = 8.0 %. Market-value weights, and leases and preferred count as debt-like."
+    },
+    {
+      "name": "Terminal value — perpetuity growth",
+      "latex": "TV = \\frac{FCF_N(1+g)}{\\text{WACC} - g}",
+      "note": "Harbourline at g = 2 %: 102.3 × 1.02 ÷ (0.08 − 0.02) = £1,739m. g must be below long-run GDP growth; above WACC it breaks."
+    },
+    {
+      "name": "Terminal value — exit multiple",
+      "latex": "TV = \\text{Multiple} \\times \\text{EBITDA}_N",
+      "note": "At 8.5×: 8.5 × 231.9 = £1,971m. Use a multiple the company could plausibly trade at in year N, not today's peak."
+    },
+    {
+      "name": "The cross-check",
+      "latex": "g_{\\text{implied}} = \\frac{TV \\times \\text{WACC} - FCF_N}{TV + FCF_N}",
+      "note": "Each method implies the other. Harbourline's 8.5× implies 2.7 % growth; its 2 % growth implies 7.5×. Quote both and say they agree."
+    },
+    {
+      "name": "Discounting",
+      "latex": "PV = \\frac{CF_t}{(1+r)^t} \\quad \\text{(mid-year: } t - 0.5\\text{)}",
+      "note": "The mid-year convention assumes cash arrives evenly through the year, lifting Harbourline's EV by about 3–4 %."
+    },
+    {
+      "name": "Relevering beta",
+      "latex": "\\beta_L = \\beta_U \\left(1 + (1-t)\\frac{D}{E}\\right)",
+      "note": "Unlever each comp, take the median, relever at your target structure. Harbourline: 0.80 unlevered → 1.14 at D/E 0.56."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "Walk me through a DCF.",
+      "a": "Project unlevered free cash flow for five years. Discount each year at WACC, the blended return every funder requires. Calculate a terminal value for everything beyond the forecast, by perpetuity growth or an exit multiple, and discount that back too. Add the two to get enterprise value, then subtract net debt and other claims to reach equity value, and divide by diluted shares for a value per share."
+    },
+    {
+      "q": "Why unlevered free cash flow rather than levered?",
+      "a": "Because it is the cash the operating business produces for everyone who funded it, before any interest is paid. That makes it capital-structure neutral, so it pairs with WACC — which is also a blend across all funders — and gives you enterprise value. Levered free cash flow is after interest, belongs only to shareholders, and would have to be discounted at the cost of equity to give equity value directly."
+    },
+    {
+      "q": "What are the two ways to calculate terminal value?",
+      "a": "The perpetuity growth method takes the final year's cash flow, grows it one more year and divides by WACC minus that growth rate. The exit multiple method applies a multiple the company could trade at in the final year to its final-year EBITDA. Each implies the other, so I calculate both and check they agree — for Harbourline, 2 % growth implies about 7.5 times, which is close to where it trades today."
+    },
+    {
+      "q": "Which assumptions is a DCF most sensitive to?",
+      "a": "WACC and the terminal assumption, because most of the value sits in the terminal value and both of those sit in its denominator. For Harbourline the terminal value is about three-quarters of enterprise value, and moving WACC and growth one point each way swings the answer from roughly £1.2bn to £2.3bn. Operating assumptions — margin, revenue growth, capex — matter next, but far less."
+    },
+    {
+      "q": "Why can't you keep adding debt to lower WACC?",
+      "a": "Because the cost of equity is not fixed. Every extra pound of debt sits ahead of shareholders, so their claim becomes riskier and beta relevers upward. Hold the cost of equity constant and WACC appears to fall in a straight line; relever the beta properly and it falls, flattens and then rises. Lenders also re-price and distress costs appear, so WACC traces a shallow U."
+    }
+  ],
+  "traps": [
+    "Discounting unlevered cash flow at the cost of equity, or levered cash flow at WACC — match the cash flow to the rate.",
+    "Subtracting interest from unlevered free cash flow. It is excluded by construction; debt lives in the rate and the bridge.",
+    "A terminal growth rate above long-run GDP growth — or above WACC, which makes the formula meaningless.",
+    "Forgetting that the terminal value is discounted too, at the final year's factor.",
+    "Book-value weights in WACC instead of market values.",
+    "Presenting a single number. A DCF is a range with a story behind it.",
+    "Taking capex equal to D&A forever without saying so — it flatters cash flow and hides the reinvestment a growing business needs."
+  ],
+  "one_liners": [
+    "A DCF is a range with a story, not a number.",
+    "Most of the value is terminal — say so before you are asked.",
+    "Unlevered pairs with WACC and gives enterprise value.",
+    "Each terminal-value method implies the other; quote both."
+  ],
+  "you_may_hear": [
+    "Levered DCF on free cash flow to equity, discounted at the cost of equity.",
+    "Adjusted present value — value the business unlevered, then add the tax shield separately.",
+    "Stub periods and mid-year convention refinements for a valuation date mid-year.",
+    "Size premia and country risk premia added to CAPM.",
+    "Estimating WACC for a private company with no observable beta.",
+    "The dividend discount model, which is how banks are valued — see the FIG module."
+  ]
+}

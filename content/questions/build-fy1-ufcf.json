@@ -1,0 +1,48 @@
+{
+  "slug": "build-fy1-ufcf",
+  "subtopic_slug": "projections-and-assumptions",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "ufcf",
+    "projections"
+  ],
+  "question": "Brackley Components has revenue of £300m next year with an EBITDA margin of 20 %. Depreciation runs at 5 % of revenue and capital expenditure at 6 %. Working capital rises by £3.75m and tax is 25 %. What is unlevered free cash flow?",
+  "model_answer_md": "Work down from revenue.\n\n- EBITDA = 20 % × 300 = **£60m**\n- D&A = 5 % × 300 = **£15m**, so EBIT = 60 − 15 = **£45m**\n- Tax = 25 % × 45 = £11.25m, so NOPAT = **£33.75m**\n- Capex = 6 % × 300 = **£18m**\n\nThen assemble:\n\n$$33.75 + 15 - 18 - 3.75 = \\mathbf{£27.0\\text{m}}$$\n\nWorth noticing: capex of £18m against D&A of £15m. Brackley is spending more than it is writing off, which is what a growing company should look like — and it is the difference between the two, plus the working-capital draw, that separates £60m of EBITDA from £27m of actual cash.",
+  "key_points": [
+    "EBITDA 20 % × 300 = £60m; D&A 5 % × 300 = £15m; so EBIT = £45m",
+    "NOPAT = 45 × 0.75 = £33.75m — tax EBIT, not EBITDA",
+    "Add back D&A, subtract capex (£18m) and ΔNWC (£3.75m)",
+    "UFCF = £27.0m",
+    "Capex above D&A is consistent with a growing business"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would year two look like if revenue grew 5 % and every ratio held?",
+      "answer_md": "Revenue £315m, so every percentage-driven line scales with it: EBITDA £63m, D&A £15.75m, EBIT £47.25m, NOPAT £35.44m, capex £18.9m. The working-capital draw would not simply scale — it is driven by the *increase* in revenue, so at 10 % of a £15m rise it would be about £1.5m rather than £3.75m. That gives roughly **£30.8m**, and most of the improvement comes from the smaller working-capital step rather than the extra profit."
+    },
+    {
+      "question": "Why tax EBIT rather than EBITDA?",
+      "answer_md": "Because tax is charged on profit after depreciation, not before it. Depreciation is a genuine deduction for tax purposes, so taxing EBITDA would overstate the bill — here it would be 25 % of £60m, £15m, against the correct £11.25m. The convention of taxing EBIT and then adding D&A back gets both halves right: the tax reflects the real deduction, and the cash flow reflects that no cash actually left for depreciation."
+    }
+  ],
+  "weak_answer_note": "Taxing EBITDA instead of EBIT, which overstates the tax by £3.75m. Forgetting to add D&A back after using it to compute EBIT — it is a non-cash charge and has to return. Getting the sign of the working-capital movement wrong.",
+  "numbers": {
+    "inputs": {
+      "revenue": 300,
+      "ebitda_margin": 0.2,
+      "da_pct": 0.05,
+      "capex_pct": 0.06,
+      "change_in_nwc": 3.75,
+      "tax_rate": 0.25
+    },
+    "answer": 27.0
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

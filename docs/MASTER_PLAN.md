@@ -76,8 +76,8 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — auto-approves | planned |
 >>>>>>> origin/feat/technicals-platform
 | 14 | [Technicals: EqV vs EV](loops/14-technicals-eqv-ev.md) | 4 lessons, 28 Qs, `tsm_dilution` `lease_toggle` `multiple_matcher` — **approved & live** | open-pr (#34) |
-| 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | merged (pending PR) |
-| 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | planned |
+| 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | open-pr (#35) |
+| 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | merged (pending PR) |
 | 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | planned |
 | 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | planned |
 
