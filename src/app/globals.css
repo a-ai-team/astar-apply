@@ -138,3 +138,35 @@ body {
 .prose-chat .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
 .prose-chat a { color: var(--accent); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent); text-underline-offset: 3px; }
 .prose-chat a:hover { text-decoration-color: var(--accent); }
+
+/* Printable takeaways (Loop 11): cheat sheets and `template` blocks. Drop the app chrome, force
+   light ink on white paper, and never split a card across a page. */
+@media print {
+  header[data-app-header],
+  nav[data-app-nav],
+  [data-print-hide] {
+    display: none !important;
+  }
+  :root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #111111;
+    --muted: #444444;
+    --border: #bbbbbb;
+  }
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  main {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  a[href]::after {
+    content: "";
+  }
+  [data-testid="cheatsheet"] section,
+  [data-testid^="template-"] {
+    break-inside: avoid;
+  }
+}

@@ -8,7 +8,7 @@
   "prompt_version": null,
   "body": {
     "version": 1,
-    "reading_minutes": 10,
+    "reading_minutes": 12,
     "blocks": [
       {
         "type": "why_here",
@@ -24,15 +24,137 @@
         "md": "The order to walk in is always **IS → CFS → BS**, and the sanity check at the end is *assets − liabilities − equity = 0*.\n\n**Income statement.** Work out the effect on operating profit, then apply tax. With a tax rate $t$, a pre-tax change of $\\Delta$ changes net income by $\\Delta \\times (1 - t)$.\n\n**Cash flow statement.** Start with the change in net income. Then *undo* anything that was in net income but was not cash (depreciation, amortisation, write-downs, stock-based pay) and *add* anything that was cash but not in net income (capex, working-capital movements, debt raised or repaid). The total is the change in cash.\n\n**Balance sheet.** Update cash (from the CFS), update whichever other asset or liability moved, and update retained earnings by the change in net income. Then check both sides.\n\nOne rule of thumb that saves time: on the balance sheet, an **asset going down** (other than cash) is a **source of cash**; an **asset going up** is a **use of cash**. Liabilities are the reverse."
       },
       {
+        "type": "lens",
+        "slot": "after-mechanics",
+        "variants": {
+          "tmt": {
+            "heading": "Software: the cash arrives before the revenue",
+            "md": "A software company usually bills a year up front. The cash lands immediately, but accounting rules only let it recognise the revenue as the service is delivered — a month at a time. The unearned part sits on the balance sheet as **deferred revenue**, a liability: a promise to deliver, not money owed to a lender.\n\nSo the walk runs differently. Cash rises now; revenue and net income rise later. On the cash flow statement the increase in deferred revenue is a *working-capital inflow*, which is why fast-growing subscription businesses often show operating cash flow well above net income.\n\nThe second-order point interviewers want: deferred revenue growth is a **leading indicator**. If it stalls while revenue still climbs, the business has stopped signing new commitments and revenue will follow it down a few quarters later.",
+            "example_q": "A SaaS company bills £12m for a year of service on 1 January. Walk me through the statements on that day, and then at the end of March.",
+            "answer_md": "On 1 January nothing has been delivered, so there is no revenue and no effect on the income statement. Cash rises £12m and deferred revenue — a liability — rises £12m. The balance sheet balances with no change to equity.\n\nBy 31 March three months have been delivered, so £3m moves out of deferred revenue into revenue. Net income rises by £3m less tax; deferred revenue falls to £9m; retained earnings rise by the after-tax profit. No cash moves in that second step — it already arrived in January."
+          },
+          "healthcare": {
+            "heading": "Biotech: the spending is expensed, the value is not on the balance sheet",
+            "md": "A biotech spends years on research before it sells anything. Under both IFRS and US GAAP, research is **expensed as incurred** — it hits the income statement immediately and almost never becomes an asset. So the walk starts from large, persistent losses that are entirely real cash going out of the door.\n\nThe consequence is the thing to say out loud: the balance sheet of a clinical-stage biotech tells you almost nothing about what the company is worth. Its main asset — a drug programme that might be worth billions — appears nowhere, because you are not allowed to capitalise it. What you see instead is cash, and the number every analyst watches is the **cash runway**: cash divided by quarterly burn.\n\nThat is also why these companies raise equity so often, and why a raise is a normal financing event rather than a distress signal.",
+            "example_q": "A biotech spends £40m on R&D this year and has no revenue. Walk me through the statements, and tell me what you would look at on the balance sheet.",
+            "answer_md": "R&D of £40m is expensed, so operating profit and pre-tax profit both fall £40m. With no profits there is no tax to save, so net income falls the full £40m. On the cash flow statement you start at −£40m with nothing material to add back, so operating cash flow is roughly −£40m. On the balance sheet cash falls £40m and retained earnings fall £40m — it balances, and no asset is created.\n\nOn the balance sheet I would look at cash against the quarterly burn to get the runway. If that is under about eighteen months, a raise is coming, and that matters more to the equity story than any single line on the income statement."
+          }
+        }
+      },
+      {
+        "type": "predict",
+        "prompt": "Depreciation rises by £10m and the tax rate is 25 %. What happens to the company's cash?",
+        "options": [
+          {
+            "label": "Cash falls by £10m"
+          },
+          {
+            "label": "Cash is unchanged — depreciation is non-cash"
+          },
+          {
+            "label": "Cash rises by £2.5m",
+            "correct": true
+          },
+          {
+            "label": "Cash falls by £7.5m"
+          }
+        ],
+        "explain_md": "Depreciation never moves cash directly — but it *is* deductible, so it cuts the tax bill. Operating profit falls £10m, tax falls by £10m × 25 % = £2.5m, and that saved tax is real money the company keeps. Net income falls £7.5m, you add the £10m back on the cash flow statement, and cash ends up **£2.5m higher**. The tax shield is the whole point of the question."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "depreciation",
+          "amount": 10,
+          "taxRate": 0.25
+        }
+      },
+      {
         "type": "worked_calc",
         "md": "**Depreciation goes up by £10m**, tax rate 25 %. This is the classic version — everyone gets asked it.",
         "steps": [
-          { "label": "IS: operating profit", "expr": "-10", "value": -10, "unit": "£m" },
-          { "label": "IS: tax saved", "expr": "10 * 25%", "value": 2.5, "unit": "£m" },
-          { "label": "IS: net income", "expr": "-10 * (1 - 25%)", "value": -7.5, "unit": "£m" },
-          { "label": "CFS: net income + add back depreciation", "expr": "-7.5 + 10", "value": 2.5, "unit": "£m" },
-          { "label": "BS: assets (cash +2.5, PP&E −10)", "expr": "2.5 - 10", "value": -7.5, "unit": "£m" },
-          { "label": "BS: equity (retained earnings)", "expr": "-7.5", "value": -7.5, "unit": "£m" }
+          {
+            "label": "IS: operating profit",
+            "expr": "-10",
+            "value": -10,
+            "unit": "£m"
+          },
+          {
+            "label": "IS: tax saved",
+            "expr": "10 * 25%",
+            "value": 2.5,
+            "unit": "£m"
+          },
+          {
+            "label": "IS: net income",
+            "expr": "-10 * (1 - 25%)",
+            "value": -7.5,
+            "unit": "£m"
+          },
+          {
+            "label": "CFS: net income + add back depreciation",
+            "expr": "-7.5 + 10",
+            "value": 2.5,
+            "unit": "£m"
+          },
+          {
+            "label": "BS: assets (cash +2.5, PP&E −10)",
+            "expr": "2.5 - 10",
+            "value": -7.5,
+            "unit": "£m"
+          },
+          {
+            "label": "BS: equity (retained earnings)",
+            "expr": "-7.5",
+            "value": -7.5,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Same company, but this time **depreciation rises by £20m** and the tax rate is **30 %**. Fill in the three numbers that matter — the rest are done for you.",
+        "steps": [
+          {
+            "label": "Operating profit",
+            "expr": "-20",
+            "value": -20,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax saved",
+            "expr": "20 * 30%",
+            "value": 6,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Net income",
+            "expr": "-20 * (1 - 30%)",
+            "value": -14,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Cash: net income + add-back",
+            "expr": "-14 + 20",
+            "value": 6,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Balance check: assets",
+            "expr": "6 - 20",
+            "value": -14,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance check: equity",
+            "expr": "-14",
+            "value": -14,
+            "unit": "£m"
+          }
         ]
       },
       {
@@ -49,20 +171,55 @@
         "prompt": "Depreciation increases by £10m. Tax rate 25 %.",
         "statements": {
           "is": [
-            { "line": "Depreciation", "delta": 10, "note": "Non-cash charge" },
-            { "line": "Operating profit", "delta": -10 },
-            { "line": "Tax", "delta": -2.5, "note": "25 % of £10m" },
-            { "line": "Net income", "delta": -7.5 }
+            {
+              "line": "Depreciation",
+              "delta": 10,
+              "note": "Non-cash charge"
+            },
+            {
+              "line": "Operating profit",
+              "delta": -10
+            },
+            {
+              "line": "Tax",
+              "delta": -2.5,
+              "note": "25 % of £10m"
+            },
+            {
+              "line": "Net income",
+              "delta": -7.5
+            }
           ],
           "cfs": [
-            { "line": "Net income", "delta": -7.5 },
-            { "line": "Add back depreciation", "delta": 10, "note": "Non-cash, so reversed" },
-            { "line": "Net change in cash", "delta": 2.5 }
+            {
+              "line": "Net income",
+              "delta": -7.5
+            },
+            {
+              "line": "Add back depreciation",
+              "delta": 10,
+              "note": "Non-cash, so reversed"
+            },
+            {
+              "line": "Net change in cash",
+              "delta": 2.5
+            }
           ],
           "bs": [
-            { "line": "Cash", "delta": 2.5 },
-            { "line": "PP&E", "delta": -10, "note": "Accumulated depreciation up" },
-            { "line": "Retained earnings", "delta": -7.5, "note": "Net income" }
+            {
+              "line": "Cash",
+              "delta": 2.5
+            },
+            {
+              "line": "PP&E",
+              "delta": -10,
+              "note": "Accumulated depreciation up"
+            },
+            {
+              "line": "Retained earnings",
+              "delta": -7.5,
+              "note": "Net income"
+            }
           ]
         },
         "check": "Assets: +2.5 − 10 = −7.5. Liabilities + equity: −7.5. Balances."
@@ -81,10 +238,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Which line appears on all three statements?", "a": "Net income: it closes the income statement, opens the cash flow statement and flows into retained earnings on the balance sheet." },
-          { "q": "If you could only see one statement, which would you pick?", "a": "The cash flow statement — it shows what actually happened to cash and lets you reconstruct much of the other two." },
-          { "q": "Accounts receivable rises by £5m. Cash effect?", "a": "Cash down £5m: customers owe more, so revenue was booked that has not been collected." },
-          { "q": "Why does a £10m write-down of an asset not reduce cash by £10m?", "a": "It is a non-cash charge — like depreciation, it lowers profit and tax but the cash left long ago (if ever). Cash actually rises by the tax saving." }
+          {
+            "q": "Which line appears on all three statements?",
+            "a": "Net income: it closes the income statement, opens the cash flow statement and flows into retained earnings on the balance sheet."
+          },
+          {
+            "q": "If you could only see one statement, which would you pick?",
+            "a": "The cash flow statement — it shows what actually happened to cash and lets you reconstruct much of the other two."
+          },
+          {
+            "q": "Accounts receivable rises by £5m. Cash effect?",
+            "a": "Cash down £5m: customers owe more, so revenue was booked that has not been collected."
+          },
+          {
+            "q": "Why does a £10m write-down of an asset not reduce cash by £10m?",
+            "a": "It is a non-cash charge — like depreciation, it lowers profit and tax but the cash left long ago (if ever). Cash actually rises by the tax saving."
+          }
         ]
       },
       {
@@ -103,9 +272,21 @@
       {
         "type": "key_metrics",
         "rows": [
-          { "metric": "Net income", "definition": "Revenue less all expenses, interest and tax", "why_it_matters": "The bridge between all three statements" },
-          { "metric": "Depreciation & amortisation", "definition": "Non-cash spreading of past capex and intangibles", "why_it_matters": "Reduces tax without reducing cash; added back on the CFS" },
-          { "metric": "Change in net working capital", "definition": "Movement in receivables + inventory − payables", "why_it_matters": "Where profitable companies quietly run out of cash" }
+          {
+            "metric": "Net income",
+            "definition": "Revenue less all expenses, interest and tax",
+            "why_it_matters": "The bridge between all three statements"
+          },
+          {
+            "metric": "Depreciation & amortisation",
+            "definition": "Non-cash spreading of past capex and intangibles",
+            "why_it_matters": "Reduces tax without reducing cash; added back on the CFS"
+          },
+          {
+            "metric": "Change in net working capital",
+            "definition": "Movement in receivables + inventory − payables",
+            "why_it_matters": "Where profitable companies quietly run out of cash"
+          }
         ]
       }
     ]

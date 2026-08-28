@@ -5,7 +5,8 @@ import Link from "next/link";
 import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { listTopics } from "@/lib/content/queries";
-import { bankHref, DIFFICULTY_LABELS, listQuestions, parseBankFilter } from "@/lib/practice/queries";
+import { bankHref, DEPTH_LABELS, DEPTH_TAGS, DIFFICULTY_LABELS, depthOf, listQuestions, parseBankFilter } from "@/lib/practice/queries";
+import { LENSES } from "@/lib/content/taxonomy";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/cn";
 
@@ -53,6 +54,17 @@ export default async function PracticePage({ searchParams }: PageProps<"/home/pr
           <Chip href={bankHref(f, { kind: "concept", page: 1 })} active={f.kind === "concept"} testId="filter-kind-concept">Concept</Chip>
           <Chip href={bankHref(f, { kind: "calculation", page: 1 })} active={f.kind === "calculation"} testId="filter-kind-calculation">Calculation</Chip>
         </div>
+        <div className="flex flex-wrap gap-2">
+          <Chip href={bankHref(f, { depth: undefined, page: 1 })} active={!f.depth} testId="filter-depth-all">Any depth</Chip>
+          {DEPTH_TAGS.map((d) => (
+            <Chip key={d} href={bankHref(f, { depth: d, page: 1 })} active={f.depth === d} testId={`filter-depth-${d}`}>{DEPTH_LABELS[d]}</Chip>
+          ))}
+          <span className="mx-1 self-center text-xs text-muted">·</span>
+          <Chip href={bankHref(f, { lens: undefined, page: 1 })} active={!f.lens} testId="filter-lens-none">No lens</Chip>
+          {LENSES.map((l) => (
+            <Chip key={l.slug} href={bankHref(f, { lens: l.slug, page: 1 })} active={f.lens === l.slug} testId={`filter-lens-${l.slug}`}>{l.label}</Chip>
+          ))}
+        </div>
       </div>
 
       <p className="text-xs text-muted" data-testid="bank-count">{total} question{total === 1 ? "" : "s"}</p>
@@ -70,6 +82,7 @@ export default async function PracticePage({ searchParams }: PageProps<"/home/pr
                 <div className="mt-3 flex flex-wrap gap-2">
                   <Badge tone="accent">D{q.difficulty} · {DIFFICULTY_LABELS[q.difficulty]}</Badge>
                   <Badge>{q.kind}</Badge>
+                  {depthOf(q.tags) === "sa-stretch" && <Badge>Stretch</Badge>}
                   <Badge>{q.topic.title}</Badge>
                 </div>
               </Link>

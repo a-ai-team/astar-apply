@@ -56,6 +56,23 @@ export function blockText(block: LessonBlock): string {
       return block.rows.map((r) => `${r.metric}: ${r.definition} — ${r.why_it_matters}`).join("\n");
     case "widget":
       return "";
+    // --- Technicals v2 (Loop 11) ---
+    case "predict":
+      return `${block.prompt}\n\nOptions: ${block.options.map((o) => o.label).join(" / ")}\n\n${block.explain_md}`;
+    case "fill_numbers":
+      return `${block.md}\n\n${block.steps.map((s) => `${s.label}: ${s.expr} = ${s.value}${s.unit ? ` ${s.unit}` : ""}`).join("\n")}`;
+    case "order_steps":
+      return `${block.prompt}\n\n${block.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}`;
+    case "lens":
+      // Each variant is indexed with its lens name so the chatbot can cite "the TMT lens says…".
+      return Object.entries(block.variants)
+        .map(([slug, v]) =>
+          v ? [`[${slug.toUpperCase()} lens] ${v.heading}`, v.md, v.example_q ? `Q: ${v.example_q}` : "", v.answer_md ?? ""].filter(Boolean).join("\n\n") : "",
+        )
+        .filter(Boolean)
+        .join("\n\n");
+    case "template":
+      return "";
   }
 }
 

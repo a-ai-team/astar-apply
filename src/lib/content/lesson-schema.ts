@@ -18,8 +18,24 @@ export const StatementLineSchema = z.object({
   note: z.string().optional(),
 });
 
-export const WIDGET_NAMES = ["three_statement", "ev_bridge", "filings_toggle", "dcf_sensitivity", "lbo_returns"] as const;
+export const WIDGET_NAMES = [
+  // Loop 03/11 originals
+  "three_statement", "ev_bridge", "filings_toggle", "dcf_sensitivity", "lbo_returns",
+  // Technicals v2 (Loops 11–18) — CONTRACTS.md § Technicals v2
+  "discount_dial", "tv_share", "gordon_vs_exit", "wacc_builder", "beta_relever", "football_field",
+  "tsm_dilution", "cash_cycle", "multiple_matcher", "accretion_rule", "ppa_goodwill", "synergy_npv",
+  "paper_lbo", "lease_toggle", "nci_vs_equity", "deferred_tax", "faded_walk",
+] as const;
 export type WidgetName = (typeof WIDGET_NAMES)[number];
+
+/** Industry lenses (Loop 11). A `lens` block must carry a variant for every slug here. */
+export const LENS_SLUGS = ["tmt", "healthcare"] as const;
+export type LensSlug = (typeof LENS_SLUGS)[number];
+
+export const TEMPLATE_KINDS = ["three_statement_grid", "dcf_sheet", "paper_lbo", "deal_summary"] as const;
+export type TemplateKind = (typeof TEMPLATE_KINDS)[number];
+
+export const LENS_SLOTS = ["after-concept", "after-mechanics", "after-worked-calc", "before-your-turn"] as const;
 
 export const WhyHereBlock = z.object({ type: z.literal("why_here"), md });
 export const ConceptBlock = z.object({ type: z.literal("concept"), heading: z.string().min(1), md });
@@ -67,6 +83,44 @@ export const KeyMetricsBlock = z.object({
   rows: z.array(z.object({ metric: z.string().min(1), definition: z.string().min(1), why_it_matters: z.string().min(1) })).min(1),
 });
 
+// --- Technicals v2 blocks (Loop 11) -----------------------------------------------------------
+/** Predict-then-reveal gate: the student commits to an answer before the widget's punchline. */
+export const PredictBlock = z.object({
+  type: z.literal("predict"),
+  prompt: z.string().min(1),
+  options: z.array(z.object({ label: z.string().min(1), correct: z.boolean().default(false) })).min(2).max(4),
+  explain_md: md,
+});
+/** Faded worked example: steps marked `blank` are typed by the student and graded against `value`. */
+export const FillNumbersBlock = z.object({
+  type: z.literal("fill_numbers"),
+  md,
+  steps: z.array(WorkedStepSchema.extend({ blank: z.boolean().default(false) })).min(1),
+});
+/** Order-the-steps drill; the array order is the correct order. */
+export const OrderStepsBlock = z.object({
+  type: z.literal("order_steps"),
+  prompt: z.string().min(1),
+  steps: z.array(z.string().min(1)).min(3).max(8),
+});
+/** Industry-lens section: only the reader's chosen lens renders. */
+export const LensBlock = z.object({
+  type: z.literal("lens"),
+  slot: z.enum(LENS_SLOTS),
+  // Partial on purpose: an incomplete lens set is a *approval* problem with a readable message
+  // (`lensProblems`), not a raw zod error, so a chapter author can save a draft mid-write.
+  variants: z.partialRecord(
+    z.enum(LENS_SLUGS),
+    z.object({ heading: z.string().min(1), md, example_q: z.string().optional(), answer_md: z.string().optional() }),
+  ),
+});
+/** Printable takeaway (three-statement grid, DCF build sheet, paper LBO, deal summary). */
+export const TemplateBlock = z.object({
+  type: z.literal("template"),
+  kind: z.enum(TEMPLATE_KINDS),
+  props: z.record(z.string(), z.unknown()).default({}),
+});
+
 export const LessonBlockSchema = z.discriminatedUnion("type", [
   WhyHereBlock,
   ConceptBlock,
@@ -81,7 +135,15 @@ export const LessonBlockSchema = z.discriminatedUnion("type", [
   NowYouCanBlock,
   WidgetBlock,
   KeyMetricsBlock,
+  PredictBlock,
+  FillNumbersBlock,
+  OrderStepsBlock,
+  LensBlock,
+  TemplateBlock,
 ]);
+
+/** Blocks introduced by Technicals v2 — their presence switches on the v2 approval rules. */
+export const V2_BLOCK_TYPES = ["predict", "fill_numbers", "order_steps", "lens", "template"] as const;
 
 export const LessonBodySchema = z.object({
   version: z.literal(1),
@@ -114,6 +176,27 @@ export function validateLessonBody(input: unknown): ValidationResult<LessonBody>
   return { ok: false, value: null, errors: r.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`) };
 }
 
+/** True when a body uses any Technicals v2 block, which switches on the v2 approval rules. */
+export function isV2Body(body: LessonBody): boolean {
+  const v2 = new Set<string>(V2_BLOCK_TYPES);
+  return body.blocks.some((b) => v2.has(b.type));
+}
+
+/**
+ * Lens coverage (CONTRACTS.md § Technicals v2): a lesson may have no `lens` blocks at all, but if it
+ * has any, every one must carry a variant for every slug in `LENS_SLUGS`.
+ */
+export function lensProblems(body: LessonBody): string[] {
+  const problems: string[] = [];
+  body.blocks.forEach((b, i) => {
+    if (b.type !== "lens") return;
+    for (const slug of LENS_SLUGS) {
+      if (!b.variants[slug]) problems.push(`lens block ${i} (${b.slot}) is missing the "${slug}" variant`);
+    }
+  });
+  return problems;
+}
+
 /** Returns the approval problems for an already-valid body (empty array = approvable). */
 export function approvalProblems(body: LessonBody, opts: { walkthrough?: boolean } = {}): string[] {
   const present = new Set(body.blocks.map((b) => b.type));
@@ -122,12 +205,25 @@ export function approvalProblems(body: LessonBody, opts: { walkthrough?: boolean
   if (opts.walkthrough && !present.has("scenario")) problems.push('walkthrough lessons need a "scenario" block');
   if (body.reading_minutes > 12) problems.push(`reading_minutes ${body.reading_minutes} > 12`);
   for (const b of body.blocks) {
-    if (b.type === "worked_calc") {
+    if (b.type === "worked_calc" || b.type === "fill_numbers") {
       for (const s of b.steps) {
         const v = evalExpr(s.expr);
         if (v !== null && Math.abs(v - s.value) > Math.max(0.01, Math.abs(s.value) * 0.005)) {
-          problems.push(`worked_calc step "${s.label}": ${s.expr} = ${v}, not ${s.value}`);
+          problems.push(`${b.type} step "${s.label}": ${s.expr} = ${v}, not ${s.value}`);
         }
+      }
+    }
+    if (b.type === "predict" && b.options.filter((o) => o.correct).length !== 1) {
+      problems.push('a "predict" block needs exactly one correct option');
+    }
+  }
+  problems.push(...lensProblems(body));
+  // v2 lessons must gate at least one widget behind a prediction.
+  if (isV2Body(body) && !present.has("predict")) problems.push('Technicals v2 lessons need a "predict" block');
+  if (isV2Body(body)) {
+    for (const b of body.blocks) {
+      if (b.type === "fill_numbers" && !b.steps.some((s) => s.blank)) {
+        problems.push('a "fill_numbers" block needs at least one step marked `blank`');
       }
     }
   }

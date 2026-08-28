@@ -8,7 +8,7 @@
   "prompt_version": null,
   "body": {
     "version": 1,
-    "reading_minutes": 9,
+    "reading_minutes": 11,
     "blocks": [
       {
         "type": "why_here",
@@ -27,11 +27,36 @@
         "type": "worked_calc",
         "md": "**Harbourline plc**, a UK logistics company. From its latest annual report and today's share price:\n\n- Share price £4.20, diluted shares 250m\n- Borrowings £500m, cash £120m\n- Preferred shares £30m, non-controlling interest £25m, lease liabilities £45m\n\nBuild EV one line at a time:",
         "steps": [
-          { "label": "Equity value", "expr": "4.20 * 250", "value": 1050, "unit": "£m" },
-          { "label": "Net debt", "expr": "500 - 120", "value": 380, "unit": "£m" },
-          { "label": "EqV + net debt", "expr": "1050 + 380", "value": 1430, "unit": "£m" },
-          { "label": "+ preferred + NCI", "expr": "1430 + 30 + 25", "value": 1485, "unit": "£m" },
-          { "label": "Enterprise value (+ leases)", "expr": "1485 + 45", "value": 1530, "unit": "£m" }
+          {
+            "label": "Equity value",
+            "expr": "4.20 * 250",
+            "value": 1050,
+            "unit": "£m"
+          },
+          {
+            "label": "Net debt",
+            "expr": "500 - 120",
+            "value": 380,
+            "unit": "£m"
+          },
+          {
+            "label": "EqV + net debt",
+            "expr": "1050 + 380",
+            "value": 1430,
+            "unit": "£m"
+          },
+          {
+            "label": "+ preferred + NCI",
+            "expr": "1430 + 30 + 25",
+            "value": 1485,
+            "unit": "£m"
+          },
+          {
+            "label": "Enterprise value (+ leases)",
+            "expr": "1485 + 45",
+            "value": 1530,
+            "unit": "£m"
+          }
         ]
       },
       {
@@ -42,6 +67,26 @@
         "type": "canonical_answer",
         "md": "Equity value is the value of the shares — price times diluted share count. Enterprise value is the value of the whole operating business to all capital providers. To get from one to the other you add the claims that rank ahead of ordinary shareholders — debt, preferred shares, non-controlling interests and lease liabilities — and subtract cash, because a buyer can use the company's own cash to pay down what it inherits. For Harbourline that is £1,050m of equity, plus £380m net debt, plus £100m of other claims, giving an EV of about £1.5bn.",
         "seconds": 45
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline plc raises £100m of new debt and holds the cash on its balance sheet. What happens to its enterprise value?",
+        "options": [
+          {
+            "label": "It rises by £100m"
+          },
+          {
+            "label": "It is unchanged",
+            "correct": true
+          },
+          {
+            "label": "It falls by £100m"
+          },
+          {
+            "label": "It depends on the interest rate"
+          }
+        ],
+        "explain_md": "Debt goes up £100m, but so does cash — and the bridge *adds* debt and *subtracts* cash. The two moves cancel, so enterprise value does not budge. That is the point of EV: it measures the operating business, and borrowing money does not make the business better at what it does. Equity value is unchanged too, at least on day one. Drag the debt and cash sliders below together and watch the total sit still."
       },
       {
         "type": "widget",
@@ -58,19 +103,56 @@
         }
       },
       {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Tech: net cash, and an enterprise value below the market cap",
+            "md": "Large technology companies often hold more cash than debt. Run the bridge and net debt comes out **negative**, so enterprise value lands *below* equity value — the opposite of the industrial example above, and a result that makes candidates hesitate when they should not.\n\nTwo TMT-specific items to remember. First, **convertible bonds**: cheap debt that turns into shares if the price rises far enough. If it is deep in the money you treat it as equity and add the shares; if not, it is debt in the bridge. Say which you are assuming and why. Second, **share-based compensation** inflates the share count year after year, so use a genuinely diluted count rather than the basic one on the cover of the accounts.\n\nAnd because many high-growth names have little or no EBITDA, the multiple you pair with EV is often EV/Revenue — still an EV multiple, because revenue is a pre-interest number available to everyone.",
+            "example_q": "A software company has a £5bn market cap, £800m of cash, £200m of convertible debt trading well in the money, and no other debt. What is its enterprise value?",
+            "answer_md": "The convertible is deep in the money, so I would treat it as equity rather than debt: it will convert into shares, and I add those shares to the diluted count instead of adding £200m of debt.\n\nOn that basis enterprise value is the £5bn equity value — already including the converted shares — less £800m of cash, so about **£4.2bn**. If the convertible were out of the money I would instead leave the share count alone and add the £200m as debt, giving £4.4bn. The important part is stating the assumption before doing the arithmetic."
+          },
+          "healthcare": {
+            "heading": "Biotech: cash-rich, and sometimes an enterprise value near zero",
+            "md": "A clinical-stage biotech that has just raised money can hold cash worth a large fraction of its market value. Put that through the bridge and enterprise value can come out very small — occasionally **negative**, meaning the market is valuing the company at less than the cash in its account.\n\nThat is a real signal, not an arithmetic error, and interviewers ask about it precisely to see whether you panic. A negative EV usually says the market expects the cash to be burned on trials it does not believe in. The right answer names the mechanism rather than declaring the shares a bargain.\n\nOne judgement call comes up often: **milestone and royalty obligations** owed to a partner. They are not borrowings, but they are contractual claims ahead of shareholders, so many analysts treat the present value of committed milestones as debt-like in the bridge. There is no single right answer — say what you are doing and why.",
+            "example_q": "A biotech has a £400m market cap and £450m of cash after a raise. What does a negative enterprise value tell you?",
+            "answer_md": "Enterprise value is roughly £400m less £450m, so about **negative £50m** — the market is valuing the operating business at less than nothing.\n\nThat is a statement about expected burn, not a free lunch. The market is saying it expects the company to spend that cash on programmes that will not generate a return, so a pound inside this company is worth less than a pound outside it. I would want to know the runway, what the next data readout is and when it lands, because that readout is what the whole valuation is really about."
+          }
+        }
+      },
+      {
         "type": "scenario",
         "prompt": "Harbourline raises £100m of new debt and leaves the cash on its balance sheet. What happens to equity value and enterprise value?",
         "statements": {
           "is": [
-            { "line": "Net income", "delta": 0, "note": "No time has passed, so no interest has been charged yet" }
+            {
+              "line": "Net income",
+              "delta": 0,
+              "note": "No time has passed, so no interest has been charged yet"
+            }
           ],
           "cfs": [
-            { "line": "Cash flow from financing", "delta": 100, "note": "Debt raised" },
-            { "line": "Net change in cash", "delta": 100 }
+            {
+              "line": "Cash flow from financing",
+              "delta": 100,
+              "note": "Debt raised"
+            },
+            {
+              "line": "Net change in cash",
+              "delta": 100
+            }
           ],
           "bs": [
-            { "line": "Cash", "delta": 100, "note": "Asset up" },
-            { "line": "Borrowings", "delta": 100, "note": "Liability up — balances" }
+            {
+              "line": "Cash",
+              "delta": 100,
+              "note": "Asset up"
+            },
+            {
+              "line": "Borrowings",
+              "delta": 100,
+              "note": "Liability up — balances"
+            }
           ]
         },
         "check": "Equity value is unchanged (the shares are worth the same: the company has £100m more cash and £100m more debt). Enterprise value is also unchanged: +£100m debt and −£100m cash cancel in the bridge. Raising debt does not create value by itself — only what you *do* with the money does."
@@ -89,10 +171,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Can enterprise value be negative?", "a": "Yes in theory, when cash exceeds equity value plus all other claims — the market thinks the operating business destroys value. It is rare and usually a sign of distress or a mispricing." },
-          { "q": "Why use diluted rather than basic shares?", "a": "In-the-money options and convertibles will become shares if the company is bought, so a buyer must pay for them too." },
-          { "q": "A company pays a £50m dividend. EqV and EV?", "a": "Equity value falls by £50m (cash left the company). EV is unchanged: cash −50 means the bridge adds back £50m more net debt." },
-          { "q": "Which is bigger in the bridge, EV or EqV, for a typical FTSE 100 company?", "a": "EV — most large companies carry more debt than cash, so net debt is positive and gets added." }
+          {
+            "q": "Can enterprise value be negative?",
+            "a": "Yes in theory, when cash exceeds equity value plus all other claims — the market thinks the operating business destroys value. It is rare and usually a sign of distress or a mispricing."
+          },
+          {
+            "q": "Why use diluted rather than basic shares?",
+            "a": "In-the-money options and convertibles will become shares if the company is bought, so a buyer must pay for them too."
+          },
+          {
+            "q": "A company pays a £50m dividend. EqV and EV?",
+            "a": "Equity value falls by £50m (cash left the company). EV is unchanged: cash −50 means the bridge adds back £50m more net debt."
+          },
+          {
+            "q": "Which is bigger in the bridge, EV or EqV, for a typical FTSE 100 company?",
+            "a": "EV — most large companies carry more debt than cash, so net debt is positive and gets added."
+          }
         ]
       },
       {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { approvalProblems, assertApprovable, BLOCK_TYPES, evalExpr, validateLessonBody, type LessonBody } from "./lesson-schema";
+import { approvalProblems, assertApprovable, BLOCK_TYPES, evalExpr, validateLessonBody, type LessonBody, lensProblems, isV2Body } from "./lesson-schema";
 
 const full: LessonBody = {
   version: 1,
@@ -24,6 +24,8 @@ describe("lesson-schema", () => {
   it("lists every block type in the contract", () => {
     expect(BLOCK_TYPES).toEqual([
       "why_here", "concept", "mechanics", "worked_calc", "trap", "canonical_answer", "scenario", "your_turn", "quick_fire", "one_liner", "now_you_can", "widget", "key_metrics",
+      // Technicals v2 (Loop 11) — append only, never reorder or remove.
+      "predict", "fill_numbers", "order_steps", "lens", "template",
     ]);
   });
 
@@ -67,5 +69,82 @@ describe("lesson-schema", () => {
     expect(evalExpr("2 ^ 3")).toBe(8);
     expect(evalExpr("EBITDA minus capex")).toBeNull();
     expect(evalExpr("10 / 0")).toBeNull();
+  });
+});
+
+// --- Technicals v2 blocks (Loop 11) ------------------------------------------------------------
+describe("Technicals v2 blocks", () => {
+  const v2 = (extra: Record<string, unknown>[]) => ({ ...full, blocks: [...full.blocks, ...extra] });
+
+  const predict = { type: "predict", prompt: "Does cash rise or fall?", options: [{ label: "Rises", correct: true }, { label: "Falls" }], explain_md: "It rises by the tax saving." };
+  const lensBlock = {
+    type: "lens",
+    slot: "after-mechanics",
+    variants: {
+      tmt: { heading: "In TMT", md: "Deferred revenue moves first." },
+      healthcare: { heading: "In Healthcare", md: "R&D is expensed as incurred." },
+    },
+  };
+
+  it("accepts predict, fill_numbers, order_steps, lens and template", () => {
+    const body = v2([
+      predict,
+      { type: "fill_numbers", md: "Fill it in.", steps: [{ label: "Tax saved", expr: "10 * 25%", value: 2.5, unit: "£m", blank: true }] },
+      { type: "order_steps", prompt: "Order the DCF steps.", steps: ["Project cash flows", "Discount them", "Add terminal value"] },
+      lensBlock,
+      { type: "template", kind: "three_statement_grid" },
+    ]);
+    const r = validateLessonBody(body);
+    expect(r.ok).toBe(true);
+    expect(r.ok && approvalProblems(r.value, { walkthrough: true })).toEqual([]);
+  });
+
+  it("rejects a predict block with fewer than two options", () => {
+    expect(validateLessonBody(v2([{ ...predict, options: [{ label: "Rises", correct: true }] }])).ok).toBe(false);
+  });
+
+  it("rejects an unknown lens slot and an unknown template kind", () => {
+    expect(validateLessonBody(v2([{ ...lensBlock, slot: "somewhere-else" }])).ok).toBe(false);
+    expect(validateLessonBody(v2([{ type: "template", kind: "spreadsheet" }])).ok).toBe(false);
+  });
+
+  it("rejects order_steps with fewer than three steps", () => {
+    expect(validateLessonBody(v2([{ type: "order_steps", prompt: "Order these.", steps: ["One", "Two"] }])).ok).toBe(false);
+  });
+
+  it("a lens block missing a variant is invalid, and lensProblems names it", () => {
+    const missing = v2([predict, { ...lensBlock, variants: { tmt: lensBlock.variants.tmt } }]);
+    const r = validateLessonBody(missing);
+    expect(r.ok).toBe(true); // shape is fine…
+    expect(r.ok && lensProblems(r.value)).toEqual(['lens block 13 (after-mechanics) is missing the "healthcare" variant']);
+    expect(r.ok && approvalProblems(r.value, { walkthrough: true })).toContain('lens block 13 (after-mechanics) is missing the "healthcare" variant');
+  });
+
+  it("a v2 lesson without a predict block is not approvable", () => {
+    const body = v2([{ type: "order_steps", prompt: "Order these.", steps: ["A", "B", "C"] }]);
+    const r = validateLessonBody(body);
+    expect(r.ok && approvalProblems(r.value, { walkthrough: true })).toContain('Technicals v2 lessons need a "predict" block');
+  });
+
+  it("a predict block needs exactly one correct option", () => {
+    const both = v2([{ ...predict, options: [{ label: "Rises", correct: true }, { label: "Falls", correct: true }] }]);
+    const r = validateLessonBody(both);
+    expect(r.ok && approvalProblems(r.value, { walkthrough: true })).toContain('a "predict" block needs exactly one correct option');
+  });
+
+  it("fill_numbers arithmetic is re-checked, and it needs a blank", () => {
+    const wrong = v2([predict, { type: "fill_numbers", md: "x", steps: [{ label: "Tax saved", expr: "10 * 25%", value: 3, unit: "£m", blank: true }] }]);
+    const r = validateLessonBody(wrong);
+    expect(r.ok && approvalProblems(r.value, { walkthrough: true }).some((p) => p.startsWith("fill_numbers step"))).toBe(true);
+
+    const noBlank = v2([predict, { type: "fill_numbers", md: "x", steps: [{ label: "Tax saved", expr: "10 * 25%", value: 2.5 }] }]);
+    const r2 = validateLessonBody(noBlank);
+    expect(r2.ok && approvalProblems(r2.value, { walkthrough: true })).toContain('a "fill_numbers" block needs at least one step marked `blank`');
+  });
+
+  it("a lesson with no v2 blocks is unaffected", () => {
+    const r = validateLessonBody(full);
+    expect(r.ok && isV2Body(r.value)).toBe(false);
+    expect(r.ok && approvalProblems(r.value, { walkthrough: true })).toEqual([]);
   });
 });

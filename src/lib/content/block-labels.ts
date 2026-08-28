@@ -17,6 +17,11 @@ export const BLOCK_LABELS: Record<LessonBlockType, string> = {
   now_you_can: "What you can now do",
   widget: "Interactive",
   key_metrics: "Key metrics",
+  predict: "Predict first",
+  fill_numbers: "Fill in the numbers",
+  order_steps: "Put these in order",
+  lens: "In your industry",
+  template: "Take this away",
 };
 
 export function blockLabel(type: LessonBlockType): string {

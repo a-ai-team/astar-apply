@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getTopic, listLessonSummaries, listSubtopics } from "@/lib/content/queries";
 import { Badge } from "@/components/ui/badge";
 import { INDUSTRY_FAMILY_LABELS, industryModule } from "@/lib/content/taxonomy";
+import { hasCheatSheet } from "@/lib/content/cheatsheets";
 
 export async function generateMetadata({ params }: PageProps<"/home/technicals/[topic]">): Promise<Metadata> {
   const { topic } = await params;
@@ -41,6 +42,13 @@ export default async function TopicPage({ params }: PageProps<"/home/technicals/
           {family && <Badge data-testid="industry-family-badge">{INDUSTRY_FAMILY_LABELS[family as keyof typeof INDUSTRY_FAMILY_LABELS] ?? family}</Badge>}
         </div>
         <p className="mt-1 max-w-2xl text-sm text-muted">{topic.summary}</p>
+        {hasCheatSheet(topic.slug) && (
+          <p className="mt-3">
+            <Link href={`/home/technicals/${topic.slug}/cheatsheet`} className="text-sm text-accent underline-offset-2 hover:underline" data-testid="cheatsheet-link">
+              Cheat sheet — formulas, canonical answers and the traps, on one printable page →
+            </Link>
+          </p>
+        )}
       </div>
       <ol className="flex flex-col gap-3" data-testid="subtopic-list">
         {subtopics.map((s, i) => {
