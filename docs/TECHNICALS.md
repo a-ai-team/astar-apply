@@ -221,3 +221,11 @@ same counts from the base tables (the family always comes from `taxonomy.ts`).
 - **Seeds/tests**: `npm run seed -- 09` (seed 03 + report per module); `e2e/09-industry.spec.ts`
   (approves the Real Estate lesson + 8 questions and derives their cards in `beforeAll`, restores in
   `afterAll`); vitest in `taxonomy.test.ts`, `targets.test.ts`.
+
+## Technicals v2 — the summer-internship prep pack (Loops 11–18, planned 2026-08-28)
+Research and per-chapter content specs: `docs/research/technicals-v2/` (`README.md` there is the
+index). Contract additions (new block types `predict`, `fill_numbers`, `order_steps`, `lens`,
+`template`; widget names; question tags `depth:` / `lens:` / `format:`; cheat sheets):
+`docs/loops/CONTRACTS.md` § Technicals v2. Loop 11 builds the platform (`src/lib/finance/`, the widget
+kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chapter each from its spec —
+35 lessons, ~130 core + 39 stretch + ~28 lens questions. This section is rewritten by Loop 18.

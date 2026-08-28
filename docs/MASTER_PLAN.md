@@ -1,6 +1,6 @@
 # A* Apply — Master Plan
 
-*Owner: James Wingfield · Mentor #1: Tesleem · Last updated 2026-08-25 (loop plans + overnight run protocol added)*
+*Owner: James Wingfield · Mentor #1: Tesleem · Last updated 2026-08-28 (Technicals v2 Loops 11–18 planned)*
 
 ## What we are building
 
@@ -68,9 +68,27 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 8 | [Firm interview bank + Pulse](loops/08-firms-pulse.md) | Real-question bank by firm/stage/programme (mentor-sourced), market-news digest (Pulse) | merged (partial) |
 | 9 | [Industry modules](loops/09-industry-modules.md) | 18 industry/group technical modules from the 400Q industry taxonomy | merged (partial) |
 | 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook — **stays an open PR for James** | planned |
+| 11 | [Technicals v2 platform](loops/11-technicals-platform.md) | Finance-maths library, widget kit, `predict` / `fill_numbers` / `order_steps` / `lens` / `template` blocks, industry-lens picker (TMT, Healthcare), question depth/lens/format tags, cheat-sheet route | planned |
+| 12 | [Technicals: Finance foundations](loops/12-technicals-foundations.md) | 3 lessons, 12 Qs, `discount_dial` | planned |
+| 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — auto-approves | planned |
+| 14 | [Technicals: EqV vs EV](loops/14-technicals-eqv-ev.md) | 4 lessons, 28 Qs, `tsm_dilution` `lease_toggle` `multiple_matcher` — auto-approves | planned |
+| 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | planned |
+| 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | planned |
+| 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | planned |
+| 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | planned |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.
+
+### Technicals v2 (Loops 11–18) — the summer-internship prep pack
+Planned 2026-08-28 (research: `docs/research/technicals-v2/`). Scope is **exactly what a UK
+penultimate-year candidate needs** for a summer-internship AC — 35 lessons and 135 core questions
+(+38 stretch for elite boutiques / LevFin, +26 industry-lens questions = 199), not the 400Q guide's 413.
+Every lesson: predict-gate → interactive widget → worked calc → faded numbers → free-recall answer;
+an optional **industry lens** (TMT, Healthcare) swaps in context sections; every chapter ships a
+printable cheat sheet and, where useful, a paper template. Content is **hand-authored by the agent
+in-loop** from the per-chapter spec (`docs/research/technicals-v2/1N-*.md`); the Loop 04 batch
+pipeline stays for top-ups. Run order 11 → 18; Loop 11 must merge before any chapter loop.
 
 ## Feature parity checklist vs financefluency.co.uk
 
