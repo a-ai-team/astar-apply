@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "impairment-walkthrough",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Kestrel writes down £30m of goodwill. Walk me through the statements, assuming the charge is not tax-deductible.",
+  "model_answer_md": "**Income statement.** A £30m impairment charge. Because goodwill impairments are typically **not deductible**, there is no tax relief — so net income falls the full **£30m**.\n\n**Cash flow statement.** Start at net income, down £30m, then add back the entire £30m: an impairment is non-cash, simply a reduction in an asset's carrying value. **Cash does not move at all.**\n\n**Balance sheet.** Goodwill −£30m and retained earnings −£30m. Assets −30 = equity −30. **Balances.**\n\nSo the whole event is presentational in cash terms. What it actually communicates is that a past acquisition has not delivered — which is why the market reaction is usually about what the write-down *admits* rather than the accounting entry itself.",
+  "key_points": [
+    "Not tax-deductible, so no tax shield: net income falls the full £30m",
+    "Non-cash — added back in full, cash unchanged",
+    "Goodwill −30, retained earnings −30, balances",
+    "The signal matters more than the entry: the acquisition underperformed"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the charge were tax-deductible?",
+      "answer_md": "Then it works like the depreciation walk: tax falls £7.5m at 25 %, net income falls £22.5m, the £30m is still added back, and cash **rises £7.5m**. Some asset impairments are deductible; goodwill usually is not, which is why the deductibility question should be asked before answering."
+    },
+    {
+      "question": "Could this trigger a covenant breach?",
+      "answer_md": "It can. Net-worth or gearing covenants measured on book equity would be hit directly, since equity falls £30m. Leverage covenants based on debt to EBITDA usually would not, because impairments sit below EBITDA and are typically excluded as non-recurring — which is a good illustration of why the covenant definition matters more than the headline number."
+    }
+  ],
+  "weak_answer_note": "Applies a tax shield without checking deductibility, or says cash falls £30m. Also weak: not mentioning that the real content is the signal about the acquisition.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "walkthrough",
+    "impairment",
+    "goodwill"
+  ]
+}

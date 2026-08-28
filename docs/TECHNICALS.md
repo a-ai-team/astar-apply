@@ -234,6 +234,7 @@ kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chap
 | Loop | Chapter | Content | Status |
 |---|---|---|---|
 | 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
+| 13 | Accounting | 8 lessons (Kestrel Foods), 40 questions, `faded_walk` · `cash_cycle` · `filings_toggle`, cheat sheet | **approved** (free topic, auto-approved on green evals) — 41 flashcards, 166 chunks |
 
 ### Platform (Loop 11, shipped)
 - **Maths**: `src/lib/finance/{statements,bridge,discount,dcf,wacc,shares,merger,lbo}.ts` — pure

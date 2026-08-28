@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "profitable-company-bankrupt",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "How can a company be profitable and still go bankrupt?",
+  "model_answer_md": "Because profit is an accounting measure and insolvency is a cash event. A company fails when it cannot pay what is due, whatever the income statement says.\n\nThe usual routes:\n\n**Working capital.** A fast-growing company books profit on sales but ties the cash up in receivables and inventory. The faster it grows, the more cash it consumes — profitable and haemorrhaging cash simultaneously.\n\n**Capital expenditure.** Profit is charged only the depreciation; the cash goes out in full and up front. A company spending far above its depreciation can be profitable and cash-negative for years.\n\n**Debt maturities.** A refinancing that fails. The business may be perfectly sound, but if a large repayment falls due and no lender will roll it, it is over.\n\n**Non-cash profits.** Revaluation gains or disposal gains inflate net income without producing any cash at all.",
+  "key_points": [
+    "Profit is accrual-based; insolvency is about cash coming due",
+    "Growth absorbs cash into receivables and inventory",
+    "Capex hits cash immediately, profit only via depreciation",
+    "A failed refinancing can kill a healthy business",
+    "Non-cash gains can inflate profit with no cash behind it"
+  ],
+  "follow_ups": [
+    {
+      "question": "What early warning would you look for?",
+      "answer_md": "A widening gap between net income and operating cash flow over several periods, especially alongside rising days sales outstanding or inventory days. One year can be timing; a consistent trend means profit is not converting to cash. I would also check the maturity schedule for anything large falling due within a year."
+    },
+    {
+      "question": "Which single ratio would you use?",
+      "answer_md": "Something cash-based against the obligations — interest cover computed on operating cash flow rather than EBITDA, or free cash flow against near-term debt maturities. EBITDA-based leverage is the market convention, but it is exactly the measure that hides a working-capital or capex problem."
+    }
+  ],
+  "weak_answer_note": "Says only 'cash flow problems' without naming a mechanism, or cannot distinguish an accounting loss from an inability to pay.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "cash-flow",
+    "insolvency"
+  ]
+}

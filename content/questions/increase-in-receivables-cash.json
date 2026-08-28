@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "increase-in-receivables-cash",
+  "subtopic_slug": "working-capital",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Receivables rise by £5m over the year. What does that do to cash?",
+  "model_answer_md": "It **reduces** cash by £5m, all else equal.\n\nA rise in receivables means the company recognised revenue and profit on sales it has not yet been paid for. The profit is already in net income, so on the cash flow statement you subtract the increase to remove the portion that has not converted into cash.\n\nThe general rule is worth stating plainly: an increase in an operating asset is a **use** of cash, and an increase in an operating liability is a **source**.",
+  "key_points": [
+    "An increase in receivables is a use of cash — £5m out",
+    "Revenue was booked but not collected, so profit overstates cash",
+    "Subtracted as a working-capital movement in operating cash flow",
+    "Rule: operating assets up = cash down; operating liabilities up = cash up"
+  ],
+  "follow_ups": [
+    {
+      "question": "And if payables rise instead?",
+      "answer_md": "Cash goes up. A higher payables balance means the company is holding on to supplier money for longer — it has received goods it has not yet paid for, which is effectively free short-term funding. It is added in the working-capital section."
+    },
+    {
+      "question": "What about inventory?",
+      "answer_md": "An increase in inventory is a use of cash, exactly like receivables. Money has been spent buying or making stock that has not yet been sold, so it is tied up on the balance sheet rather than sitting in the bank."
+    }
+  ],
+  "weak_answer_note": "Gets the direction backwards, or says receivables 'do not affect cash because they are not cash'. The mistake is forgetting that the profit is already in net income.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "working-capital",
+    "receivables"
+  ]
+}

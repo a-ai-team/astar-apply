@@ -1,0 +1,45 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "deferred-revenue-prepayment",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A customer pays Kestrel £12m upfront for a year of deliveries that have not yet started. Walk me through the statements.",
+  "model_answer_md": "**Income statement: nothing.** Kestrel has not delivered anything, so it has not earned the revenue. Recognising it now would breach the accrual principle.\n\n**Cash flow statement.** Cash of £12m has genuinely arrived. It appears within **operating** as an increase in deferred revenue — a working-capital source. Change in cash: **+£12m**.\n\n**Balance sheet.** Cash, an asset, +£12m. Deferred revenue, a **liability**, +£12m. Assets +12 = liabilities +12, and equity does not move.\n\nIt is a liability because Kestrel owes the customer goods, not money — an obligation to perform. As deliveries happen, the balance unwinds into revenue: recognising £1m in a month means revenue +£1m, tax −£0.25m, net income +£0.75m, deferred revenue −£1m and **cash −£0.25m** for the tax actually paid.",
+  "key_points": [
+    "No revenue on receipt — nothing has been delivered",
+    "Cash +£12m, shown as an increase in deferred revenue within operating",
+    "Deferred revenue is a liability: an obligation to deliver goods",
+    "Assets +12 = liabilities +12, equity unchanged",
+    "On recognition of £1m: net income +0.75, deferred revenue −1, cash −0.25 for tax"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is deferred revenue an asset or a liability, and why?",
+      "answer_md": "A liability. The company holds cash it has not yet earned and owes the customer future goods or services. If it failed to deliver, the money would be repayable. It is unusual in that it is settled by performing rather than by paying."
+    },
+    {
+      "question": "How does it affect the enterprise-value bridge?",
+      "answer_md": "Most practitioners leave it out — it is an operating liability, settled by delivering goods rather than cash, so it belongs in working capital rather than in net debt. Some argue for treating a very large balance as debt-like, since it represents an obligation funded by customer cash; if you do, say so explicitly and be consistent across the comparable companies."
+    }
+  ],
+  "weak_answer_note": "Books £12m of revenue on receipt, or calls deferred revenue an asset because cash came in.",
+  "numbers": {
+    "inputs": {
+      "cash_received": 12,
+      "revenue_recognised": 0,
+      "tax_rate": 0.25
+    },
+    "answer": 12
+  },
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "walkthrough",
+    "deferred-revenue"
+  ]
+}

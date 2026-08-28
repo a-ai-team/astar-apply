@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "ebit-vs-ebitda",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What is the difference between EBIT and EBITDA?",
+  "model_answer_md": "**D&A** — depreciation and amortisation. EBIT is operating profit after those charges; EBITDA adds them back.\n\n$$\\text{EBITDA} = \\text{EBIT} + \\text{D\\&A}$$\n\nFor Kestrel Foods, EBIT is £100m and D&A is £20m, so EBITDA is **£120m**.\n\nThe reason anyone bothers is that D&A is a non-cash charge reflecting past spending, so EBITDA is a rough proxy for the cash a business generates before capital spending, tax and financing. That makes it easier to compare companies with different asset ages and depreciation policies.\n\nWorth knowing that EBITDA is not a line in the accounts — you build it yourself, which is precisely why it is so easy to define generously.",
+  "key_points": [
+    "D&A is the only difference between the two",
+    "EBITDA = EBIT + D&A; Kestrel: 100 + 20 = £120m",
+    "D&A is non-cash, so EBITDA approximates pre-capex cash generation",
+    "EBITDA is not a reported line — it is constructed",
+    "Useful for comparing companies with different asset ages and policies"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which is better for a capital-intensive company?",
+      "answer_md": "EBIT, generally. For a business that must keep replacing its assets — a manufacturer, a telecoms network — depreciation is a real economic cost standing in for capex the company cannot avoid. Ignoring it flatters the business. EBITDA is more defensible for asset-light companies where the gap between D&A and capex is small."
+    },
+    {
+      "question": "Is share-based compensation inside EBITDA?",
+      "answer_md": "Usually yes, because it sits within operating expenses and is not depreciation or amortisation — though many companies present an 'adjusted EBITDA' that strips it out. That is contentious: share-based pay is non-cash but genuinely dilutes shareholders, so most analysts treat it as a real cost."
+    }
+  ],
+  "weak_answer_note": "Says EBITDA is 'cash flow' without qualification, or cannot state the formula. Also weak: not knowing that EBITDA is a constructed figure rather than a reported one.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "ebitda",
+    "margins"
+  ]
+}

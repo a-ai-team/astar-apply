@@ -5,6 +5,9 @@ import { EvBridge } from "@/components/widgets/ev-bridge";
 import { ThreeStatement } from "@/components/widgets/three-statement";
 import { DcfSensitivity } from "@/components/widgets/dcf-sensitivity";
 import { DiscountDial } from "@/components/widgets/discount-dial";
+import { FadedWalk } from "@/components/widgets/faded-walk";
+import { CashCycle } from "@/components/widgets/cash-cycle";
+import { FilingsToggle } from "@/components/widgets/filings-toggle";
 import { Section } from "../section";
 
 /**
@@ -17,6 +20,9 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   three_statement: ThreeStatement as ComponentType<Record<string, unknown>>,
   dcf_sensitivity: DcfSensitivity as ComponentType<Record<string, unknown>>,
   discount_dial: DiscountDial as ComponentType<Record<string, unknown>>,
+  faded_walk: FadedWalk as ComponentType<Record<string, unknown>>,
+  cash_cycle: CashCycle as ComponentType<Record<string, unknown>>,
+  filings_toggle: FilingsToggle as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

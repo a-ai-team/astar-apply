@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "order-the-walk-steps",
+  "subtopic_slug": "three-statement-links",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "Put the steps of a three-statement walkthrough into the order an interviewer expects to hear them.",
+  "model_answer_md": "The order is always the same, and saying it out loud in sequence is half of what is being marked:\n\n1. **Income statement** — apply the change to the relevant line and work down to operating profit.\n2. **Tax** — adjust it by the tax rate on the change in pre-tax profit.\n3. **Net income** — state the after-tax effect.\n4. **Cash flow statement** — start at net income, then add back any non-cash charge.\n5. **Change in cash** — including any investing or financing movements.\n6. **Balance sheet** — update cash and the other asset or liability, then retained earnings.\n7. **Balance check** — state that assets less liabilities less equity is zero.\n\nNever jump to the balance sheet first: without net income you cannot move retained earnings, and without the cash flow statement you do not know what cash did.",
+  "key_points": [
+    "IS → tax → net income → CFS add-back → change in cash → BS → check",
+    "Tax is a separate, explicit step — it is where marks are lost",
+    "Retained earnings cannot move until net income is known",
+    "Cash must be derived before the balance sheet can be updated",
+    "Always finish by stating the balance check aloud"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why must it run in this order?",
+      "answer_md": "Because each statement feeds the next. Net income is an output of the income statement and an input to both the cash flow statement and retained earnings; the closing cash figure is an output of the cash flow statement and an input to the balance sheet. Starting at the balance sheet means guessing at two numbers you have not derived."
+    },
+    {
+      "question": "Where do most candidates slip?",
+      "answer_md": "At step two. They apply the charge to operating profit and then carry the full pre-tax amount into net income, forgetting that tax falls with it. The second most common slip is finishing at the balance sheet without ever saying that it balances."
+    }
+  ],
+  "weak_answer_note": "Starts at the balance sheet, or merges the tax step into the income statement step so the after-tax figure is never stated explicitly.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:order",
+    "walkthrough",
+    "method"
+  ]
+}

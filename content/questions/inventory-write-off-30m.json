@@ -1,0 +1,45 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "inventory-write-off-30m",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Kestrel writes off £30m of inventory that has spoiled. Walk me through the statements, with a 25 % tax rate.",
+  "model_answer_md": "**Income statement.** A £30m charge against operating profit. Tax falls by 30 × 25 % = £7.5m, so net income falls by **£22.5m**.\n\n**Cash flow statement.** Start at net income, down £22.5m. The write-off itself is **non-cash** — the money was spent when the inventory was bought, and all that has happened now is that its carrying value has been reduced — so add the £30m back. Cash rises **£7.5m**.\n\n**Balance sheet.** Cash +£7.5m and inventory −£30m, so assets fall £22.5m. Retained earnings fall £22.5m. **Balances.**\n\nSame shape as the depreciation walk: a non-cash charge that costs profit and saves tax, so cash goes up by exactly the tax saved.",
+  "key_points": [
+    "£30m charge; tax −£7.5m; net income −£22.5m",
+    "Non-cash, so add the full £30m back on the cash flow statement",
+    "Cash +£7.5m — the tax saving",
+    "Inventory −30, retained earnings −22.5, and it balances",
+    "Structurally identical to the depreciation walk"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the write-off were not tax-deductible?",
+      "answer_md": "Then there is no tax saving: net income falls the full £30m, the £30m add-back offsets it exactly, and cash does not move at all. Inventory falls £30m and retained earnings fall £30m. This is common for certain impairments, so it is worth checking deductibility before answering."
+    },
+    {
+      "question": "Could the write-off be reversed later?",
+      "answer_md": "Under IFRS, yes — if the net realisable value recovers, an inventory write-down can be reversed up to the original cost. Under US GAAP it cannot: the write-down establishes a new cost basis. In this case the stock has spoiled, so no reversal is realistic either way."
+    }
+  ],
+  "weak_answer_note": "Says cash falls £30m, or forgets that the charge is non-cash. Also weak: not spotting that the structure is the same as the depreciation question.",
+  "numbers": {
+    "inputs": {
+      "write_off": 30,
+      "tax_rate": 0.25,
+      "net_income": -22.5
+    },
+    "answer": 7.5
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "impairment"
+  ]
+}

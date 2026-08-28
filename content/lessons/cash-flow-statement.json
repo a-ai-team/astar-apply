@@ -1,0 +1,206 @@
+{
+  "slug": "cash-flow-statement",
+  "subtopic_slug": "cash-flow-statement",
+  "title": "Cash flow: from net income to cash",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "If an interviewer only has time for one statement, this is the one they will push on. It is the statement that catches people out, because it is the only one you have to *build* rather than read — and because almost every hard follow-up (\"how can a profitable company go bust?\", \"what is free cash flow?\") lives inside it.\n\nIt is also the hinge of the three-statement walk. Every \"what happens if…\" question travels income statement → cash flow → balance sheet, and the cash flow statement is where the interesting work happens: stripping out the things that never moved cash, and adding back the things that did."
+      },
+      {
+        "type": "concept",
+        "heading": "A translation from accrual profit into actual cash",
+        "md": "The income statement is written on the **accrual** basis. Revenue is booked when it is *earned*, not when the customer pays. Costs are booked when they are *incurred*, not when the invoice is settled. Depreciation is charged against profit even though no money leaves the building.\n\nThat is a sensible way to measure performance, and a useless way to know whether you can pay the wages. So the cash flow statement takes net income and translates it, in three sections:\n\n- **Operating** — cash from running the business. Start at net income, add back non-cash charges, and adjust for working capital.\n- **Investing** — cash spent on or received from long-lived assets. Mostly capital expenditure; also acquisitions and disposals.\n- **Financing** — cash to and from the people who fund the company. Debt raised or repaid, dividends, share issues and buy-backs.\n\nAdd the three and you get the change in cash for the period — which must equal the movement in the cash line on the balance sheet. That reconciliation is the point of the whole statement."
+      },
+      {
+        "type": "mechanics",
+        "md": "The operating section is the part worth being able to write from memory:\n\n$$\\text{CFO} = \\text{Net income} + \\text{Non-cash charges} - \\Delta\\text{Working capital}$$\n\nThree moves, in order:\n\n1. **Start at net income.** This is the *indirect method* — you begin with accrual profit and undo the bits that were not cash. Nearly every company files this way.\n2. **Add back non-cash charges.** Depreciation and amortisation, share-based compensation, impairments. These reduced profit but no money moved, so put them back.\n3. **Adjust for working capital.** This is where the signs trip people up, so learn the rule rather than the list:\n\n> **An increase in an operating asset uses cash. An increase in an operating liability provides cash.**\n\nReceivables rising means you sold something and have not been paid — cash *out*. Inventory rising means you bought stock still sitting in the warehouse — cash *out*. Payables rising means you have taken goods and not yet paid for them — you are holding on to the cash, so cash *in*.\n\nInvesting and financing are simpler: they are mostly literal cash movements, recorded with the obvious sign. Capex is negative. Debt raised is positive. Dividends paid are negative."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods' receivables rise by £5m over the year — customers are taking longer to pay. What happens to cash flow from operations?",
+        "options": [
+          {
+            "label": "It rises by £5m — receivables are an asset, and assets are good"
+          },
+          {
+            "label": "It falls by £5m",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — receivables are on the balance sheet, not the cash flow statement"
+          },
+          {
+            "label": "It falls by £3.75m, after tax at 25 %"
+          }
+        ],
+        "explain_md": "Operating cash flow falls by the full **£5m**.\n\nKestrel has recognised the revenue — it is already in net income — but the money is still sitting with the customer. So you have profit without cash, and the cash flow statement has to take it back out.\n\nThere is no tax adjustment here, which is the reason for the fourth option. Tax was already dealt with when net income was calculated; the working-capital line is a pure timing correction on cash that has or has not physically arrived."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "buy_ppe_with_debt",
+          "amount": 80,
+          "taxRate": 0.25
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Kestrel Foods plc, base year. Net income is **£67.5m** and depreciation and amortisation **£20m**. Over the year receivables rose £5m, inventory rose £10m, and payables rose £5m. Capital expenditure was **£30m** and Kestrel paid **£20m** of dividends.\n\nBuild the statement from net income down to the change in cash.",
+        "steps": [
+          {
+            "label": "Change in working capital (receivables + inventory − payables)",
+            "expr": "5 + 10 - 5",
+            "value": 10,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash from operations: 67.5 + 20 − 10",
+            "expr": "67.5 + 20 - 10",
+            "value": 77.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash from investing: capex only",
+            "expr": "-30",
+            "value": -30,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash from financing: dividends only",
+            "expr": "-20",
+            "value": -20,
+            "unit": "£m"
+          },
+          {
+            "label": "Change in cash for the year",
+            "expr": "77.5 - 30 - 20",
+            "value": 27.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Free cash flow (CFO − capex)",
+            "expr": "77.5 - 30",
+            "value": 47.5,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "The following year Kestrel grows hard. Net income is **£80m**, D&A **£24m**, and the growth ties up more working capital: receivables +£12m, inventory +£15m, payables +£4m. Capex rises to **£45m** and the dividend is held at **£20m**.\n\nGrowth is expensive. Work out how expensive.",
+        "steps": [
+          {
+            "label": "Change in working capital",
+            "expr": "12 + 15 - 4",
+            "value": 23,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Cash from operations",
+            "expr": "80 + 24 - 23",
+            "value": 81,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Change in cash",
+            "expr": "81 - 45 - 20",
+            "value": 16,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Free cash flow",
+            "expr": "81 - 45",
+            "value": 36,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"An increase in inventory is a source of cash, because inventory is an asset.\"**\n\nThis is exactly backwards, and it is the single most common sign error in a walkthrough.\n\nThink about what physically happened. Inventory went up because Kestrel *bought crisps and has not sold them yet*. Money left the business and became stock sitting in a warehouse. That is cash **out**.\n\nThe confusion comes from the word \"asset\". An asset is a good thing to *own*, but *acquiring* one costs money. The balance sheet records what you have; the cash flow statement records what it cost you to get there.\n\nSay it as a rule and you will never get it wrong under pressure: **operating asset up, cash down; operating liability up, cash up.**"
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Operating cash flow starts from net income, adds back non-cash charges such as depreciation, and adjusts for working capital: increases in receivables or inventory use cash, increases in payables free it. Investing is mainly capital expenditure and acquisitions; financing is debt raised or repaid, dividends and buy-backs. The three sum to the change in cash, which reconciles to the balance sheet. It answers the question the income statement cannot: where did the cash actually go?",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Deferred revenue is a cash engine",
+            "md": "A subscription software company usually bills a year up front. The cash arrives on day one, but accounting rules only let it recognise the revenue as the service is delivered — a twelfth each month. The unearned balance sits as **deferred revenue**, an operating liability.\n\nRun that through the mechanics you have just learned. Deferred revenue is a liability, and a rising operating liability is a *source* of cash. So a software company that is signing new contracts fast collects cash well ahead of the revenue it reports. Operating cash flow can be comfortably positive while net income is negative — not through any trick, but because the customer paid in January for a service delivered all year.\n\nThe corollary is what interviewers are really testing. The engine runs in reverse when growth slows: if new bookings flatten, deferred revenue stops building, that source of cash disappears, and operating cash flow falls sharply even though revenue looks fine. Watching the deferred revenue balance is how you see it coming a few quarters early.",
+            "example_q": "Why can a SaaS company have negative net income and positive operating cash flow?",
+            "answer_md": "Mainly because of deferred revenue and non-cash costs. The company bills annually in advance, so cash arrives up front while the revenue is recognised over the following twelve months — the unearned part is a liability, and a rising operating liability is a source of cash on the cash flow statement.\n\nOn top of that, a lot of a software company's costs are non-cash: share-based compensation and amortisation of capitalised software get added straight back. So you can easily have a reported loss and healthy operating cash flow at the same time.\n\nThe thing I would check is whether the gap is being driven by growth in deferred revenue. If it is, it reverses when bookings slow, and the cash flow will deteriorate before the revenue line does."
+          },
+          "healthcare": {
+            "heading": "Milestones make cash lumpy",
+            "md": "A biotech's cash flow statement rarely looks like Kestrel's steady grind. Much of it arrives in single, enormous instalments: a partner pays a **£50m milestone** when a drug clears a trial stage or wins approval, and that payment lands as revenue and as operating cash in the same quarter.\n\nThe result is a statement where one line dominates everything. A company burning £15m a quarter suddenly reports positive operating cash flow, then returns to burning the following quarter. Nothing about the underlying business changed.\n\nThis is why analysts *normalise* before they forecast. You strip the milestone out to find the underlying quarterly burn, use that to work out the cash runway, and then add expected milestones back in separately with a probability attached — because the next one only arrives if the next trial reads out well.\n\nIn an interview the mistake is to annualise a milestone quarter, which produces a company that appears comfortably cash-generative and is in fact eighteen months from needing to raise.",
+            "example_q": "How would you treat a one-off £50m licensing milestone when forecasting a biotech's cash?",
+            "answer_md": "I would separate it from the operating run-rate rather than letting it sit in the trend. So first I would strip it out to get the underlying quarterly burn — that is the number that tells me the cash runway and whether a raise is coming.\n\nThen I would add expected future milestones back as their own line, each with a probability and a date attached, because they only arrive if the relevant trial or approval succeeds. That keeps the recurring cost base honest and puts the lumpy, uncertain money where its uncertainty is visible.\n\nThe error I would want to avoid is annualising the quarter the milestone lands in. That makes the company look cash-generative when the real position is a fixed burn against a finite cash balance."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A rival snacks business reports: **net income £120m**, **D&A £60m**. Over the year receivables rose **£15m**, inventory fell **£5m**, and payables rose **£10m**. It spent **£90m** on capex, repaid **£30m** of debt and paid **£25m** of dividends.\n\nCompute cash from operations, investing and financing, and the change in cash. Explain the sign on each working-capital line.",
+        "model_answer_md": "**Working capital.** Receivables +£15m uses cash. Inventory −£5m *releases* cash: stock was sold down rather than built up. Payables +£10m provides cash: the company is holding on to money it owes suppliers. So the net change in working capital is 15 − 5 − 10 = **£0m** — the three movements cancel exactly.\n\n**Operating:** 120 + 60 − 0 = **£180m**.\n\n**Investing:** capex only, so **−£90m**.\n\n**Financing:** −30 of debt repaid −25 of dividends = **−£55m**.\n\n**Change in cash:** 180 − 90 − 55 = **+£35m**.\n\nWorth saying out loud: free cash flow is 180 − 90 = £90m, comfortably covering both the dividend and the debt repayment. This business is funding its own growth, which is the substantive point behind the arithmetic.",
+        "rubric": [
+          "Nets the working-capital movements to zero, with the correct sign on each of the three",
+          "Reaches CFO of £180m",
+          "Investing −£90m and financing −£55m, with dividends and debt repayment both in financing",
+          "Change in cash of +£35m",
+          "Explains *why* each working-capital line has its sign, rather than asserting it"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Where does depreciation appear on the cash flow statement?",
+            "a": "Added back in operating — it reduced profit but no cash moved."
+          },
+          {
+            "q": "What sign does capex carry, and in which section?",
+            "a": "Negative, in investing."
+          },
+          {
+            "q": "Which section holds a share buy-back?",
+            "a": "Financing — it is cash returned to the people who fund the company."
+          },
+          {
+            "q": "Working capital goes up. What happens to cash?",
+            "a": "It goes down. Cash has been tied up in receivables or inventory."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Start at net income, add back what never moved cash, adjust for what is tied up in working capital — and the three sections must add to the change in the cash line.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build a cash flow statement from net income down to the change in cash.",
+          "I can state the working-capital sign rule and explain why it holds.",
+          "I can say which section any given transaction belongs in.",
+          "I can compute free cash flow and say what it is telling me.",
+          "I can explain why net income and operating cash flow diverge, and what that divergence signals."
+        ]
+      }
+    ]
+  }
+}

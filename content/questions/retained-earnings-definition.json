@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "retained-earnings-definition",
+  "subtopic_slug": "balance-sheet",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What are retained earnings?",
+  "model_answer_md": "The cumulative profit the company has made since it began, less everything it has paid out to shareholders as dividends.\n\n$$\\text{Closing RE} = \\text{Opening RE} + \\text{Net income} - \\text{Dividends}$$\n\nIt sits within equity on the balance sheet, and it is the line that connects the income statement to the balance sheet: each year's net income flows into it, which is why a walkthrough always ends by moving retained earnings.\n\nThe common misunderstanding is worth pre-empting: retained earnings are **not a pot of cash**. The profits were retained, but they have since been spent on inventory, equipment or repaying debt. Kestrel could have large retained earnings and very little cash.",
+  "key_points": [
+    "Cumulative net income since inception, less cumulative dividends",
+    "Sits within equity on the balance sheet",
+    "The link that carries net income onto the balance sheet",
+    "Not a cash balance — the profits have been reinvested",
+    "Closing RE = opening RE + net income − dividends"
+  ],
+  "follow_ups": [
+    {
+      "question": "Can retained earnings be negative?",
+      "answer_md": "Yes — it is then usually called an accumulated deficit, and it means cumulative losses and distributions have exceeded cumulative profits. Common for young, loss-making companies, and it does not by itself signal distress if the business is well funded by share issuance."
+    },
+    {
+      "question": "How exactly does it link to net income?",
+      "answer_md": "Directly and every period: net income is added to retained earnings, and dividends are subtracted. That is why, in any three-statement walkthrough, the change in retained earnings equals the change in net income whenever no dividend is paid."
+    }
+  ],
+  "weak_answer_note": "Describes retained earnings as cash held back, or cannot state the roll-forward formula.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "equity",
+    "retained-earnings"
+  ]
+}

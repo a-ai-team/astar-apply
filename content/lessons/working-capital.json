@@ -1,0 +1,208 @@
+{
+  "slug": "working-capital",
+  "subtopic_slug": "working-capital",
+  "title": "Working capital and the cash conversion cycle",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Working capital is where the phrase \"profitable but out of cash\" stops being a slogan and becomes arithmetic. It is also the line most candidates get the sign wrong on under pressure, which makes it a cheap test of whether you understand the cash flow statement or have memorised it.\n\nAnd it comes back later. Working capital is a line in every DCF, a driver in every LBO model, and the reason a fast-growing company can need funding it did not expect. Getting the intuition now — that growth *consumes* cash before it produces any — saves you three times over."
+      },
+      {
+        "type": "concept",
+        "heading": "The money trapped in the gap between paying and being paid",
+        "md": "Kestrel Foods buys potatoes, turns them into crisps, ships them to supermarkets, and waits to be paid. Each of those steps has money sitting in it.\n\n**Operating working capital** measures that trapped money:\n\n$$\\text{NWC} = \\text{Receivables} + \\text{Inventory} - \\text{Payables}$$\n\nReceivables and inventory are cash Kestrel has already spent or earned but cannot yet spend. Payables are the opposite — supplier money Kestrel is still holding, effectively an interest-free loan.\n\nTwo exclusions matter, and interviewers check for them. **Cash is not in operating working capital**, and neither is **debt**. Both are financing items, not operating ones; leaving them in would mean a company's working capital changed every time it drew on a loan. The definition you want is *operating* current assets less *operating* current liabilities.\n\nThe consequence follows directly. When working capital rises, cash has been tied up and operating cash flow falls below net income. When it falls, cash is released. Growth almost always ties cash up first — you buy the stock and extend the credit before the customer pays you."
+      },
+      {
+        "type": "mechanics",
+        "md": "Pounds are hard to compare across companies of different sizes, so working capital is usually expressed in **days**:\n\n$$\\text{DSO} = \\frac{\\text{Receivables}}{\\text{Revenue}} \\times 365 \\qquad \\text{DIO} = \\frac{\\text{Inventory}}{\\text{COGS}} \\times 365 \\qquad \\text{DPO} = \\frac{\\text{Payables}}{\\text{COGS}} \\times 365$$\n\nNote the denominators, because this is a favourite follow-up. Receivables are measured against **revenue**, because that is what you billed the customer. Inventory and payables are measured against **COGS**, because stock sits on the books at cost, not at the price you eventually sell it for.\n\nPut the three together and you get the **cash conversion cycle**:\n\n$$\\text{CCC} = \\text{DIO} + \\text{DSO} - \\text{DPO}$$\n\nRead it as a timeline. You buy stock and hold it for DIO days. You sell it and wait DSO days to be paid. But you did not pay your own supplier for DPO days, so subtract that. What is left is the number of days your own cash is out of the door — the days you have to fund yourself.\n\nA **negative** CCC means you are paid by customers before you pay suppliers. Your suppliers are funding your growth, free of charge."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel renegotiates with its potato suppliers and wins 30 extra days to pay them. Nothing else changes. What happens to cash?",
+        "options": [
+          {
+            "label": "Cash rises — a one-off release as payables build",
+            "correct": true
+          },
+          {
+            "label": "Cash falls — Kestrel now owes more money"
+          },
+          {
+            "label": "Cash is unchanged — Kestrel still pays the same amount in the end"
+          },
+          {
+            "label": "Cash rises permanently, every single year"
+          }
+        ],
+        "explain_md": "Cash **rises**, and the wording of the last two options is where the real understanding sits.\n\nPayables go up, which is an operating liability rising — a source of cash. Kestrel is holding supplier money for 30 days longer, so its cash balance steps up.\n\nBut it is a **one-off** step, not a permanent annual gain. Once the payables balance settles at its new, higher level, it stops growing and stops contributing. Working capital improvements release cash once, when the balance moves; they do not add cash every year forever. Companies that lean on this to flatter cash flow eventually run out of road, which is exactly why analysts watch the days rather than the cash number."
+      },
+      {
+        "type": "widget",
+        "widget": "cash_cycle",
+        "props": {
+          "dso": 36.5,
+          "dio": 48.7,
+          "dpo": 36.5,
+          "revenue": 500,
+          "cogs": 300
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Kestrel Foods, base year: **revenue £500m**, **COGS £300m**, **receivables £50m**, **inventory £40m**, **payables £30m**.\n\nWork out how much cash is tied up, and how long it is trapped for.",
+        "steps": [
+          {
+            "label": "Net working capital",
+            "expr": "50 + 40 - 30",
+            "value": 60,
+            "unit": "£m"
+          },
+          {
+            "label": "DSO — days to collect from customers",
+            "expr": "50 / 500 * 365",
+            "value": 36.5,
+            "unit": "days"
+          },
+          {
+            "label": "DIO — days stock sits in the warehouse",
+            "expr": "40 / 300 * 365",
+            "value": 48.7,
+            "unit": "days"
+          },
+          {
+            "label": "DPO — days Kestrel takes to pay suppliers",
+            "expr": "30 / 300 * 365",
+            "value": 36.5,
+            "unit": "days"
+          },
+          {
+            "label": "Cash conversion cycle: DIO + DSO − DPO",
+            "expr": "48.7 + 36.5 - 36.5",
+            "value": 48.7,
+            "unit": "days"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Kestrel's revenue grows 20 % to **£600m** and COGS to **£360m**. The working-capital *days* are unchanged — the business is running exactly as efficiently as before, just bigger.\n\nWork out what that growth costs in cash.",
+        "steps": [
+          {
+            "label": "New receivables at the same 36.5-day DSO",
+            "expr": "36.5 / 365 * 600",
+            "value": 60,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "New inventory at the same 48.7-day DIO",
+            "expr": "48.7 / 365 * 360",
+            "value": 48,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "New payables at the same 36.5-day DPO",
+            "expr": "36.5 / 365 * 360",
+            "value": 36,
+            "unit": "£m"
+          },
+          {
+            "label": "New net working capital",
+            "expr": "60 + 48 - 36",
+            "value": 72,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash absorbed by growth (the rise in NWC)",
+            "expr": "72 - 60",
+            "value": 12,
+            "unit": "£m",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"More working capital is good — it means the company is bigger and healthier.\"**\n\nIt sounds reasonable and it is precisely wrong. Working capital is not a war chest; it is cash **stuck in the machine**. A rise means the company has bought stock it has not sold, or delivered goods it has not been paid for. That money is unavailable — it cannot pay a dividend or service a loan.\n\nThe cleanest counter-example is a supermarket. It sells for cash at the till, turns fresh stock over in days, and pays its suppliers on 60-day terms. Its working capital is **negative**: it is holding supplier money the entire time. Far from being a weakness, this means growth *generates* cash rather than consuming it — every new store funds part of itself.\n\nSo the right instinct when working capital rises is suspicion, not congratulation: is the business growing, or is it failing to collect from customers and stacking up unsold stock? The days tell you which."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Operating working capital is current operating assets — receivables and inventory — less current operating liabilities such as payables; cash and debt are excluded because they are financing, not operating. When it increases, the company has sold on credit or stocked up faster than it has been paid, so cash is tied up and operating cash flow falls below net income. When it decreases, cash is released. The cash conversion cycle expresses the same idea in days.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Negative working capital as a feature, not an accident",
+            "md": "Subscription software inverts Kestrel's problem completely. There is no inventory to hold and no stock to finance, and customers are billed **in advance** — usually a year at a time. The cash arrives before the service is delivered, and the unearned portion sits as deferred revenue.\n\nDeferred revenue is an operating liability, so it belongs in working capital, and it makes the total **negative**. The faster the company grows, the more of its customers' money it is holding, and the more cash growth throws off. That is the structural reason a scaling software business can fund a large part of its own expansion.\n\nThe judgement call worth being ready for is whether deferred revenue belongs in working capital at all when you value the company. It does: it is an operating item, arising from ordinary trading, not a borrowing. Excluding it would flatter the business by hiding an obligation to deliver a service it has already been paid for — and it would break the link between bookings growth and cash generation that makes these companies work.",
+            "example_q": "Should deferred revenue sit in working capital when you value a SaaS company?",
+            "answer_md": "Yes — it is an operating liability, so it belongs in operating working capital rather than being treated as debt.\n\nIt arises from ordinary trading: the customer has paid for a service the company has not yet delivered. That is an obligation to *perform*, not an obligation to *repay*, which is what separates it from borrowing. Treating it as debt-like would double-count, because the cost of delivering that service is already in the forecast operating costs.\n\nPractically it also matters because deferred revenue is what makes growth cash-generative for these companies — as bookings grow, the balance grows and releases cash. If you strip it out of working capital you lose the mechanism that explains why a fast-growing SaaS business funds itself, and your cash forecast will be wrong in both directions."
+          },
+          "healthcare": {
+            "heading": "Long receivables, and the profit you cannot spend",
+            "md": "Healthcare services companies — hospital groups, diagnostics labs, care providers — face a working-capital problem most industries do not. Their customer is frequently a government body or a large insurer, and those payers settle slowly. Receivables running 90 days or more are routine, and disputed claims can stretch far beyond that.\n\nWork through the arithmetic and the consequence is stark. A company with 90-day DSO has roughly a quarter of its annual revenue permanently sitting in receivables. Grow revenue 20 % and you must fund 20 % more of that balance before a single extra pound of cash arrives. Profitable, growing, and steadily short of cash.\n\nThis is why receivables quality is a standard diligence question in the sector, and why an ageing profile matters more than the headline number. A rising DSO can mean the payer is slow — or it can mean claims are being rejected and the revenue was never really there. The second is a revenue-recognition problem wearing a working-capital disguise, and interviewers like candidates who spot the difference.",
+            "example_q": "Why might a healthcare services company be profitable and still be starved of cash?",
+            "answer_md": "Because its receivables are long and growing. If it bills public payers or insurers on 90-day terms, roughly a quarter of annual revenue is sitting in receivables at any time — profit that has been recognised but not collected.\n\nWhen the business grows, that balance has to grow with it, so each extra pound of revenue ties up cash before it delivers any. Add capex for new sites and you get a company reporting healthy margins while operating cash flow lags well behind net income.\n\nThe thing I would check is *why* DSO is high. Slow-paying payers are a funding problem you can plan around. But if receivables are ageing because claims are being denied, the revenue itself was overstated — and that is a much more serious issue than a working-capital squeeze."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A competitor reports **revenue £730m**, **COGS £365m**, **receivables £80m**, **inventory £60m** and **payables £50m**.\n\nCompute DSO, DIO, DPO and the cash conversion cycle. Then: how much cash would be freed if it tightened collections so that DSO fell to 30 days?",
+        "model_answer_md": "**The days.**\n\n- DSO = 80 / 730 × 365 = **40 days**\n- DIO = 60 / 365 × 365 = **60 days**\n- DPO = 50 / 365 × 365 = **50 days**\n- CCC = 60 + 40 − 50 = **50 days**\n\nSo the company funds itself for fifty days between paying for stock and collecting from customers — slightly worse than Kestrel's 48.7.\n\n**The cash release.** At 30 days DSO, receivables would be 30 / 365 × 730 = **£60m**, against £80m today. That frees **£20m** of cash.\n\nTwo things I would add. It is a **one-off** release — once receivables settle at £60m they stop falling, so this improves the cash balance once, not the annual cash flow forever. And I would ask what the 10-day improvement costs: if it means offering early-payment discounts or refusing credit to slower customers, the margin or revenue given up may be worth more than £20m of working capital.",
+        "rubric": [
+          "DSO 40 days, using revenue as the denominator",
+          "DIO 60 and DPO 50 days, both using COGS as the denominator",
+          "CCC of 50 days, with the DPO subtracted",
+          "Cash freed of £20m, computed from the new receivables balance",
+          "Notes that the release is one-off, and questions what the improvement costs"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Is cash included in operating working capital?",
+            "a": "No — cash and debt are financing items and are both excluded."
+          },
+          {
+            "q": "Payables rise. What happens to cash?",
+            "a": "It rises. You are holding supplier money for longer."
+          },
+          {
+            "q": "What is the cash conversion cycle formula?",
+            "a": "DIO + DSO − DPO — the days your own cash is tied up."
+          },
+          {
+            "q": "Name a business with a negative cash conversion cycle.",
+            "a": "A supermarket, or any retailer that sells for cash and pays suppliers on long terms."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Working capital is cash stuck in the machine: an increase ties money up, a decrease releases it, and the cash conversion cycle says how many days it is trapped for.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can define operating working capital and say why cash and debt are excluded.",
+          "I can compute DSO, DIO and DPO with the right denominator for each.",
+          "I can build a cash conversion cycle and read it as a timeline.",
+          "I can explain why growth consumes cash, and why a negative cycle reverses that.",
+          "I can say why a working-capital improvement is a one-off release and not a permanent gain."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "net-income-vs-cash",
+  "subtopic_slug": "cash-flow-statement",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why is net income different from the change in cash?",
+  "model_answer_md": "Because net income is measured on the accrual basis and cash is not. Four things drive the gap.\n\n**Non-cash charges** — depreciation, amortisation, impairments and share-based pay all reduce profit without any money leaving the business, so they are added back.\n\n**Working capital** — profit is booked when a sale is made, but the cash may still sit in receivables or be tied up in inventory.\n\n**Capital expenditure** — buying equipment consumes cash immediately but hits profit only gradually, through depreciation.\n\n**Financing** — raising or repaying debt, and paying dividends, move cash without touching the income statement at all.\n\nFor Kestrel: net income £67.5m becomes operating cash of £77.5m once £20m of D&A is added back and £10m is absorbed by working capital.",
+  "key_points": [
+    "Net income is accrual-based; cash is not",
+    "Non-cash charges reduce profit without moving cash",
+    "Working-capital movements shift the timing of cash against profit",
+    "Capex hits cash now and profit later, through depreciation",
+    "Financing flows bypass the income statement entirely"
+  ],
+  "follow_ups": [
+    {
+      "question": "Give me three reasons cash could be well below net income.",
+      "answer_md": "Fast growth absorbing cash into receivables and inventory; heavy capital expenditure that dwarfs the depreciation charge; and large non-cash gains inflating profit — a revaluation or a gain on disposal, which are stripped back out of operating cash flow."
+    },
+    {
+      "question": "When would cash exceed net income by a lot?",
+      "answer_md": "When there are big non-cash charges — a heavily depreciated asset base, or a one-off impairment. Also when a business collects before it delivers, like a subscription company, where growth in deferred revenue is a cash inflow ahead of the profit."
+    }
+  ],
+  "weak_answer_note": "Lists only depreciation and stops there, or cannot explain why capex creates a gap. A weak answer treats the two figures as interchangeable.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "cash-flow",
+    "accruals"
+  ]
+}

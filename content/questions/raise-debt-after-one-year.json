@@ -1,0 +1,48 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "raise-debt-after-one-year",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Kestrel raised £100m of debt at 5 %. One year later, with a 25 % tax rate, what are the effects on net income and cash?",
+  "model_answer_md": "**Income statement.** Interest expense of 100 × 5 % = **£5m**. That reduces pre-tax profit, so tax falls by 5 × 25 % = **£1.25m**. Net income falls by **£3.75m**.\n\n**Cash flow statement.** Start at net income, down £3.75m. Interest is a genuine cash cost, so there is nothing to add back. The £100m financing inflow is still there, so cash is up **£96.25m** in total.\n\n**Balance sheet.** Cash +£96.25m, debt +£100m, retained earnings −£3.75m. Check: assets +96.25 = liabilities +100 plus equity −3.75. **Balances.**\n\nThe £1.25m is the tax shield — the reason debt is cheaper than its headline rate suggests.",
+  "key_points": [
+    "Interest = 100 × 5 % = £5m",
+    "Tax falls £1.25m, so net income falls £3.75m",
+    "Cash = 100 − 3.75 = +£96.25m",
+    "Debt +100, retained earnings −3.75, and it balances",
+    "The £1.25m saving is the tax shield behind after-tax cost of debt"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if Kestrel repaid £50m at the year end?",
+      "answer_md": "Cash and debt both fall £50m, so cash ends +£46.25m and debt +£50m. Nothing touches the income statement — repaying principal is a financing flow, not an expense. Only the interest already accrued stays in net income."
+    },
+    {
+      "question": "What has happened to leverage?",
+      "answer_md": "Debt has risen £100m while EBITDA is unchanged at £120m, so leverage rises by roughly 0.8×. Net debt rises by less than gross debt, because £96.25m of the money is still sitting in cash — which is why lenders usually test net debt to EBITDA rather than gross."
+    }
+  ],
+  "weak_answer_note": "Forgets the tax shield and reports net income down the full £5m, or omits the £100m financing inflow when computing the cash movement.",
+  "numbers": {
+    "inputs": {
+      "principal": 100,
+      "rate": 0.05,
+      "tax_rate": 0.25,
+      "interest": 5,
+      "net_income": -3.75
+    },
+    "answer": 96.25
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "walkthrough",
+    "debt",
+    "interest"
+  ]
+}

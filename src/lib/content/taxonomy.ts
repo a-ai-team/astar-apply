@@ -98,16 +98,19 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "The three statements, how they link, and the statement walkthroughs interviewers love.",
     source_section: "Accounting – concepts / calculations",
     subtopics: [
-      sub("three-statements-overview", "The three statements at a glance", "concept", "Accounting – concepts", 6),
+      // Loop 13: eight lessons carry the chapter. `depreciation-and-capex` folds into
+      // `single-step-walkthroughs`; `deferred-taxes-and-other-items` becomes cheat-sheet
+      // "you may hear" material. Both deferred — slugs kept, never removed.
+      sub("three-statements-overview", "The three statements at a glance", "concept", "Accounting – concepts", 5),
       sub("income-statement", "Income statement", "concept", "Accounting – concepts", 4),
-      sub("balance-sheet", "Balance sheet", "concept", "Accounting – concepts", 4),
-      sub("cash-flow-statement", "Cash flow statement", "concept", "Accounting – concepts", 6),
-      sub("three-statement-links", "How the three statements link", "mixed", "Accounting – concepts", 6, true),
-      sub("working-capital", "Working capital", "mixed", "Accounting – concepts", 6),
-      sub("depreciation-and-capex", "Depreciation, capex and non-cash items", "calculation", "Accounting – calculations", 6, true),
-      sub("single-step-walkthroughs", "Single-step walkthroughs", "calculation", "Accounting – calculations", 8, true),
-      sub("multi-step-walkthroughs", "Multi-step walkthroughs", "calculation", "Accounting – calculations", 8, true),
-      sub("deferred-taxes-and-other-items", "Deferred taxes, leases and other items", "mixed", "Accounting – calculations", 6),
+      sub("balance-sheet", "Balance sheet", "concept", "Accounting – concepts", 5),
+      sub("cash-flow-statement", "Cash flow statement", "concept", "Accounting – concepts", 5),
+      sub("three-statement-links", "How the three statements link", "mixed", "Accounting – concepts", 5, true),
+      sub("working-capital", "Working capital", "mixed", "Accounting – concepts", 5),
+      { ...sub("depreciation-and-capex", "Depreciation, capex and non-cash items", "calculation", "Accounting – calculations", 0, true), deferred: true },
+      sub("single-step-walkthroughs", "Single-step walkthroughs", "calculation", "Accounting – calculations", 6, true),
+      sub("multi-step-walkthroughs", "Multi-step walkthroughs", "calculation", "Accounting – calculations", 5, true),
+      { ...sub("deferred-taxes-and-other-items", "Deferred taxes, leases and other items", "mixed", "Accounting – calculations", 0), deferred: true },
     ],
   },
   {

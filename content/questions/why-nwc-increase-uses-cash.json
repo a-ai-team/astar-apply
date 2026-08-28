@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-nwc-increase-uses-cash",
+  "subtopic_slug": "working-capital",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why does an increase in working capital reduce cash?",
+  "model_answer_md": "Because the money has gone somewhere other than the bank.\n\nIf receivables rise, the company has delivered and booked the profit but the customer has not paid — the cash is sitting with the customer. If inventory rises, cash has been spent on stock that has not yet been sold. If payables fall, the company has settled supplier bills, so cash has physically left.\n\nEach of those is money tied up in the operating cycle rather than available. That is why the cash flow statement **subtracts** the increase in working capital when reconciling net income to operating cash flow.\n\nFor Kestrel, a £10m increase absorbed £10m of the £87.5m that profit plus depreciation would otherwise have produced.",
+  "key_points": [
+    "The cash is tied up in receivables or inventory, or has been paid to suppliers",
+    "Profit is already recognised, so the adjustment removes uncollected profit",
+    "Subtracted in the operating section of the cash flow statement",
+    "Kestrel: a £10m increase absorbed £10m of operating cash"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens to working capital in a recession?",
+      "answer_md": "It usually unwinds and *releases* cash: sales fall, so inventory is run down and receivables are collected without being replaced. It flatters operating cash flow for a period or two, which is why cash generation can look strong in a downturn even as profit collapses — it is a one-off release, not a durable improvement."
+    },
+    {
+      "question": "And when a company grows quickly?",
+      "answer_md": "It absorbs cash. Higher sales need more inventory and generate more receivables, so working capital scales with revenue. That is why profitable, fast-growing companies so often need funding — the growth itself consumes the cash before it arrives."
+    }
+  ],
+  "weak_answer_note": "States the rule without explaining where the money went, or muddles the direction. A weak answer cannot connect it to why growth consumes cash.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "working-capital",
+    "cash-flow"
+  ]
+}

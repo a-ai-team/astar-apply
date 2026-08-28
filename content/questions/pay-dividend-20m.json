@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "pay-dividend-20m",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "Kestrel pays a £20m dividend. Walk me through the statements.",
+  "model_answer_md": "**Income statement: nothing.** A dividend is a distribution of profit that has already been taxed and recognised, not a cost of doing business. It never appears on the income statement — that is the single most common error here.\n\n**Cash flow statement.** A £20m outflow in the **financing** section. Operating and investing are unaffected, so cash falls **£20m**.\n\n**Balance sheet.** Cash falls £20m; retained earnings fall £20m. Assets −20 = equity −20, so it balances with no change in liabilities.\n\nThe economic reading: value has left the company and gone to shareholders. The business is smaller, but no worse run.",
+  "key_points": [
+    "No income statement impact — a dividend is a distribution, not an expense",
+    "£20m outflow in financing",
+    "Cash −20 and retained earnings −20",
+    "Assets −20 = equity −20, so it balances",
+    "Value has transferred out of the company to shareholders"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if Kestrel did a £20m buy-back instead?",
+      "answer_md": "Mechanically almost identical: cash −£20m and equity −£20m, with the outflow again in financing and nothing on the income statement. The difference is that a buy-back reduces the share count, so it concentrates future earnings per share rather than paying cash across every share."
+    },
+    {
+      "question": "What happens to equity value?",
+      "answer_md": "Equity value falls by roughly the £20m paid out — shareholders hold the same company minus £20m of cash, plus £20m in their pocket, so in theory they are no better off. It also reduces net debt's counterweight, so enterprise value is unchanged while equity value drops."
+    }
+  ],
+  "weak_answer_note": "Puts the dividend on the income statement as an expense, or places the outflow in operating cash flow.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "dividends"
+  ]
+}

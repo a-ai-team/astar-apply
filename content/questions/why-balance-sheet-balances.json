@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-balance-sheet-balances",
+  "subtopic_slug": "balance-sheet",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why does the balance sheet always balance?",
+  "model_answer_md": "Because it is the same money viewed from two sides. The left-hand side lists what the company owns; the right-hand side says who funded it. Every asset had to be paid for by somebody — either a lender or a creditor, which makes it a liability, or the owners, which makes it equity.\n\nSo the identity is definitional:\n\n$$\\text{Assets} = \\text{Liabilities} + \\text{Equity}$$\n\nEquity is the residual. It is not a pot of cash — it is whatever is left over for the owners once every other claim is met, and it moves automatically when profits are retained or losses are absorbed.\n\nFor Kestrel Foods: assets of £450m against liabilities of £180m and equity of £270m.",
+  "key_points": [
+    "Two views of the same money: what is owned, and who funded it",
+    "Every asset is funded by a liability or by equity",
+    "Equity is the residual claim, not a cash balance",
+    "Retained profits and losses flow into equity, keeping the identity intact",
+    "Kestrel: 450 = 180 + 270"
+  ],
+  "follow_ups": [
+    {
+      "question": "Can equity be negative?",
+      "answer_md": "Yes. Sustained losses, or a large debt-funded buy-back or dividend, can push liabilities above assets. It is a warning sign of possible insolvency, but it is not the same thing — a company with negative book equity can still be perfectly able to pay its bills if it generates cash, and some highly levered but stable businesses run that way."
+    },
+    {
+      "question": "What happens to the balance sheet when the company makes a loss?",
+      "answer_md": "The loss reduces retained earnings, so equity falls. Whatever caused the loss also reduces assets or increases liabilities by the matching amount — cash paid out, an asset written down, or a provision raised — so both sides fall together and the identity still holds."
+    }
+  ],
+  "weak_answer_note": "Says 'because it has to' or 'that is the rule of double entry' without explaining that every asset is funded by someone. Also weak: describing equity as cash the company holds.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "balance-sheet",
+    "accounting-identity"
+  ]
+}

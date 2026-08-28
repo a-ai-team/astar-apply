@@ -1,0 +1,50 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "cash-conversion-cycle-compute",
+  "subtopic_slug": "working-capital",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Kestrel Foods has revenue of £500m, COGS of £300m, receivables of £50m, inventory of £40m and payables of £30m. Calculate its cash conversion cycle.",
+  "model_answer_md": "Three ratios, then combine them. Receivables are measured against revenue; inventory and payables against COGS, because that is the basis on which they are carried.\n\n$$\\text{DSO} = \\frac{50}{500} \\times 365 = 36.5 \\text{ days}$$\n$$\\text{DIO} = \\frac{40}{300} \\times 365 = 48.7 \\text{ days}$$\n$$\\text{DPO} = \\frac{30}{300} \\times 365 = 36.5 \\text{ days}$$\n\n$$\\text{CCC} = \\text{DIO} + \\text{DSO} - \\text{DPO} = 48.7 + 36.5 - 36.5 = \\mathbf{48.7 \\text{ days}}$$\n\nSo Kestrel waits roughly **49 days** between paying for its ingredients and collecting from its customers. Every day of that gap has to be funded — which is why it has £60m of working capital tied up.",
+  "key_points": [
+    "DSO uses revenue; DIO and DPO use COGS",
+    "DSO 36.5, DIO 48.7, DPO 36.5 days",
+    "CCC = DIO + DSO − DPO = 48.7 days",
+    "It is the funding gap between paying suppliers and being paid",
+    "Ties back to the £60m of working capital on the balance sheet"
+  ],
+  "follow_ups": [
+    {
+      "question": "If Kestrel halved its DSO, how much cash would that free up?",
+      "answer_md": "Halving DSO from 36.5 to about 18 days would halve receivables from £50m to £25m, releasing roughly **£25m** of cash — a one-off benefit as the balance unwinds, not a recurring gain. The CCC would fall to about 30 days."
+    },
+    {
+      "question": "Why express it in days rather than pounds?",
+      "answer_md": "Because days are comparable across companies of different sizes and across years as a company grows. £50m of receivables means nothing on its own; 36.5 days tells you immediately how the collection performance compares with a peer or with last year."
+    }
+  ],
+  "weak_answer_note": "Uses revenue as the denominator for all three ratios, or gets the sign of DPO wrong and adds it. A weak answer produces the number without saying what the gap has to be funded by.",
+  "numbers": {
+    "inputs": {
+      "revenue": 500,
+      "cogs": 300,
+      "receivables": 50,
+      "inventory": 40,
+      "payables": 30,
+      "dso": 36.5,
+      "dio": 48.7,
+      "dpo": 36.5
+    },
+    "answer": 48.7
+  },
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "working-capital",
+    "cash-conversion-cycle"
+  ]
+}

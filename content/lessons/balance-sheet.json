@@ -1,0 +1,206 @@
+{
+  "slug": "balance-sheet",
+  "subtopic_slug": "balance-sheet",
+  "title": "Balance sheet: what you own, what you owe",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"Why does the balance sheet balance?\" sounds like a trick question. It is not — it is a check on whether you understand what the statement *is*, or have simply memorised that the two sides are equal.\n\nThe weak answer is circular: \"because assets equal liabilities plus equity.\" That restates the identity without explaining it. The strong answer takes about ten seconds and explains why it could not possibly be otherwise.\n\nThis also matters practically. Every walkthrough later in this chapter ends with a balance check, and every one of them relies on knowing which line absorbs the difference. Get that wrong and your answer visibly falls apart at the last step — the worst possible place."
+      },
+      {
+        "type": "concept",
+        "heading": "Every pound of assets was paid for by somebody",
+        "md": "The balance sheet answers one question at one instant: *what does this company own, and whose money paid for it?*\n\nThe left side lists the **assets** — the resources the business controls, ordered by how quickly they turn into cash. Cash first, then receivables (money customers owe), then inventory, then the long-lived things: property, plant and equipment, and intangibles such as goodwill.\n\nThe right side lists the **claims** on those assets, in order of who gets paid first if things go wrong:\n\n- **Liabilities** — payables owed to suppliers, then debt owed to lenders. These are contractual.\n- **Equity** — whatever is left for the owners. This is a residual, not a promise.\n\nNow the reason it balances. Every asset was funded somehow: either someone else's money (a liability) or the owners' (equity). There is no third source. So the two sides are not *made* to agree by an accountant — they describe the same pile of resources twice, once by what it *is* and once by who has a **claim** on it.\n\nEquity is the residual, so it absorbs anything that changes assets or liabilities without an offset. That is usually this year's profit, arriving through retained earnings."
+      },
+      {
+        "type": "mechanics",
+        "md": "$$\\text{Assets} = \\text{Liabilities} + \\text{Equity} \\quad\\Longleftrightarrow\\quad \\text{Equity} = \\text{Assets} - \\text{Liabilities}$$\n\nThe second form is the one to think in: equity is what would be left for the owners if every asset were sold at its book value and every creditor repaid.\n\nA few conventions you should know by name:\n\n- **Current versus non-current** splits both sides at **one year**. Current assets are expected to turn into cash within a year; current liabilities fall due within a year.\n- **Retained earnings**, inside equity, is the cumulative total of every year's net income less every dividend ever paid. It is the link back to the income statement.\n- **Goodwill** appears only after an acquisition — it is the premium a buyer paid above the fair value of the identifiable net assets. A company cannot create goodwill for itself, however valuable its own brand.\n\nWhen you walk a transaction through, every entry must touch the sheet **twice**: two assets moving in opposite directions, or an asset and a claim moving together. If your walk ends without balancing, you have found only one of the two effects — and it is almost always retained earnings you have missed."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods borrows £100m from its bank and leaves the money in its account. Which side of the balance sheet grows?",
+        "options": [
+          {
+            "label": "Assets only — the company has £100m more cash"
+          },
+          {
+            "label": "Liabilities only — the company owes £100m more"
+          },
+          {
+            "label": "Both sides, by £100m each",
+            "correct": true
+          },
+          {
+            "label": "Neither — borrowing does not change the balance sheet"
+          }
+        ],
+        "explain_md": "**Both**, by £100m each — and the balance sheet is the same size as before in every ratio that matters.\n\nCash rises £100m on the asset side. Debt rises £100m on the claims side. The identity holds automatically, because the transaction has done exactly what the balance sheet describes: acquired an asset, and recorded whose money paid for it.\n\nNotice what does *not* happen. **Equity is unchanged.** Borrowing does not make the owners richer or poorer on day one — it just adds a resource and, alongside it, a claim on that resource. Nothing has touched the income statement either, so retained earnings do not move. This is the cleanest possible illustration of why the two sides move together."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "raise_debt",
+          "amount": 100,
+          "taxRate": 0.25
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Kestrel Foods plc** at the year end. Assets: cash £60m, receivables £50m, inventory £40m, property plant and equipment £300m. Claims: payables £30m, debt £150m, equity £270m.\n\nBuild both sides and confirm the identity closes to zero.",
+        "steps": [
+          {
+            "label": "Total assets",
+            "expr": "60 + 50 + 40 + 300",
+            "value": 450,
+            "unit": "£m"
+          },
+          {
+            "label": "Total liabilities: payables plus debt",
+            "expr": "30 + 150",
+            "value": 180,
+            "unit": "£m"
+          },
+          {
+            "label": "Equity as the residual: assets less liabilities",
+            "expr": "450 - 180",
+            "value": 270,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance check: assets − liabilities − equity",
+            "expr": "450 - 180 - 270",
+            "value": 0,
+            "unit": "£m"
+          },
+          {
+            "label": "Net debt: debt less the cash held against it",
+            "expr": "150 - 60",
+            "value": 90,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now run the prediction through the sheet. Kestrel **raises £100m of debt** and holds the cash. Fill in the three figures that show both sides moving together — and equity sitting perfectly still.",
+        "steps": [
+          {
+            "label": "Cash after the drawdown",
+            "expr": "60 + 100",
+            "value": 160,
+            "unit": "£m"
+          },
+          {
+            "label": "Debt after the drawdown",
+            "expr": "150 + 100",
+            "value": 250,
+            "unit": "£m"
+          },
+          {
+            "label": "New total assets",
+            "expr": "450 + 100",
+            "value": 550,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "New total liabilities",
+            "expr": "180 + 100",
+            "value": 280,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Equity, as the residual",
+            "expr": "550 - 280",
+            "value": 270,
+            "unit": "£m",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Equity is the cash the shareholders could take out.\"**\n\nThis is the most common misreading of the balance sheet, and the numbers in front of you disprove it instantly.\n\nKestrel's equity is **£270m**. Its cash is **£60m**. The shareholders could not withdraw £270m if they tried — most of that equity is not money at all, it is *represented by* £300m of factories and vans and £40m of crisps sitting in a warehouse.\n\nEquity is an **accounting residual**: assets minus liabilities. It is a claim on the business, not a balance in an account. It says \"if everything on the left were converted to cash at the values shown and every creditor were repaid, this is what would be left over\" — and both of those assumptions are heroic. Book values are historic; a forced sale would raise far less.\n\nThe same reasoning explains why equity can go **negative** without the company being worthless, and why market capitalisation — what investors will actually pay — bears almost no relation to book equity."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "The balance sheet lists what the company owns — assets, from cash and receivables through to property and intangibles — against how those assets were funded: liabilities such as payables and debt, and shareholders' equity. It balances by construction: every asset was paid for with either someone else's money or the owners'. Equity is the residual, so anything that changes assets or liabilities without an offset changes equity, usually through retained earnings.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Development costs that become an asset",
+            "md": "Most software spending is expensed as it happens. But under IFRS, once a project passes **technical feasibility** — broadly, the company can show the product will work and it intends to finish and sell it — the development costs from that point can be **capitalised** as an intangible asset instead.\n\nThe accounting consequence is significant. A company that capitalises shows higher assets, higher equity, and — because the spending never touches operating expenses — **higher EBITDA today**. The cost reappears later as amortisation, which sits below the EBITDA line.\n\nSo two software companies with identical products, identical spending and identical cash flows can report visibly different profitability purely from this policy choice. Neither is cheating; the criteria leave real judgement.\n\nThis is why analysts comparing software companies check the capitalisation policy before trusting an EBITDA multiple, and often add capitalised development back as an expense to get a like-for-like view.",
+            "example_q": "Two software companies are identical, but one capitalises its development costs and the other expenses them. Which reports higher EBITDA — and is it the better business?",
+            "answer_md": "The one that capitalises. Its development spending goes onto the balance sheet as an intangible rather than through operating expenses, so EBITDA is higher by roughly the amount capitalised. Its assets and equity are higher too, and the cost returns later as amortisation — which sits below EBITDA and so never touches that multiple.\n\nBut it is not the better business. **The cash spent is identical** — the same engineers were paid the same salaries. Only the presentation differs. I would normalise for it before comparing them: either add the capitalised development back as an expense, or look at free cash flow, which is unaffected by the choice."
+          },
+          "healthcare": {
+            "heading": "The most valuable asset is usually missing",
+            "md": "A pharmaceutical balance sheet has a striking feature: very high gross margins and comparatively little to show for them. The physical cost of manufacturing a pill is tiny, so gross margins above 80 % are normal. The value is entirely in the **intellectual property** — the patent, the clinical data, the approval.\n\nAnd that IP is usually **not on the balance sheet at all**. Internally generated research is expensed as incurred, so a company that discovered a blockbuster drug itself carries almost no asset reflecting it.\n\nNow the asymmetry. If a *different* company **acquires** that drug, purchase accounting requires the buyer to recognise the acquired IP at fair value — so it appears as a large intangible, plus goodwill for whatever was paid above it.\n\nThe result is two companies with the same drug and wildly different balance sheets, depending purely on whether they invented it or bought it. It is one of the clearest illustrations that a balance sheet records **transactions**, not value.",
+            "example_q": "Why does an acquisitive pharma company show large intangibles while one that develops its own drugs shows almost none?",
+            "answer_md": "Because accounting only recognises what was paid for in a transaction. Internally generated research is expensed as incurred under IFRS, so a company that discovered a drug itself has no asset on its balance sheet reflecting it — the spending went through the income statement years ago.\n\nWhen another company buys that drug or the business that owns it, purchase accounting requires the acquired IP to be recognised at fair value, with goodwill on top for any premium paid. So the same drug is invisible in one set of accounts and a large intangible in the other.\n\nThe practical implication is that book equity tells you very little about a pharma company's worth, and that comparing the two on price-to-book would be meaningless."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company's assets are: **cash £80m, receivables £70m, inventory £50m, property plant and equipment £400m**. Its liabilities are **payables £60m and debt £240m**. Compute equity — then explain in a sentence or two what that number does and does not represent.",
+        "model_answer_md": "Total assets: 80 + 70 + 50 + 400 = **£600m**.\n\nTotal liabilities: 60 + 240 = **£300m**.\n\nEquity is the residual: 600 − 300 = **£300m**.\n\nWhat it represents is the owners' **residual claim** — what would in principle be left for shareholders once every creditor had been repaid, valuing the assets at the amounts shown.\n\nWhat it is not is £300m of money. The company holds only **£80m of cash**; the rest of that equity is represented by stock, unpaid customer invoices and £400m of fixed assets. Both assumptions behind the number are also generous: book values are historic costs, not what the assets would fetch, and a forced sale of inventory and equipment would almost certainly raise less. So equity is an accounting measure of the owners' position, not a valuation of the company and not a pot of cash.",
+        "rubric": [
+          "Totals assets correctly to £600m",
+          "Totals liabilities to £300m, including both payables and debt",
+          "Reaches equity of £300m as assets less liabilities",
+          "States that equity is a residual claim, not a cash balance",
+          "Notes the limitation that book values are historic and may not reflect realisable value"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Where is the cut-off between current and non-current?",
+            "a": "One year — current items are expected to convert to cash, or fall due, within twelve months."
+          },
+          {
+            "q": "What is retained earnings?",
+            "a": "Cumulative net income since the company began, less every dividend ever paid."
+          },
+          {
+            "q": "Is goodwill an asset?",
+            "a": "Yes — an intangible one, created only by an acquisition, for the premium paid above the fair value of identifiable net assets."
+          },
+          {
+            "q": "A company raises debt. Which lines move?",
+            "a": "Cash up on the asset side, debt up on the liability side. Equity is untouched."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**The balance sheet balances because every asset was paid for by somebody — and equity is simply whatever is left once everybody else has been counted.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can explain why the balance sheet balances without restating the identity.",
+          "I can name the main lines on each side and the order they appear in.",
+          "I can say why equity is not cash, using a company's own numbers to prove it.",
+          "I can walk a debt raise through the sheet and show both sides moving together.",
+          "I can explain what goodwill is and why a company cannot create it for itself."
+        ]
+      }
+    ]
+  }
+}

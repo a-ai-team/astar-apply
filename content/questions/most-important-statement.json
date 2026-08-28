@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "most-important-statement",
+  "subtopic_slug": "three-statements-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "If you could only look at one of the three statements, which would you choose and why?",
+  "model_answer_md": "The **cash flow statement**. It shows the cash the business actually generated, and cash is what pays interest, repays debt and funds dividends. It is also the hardest to flatter: net income depends on judgements about depreciation, provisions and revenue recognition, whereas cash either arrived or it did not.\n\nI would be honest about the trade-off, though. On its own it tells me nothing about margins, and nothing about the asset base or how much debt sits against it. A company can post strong operating cash flow while quietly running down its equipment.\n\nSo: the cash flow statement, but the answer really is that they only work together.",
+  "key_points": [
+    "Cash pays debt, interest and dividends — it is the binding constraint",
+    "Net income reflects accounting judgements; cash is harder to shape",
+    "Trade-off: no profitability picture and no view of the asset base",
+    "One period only, so no sense of trend or leverage"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why not the income statement?",
+      "answer_md": "Because profit is not cash. A company can be profitable and still fail if it is not collecting from customers, is tying cash up in inventory, or has a debt repayment it cannot refinance. The income statement also carries the most judgement — depreciation policy, provisions and revenue recognition all sit inside net income."
+    },
+    {
+      "question": "When would you pick the balance sheet instead?",
+      "answer_md": "When solvency is the question. For a bank, or for a company in distress, the balance sheet is the statement that matters: what is owed, when it falls due, and whether the assets cover it. For a lender assessing a covenant breach the balance sheet is the first thing I would open."
+    }
+  ],
+  "weak_answer_note": "Picks the income statement because 'profit is what matters', or picks one without acknowledging what is lost. A weak answer also gives no reason beyond 'cash is king'.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "cash-flow",
+    "judgement"
+  ]
+}

@@ -130,11 +130,14 @@ test.describe("Loop 11 platform", () => {
 
     const total = await page.getByTestId("bank-count").innerText();
 
-    // No lens questions are seeded yet, so the TMT filter empties the bank without erroring.
+    // The TMT filter shows only `lens:tmt` questions. Chapters seed these, so the bank may be
+    // empty or populated — either way the page renders and the count differs from the generalist one.
     await page.getByTestId("filter-lens-tmt").click();
     await expect(page).toHaveURL(/lens=tmt/);
     await expect(page.getByTestId("practice-heading")).toBeVisible();
-    await expect(page.getByTestId("bank-empty")).toBeVisible();
+    const lensBank = page.getByTestId("bank-count");
+    if (await lensBank.isVisible()) await expect(lensBank).not.toHaveText(total);
+    else await expect(page.getByTestId("bank-empty")).toBeVisible();
 
     // Clearing the lens restores the generalist bank.
     await page.getByTestId("filter-lens-none").click();

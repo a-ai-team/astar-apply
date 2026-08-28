@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-ebitda-misleads",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Why is EBITDA a misleading measure of cash flow?",
+  "model_answer_md": "Because it ignores four things a business genuinely cannot avoid.\n\n**Capital expenditure.** EBITDA adds back depreciation as though asset replacement were optional. For a manufacturer or a telecoms network, capex is a permanent, unavoidable cash cost and depreciation is a reasonable proxy for it.\n\n**Working capital.** A growing company ties cash up in receivables and inventory. EBITDA is entirely blind to this, so a business can grow EBITDA while burning cash.\n\n**Interest and tax.** Both are real cash payments to lenders and to the state, and both come before shareholders see anything.\n\n**Leases and share-based pay.** Since IFRS 16 lease costs sit largely below EBITDA, so a retailer's EBITDA excludes what is effectively its rent. And adjusted EBITDA routinely strips out share-based compensation, which dilutes shareholders whether or not it is cash.\n\nSo it is a useful comparison tool across capital structures — not a cash flow measure.",
+  "key_points": [
+    "Ignores capex, which is unavoidable for asset-heavy businesses",
+    "Ignores working capital, so growth can burn cash while EBITDA rises",
+    "Excludes interest and tax, both real cash payments",
+    "Post-IFRS 16, lease costs sit below EBITDA — it excludes rent",
+    "Adjusted EBITDA often removes share-based pay, a genuine dilution cost"
+  ],
+  "follow_ups": [
+    {
+      "question": "Give me an industry where it is especially misleading.",
+      "answer_md": "Telecoms or cable — enormous, continuous network capex means EBITDA can look strong for years while free cash flow is negligible. Retail is another since IFRS 16: EBITDA now excludes the rent on the entire store estate, which for many retailers is one of the largest costs they have."
+    },
+    {
+      "question": "How would you fix it?",
+      "answer_md": "Move to a cash measure. Unlevered free cash flow — tax EBIT, add back D&A, then subtract capex and the working-capital movement — captures everything EBITDA leaves out. If EBITDA has to be used for comparability, at least look at EBITDA less capex, and check the conversion of EBITDA into operating cash flow over several years."
+    }
+  ],
+  "weak_answer_note": "Says only 'it is not cash flow' without naming what is excluded, or cannot give a sector where the gap is largest.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "ebitda",
+    "valuation"
+  ]
+}

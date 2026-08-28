@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "raise-100m-debt-day-one",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "Kestrel raises £100m of debt. Walk me through the statements on day one.",
+  "model_answer_md": "**Income statement: nothing.** Borrowing is not income, and on day one no interest has accrued. This is the trap — candidates want to book interest immediately.\n\n**Cash flow statement.** A £100m inflow in the **financing** section. Operating and investing are untouched, so the change in cash is **+£100m**.\n\n**Balance sheet.** Cash, an asset, is up £100m. Debt, a liability, is up £100m. Assets +100 = liabilities +100, and equity does not move.\n\nThe company has more cash and exactly as much more owed. It is no richer — which is worth saying, because it is also why enterprise value does not change.",
+  "key_points": [
+    "No income statement effect on day one — borrowing is not income",
+    "£100m inflow in financing; change in cash +£100m",
+    "Balance sheet: cash +100, debt +100",
+    "Equity is unchanged — the company is no better off",
+    "Interest only appears once time has passed"
+  ],
+  "follow_ups": [
+    {
+      "question": "Now roll forward one year at a 5 % interest rate.",
+      "answer_md": "Interest of £5m hits the income statement, tax falls £1.25m, so net income falls **£3.75m**. On the cash flow statement you start £3.75m lower and still have the £100m financing inflow, so cash is up **£96.25m**. Debt is +£100m and retained earnings −£3.75m, and it balances."
+    },
+    {
+      "question": "What does this do to enterprise value?",
+      "answer_md": "Nothing, in principle. Enterprise value adds debt and subtracts cash, and both rose by £100m, so the two cancel. It is the cleanest demonstration that EV measures the operating business rather than how it happens to be funded."
+    }
+  ],
+  "weak_answer_note": "Books interest expense on day one, or puts the inflow in operating cash flow. Also weak: claiming the company is now worth £100m more.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "debt"
+  ]
+}

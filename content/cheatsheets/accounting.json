@@ -4,55 +4,93 @@
     {
       "name": "The balance-sheet identity",
       "latex": "\\text{Assets} = \\text{Liabilities} + \\text{Equity}",
-      "note": "Every walkthrough ends here. If it does not balance, you have missed a line — usually the retained-earnings hit."
+      "note": "Every walkthrough ends here. If it does not balance you have missed a line — nine times out of ten it is retained earnings."
     },
     {
-      "name": "Net income to cash",
-      "latex": "\\text{Cash from operations} = \\text{Net income} + \\text{Non-cash charges} - \\Delta\\text{Working capital}",
-      "note": "The cash flow statement exists because the income statement is written on the accrual basis, not the cash basis."
+      "name": "EBITDA from EBIT",
+      "latex": "\\text{EBITDA} = \\text{EBIT} + \\text{D\\&A}",
+      "note": "Kestrel: EBIT 100 + D&A 20 = £120m. EBITDA is not in the accounts — you build it."
     },
     {
-      "name": "After-tax effect of a pre-tax charge",
-      "latex": "\\Delta\\text{Net income} = -\\text{Charge} \\times (1 - t)",
-      "note": "A £10m charge at a 25 % tax rate costs £7.5m of net income, not £10m. Forgetting the tax shield is the single most common error."
+      "name": "Net income",
+      "latex": "\\text{NI} = (\\text{EBIT} - \\text{Interest}) \\times (1 - t)",
+      "note": "Kestrel: (100 − 10) × 0.75 = £67.5m. Interest is deducted before tax, which is why debt has a tax shield."
     },
     {
-      "name": "Working capital",
-      "latex": "\\text{NWC} = \\text{Current assets (ex-cash)} - \\text{Current liabilities (ex-debt)}",
-      "note": "An increase in working capital is a use of cash: you have tied money up in receivables or inventory."
+      "name": "Cash from operations",
+      "latex": "\\text{CFO} = \\text{NI} + \\text{non-cash charges} - \\Delta\\text{NWC}",
+      "note": "Start at net income, add back what never moved cash, then adjust for money tied up in working capital."
+    },
+    {
+      "name": "Free cash flow",
+      "latex": "\\text{FCF} = \\text{CFO} - \\text{Capex}",
+      "note": "The cash actually left over once the business has been kept running."
+    },
+    {
+      "name": "Net working capital",
+      "latex": "\\text{NWC} = \\text{Receivables} + \\text{Inventory} - \\text{Payables}",
+      "note": "Operating items only — cash and debt are excluded. An increase is a use of cash."
+    },
+    {
+      "name": "The working-capital days",
+      "latex": "\\text{DSO} = \\frac{\\text{Receivables}}{\\text{Revenue}} \\times 365,\\quad \\text{DIO} = \\frac{\\text{Inventory}}{\\text{COGS}} \\times 365,\\quad \\text{DPO} = \\frac{\\text{Payables}}{\\text{COGS}} \\times 365",
+      "note": "Receivables against revenue; inventory and payables against COGS, because that is what they are measured at."
+    },
+    {
+      "name": "Cash conversion cycle",
+      "latex": "\\text{CCC} = \\text{DIO} + \\text{DSO} - \\text{DPO}",
+      "note": "Days between paying your supplier and being paid by your customer. Negative means suppliers fund your growth."
+    },
+    {
+      "name": "Tax shield of a non-cash charge",
+      "latex": "\\text{Cash saved} = \\text{charge} \\times t",
+      "note": "The one line that decides the classic question. A £10m charge at 25 % leaves cash £2.5m higher, not £10m lower."
     }
   ],
   "canonical": [
     {
       "q": "Walk me through the three statements.",
-      "a": "The income statement shows profitability over a period, ending in net income. The cash flow statement starts from net income, adds back non-cash items, adjusts for working capital, then covers investing and financing to give the change in cash. The balance sheet is a snapshot: assets equal liabilities plus equity. Net income links the income statement to both others, and the change in cash closes the loop."
+      "a": "The income statement shows revenue less costs over a period, ending in net income. The balance sheet is a snapshot at one instant: what the company owns on one side, and on the other the liabilities and equity that funded it. Cash flow reconciles net income to the actual change in cash through operating, investing and financing. Net income links the income statement to both the others, and the change in cash closes the loop."
     },
     {
       "q": "Depreciation goes up by £10m. Walk me through the statements.",
-      "a": "At a 25 % tax rate: operating profit falls £10m, tax falls £2.5m, so net income falls £7.5m. On the cash flow statement, net income is down £7.5m but you add back the £10m non-cash charge, so cash rises £2.5m. On the balance sheet, cash is up £2.5m and PP&E is down £10m, so assets fall £7.5m; retained earnings fall £7.5m. It balances."
+      "a": "At 25 % tax: operating profit falls £10m, tax falls £2.5m, net income falls £7.5m. On the cash flow statement net income is down £7.5m but you add back the £10m non-cash charge, so cash rises £2.5m. On the balance sheet cash is up £2.5m and PP&E is down £10m, so assets fall £7.5m; retained earnings fall £7.5m. It balances."
     },
     {
       "q": "Which statement would you pick if you could only have one?",
-      "a": "The cash flow statement. It tells you how much cash the business actually generated, which is what ultimately services debt and pays shareholders. Net income can be shaped by accounting choices; cash is harder to argue with. The trade-off is that you lose the profitability picture and the asset base, so you would be reasoning about one period only."
+      "a": "The cash flow statement — it shows the cash the business actually generated, which is what services debt and pays shareholders. Net income can be shaped by accounting choices; cash is harder to argue with. The trade-off is losing the profitability picture and the asset base, and seeing only one period."
+    },
+    {
+      "q": "How can a profitable company go bankrupt?",
+      "a": "Because profit is not cash. It can be selling on credit and not collecting, tying cash up in inventory as it grows, spending heavily on capex, or facing a debt repayment it cannot refinance. Profit is recognised when earned; insolvency happens when cash runs out — a fast-growing company with long receivables can be profitable and broke at the same time."
+    },
+    {
+      "q": "What is working capital and what does an increase mean?",
+      "a": "Receivables plus inventory less payables — the operating money tied up in running the business. An increase is a use of cash: you have either let customers pay later or bought stock you have not sold. That is why growth usually consumes cash, and why the cash flow statement subtracts the change in working capital."
     }
   ],
   "traps": [
-    "Saying cash falls by the full charge — a non-cash charge saves tax, so cash goes up by the tax saving.",
-    "Forgetting to tax-effect anything: every pre-tax line moves net income by the amount × (1 − t).",
-    "Calling an increase in working capital a source of cash. It is a use.",
-    "Ending a walkthrough without stating the balance check. Say it out loud — it shows you are done.",
-    "Treating depreciation as an operating decision. It follows the earlier capex decision."
+    "Revenue is not cash — a sale on credit adds receivables, not cash.",
+    "The balance sheet is a snapshot, not a record of what was earned this year.",
+    "Equity is not cash. It is a claim, not a bank balance.",
+    "Inventory bought on credit: no income-statement effect at all until it is sold.",
+    "Depreciation up means cash **up** by the tax shield — never down by the full charge.",
+    "A gain on an asset sale is stripped out of operating cash flow; the whole proceeds sit in investing.",
+    "Dividends never touch the income statement — they are a financing outflow and a hit to retained earnings.",
+    "An increase in working capital is a use of cash, not a source."
   ],
   "one_liners": [
-    "Net income links the income statement to both the others; the change in cash closes the loop.",
-    "Walk it IS → CFS → BS, every time, and finish on the balance check.",
-    "Profit is an opinion; cash is a fact.",
-    "An increase in an asset is a use of cash; an increase in a liability is a source."
+    "Walk IS → CFS → BS, and finish on assets − liabilities − equity = 0.",
+    "Non-cash charges cost you profit and save you tax.",
+    "Working capital up, cash down.",
+    "Profit is an opinion; cash is a fact."
   ],
   "you_may_hear": [
-    "Deferred tax assets and liabilities from book-versus-tax timing differences — know the name and that they reverse.",
-    "IFRS 16 / ASC 842 lease capitalisation mechanics — you need the EV consequence, not the schedule.",
-    "Net operating loss carryforwards and their valuation.",
-    "Purchase-accounting write-ups creating deferred tax liabilities — that is merger-model territory."
+    "Deferred tax assets and liabilities arising from book-versus-tax depreciation — know that they reverse over time.",
+    "IFRS 16 / ASC 842 lease capitalisation mechanics — you need the enterprise-value consequence, not the schedule.",
+    "Net operating loss carry-forwards and how they are valued.",
+    "Pension deficits and where they sit in the bridge.",
+    "LIFO versus FIFO inventory accounting (US only — not permitted under IFRS).",
+    "The direct method of preparing a cash flow statement, which almost nobody files."
   ]
 }

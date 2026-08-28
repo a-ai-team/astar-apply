@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "walk-me-through-the-three-statements",
+  "subtopic_slug": "three-statements-overview",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "Walk me through the three financial statements.",
+  "model_answer_md": "The **income statement** covers a period. It starts at revenue, subtracts the costs of running the business and ends at net income — how profitable the company was over, say, a year.\n\nThe **balance sheet** is a snapshot at one instant. It lists what the company owns and what it owes, and it always balances: assets equal liabilities plus equity, because every asset had to be funded by somebody.\n\nThe **cash flow statement** reconciles the two. It starts at net income, strips out the accounting entries that never moved cash, adjusts for working capital, then covers investing and financing to arrive at the actual change in cash.\n\nThey are linked: net income flows from the income statement into both the cash flow statement and retained earnings, and the change in cash lands on the balance sheet.",
+  "key_points": [
+    "Income statement = a period, ending in net income",
+    "Balance sheet = a snapshot, assets = liabilities + equity",
+    "Cash flow statement reconciles net income to the change in cash",
+    "Net income links the income statement to both the others",
+    "The change in cash closes the loop onto the balance sheet"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which of the three matters most?",
+      "answer_md": "The cash flow statement, for most purposes — cash is what services debt and pays shareholders, and it is the hardest of the three to manage with accounting choices. But it only makes sense alongside the other two: on its own it tells you nothing about profitability or the asset base."
+    },
+    {
+      "question": "What is missing from all three?",
+      "answer_md": "Anything the accounts cannot put a reliable number on: the strength of a brand, the quality of the management team, an order book that has not converted, and the market value of assets carried at historic cost. That is exactly why we value companies rather than just reading their balance sheets."
+    }
+  ],
+  "weak_answer_note": "Recites the three names without saying what each measures, or forgets to state the links — the answer that stops at 'and the balance sheet balances' has not shown how the statements connect.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "three-statements",
+    "walkthrough"
+  ]
+}

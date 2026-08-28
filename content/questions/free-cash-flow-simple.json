@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "free-cash-flow-simple",
+  "subtopic_slug": "cash-flow-statement",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "What is free cash flow, in its simplest form?",
+  "model_answer_md": "Cash from operations less capital expenditure:\n\n$$\\text{FCF} = \\text{CFO} - \\text{Capex}$$\n\nFor Kestrel: £77.5m − £30m = **£47.5m**.\n\nThe idea is that operating cash flow alone overstates what is genuinely available, because a business cannot stop replacing its equipment. Subtracting capex leaves the cash actually free to repay debt, pay dividends or fund acquisitions.\n\nOne detail worth flagging: this version is **levered** — interest has already been paid inside operating cash flow — so it is the cash available to *shareholders*. That is a different figure from the unlevered free cash flow used in a DCF, which is calculated before interest because it belongs to lenders and shareholders together.",
+  "key_points": [
+    "FCF = cash from operations − capital expenditure",
+    "Kestrel: 77.5 − 30 = £47.5m",
+    "Capex is deducted because asset replacement is unavoidable",
+    "This version is levered — interest is already paid",
+    "Unlevered FCF, used in a DCF, is computed before interest"
+  ],
+  "follow_ups": [
+    {
+      "question": "What is the unlevered version?",
+      "answer_md": "Start from EBIT, tax it, add back D&A, subtract capex and the increase in working capital. It deliberately excludes interest, so it represents the cash available to *all* providers of capital — which is why it is discounted at WACC rather than at the cost of equity."
+    },
+    {
+      "question": "Why subtract capex rather than depreciation?",
+      "answer_md": "Because capex is the actual cash being spent this period, while depreciation is an accounting allocation of money spent in the past. For a growing or capital-hungry company capex can run far above depreciation, and using depreciation would materially overstate the cash available."
+    }
+  ],
+  "weak_answer_note": "Confuses levered and unlevered free cash flow, or subtracts depreciation instead of capex.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "free-cash-flow",
+    "valuation"
+  ]
+}

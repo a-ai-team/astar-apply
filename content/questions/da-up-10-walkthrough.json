@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "da-up-10-walkthrough",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Depreciation increases by £10m. Walk me through the three statements, assuming a 25 % tax rate.",
+  "model_answer_md": "**Income statement.** Depreciation is an operating cost, so operating profit falls by £10m. That lowers pre-tax profit, so tax falls by 10 × 25 % = £2.5m. Net income therefore falls by **£7.5m**.\n\n**Cash flow statement.** Start at net income, down £7.5m. Depreciation is non-cash, so add the full £10m back. Cash rises by **£2.5m**.\n\n**Balance sheet.** Cash is up £2.5m and PP&E is down £10m, so assets fall £7.5m. On the other side, retained earnings fall £7.5m with net income. Liabilities are unchanged.\n\nAssets −7.5 = liabilities 0 + equity −7.5. **It balances.**\n\nThe point of the question is the £2.5m: a non-cash charge still saves real tax, so cash goes *up*.",
+  "key_points": [
+    "Operating profit −10, tax −2.5, net income −7.5",
+    "Cash flow: −7.5 net income, add back the full £10m, cash +2.5",
+    "Balance sheet: cash +2.5, PP&E −10, retained earnings −7.5",
+    "Assets −7.5 = equity −7.5, so it balances",
+    "The tax shield is why cash rises rather than falls"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the tax rate were zero?",
+      "answer_md": "Then net income falls the full £10m, the £10m add-back exactly offsets it, and cash is completely unchanged. PP&E falls £10m and retained earnings fall £10m. It is a clean way to show that the entire cash effect comes from the tax shield."
+    },
+    {
+      "question": "What if the amortisation were not tax-deductible?",
+      "answer_md": "Same outcome as the zero-tax case for that charge: no tax saving, so net income falls the full £10m and cash does not move. This comes up with certain acquired-intangible amortisation, and it is a good test of whether you understand *why* cash moved rather than having memorised '+2.5'."
+    }
+  ],
+  "weak_answer_note": "Says cash falls by £10m, or forgets the tax effect entirely and reports net income down £10m. Also weak: finishing without stating the balance check.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "depreciation"
+  ]
+}

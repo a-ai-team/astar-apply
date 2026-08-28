@@ -1,0 +1,47 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "asset-sale-at-gain",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Kestrel sells a warehouse with a book value of £40m for £50m cash. Walk me through the statements at a 25 % tax rate.",
+  "model_answer_md": "**Income statement.** A gain on sale of 50 − 40 = **£10m**. Tax on it is £2.5m, so net income rises **£7.5m**.\n\n**Cash flow statement.** This is the part that catches people. Start at net income, up £7.5m — but the £10m gain is **not an operating item**, so it is stripped out of operating cash flow: −£10m. Operating cash flow therefore falls £2.5m, which is exactly the tax paid. Then the full **£50m of proceeds** appears in **investing**. Net cash: −2.5 + 50 = **+£47.5m**.\n\n**Balance sheet.** Cash +£47.5m, PP&E −£40m, so assets +£7.5m; retained earnings +£7.5m. **Balances.**\n\nThe logic of removing the gain is that the entire economic event — all £50m of it — belongs in investing. Leaving the gain in operating would count part of it twice.",
+  "key_points": [
+    "Gain = 50 − 40 = £10m; tax £2.5m; net income +£7.5m",
+    "The £10m gain is removed from operating cash flow to avoid double-counting",
+    "Operating cash flow falls £2.5m — the tax actually paid",
+    "Full £50m of proceeds sits in investing",
+    "Cash +£47.5m, PP&E −£40m, retained earnings +£7.5m — balances"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if it were sold at a loss instead — say for £30m?",
+      "answer_md": "A £10m loss, which saves £2.5m of tax, so net income falls £7.5m. The loss is added back in operating cash flow (+£10m), so operating cash flow rises £2.5m — the tax saved — and £30m of proceeds sits in investing. Cash rises £32.5m, PP&E falls £40m, retained earnings fall £7.5m. It balances."
+    },
+    {
+      "question": "Why remove the gain from operating cash flow at all?",
+      "answer_md": "Because the whole transaction is an investing event and the full proceeds are already shown there. If the £10m gain also stayed inside operating cash flow, that £10m would be counted twice — once in operating and once inside the £50m. Stripping it out leaves operating cash flow reflecting only the tax consequence."
+    }
+  ],
+  "weak_answer_note": "Puts the £50m proceeds in operating, or forgets to remove the gain, which double-counts it. Also weak: reporting cash up £50m without the tax.",
+  "numbers": {
+    "inputs": {
+      "book_value": 40,
+      "sale_price": 50,
+      "tax_rate": 0.25,
+      "gain": 10,
+      "net_income": 7.5
+    },
+    "answer": 47.5
+  },
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "walkthrough",
+    "asset-sale"
+  ]
+}

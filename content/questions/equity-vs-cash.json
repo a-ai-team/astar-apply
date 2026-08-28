@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "equity-vs-cash",
+  "subtopic_slug": "balance-sheet",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Kestrel Foods has £270m of equity. Does it have £270m of cash?",
+  "model_answer_md": "No, and the two are barely related. **Equity is a claim, not a balance.** It is what would be left for the owners if every asset were realised at its carrying value and every liability settled — the residual in assets equals liabilities plus equity.\n\nKestrel's £270m of equity is spread across everything it owns: £300m of property and equipment, £50m of receivables, £40m of inventory and only **£60m of cash**, less the £180m it owes.\n\nA company can have large equity and almost no cash, or negative equity and a healthy cash balance. They answer different questions: equity asks what the owners' stake is worth on paper, cash asks what is in the bank this morning.",
+  "key_points": [
+    "Equity is the residual claim of owners, not a cash pot",
+    "Kestrel's £270m is spread across PP&E, receivables and inventory",
+    "Cash is a single asset line — £60m here",
+    "Large equity with little cash, or negative equity with plenty, are both common"
+  ],
+  "follow_ups": [
+    {
+      "question": "Walk me through Kestrel's balance sheet to prove it.",
+      "answer_md": "Assets are cash £60m, receivables £50m, inventory £40m and PP&E £300m — £450m in total. Liabilities are payables £30m and debt £150m, so £180m. Equity is the difference: 450 − 180 = £270m. Only £60m of that £450m of assets is actually cash."
+    },
+    {
+      "question": "What happens to equity if the company buys back shares?",
+      "answer_md": "Both fall. Cash goes down by the amount spent, and equity falls by the same amount, so the balance sheet still balances. A large debt-funded buy-back can push book equity negative without the business itself changing at all."
+    }
+  ],
+  "weak_answer_note": "Confuses equity with cash or with market capitalisation. A weak answer says 'equity is the shareholders' money' without explaining that it is a residual spread across all assets.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "equity",
+    "balance-sheet"
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "slug": "single-step-walkthroughs",
+  "subtopic_slug": "single-step-walkthroughs",
+  "title": "One change, three statements",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You already know the classic: depreciation goes up £10m, and cash ends up £2.5m higher. That one is a rite of passage.\n\nWhat actually separates candidates is the *next* question. Interviewers rarely stop at depreciation — they switch the transaction. Inventory bought on credit. A hundred million of new debt. A dividend. Equipment bought with a loan. Each is the same three-step walk with a different starting line, and each catches out anyone who memorised the depreciation answer instead of learning the method.\n\nThis lesson gives you the method, then runs it five times so that no substitution can surprise you."
+      },
+      {
+        "type": "concept",
+        "heading": "One method, whatever the transaction",
+        "md": "Every single-step walkthrough answers the same three questions in the same order.\n\n1. **Does it touch the income statement?** Only if it is a revenue or an expense *this period*. Buying something does not. Borrowing does not. Paying a dividend does not. If nothing hits the income statement, say so out loud and move on — that confidence is itself a signal.\n2. **What does it do to cash?** Start at net income if the income statement moved. Add back anything that was charged but never paid. Then handle the three sections: **operating** (the trading cycle, including working capital), **investing** (buying and selling assets), **financing** (debt, equity, dividends).\n3. **What does the balance sheet look like afterwards?** Cash lands at its new figure, whatever asset or liability moved gets its new figure, and retained earnings absorb net income. Then check that it balances.\n\nThe discipline that makes this reliable is that you never skip a step even when it is empty. \"Nothing on the income statement\" is a step, not a gap."
+      },
+      {
+        "type": "mechanics",
+        "md": "Two rules do most of the work.\n\n**A non-cash charge costs profit and saves tax.** Depreciation, amortisation, impairments, share-based pay, accrued interest that is not paid in cash — all of them reduce profit, all of them are added back on the cash flow statement, and all of them cut the tax bill. Net income falls by $charge \\times (1 - t)$, and cash *rises* by $charge \\times t$.\n\n**A balance-sheet-only transaction moves two lines and stops.** Buying inventory on credit raises inventory and raises payables. Raising debt raises cash and raises debt. Buying equipment with a loan raises PP&E and raises debt. There is no income statement effect and, in the last two cases, no *net* cash effect either. The single most common error is inventing a profit impact where none exists.\n\nThe balance check is always the same:\n\n$$\\Delta\\text{Assets} = \\Delta\\text{Liabilities} + \\Delta\\text{Equity}$$\n\nSay it at the end of every walk. It is how the interviewer knows you have finished, and it is how you catch your own mistakes."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods buys £20m of inventory on credit — the stock is in the warehouse but the supplier has not been paid. What happens on the income statement?",
+        "options": [
+          {
+            "label": "Revenue rises by £20m"
+          },
+          {
+            "label": "Cost of goods sold rises by £20m"
+          },
+          {
+            "label": "Nothing at all",
+            "correct": true
+          },
+          {
+            "label": "Net income falls by £15m after tax"
+          }
+        ],
+        "explain_md": "**Nothing.** Buying stock is not an expense — it is swapping one asset for a liability. Inventory rises £20m and payables rise £20m, and that is the entire transaction.\n\nThe cost only reaches the income statement as **cost of goods sold** when the stock is actually *sold*, which may be months later. This is the accruals principle doing its job: costs are matched to the revenue they generate, not to the moment cash or goods move.\n\nCandidates who say \"COGS rises\" are pattern-matching on the word *inventory* rather than thinking about what happened."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "buy_ppe_with_debt",
+          "amount": 40,
+          "taxRate": 0.25
+        }
+      },
+      {
+        "type": "widget",
+        "widget": "faded_walk",
+        "props": {
+          "kind": "pay_dividend",
+          "amount": 20,
+          "taxRate": 0.25,
+          "fadeLevel": 2
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Kestrel buys £40m of new ovens, funded entirely with a bank loan.** Tax is 25 %.\n\nThis is the variant that catches people, because the instinct is that spending £40m must reduce cash. Work the three steps and watch what actually happens.",
+        "steps": [
+          {
+            "label": "Income statement effect on day one",
+            "expr": "0",
+            "value": 0,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash flow: capital expenditure (investing)",
+            "expr": "-40",
+            "value": -40,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash flow: debt drawn (financing)",
+            "expr": "40",
+            "value": 40,
+            "unit": "£m"
+          },
+          {
+            "label": "Net change in cash",
+            "expr": "-40 + 40",
+            "value": 0,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance sheet: assets (PP&E up, cash flat)",
+            "expr": "40 + 0",
+            "value": 40,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance sheet: liabilities (debt up)",
+            "expr": "40",
+            "value": 40,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now roll the clock forward. **Kestrel raised £100m of debt at 5 %** and a full year has passed, so the first year of interest is charged. Tax is 25 %. Fill in what the *interest* does — the debt draw itself is already done.",
+        "steps": [
+          {
+            "label": "Interest expense for the year",
+            "expr": "100 * 5%",
+            "value": 5,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax saved on that interest",
+            "expr": "5 * 25%",
+            "value": 1.25,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Fall in net income",
+            "expr": "-5 * (1 - 25%)",
+            "value": -3.75,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Cash effect of the interest (it is paid)",
+            "expr": "-3.75",
+            "value": -3.75,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Retained earnings",
+            "expr": "-3.75",
+            "value": -3.75,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "scenario",
+        "prompt": "Kestrel Foods buys £40m of ovens and funds the purchase entirely with new bank debt. Tax rate 25 %. Walk the three statements on day one.",
+        "statements": {
+          "is": [],
+          "cfs": [
+            {
+              "line": "Capital expenditure (investing)",
+              "delta": -40,
+              "note": "Cash paid for the ovens"
+            },
+            {
+              "line": "Debt drawn (financing)",
+              "delta": 40,
+              "note": "The loan funding it"
+            },
+            {
+              "line": "Net change in cash",
+              "delta": 0,
+              "note": "The two legs cancel exactly"
+            }
+          ],
+          "bs": [
+            {
+              "line": "PP&E",
+              "delta": 40,
+              "note": "The ovens are now an asset"
+            },
+            {
+              "line": "Cash",
+              "delta": 0
+            },
+            {
+              "line": "Debt",
+              "delta": 40,
+              "note": "The loan is a liability"
+            },
+            {
+              "line": "Retained earnings",
+              "delta": 0,
+              "note": "No profit effect on day one"
+            }
+          ]
+        },
+        "check": "Assets: +40 PP&E + 0 cash = +40. Liabilities + equity: +40 debt + 0 equity = +40. Balances. Nothing touches the income statement until the ovens start depreciating and the loan starts charging interest."
+      },
+      {
+        "type": "trap",
+        "md": "**\"Depreciation goes up £10m, so cash goes down £10m.\"**\n\nThis is the single most common wrong answer in banking interviews, and it is worth understanding *why* it feels right.\n\nDepreciation looks like a cost, and costs feel like money leaving. But the money left years ago, when the asset was bought — that was the capital expenditure. Depreciation is just the accountant spreading that historic payment across the years the asset is used. No cash moves when the charge is recorded.\n\nWhat *does* move is tax. The charge is deductible, so the tax bill falls by £10m × 25 % = £2.5m. That saving is real cash the company keeps.\n\nSo cash goes **up** by £2.5m, not down by £10m. Getting the direction wrong on this is close to disqualifying, because it says you have memorised a script without understanding what the statements are for."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "I would take it in three steps. First, does it hit the income statement — only revenues and expenses do, so buying an asset, raising debt or paying a dividend does not. Second, the cash flow statement: start at net income, add back non-cash charges, then work through operating, investing and financing. Third, the balance sheet: cash and whichever asset or liability moved take their new values, retained earnings absorb net income, and I finish by checking that assets still equal liabilities plus equity.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Share-based pay: the cost that never touches cash",
+            "md": "Software companies pay a large slice of salaries in shares rather than cash. Suppose Kestrel were a software business granting **£10m of stock-based compensation** in a year.\n\nMechanically it walks exactly like depreciation. It is an operating expense, so profit falls £10m and tax falls £2.5m, leaving net income £7.5m lower. It is non-cash, so it is added straight back on the cash flow statement — and cash actually ends up **£2.5m higher** because of the tax saving.\n\nHere is where it stops resembling depreciation. Depreciation reflects an asset the company already paid for. Share-based pay is a cost being settled by **issuing new shares**, so the share count rises and every existing shareholder owns slightly less. The cost is real; it has simply been moved from the cash line to the ownership line.\n\nThat is why investors are sceptical of \"adjusted EBITDA\" figures that add stock compensation back and call it a non-cash benefit.",
+            "example_q": "Is stock-based compensation a real cost, or can you ignore it because it is non-cash?",
+            "answer_md": "It is absolutely a real cost — it is just not settled in cash. The company is paying employees by handing over ownership, so the bill is paid by existing shareholders through dilution rather than out of the bank account.\n\nOn the statements it behaves like any non-cash charge: profit falls, it is added back on the cash flow statement, and cash actually rises slightly because of the tax deduction. But the share count goes up, so earnings per share and each holder's stake both suffer.\n\nI would be wary of any adjusted EBITDA that strips it out. If a company could not recruit without granting those shares, the cost is as real as salary."
+          },
+          "healthcare": {
+            "heading": "Trial spending: £30m out, and no asset to show for it",
+            "md": "Take a pharmaceutical version of Kestrel spending **£30m on a clinical trial** in a year.\n\nCompare it with £30m of capital expenditure. Buying £30m of factory equipment creates an asset: cash falls £30m, PP&E rises £30m, nothing touches the income statement, and the cost reaches profit slowly through depreciation over the asset's life.\n\nThe trial is the opposite. Research is **expensed as incurred** — it hits the income statement immediately in full. Profit falls £30m, tax falls £7.5m, net income falls £22.5m, and cash falls by the £22.5m net cost. No asset is created, even though the trial may have produced data worth far more than any oven.\n\nThat asymmetry is the whole reason a biotech's balance sheet looks so uninformative. The most valuable thing the company owns — a drug programme with real commercial potential — appears nowhere, because accounting rules will not let it be capitalised until it is far more certain.",
+            "example_q": "Walk me through £30m of R&D spending versus £30m of capital expenditure.",
+            "answer_md": "They land in completely different places. The £30m of capex never touches the income statement on day one: cash falls £30m and PP&E rises £30m, so the balance sheet just swaps one asset for another. The cost reaches profit gradually as depreciation over the asset's useful life.\n\nThe £30m of R&D is expensed immediately. Profit falls the full £30m, tax falls £7.5m at a 25 % rate, so net income falls £22.5m and cash falls by that same £22.5m. On the balance sheet, cash is down £22.5m and retained earnings are down £22.5m — no new asset appears at all.\n\nSo identical cash commitments produce very different reported profits, which is exactly why you cannot compare a research-heavy company with a capital-heavy one on earnings alone."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A batch of Kestrel's stock has passed its shelf life. The company **writes off £30m of inventory**. Tax is 25 %. Walk me through the three statements — and finish properly.",
+        "model_answer_md": "**Income statement.** The write-off is an expense of £30m, so operating profit falls £30m. Tax falls by £30m × 25 % = £7.5m, so **net income falls £22.5m**.\n\n**Cash flow statement.** Start at net income, down £22.5m. The write-off itself moved no cash — the money was spent when the stock was bought — so it is a non-cash charge and is **added back in full, +£30m**. Operating cash flow therefore *rises* by £7.5m, which is exactly the tax saved.\n\n**Balance sheet.** Cash is up £7.5m and inventory is down £30m, so total assets fall £22.5m. Retained earnings fall £22.5m with net income.\n\n**Check:** assets −£22.5m; liabilities unchanged and equity −£22.5m. It balances.\n\nThe counter-intuitive part is worth saying out loud: destroying £30m of stock leaves the company with *more* cash than before, because the only thing that actually moved was the tax bill.",
+        "rubric": [
+          "Treats the write-off as an expense and applies tax to reach net income −£22.5m",
+          "Adds the full £30m back on the cash flow statement as a non-cash charge",
+          "Reaches cash +£7.5m and says explicitly that this is the tax saving",
+          "Gets both balance-sheet asset lines right: cash +£7.5m and inventory −£30m",
+          "States the balance check rather than trailing off after the balance sheet"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "What order do you walk the statements in?",
+            "a": "Income statement, then cash flow statement, then balance sheet — and finish on the balance check."
+          },
+          {
+            "q": "A £10m non-cash charge at a 25 % tax rate — what happens to cash?",
+            "a": "It rises £2.5m. The charge saves tax, and nothing else about it moves money."
+          },
+          {
+            "q": "Does paying a dividend touch the income statement?",
+            "a": "No. It is a financing outflow: cash down, retained earnings down."
+          },
+          {
+            "q": "Kestrel raises £100m of debt. What happens to net income on day one?",
+            "a": "Nothing. Cash and debt both rise £100m; interest only starts once time passes."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Ask three questions in order — does it hit profit, what does it do to cash, what does the balance sheet look like now — and never skip a step just because the answer is \"nothing\".**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can walk any single change through the three statements in the right order.",
+          "I can say which transactions never touch the income statement, and why.",
+          "I can explain why a non-cash charge raises cash rather than lowering it.",
+          "I can handle a purchase funded by debt without claiming cash fell.",
+          "I can finish a walkthrough on the balance check every time."
+        ]
+      }
+    ]
+  }
+}

@@ -38,7 +38,9 @@ test.describe("Loop 07 mock interviews", () => {
     await signInAs(page, "e2e-student@astar.test", "/home/interviews");
     await expect(page.getByTestId("interviews-heading")).toHaveText("Mock interviews");
     await expect(page.getByTestId("history-empty")).toBeVisible();
-    await expect(page.getByTestId("mock-pool-note")).toContainText("Only 6 approved questions");
+    // The note switches wording once the approved pool reaches MOCK_SIZE, and every chapter
+    // grows the pool — assert it renders and names a question count, not a specific number.
+    await expect(page.getByTestId("mock-pool-note")).toContainText(/questions/);
     await page.getByTestId("start-drill-accounting").click();
     await expect(page).toHaveURL(/\/home\/interviews\/[0-9a-f-]{36}$/);
     const interviewId = page.url().match(/([0-9a-f-]{36})$/)![1];
@@ -101,7 +103,7 @@ test.describe("Loop 07 mock interviews", () => {
     await expect(page.getByTestId("history-item").first()).toHaveAttribute("data-status", "completed");
   });
 
-  test("full mock with a small pool → abandon → status abandoned", async ({ page, baseURL }) => {
+  test("full mock → abandon → status abandoned", async ({ page, baseURL }) => {
     const uid = await userId("e2e-student@astar.test");
     await admin().from("interviews").delete().eq("user_id", uid);
     await unlockPrivateArea(page, baseURL!);
@@ -110,10 +112,14 @@ test.describe("Loop 07 mock interviews", () => {
     await expect(page).toHaveURL(/\/home\/interviews\/[0-9a-f-]{36}$/);
     const interviewId = page.url().match(/([0-9a-f-]{36})$/)![1];
     await expect(page.getByTestId("runner-heading")).toHaveText("Full mock");
-    await expect(page.getByTestId("runner-progress")).toContainText("of 6");
+    // The mock is as long as the approved pool allows, up to MOCK_SIZE — every Technicals v2
+    // chapter grows that pool, so read the length the runner reports rather than pinning it.
+    const mockSize = Number((await page.getByTestId("runner-progress").innerText()).match(/of (\d+)/)![1]);
+    expect(mockSize).toBeGreaterThanOrEqual(1);
+    expect(mockSize).toBeLessThanOrEqual(15);
     // The runner serves question 1 with a server-side shown_at.
     const { data: turns } = await admin().from("interview_turns").select("ordinal, shown_at").eq("interview_id", interviewId).order("ordinal");
-    expect(turns).toHaveLength(6);
+    expect(turns).toHaveLength(mockSize);
     expect(turns![0].shown_at).not.toBeNull();
     expect(turns![1].shown_at).toBeNull();
     await page.getByTestId("abandon-interview").click();
