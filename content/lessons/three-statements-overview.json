@@ -1,0 +1,191 @@
+{
+  "slug": "three-statements-overview",
+  "subtopic_slug": "three-statements-overview",
+  "title": "The three statements at a glance",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"Walk me through the three financial statements\" is the most-asked technical question in banking, and it is almost always the *first* one. It is not really a test of accounting. It is a test of whether you can explain something structured, out loud, in ninety seconds, without rambling.\n\nThat is why interviewers keep using it. The content is in every textbook, so nobody is impressed that you know it — they are listening to *how* you organise it. Candidates who ramble here spend the rest of the interview digging out.\n\nEverything else in this chapter is a variation on this answer. Get the shape right now and the walkthroughs later become mechanical."
+      },
+      {
+        "type": "concept",
+        "heading": "One company, three questions",
+        "md": "A business generates a huge amount of financial detail. The three statements exist because owners, lenders and managers keep asking three different questions about it.\n\n- **Did we make money?** The **income statement** covers a *period* — a quarter, a year. It starts at revenue, subtracts every cost in a deliberate order, and ends at net income.\n- **What do we own and owe?** The **balance sheet** is a *snapshot* at one instant, usually the last day of the period. Assets on one side; the claims on those assets — liabilities and equity — on the other.\n- **Where did the cash actually go?** The **cash-flow statement** covers the same period as the income statement, but tracks only real money moving. It starts at net income and reconciles to the change in the cash balance.\n\nThe useful mental image: the income statement and the cash-flow statement are **films** of what happened over the year; the balance sheet is a **photograph** taken at the final frame.\n\nThey are not three separate documents. They are three views of one set of events, which is why they lock together."
+      },
+      {
+        "type": "mechanics",
+        "md": "Walk them in this order every time — **income statement → cash-flow statement → balance sheet** — because that is the direction the information flows.\n\n**Income statement**, five lines that matter:\n\nRevenue → less cost of goods sold → **gross profit** → less operating expenses (which include depreciation and amortisation) → **operating profit (EBIT)** → less interest → **profit before tax** → less tax → **net income**.\n\n**Cash-flow statement**, three sections:\n\n- *Operating* — start at net income, add back non-cash charges such as depreciation, then adjust for working capital.\n- *Investing* — mostly capital expenditure, and acquisitions or disposals.\n- *Financing* — debt raised or repaid, shares issued or bought back, dividends paid.\n\nAdd the three together and you have the **change in cash** for the year.\n\n**Balance sheet**, held together by one identity:\n\n$$\\text{Assets} = \\text{Liabilities} + \\text{Equity}$$\n\nAnd here are the two links that matter, the ones you must say out loud:\n\n1. **Net income** is the last line of the income statement, the first line of the cash-flow statement, and it flows into **retained earnings** inside equity on the balance sheet.\n2. The **closing cash** from the bottom of the cash-flow statement is the **cash line** at the top of the balance sheet.\n\nThose two sentences are what separates a walkthrough from a list."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods reported net income of £67.5m this year. Did its cash balance rise by £67.5m?",
+        "options": [
+          {
+            "label": "Yes — net income is the profit, so that is the cash it made"
+          },
+          {
+            "label": "No, cash rose by less than that"
+          },
+          {
+            "label": "No, cash rose by more than that"
+          },
+          {
+            "label": "You cannot tell from the income statement alone",
+            "correct": true
+          }
+        ],
+        "explain_md": "You genuinely cannot tell, and saying so is the strong answer.\n\nNet income is an *accounting* figure. Between it and the cash balance sit at least four things the income statement never shows you: **depreciation** (a cost that took no cash this year), **working capital** (a sale on credit is revenue with no cash yet), **capital expenditure** (cash out that is not a cost), and **dividends and debt repayments** (cash out that sits below net income entirely).\n\nFor Kestrel, all four are non-zero. That gap is precisely why the cash-flow statement exists — and why \"which statement would you keep?\" has an obvious answer."
+      },
+      {
+        "type": "widget",
+        "widget": "filings_toggle",
+        "props": {
+          "company": "Kestrel Foods plc",
+          "statement": "is"
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Kestrel Foods plc**, a UK snacks maker, will carry you through this whole chapter. Here is its year in the five income-statement lines that matter, at a 25 % tax rate.\n\nThen the balance-sheet identity, to prove it holds.",
+        "steps": [
+          {
+            "label": "Gross profit: revenue less cost of goods sold",
+            "expr": "500 - 300",
+            "value": 200,
+            "unit": "£m"
+          },
+          {
+            "label": "Operating profit (EBIT): less £100m of opex",
+            "expr": "200 - 100",
+            "value": 100,
+            "unit": "£m"
+          },
+          {
+            "label": "Profit before tax: less £10m of interest",
+            "expr": "100 - 10",
+            "value": 90,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax at 25 %",
+            "expr": "90 * 25%",
+            "value": 22.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Net income",
+            "expr": "90 - 22.5",
+            "value": 67.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance sheet: total assets",
+            "expr": "60 + 50 + 40 + 300",
+            "value": 450,
+            "unit": "£m"
+          },
+          {
+            "label": "Liabilities plus equity",
+            "expr": "180 + 270",
+            "value": 450,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now trace the first link by hand. Kestrel earned **£67.5m** and paid a **£20m** dividend. Show how that lands in equity on the balance sheet, starting from opening equity of **£222.5m**.",
+        "steps": [
+          {
+            "label": "Net income for the year",
+            "expr": "90 - 22.5",
+            "value": 67.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Dividends paid to shareholders",
+            "expr": "20",
+            "value": 20,
+            "unit": "£m"
+          },
+          {
+            "label": "Increase in retained earnings",
+            "expr": "67.5 - 20",
+            "value": 47.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Closing equity on the balance sheet",
+            "expr": "222.5 + 47.5",
+            "value": 270,
+            "unit": "£m",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"The balance sheet shows what the company earned this year.\"**\n\nIt does not, and this confusion quietly wrecks walkthrough answers later.\n\nThe balance sheet is a **snapshot at a single instant** — what Kestrel owned and owed at midnight on the last day of the year. It carries the accumulated history of every year the company has existed, not the results of this one. Kestrel's £300m of property was bought over a decade; its £270m of equity is every pound ever retained since incorporation.\n\nThe income statement is the one that covers *this year*. The only place this year's result appears on the balance sheet is inside retained earnings — as an increase, mixed in with everything that came before.\n\nA clean way to say it: **the income statement is the film, the balance sheet is the photograph at the end of it.**"
+      },
+      {
+        "type": "canonical_answer",
+        "md": "The income statement shows revenue less costs over a period, ending in net income. The balance sheet is a snapshot: what the company owns on one side, and on the other the liabilities and equity that paid for it. Cash flow starts at net income, strips out the entries that never moved cash, adjusts for working capital, then covers investing and financing to reach the change in cash. Net income links the income statement to both the others, and the closing cash lands on the balance sheet.",
+        "seconds": 40
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company reports **revenue of £800m** and **total costs of £700m**, of which **£50m is depreciation**. It pays **£20m of interest** and is taxed at **25 %**. Write out the five-line income statement — then say which single number appears on both of the other two statements, and where.",
+        "model_answer_md": "The income statement runs:\n\n- Revenue **£800m**\n- Less total costs £700m → operating profit (EBIT) **£100m**\n- Less interest £20m → profit before tax **£80m**\n- Less tax at 25 % (£20m) → **net income £60m**\n\nThe number that travels is **net income, £60m**. It appears in two other places:\n\n1. At the **top of the cash-flow statement**, as the starting point for the operating section — where the £50m of depreciation gets added straight back, because it never cost any cash.\n2. Inside **equity on the balance sheet**, added to retained earnings, less whatever is paid out as a dividend.\n\nThat is the link worth stating explicitly: net income is the hinge the whole set of statements turns on.",
+        "rubric": [
+          "Reaches EBIT of £100m by subtracting total costs from revenue",
+          "Deducts interest before tax to get profit before tax of £80m",
+          "Applies the 25 % rate to £80m, not to EBIT, giving net income of £60m",
+          "Identifies net income as the number appearing on the other two statements",
+          "Names both destinations: the top of the cash-flow statement and retained earnings within equity"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Which of the three statements is a snapshot rather than a period?",
+            "a": "The balance sheet — it shows one instant, usually the last day of the period."
+          },
+          {
+            "q": "What does the cash-flow statement start with?",
+            "a": "Net income, which it then adjusts back to actual cash."
+          },
+          {
+            "q": "Assets equals what?",
+            "a": "Liabilities plus equity — always, by construction."
+          },
+          {
+            "q": "Where does net income end up on the balance sheet?",
+            "a": "In retained earnings, inside shareholders' equity, less any dividend paid."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Income statement, cash flow, balance sheet — film, film, photograph; net income and closing cash are the two threads stitching them together.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can walk through all three statements in under ninety seconds without notes.",
+          "I can name the two links between them and say which direction each flows.",
+          "I can explain why net income and the change in cash are different numbers.",
+          "I can say what a balance sheet does and does not tell you about this year's performance."
+        ]
+      }
+    ]
+  }
+}

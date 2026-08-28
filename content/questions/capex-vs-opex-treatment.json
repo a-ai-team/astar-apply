@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "capex-vs-opex-treatment",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "What is the difference between capitalising a cost and expensing it?",
+  "model_answer_md": "It is a question of **timing**, not of total cost.\n\n**Expensing** puts the full cost through the income statement in the period it is incurred. Profit takes the hit immediately.\n\n**Capitalising** records the cost as an asset on the balance sheet and releases it to the income statement gradually, as depreciation or amortisation over the asset's useful life.\n\nThe cash is identical either way and leaves at the same moment — only the reported profit differs. The rule of thumb is that a cost is capitalised when it creates a benefit lasting beyond the current period: a new oven is capitalised, the electricity to run it is expensed.\n\nCapitalising flatters near-term profit and EBITDA, which is precisely why analysts examine it closely when a company changes its policy.",
+  "key_points": [
+    "Timing of the profit hit, not the total cost or the cash",
+    "Expensed: full charge now. Capitalised: an asset, released via D&A",
+    "Cash is unaffected and leaves at the same time either way",
+    "Capitalise when the benefit lasts beyond the current period",
+    "Capitalising flatters near-term profit and EBITDA"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which treatment flatters EBITDA?",
+      "answer_md": "Capitalising, and dramatically so. The cost bypasses operating expenses entirely and reappears later as depreciation, which sits *below* EBITDA. So a company that capitalises aggressively can report rising EBITDA with no change in the underlying business at all."
+    },
+    {
+      "question": "Is there any cash difference?",
+      "answer_md": "None whatsoever. The same money leaves the business at the same moment. The difference is purely presentational — which is exactly why cash-based measures are harder to manipulate than earnings-based ones."
+    }
+  ],
+  "weak_answer_note": "Claims capitalising saves cash, or cannot give an example of where the line falls between the two.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "capex",
+    "accounting-policy"
+  ]
+}

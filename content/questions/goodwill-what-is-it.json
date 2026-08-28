@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "goodwill-what-is-it",
+  "subtopic_slug": "balance-sheet",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "What is goodwill and where does it come from?",
+  "model_answer_md": "Goodwill arises only from an **acquisition**. It is the premium the buyer paid above the fair value of the identifiable net assets it acquired.\n\nIf Kestrel bought a rival for £100m whose identifiable net assets were fairly valued at £70m, £30m of goodwill is recorded on Kestrel's balance sheet. It represents the things that were genuinely worth paying for but cannot be recorded separately: the brand, the customer relationships, the workforce, expected synergies.\n\nTwo points are usually tested. It is a **residual** — a plug, not something valued directly. And under both IFRS and US GAAP it is **not amortised**; instead it is tested annually for impairment, and written down if the acquired business underperforms.\n\nA company that has never made an acquisition has no goodwill, however strong its brand.",
+  "key_points": [
+    "Arises only on acquisition — the premium over fair value of net assets",
+    "£100m paid for £70m of net assets creates £30m of goodwill",
+    "Represents brand, relationships, workforce and expected synergies",
+    "A residual plug, not a directly valued asset",
+    "Not amortised — tested annually for impairment"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens when goodwill is impaired?",
+      "answer_md": "A non-cash charge hits the income statement, reducing net income and equity, and the goodwill balance falls. It is added back on the cash flow statement, so cash is unaffected except for any tax effect — and goodwill impairments are frequently not deductible, in which case cash does not move at all. It is effectively an admission that the acquisition underperformed."
+    },
+    {
+      "question": "Why is goodwill not amortised?",
+      "answer_md": "Because standard-setters concluded it has no predictable useful life — a well-managed acquired business can sustain its value indefinitely, so a fixed amortisation schedule would be arbitrary. The impairment test is meant to be the more faithful approach, though it relies heavily on management judgement."
+    }
+  ],
+  "weak_answer_note": "Describes goodwill as a company's general reputation, or does not know it only arises through acquisition. Also weak: saying it is amortised.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "goodwill",
+    "acquisitions"
+  ]
+}

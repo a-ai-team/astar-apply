@@ -1,0 +1,40 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "lens-tmt-capitalised-dev-costs",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A software company capitalises £40m of development costs rather than expensing them. What does that do to its accounts?",
+  "model_answer_md": "**Cash is completely unaffected** — the £40m was spent either way, at the same moment. Everything that changes is presentation.\n\nExpensed, the £40m hits operating costs immediately: operating profit falls £40m and so does EBITDA. Capitalised, the £40m becomes an intangible asset on the balance sheet and reaches the income statement only later, as amortisation spread over the software's useful life — and amortisation sits **below** EBITDA.\n\nSo capitalising raises reported EBITDA by £40m relative to expensing, with no economic change whatsoever. On the cash flow statement the spending simply moves from operating into investing, which also flatters operating cash flow.\n\nBoth treatments can be legitimate — IFRS actually requires capitalisation once a project meets defined criteria — but it is exactly the kind of policy difference that makes two similar companies look very different.",
+  "key_points": [
+    "Cash is identical under both treatments",
+    "Expensing hits EBITDA now; capitalising defers it into amortisation below EBITDA",
+    "Capitalising raises EBITDA and operating cash flow with no economic change",
+    "The spend moves from operating into investing on the cash flow statement",
+    "IFRS requires capitalisation once development criteria are met"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which would you normalise, comparing two software companies?",
+      "answer_md": "I would put them on the same basis — usually by expensing development for both, or by comparing EBITDA less capitalised development. Otherwise a company that capitalises can show a much higher EBITDA margin for a purely presentational reason, and any EV/EBITDA comparison between them is meaningless."
+    },
+    {
+      "question": "What happens once amortisation begins?",
+      "answer_md": "The deferred cost comes back through the income statement over the asset's life, so reported profit is lower in later years. In a steady state — where annual capitalisation roughly equals annual amortisation — the income statement effect largely washes out, and only EBITDA remains flattered. It is the transition years, and companies growing their capitalisation, where the distortion is largest."
+    }
+  ],
+  "weak_answer_note": "Claims capitalising saves cash, or does not connect the treatment to the EBITDA distortion and the comparability problem.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "capitalisation",
+    "software",
+    "ebitda"
+  ]
+}

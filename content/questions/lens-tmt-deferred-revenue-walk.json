@@ -1,0 +1,39 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "lens-tmt-deferred-revenue-walk",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A software company bills a customer £12m upfront for a year of service. Walk me through the statements on the billing date, and then a month later.",
+  "model_answer_md": "**On the billing date.** Nothing has been delivered, so there is no revenue and no income statement effect at all. Cash rises £12m and **deferred revenue**, a liability, rises £12m — the company owes a year of service. Assets +12 = liabilities +12; equity unchanged.\n\n**One month later**, one twelfth has been delivered, so £1m is earned. Revenue +£1m, tax at 25 % −£0.25m, net income **+£0.75m**. Deferred revenue falls £1m as it converts to revenue. And note the cash line: no new cash arrives — it all came in month one — but the company now pays £0.25m of tax, so **cash falls £0.25m**. Assets −0.25 = liabilities −1 plus equity +0.75. **Balances.**\n\nThis shape is why fast-growing subscription businesses report operating cash flow well above net income: the cash arrives at signing, the profit is recognised over the following year.",
+  "key_points": [
+    "On billing: no revenue; cash +12, deferred revenue +12",
+    "Deferred revenue is a liability — an obligation to deliver service",
+    "On recognition of £1m: revenue +1, tax −0.25, net income +0.75",
+    "Cash falls £0.25m in the recognition month — the tax paid, no new receipts",
+    "Cash leads profit, which is why growing SaaS shows CFO above net income"
+  ],
+  "follow_ups": [
+    {
+      "question": "What is the difference between bookings, billings and revenue?",
+      "answer_md": "Bookings are contracts signed, billings are invoices issued, revenue is service delivered. Cash follows billings; revenue follows delivery. A company can have strong bookings and weak revenue simply because of timing — which is why deferred revenue and its growth rate are watched as leading indicators."
+    },
+    {
+      "question": "What happens if growth slows?",
+      "answer_md": "The tailwind reverses. Deferred revenue stops growing, so the working-capital inflow that had been flattering operating cash flow disappears, while revenue keeps being recognised from the existing balance. Cash flow deteriorates noticeably *before* revenue does — one of the earliest warning signals in a subscription business."
+    }
+  ],
+  "weak_answer_note": "Recognises the full £12m as revenue on billing, or says cash is unchanged in the recognition month, forgetting the tax actually paid.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "deferred-revenue",
+    "saas"
+  ]
+}

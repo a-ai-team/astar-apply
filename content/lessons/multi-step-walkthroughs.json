@@ -1,0 +1,290 @@
+{
+  "slug": "multi-step-walkthroughs",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "title": "Harder walks, and why profits aren't cash",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 11,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Once you can walk a single change cleanly, interviewers reach for the transactions that move **more than one line at once**. Interest that is charged but never paid. An asset sold for more than its book value. A customer who pays a year in advance.\n\nEach of these has a step where the obvious answer is wrong, and that step is the entire point of asking. They are also the setup for the question every banker eventually asks a candidate: *how can a company be profitable and still go bankrupt?* If you can walk these three transactions, you can answer that question with mechanics rather than a slogan."
+      },
+      {
+        "type": "concept",
+        "heading": "Three patterns that break the simple walk",
+        "md": "**Charged but not paid.** Some costs accrue without cash leaving. Payment-in-kind — PIK — interest is the cleanest example: instead of paying the lender, the company adds the interest to the loan balance. Profit falls, the debt grows, and no cash moves. The company is getting poorer while its bank balance does not budge.\n\n**Recorded in the wrong section.** When an asset is sold, the *whole* sale proceeds are an investing inflow. But part of that sale — the gain over book value — has already been counted as profit at the top of the cash flow statement inside net income. Leave it there and you count the same money twice, so the gain is stripped back out of operating cash flow. The mirror image applies to a loss: it is added back.\n\n**Cash before revenue.** A customer paying a year up front hands over cash the company has not yet earned. It cannot be revenue, so it sits as **deferred revenue**, a liability — a promise to deliver. Revenue arrives later, in slices, as the service is delivered.\n\nAll three loosen the link between profit and cash. Which is exactly why a company can report a healthy net income and still be unable to pay its bills."
+      },
+      {
+        "type": "mechanics",
+        "md": "**PIK interest of £10m at 25 % tax.** It is an expense, so profit falls £10m and tax falls £2.5m, leaving net income £7.5m lower. It is non-cash, so it is added back in full on the cash flow statement — and cash therefore ends up **£2.5m higher**, the tax saved. Meanwhile the debt balance rises £10m. Debt up and cash up at the same time is not a contradiction: the lender has been paid in more debt, and the taxman has been paid less.\n\n**Selling an asset.** With book value $B$ and sale price $P$, the gain is $P - B$. On the income statement the gain is taxed. On the cash flow statement, net income already contains the after-tax gain, so you subtract the whole pre-tax gain from operating cash flow and put the entire $P$ in investing.\n\n**Deferred revenue.** Cash in, liability up, income statement untouched. Later, as revenue is recognised, the liability unwinds into revenue — and because that revenue is now taxable, a little cash goes *out* in tax even though no new cash came in.\n\nAnd the reason profit and solvency come apart:\n\n$$\\text{Cash} = \\text{CFO} - \\text{Capex} \\pm \\text{Financing}$$\n\nNet income is only the first line of the first term."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods sells a depot with a book value of £40m for £50m in cash. Tax is 25 %. What happens to **operating cash flow**?",
+        "options": [
+          {
+            "label": "It rises by £10m — the gain"
+          },
+          {
+            "label": "It rises by £7.5m — the after-tax gain"
+          },
+          {
+            "label": "It falls by £2.5m",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — asset sales are an investing item"
+          }
+        ],
+        "explain_md": "Operating cash flow **falls £2.5m**, which surprises almost everyone.\n\nNet income rose £7.5m (the £10m gain, less £2.5m of tax), and that flows into the top of the cash flow statement. But the gain is not an operating item — the cash from the sale belongs in investing, where the whole £50m appears. So the £10m pre-tax gain is stripped out of operating cash flow to stop it being counted twice.\n\n+£7.5m from net income, −£10m for the gain reversal = **−£2.5m**. What is left in operating cash flow is just the tax paid on the gain. The full £50m still arrives — it simply arrives in the investing section."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "asset_sale",
+          "amount": 40,
+          "taxRate": 0.25
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Kestrel sells a depot with a book value of £40m for £50m in cash.** Tax is 25 %.\n\nFollow where each piece of the £50m ends up — that is what the question is really testing.",
+        "steps": [
+          {
+            "label": "Gain on sale (income statement)",
+            "expr": "50 - 40",
+            "value": 10,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax on the gain",
+            "expr": "-10 * 25%",
+            "value": -2.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Net income",
+            "expr": "10 - 2.5",
+            "value": 7.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Operating: net income less the pre-tax gain",
+            "expr": "7.5 - 10",
+            "value": -2.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Investing: the full proceeds",
+            "expr": "50",
+            "value": 50,
+            "unit": "£m"
+          },
+          {
+            "label": "Net change in cash",
+            "expr": "-2.5 + 50",
+            "value": 47.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance check: assets (cash up, PP&E down)",
+            "expr": "47.5 - 40",
+            "value": 7.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance check: equity (retained earnings)",
+            "expr": "7.5",
+            "value": 7.5,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Kestrel's mezzanine lender charges **£10m of PIK interest**: instead of taking cash, it adds the interest to the loan. Tax is 25 %. Fill in what happens — and watch the direction of the cash line.",
+        "steps": [
+          {
+            "label": "PIK interest charged (income statement)",
+            "expr": "-10",
+            "value": -10,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax saved on that interest",
+            "expr": "10 * 25%",
+            "value": 2.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Net income",
+            "expr": "-10 * (1 - 25%)",
+            "value": -7.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Cash: net income plus the PIK add-back",
+            "expr": "-7.5 + 10",
+            "value": 2.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Debt balance (interest rolled into the loan)",
+            "expr": "10",
+            "value": 10,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance check: assets",
+            "expr": "2.5",
+            "value": 2.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Balance check: liabilities + equity",
+            "expr": "10 - 7.5",
+            "value": 2.5,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "scenario",
+        "prompt": "£10m of PIK interest accrues on Kestrel's mezzanine loan — the lender takes no cash and rolls the interest into the outstanding balance instead. Tax rate 25 %.",
+        "statements": {
+          "is": [
+            {
+              "line": "PIK interest expense",
+              "delta": -10,
+              "note": "Charged, but never paid in cash"
+            },
+            {
+              "line": "Tax",
+              "delta": 2.5,
+              "note": "Interest is deductible: 25 % of £10m"
+            },
+            {
+              "line": "Net income",
+              "delta": -7.5
+            }
+          ],
+          "cfs": [
+            {
+              "line": "Net income",
+              "delta": -7.5
+            },
+            {
+              "line": "Add back PIK interest",
+              "delta": 10,
+              "note": "Non-cash — no money left the business"
+            },
+            {
+              "line": "Net change in cash",
+              "delta": 2.5,
+              "note": "Exactly the tax saved"
+            }
+          ],
+          "bs": [
+            {
+              "line": "Cash",
+              "delta": 2.5
+            },
+            {
+              "line": "Debt (accrued PIK)",
+              "delta": 10,
+              "note": "The loan balance grows"
+            },
+            {
+              "line": "Retained earnings",
+              "delta": -7.5
+            }
+          ]
+        },
+        "check": "Assets: +2.5. Liabilities + equity: +10 debt − 7.5 retained earnings = +2.5. Balances. Note what has happened: cash is higher and the company is worse off, because it now owes £10m more."
+      },
+      {
+        "type": "trap",
+        "md": "**\"A gain on an asset sale increases operating cash flow.\"**\n\nIt does the opposite, and the reason is double-counting.\n\nThe cash flow statement starts at net income, which already includes the after-tax gain. If you left it there and *also* recorded the sale proceeds in investing, the gain would be counted twice — once inside net income and again inside the £50m.\n\nSo the pre-tax gain is subtracted from operating cash flow, and the whole proceeds go into investing where they belong. What survives in the operating section is the tax paid on the gain, which is a genuine operating outflow.\n\nThe same logic runs in reverse for a loss: a loss on disposal is *added back* to operating cash flow, because it reduced net income without being an operating cash cost.\n\nThe underlying principle is worth stating in an interview: the operating section should contain the cash generated by *trading*. Selling a depot is not trading."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Profit is an accounting measure; bankruptcy is about cash. A company can report net income and still run out of money if its profits are tied up in receivables and inventory, if it is spending heavily on capital expenditure, or if debt falls due faster than it can refinance. Profit is recognised when it is earned, but insolvency happens when the bank balance hits zero — so the cash flow statement and the debt maturity schedule, not the income statement, tell you whether a company can pay its bills.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Deferred revenue is an early-warning system",
+            "md": "A software company billing annually in advance builds a large deferred revenue balance — say £400m. Cash arrives on day one; revenue is released month by month as the service is delivered.\n\nThat creates a genuinely useful signal. Reported revenue this quarter was largely *sold* several quarters ago, so it tells you about the past. Deferred revenue, and the bookings feeding it, tell you about the future.\n\nSo watch what happens when demand softens. New bookings slow, and the deferred revenue balance stops growing or starts shrinking. Cash flow from operations weakens **immediately**, because the working-capital inflow that used to arrive each quarter has gone. Reported revenue, meanwhile, keeps rising for several more quarters as the existing balance unwinds.\n\nA company can therefore report growing revenue and deteriorating cash flow at the same time — and the cash flow is the honest one. When you see that pattern, look at deferred revenue and bookings before you believe the revenue line.",
+            "example_q": "What early-warning sign does deferred revenue give you about a software business?",
+            "answer_md": "It leads revenue by several quarters. Because customers pay up front, the deferred revenue balance reflects what has been *sold* rather than what has been *recognised* — so if bookings weaken, deferred revenue flattens or falls well before the revenue line does.\n\nThe first place it shows up is operating cash flow. The quarterly inflow from new prepayments dries up, so cash flow deteriorates while reported revenue keeps climbing on the back of contracts signed earlier.\n\nSo if I saw revenue growth holding up but deferred revenue shrinking and operating cash flow falling, I would treat that as a genuine slowdown already underway, not a timing quirk — and I would want to see the bookings or billings number before accepting the revenue growth at face value."
+          },
+          "healthcare": {
+            "heading": "Milestones: lumpy cash, lumpier profit",
+            "md": "Drug developers often licence a programme to a larger partner in exchange for **milestone payments** — a fixed sum when the drug clears a trial stage or wins approval.\n\nSuppose a £50m milestone is triggered when a trial hits its endpoint, and the cash arrives. If the company has genuinely completed its obligation, the £50m is recognised as revenue: profit rises £50m, tax takes £12.5m at 25 %, net income rises £37.5m, and cash rises by the full £50m received less the tax paid. If instead the payment relates to work still to be done, it lands as deferred revenue and waits — cash in, liability up, income statement untouched.\n\nThe consequence is that a biotech's income statement can lurch from a large loss to a large profit and back again, on nothing but the timing of a trial readout. Year-on-year growth is close to meaningless for these companies.\n\nWhich is why analysts value them on the pipeline and the cash runway rather than on reported earnings.",
+            "example_q": "Walk me through a £50m milestone payment received in cash when a trial hits its endpoint.",
+            "answer_md": "It depends on whether the company has finished earning it, and I would say so first.\n\nIf the obligation is complete, it is revenue. The income statement records £50m, tax at 25 % takes £12.5m, so net income rises £37.5m. On the cash flow statement you start from that higher net income and the full £50m has arrived, so cash rises by £37.5m net of the tax paid. On the balance sheet, cash is up and retained earnings are up by the same amount, so it balances.\n\nIf the payment relates to work still to come, none of it touches the income statement. Cash rises £50m and deferred revenue — a liability — rises £50m, and it unwinds into revenue as the remaining work is delivered.\n\nEither way I would flag that this makes the earnings line very lumpy, so I would not read anything into the growth rate."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Kestrel sells an ageing production line with a **book value of £25m for just £15m** — a loss. Tax is 25 %. Walk me through the three statements, and finish on the check.",
+        "model_answer_md": "**Income statement.** The loss on disposal is £15m − £25m = **−£10m**. It is deductible, so tax falls by £2.5m, and **net income falls £7.5m**.\n\n**Cash flow statement.** Start at net income, −£7.5m. The loss did not consume any cash — the cash effect of this deal is the £15m coming in — so the £10m loss is **added back**, and operating cash flow rises £2.5m. The full £15m of proceeds goes in **investing**. Net change in cash: −7.5 + 10 + 15 = **+£17.5m**.\n\n**Balance sheet.** Cash is up £17.5m and PP&E is down £25m, so total assets fall £7.5m. Retained earnings fall £7.5m.\n\n**Check:** assets −£7.5m; liabilities unchanged, equity −£7.5m. It balances.\n\nThe mirror-image point is worth making: with a gain you *subtract* it from operating cash flow, with a loss you *add it back*. In both cases you are moving the profit-or-loss on disposal out of the operating section, because selling equipment is not trading.",
+        "rubric": [
+          "Computes the loss as £10m and applies tax to reach net income −£7.5m",
+          "Adds the £10m loss back to operating cash flow rather than subtracting it",
+          "Puts the full £15m of proceeds in the investing section",
+          "Reaches a net cash increase of £17.5m and PP&E down £25m",
+          "States the balance check, and explains why the loss is removed from operating cash flow"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "PIK interest is charged — what happens to cash?",
+            "a": "It rises slightly, by the tax saved. No interest is paid; the charge is added back and the debt balance grows instead."
+          },
+          {
+            "q": "Where does a gain on an asset sale go on the cash flow statement?",
+            "a": "It is subtracted from operating cash flow. The whole proceeds sit in investing, so leaving the gain in would double-count it."
+          },
+          {
+            "q": "Is deferred revenue an asset or a liability?",
+            "a": "A liability — cash has been received for goods or services the company still owes."
+          },
+          {
+            "q": "A profitable company is running out of cash. Where do you look first?",
+            "a": "The cash flow statement and the debt maturity schedule: working capital, capex, and what falls due when."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Profit and cash separate whenever a cost is charged without being paid, a receipt is banked before it is earned, or money moves in a section other than operating — and it is cash, not profit, that keeps a company alive.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can walk PIK interest through the statements and explain why cash rises while the company gets poorer.",
+          "I can handle an asset sale at a gain or a loss without double-counting, and say which section each part belongs in.",
+          "I can explain deferred revenue and what it signals about a business's future.",
+          "I can answer \"how can a profitable company go bankrupt?\" with mechanics rather than a slogan.",
+          "I can name the three places profit and cash come apart."
+        ]
+      }
+    ]
+  }
+}

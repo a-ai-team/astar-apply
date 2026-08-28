@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "is-revenue-cash",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "If a company reports £500m of revenue, has it received £500m of cash?",
+  "model_answer_md": "No. Revenue is recognised when the company has **earned** it — delivered the goods or provided the service — not when the customer pays. That is the accrual principle, and it is the reason the cash flow statement exists.\n\nIf Kestrel sells £500m but customers still owe £50m at year end, that £50m sits on the balance sheet as **receivables**, not cash. The revenue is real; the cash simply has not arrived yet.\n\nIt runs the other way too. Cash collected before the work is done is not revenue — it is a liability, deferred revenue, until the company delivers.",
+  "key_points": [
+    "Revenue is recognised when earned, not when paid",
+    "The unpaid portion sits in receivables on the balance sheet",
+    "Cash received before delivery is deferred revenue, a liability",
+    "This gap is exactly what the cash flow statement reconciles"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where does the gap show up?",
+      "answer_md": "In two places. On the balance sheet as receivables, and on the cash flow statement as a working-capital movement: an increase in receivables is subtracted from net income, because the profit was booked but the cash was not collected."
+    },
+    {
+      "question": "Why does this matter for valuation?",
+      "answer_md": "Because you are ultimately valuing cash, not accounting profit. A company growing revenue quickly while receivables grow faster is converting sales into cash more slowly, which consumes funding and can mask a deteriorating business. Revenue quality is one of the first things to test."
+    }
+  ],
+  "weak_answer_note": "Answers simply 'yes' or confuses revenue with cash receipts. Also weak: mentioning receivables without explaining the accrual principle underneath.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "revenue-recognition",
+    "receivables"
+  ]
+}

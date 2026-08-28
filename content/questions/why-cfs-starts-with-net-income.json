@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-cfs-starts-with-net-income",
+  "subtopic_slug": "cash-flow-statement",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why does the cash flow statement start with net income?",
+  "model_answer_md": "Because it uses the **indirect method**: rather than listing every cash receipt and payment, it takes the profit figure the income statement already produced and undoes the accounting that made it differ from cash.\n\nSo the sequence is: start at net income, add back non-cash charges like depreciation, adjust for movements in working capital, and you arrive at cash from operations. Then investing and financing are added to reach the change in cash.\n\nIt is done this way partly for convenience — the numbers are already in the other two statements — and partly because it is genuinely informative: the reconciliation itself shows you *why* profit and cash differ, which is usually the interesting question.",
+  "key_points": [
+    "Indirect method: reconcile profit to cash rather than list every transaction",
+    "Add back non-cash charges, then adjust for working capital",
+    "Reaches cash from operations, then investing and financing follow",
+    "The reconciliation itself reveals why profit and cash diverge"
+  ],
+  "follow_ups": [
+    {
+      "question": "What is the direct method?",
+      "answer_md": "It lists actual cash receipts from customers and cash paid to suppliers and employees. Standard-setters prefer it and almost nobody uses it, because companies do not capture their ledgers that way and the indirect method reconciles neatly to the other two statements."
+    },
+    {
+      "question": "What if net income is negative?",
+      "answer_md": "Nothing changes mechanically — you start from the loss and make the same adjustments. Operating cash flow can easily be positive despite a loss, if the loss was driven by large non-cash charges such as an impairment or heavy depreciation."
+    }
+  ],
+  "weak_answer_note": "Does not know the term 'indirect method', or explains the mechanics without saying why starting from profit is useful.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "cash-flow",
+    "indirect-method"
+  ]
+}

@@ -36,3 +36,6 @@ retrofitted to v2 in Loop 11 — Loops 13 and 14 write the v2 additions around t
 - Loop 04/09 batches never ran; credit now exists (the readability judge ran live this loop).
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
+- 2026-08-28 13:36 heartbeat
+- 2026-08-28 13:45 heartbeat
+- 2026-08-28 13:59 heartbeat

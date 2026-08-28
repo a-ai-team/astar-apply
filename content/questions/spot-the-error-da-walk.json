@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "spot-the-error-da-walk",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A candidate gives this answer to 'depreciation rises £10m, tax 25 %': \"Operating profit falls £10m. Tax falls £2.5m, so net income falls £7.5m. On the cash flow statement net income is down £7.5m and depreciation is a cost, so cash falls £10m. On the balance sheet, cash is down £10m and PP&E is down £10m, so assets fall £20m and retained earnings fall £7.5m.\" Which line is wrong, and what should it be?",
+  "model_answer_md": "The error is on the **cash flow statement**: *\"depreciation is a cost, so cash falls £10m\"*.\n\nDepreciation is a **non-cash** charge. The money left the business when the asset was bought; depreciation merely spreads that historic cost across the years the asset is used. So on the cash flow statement it is **added back**, not deducted.\n\nThe corrected line: net income is down £7.5m, add back £10m of depreciation, so **cash rises £2.5m**.\n\nThat error then breaks the balance sheet, which is how you can spot it even without knowing the rule. With cash down £10m and PP&E down £10m, assets fall £20m but equity only falls £7.5m — it does not balance. Corrected: assets fall £7.5m (cash +2.5, PP&E −10) against equity −£7.5m. Balanced.",
+  "key_points": [
+    "The cash flow line is wrong — depreciation is non-cash and is added back",
+    "Correct: net income −7.5, add back 10, cash +£2.5m",
+    "The income statement lines were right",
+    "The error is detectable because the balance sheet no longer balances",
+    "Corrected: assets −7.5 = equity −7.5"
+  ],
+  "follow_ups": [
+    {
+      "question": "What should the cash line be?",
+      "answer_md": "Cash rises by **£2.5m** — the tax saved. Net income is £7.5m lower, but the full £10m non-cash charge is added back, leaving cash £2.5m better off than before the depreciation increased."
+    },
+    {
+      "question": "Explain the tax shield in one sentence.",
+      "answer_md": "A deductible non-cash charge reduces taxable profit without any cash leaving, so the company pays less tax and keeps cash equal to the charge multiplied by the tax rate — here £10m × 25 % = £2.5m."
+    }
+  ],
+  "weak_answer_note": "Identifies a line as wrong but cannot say why, or 'corrects' the balance sheet to force it to balance rather than fixing the cash flow statement that caused the problem.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:spot",
+    "walkthrough",
+    "error-spotting"
+  ]
+}

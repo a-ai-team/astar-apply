@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "negative-working-capital-good-or-bad",
+  "subtopic_slug": "working-capital",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "A company has negative working capital. Is that a good sign or a bad one?",
+  "model_answer_md": "Usually a **good** sign, and it is a question designed to see whether you reason or recite.\n\nNegative working capital means the company collects from its customers before it pays its suppliers — payables exceed receivables plus inventory. Suppliers are, in effect, funding the business for free. Supermarkets and restaurants run this way: customers pay at the till, suppliers wait 60 days. As the company grows, working capital *releases* cash rather than absorbing it, which is a genuinely valuable feature.\n\nThe caveat matters, though. The same mechanism reverses violently if sales fall: you still owe the suppliers, but the incoming cash has stopped. And a sudden move into negative working capital can simply mean the company has started paying its suppliers late because it is short of cash — which is the opposite of strength.\n\nSo: structurally negative is a strong model; newly negative is a question worth asking.",
+  "key_points": [
+    "Payables exceed receivables plus inventory — suppliers fund the business",
+    "Common in retail, supermarkets and restaurants where customers pay immediately",
+    "Growth releases cash instead of consuming it",
+    "Reverses painfully if sales fall — the payables still come due",
+    "Distinguish a structural model from a company simply stretching its creditors"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which industries typically run negative working capital?",
+      "answer_md": "Supermarkets, restaurants and fast food, budget airlines and subscription software — anywhere the customer pays upfront or instantly while suppliers are paid on normal terms. Insurance operates on a related principle, collecting premiums long before claims are paid."
+    },
+    {
+      "question": "How does it affect a DCF?",
+      "answer_md": "It makes growth cheaper. In the forecast, an increase in revenue produces a working-capital *inflow* rather than an outflow, so unlevered free cash flow is higher than for an otherwise identical business. The risk to model is the unwind in any year you forecast a decline."
+    }
+  ],
+  "weak_answer_note": "Answers 'bad, because negative sounds bad', or says 'good' without naming the mechanism or the downside risk when sales fall.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "working-capital",
+    "business-model"
+  ]
+}

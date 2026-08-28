@@ -1,0 +1,39 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "lens-healthcare-rd-expensed",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "A clinical-stage biotech spends £40m a year on research and reports large losses. How is that reflected in the accounts, and is the company worthless?",
+  "model_answer_md": "Research is **expensed as incurred**. The £40m goes straight through the income statement, so operating profit and net income fall by the full amount — and with no profits there is no tax to save. Cash falls £40m and retained earnings fall £40m. No asset is created.\n\nAnd that is exactly why the accounts tell you so little. The company's most valuable thing — a drug programme that might be worth billions — appears **nowhere on the balance sheet**, because accounting rules do not permit you to capitalise the speculative value of research. What you see instead is a shrinking cash balance and a large accumulated deficit.\n\nSo no, it is not worthless — the loss is a statement about accounting policy as much as about the business. The number that actually matters is the **cash runway**: cash divided by quarterly burn. Under about eighteen months and an equity raise is coming.",
+  "key_points": [
+    "Research is expensed as incurred — no asset is created",
+    "Net income falls the full £40m; no tax shield without profits",
+    "The valuable asset, the pipeline, appears nowhere on the balance sheet",
+    "The accounts show cash and an accumulated deficit, not value",
+    "Cash runway — cash over quarterly burn — is the number to watch"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does IFRS ever allow development costs to be capitalised?",
+      "answer_md": "Yes. IFRS separates research from development: research is always expensed, but development costs must be capitalised once the project meets defined criteria around technical feasibility and intent to complete. In pharma that threshold is usually only met very late, often at regulatory approval, so in practice almost everything is expensed. US GAAP is stricter still."
+    },
+    {
+      "question": "What about R&D acquired in a takeover?",
+      "answer_md": "That is treated quite differently. In an acquisition, in-process research and development is recognised as an intangible asset at fair value on the acquirer's balance sheet. So the same programme is invisible when developed in-house but appears as an asset once bought — which makes book values hard to compare across companies that build versus buy."
+    }
+  ],
+  "weak_answer_note": "Concludes the company is failing because it is loss-making, or does not know that research is expensed rather than capitalised.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "r-and-d",
+    "biotech"
+  ]
+}

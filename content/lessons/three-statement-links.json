@@ -158,6 +158,19 @@
         ]
       },
       {
+        "type": "order_steps",
+        "prompt": "Put the walkthrough in the order you should say it out loud. Interviewers listen for this sequence as much as for the numbers — jumping to the balance sheet first is the classic tell that someone has memorised an answer rather than understood it.",
+        "steps": [
+          "Income statement: apply the change and work down to the tax line.",
+          "Income statement: take tax at the marginal rate to reach net income.",
+          "Cash flow statement: start at the new net income.",
+          "Cash flow statement: add back any non-cash charge, then adjust for working capital, investing and financing.",
+          "Cash flow statement: read off the change in cash.",
+          "Balance sheet: update cash and whichever asset or liability moved.",
+          "Balance sheet: move net income into retained earnings, then state that assets equal liabilities plus equity."
+        ]
+      },
+      {
         "type": "trap",
         "md": "**\"Depreciation is a cost, so cash goes down.\"**\n\nNo — depreciation is an *accounting* charge that spreads the cost of a machine you already paid for. The cash left when you bought the machine (capex, years ago). Recording depreciation today lowers profit and therefore lowers **tax**, which is real cash. So higher depreciation actually leaves the company with slightly *more* cash: the £2.5m tax saving in the example.\n\nThe related trap is forgetting tax altogether and saying net income falls by the full £10m. Interviewers listen for the $(1 - t)$."
       },

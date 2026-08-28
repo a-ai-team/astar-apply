@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "sbc-real-cost",
+  "subtopic_slug": "income-statement",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Share-based compensation is a non-cash expense. Does that make it a real cost?",
+  "model_answer_md": "Yes — and this is a question where the confident answer is 'it is non-cash but it is absolutely a real cost'.\n\nNo cash leaves the business, so it is added back on the cash flow statement like any non-cash charge. But the company has paid its employees in **ownership**. It has issued shares, so every existing shareholder now owns a slightly smaller fraction of the same business. The cost has been borne by shareholders through dilution rather than by the company through cash.\n\nThe practical test I would use: if the company stopped granting equity, it would have to pay more cash to retain the same staff. That makes it a genuine operating cost of running the business.\n\nSo adding it back for cash flow purposes is mechanically correct; presenting an 'adjusted' profit that excludes it entirely is not.",
+  "key_points": [
+    "Non-cash, so it is added back on the cash flow statement",
+    "The cost is borne by shareholders through dilution, not by the company in cash",
+    "If equity grants stopped, cash wages would have to rise to compensate",
+    "Adding it back for cash flow is right; excluding it from profit is misleading",
+    "It should be reflected via the diluted share count"
+  ],
+  "follow_ups": [
+    {
+      "question": "Should share-based compensation be included in free cash flow?",
+      "answer_md": "As a mechanical matter it is added back, so free cash flow is higher. Most careful analysts then account for it elsewhere — either by deducting it as a real economic expense, or by using a fully diluted share count that captures the shares being issued. What you must not do is add it back *and* ignore the dilution, which flatters the valuation twice."
+    },
+    {
+      "question": "What does it do to the share count?",
+      "answer_md": "It steadily increases it. Options and restricted stock vest over time and become shares, so a company with heavy equity compensation sees its diluted count creep up year after year — which is why per-share metrics can stagnate even when total profits grow. Buy-backs are often used to offset exactly this."
+    }
+  ],
+  "weak_answer_note": "Says it is not a real cost because no cash moves, or cannot explain who actually bears it.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "share-based-comp",
+    "dilution"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "lens-healthcare-milestone-cash",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A biotech receives a £50m milestone payment from a partner when a drug reaches Phase 3. Walk me through the statements, and say how you would treat it in analysis.",
+  "model_answer_md": "Assuming the milestone has been earned — the trigger event has occurred and there is no further obligation — it is recognised immediately.\n\n**Income statement.** Revenue +£50m. At 25 % tax that is £12.5m, so net income rises **£37.5m**. For a company that was loss-making, this may be the first profitable period it has ever reported.\n\n**Cash flow statement.** Net income +£37.5m, with nothing to add back, so cash rises **£37.5m** — the £50m received less the £12.5m tax. (In practice accumulated losses often shelter the tax, in which case cash rises the full £50m.)\n\n**Balance sheet.** Cash +£37.5m, retained earnings +£37.5m. **Balances.**\n\n**In analysis I would normalise it out.** It is a one-off, non-recurring receipt tied to a single event. Leaving it in makes the company look profitable and makes any earnings multiple meaningless, because next year there will be no milestone.",
+  "key_points": [
+    "Revenue +£50m; tax £12.5m; net income +£37.5m",
+    "Cash +£37.5m — the receipt less tax (or the full £50m if losses shelter it)",
+    "Cash +37.5 and retained earnings +37.5 — balances",
+    "One-off and non-recurring: normalise it out of underlying earnings",
+    "Leaving it in makes earnings multiples meaningless"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if milestones are received every year?",
+      "answer_md": "Then the judgement changes. If a company has a broad partnered portfolio producing milestones regularly, some level of milestone income is arguably part of its recurring business model — though it is still lumpy and unpredictable. I would look at several years, take a normalised average rather than any single year, and be explicit that it is an estimate."
+    },
+    {
+      "question": "How does it affect valuation multiples?",
+      "answer_md": "It distorts anything earnings-based. A P/E built on a milestone year is meaningless — the earnings are non-recurring, so the multiple looks absurdly low and reverts the following year. For pre-commercial biotech this is one reason valuation leans on risk-adjusted NPV of the pipeline rather than on multiples at all."
+    }
+  ],
+  "weak_answer_note": "Treats the milestone as recurring revenue, or forgets tax and reports cash up the full £50m without noting the assumption.",
+  "numbers": {
+    "inputs": {
+      "milestone": 50,
+      "tax_rate": 0.25,
+      "net_income": 37.5
+    },
+    "answer": 37.5
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "milestone",
+    "biotech",
+    "normalisation"
+  ]
+}

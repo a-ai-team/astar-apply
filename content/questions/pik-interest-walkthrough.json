@@ -1,0 +1,47 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "pik-interest-walkthrough",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Kestrel has £10m of PIK interest accrue in the year. Walk me through the statements at a 25 % tax rate.",
+  "model_answer_md": "PIK — payment in kind — means the interest is not paid in cash; it is added to the principal instead.\n\n**Income statement.** It is still an expense: interest of £10m reduces pre-tax profit. Tax falls £2.5m, so net income falls **£7.5m**.\n\n**Cash flow statement.** Start at net income, down £7.5m — then add the £10m back, because no cash was paid. Cash **rises £2.5m**.\n\n**Balance sheet.** Cash +£2.5m and debt +£10m, so retained earnings −£7.5m. Check: assets +2.5 = liabilities +10 plus equity −7.5. **Balances.**\n\nThe counter-intuitive bit is worth saying aloud: **cash goes up, but the company is poorer.** It has taken a deductible charge with no cash outlay, so it saves tax now — while the debt it owes has grown by £10m and will compound.",
+  "key_points": [
+    "PIK interest is accrued, not paid — it is added to principal",
+    "Still an expense: net income falls £7.5m after a £2.5m tax saving",
+    "Added back on the cash flow statement, so cash rises £2.5m",
+    "Debt +£10m, cash +£2.5m, retained earnings −£7.5m — balances",
+    "Cash rises while the company gets poorer — the debt compounds"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens to leverage over several years?",
+      "answer_md": "It compounds. The balance grows each year and the next year's interest is charged on the larger amount, so debt accelerates away while EBITDA may be flat. This is why PIK is used by borrowers who cannot afford cash interest today, and why lenders demand a high rate for it."
+    },
+    {
+      "question": "Is PIK interest inside EBITDA?",
+      "answer_md": "No. It is interest, so it sits below EBIT — EBITDA is unaffected. That is exactly why leverage measured as debt to EBITDA can deteriorate sharply on a PIK instrument while the earnings measure itself shows nothing at all."
+    }
+  ],
+  "weak_answer_note": "Says cash is unchanged because no cash was paid, forgetting the tax shield. Also weak: treating PIK as though it were not an expense.",
+  "numbers": {
+    "inputs": {
+      "pik": 10,
+      "tax_rate": 0.25,
+      "net_income": -7.5,
+      "debt": 10
+    },
+    "answer": 2.5
+  },
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "walkthrough",
+    "pik",
+    "debt"
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "slug": "income-statement",
+  "subtopic_slug": "income-statement",
+  "title": "Income statement: from revenue to net income",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "The income statement looks like the easy one, which is exactly why interviewers use it to catch people out. Everybody can say \"revenue minus costs equals profit\". Far fewer can say **why the costs are subtracted in that particular order**, or what changes between EBIT and EBITDA and who cares.\n\nThat ordering is not accounting housekeeping. Each line strips out one more group of claimants, so each line answers a different commercial question — and the whole of valuation depends on knowing which line belongs to whom. EV/EBITDA and P/E sit on different rungs of this ladder for a reason you will meet in the next chapter.\n\nGet comfortable here and the enterprise-value bridge stops feeling arbitrary."
+      },
+      {
+        "type": "concept",
+        "heading": "A ladder of claims, in order of who gets paid first",
+        "md": "Read the income statement as a queue. Revenue arrives at the top, and each group with a claim on the business takes its cut on the way down.\n\n- **Revenue** — everything the customers were charged for goods delivered this period.\n- Less **cost of goods sold**, the direct cost of making the product → **gross profit**. This is *product economics*: can you make the thing for less than you sell it for?\n- Less **operating expenses** — sales, marketing, admin, and the depreciation of the assets used up → **operating profit**, usually called **EBIT**. This is *the business*: what the operations earn before any decision about how the company is funded.\n- Less **interest** → **profit before tax**. The lenders have now been paid.\n- Less **tax** → **net income**. Whatever is left belongs to the shareholders.\n\nThe crucial break is at **EBIT**. Everything above it is about running the business; everything below is about how the business was *financed* and taxed. Two identical companies with different debt loads have the same EBIT and different net income.\n\n**EBITDA** — earnings before interest, tax, depreciation and amortisation — sits just above EBIT. It is not a line in the accounts; you build it by adding depreciation and amortisation back to EBIT. It is used as a rough proxy for the cash the operations throw off, because D&A is a real cost but not a cash one."
+      },
+      {
+        "type": "mechanics",
+        "md": "$$\\text{EBITDA} = \\text{EBIT} + \\text{D\\&A}$$\n\n$$\\text{Net income} = (\\text{EBIT} - \\text{Interest}) \\times (1 - t)$$\n\nThat second formula is worth memorising: interest is deducted **before** tax is calculated, which is why borrowing produces a tax saving — the *tax shield* that turns up again in WACC and in every LBO.\n\nMargins are just each line divided by revenue, and they are how anyone actually compares two companies:\n\n- **Gross margin** — pricing power and product cost.\n- **EBITDA margin** — operating efficiency, ignoring capital intensity and funding.\n- **EBIT margin** — the same, but after the cost of using up assets.\n- **Net margin** — what finally reaches shareholders, after debt and tax.\n\nOne caution to carry: **EBITDA ignores capital expenditure**. A business that must constantly replace its machines can show a healthy EBITDA margin and generate very little real cash. D&A is a genuine economic cost — it is the machine wearing out — and adding it back is a convenience, not a discovery."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods doubles its depreciation charge from £20m to £40m. Nothing else about the business changes. What happens to its EBITDA?",
+        "options": [
+          {
+            "label": "EBITDA falls by £20m"
+          },
+          {
+            "label": "EBITDA falls by £15m, after the tax saving"
+          },
+          {
+            "label": "EBITDA is unchanged",
+            "correct": true
+          },
+          {
+            "label": "EBITDA rises by £20m"
+          }
+        ],
+        "explain_md": "**Unchanged, at £120m** — and this is the single most useful thing to understand about EBITDA.\n\nThe D in EBITDA stands for depreciation, and it is *excluded by construction*. Doubling the charge pushes EBIT down from £100m to £80m, and net income down from £67.5m to £52.5m, but EBITDA is calculated before any of that happens.\n\nThat is precisely why bankers reach for it: two companies with identical operations but different depreciation policies — or different ages of equipment — are directly comparable at the EBITDA line and not at the EBIT line. It is also exactly why EBITDA can flatter a business that is quietly wearing out its assets."
+      },
+      {
+        "type": "widget",
+        "widget": "three_statement",
+        "props": {
+          "kind": "depreciation",
+          "amount": 20,
+          "taxRate": 0.25
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Kestrel Foods plc** again: revenue £500m, cost of goods sold £300m, operating expenses £100m of which **£20m is depreciation and amortisation**, interest £10m, tax at 25 %.\n\nWalk it down, then build EBITDA and the four margins.",
+        "steps": [
+          {
+            "label": "Gross profit",
+            "expr": "500 - 300",
+            "value": 200,
+            "unit": "£m"
+          },
+          {
+            "label": "Operating profit (EBIT)",
+            "expr": "200 - 100",
+            "value": 100,
+            "unit": "£m"
+          },
+          {
+            "label": "EBITDA: add back the £20m of D&A",
+            "expr": "100 + 20",
+            "value": 120,
+            "unit": "£m"
+          },
+          {
+            "label": "Net income: (EBIT − interest) × (1 − t)",
+            "expr": "(100 - 10) * (1 - 25%)",
+            "value": 67.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Gross margin",
+            "expr": "200 / 500 * 100",
+            "value": 40,
+            "unit": "%"
+          },
+          {
+            "label": "EBITDA margin",
+            "expr": "120 / 500 * 100",
+            "value": 24,
+            "unit": "%"
+          },
+          {
+            "label": "EBIT margin",
+            "expr": "100 / 500 * 100",
+            "value": 20,
+            "unit": "%"
+          },
+          {
+            "label": "Net margin",
+            "expr": "67.5 / 500 * 100",
+            "value": 13.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now prove the prediction. Kestrel's **depreciation doubles to £40m**, so operating expenses rise to £120m. Everything else is unchanged. Fill in the three numbers that show what moves and what does not.",
+        "steps": [
+          {
+            "label": "Operating expenses, with D&A now £40m",
+            "expr": "100 + 20",
+            "value": 120,
+            "unit": "£m"
+          },
+          {
+            "label": "New operating profit (EBIT)",
+            "expr": "200 - 120",
+            "value": 80,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "New EBITDA: add back the larger £40m charge",
+            "expr": "80 + 40",
+            "value": 120,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "New profit before tax",
+            "expr": "80 - 10",
+            "value": 70,
+            "unit": "£m"
+          },
+          {
+            "label": "New net income",
+            "expr": "70 * (1 - 25%)",
+            "value": 52.5,
+            "unit": "£m",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Revenue is the cash the company received.\"**\n\nNo — and this misunderstanding is the root of half the walkthrough errors later in this chapter.\n\nRevenue is recognised when the company **delivers** the goods or service, not when the money arrives. Kestrel ships £500m of crisps to supermarkets this year, so it books £500m of revenue. If the supermarkets pay on sixty-day terms, a large slice of that is still sitting in **receivables** at the year end — recorded as revenue, with no cash behind it.\n\nThe reverse also happens. Cash can arrive long before revenue, as it does with a subscription paid annually in advance, which parks the unearned portion in **deferred revenue**.\n\nSo revenue and cash receipts are different quantities that happen to be similar in a stable business and diverge sharply in a growing one. Recognising that is what makes \"how can a profitable company go bankrupt?\" an easy question rather than a puzzle."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Revenue less cost of goods sold gives gross profit; less operating expenses, including depreciation and amortisation, gives operating profit or EBIT. Adding back D&A gives EBITDA, a rough proxy for operating cash generation. Below EBIT come interest and tax, leaving net income for shareholders. Each line answers a different question: gross profit is product economics, EBIT is the business, and net income is what the equity holders actually keep.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Revenue you have collected but not yet earned",
+            "md": "Software inverts the usual timing. A customer pays £120 in January for a year of access, so the cash lands immediately — but the company has delivered nothing yet. Accounting rules only let it recognise **£10 a month** as the service is provided; the unearned remainder sits on the balance sheet as **deferred revenue**, a liability meaning \"we owe this customer eleven more months of software\".\n\nSo a fast-growing subscription business collects cash long before it reports revenue, and its operating cash flow routinely runs *above* its net income — the mirror image of the receivables problem.\n\nThis is why TMT decks lead with metrics that are not on the income statement at all. **Billings** capture what was actually invoiced this period, and **ARR** annualises the recurring subscription base. Both are attempts to see the commercial momentum that revenue recognition deliberately smooths away — and a stalling deferred-revenue balance is an early warning that revenue will follow it down a few quarters later.",
+            "example_q": "A software company collects £120m of annual subscriptions in January. What appears on its income statement in the first quarter?",
+            "answer_md": "Only the portion it has actually delivered — three months of a twelve-month contract, so **£30m of revenue**. The remaining **£90m** sits on the balance sheet as deferred revenue, a liability, and is released into revenue at roughly £10m a month as the year runs.\n\nThe cash tells a completely different story: all £120m arrived in January, so first-quarter operating cash flow is far above reported revenue. That gap is normal and healthy for a subscription business, and it is why I would look at billings and the movement in deferred revenue alongside the revenue line — the income statement alone understates how much business was won in the quarter."
+          },
+          "healthcare": {
+            "heading": "Research is expensed, so the income statement hides the asset",
+            "md": "A biotech running trials on a promising drug might spend **£80m on research** in a year. Under IFRS, research costs are **expensed as incurred** — they hit the income statement immediately and almost never become an asset. Development costs can be capitalised, but only once quite strict criteria are met, which for a drug in trials usually means not yet.\n\nThe result is a set of accounts that looks like failure. Revenue nil, operating loss £80m, net loss £80m. Yet the company has spent the year building the most valuable thing it will ever own: clinical data proving a drug works.\n\nSo EBIT is close to meaningless for a clinical-stage biotech. It measures money spent, with no credit for what that money bought. Analysts ignore it and value the pipeline directly — probability-weighted future cash flows per drug — which is why a company with a large and growing loss can carry a multi-billion valuation without any contradiction.",
+            "example_q": "Why can a biotech have deeply negative EBIT and still be worth £2bn?",
+            "answer_md": "Because the income statement records the cost of the research but never the value of what it produced. Under IFRS research is expensed as incurred, so £80m of trial spending goes straight through as a loss, while the clinical data that spending generated appears nowhere on the balance sheet.\n\nThe £2bn is a judgement about future cash flows from the pipeline — probability-weighted for the chance each drug reaches the market. So the loss and the valuation are measuring different things: one is this year's spending, the other is the expected value of what that spending is buying. I would look at the cash runway and the next data readout rather than at EBIT."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company reports **revenue £1,000m**, **cost of goods sold £550m**, **operating expenses £250m including £60m of D&A**, **interest £40m**, tax at **25 %**. Compute EBITDA, EBIT and net income, then the EBITDA, EBIT and net margins — and say in one sentence why EBITDA is the highest of the three.",
+        "model_answer_md": "Working down:\n\n- Gross profit: 1,000 − 550 = **£450m**\n- EBIT: 450 − 250 = **£200m**\n- EBITDA: 200 + 60 = **£260m**\n- Profit before tax: 200 − 40 = £160m\n- Net income: 160 × 0.75 = **£120m**\n\nThe margins:\n\n- EBITDA margin: 260 / 1,000 = **26 %**\n- EBIT margin: 200 / 1,000 = **20 %**\n- Net margin: 120 / 1,000 = **12 %**\n\nEBITDA is the highest because it is measured **before** three separate deductions the others take: the £60m of depreciation and amortisation, the £40m of interest, and the £40m of tax. Each rung down the ladder pays off another claimant — the assets wearing out, then the lenders, then the government — so the margin necessarily falls as you go.\n\nWorth adding: EBITDA excludes D&A because it is non-cash, but that £60m is still a real cost — the machines genuinely are wearing out and will need replacing.",
+        "rubric": [
+          "Computes EBIT of £200m before adding D&A back for EBITDA of £260m",
+          "Deducts interest before applying tax, reaching net income of £120m",
+          "Gets all three margins right: 26 %, 20 % and 12 %",
+          "Explains that each line down the ladder deducts a further claimant",
+          "Notes that D&A is non-cash but still a real economic cost"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "EBITDA minus D&A equals what?",
+            "a": "EBIT — operating profit after the cost of assets being used up."
+          },
+          {
+            "q": "Does interest sit above or below EBIT?",
+            "a": "Below. EBIT is before financing costs, which is why two companies with different debt have the same EBIT."
+          },
+          {
+            "q": "Name a non-cash item on the income statement.",
+            "a": "Depreciation — also amortisation, share-based compensation and impairments."
+          },
+          {
+            "q": "Who does net income belong to?",
+            "a": "The equity holders. Everyone else — suppliers, staff, lenders, the taxman — has already been paid above it."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**The income statement is a queue of claimants: gross profit is the product, EBIT is the business, net income is what the shareholders keep — and EBITDA is EBIT with the non-cash wear-and-tear added back.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can walk down the income statement and say what question each line answers.",
+          "I can compute EBITDA from EBIT and explain why the two differ.",
+          "I can explain why revenue is not the same as cash received.",
+          "I can calculate the four margins and say what each one is used to compare.",
+          "I can explain when EBITDA misleads, and name the cost it quietly ignores."
+        ]
+      }
+    ]
+  }
+}

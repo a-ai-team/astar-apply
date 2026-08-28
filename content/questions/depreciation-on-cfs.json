@@ -1,0 +1,37 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – concepts",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "depreciation-on-cfs",
+  "subtopic_slug": "cash-flow-statement",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "Where does depreciation appear on the cash flow statement, and why?",
+  "model_answer_md": "It is **added back** within cash from operations.\n\nDepreciation reduced net income, but no money actually left the business — the cash went out earlier, when the asset was bought, and depreciation is just the accounting spread of that cost over the asset's life. Since the cash flow statement starts at net income, the charge has to be reversed to get back to cash.\n\nFor Kestrel, net income of £67.5m plus the £20m depreciation add-back is the first step towards operating cash flow of £77.5m.",
+  "key_points": [
+    "Added back in cash from operations",
+    "It is non-cash — the money left when the asset was purchased",
+    "The add-back reverses its effect on net income",
+    "Kestrel: 67.5 + 20 is the start of the reconciliation"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is amortisation treated the same way?",
+      "answer_md": "Yes — it is the same idea applied to intangible assets such as software or an acquired customer list, so it is added back in exactly the same place. Interviewers often say 'D&A' to cover both."
+    },
+    {
+      "question": "What about an impairment?",
+      "answer_md": "Also added back, for the same reason: it is a non-cash write-down of an asset's carrying value. The difference is that impairments are one-off and unpredictable, so analysts usually strip them out when assessing underlying performance."
+    }
+  ],
+  "weak_answer_note": "Says depreciation reduces cash, or places it in investing. A weak answer gives the mechanics without explaining that the cash moved at the point of purchase.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "depreciation",
+    "cash-flow"
+  ]
+}

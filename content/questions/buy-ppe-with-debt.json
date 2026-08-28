@@ -1,0 +1,38 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "buy-ppe-with-debt",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "Kestrel buys £40m of equipment, funded entirely with new debt. Walk me through the statements.",
+  "model_answer_md": "**Income statement: nothing on day one.** Buying an asset is not an expense — the cost reaches the income statement gradually, as depreciation, over the asset's life.\n\n**Cash flow statement.** Two flows that offset: £40m out in **investing** for the capital expenditure, and £40m in from **financing** as the debt is drawn. The net change in cash is **zero**.\n\n**Balance sheet.** PP&E, an asset, is up £40m. Debt, a liability, is up £40m. Assets +40 = liabilities +40, and equity is unchanged.\n\nIt is worth noting the two cash flows separately rather than netting them off — an interviewer wants to hear that you know capex is investing and the draw is financing.",
+  "key_points": [
+    "No income statement effect until depreciation begins",
+    "Capex −£40m in investing, debt draw +£40m in financing",
+    "Net change in cash is zero",
+    "PP&E +40, debt +40, equity unchanged",
+    "Name both cash flows separately rather than netting them"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens in year one, if the asset is depreciated over five years?",
+      "answer_md": "Depreciation of £8m a year begins. Operating profit falls £8m, tax falls £2m, so net income falls £6m; add the £8m back and cash rises £2m before any interest. PP&E falls to £32m and retained earnings fall £6m. Interest on the debt would then reduce that further."
+    },
+    {
+      "question": "How would it differ if Kestrel had paid cash?",
+      "answer_md": "The balance sheet would show cash −£40m and PP&E +£40m, so total assets are unchanged and no liability is created. On the cash flow statement there would be a £40m investing outflow with no financing inflow, so cash falls £40m. Same asset, very different liquidity and leverage."
+    }
+  ],
+  "weak_answer_note": "Expenses the £40m immediately, or reports cash falling £40m and misses the financing inflow.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "capex"
+  ]
+}

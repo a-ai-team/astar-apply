@@ -31,7 +31,8 @@ test.describe("Loop 05 practice", () => {
     await unlockPrivateArea(page, baseURL!);
     await signInAs(page, "e2e-student@astar.test", "/home/practice");
     await expect(page.getByTestId("practice-heading")).toHaveText("Practice");
-    await expect(page.getByTestId("bank-count")).toContainText("6 questions");
+    // Count is not pinned: every Technicals v2 chapter adds approved questions to the bank.
+    await expect(page.getByTestId("bank-count")).toContainText(/\d+ questions/);
 
     // Filter difficulty 2 → only D2 cards.
     await page.getByTestId("filter-difficulty-2").click();

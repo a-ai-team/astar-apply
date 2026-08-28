@@ -1,0 +1,45 @@
+{
+  "topic_slug": "accounting",
+  "source_topic": "Accounting – calculations",
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "da-up-10-fill-the-blanks",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Fill in the missing figures. Depreciation rises £10m, tax rate 25 %. Operating profit: __ . Tax: __ . Net income: __ . Cash: __ . PP&E: __ . Retained earnings: __ .",
+  "model_answer_md": "Operating profit **−£10m**. Tax **−£2.5m** (a saving). Net income **−£7.5m**. Cash **+£2.5m**. PP&E **−£10m**. Retained earnings **−£7.5m**.\n\nThe chain is: the charge hits profit in full, tax falls by 25 % of it, and net income takes the after-tax hit. On the cash flow statement the whole £10m comes back as a non-cash add-back, leaving cash better off by exactly the tax saved.\n\nCheck it: assets move by +2.5 − 10 = −7.5, equity moves by −7.5, liabilities are unchanged. Balanced.",
+  "key_points": [
+    "Operating profit −10 and tax −2.5 give net income −7.5",
+    "Add back the full £10m: cash +2.5",
+    "PP&E −10 and retained earnings −7.5",
+    "Balance check: −7.5 assets = −7.5 equity",
+    "Cash moves by exactly the tax saved: 10 × 25 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Confirm the balance check explicitly.",
+      "answer_md": "Assets change by +£2.5m of cash less £10m of PP&E, so −£7.5m. Liabilities are unchanged at zero. Equity changes by −£7.5m through retained earnings. −7.5 = 0 + (−7.5), so the balance sheet balances."
+    },
+    {
+      "question": "Which single line closes the loop between the statements?",
+      "answer_md": "The change in cash. Net income carries the income statement into the cash flow statement and into retained earnings, but it is the closing cash figure that lands on the balance sheet and makes the two sides agree."
+    }
+  ],
+  "weak_answer_note": "Fills in −10 for cash, or reports net income as −10 by omitting tax. Also weak: producing the numbers without being able to state the balance check.",
+  "numbers": {
+    "inputs": {
+      "charge": 10,
+      "tax_rate": 0.25,
+      "net_income": -7.5
+    },
+    "answer": 2.5
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "walkthrough",
+    "depreciation"
+  ]
+}
