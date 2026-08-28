@@ -1,0 +1,38 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-cost-of-equity-exceeds-debt",
+  "subtopic_slug": "wacc-intro",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why is the cost of equity higher than the cost of debt?",
+  "model_answer_md": "Because equity holders take more risk, and risk is what a required return pays for.\n\n**Lenders have a contract.** They are owed a fixed amount of interest on fixed dates, they rank ahead of shareholders, and in a liquidation they are paid first — often with security over assets. Their range of outcomes is narrow, so they accept a low return.\n\n**Shareholders have a residual claim.** They are paid only after suppliers, staff, lenders and the taxman, and only if anything is left. The upside is unlimited and the downside is the whole investment, so they demand more.\n\nThere is a second effect that widens the gap further: **interest is tax-deductible** while dividends are not. So debt's true cost to the company is the rate after tax — for Ashdown, 8 % becomes 6 % — which is why only debt carries the (1 − t) in the WACC formula.",
+  "key_points": [
+    "Lenders hold a contractual claim, paid before shareholders, often secured",
+    "Shareholders hold the residual claim, so face a much wider range of outcomes",
+    "Higher risk demands a higher required return",
+    "Interest is tax-deductible, so debt is cheaper still on an after-tax basis",
+    "Only debt gets the (1 − t) adjustment in WACC"
+  ],
+  "follow_ups": [
+    {
+      "question": "Could the cost of equity ever be below the cost of debt?",
+      "answer_md": "Not for the same company at the same time, because the ranking of claims makes equity structurally riskier. It can look inverted if you compare a distressed company's *observed* debt yield with a stale or badly estimated cost of equity — deeply distressed debt can demand 15 % or more. But that is a measurement artefact: if the debt truly requires 15 %, the equity requires more."
+    },
+    {
+      "question": "Where does preferred stock sit?",
+      "answer_md": "Between the two, which is why it is sometimes called a hybrid. Preferred ranks ahead of ordinary equity but behind debt, and it usually pays a fixed dividend — so its cost sits between the two. Crucially, preferred dividends are not tax-deductible, so it does not get the tax shield that makes debt cheap. It gets its own weighted term in a full WACC."
+    }
+  ],
+  "weak_answer_note": "Says 'equity is riskier' without explaining the ranking of claims, or forgets the tax deductibility of interest entirely. Claiming debt is cheaper only because of the tax shield is also incomplete — the risk ranking comes first.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "wacc",
+    "cost-of-capital"
+  ]
+}

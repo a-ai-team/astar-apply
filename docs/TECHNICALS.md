@@ -228,4 +228,33 @@ index). Contract additions (new block types `predict`, `fill_numbers`, `order_st
 `template`; widget names; question tags `depth:` / `lens:` / `format:`; cheat sheets):
 `docs/loops/CONTRACTS.md` § Technicals v2. Loop 11 builds the platform (`src/lib/finance/`, the widget
 kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chapter each from its spec —
-35 lessons, ~130 core + 39 stretch + ~28 lens questions. This section is rewritten by Loop 18.
+35 lessons, 135 core + 38 stretch + 26 lens questions. This section is rewritten by Loop 18.
+
+### Chapters (shipped)
+| Loop | Chapter | Content | Status |
+|---|---|---|---|
+| 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
+
+### Platform (Loop 11, shipped)
+- **Maths**: `src/lib/finance/{statements,bridge,discount,dcf,wacc,shares,merger,lbo}.ts` — pure
+  functions, 132 vitest cases. Widgets are thin views over them and `fill_numbers` grading uses the
+  same arithmetic. Never re-implement a formula in a component.
+- **Blocks**: `predict` (predict-then-reveal gate), `fill_numbers` (faded worked example, per-cell
+  feedback), `order_steps` (move up/down — keyboard and touch), `lens`, `template` (printable
+  takeaway: `three_statement_grid`, `dcf_sheet`, `paper_lbo`, `deal_summary`). Components in
+  `src/components/lesson/blocks/`; approval rules in `lesson-schema.ts` (`lensProblems`, `isV2Body`).
+- **Widget kit**: `src/components/widgets/kit/` (`Slider`, `AnimatedNumber`, `WidgetFrame`,
+  `Waterfall`, `Heatmap`, `StackedBar`, `fmt`, `scale`, `useReducedMotion`) — hand SVG, **no new
+  deps**. Live widgets: `ev_bridge` (refactored), `three_statement` (Statement Ripple, nine walk
+  variants, reduced-motion step-through), `dcf_sensitivity` (WACC × g heatmap). Unlisted names still
+  render the dashed placeholder; `blocks/widget.tsx` is now a registry.
+- **Industry lens**: `LENSES` in `taxonomy.ts` (TMT, Healthcare & Biotech). `?lens=` on the lesson
+  page, mirrored to `localStorage["astar.lens"]`, `LensPicker` in the lesson header, `LensProvider` →
+  `useLens()`. A lens block with a missing variant is a readable approval problem, not a zod error.
+  `blockText` indexes variants as `[TMT lens] …` so the chatbot can cite them.
+- **Practice tags**: `depth:` / `lens:` / `format:` on `questions.tags`; depth and lens chips on
+  `/home/practice` (lens questions are excluded from the generalist bank), a Stretch badge on cards,
+  and `seed -- 05` derives no flashcard from a lens question.
+- **Cheat sheets**: `content/cheatsheets/<topic>.json` (`cheatsheet-schema.ts`, validated by
+  `content:validate`), route `/home/technicals/[topic]/cheatsheet` with print CSS in `globals.css`,
+  linked from the topic page. Repo-only — no table until mentors need to edit them in-app.

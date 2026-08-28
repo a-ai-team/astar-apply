@@ -1,0 +1,47 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "compute-wacc-ashdown",
+  "subtopic_slug": "wacc-intro",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Ashdown Bakeries is funded by £4m of equity and £2m of bank debt. The owners require 14 %, the bank charges 8 %, and the tax rate is 25 %. What is Ashdown's WACC?",
+  "model_answer_md": "Take the cost of debt after tax first, since interest is deductible:\n\n$$k_d(1-t) = 8\\% \\times 0.75 = 6\\%$$\n\nThe weights are £4m and £2m out of £6m total, so two-thirds equity and one-third debt:\n\n$$WACC = \\tfrac{4}{6} \\times 14\\% + \\tfrac{2}{6} \\times 6\\% = 9.33\\% + 2.00\\% = \\mathbf{11.3\\%}$$\n\nSo Ashdown needs to earn about 11.3 % on its operating assets to keep both its owners and its bank satisfied — and that is the rate it should use to discount unlevered free cash flow.",
+  "key_points": [
+    "After-tax cost of debt = 8 % × (1 − 0.25) = 6 %",
+    "Weights are 4/6 equity and 2/6 debt, on market values",
+    "WACC = 9.33 % + 2.00 % = 11.3 %",
+    "Only debt is tax-adjusted — dividends are not deductible",
+    "This rate discounts unlevered free cash flow, not post-interest cash flow"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would WACC be if the tax rate were zero?",
+      "answer_md": "The debt cost stays at its headline 8 %, so WACC = (4/6 × 14 %) + (2/6 × 8 %) = 9.33 % + 2.67 % = **12.0 %**. The 0.7-point difference is the tax shield — the share of Ashdown's interest bill effectively paid by the government. It is why highly taxed, stable businesses have the strongest incentive to carry debt."
+    },
+    {
+      "question": "What if Ashdown swapped £1m of equity for £1m more debt, holding the costs fixed?",
+      "answer_md": "The weights become 3/6 and 3/6, so WACC = (0.5 × 14 %) + (0.5 × 6 %) = **10.0 %** — it falls. But that result depends entirely on holding the 14 % fixed, which would not survive contact with reality: more debt ranking ahead of the owners makes their residual claim riskier, so the cost of equity would rise and claw back part of the saving."
+    }
+  ],
+  "weak_answer_note": "Uses the pre-tax 8 % in the blend, applies the (1 − t) to the cost of equity as well, or uses book values instead of market values for the weights. Averaging 14 % and 6 % without weighting them is the other common slip.",
+  "numbers": {
+    "inputs": {
+      "equity": 4,
+      "debt": 2,
+      "cost_of_equity": 0.14,
+      "cost_of_debt": 0.08,
+      "tax_rate": 0.25
+    },
+    "answer": 0.1133
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "wacc",
+    "calculation"
+  ]
+}

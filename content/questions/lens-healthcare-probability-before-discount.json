@@ -1,0 +1,47 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "lens-healthcare-probability-before-discount",
+  "subtopic_slug": "pv-npv",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A biotech's Phase 3 drug has a 60 % chance of approval and would be worth £2bn if approved. Finishing the trial costs £0.5bn. Should the company go ahead — and why not simply use a high discount rate instead?",
+  "model_answer_md": "Weight the payoff by the probability of getting it, then compare with the cost:\n\n$$\\text{Expected NPV} = 0.6 \\times £2.0\\text{bn} - £0.5\\text{bn} = \\mathbf{+£0.7bn}$$\n\nSo yes, the trial is worth funding. Two caveats matter as much as the number. The £0.5bn is spent in **every** branch while the £2bn arrives in only one, so a single-asset biotech needs to be able to survive the 40 % outcome. And the answer is highly sensitive to the probability — that estimate, not the valuation, is what the decision really turns on.\n\nOn the discount rate: trial risk is **binary**, and a discount rate is the wrong instrument for a coin toss. Raising the rate to 25 % implies a cash flow that is smoothly uncertain in size, when the truth is roughly that number or nothing. Probability-weighting is more honest about the shape, keeps the rate comparable with other companies, and forces the key assumption into the open where it can be challenged.",
+  "key_points": [
+    "Expected NPV = 0.6 × 2.0 − 0.5 = +£0.7bn, so proceed",
+    "The trial cost is incurred in every branch; the payoff only in the successful one",
+    "Trial risk is binary, so it belongs in the cash flows, not the discount rate",
+    "Probability-weighting keeps the discount rate comparable across companies",
+    "The result is an expectation — the actual outcome is one branch or the other",
+    "Very sensitive to the probability of success"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the probability of success were only 30 %?",
+      "answer_md": "Expected NPV = 0.3 × 2.0 − 0.5 = **+£0.1bn** — still positive, but barely. At that point the decision is inside the margin of error on every input, and the break-even probability is 0.5 / 2.0 = **25 %**. So the honest answer is that the company is close to indifferent, and the argument should be about whether the 30 % estimate is right rather than about the arithmetic."
+    },
+    {
+      "question": "Why not just use a 25 % discount rate to reflect the risk?",
+      "answer_md": "Because it hides the assumption and misrepresents the risk's shape. A discount rate compensates for undiversifiable, market-correlated risk; whether one drug passes its readout is idiosyncratic and largely diversifiable across a portfolio. Inflating the rate buries a judgement about the probability of success inside a single number nobody can interrogate, and it makes the company incomparable with every other company you discount at a normal rate."
+    }
+  ],
+  "weak_answer_note": "Compares £2bn with £0.5bn and declares the drug hugely valuable without applying the probability, or applies the probability to the trial cost as well — the cost is spent whatever happens. Reaching for a high discount rate instead of probability-weighting is the conceptual error being tested.",
+  "numbers": {
+    "inputs": {
+      "probability_of_success": 0.6,
+      "value_if_approved": 2.0,
+      "trial_cost": 0.5
+    },
+    "answer": 0.7
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "lens:healthcare",
+    "expected-value",
+    "npv"
+  ]
+}

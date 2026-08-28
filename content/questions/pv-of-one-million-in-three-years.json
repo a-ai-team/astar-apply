@@ -1,0 +1,44 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "pv-of-one-million-in-three-years",
+  "subtopic_slug": "time-value-of-money",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "Ashdown Bakeries is owed a £1.0m supplier rebate in three years. Using an 8 % discount rate, what is that rebate worth today?",
+  "model_answer_md": "Discount the single cash flow back three years:\n\n$$PV = \\frac{1.0}{1.08^3} = \\mathbf{£0.794m}$$\n\nSo the promise of £1.0m in three years is worth about **£794,000** today. The £206,000 difference is what Ashdown is giving up by waiting — the return it could have earned elsewhere on similar risk, compounded over three years.",
+  "key_points": [
+    "Divide by (1 + r) once per year of waiting: 1.08 cubed",
+    "PV = 1.0 / 1.2597 = £0.794m",
+    "The £0.206m gap is the price of waiting three years at 8 %",
+    "The exponent is years, so the effect compounds rather than adding up"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if you discounted at 4 % instead?",
+      "answer_md": "PV = 1.0 / 1.04³ = **£0.889m**. The gap between the two answers — about £0.095m — is the price of Ashdown's risk: 4 % is roughly what a gilt yields when repayment is certain, and 8 % is what it costs when the money depends on a supplier actually paying."
+    },
+    {
+      "question": "What if the payment slipped to year 5?",
+      "answer_md": "PV = 1.0 / 1.08⁵ = **£0.681m**, a fall of about 14 % from the year-3 value. Two extra years means dividing by 1.08 twice more, so the loss compounds — it is more than two flat lots of 8 % of the original."
+    }
+  ],
+  "weak_answer_note": "Multiplies by 0.92 three times, subtracts 8 % per year in a straight line (giving £0.76m), or uses the wrong exponent — discounting two or four years instead of three.",
+  "numbers": {
+    "inputs": {
+      "cash_flow": 1.0,
+      "rate": 0.08,
+      "years": 3
+    },
+    "answer": 0.794
+  },
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "present-value",
+    "calculation"
+  ]
+}

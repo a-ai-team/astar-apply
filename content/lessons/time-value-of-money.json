@@ -1,0 +1,130 @@
+{
+  "slug": "time-value-of-money",
+  "subtopic_slug": "time-value-of-money",
+  "title": "Why a pound today beats a pound later",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Nobody will ever ask you \"what is the time value of money?\" in an interview. They will ask you to walk through a DCF, and then they will ask *why you divided by anything at all*. This is the idea underneath that division, and underneath WACC, IRR, LBO returns and every valuation you will ever build.\n\nInterviewers use it as a depth test. Almost everyone can recite that a pound today is worth more than a pound tomorrow. The candidates who stand out can say **what the discount rate is paying for**, and can tell you which way a value moves when rates change — without reaching for a calculator."
+      },
+      {
+        "type": "concept",
+        "heading": "A pound is a claim on a moment in time",
+        "md": "£1 today and £1 in three years are not the same thing, in the same way that a seat on tonight's train is not the same thing as a seat on a train in three years. They are different goods, and they trade at different prices.\n\nTwo things make the future pound worth less:\n\n- **Waiting.** If you had the pound now you could do something with it — put it in a savings account, pay down a loan, open another shop. Giving that up has a price. Economists call it *opportunity cost*.\n- **Worry.** A future pound might not turn up. The customer could go bust; the rebate could be disputed; the drug could fail its trial.\n\nThe **discount rate** is the single number that prices both. It is the return you could get elsewhere on something of *similar risk*. Discounting is just running that return backwards: instead of asking \"what does £1 grow into?\", you ask \"what must I have today to end up with £1 then?\""
+      },
+      {
+        "type": "mechanics",
+        "md": "To move a single future cash flow back to today, divide by one plus the rate, once for each year of waiting:\n\n$$PV = \\frac{CF}{(1 + r)^n}$$\n\nwhere $CF$ is the cash flow, $r$ is the discount rate as a decimal, and $n$ is the number of years until it arrives.\n\nThe exponent is where the intuition lives. Each extra year divides by $(1+r)$ **again**, so the effect compounds: distant cash flows do not fade in a straight line, they collapse. That single fact explains why terminal value dominates a DCF, why growth companies are punished when rates rise, and why nobody argues very hard about year 9 of a forecast.\n\nOne refinement you should know by name. The formula above assumes every pound arrives on the last day of the year. In reality cash trickles in all year round, so bankers often use the **mid-year convention** — discount over $n - 0.5$ years instead of $n$. It always *raises* the value, because you are assuming the money reaches you sooner."
+      },
+      {
+        "type": "predict",
+        "prompt": "Ashdown Bakeries is owed a £1.0m supplier rebate in three years, discounted at 8 %. If the payment slips from year 3 to year 5, what happens to its present value?",
+        "options": [
+          { "label": "It falls by less than 10 %" },
+          { "label": "It falls by more than 10 %", "correct": true },
+          { "label": "It is unchanged — the cash is the same" },
+          { "label": "It falls by exactly two years' interest, 16 %" }
+        ],
+        "explain_md": "It falls from **£0.794m to £0.681m** — about **14 %**. Two extra years means dividing by 1.08 twice more, and because it compounds the loss is bigger than \"two lots of 8 % of the original\" but smaller than a flat 16 %. This is the whole reason a delay in a project matters even when no cash is lost: waiting has a price, and the price compounds."
+      },
+      {
+        "type": "widget",
+        "widget": "discount_dial",
+        "props": {
+          "mode": "pv",
+          "cashflows": [0, 0, 1.0],
+          "rate": 0.08,
+          "midYear": false
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Ashdown Bakeries is owed a **£1.0m rebate in three years**. Two rates are defensible. A UK government gilt yields **4 %** — that is what waiting costs when repayment is certain. Ashdown's own bank charges it **8 %** — that is what waiting costs when the money depends on Ashdown's supplier actually paying.\n\nThe gap between the two answers is the price of the risk.",
+        "steps": [
+          { "label": "PV at the 4 % gilt rate", "expr": "1.0 / 1.04^3", "value": 0.889, "unit": "£m" },
+          { "label": "PV at Ashdown's 8 % rate", "expr": "1.0 / 1.08^3", "value": 0.794, "unit": "£m" },
+          { "label": "The price of Ashdown's risk", "expr": "0.889 - 0.794", "value": 0.095, "unit": "£m" },
+          { "label": "PV at 8 % with the mid-year convention", "expr": "1.0 / 1.08^2.5", "value": 0.825, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now the same rebate, but the supplier is shakier and the right rate is **12 %**. Fill in the two numbers that carry the insight — the rest are done for you.",
+        "steps": [
+          { "label": "One year of waiting: PV of £1.0m in year 1", "expr": "1.0 / 1.12", "value": 0.893, "unit": "£m" },
+          { "label": "Three years of waiting: PV of £1.0m in year 3", "expr": "1.0 / 1.12^3", "value": 0.712, "unit": "£m", "blank": true },
+          { "label": "Eight years of waiting: PV of £1.0m in year 8", "expr": "1.0 / 1.12^8", "value": 0.404, "unit": "£m", "blank": true },
+          { "label": "Value lost between year 3 and year 8", "expr": "0.712 - 0.404", "value": 0.308, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Discounting is about inflation.\"**\n\nThis is the answer that sounds informed and is wrong, so interviewers listen for it.\n\nInflation is *one* input, but it is not what discounting is for. Imagine a world with zero inflation: you would still rather have £1 now, because you could invest it, and because the future payer might not pay. The discount rate is dominated by **opportunity cost and risk** — which is why two companies in the same economy, facing identical inflation, are discounted at completely different rates.\n\nIf you want to mention inflation, mention it precisely: you discount *nominal* cash flows at a *nominal* rate, and *real* cash flows at a *real* rate. Mixing the two is the actual error interviewers are hunting for."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Money today is worth more than the same amount later because it can be invested now, and because a future payment might not arrive. The discount rate converts between the two: it is the return an investor could earn elsewhere on something of similar risk. Riskier cash flows get a higher rate and therefore a lower present value. For Ashdown, £1m in three years is worth about £0.79m today at 8 %, but £0.89m at the 4 % gilt rate — and that £0.10m gap is the price of the risk.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Growth companies are long-duration assets",
+            "md": "Where a company's value sits in *time* decides how much a change in rates hurts it.\n\nA mature telecoms operator earns most of its value from the next five years: the network exists, the subscribers are already paying, and cash arrives soon. A loss-making software company is the opposite — it may earn nothing for three years, and most of what it is worth sits ten years out and beyond.\n\nNow apply the compounding you just saw. One extra percentage point on the discount rate barely touches a cash flow arriving next year, but it takes a large bite out of one arriving in year ten. So the same rate rise cuts the software company's value far more than the telecom's, even if neither business changes at all.\n\nThat is the mechanism behind the 2022 repricing: rates rose, and the most back-end-loaded companies fell hardest. Bankers borrow the bond word for this and call it **duration** — high-growth equity behaves like a long-dated bond.",
+            "example_q": "Why did high-growth technology valuations fall more than telecoms when interest rates rose?",
+            "answer_md": "Because value is the present value of future cash flows, and the two sit at different points in time. A telecom's cash flows are near-term, so discounting them at a slightly higher rate changes little. A high-growth software company earns most of its value well into the future, and the discount factor compounds with every extra year — so the same one-point rise removes a much larger share of its value.\n\nNothing about either business needed to change. It is arithmetic about *when* the cash arrives, which is why the effect reversed when rate expectations fell back."
+          },
+          "healthcare": {
+            "heading": "Discount the probability first, then the time",
+            "md": "A drug in Phase 2 might pay £1bn in year 8 — but only if it works, and most drugs do not. So healthcare analysts face a question the textbook formula does not answer: where do you put the risk that the product never exists?\n\nThe tempting move is to shove it into the discount rate — use 30 % instead of 10 % and call it prudent. Analysts avoid that, for a good reason. Trial failure is a **yes/no event**, not a gentle spread of outcomes. Cranking the rate up implies the cash flow is merely uncertain in size, when in truth it is either roughly that number or nothing at all.\n\nInstead they multiply each cash flow by the **probability of success** first, then discount the probability-weighted figure at a normal rate. That keeps the rate comparable with every other company, and it puts the drug-specific risk exactly where it belongs. The full version is called risk-adjusted NPV, and it is what the Healthcare & Biotech module builds.",
+            "example_q": "Why don't biotech analysts just use a very high discount rate to reflect trial risk?",
+            "answer_md": "Because trial risk is binary, and a discount rate is the wrong tool for a binary outcome. A high rate implies a cash flow that is smoothly uncertain; a Phase 3 readout is closer to a coin toss between a large number and zero.\n\nProbability-weighting the cash flows first is more honest about that shape, and it keeps the discount rate comparable across companies — so you can still see which of two biotechs the market thinks is riskier, instead of hiding everything in one made-up rate. It also forces you to state the probability of success explicitly, which is the assumption worth arguing about."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Ashdown's landlord offers a choice: **£0.5m of rent-free months now**, or **£0.6m of rent-free months in two years**. Ashdown discounts at 8 %. Which should it take — and how confident are you?",
+        "model_answer_md": "Compare them at the same date, so bring the later offer back to today:\n\n$$PV = \\frac{0.6}{1.08^2} = £0.514\\text{m}$$\n\nThat beats £0.5m today, so on these numbers Ashdown should take the deferred offer — but only by about **£14k**, which is roughly 3 % of the deal.\n\nThat thin margin is the real answer. At a 10 % discount rate the deferred offer is worth £0.496m and the decision **flips**. So this is not a comfortable win: it depends entirely on the rate you think is right, and it assumes the landlord is still there in two years to honour it. Given the counterparty risk, I would want a clear margin before waiting, and here there isn't one.",
+        "rubric": [
+          "Discounts to a common date rather than comparing £0.5m with £0.6m directly",
+          "Uses the correct exponent (two years, not three)",
+          "Reaches £0.514m and states a decision",
+          "Notices the answer is rate-sensitive and flips at around 10 %",
+          "Raises the risk that the deferred benefit does not materialise"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Discount rate goes up — does present value rise or fall?", "a": "Falls. You are dividing by a bigger number, once per year." },
+          { "q": "Two identical £1m payments, one in year 2 and one in year 6. Which is worth more today?", "a": "Year 2 — fewer rounds of discounting." },
+          { "q": "What two things is a discount rate paying for?", "a": "Waiting (opportunity cost) and risk." },
+          { "q": "Does the mid-year convention raise or lower a valuation?", "a": "Raises it — you assume cash arrives on average half a year sooner." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**A pound later is a pound discounted for waiting and for worry — and because the discount compounds, distant cash flows collapse rather than fade.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can say what a discount rate represents without mentioning inflation first.",
+          "I can discount a single cash flow to today and explain each part of the formula.",
+          "I can say which way a valuation moves when rates rise, and which companies move most.",
+          "I can define the mid-year convention and say which direction it pushes value."
+        ]
+      }
+    ]
+  }
+}

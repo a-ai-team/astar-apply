@@ -44,6 +44,8 @@ export function topicLabel(slug: string): string {
 // Free topics (TODO(james): confirm) default to Accounting + EqV/EV, matching the reference
 // site's free tier. Add subtopics freely; never rename a slug once seeded.
 
+import type { LensSlug } from "./lesson-schema";
+
 export type TopicKind = "core" | "foundation" | "fit" | "industry";
 export type SubtopicKind = "concept" | "calculation" | "mixed";
 export type TopicLevel = "foundation" | "core" | "advanced";
@@ -56,6 +58,8 @@ export type CurriculumSubtopic = {
   target_questions: number;
   /** Walkthrough subtopics require a `scenario` block in their lessons before approval. */
   walkthrough?: boolean;
+  /** Loop 11+: kept in the taxonomy (slugs are never removed) but hidden until a lesson exists. */
+  deferred?: boolean;
 };
 
 export type CurriculumTopic = {
@@ -80,11 +84,13 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "Time value of money, discounting, NPV and IRR — the five ideas every later topic leans on.",
     source_section: "Finance concepts",
     subtopics: [
-      sub("time-value-of-money", "Time value of money", "concept", "Finance concepts", 3),
-      sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 3),
-      sub("pv-npv", "Present value and NPV", "calculation", "Finance concepts", 4),
-      sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 3),
-      sub("wacc-intro", "WACC: a first look", "mixed", "Finance concepts", 3),
+      // Loop 12: three lessons carry the chapter; `discount-rates-and-risk` folds into lesson 1 and
+      // `irr-and-payback` into lesson 2, so both are deferred (slugs kept — never removed).
+      sub("time-value-of-money", "Time value of money", "mixed", "Finance concepts", 4),
+      { ...sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 0), deferred: true },
+      sub("pv-npv", "Present value, NPV and IRR", "calculation", "Finance concepts", 4),
+      { ...sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 0), deferred: true },
+      sub("wacc-intro", "WACC: a first look", "mixed", "Finance concepts", 4),
     ],
   },
   {
@@ -192,6 +198,26 @@ export const CURRICULUM: CurriculumTopic[] = [
     ],
   },
 ];
+
+// ---------------------------------------------------------------------------------------------
+// Industry lenses (Loop 11). A lens is a *reader setting*, not a curriculum: choosing one swaps in
+// `lens` blocks and unlocks `lens:`-tagged questions. The generalist lesson is always complete on
+// its own. Design: docs/research/technicals-v2/02-lens-design.md. Add lenses; never rename a slug.
+// ---------------------------------------------------------------------------------------------
+
+export type Lens = { slug: LensSlug; label: string; module_slug: string };
+
+/** `module_slug` points at the Loop 09 industry module the lens links out to for the deep dive. */
+export const LENSES: Lens[] = [
+  { slug: "tmt", label: "TMT", module_slug: "tmt" },
+  { slug: "healthcare", label: "Healthcare & Biotech", module_slug: "healthcare-biotech" },
+];
+
+export const LENS_LABELS: Record<LensSlug, string> = Object.fromEntries(LENSES.map((l) => [l.slug, l.label])) as Record<LensSlug, string>;
+
+export function isLensSlug(s: string | undefined | null): s is LensSlug {
+  return !!s && LENSES.some((l) => l.slug === s);
+}
 
 export const FREE_TOPIC_SLUGS: readonly TopicSlug[] = CURRICULUM.filter((t) => t.is_free).map((t) => t.slug);
 

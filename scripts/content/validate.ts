@@ -6,6 +6,7 @@ import path from "node:path";
 import { approvalProblems, validateLessonBody } from "../../src/lib/content/lesson-schema";
 import { assertQuestionApprovable, validateQuestion } from "../../src/lib/content/question-schema";
 import { findSubtopic, isContentTopicSlug } from "../../src/lib/content/taxonomy";
+import { validateCheatSheet } from "../../src/lib/content/cheatsheet-schema";
 
 export type LessonFile = {
   slug: string; subtopic_slug: string; title: string; ordinal: number;
@@ -34,6 +35,24 @@ export function contentDirs(root: string, kind: "lessons" | "questions"): string
 }
 
 export type QuestionMeta = { generated_by: string | null; prompt_version: string | null; check_problems: string[] | null };
+
+/** Cheat sheets (Loop 11): `<root>/cheatsheets/<topic_slug>.json`, one per curriculum topic. */
+export function validateCheatSheets(root: string): { sheets: string[]; errors: string[] } {
+  const dir = path.join(root, "cheatsheets");
+  const errors: string[] = [];
+  const sheets: string[] = [];
+  for (const file of jsonFiles(dir)) {
+    const rel = path.relative(root, file);
+    const raw = JSON.parse(readFileSync(file, "utf8")) as { topic_slug?: string };
+    const v = validateCheatSheet(raw);
+    if (!v.ok) { errors.push(...v.errors.map((e) => `${rel}: ${e}`)); continue; }
+    if (!isContentTopicSlug(v.value.topic_slug)) errors.push(`${rel}: unknown topic_slug ${v.value.topic_slug}`);
+    const expected = `${v.value.topic_slug}.json`;
+    if (path.basename(file) !== expected) errors.push(`${rel}: file should be named ${expected}`);
+    sheets.push(v.value.topic_slug);
+  }
+  return { sheets, errors };
+}
 
 export function validateContentDir(root: string): { lessons: LessonFile[]; questions: ReturnType<typeof validateQuestion>[]; questionMeta: Map<string, QuestionMeta>; errors: string[] } {
   const errors: string[] = [];
@@ -64,13 +83,15 @@ export function validateContentDir(root: string): { lessons: LessonFile[]; quest
     }
     questions.push(v);
   }
+  errors.push(...validateCheatSheets(root).errors);
   return { lessons, questions, questionMeta, errors };
 }
 
 if (require.main === module) {
   const root = path.resolve(process.argv[2] ?? "content");
   const { lessons, questions, errors } = validateContentDir(root);
+  const { sheets } = validateCheatSheets(root);
   for (const e of errors) console.error(`FAIL ${e}`);
-  console.log(`${lessons.length} lesson(s), ${questions.length} question(s), ${errors.length} error(s) in ${root}`);
+  console.log(`${lessons.length} lesson(s), ${questions.length} question(s), ${sheets.length} cheat sheet(s), ${errors.length} error(s) in ${root}`);
   process.exit(errors.length ? 1 : 0);
 }

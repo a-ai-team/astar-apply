@@ -59,3 +59,27 @@ describe("questionChunk", () => {
     expect(contentTitle(["A", "", " B "])).toBe("Technicals › A › B");
   });
 });
+
+describe("blockText — Technicals v2 blocks (Loop 11)", () => {
+  it("prefixes each lens variant with its lens name so citations read 'the TMT lens'", () => {
+    const text = blockText({
+      type: "lens",
+      slot: "after-mechanics",
+      variants: {
+        tmt: { heading: "Software bills up front", md: "Cash arrives before revenue.", example_q: "Walk me through a £12m annual bill.", answer_md: "Deferred revenue rises." },
+        healthcare: { heading: "R&D is expensed", md: "No asset is created." },
+      },
+    });
+    expect(text).toContain("[TMT lens] Software bills up front");
+    expect(text).toContain("[HEALTHCARE lens] R&D is expensed");
+    expect(text).toContain("Q: Walk me through a £12m annual bill.");
+    expect(text).toContain("Deferred revenue rises.");
+  });
+
+  it("indexes predict, fill_numbers and order_steps, and skips template", () => {
+    expect(blockText({ type: "predict", prompt: "Does cash rise?", options: [{ label: "Yes", correct: true }, { label: "No", correct: false }], explain_md: "It rises by the tax shield." })).toContain("It rises by the tax shield.");
+    expect(blockText({ type: "fill_numbers", md: "Fill it in.", steps: [{ label: "Tax saved", expr: "10 * 25%", value: 2.5, unit: "£m", blank: true }] })).toContain("Tax saved: 10 * 25% = 2.5 £m");
+    expect(blockText({ type: "order_steps", prompt: "Order them.", steps: ["Project", "Discount", "Add TV"] })).toContain("2. Discount");
+    expect(blockText({ type: "template", kind: "dcf_sheet", props: {} })).toBe("");
+  });
+});

@@ -1,5 +1,6 @@
 // /home/technicals/[topic]/[lesson] — LessonRenderer over the approved lesson body. RLS hides
 // non-approved rows from students, so a draft lesson is a 404 here (acceptance check).
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,7 +8,10 @@ import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { getLesson } from "@/lib/content/queries";
 import { LessonBodySchema } from "@/lib/content/lesson-schema";
+import { isLensSlug } from "@/lib/content/taxonomy";
 import { LessonRenderer } from "@/components/lesson/lesson-renderer";
+import { LensProvider } from "@/components/lesson/lens-context";
+import { LensPicker } from "@/components/lesson/lens-picker";
 import { Badge } from "@/components/ui/badge";
 import { isLessonComplete } from "@/lib/practice/queries";
 import { LessonProgressControls } from "@/components/practice/lesson-progress-controls";
@@ -19,9 +23,11 @@ export async function generateMetadata({ params }: PageProps<"/home/technicals/[
   return { title: `${l?.title ?? "Lesson"} — Technicals — A* Apply`, robots: { index: false, follow: false } };
 }
 
-export default async function LessonPage({ params }: PageProps<"/home/technicals/[topic]/[lesson]">) {
+export default async function LessonPage({ params, searchParams }: PageProps<"/home/technicals/[topic]/[lesson]">) {
   await verifySession("/home/technicals");
   const { topic: topicSlug, lesson: lessonSlug } = await params;
+  const { lens: lensParam } = await searchParams;
+  const lens = isLensSlug(typeof lensParam === "string" ? lensParam : undefined) ? (lensParam as "tmt" | "healthcare") : null;
   const db = await createClient();
   const lesson = await getLesson(db, lessonSlug);
   if (!lesson || lesson.subtopic.topic.slug !== topicSlug) notFound();
@@ -38,13 +44,20 @@ export default async function LessonPage({ params }: PageProps<"/home/technicals
           <span className="mx-1">/</span>
           <span>{lesson.subtopic.title}</span>
         </nav>
-        <h1 className="mt-2 text-3xl font-semibold" data-testid="lesson-title">{lesson.title}</h1>
+        <div className="mt-2 flex flex-wrap items-start justify-between gap-3">
+          <h1 className="text-3xl font-semibold" data-testid="lesson-title">{lesson.title}</h1>
+          <Suspense fallback={null}>
+            <LensPicker lens={lens} />
+          </Suspense>
+        </div>
         <p className="mt-1 flex items-center gap-2 text-sm text-muted">
           <Badge>{body.data.reading_minutes} min read</Badge>
           <span>{lesson.subtopic.kind}</span>
         </p>
       </div>
-      <LessonRenderer body={body.data} lessonId={lesson.id} />
+      <LensProvider lens={lens}>
+        <LessonRenderer body={body.data} lessonId={lesson.id} />
+      </LensProvider>
       <LessonProgressControls lessonId={lesson.id} topicSlug={lesson.subtopic.topic.slug} completed={completed} />
     </>
   );

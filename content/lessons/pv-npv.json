@@ -1,0 +1,133 @@
+{
+  "slug": "pv-npv",
+  "subtopic_slug": "pv-npv",
+  "title": "NPV and IRR: should Ashdown open the thirteenth shop?",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "NPV and IRR are the two numbers every investment decision in finance eventually reduces to. A DCF is one enormous NPV. An LBO is judged on its IRR. When a banker says a deal \"works\", they mean one of these two numbers cleared a hurdle.\n\nInterviewers ask about them because the definitions are easy and the *relationship* is not. Plenty of candidates can define IRR. Far fewer can say why a project with a spectacular IRR might still be the worse investment, and that second question is where the conversation is actually decided."
+      },
+      {
+        "type": "concept",
+        "heading": "One number says how much, the other says how fast",
+        "md": "Ashdown Bakeries can open a thirteenth shop. It costs money now and returns money later, and the two are not comparable until you put them on the same date.\n\n**Net present value** does exactly that. Discount every future cash flow back to today, add them up, and subtract what you have to spend now:\n\n- NPV **> 0** — the project earns more than your discount rate. It creates value. Do it.\n- NPV **= 0** — it earns exactly your discount rate. You are indifferent.\n- NPV **< 0** — it earns less than you could get elsewhere at the same risk. Don't.\n\nNPV answers *how much value*, in pounds.\n\n**Internal rate of return** asks the question from the other end: what discount rate would make this project's NPV exactly zero? That rate is the project's own rate of return. Accept the project when its IRR beats your cost of capital.\n\nThe two rules almost always agree, because they are the same arithmetic read in opposite directions. When they disagree — and interviewers love that case — NPV is the one to trust."
+      },
+      {
+        "type": "mechanics",
+        "md": "$$NPV = \\sum_{t=1}^{n} \\frac{CF_t}{(1+r)^t} - I_0$$\n\nwhere $I_0$ is the cash you spend today and $CF_t$ is the cash the project throws off in year $t$.\n\nWhen the yearly cash flow is the *same* every year — as it roughly is for a shop — you do not have to discount each year separately. An **annuity factor** does all five years at once:\n\n$$\\text{Annuity factor} = \\frac{1 - (1+r)^{-n}}{r}$$\n\nAt 8 % over 5 years that factor is **3.993**. Multiply the annual cash flow by it and you have the present value of the lot. Being able to do this in your head to one decimal place is genuinely useful in an interview.\n\nIRR has no clean formula — you find it by trial and error, which is exactly what Excel does behind `=IRR()`. In an interview you bracket it: try a rate, see the sign of the NPV, and move. A useful anchor is the **rule of 72**: money doubling in $n$ years implies a rate of roughly $72 / n$ per cent."
+      },
+      {
+        "type": "predict",
+        "prompt": "The thirteenth shop has an NPV of +£0.40m at an 8 % discount rate. If Ashdown's cost of capital rose to 15 %, what would happen to that NPV?",
+        "options": [
+          { "label": "It stays comfortably positive" },
+          { "label": "It falls to roughly zero", "correct": true },
+          { "label": "It becomes strongly negative, around −£0.4m" },
+          { "label": "It is unaffected — NPV does not depend on the rate" }
+        ],
+        "explain_md": "It lands at almost exactly **zero**, because the shop's IRR is about **15.2 %**. That is what IRR *means*: the rate at which the project stops adding value. You did not need to recompute anything — knowing the IRR tells you immediately where the NPV crosses zero, which is why interviewers like the number even though NPV is the better decision rule."
+      },
+      {
+        "type": "widget",
+        "widget": "discount_dial",
+        "props": {
+          "mode": "npv",
+          "cashflows": [0.6, 0.6, 0.6, 0.6, 0.6],
+          "outlay": 2.0,
+          "rate": 0.08,
+          "midYear": false
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "The thirteenth shop costs **£2.0m** to fit out today and is expected to return **£0.6m a year for five years**. Ashdown discounts at **8 %**.",
+        "steps": [
+          { "label": "Annuity factor, 8 % over 5 years", "expr": "(1 - 1.08^-5) / 8%", "value": 3.993, "unit": "×" },
+          { "label": "Present value of the five £0.6m inflows", "expr": "0.6 * 3.993", "value": 2.396, "unit": "£m" },
+          { "label": "NPV after the £2.0m fit-out", "expr": "2.396 - 2.0", "value": 0.396, "unit": "£m" },
+          { "label": "Check the IRR: NPV at 15 %", "expr": "0.6 * ((1 - 1.15^-5) / 15%) - 2.0", "value": 0.011, "unit": "£m" },
+          { "label": "And at 16 % — so the IRR sits between", "expr": "0.6 * ((1 - 1.16^-5) / 16%) - 2.0", "value": -0.036, "unit": "£m" },
+          { "label": "Simple payback, ignoring time value", "expr": "2.0 / 0.6", "value": 3.33, "unit": "years" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Ashdown's landlord wants a **£0.4m** premium on top of the fit-out, so the shop now costs **£2.4m**. Same £0.6m a year for five years, same 8 % rate. Does it still clear the bar?",
+        "steps": [
+          { "label": "Present value of the inflows (unchanged)", "expr": "0.6 * 3.993", "value": 2.396, "unit": "£m" },
+          { "label": "NPV at the higher cost", "expr": "2.396 - 2.4", "value": -0.004, "unit": "£m", "blank": true },
+          { "label": "Annual cash flow needed to break even", "expr": "2.4 / 3.993", "value": 0.601, "unit": "£m", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"The IRR is the project's profit.\"**\n\nIRR is a *rate*, not an amount, and the difference decides real capital-allocation arguments.\n\nA 40 % IRR on a £10,000 project creates less value than a 12 % IRR on a £5m project. If Ashdown can only do one, the second one is worth vastly more money — but the first has the prettier percentage. This is why private equity firms quote IRR *and* money multiple: the rate alone tells you nothing about size.\n\nThere is a second problem. IRR quietly assumes every pound the project spits out is **reinvested at the IRR itself** until the end. For a 40 % IRR that is a heroic assumption — you would need a queue of equally brilliant projects waiting. NPV makes the more modest assumption that cash is reinvested at your cost of capital, which is why it is the rule to trust when the two conflict."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "NPV is the present value of a project's cash inflows minus what you spend today; a positive NPV means the project earns more than the discount rate, so it creates value. IRR is the discount rate at which NPV is exactly zero — the project's own rate of return — and you accept when it exceeds your cost of capital. Ashdown's shop has an NPV of about £0.4m at 8 % and an IRR near 15 %, so both rules say open it.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Negative for years, positive over a decade",
+            "md": "A subscription software business inverts the shop's cash-flow shape. It spends heavily *now* to win a customer — sales commission, marketing, onboarding — and then collects a modest amount every month for years afterwards.\n\nRun that through an NPV and something awkward happens: the project can be strongly value-creating while the company's reported cash flow is deeply negative for three or four years. Every new customer pushes cash flow *down* this year and value *up* over the life of the relationship. A company growing quickly is therefore burning cash precisely because the investment is working.\n\nThis is why \"burn\" on its own tells you nothing, and why software investors run a **mini-NPV per customer** instead: compare the cost of acquiring a customer with the present value of the gross profit they will generate. If that per-customer NPV is comfortably positive and the payback is quick, more burn is good news. If it isn't, growth just destroys value faster.",
+            "example_q": "A SaaS company loses money every single year. How can it possibly have a positive NPV?",
+            "answer_md": "Because the losses are front-loaded investment and the returns are long-dated. The company pays the full cost of acquiring a customer in year one, then collects subscription gross profit for many years afterwards, so the accounting loss and the economic value point in opposite directions.\n\nI would test it at the unit level rather than the company level: compare customer acquisition cost with the present value of that customer's gross profit over their expected life, and check how quickly the acquisition cost is paid back. If each customer is clearly NPV-positive and churn is low, the aggregate loss is just a function of how fast they are adding customers — and it would disappear if they stopped growing."
+          },
+          "healthcare": {
+            "heading": "Expected NPV, not NPV",
+            "md": "For a drug, the honest version of the calculation has an extra step. Each year's cash flow is multiplied by the probability that the drug is still alive to produce it, and only then discounted.\n\nThat matters because the decision facing a biotech is rarely \"is this drug worth more than it costs?\" It is \"is the *next stage* worth funding, given how likely it is to work?\" The cost of the next trial is spent whatever happens; the payoff only arrives in the branch where the trial succeeds.\n\nSo the sum looks like: probability of success × present value if it works, minus the cost of getting there. A positive answer justifies continuing even when the drug will probably fail — because the successful branch is large enough to carry the failures. That is the entire economic logic of a drug pipeline, and of venture investing generally.\n\nThe number that comes out is an *expectation*, not a forecast. It is worth saying so out loud: the actual outcome will be one branch or the other, never the average.",
+            "example_q": "A Phase 3 drug has a 60 % chance of approval and would be worth £2bn if approved. Finishing the trial costs £0.5bn. Go ahead?",
+            "answer_md": "Yes, on these numbers. The expected value is 0.6 × £2bn = £1.2bn against a £0.5bn cost, so the expected NPV is about **+£0.7bn** — the trial is worth funding.\n\nTwo caveats I would state. First, the £0.5bn is spent in every branch while the £2bn only arrives in one, so the company needs to be able to survive the 40 % outcome — a single-asset biotech might not. Second, the answer is very sensitive to the probability: at 30 % the expected NPV is 0.3 × 2.0 − 0.5 = +£0.1bn, which is close enough to zero that the estimate of the probability, not the valuation, is what the decision really turns on."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Ashdown is considering a **delivery van**. It costs **£0.3m** today and saves **£0.1m a year for four years**. Ashdown discounts at **10 %**. What is the NPV, roughly what is the IRR, and would you buy it?",
+        "model_answer_md": "The annuity factor at 10 % over 4 years is **3.170**, so:\n\n$$PV = 0.1 \\times 3.170 = £0.317\\text{m} \\quad\\Rightarrow\\quad NPV = 0.317 - 0.3 = +£0.017\\text{m}$$\n\nThe NPV is positive but tiny — about £17,000 on a £300,000 outlay. The IRR must therefore sit only a little above the 10 % hurdle; solving properly gives roughly **12.6 %**.\n\nSo the arithmetic says buy it, and I would not be confident about that. A 5 % shortfall in the annual saving wipes the whole margin out, and the van's residual value and maintenance are not in these numbers at all. I would say yes in principle, but this is a decision driven by assumptions I would want to test rather than by a comfortable margin.",
+        "rubric": [
+          "Uses an annuity factor or discounts the four years individually",
+          "Subtracts the £0.3m outlay to reach roughly +£0.017m",
+          "Places the IRR sensibly above 10 % (about 12–13 %)",
+          "States a decision rather than only producing numbers",
+          "Notes the margin is thin and the answer is sensitive to the assumptions"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What does NPV > 0 actually tell you?", "a": "The project returns more than the discount rate, so it creates value beyond the next best alternative." },
+          { "q": "Define IRR in one line.", "a": "The discount rate at which the project's NPV equals zero." },
+          { "q": "Can NPV and IRR disagree?", "a": "Yes — for mutually exclusive projects that differ in size or in the timing of their cash flows. Follow NPV." },
+          { "q": "What does the payback period ignore?", "a": "The time value of money, and every pound of cash after the payback date." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**NPV tells you how much value a project adds; IRR tells you how fast it earns. When they disagree, follow the money — follow NPV.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can define NPV and IRR and state the decision rule for each.",
+          "I can compute the NPV of a level cash-flow stream using an annuity factor.",
+          "I can bracket an IRR by trying rates and reading the sign of the NPV.",
+          "I can explain why a high IRR can still be the worse investment.",
+          "I can say what the payback period leaves out."
+        ]
+      }
+    ]
+  }
+}

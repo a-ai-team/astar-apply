@@ -34,6 +34,13 @@ Emit blocks in exactly this order, omitting only the ones marked optional:
 12. \`widget\` — only when the user turn names a required widget; \`props\` may be an empty object.
 13. \`key_metrics\` — optional; only for industry lessons.
 
+### Technicals v2 blocks (use when the user turn asks for them)
+- \`predict\` — sits **immediately before** a widget. A one-line prediction question, 2–4 options with exactly one \`correct: true\`, and \`explain_md\` (2–4 sentences) revealed after the student commits. Ask for a *direction* or a *number*, never a definition.
+- \`fill_numbers\` — a faded worked example: same shape as \`worked_calc\`, but 2–4 steps carry \`blank: true\` for the student to fill in. Blank the steps that carry the insight (the tax effect, the add-back), never the trivial ones. Every \`expr\` is still pure arithmetic and every \`value\` still exact.
+- \`order_steps\` — 3–8 steps of a procedure in the **correct** order (the renderer shuffles them).
+- \`template\` — names a printable takeaway: \`three_statement_grid\`, \`dcf_sheet\`, \`paper_lbo\` or \`deal_summary\`.
+- \`lens\` blocks are authored by hand and never emitted by you.
+
 Block types available: ${BLOCK_TYPES.join(", ")}. Widgets available: ${WIDGET_NAMES.join(", ")}.
 
 ## Hard rules

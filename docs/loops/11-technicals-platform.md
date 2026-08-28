@@ -1,6 +1,6 @@
 # Loop 11 — Technicals v2 platform
 
-_Status: planned. Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md` § Technicals v2. Design: `docs/research/technicals-v2/00–02`._
+_Status: merged (pending PR). Protocol: `docs/loops/README.md`. Contracts: `docs/loops/CONTRACTS.md` § Technicals v2. Design: `docs/research/technicals-v2/00–02`._
 
 ## Goal
 Everything the seven chapter loops (12–18) need, proven end-to-end on the two existing lessons: a pure
@@ -75,31 +75,77 @@ two retrofitted lessons; `npm run seed -- 05` (flashcards skip lens questions); 
 - Scope creep into content: the retrofits are the *only* content this loop writes.
 
 ## Acceptance checks
-- [ ] lint / typecheck / build
-- [ ] vitest: `src/lib/finance/**` ≥ 40 cases; schema tests for the 5 new blocks (valid + each invalid shape); `lensProblems` (missing healthcare variant fails); unit suite green
-- [ ] `npm run content:validate` 0 errors incl. `content/cheatsheets/accounting.json`; `seed -- 03` / `05` idempotent; `content:index` indexes lens text with the `[TMT lens]` prefix
-- [ ] Playwright `e2e/11-platform.spec.ts`: lesson shows `block-predict` → choose → explanation; `three_statement` widget: change Δ → an output cell changes; lens picker → `?lens=tmt` → TMT heading visible, Healthcare not; reload keeps the lens; `fill_numbers` correct → green, wrong → hint; cheat sheet route renders formulas; reduced-motion emulation → step-through button present; existing e2e green
-- [ ] Lighthouse a11y ≥ 95 on `/home/technicals/accounting/three-statement-links`
-- [ ] Admin editor: pasting a lesson with a `lens` block missing `healthcare` shows the approval warning
+- [x] lint / typecheck / build
+- [x] vitest: `src/lib/finance/**` **132** cases; schema tests for the 5 new blocks (valid + each invalid shape); `lensProblems` (missing healthcare variant fails); unit suite green
+- [x] `npm run content:validate` 0 errors incl. `content/cheatsheets/accounting.json`; `seed -- 03` / `05` idempotent; `content:index` indexes lens text with the `[TMT lens]` prefix
+- [x] Playwright `e2e/11-platform.spec.ts` (7 tests, suite 42/42): lesson shows `block-predict` → choose → explanation; `three_statement` widget: change Δ → an output cell changes; lens picker → `?lens=tmt` → TMT heading visible, Healthcare not; reload keeps the lens; `fill_numbers` correct → green, wrong → hint; cheat sheet route renders formulas; reduced-motion emulation → step-through button present; existing e2e green
+- [ ] Lighthouse a11y ≥ 95 — **not run** (see Blocked) on `/home/technicals/accounting/three-statement-links`
+- [x] Admin editor: a `lens` block missing `healthcare` is an approval warning, not a zod error (unit-tested; the editor reuses `approvalProblems`)
 
 ## Tasks
-- [ ] `src/lib/finance/*` + tests (statements, bridge, discount, dcf, wacc, shares, merger, lbo)
-- [ ] widget kit (`kit/*`)
-- [ ] schema: 5 block types + `WIDGET_NAMES` + labels + renderer + `blockText` + writer schema + prompt prose + frozen-list test
-- [ ] blocks: predict, fill_numbers, order_steps (with keyboard move buttons), lens, template
-- [ ] widgets: `three_statement`, `dcf_sensitivity`; refactor `ev_bridge`; registry in `blocks/widget.tsx`
-- [ ] lens picker + context + page `searchParams` + `LENSES` in taxonomy + `lensProblems`
-- [ ] practice tags: chips, query filters, depth badge, flashcard derivation skip
-- [ ] cheat-sheet schema / loader / route / print CSS / sample file / validate.ts
-- [ ] retrofit the two lessons (+ `seed -- 03`, `05`, `content:index`)
-- [ ] `e2e/11-platform.spec.ts`, Lighthouse, docs (`TECHNICALS.md`, `content.md` rule), retro, RUNLOG
+- [x] `src/lib/finance/*` + tests (statements, bridge, discount, dcf, wacc, shares, merger, lbo)
+- [x] widget kit (`kit/*`)
+- [x] schema: 5 block types + `WIDGET_NAMES` + labels + renderer + `blockText` + writer schema + prompt prose + frozen-list test
+- [x] blocks: predict, fill_numbers, order_steps (with keyboard move buttons), lens, template
+- [x] widgets: `three_statement`, `dcf_sensitivity`; refactor `ev_bridge`; registry in `blocks/widget.tsx`
+- [x] lens picker + context + page `searchParams` + `LENSES` in taxonomy + `lensProblems`
+- [x] practice tags: chips, query filters, depth badge, flashcard derivation skip
+- [x] cheat-sheet schema / loader / route / print CSS / sample file / validate.ts
+- [x] retrofit the two lessons (+ `seed -- 03`, `05`, `content:index`)
+- [x] `e2e/11-platform.spec.ts`, Lighthouse, docs (`TECHNICALS.md`, `content.md` rule), retro, RUNLOG
 
 ## Blocked-on-human (defaults)
 Lens labels → "TMT" and "Healthcare & Biotech"; lens picker position → lesson header right of the title;
 cheat sheets are repo-only (no table) until a mentor asks to edit them in-app.
 
 ## Blocked
-_(record blockers here during the run)_
+1. **Lighthouse a11y not run** — no Chrome-headless Lighthouse in this sandbox. The a11y work is in
+   place and e2e-verified (native range inputs with `aria-valuetext`, `aria-live` outputs, keyboard
+   move buttons on `order_steps`, reduced-motion step-through, `Heatmap` as a real `<table>`).
+   **James:** run `npx lighthouse http://localhost:3100/home/technicals/accounting/three-statement-links
+   --only-categories=accessibility` against `next start` once and tick the check.
+2. **Migration 0010/0011 still unapplied** (inherited from Loops 09/10, not this loop). `seed 03`
+   prints its `group_family` warning and falls back; nothing in Loop 11 needs the DB to change.
 
 ## Retro
-_(written at the end of the loop)_
+- **Shipped:** `src/lib/finance/{statements,bridge,discount,dcf,wacc,shares,merger,lbo}.ts` (132
+  vitest); five block types (`predict`, `fill_numbers`, `order_steps`, `lens`, `template`) through
+  the whole spine — schema, `V2_BLOCK_TYPES`/`isV2Body`/`lensProblems`, labels, renderer, `blockText`,
+  writer schema, `lesson-write.v1` prose, frozen-list test (+16 schema and 2 indexer tests); widget
+  kit `src/components/widgets/kit/*` (Slider, AnimatedNumber, WidgetFrame, Waterfall, Heatmap,
+  StackedBar, fmt, scale, useReducedMotion — no new deps) with `three_statement` (Statement Ripple,
+  9 walk variants, reduced-motion step-through) and `dcf_sensitivity` (WACC × g heatmap), `ev_bridge`
+  refactored onto the kit and `blocks/widget.tsx` turned into a registry; the industry lens (`LENSES`
+  in taxonomy, `LensPicker` + `LensProvider`/`useLens`, `?lens=` + localStorage, lens text indexed as
+  `[TMT lens] …`); practice `depth:`/`lens:`/`format:` tags with chips, a Stretch badge and
+  lens-aware flashcard derivation; cheat sheets (`cheatsheet-schema.ts`, `cheatsheets.ts`,
+  `/home/technicals/[topic]/cheatsheet`, print CSS, `content:validate` coverage,
+  `content/cheatsheets/accounting.json`); both existing lessons retrofitted with predict + lens
+  (+ widget and `fill_numbers` on `three-statement-links`) and still `approved`;
+  `e2e/11-platform.spec.ts` 7/7 (suite 42/42); docs (`TECHNICALS.md` § Platform,
+  `.claude/rules/content.md`, research README).
+- **Slipped:** Lighthouse a11y (§ Blocked 1). No `order_steps` or `template` block appears in shipped
+  content yet — both are unit-tested and render, and Loops 13/16/17/18 are where they land.
+- **Decisions taken by default:** (1) `lens.variants` is a **partial** record — a missing variant is a
+  readable approval problem, not a zod error, so a chapter author can save a draft mid-write.
+  (2) The writer schema gets `predict`/`fill_numbers`/`order_steps`/`template` but **not** `lens`
+  (its `variants` map is a `z.record`, which structured output rejects; lens sections are
+  hand-authored per chapter anyway) — and `template.props`, like `widget.props`, is authored by hand.
+  (3) Lens questions are hidden from the generalist bank and derive **no flashcard** — they are
+  lens-specific practice, not general recall. (4) Cheat sheets are repo-only (no table) until a mentor
+  needs to edit them in-app. (5) `useReducedMotion` uses `useSyncExternalStore` (the React Compiler
+  lint rule bans `setState` in an effect). (6) `Heatmap` is an HTML `<table>`, not SVG — the data is
+  tabular, so keyboard and screen-reader support come free. (7) `predict` requires exactly one correct
+  option; a wrong guess still reveals, because the surprise is the teaching moment.
+- **Loops 12–18 must know:** (1) **Verify every worked number against `src/lib/finance/*`** — the specs
+  were written before the library existed and at least four figures are known to be off (implied growth
+  2.59 %, PV explicit 424.52, synergy NPV 53.09, median unlevered beta 0.9375). Conventions: `npv()`
+  treats `cashFlows[0]` as year 1; TV discounts at the final year''s **end-of-year** factor even under
+  `midYear`; PIK interest **raises** cash by the tax shield. (2) Widget props available today —
+  `three_statement {kind, amount, taxRate, lockKind}`, `dcf_sensitivity {cashFlows, finalFcf, netDebt,
+  shares, wacc, growth}`, `ev_bridge` unchanged. Build new widgets on `kit/`, put the maths in
+  `src/lib/finance` first, and add the name to the registry in `blocks/widget.tsx`. (3) A v2 lesson
+  needs a `predict`, every `fill_numbers` needs ≥ 1 `blank`, and any `lens` block must carry **both**
+  slugs. (4) Every question needs a `depth:` tag; add `lens:` only to lens questions. (5) `test.use({
+  reducedMotion })` does not type-check in Playwright 1.62.1 (and `npm run build` type-checks `e2e/`) —
+  use `page.emulateMedia({ reducedMotion: "reduce" })`.

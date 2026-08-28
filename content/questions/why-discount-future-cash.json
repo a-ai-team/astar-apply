@@ -1,0 +1,37 @@
+{
+  "topic_slug": "finance-foundations",
+  "source_topic": "Finance concepts",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "slug": "why-discount-future-cash",
+  "subtopic_slug": "time-value-of-money",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "Why is a pound today worth more than a pound in three years' time?",
+  "model_answer_md": "For two reasons, and it is worth naming both.\n\nFirst, **waiting has a cost**. If I had the pound now I could do something with it — repay a loan, open another shop, buy a gilt. Giving that up for three years means giving up whatever I would have earned, which economists call the opportunity cost.\n\nSecond, **the future pound might not arrive**. The payer could go bust or dispute the invoice; the promise is not the cash.\n\nThe discount rate prices both together. It is the return I could earn elsewhere on something of similar risk, so dividing by it converts a future amount into what I would need today to be indifferent between the two.",
+  "key_points": [
+    "Opportunity cost — the pound could be invested or used now",
+    "Risk — a future payment may not arrive in full or at all",
+    "The discount rate prices both, set by returns available elsewhere at similar risk",
+    "Discounting is the reverse of compounding, not an inflation adjustment"
+  ],
+  "follow_ups": [
+    {
+      "question": "Isn't this just inflation?",
+      "answer_md": "Inflation is one component but not the main one. In a world with zero inflation you would still prefer the pound now, because you could invest it and because the future payment carries risk. Inflation matters mostly for consistency: discount nominal cash flows at a nominal rate, and real cash flows at a real rate — mixing the two is the actual mistake."
+    },
+    {
+      "question": "Which cash flows get the highest discount rate?",
+      "answer_md": "The riskiest and least certain ones. A government bond coupon is discounted at close to the risk-free rate; an equity stake in an early-stage, cash-burning business is discounted at a much higher rate, because the range of outcomes is far wider and shareholders are paid last."
+    }
+  ],
+  "weak_answer_note": "Says only 'because of inflation', or asserts that money 'loses value over time' without naming opportunity cost or risk. A weak answer also treats it as a rule to recite rather than explaining why a rate is applied at all.",
+  "numbers": null,
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "time-value",
+    "discounting"
+  ]
+}

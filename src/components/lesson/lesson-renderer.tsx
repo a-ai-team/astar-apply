@@ -20,6 +20,14 @@ import { OneLiner } from "./blocks/one-liner";
 import { NowYouCan } from "./blocks/now-you-can";
 import { Widget } from "./blocks/widget";
 import { KeyMetrics } from "./blocks/key-metrics";
+import { Predict } from "./blocks/predict";
+import { FillNumbers } from "./blocks/fill-numbers";
+import { OrderSteps } from "./blocks/order-steps";
+import { Lens } from "./blocks/lens";
+import { Template } from "./blocks/template";
+
+/** Blocks that get no "Ask Mentor" affordance — interactive or purely structural. */
+const NO_ASK_MENTOR = new Set<LessonBlock["type"]>(["widget", "template", "order_steps", "predict"]);
 
 export function LessonBlockView({ block }: { block: LessonBlock }) {
   switch (block.type) {
@@ -36,6 +44,11 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
     case "now_you_can": return <NowYouCan block={block} />;
     case "widget": return <Widget block={block} />;
     case "key_metrics": return <KeyMetrics block={block} />;
+    case "predict": return <Predict block={block} />;
+    case "fill_numbers": return <FillNumbers block={block} />;
+    case "order_steps": return <OrderSteps block={block} />;
+    case "lens": return <Lens block={block} />;
+    case "template": return <Template block={block} />;
   }
 }
 
@@ -45,7 +58,7 @@ export function LessonRenderer({ body, lessonId }: { body: LessonBody; lessonId?
       {body.blocks.map((block, i) => (
         <div key={`${block.type}-${i}`} id={blockAnchor(i)} data-block-index={i} className="scroll-mt-20 target:rounded-lg target:ring-2 target:ring-accent/40 target:ring-offset-4 target:ring-offset-bg">
           <LessonBlockView block={block} />
-          {lessonId && block.type !== "widget" && (
+          {lessonId && !NO_ASK_MENTOR.has(block.type) && (
             <div className="mt-3">
               <AskMentorButton size="xs" target={{ kind: "lesson", lessonId, blockIndex: i }} />
             </div>

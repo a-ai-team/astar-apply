@@ -7,15 +7,30 @@ import type { QuestionBody } from "@/lib/content/question-schema";
 import type { CardStateRow } from "./srs";
 import { computeStreak } from "./srs";
 import { buildSearchQuery, SEARCH_LIMIT, type SearchHit } from "./search";
+import { LENSES, isLensSlug } from "@/lib/content/taxonomy";
 
 export const PAGE_SIZE = 12;
 export const DIFFICULTY_LABELS: Record<number, string> = { 1: "Definition", 2: "Why", 3: "Second-order", 4: "Numerical" };
 export const SESSION_SIZE = 20;
+/** Every `lens:` tag that exists — used to exclude lens questions from the generalist bank. */
+const LENS_TAGS = LENSES.map((l) => `lens:${l.slug}`);
 
 export type QuestionSummary = { id: string; slug: string; kind: string; difficulty: number; question: string; tags: string[]; topic: { slug: string; title: string } };
 export type QuestionFull = QuestionSummary & { body: QuestionBody; subtopic: { slug: string; title: string } | null };
 
-export type BankFilter = { topic?: string; difficulty?: number; kind?: string; page?: number };
+export type BankFilter = { topic?: string; difficulty?: number; kind?: string; page?: number; depth?: DepthTag; lens?: string };
+
+/** Technicals v2 question tags (CONTRACTS.md § Technicals v2). */
+export const DEPTH_TAGS = ["sa-core", "sa-stretch"] as const;
+export type DepthTag = (typeof DEPTH_TAGS)[number];
+export const DEPTH_LABELS: Record<DepthTag, string> = { "sa-core": "Core", "sa-stretch": "Stretch" };
+export function depthOf(tags: string[]): DepthTag | null {
+  const t = tags.find((x) => x.startsWith("depth:"))?.slice("depth:".length);
+  return t === "sa-core" || t === "sa-stretch" ? t : null;
+}
+export function lensOf(tags: string[]): string | null {
+  return tags.find((x) => x.startsWith("lens:"))?.slice("lens:".length) ?? null;
+}
 
 /** Parses the bank's search params (strings) into a filter; invalid values are dropped. */
 export function parseBankFilter(sp: Record<string, string | string[] | undefined>): BankFilter {
@@ -27,6 +42,8 @@ export function parseBankFilter(sp: Record<string, string | string[] | undefined
     topic: one("topic") || undefined,
     difficulty: d >= 1 && d <= 4 ? d : undefined,
     kind: kind === "concept" || kind === "calculation" ? kind : undefined,
+    depth: one("depth") === "sa-core" || one("depth") === "sa-stretch" ? (one("depth") as DepthTag) : undefined,
+    lens: isLensSlug(one("lens")) ? one("lens") : undefined,
     page: Number.isInteger(p) && p >= 1 ? p : 1,
   };
 }
@@ -37,9 +54,26 @@ export function bankHref(f: BankFilter, patch: Partial<BankFilter> = {}): string
   if (m.topic) q.set("topic", m.topic);
   if (m.difficulty) q.set("difficulty", String(m.difficulty));
   if (m.kind) q.set("kind", m.kind);
+  if (m.depth) q.set("depth", m.depth);
+  if (m.lens) q.set("lens", m.lens);
   if (m.page && m.page > 1) q.set("page", String(m.page));
   const s = q.toString();
   return s ? `/home/practice?${s}` : "/home/practice";
+}
+
+/**
+ * Tag filters (Loop 11). Lens questions are *hidden* from the generalist bank — they only appear
+ * when the reader has chosen that lens — so the default query excludes anything `lens:`-tagged.
+ */
+function applyTagFilters<T>(q: T, f: BankFilter): T {
+  // Supabase's builder types are per-query generics; the filters below are plain PostgREST ops.
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  let b = q as any;
+  if (f.depth) b = b.contains("tags", [`depth:${f.depth}`]);
+  if (f.lens) b = b.contains("tags", [`lens:${f.lens}`]);
+  else b = b.not("tags", "cs", `{${LENS_TAGS.join(",")}}`);
+  return b as T;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 }
 
 const SUMMARY = "id, slug, kind, difficulty, question, tags, topic:topics!inner(slug, title)";
@@ -50,6 +84,7 @@ export async function listQuestions(db: SupabaseClient, f: BankFilter): Promise<
   if (f.topic) q = q.eq("topic.slug", f.topic);
   if (f.difficulty) q = q.eq("difficulty", f.difficulty);
   if (f.kind) q = q.eq("kind", f.kind);
+  q = applyTagFilters(q, f);
   const from = (page - 1) * PAGE_SIZE;
   const { data, count, error } = await q.range(from, from + PAGE_SIZE - 1);
   if (error) throw error;
@@ -69,6 +104,7 @@ export async function nextQuestionSlug(db: SupabaseClient, current: Pick<Questio
   if (f.topic) q = q.eq("topic.slug", f.topic);
   if (f.difficulty) q = q.eq("difficulty", f.difficulty);
   if (f.kind) q = q.eq("kind", f.kind);
+  q = applyTagFilters(q, f);
   const { data, error } = await q;
   if (error) throw error;
   const rows = (data ?? []) as unknown as QuestionSummary[];

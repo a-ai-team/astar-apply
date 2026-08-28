@@ -22,10 +22,14 @@ describe("targets", () => {
     expect(lessonTargets(existing, { topics: ["eqv-ev"] }).every((t) => t.topic_slug === "eqv-ev")).toBe(true);
     expect(lessonTargets(existing)[0].input.prior_one_liners).toContain("EV is what a buyer pays for the whole business.");
   });
-  it("question targets sum to TOTAL_TARGET_QUESTIONS (Σ 347) and mix sums per request", () => {
+  it("question targets sum to TOTAL_TARGET_QUESTIONS and mix sums per request", () => {
     const ts = questionTargets(none);
     expect(ts.reduce((a, t) => a + t.count, 0)).toBe(TOTAL_TARGET_QUESTIONS);
-    expect(TOTAL_TARGET_QUESTIONS).toBe(347);
+    // The total is derived from `target_questions` in taxonomy.ts, which each Technicals v2 chapter
+    // loop rewrites to its own scope (it was 347 under the Loop 03/04 plan). Assert the invariant —
+    // targets equal the taxonomy — and a sane range, not a frozen figure that every chapter breaks.
+    expect(TOTAL_TARGET_QUESTIONS).toBeGreaterThan(100);
+    expect(TOTAL_TARGET_QUESTIONS).toBeLessThan(400);
     for (const t of ts) expect(t.mix.reduce((a, b) => a + b, 0)).toBe(t.count);
   });
   it("subtracts existing questions per kind", () => {

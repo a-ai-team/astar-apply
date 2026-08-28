@@ -4,11 +4,17 @@
 import { z } from "zod";
 import {
   CanonicalAnswerBlock, ConceptBlock, KeyMetricsBlock, MechanicsBlock, NowYouCanBlock, OneLinerBlock, QuickFireBlock, ScenarioBlock,
-  TrapBlock, WhyHereBlock, WorkedCalcBlock, YourTurnBlock, WIDGET_NAMES, type LessonBody,
+  TrapBlock, WhyHereBlock, WorkedCalcBlock, YourTurnBlock, WIDGET_NAMES, TEMPLATE_KINDS,
+  PredictBlock, FillNumbersBlock, OrderStepsBlock, type LessonBody,
 } from "../lesson-schema";
 import { QUESTION_KINDS, type Question } from "../question-schema";
 
 const WidgetOutBlock = z.object({ type: z.literal("widget"), widget: z.enum(WIDGET_NAMES) });
+// Same reason as widgets: `props` is a z.record, which the structured-output API rejects. The
+// writer names the template; the props (if any) are authored by hand.
+const TemplateOutBlock = z.object({ type: z.literal("template"), kind: z.enum(TEMPLATE_KINDS) });
+// `lens` is deliberately absent from the writer schema: its `variants` map is a z.record, and lens
+// sections are hand-authored per chapter from docs/research/technicals-v2/1N-*.md anyway.
 
 export const LessonBodyOutSchema = z.object({
   version: z.literal(1),
@@ -17,6 +23,7 @@ export const LessonBodyOutSchema = z.object({
     z.discriminatedUnion("type", [
       WhyHereBlock, ConceptBlock, MechanicsBlock, WorkedCalcBlock, TrapBlock, CanonicalAnswerBlock, ScenarioBlock, YourTurnBlock, QuickFireBlock,
       OneLinerBlock, NowYouCanBlock, WidgetOutBlock, KeyMetricsBlock,
+      PredictBlock, FillNumbersBlock, OrderStepsBlock, TemplateOutBlock,
     ]),
   ),
 });
@@ -29,7 +36,11 @@ export function toLessonBody(out: z.infer<typeof LessonBodyOutSchema>): LessonBo
   return {
     version: 1,
     reading_minutes: out.reading_minutes,
-    blocks: out.blocks.map((b) => (b.type === "widget" ? { type: "widget" as const, widget: b.widget, props: {} } : b)),
+    blocks: out.blocks.map((b) => {
+      if (b.type === "widget") return { type: "widget" as const, widget: b.widget, props: {} };
+      if (b.type === "template") return { type: "template" as const, kind: b.kind, props: {} };
+      return b;
+    }),
   };
 }
 

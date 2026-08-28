@@ -1,0 +1,58 @@
+{
+  "topic_slug": "accounting",
+  "formulas": [
+    {
+      "name": "The balance-sheet identity",
+      "latex": "\\text{Assets} = \\text{Liabilities} + \\text{Equity}",
+      "note": "Every walkthrough ends here. If it does not balance, you have missed a line — usually the retained-earnings hit."
+    },
+    {
+      "name": "Net income to cash",
+      "latex": "\\text{Cash from operations} = \\text{Net income} + \\text{Non-cash charges} - \\Delta\\text{Working capital}",
+      "note": "The cash flow statement exists because the income statement is written on the accrual basis, not the cash basis."
+    },
+    {
+      "name": "After-tax effect of a pre-tax charge",
+      "latex": "\\Delta\\text{Net income} = -\\text{Charge} \\times (1 - t)",
+      "note": "A £10m charge at a 25 % tax rate costs £7.5m of net income, not £10m. Forgetting the tax shield is the single most common error."
+    },
+    {
+      "name": "Working capital",
+      "latex": "\\text{NWC} = \\text{Current assets (ex-cash)} - \\text{Current liabilities (ex-debt)}",
+      "note": "An increase in working capital is a use of cash: you have tied money up in receivables or inventory."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "Walk me through the three statements.",
+      "a": "The income statement shows profitability over a period, ending in net income. The cash flow statement starts from net income, adds back non-cash items, adjusts for working capital, then covers investing and financing to give the change in cash. The balance sheet is a snapshot: assets equal liabilities plus equity. Net income links the income statement to both others, and the change in cash closes the loop."
+    },
+    {
+      "q": "Depreciation goes up by £10m. Walk me through the statements.",
+      "a": "At a 25 % tax rate: operating profit falls £10m, tax falls £2.5m, so net income falls £7.5m. On the cash flow statement, net income is down £7.5m but you add back the £10m non-cash charge, so cash rises £2.5m. On the balance sheet, cash is up £2.5m and PP&E is down £10m, so assets fall £7.5m; retained earnings fall £7.5m. It balances."
+    },
+    {
+      "q": "Which statement would you pick if you could only have one?",
+      "a": "The cash flow statement. It tells you how much cash the business actually generated, which is what ultimately services debt and pays shareholders. Net income can be shaped by accounting choices; cash is harder to argue with. The trade-off is that you lose the profitability picture and the asset base, so you would be reasoning about one period only."
+    }
+  ],
+  "traps": [
+    "Saying cash falls by the full charge — a non-cash charge saves tax, so cash goes up by the tax saving.",
+    "Forgetting to tax-effect anything: every pre-tax line moves net income by the amount × (1 − t).",
+    "Calling an increase in working capital a source of cash. It is a use.",
+    "Ending a walkthrough without stating the balance check. Say it out loud — it shows you are done.",
+    "Treating depreciation as an operating decision. It follows the earlier capex decision."
+  ],
+  "one_liners": [
+    "Net income links the income statement to both the others; the change in cash closes the loop.",
+    "Walk it IS → CFS → BS, every time, and finish on the balance check.",
+    "Profit is an opinion; cash is a fact.",
+    "An increase in an asset is a use of cash; an increase in a liability is a source."
+  ],
+  "you_may_hear": [
+    "Deferred tax assets and liabilities from book-versus-tax timing differences — know the name and that they reverse.",
+    "IFRS 16 / ASC 842 lease capitalisation mechanics — you need the EV consequence, not the schedule.",
+    "Net operating loss carryforwards and their valuation.",
+    "Purchase-accounting write-ups creating deferred tax liabilities — that is merger-model territory."
+  ]
+}
