@@ -2,9 +2,9 @@
 
 - **Run started:** 2026-08-28 (Technicals v2) · **Handover written:** 2026-08-31
 - **Loop:** 16 DCF complete (PR #36). **Next: Loop 17 M&A**, then Loop 18 LBO.
-- **Branch:** `feat/technicals-dcf` (PR #36). Branch Loop 17 off **`main`** — see § Branching.
-- **Last checks:** lint ✓ typecheck ✓ build ✓ unit 374/374 ✓ e2e 67/67 ✓ `content:validate` 0 errors ✓ eval lessons+questions **PASS** (schema 1.00, overlap 0, readability 4.47, mix gate 0.128 at n=156) ✓
-- **Blockers:** four PRs need James to merge (§ Merging); Lighthouse a11y never run (§ Standing gaps).
+- **Branch:** none — Loops 11–16 are all merged to `main`. Branch Loop 17 off **`main`**.
+- **Last checks (on `main`):** lint ✓ typecheck ✓ build ✓ unit 374/374 ✓ e2e 67/67 ✓ `content:validate` 0 errors (28 lessons, 164 questions, 5 cheat sheets) ✓ 15 widgets registered ✓ eval lessons+questions **PASS** (schema 1.00, overlap 0, readability 4.47, mix gate 0.128 at n=156) ✓
+- **Blockers:** none for Loop 17. Lighthouse a11y never run (§ Standing gaps).
 - **Next action:** Loop 17 M&A — 4 lessons, 22 questions, `accretion_rule` / `synergy_npv` / `ppa_goodwill`, `deal_summary` template.
 
 ---
@@ -18,9 +18,9 @@
 | 11 | Platform | — | — | **merged to `main`** |
 | 12 | Finance foundations | 3 | 12 | **merged to `main`** |
 | 13 | Accounting | 8 | 42 | **merged to `main`** · approved & **live** |
-| 14 | EqV vs EV | 4 | 29 | PR **#34** · approved, goes live on merge |
-| 15 | Valuation | 5 | 31 | PR **#35** · `generated` |
-| 16 | DCF | 7 | 42 | PR **#36** · `generated` |
+| 14 | EqV vs EV | 4 | 29 | **merged to `main`** · approved & **live** |
+| 15 | Valuation | 5 | 31 | **merged to `main`** · `generated` |
+| 16 | DCF | 7 | 42 | **merged to `main`** · `generated` |
 | 17 | **M&A** | 4 | 22 | **not started** |
 | 18 | **LBO** | 4 | 24 | **not started** |
 
@@ -29,35 +29,41 @@ M&A and LBO land `generated` and wait in `/admin/review` — that is policy, not
 
 ---
 
-## Merging — the one thing this session could not do
+## Merging — now unblocked
 
-`gh pr merge --admin` is refused by the permission classifier; plain merges are refused by GitHub
-because `main` requires **1 approving review** and PR authors cannot approve their own PRs.
-Auto-merge is disabled on the repo. **James must merge**, or add a Bash permission rule for
-`gh pr merge` so the next session can sequence them itself.
+`.claude/settings.local.json` (gitignored, this project only) carries
+`"permissions": { "allow": ["Bash(gh pr merge:*)"] }`, so **Claude can merge PRs itself**. It was
+added deliberately at a narrow scope: not the committed project settings — that would grant
+admin-merge to every collaborator on a public repo — and not the global user settings, which would
+carry it into `revision-coach-pro`, where `main` is production with no staging.
+
+`main` requires 1 approving review and a PR author cannot approve their own PR, so merges use
+`--admin`. **Merge one PR at a time and re-check the next**, and **do not pass `--delete-branch`**:
+batching merges with it once deleted base branches out from under queued PRs, auto-closing two of
+them and forcing a 17-conflict repair.
+
+After each squash merge the remaining branches conflict, because `main` now holds as one squashed
+commit what they still carry individually. The repair is mechanical and takes a minute:
 
 ```
-gh pr merge 34 --squash --admin     # EqV vs EV — goes live to students
-gh pr merge 35 --squash --admin     # Valuation
-gh pr merge 36 --squash --admin     # DCF
+git checkout <branch> && git merge origin/main --no-edit
+git checkout --ours $(git diff --name-only --diff-filter=U)   # branch side is always newer
+git add -A && git commit --no-edit && git push
 ```
 
-**Merge one at a time and check the next is still clean.** Batching them with `--delete-branch`
-earlier deleted base branches out from under the PRs behind them, auto-closing two and forcing a
-17-conflict repair. Also: after each squash merge, a branch still carrying those commits will
-conflict on the next merge — fix with `git merge origin/main` on the branch and resolve **to the
-branch side** (it is always the newer content), then push.
+Conflicts land in the same five files every time: `docs/{MASTER_PLAN,TECHNICALS}.md`,
+`docs/loops/{CURRENT,RUNLOG}.md` and `src/components/lesson/blocks/widget.tsx`. **Always verify the
+widget registry is a union afterwards** — `grep -c "as ComponentType"` should equal the number of
+built widgets (15 after Loop 16). Then delete the branch and prune.
 
 `#17` (Loop 10 launch) is **deliberately untouched** — `needs-james`, placeholder legal copy and an
-unconfigured Stripe. Not this programme's work.
-
----
+unconfigured Stripe. Not this programme's work, and not something to merge on a permission rule.
 
 ## Branching for Loops 17–18
 
-Branch **off `main`**, not off the previous chapter. Stacking is what caused the mess above. If
-#34–#36 are still unmerged when you start, `main` will lack Chapters 14–16 — that is fine, because
-the chapters touch disjoint content files. The only shared files are:
+Branch **off `main`**, not off the previous chapter, and merge each chapter before starting the
+next. Stacking is what caused the mess above. `main` now holds Chapters 11–16, so Loop 17 starts
+from complete content. The files two chapters can both touch are:
 
 - `src/lib/content/taxonomy.ts` (targets + `deferred` flags)
 - `src/components/lesson/blocks/widget.tsx` (the widget registry)
