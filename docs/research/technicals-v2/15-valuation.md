@@ -24,9 +24,9 @@ Five invented peers (all £m, forward-year figures, EV already bridged):
 
 | Peer | EV | EBITDA | EBIT | NI | Revenue | Growth | EV/EBITDA | EV/EBIT | P/E* | EV/Rev |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Kestrel Sensors | 1,760 | 160 | 120 | 80 | 1,000 | 8 % | 11.0× | 14.7× | 20.0× | 1.8× |
+| Brantwood Sensors | 1,760 | 160 | 120 | 80 | 1,000 | 8 % | 11.0× | 14.7× | 20.0× | 1.8× |
 | Thornbury Optics | 990 | 110 | 80 | 50 | 700 | 4 % | 9.0× | 12.4× | 17.0× | 1.4× |
-| Ashdown Controls | 2,400 | 200 | 150 | 100 | 1,200 | 12 % | 12.0× | 16.0× | 24.0× | 2.0× |
+| Larkfield Controls | 2,400 | 200 | 150 | 100 | 1,200 | 12 % | 12.0× | 16.0× | 24.0× | 2.0× |
 | Penrose Metrology | 640 | 80 | 55 | 34 | 500 | 3 % | 8.0× | 11.6× | 15.0× | 1.3× |
 | Halden Labs | 1,500 | 125 | 95 | 60 | 750 | 10 % | 12.0× | 15.8× | 22.0× | 2.0× |
 | **Median** | | | | | | | **11.0×** | **14.7×** | **20.0×** | **1.8×** |
@@ -141,7 +141,7 @@ median rather than the mean so one outlier doesn't distort it, and apply that me
 own metric. Bridge from enterprise value back to equity value and per-share. Sanity-check where the
 target should sit within the range, not just at the middle." (84 words)
 
-**(e)** "Ashdown Controls is growing 12 % a year against Marlow's 6 %. If you keep Ashdown in the
+**(e)** "Larkfield Controls is growing 12 % a year against Marlow's 6 %. If you keep Ashdown in the
 peer set, does Marlow's implied value go up, down or stay the same?" Options: Up ✓ / Down / Same.
 Explain: Ashdown's 12.0× lifts the median; a faster-growing peer imports a multiple Marlow hasn't
 earned.

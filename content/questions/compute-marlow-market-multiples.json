@@ -1,0 +1,51 @@
+{
+  "slug": "compute-marlow-market-multiples",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "marlow",
+    "multiples"
+  ],
+  "question": "Marlow has 120m shares at £9.00, debt £240m, leases £30m, cash £60m, revenue £900m, EBITDA £150m, EBIT £110m and net income £72m. Compute its EV/EBITDA, EV/EBIT, P/E and EV/Revenue.",
+  "model_answer_md": "Equity value = 120 × 9.00 = **£1,080m**. Net debt = 240 + 30 − 60 = **£210m**. Enterprise value = 1,080 + 210 = **£1,290m**.\n\n- EV/EBITDA = 1,290 ÷ 150 = **8.6×**\n- EV/EBIT = 1,290 ÷ 110 = **11.7×**\n- P/E = 1,080 ÷ 72 = **15.0×**\n- EV/Revenue = 1,290 ÷ 900 = **1.4×**\n\nNote which value sits on top of which metric: enterprise value with the pre-interest lines, equity value with net income.\n\nAgainst a peer median of 11.0× EV/EBITDA, Marlow at 8.6× looks cheap — but it grows at 6 % against peers at 3–12 %, so some discount is deserved. The question is whether 2.4 turns is too much.",
+  "key_points": [
+    "Equity £1,080m; net debt £210m; EV £1,290m",
+    "EV/EBITDA 8.6×, EV/EBIT 11.7×, EV/Revenue 1.4×",
+    "P/E uses equity value: 1,080 ÷ 72 = 15.0×",
+    "EV pairs with pre-interest metrics, equity with post-interest",
+    "8.6× vs an 11.0× peer median — check whether growth justifies the gap"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is Marlow cheap against its peers?",
+      "answer_md": "On the headline numbers yes — 8.6× against an 11.0× median is a 22 % discount. But Marlow grows at 6 % while the two names holding the median up grow at 10–12 %, so a discount is warranted. I would compare Marlow with Brantwood at 11.0× on 8 % growth, which is the closest peer on growth, and ask whether the remaining gap is explained by margins or something company-specific."
+    },
+    {
+      "question": "Why is the P/E above the EV/EBITDA here?",
+      "answer_md": "They are not comparable — different numerators and different denominators. P/E divides a smaller value (equity, £1,080m) by a much smaller metric (net income, £72m, after interest, depreciation and tax), and the denominator shrinks proportionally more than the numerator. A P/E above an EV/EBITDA is completely normal and says nothing on its own."
+    }
+  ],
+  "numbers": {
+    "inputs": {
+      "shares": 120,
+      "price": 9.0,
+      "debt": 240,
+      "leases": 30,
+      "cash": 60,
+      "revenue": 900,
+      "ebitda": 150,
+      "ebit": 110,
+      "net_income": 72
+    },
+    "answer": 8.6
+  },
+  "weak_answer_note": "Uses market capitalisation instead of enterprise value for the EV multiples, or forgets the £30m of leases and reaches 8.4× — the very error that makes multiples incomparable.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

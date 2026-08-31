@@ -1,0 +1,76 @@
+{
+  "topic_slug": "valuation",
+  "formulas": [
+    {
+      "name": "Implied value from a multiple",
+      "latex": "\\text{EV} = \\text{Multiple} \\times \\text{Metric} \\quad\\Rightarrow\\quad \\text{Equity} = \\text{EV} - \\text{Net debt} - \\text{Leases}",
+      "note": "Marlow at the 11.0× peer median: 11.0 × £150m = £1,650m EV → £1,440m equity → £12.00 a share."
+    },
+    {
+      "name": "The peer median, not the mean",
+      "latex": "\\text{Median}(8.0,\\ 9.0,\\ 11.0,\\ 12.0,\\ 12.0) = 11.0\\times",
+      "note": "The median resists one extreme peer. Marlow's set gives a 11.0× median against a 10.4× mean — quote the median and say why."
+    },
+    {
+      "name": "Control premium",
+      "latex": "\\text{Premium} = \\frac{\\text{Offer per share}}{\\text{Undisturbed price}} - 1",
+      "note": "Marlow's precedent set has a 30 % median premium, which is why precedents (12.5×) sit above trading comps (11.0×)."
+    },
+    {
+      "name": "Growth-adjusted multiple (PEG-style)",
+      "latex": "\\frac{\\text{EV/EBITDA}}{\\text{Growth \\%}}",
+      "note": "A crude way to compare peers growing at different rates. Ashdown's 12.0× on 12 % growth is not obviously dearer than Penrose's 8.0× on 3 %."
+    },
+    {
+      "name": "Revenue multiple, when there is no profit",
+      "latex": "\\frac{\\text{EV}}{\\text{Revenue}}",
+      "note": "Used when EBITDA is negative or meaningless. It says nothing about profitability, so pair it with a margin assumption."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "What are the main valuation methodologies?",
+      "a": "Three that come up in every interview. Trading comparables value the company against what similar listed companies trade at today. Precedent transactions value it against what acquirers have actually paid for similar businesses. A discounted cash flow values it on its own forecast cash flows, discounted at the cost of capital. Comps and precedents are relative — they tell you what the market pays. A DCF is intrinsic and depends entirely on your assumptions."
+    },
+    {
+      "q": "Rank them — which gives the highest value and why?",
+      "a": "Usually precedents highest, because an acquirer pays a control premium and often expects synergies; Marlow's precedent set carries a 30 % median premium, giving 12.5× against the 11.0× trading median. Trading comps sit below that because a minority shareholder buys no control. A DCF can land anywhere — it depends on your growth and discount rate — but it often comes out lowest when the market is optimistic about the sector. That ordering is a tendency, not a rule, and you should say so."
+    },
+    {
+      "q": "Why would you use the median rather than the mean of a peer set?",
+      "a": "Because the mean is dragged around by a single outlier and the median is not. With five peers, one company on a distorted multiple — a takeover rumour, a collapsed earnings number — moves the mean noticeably while the median barely shifts. For Marlow the median is 11.0× and the mean 10.4×; I would quote the median and mention the spread, since the range matters as much as the midpoint."
+    },
+    {
+      "q": "Why might two very similar companies trade at different multiples?",
+      "a": "Because a multiple prices expectations, not just current profit. Faster growth, higher margins, more durable competitive position, lower capital intensity, better management or a cleaner balance sheet all justify a higher number. There are also technical reasons — index membership, free float, liquidity, an overhang of stock. The first thing I would check is growth: in Marlow's peer set the multiples track growth rates closely."
+    },
+    {
+      "q": "How would you value a company with negative cash flows?",
+      "a": "I would move up the income statement to a metric that is still positive — usually revenue, so EV/Revenue against peers at a similar growth rate, and ideally a forward multiple on the year it turns profitable. A DCF still works if you extend the forecast far enough to reach positive cash flow, though the value then sits almost entirely in the terminal period, so I would present it as a range and be explicit that the assumptions carry the answer."
+    }
+  ],
+  "traps": [
+    "Quoting one number instead of a range — valuation is a range, and the overlap between methods is the answer.",
+    "Using the mean of a small peer set; one distorted peer moves it.",
+    "Comparing a levered multiple like P/E across companies with very different debt loads.",
+    "Forgetting the control premium when asked why precedents exceed trading comps.",
+    "Using stale precedents — a deal from a different rate environment prices a different world.",
+    "Mixing a forward metric with a trailing multiple, or a subject's forward EBITDA with peers' trailing.",
+    "Treating a DCF as objective. It is the method most sensitive to your own assumptions.",
+    "Building a peer set on industry label alone — growth, margin and size matter more than the sector name."
+  ],
+  "one_liners": [
+    "Comps say what the market pays; precedents say what a buyer paid; a DCF says what you think it is worth.",
+    "Precedents carry a control premium, which is why they usually sit highest.",
+    "Quote the median, mention the spread.",
+    "A multiple is a DCF you have not written down."
+  ],
+  "you_may_hear": [
+    "Sum-of-the-parts and the conglomerate discount.",
+    "Liquidation and replacement-cost value as a floor.",
+    "LBO valuation used as a floor for what a sponsor could pay.",
+    "EV/EBITDAR for retailers and airlines, where rent is capitalised into the multiple.",
+    "Regression-based comps that price the multiple against growth and margin.",
+    "Calendarisation and stub-period adjustments when peers have different year ends."
+  ]
+}

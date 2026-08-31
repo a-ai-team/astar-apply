@@ -11,6 +11,7 @@ import { FilingsToggle } from "@/components/widgets/filings-toggle";
 import { TsmDilution } from "@/components/widgets/tsm-dilution";
 import { LeaseToggle } from "@/components/widgets/lease-toggle";
 import { MultipleMatcher } from "@/components/widgets/multiple-matcher";
+import { FootballField } from "@/components/widgets/football-field";
 import { Section } from "../section";
 
 /**
@@ -29,6 +30,7 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   tsm_dilution: TsmDilution as ComponentType<Record<string, unknown>>,
   lease_toggle: LeaseToggle as ComponentType<Record<string, unknown>>,
   multiple_matcher: MultipleMatcher as ComponentType<Record<string, unknown>>,
+  football_field: FootballField as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

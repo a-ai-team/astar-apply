@@ -1,0 +1,49 @@
+{
+  "slug": "leases-in-multiples-consistency",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "leases",
+    "ifrs16"
+  ],
+  "question": "Marlow has 120m shares at £9.00, debt £240m, cash £60m and £30m of IFRS 16 lease liabilities. Reported EBITDA is £150m and excludes lease costs; on a pre-IFRS 16 basis, £6m of annual rent would be an operating expense. Compute EV/EBITDA on a consistent pre-IFRS 16 basis.",
+  "model_answer_md": "Under IFRS 16, the £30m lease liability is in net debt and the rent has been stripped out of operating costs, so:\n\nEV = 1,080 + 240 + 30 − 60 = £1,290m, and 1,290 ÷ 150 = **8.6×**.\n\nOn a **pre-IFRS 16** basis, you take the leases out of enterprise value *and* charge the rent against EBITDA:\n\nEV = 1,080 + 240 − 60 = £1,260m; EBITDA = 150 − 6 = £144m.\n\n1,260 ÷ 144 = **8.75×**.\n\nBoth are defensible. What is not defensible is mixing them: 1,290 ÷ 144 gives **8.96×** and 1,260 ÷ 150 gives **8.40×**. The error from crossing the bases (up to 0.36×) is larger than the difference between the two consistent answers (0.15×) — which is the whole point.",
+  "key_points": [
+    "Post-IFRS 16: EV £1,290m ÷ EBITDA £150m = 8.6×",
+    "Pre-IFRS 16: EV £1,260m ÷ EBITDA £144m = 8.75×",
+    "Both consistent treatments are defensible",
+    "Mixing gives 8.96× or 8.40× — a bigger error than the choice itself",
+    "Apply the same basis to every peer in the set"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which basis do UK analysts use now?",
+      "answer_md": "Post-IFRS 16 is the reported standard, so it is the default and the one that comes straight out of the accounts. Some sectors with heavy lease use — retail, airlines, hospitality — still show pre-IFRS 16 or EBITDAR figures alongside, because the historical series is on that basis and the comparison across older years needs it. The requirement is to say which you are using."
+    },
+    {
+      "question": "Does the choice change how the peers rank?",
+      "answer_md": "It can, and that is why it matters. Capitalising leases raises EBITDA proportionally more for lease-heavy companies than asset-owning ones, so a retailer's multiple falls relative to a manufacturer's. If half your peer set leases its premises and half owns them, switching basis reshuffles the order — which is exactly the situation where mixing bases produces a nonsense median."
+    }
+  ],
+  "numbers": {
+    "inputs": {
+      "shares": 120,
+      "price": 9.0,
+      "debt": 240,
+      "cash": 60,
+      "lease_liability": 30,
+      "reported_ebitda": 150,
+      "annual_rent": 6
+    },
+    "answer": 8.75
+  },
+  "weak_answer_note": "Removes the lease liability from enterprise value but leaves EBITDA at £150m — the mismatched 8.40× — which is precisely the inconsistency the question is testing.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

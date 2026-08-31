@@ -1,0 +1,37 @@
+{
+  "slug": "what-is-a-control-premium",
+  "subtopic_slug": "precedent-transactions",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "control-premium"
+  ],
+  "question": "What is a control premium?",
+  "model_answer_md": "The amount an acquirer pays above a target's undisturbed share price to buy control of the whole company.\n\nIt exists because control is worth something a minority stake is not: the right to replace management, change the strategy, take out duplicated cost and decide what happens to the cash. Shareholders will not hand that over at the market price, so the buyer has to pay for it.\n\nTypically 20–40 %, though it varies with the sector, the competitive tension in the process and how much synergy the buyer expects. Marlow's precedent set has a **30 % median premium**.\n\n\"Undisturbed\" matters: you measure against the price before the market started anticipating a bid, otherwise you are measuring against a price that already contains part of the premium.",
+  "key_points": [
+    "The excess over the undisturbed price paid to acquire control",
+    "Control brings the right to change management, strategy and costs",
+    "Typically 20–40 %; 30 % median in Marlow's precedent set",
+    "Competitive tension and expected synergies push it up",
+    "Measured against the undisturbed price, before bid speculation"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why measure against the *undisturbed* price?",
+      "answer_md": "Because once a bid is rumoured the share price starts pricing in the deal. Measuring from the day before the announcement understates the premium, sometimes badly, since the market may have anticipated it for weeks. You pick a date before the speculation began — often a month prior — and say which date you used."
+    },
+    {
+      "question": "Who pays the biggest premiums?",
+      "answer_md": "Strategic buyers in competitive auctions, particularly where the synergies are large and specific to them. A sponsor is disciplined by the returns it must deliver, so it rarely tops a strategic buyer that can justify the price with cost savings — unless it sees an operational improvement others have missed."
+    }
+  ],
+  "weak_answer_note": "Defines it as 'the premium paid in a takeover' — circular — without explaining what control buys or why shareholders must be paid extra.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

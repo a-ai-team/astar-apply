@@ -1,0 +1,37 @@
+{
+  "slug": "which-multiple-negative-earnings",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "negative-earnings"
+  ],
+  "question": "Which multiple would you use for a company with negative EBITDA?",
+  "model_answer_md": "You move up the income statement until you reach a line that is still positive — which almost always means **EV/Revenue**.\n\nIt is a blunt tool, because it says nothing about whether the revenue will ever convert into profit. So you use it with two supports. First, compare against peers at a **similar growth rate**, since revenue multiples are driven almost entirely by growth. Second, state the margin you expect the business to reach at maturity — a revenue multiple is really a bet on a future margin, and making that assumption explicit is what separates a valuation from a guess.\n\nThe better answer is often a **forward multiple** on the first profitable year, if the path there is credible.\n\nMany sectors also have their own operating metric — EV/ARR in software, EV per subscriber in telecoms, EV per barrel of reserves in oil and gas — which carries more information than revenue alone.",
+  "key_points": [
+    "Move up the income statement to a positive line — usually revenue",
+    "EV/Revenue is a bet on a future margin; state that margin",
+    "Compare against peers at a similar growth rate",
+    "A forward multiple on the first profitable year is often better",
+    "Sector KPIs — EV/ARR, per subscriber, per barrel — carry more information"
+  ],
+  "follow_ups": [
+    {
+      "question": "What replaces it in software?",
+      "answer_md": "EV/ARR — annual recurring revenue, which strips out one-off implementation fees and captures the subscription base. Analysts plot it against growth rather than taking a median, and cross-check with the Rule of 40: revenue growth plus free cash flow margin, with 40 as the rough pass mark."
+    },
+    {
+      "question": "And in biotech?",
+      "answer_md": "EV against risk-adjusted peak sales for the lead programme, or a per-programme value. But the primary method is a risk-adjusted NPV — probability-weight each phase's cash flows and discount them — with multiples used only as a cross-check, because a pre-revenue biotech has no line on the income statement worth a multiple."
+    }
+  ],
+  "weak_answer_note": "Answers 'EV/Revenue' and stops, without acknowledging that it implies a margin assumption or that a sector KPI is usually better.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

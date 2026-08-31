@@ -1,0 +1,37 @@
+{
+  "slug": "why-are-precedents-less-reliable",
+  "subtopic_slug": "precedent-transactions",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "precedents"
+  ],
+  "question": "Why are precedent transactions often considered less reliable than trading comparables?",
+  "model_answer_md": "Three reasons, all about data quality rather than the logic of the method.\n\n**They are infrequent.** Trading comps refresh every day; deals in a sector might happen twice a year. To get a usable set you reach back years, and old deals priced a different world — different rates, different sector sentiment.\n\n**The terms are often undisclosed.** For a private target you may know the headline price but not the EBITDA it was struck on, so the multiple has to be estimated or taken from press reports.\n\n**Every deal has its own story.** One was a competitive auction, another a distressed sale, a third had synergies unique to that buyer. The multiple contains all of it, and you usually cannot separate the parts.\n\nSo precedents answer a genuinely useful question — what did someone actually pay for control — with noisier data.",
+  "key_points": [
+    "Deals are infrequent, so the set stretches back years",
+    "Older deals priced a different rate and sentiment environment",
+    "Terms are often undisclosed, especially for private targets",
+    "Each deal carries buyer-specific synergies and process dynamics",
+    "The question is the right one; the data is noisy"
+  ],
+  "follow_ups": [
+    {
+      "question": "How old is too old?",
+      "answer_md": "There is no fixed rule, but beyond two to three years I would be cautious, and across a major change in interest rates I would be very cautious. A 2021 deal was struck at near-zero rates on multiples the sector has not seen since. Either exclude it, footnote it, or adjust for how the sector has re-rated — and say which you did."
+    },
+    {
+      "question": "How do you handle a deal where EBITDA was never disclosed?",
+      "answer_md": "Estimate it from what is available — press coverage, the target's filed accounts if it was UK-registered, or applying a sector margin to a disclosed revenue figure. Then flag it as estimated. What you must not do is present an estimated multiple alongside disclosed ones without saying which is which."
+    }
+  ],
+  "weak_answer_note": "Says precedents are 'less accurate' with no mechanism, or confuses this with the separate point that precedents value control rather than a minority stake.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

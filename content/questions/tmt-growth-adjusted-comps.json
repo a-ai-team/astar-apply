@@ -1,0 +1,48 @@
+{
+  "slug": "tmt-growth-adjusted-comps",
+  "subtopic_slug": "comparable-companies",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "lens:tmt",
+    "regression"
+  ],
+  "question": "Two software peers trade at 5.0× EV/Revenue on 10 % growth and 12.0× on 45 % growth. Marlow is spinning out a software unit with £40m of ARR growing 35 %. Read the unit's value off the growth line, and compare it with the flat average of the two peers.",
+  "model_answer_md": "Fit a line through the two points. The multiple rises 7.0 turns across 35 percentage points of growth:\n\n$$\\text{slope} = \\frac{12.0 - 5.0}{45 - 10} = 0.20\\times \\text{ per point of growth}$$\n\nAt 35 % growth: 5.0 + 0.20 × (35 − 10) = 5.0 + 5.0 = **10.0×**.\n\nValue = 10.0 × 40 = **£400m**.\n\nThe flat average of the two peers is 8.5×, which would give 8.5 × 40 = £340m. The growth-adjusted read is **£60m higher**, because the unit grows much closer to the fast peer than to the slow one — and a simple average would have quietly priced it as though it grew at 27.5 %.\n\nWith only two points this is a line, not a regression; with a fuller peer set you would fit properly and quote the R².",
+  "key_points": [
+    "Slope = (12.0 − 5.0) ÷ (45 − 10) = 0.20× per point of growth",
+    "At 35 % growth the line gives 5.0 + 0.20 × 25 = 10.0×",
+    "Value = 10.0 × £40m ARR = £400m",
+    "Flat average of 8.5× gives £340m — £60m lower",
+    "Two points is a line; a real peer set needs a proper fit and an R²"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why not just use the median or mean?",
+      "answer_md": "Because in software the spread between peers is driven by growth, not noise, so averaging it away throws out the information you most need. A set running from 2× to 15× has no meaningful midpoint — the mean prices the target as though it grew at the average of the set, which it does not. The median is only useful when the peers genuinely grow at similar rates."
+    },
+    {
+      "question": "Would you adjust for churn?",
+      "answer_md": "Yes, and I would want net revenue retention before trusting the ARR figure at all. Two companies with identical ARR and growth are worth very different amounts if one retains 120 % of its base and the other 90 %, because the second has to win far more new customers just to stand still. In a fuller regression, retention is often a second explanatory variable alongside growth."
+    }
+  ],
+  "numbers": {
+    "inputs": {
+      "peer_a_multiple": 5.0,
+      "peer_a_growth": 10,
+      "peer_b_multiple": 12.0,
+      "peer_b_growth": 45,
+      "target_growth": 35,
+      "arr": 40
+    },
+    "answer": 400
+  },
+  "weak_answer_note": "Averages the two multiples to 8.5× and applies it, which prices a 35 % grower as though it grew at 27.5 % — the exact mistake the growth-adjusted method exists to avoid.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

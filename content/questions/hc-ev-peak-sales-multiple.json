@@ -1,0 +1,38 @@
+{
+  "slug": "hc-ev-peak-sales-multiple",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "peak-sales"
+  ],
+  "question": "What is an EV / peak sales multiple, and why is it used in biotech rather than EV/EBITDA?",
+  "model_answer_md": "It values a company against the **risk-adjusted peak annual sales** its lead programmes are expected to reach — often years away — rather than against anything it earns today.\n\nEV/EBITDA is unusable because a clinical-stage biotech has no EBITDA, and often no revenue at all. Its entire value sits in drugs that have not launched. Dividing enterprise value by a negative number produces nothing meaningful.\n\nPeak sales at least connects to the thing that matters: how big the drug could get if it works. The multiple is then applied to a probability-weighted figure — peak sales multiplied by the chance of approval — so a Phase 2 asset carries a much lower expected number than a Phase 3 one.\n\nIt is a cross-check, not the primary method. The main tool is a risk-adjusted NPV, which models each programme's cash flows and probabilities properly. Peak sales multiples are the quick sanity test against what the market pays for comparable assets.",
+  "key_points": [
+    "Values EV against risk-adjusted peak annual sales of the lead programmes",
+    "Clinical-stage biotech has no EBITDA and often no revenue",
+    "Peak sales connects to the size of the opportunity if the drug works",
+    "Probability-weighted by phase — Phase 2 discounts far harder than Phase 3",
+    "A cross-check on rNPV, not the primary method"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which probability of success would you use?",
+      "answer_md": "Published industry averages by phase and therapy area — roughly 60–70 % from Phase 3 to approval, far lower from Phase 1, and materially worse in oncology than in some other areas. I would state the source and the number explicitly, because it is the assumption that moves the valuation most and the one an interviewer will push on."
+    },
+    {
+      "question": "How do you handle the patent cliff?",
+      "answer_md": "You do not put a perpetuity on a drug. Exclusivity ends, generics enter and sales fall very sharply — often 80–90 % within a couple of years. So the model runs the revenue to the end of the exclusivity period and then declines it steeply, rather than growing it forever. Forgetting that is one of the biggest errors in a pharma DCF."
+    }
+  ],
+  "weak_answer_note": "Describes the multiple without explaining why EBITDA fails for a pre-revenue company, or omits the probability-weighting that makes peak sales usable at all.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

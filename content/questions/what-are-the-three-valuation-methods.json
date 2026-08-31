@@ -1,0 +1,37 @@
+{
+  "slug": "what-are-the-three-valuation-methods",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "methods"
+  ],
+  "question": "What are the three main valuation methodologies?",
+  "model_answer_md": "Trading comparables, precedent transactions and a discounted cash flow.\n\n**Comps** apply the multiples that similar listed companies trade at today to the target's own metrics — what the public market currently pays for a business like this one.\n\n**Precedents** apply the multiples paid in recent acquisitions of similar companies — what a buyer actually handed over for control.\n\nA **DCF** values the company on its own forecast cash flows, discounted back at the cost of capital — what the cash is worth, independent of what anyone else is paying.\n\nThe first two are relative and market-driven; the third is intrinsic and assumption-driven. In practice you run all three and present the range.",
+  "key_points": [
+    "Comps = today's trading multiples of similar listed companies",
+    "Precedents = multiples paid in recent acquisitions, including control",
+    "DCF = the company's own forecast cash flows discounted at WACC",
+    "Comps and precedents are relative; the DCF is intrinsic",
+    "You present all three as a range, not one number"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which of the three usually gives the highest value?",
+      "answer_md": "Precedents, most of the time, because the price includes a control premium and often the buyer's expected synergies. Marlow's precedent set carries a 30 % median premium, which is why it prices at 12.5× against the 11.0× trading median."
+    },
+    {
+      "question": "Which would you trust most for a small UK private company?",
+      "answer_md": "Probably precedents, if there are recent deals for businesses of a similar size, because that is the price a real buyer paid for something comparable. Listed comps are usually much larger and more liquid, so their multiples flatter a small private company, and a DCF depends on a forecast that a small business may not produce reliably."
+    }
+  ],
+  "weak_answer_note": "Lists the three names with no sense of what each one measures, or describes the DCF as 'the accurate one' rather than the one most driven by your own assumptions.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

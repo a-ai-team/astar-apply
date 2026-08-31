@@ -1,0 +1,38 @@
+{
+  "slug": "hc-rnpv-vs-comps-when-each",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "rnpv"
+  ],
+  "question": "When would you use a risk-adjusted NPV rather than comparables for a healthcare company?",
+  "model_answer_md": "For anything **clinical-stage**, where the value is a portfolio of drugs that might or might not reach the market.\n\nAn rNPV models each programme separately: forecast its cash flows if approved, multiply by the probability of success at its current phase, subtract the cost of the remaining trials, and discount. It handles the two features no multiple can — that the outcome is **binary**, and that different programmes sit at different risk stages.\n\nComparables cannot do that. A pre-revenue company has no line to apply a multiple to, and a company with one Phase 3 asset and one Phase 1 asset is not the same as a company with two Phase 2 assets, even if their headline pipelines look alike.\n\nFor **commercial-stage** businesses — big pharma, medical devices, healthcare services — that reverses. They have real earnings, comparable peers and a track record, so P/E and EV/EBITDA work normally and an rNPV becomes the supporting analysis.\n\nIn practice you present the rNPV as the primary number with comps and precedents as cross-checks, and you show it per programme so the reader can disagree with one assumption without discarding the whole valuation.",
+  "key_points": [
+    "rNPV for clinical-stage; the value is unlaunched drugs",
+    "It handles binary outcomes and different phases per programme",
+    "Multiples fail — there is no metric, and pipelines are not comparable",
+    "Commercial-stage healthcare reverses: P/E and EV/EBITDA work normally",
+    "Present per programme, with comps and precedents as cross-checks"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you present it?",
+      "answer_md": "One bar per programme on the football field, plus the net cash, so the reader can see exactly where the value comes from and challenge a single probability or peak-sales assumption without rejecting the whole analysis. A single aggregated number hides the fact that one asset is usually carrying most of the value."
+    },
+    {
+      "question": "How do contingent value rights show up in the precedents?",
+      "answer_md": "They distort the headline multiple. A CVR pays the seller extra only if a milestone is hit, so the announced price understates what the buyer may ultimately pay and overstates what the seller is certain to receive. When using such a deal as a precedent, I would show the upfront value and the full value including the CVR separately, and say which one I am comparing against."
+    }
+  ],
+  "weak_answer_note": "Says 'biotech uses rNPV' without explaining that the binary, phase-dependent nature of the risk is what breaks a multiple, or applies it to a commercial-stage company where comps work perfectly well.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

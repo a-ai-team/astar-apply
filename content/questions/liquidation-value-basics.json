@@ -1,0 +1,37 @@
+{
+  "slug": "liquidation-value-basics",
+  "subtopic_slug": "valuation-methodologies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "liquidation"
+  ],
+  "question": "What is liquidation value, and when does it matter?",
+  "model_answer_md": "What you would recover by selling the company's assets piecemeal and paying off its liabilities — the value if the business stops being a going concern.\n\nYou take each asset class and apply a recovery rate. Cash recovers near par; receivables perhaps 70–80 %; inventory much less, depending on whether it is finished goods or work in progress; specialised plant often very little, because the buyers who want it are the competitors who already have it. Property can recover well. Then subtract every liability.\n\nIt matters in **distress** — it is the floor a creditor can expect, and the benchmark for whether restructuring beats winding up. Lenders use it to size secured facilities against collateral.\n\nFor a healthy company it is far below the going-concern value, because it ignores everything that makes the business worth more than its parts: customers, brand, people, the assets working together.",
+  "key_points": [
+    "Piecemeal asset recovery less all liabilities",
+    "Recovery rates vary sharply — cash near par, specialised plant very little",
+    "A floor value, relevant in distress and restructuring",
+    "Lenders use it to size secured lending against collateral",
+    "Far below going-concern value for a healthy business"
+  ],
+  "follow_ups": [
+    {
+      "question": "When could liquidation value exceed enterprise value?",
+      "answer_md": "When a business is destroying value — its assets are worth more sold than kept working, usually because it is loss-making with valuable property or land. That situation invites a break-up: buy the equity cheaply, wind down the operations, sell the assets. It is also the point at which management's fiduciary duties start shifting towards creditors."
+    },
+    {
+      "question": "Who actually uses it?",
+      "answer_md": "Restructuring bankers and distressed investors, to work out where value breaks in the capital structure and which creditor class ends up owning the company. Secured lenders use it to set advance rates against collateral. It rarely appears in a normal M&A valuation except as a floor on the football field."
+    }
+  ],
+  "weak_answer_note": "Describes it as 'book value of assets' without recovery rates, or cannot say why it is usually well below going-concern value.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

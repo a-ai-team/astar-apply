@@ -1,0 +1,37 @@
+{
+  "slug": "strategic-vs-financial-buyer-price",
+  "subtopic_slug": "precedent-transactions",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "buyers"
+  ],
+  "question": "Who usually pays more for a business — a strategic buyer or a financial sponsor — and why?",
+  "model_answer_md": "Usually the **strategic buyer**, because it can pay for something the sponsor cannot: synergies.\n\nA strategic acquirer already runs a similar business, so it can remove duplicated overhead, combine sales forces, buy inputs more cheaply and sometimes cross-sell. Those savings are real cash flows that exist only for that buyer, so it can justify a higher price and still clear its own hurdle.\n\nA **sponsor** has no operating business to fold the target into. It is bound by the return it has promised its investors — usually a target IRR over a three-to-five-year hold — and by how much debt the target's cash flows can support. Those two constraints cap what it can pay.\n\nSo the strategic buyer's ceiling is set by synergies; the sponsor's by leverage and returns. That is why competitive auctions with a strategic bidder tend to clear higher.",
+  "key_points": [
+    "Strategic usually pays more, funded by synergies unique to it",
+    "Synergies are cash flows only that buyer can realise",
+    "Sponsors are capped by target returns and available leverage",
+    "Strategic ceiling = synergies; sponsor ceiling = leverage and IRR",
+    "Auctions with a strategic bidder clear higher"
+  ],
+  "follow_ups": [
+    {
+      "question": "When does a sponsor actually win?",
+      "answer_md": "When it sees operational improvement the strategics have missed, when it can move faster or with more certainty, when the seller wants management retained, or when the strategic buyers have competition problems that make the deal hard to clear. Sponsors also win at the top of the leverage cycle, when cheap debt lifts what the returns can support."
+    },
+    {
+      "question": "How does the mix of buyers affect a precedent set?",
+      "answer_md": "It shifts the multiples. A set dominated by strategic deals will show higher multiples than one full of sponsor buyouts, because it contains synergy value. If I were valuing a company that only sponsors would realistically buy, I would weight the sponsor deals more heavily and say why."
+    }
+  ],
+  "weak_answer_note": "Says 'strategics pay more because of synergies' without explaining what constrains a sponsor, or asserts that sponsors never outbid, which is not true.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

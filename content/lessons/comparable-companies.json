@@ -1,0 +1,275 @@
+{
+  "slug": "comparable-companies",
+  "subtopic_slug": "comparable-companies",
+  "title": "Trading comps: picking peers and spreading them",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Comps are the first real analysis most analysts are handed, and \"walk me through a comparable-companies analysis\" is asked constantly — often followed immediately by **\"how did you choose the peers?\"**\n\nThat follow-up is the whole test. The arithmetic of a comps table is trivial: divide, take a median, multiply. The judgement is in deciding which companies belong in the table at all, because a single badly chosen peer can move your answer by tens of millions.\n\nThis lesson builds Marlow's comps table from five peers, then shows you exactly how much one company is worth to the final number."
+      },
+      {
+        "type": "concept",
+        "heading": "A comp is a claim that two businesses should be priced alike",
+        "md": "When you put a company in a peer set, you are making an argument: *whatever the market is willing to pay per pound of this company's earnings, it should be willing to pay something similar for ours.*\n\nThat argument holds when the businesses share the things that drive a multiple:\n\n- **Business model** — how they make money, and from whom. A company selling instruments to laboratories is not comparable to one selling software to laboratories, even in the same end market.\n- **Growth** — the single strongest driver. Faster growth earns a higher multiple, so a fast-growing peer imports a multiple your company has not earned.\n- **Margins** — a business that converts more revenue into profit is worth more per pound of revenue.\n- **Size and geography** — larger, more liquid companies in stable markets tend to trade higher.\n\nNotice what is *not* on that list: being famous, or being in the same headline sector. \"Industrials\" is not a peer set. Marlow's peers are all makers of measurement and sensing equipment of broadly similar size — that is why the argument is credible."
+      },
+      {
+        "type": "mechanics",
+        "md": "The process, in the order you would do it:\n\n1. **Screen for peers** — five to ten listed companies matched on model, growth, margin, size and region.\n2. **Build each peer's enterprise value** from its own market data: share price × diluted shares, then the bridge (add debt, leases, preferred and non-controlling interests; subtract cash).\n3. **Calendarise the metrics.** Peers have different financial year-ends. You cannot compare a multiple built on a year ending in March with one ending in December, so you restate them to a common twelve-month window — usually the next twelve months, giving **forward** multiples.\n4. **Compute the multiples** — EV/EBITDA, EV/EBIT, EV/Revenue, and P/E on the equity side.\n5. **Take the median, not the mean.** The median is the middle value, so a single extreme peer moves it barely at all; the mean absorbs the full weight of every outlier.\n6. **Apply it to your company's own metric**, then bridge back to equity value and per share.\n\nThe last step is where judgement returns. The median is a starting point, not a verdict — you then argue where in the range your company deserves to sit."
+      },
+      {
+        "type": "predict",
+        "prompt": "Larkfield Controls grows at 12 % a year; Marlow grows at 6 %. Larkfield trades at 12.0× EV/EBITDA, above the peer median. If you keep Larkfield in the peer set, what happens to Marlow's implied value?",
+        "options": [
+          {
+            "label": "It goes up",
+            "correct": true
+          },
+          {
+            "label": "It goes down"
+          },
+          {
+            "label": "It stays the same — one peer cannot move a median"
+          },
+          {
+            "label": "It depends on Larkfield's margin, not its growth"
+          }
+        ],
+        "explain_md": "It goes **up**. Larkfield sits at 12.0×, in the upper half of the set, so including it pulls the median upward — and Marlow's implied value rises with it.\n\nThe question behind the question is whether that increase is *deserved*. Larkfield earns its 12.0× by growing at twice Marlow's rate. Keeping it in imports a multiple that reflects Larkfield's growth, not Marlow's, and quietly credits Marlow with performance it has not delivered.\n\nThat does not automatically mean excluding it — a peer set of only slow growers has its own bias. It means you should be able to say out loud what each peer is contributing, and where in the resulting range Marlow honestly belongs."
+      },
+      {
+        "type": "widget",
+        "widget": "football_field",
+        "props": {
+          "subject": {
+            "name": "Marlow Instruments plc",
+            "ebitda": 150,
+            "netDebt": 210,
+            "shares": 120
+          },
+          "peers": [
+            {
+              "name": "Brantwood Sensors",
+              "evEbitda": 11.0,
+              "growth": 0.08,
+              "margin": 0.16
+            },
+            {
+              "name": "Thornbury Optics",
+              "evEbitda": 9.0,
+              "growth": 0.04,
+              "margin": 0.157
+            },
+            {
+              "name": "Larkfield Controls",
+              "evEbitda": 12.0,
+              "growth": 0.12,
+              "margin": 0.167
+            },
+            {
+              "name": "Penrose Metrology",
+              "evEbitda": 8.0,
+              "growth": 0.03,
+              "margin": 0.16
+            },
+            {
+              "name": "Halden Labs",
+              "evEbitda": 12.0,
+              "growth": 0.1,
+              "margin": 0.167
+            }
+          ],
+          "methods": [
+            {
+              "label": "Trading comps",
+              "low": 1200,
+              "high": 1800,
+              "mid": 1650
+            }
+          ],
+          "currentPrice": 9.0,
+          "mode": "comps"
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Marlow's five peers**, with enterprise values already bridged (£m):\n\n| Peer | EV | EBITDA | Growth |\n|---|---|---|---|\n| Brantwood Sensors | 1,760 | 160 | 8 % |\n| Thornbury Optics | 990 | 110 | 4 % |\n| Larkfield Controls | 2,400 | 200 | 12 % |\n| Penrose Metrology | 640 | 80 | 3 % |\n| Halden Labs | 1,500 | 125 | 10 % |\n\nCompute each multiple, take the median, and apply it to Marlow's £150m of EBITDA.",
+        "steps": [
+          {
+            "label": "Brantwood Sensors EV/EBITDA",
+            "expr": "1760 / 160",
+            "value": 11,
+            "unit": "×"
+          },
+          {
+            "label": "Thornbury Optics",
+            "expr": "990 / 110",
+            "value": 9,
+            "unit": "×"
+          },
+          {
+            "label": "Larkfield Controls",
+            "expr": "2400 / 200",
+            "value": 12,
+            "unit": "×"
+          },
+          {
+            "label": "Penrose Metrology",
+            "expr": "640 / 80",
+            "value": 8,
+            "unit": "×"
+          },
+          {
+            "label": "Halden Labs",
+            "expr": "1500 / 125",
+            "value": 12,
+            "unit": "×"
+          },
+          {
+            "label": "Sorted 8.0, 9.0, 11.0, 12.0, 12.0 — the median is the middle one",
+            "expr": "11.0",
+            "value": 11,
+            "unit": "×"
+          },
+          {
+            "label": "The mean, for contrast — Penrose drags it down",
+            "expr": "(11 + 9 + 12 + 8 + 12) / 5",
+            "value": 10.4,
+            "unit": "×"
+          },
+          {
+            "label": "Median applied to Marlow's EBITDA",
+            "expr": "11.0 * 150",
+            "value": 1650,
+            "unit": "£m"
+          },
+          {
+            "label": "Bridge to equity value (net debt £210m)",
+            "expr": "1650 - 210",
+            "value": 1440,
+            "unit": "£m"
+          },
+          {
+            "label": "Implied share price",
+            "expr": "1440 / 120",
+            "value": 12,
+            "unit": "£"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now test how much one peer is worth. **Drop Penrose Metrology** — the 8.0× outlier, growing at only 3 % — and rebuild the two averages from the four that remain: 9.0×, 11.0×, 12.0×, 12.0×.\n\nWith an even number of peers, the median becomes the average of the middle two.",
+        "steps": [
+          {
+            "label": "New median — average of the middle two, 11.0 and 12.0",
+            "expr": "(11.0 + 12.0) / 2",
+            "value": 11.5,
+            "unit": "×",
+            "blank": true
+          },
+          {
+            "label": "New mean of the four",
+            "expr": "(11 + 9 + 12 + 12) / 4",
+            "value": 11,
+            "unit": "×",
+            "blank": true
+          },
+          {
+            "label": "Marlow's implied EV on the new median",
+            "expr": "11.5 * 150",
+            "value": 1725,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "What dropping one peer was worth",
+            "expr": "1725 - 1650",
+            "value": 75,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Pick the five biggest companies in the sector.\"**\n\nSize is *a* filter. It is not *the* filter, and leaning on it is how peer sets quietly become indefensible.\n\nThe largest companies in any sector are usually the ones with the strongest positions, the widest margins and the deepest liquidity — which is precisely why they trade at higher multiples. Build your set from them and you import a premium your company has done nothing to earn, then present the inflated number as though the market handed it to you.\n\nThere is a subtler version of the same error: choosing peers by *recognisability*. The companies you can name are the ones that get written about, and being written about correlates with size and growth. The screen has to be built on the drivers of the multiple — business model, growth, margin, size, region — not on what comes to mind first.\n\nThe useful discipline is to be able to justify each peer in one sentence, and to say which one your company is genuinely most like."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "You select five to ten listed companies sharing the target's business model, growth, margins, size and ideally region. For each, you build enterprise value from market data and calendarise the forward metrics so you are comparing the same twelve months. You compute the multiples, take the median rather than the mean so one outlier does not distort it, and apply that median to the target's own metric. Then you bridge from enterprise value back to equity value and per share — and argue where in the range the target belongs, rather than defaulting to the middle.",
+        "seconds": 50
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Growth-adjusted comps: a line, not a median",
+            "md": "In software the spread between peers is far too wide for a median to mean much. Listed subscription businesses trade anywhere from around 2× revenue to well over 15×, and the difference is not noise — it is growth.\n\nSo the sector does something different. Instead of taking a flat median, analysts plot each peer's **EV/Revenue against its growth rate** and fit a line through the points. The target is then read off that line at its own growth rate. A company growing 35 % is valued using what the market pays *for 35 % growth*, not the average of a set containing companies growing 10 %.\n\nThe common refinement is the **Rule of 40** — revenue growth plus free cash flow margin, with 40 as the rough pass mark. It captures the trade-off a software company is constantly making: growth bought by burning cash is worth less than growth that funds itself, and plotting against the Rule of 40 score rather than growth alone separates the two.\n\nTwo qualitative adjusters sit alongside: **churn (the share of customers who leave each year)** and **net revenue retention (what last year's customers spend this year, including upgrades — above 100 % means the existing base grows on its own)**.",
+            "example_q": "Two software peers trade at 5× and 12× revenue. Which multiple do you apply to your target?",
+            "answer_md": "Neither, on its own — the gap between them is telling me something, and averaging it away would throw that information out.\n\nI would look at what separates them, which is almost always growth: the 12× company is probably growing two or three times faster than the 5× one. So I would plot both, along with any other peers, on growth against EV/Revenue and read my target off that line at *its* growth rate. If the target grows at the slower company's rate, 5× is the honest answer even if the 12× peer is the better-known business.\n\nI would sanity-check with the Rule of 40 — growth plus free cash flow margin — because a company hitting 40 deserves to sit above the line, and one buying its growth with heavy losses deserves to sit below it. I would also check churn and net retention, since recurring revenue that leaks is worth materially less per pound."
+          },
+          "healthcare": {
+            "heading": "Name the sub-sector before you name a single peer",
+            "md": "Healthcare is not one comparable universe. It is at least four, and mixing them produces a table that looks rigorous and means nothing.\n\n- **Large pharmaceutical** companies have stable earnings and pay dividends, so they are usually looked at on **P/E** and trade in the mid-to-high teens.\n- **Medical devices** carry high gross margins and durable franchises, and trade on **EV/EBITDA** at meaningfully higher multiples than pharma.\n- **Services and CROs** — contract research organisations, hospital operators — behave like industrials and trade on **EV/EBITDA** at more modest levels.\n- **Clinical-stage biotech** has no earnings at all, so any conventional multiple is undefined; the metrics become EV per programme, EV/peak sales, or occasionally EV against R&D spend.\n\nAveraging a P/E of 14× with an EV/EBITDA of 18× is not a valuation. The first move in any healthcare comps question is to say which sub-sector the target sits in, and let that choose the metric.",
+            "example_q": "You are valuing a medical device company. What peers would you use, and on what multiple?",
+            "answer_md": "I would build the set from other listed device makers of similar size, with similar reimbursement exposure — that is, selling into comparable healthcare systems, since who pays and how reliably is a major driver of the multiple. I would deliberately exclude large pharmaceutical companies and contract research organisations; they are different businesses with different economics and would distort the median.\n\nOn the multiple, **EV/EBITDA** would be the primary, with **EV/Revenue** as a cross-check, because device businesses run high gross margins and revenue is a reasonable proxy for scale.\n\nI would avoid leaning on P/E. Device companies vary a lot in leverage and in how much they capitalise, and P/E is after interest, so it would compare capital structures rather than the underlying businesses."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Thornbury Optics** wants a comps valuation. Build the peer set from the other four companies in Marlow's table **plus Marlow itself** — Marlow's own multiple is its **£1,290m enterprise value — the one the market actually gives it today, not the £1,650m the peer median implied earlier** — over £150m of EBITDA. Compute the median and mean, then value Thornbury: **EBITDA £110m, net debt £140m, 50m shares.** Its own shares trade at £17.00-equivalent on a 9.0× multiple.",
+        "model_answer_md": "Marlow's own multiple first: 1,290 / 150 = **8.6×**.\n\nThe five peers for Thornbury are therefore Brantwood 11.0×, Larkfield 12.0×, Penrose 8.0×, Halden 12.0× and Marlow 8.6×.\n\nSorted: 8.0, 8.6, 11.0, 12.0, 12.0 → **median 11.0×**. The mean is (11 + 12 + 8 + 12 + 8.6) / 5 = **10.3×**.\n\nI would use the median. Applying it:\n\n- EV = 11.0 × 110 = **£1,210m**\n- Equity value = 1,210 − 140 = **£1,070m**\n- Per share = 1,070 / 50 = **£21.40**\n\nOne observation worth making unprompted: Thornbury's *own* traded multiple is 9.0×, well below the 11.0× median, and that is not an anomaly to be corrected — it is the slowest-growing company in the set at 4 %. So a valuation at the median implicitly assumes Thornbury should be re-rated to the middle of a group it currently sits below. I would present £21.40 as the top of a range and anchor the bottom nearer its own multiple, then explain what would have to change for it to close the gap.",
+        "rubric": [
+          "Computes Marlow's own multiple (8.6×) and includes it in the peer set",
+          "Chooses the median (11.0×) over the mean (10.3×) and gives a reason",
+          "Bridges 1,210 − 140 = £1,070m equity value",
+          "Divides by 50m shares to reach £21.40",
+          "Notes that Thornbury's own 9.0× sits below the median because it is the slowest grower"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Median or mean — and why?",
+            "a": "Median. It is barely moved by one extreme peer, whereas the mean absorbs the full weight of every outlier."
+          },
+          {
+            "q": "Why calendarise the metrics?",
+            "a": "Peers have different financial year-ends, so you restate them to a common twelve-month window and compare like with like."
+          },
+          {
+            "q": "Forward or trailing multiples?",
+            "a": "Forward — the next twelve months — is the standard, since valuation is about the future. Trailing is a cross-check."
+          },
+          {
+            "q": "Where does a peer's multiple actually come from?",
+            "a": "Its own market data: share price times diluted shares, bridged to enterprise value, divided by the metric."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**A comp is an argument that two businesses deserve the same price — so match on growth and margin, take the median, and be ready to defend every name in the table.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can list the steps of a comps analysis in order, including calendarisation.",
+          "I can say what makes a company a genuine peer, and why size alone is not enough.",
+          "I can compute a median multiple, apply it, and bridge to a share price.",
+          "I can explain why the median beats the mean, and show what one outlier is worth.",
+          "I can argue where in the range a company belongs rather than defaulting to the median."
+        ]
+      }
+    ]
+  }
+}

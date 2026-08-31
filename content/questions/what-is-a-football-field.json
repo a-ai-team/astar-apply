@@ -1,0 +1,37 @@
+{
+  "slug": "what-is-a-football-field",
+  "subtopic_slug": "choosing-and-presenting",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "presentation"
+  ],
+  "question": "What is a football field chart, and what is it for?",
+  "model_answer_md": "A chart with one horizontal bar per valuation method, each bar spanning the range that reasonable assumptions produce, with the current share price and often the 52-week range drawn across as reference lines.\n\nIts purpose is to show that valuation is a **range, not a number**. Each method answers a slightly different question, so they should not agree exactly — and where they overlap is the range you can defend from more than one direction.\n\nFor Marlow: comps £8.25–£13.25, precedents £12.00–£15.75, DCF £8.67–£10.33, against a market price of £9.00. The overlap between comps and precedents sits around £12.00–£13.25.\n\nThe gaps matter as much as the overlap. When the DCF sits below the market-based methods, that is the analysis — the market is paying for something your cash flow forecast does not contain, and you should be able to say what.",
+  "key_points": [
+    "One bar per method, each showing a range, with the share price marked",
+    "The point is that valuation is a range, not a single number",
+    "The overlap is the defensible range",
+    "Marlow: comps £8.25–13.25, precedents £12.00–15.75, DCF £8.67–10.33",
+    "The gaps between the bars are the analysis, not a failure"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why not just average the three methods?",
+      "answer_md": "Because averaging assumes they are three noisy attempts at the same number, and they are not — one prices a minority stake, one prices control, one prices your own forecast. Averaging a control price with a minority price produces a figure that describes no transaction anyone could actually do, and it throws away the information in the spread."
+    },
+    {
+      "question": "What if the bars do not overlap at all?",
+      "answer_md": "That is a finding, and I would lead with it. It usually means one method is being driven by something the others do not see — a peer set that has re-rated, precedents from a different rate environment, or forecasts that disagree with the market. I would say which method I trust most for this company and why, rather than forcing a range that none of the evidence supports."
+    }
+  ],
+  "weak_answer_note": "Describes the chart's appearance without saying why a range beats a point estimate, or treats the overlap as the 'answer' with no comment on the gaps.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

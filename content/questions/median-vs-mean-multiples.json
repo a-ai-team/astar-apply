@@ -1,0 +1,37 @@
+{
+  "slug": "median-vs-mean-multiples",
+  "subtopic_slug": "comparable-companies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "median"
+  ],
+  "question": "Why do bankers quote the median of a peer set rather than the mean?",
+  "model_answer_md": "Because the mean is moved by a single unusual peer and the median is not.\n\nIn a set of five, one company on a takeover rumour, or one whose earnings have temporarily collapsed and inflated its multiple, drags the mean noticeably. The median only cares about the middle name, so it survives.\n\nMarlow's peers run 8.0×, 9.0×, 11.0×, 12.0×, 12.0×. The median is **11.0×**; the mean is **10.4×**. The gap tells you the set is skewed towards the lower end — useful information in itself.\n\nIn practice you show both, plus the range and often the quartiles, because the spread is part of the answer. The median is the headline; it is not the whole story.",
+  "key_points": [
+    "The mean is dragged by outliers; the median is not",
+    "Small sets make this worse — five names give the mean no protection",
+    "Marlow's peers: median 11.0×, mean 10.4×",
+    "The gap between them signals skew in the set",
+    "Show median, mean and spread — the range is part of the answer"
+  ],
+  "follow_ups": [
+    {
+      "question": "When would you actually use the mean?",
+      "answer_md": "When the set is large and tightly clustered, so the two are nearly identical and the mean uses all the data. Also when you have deliberately built a set with no outliers and want to reflect every name. In a five-company set with a four-turn spread, the mean is not the right statistic."
+    },
+    {
+      "question": "What if the median lands right next to an obvious outlier?",
+      "answer_md": "Then the median is not protecting you, and I would say so. With five names, the middle one can sit adjacent to a distorted peer. I would show the multiple with and without the questionable name, explain why it might not belong, and let the range carry the argument rather than defending a single midpoint."
+    }
+  ],
+  "weak_answer_note": "States that the median is 'more accurate' without explaining outlier sensitivity, or quotes a median from a set too small for it to mean anything.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

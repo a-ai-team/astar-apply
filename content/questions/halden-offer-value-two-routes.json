@@ -1,0 +1,48 @@
+{
+  "slug": "halden-offer-value-two-routes",
+  "subtopic_slug": "precedent-transactions",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "halden",
+    "premium"
+  ],
+  "question": "A buyer is considering Halden Labs. Halden has EBITDA of £125m, net debt of £180m, 60m shares and trades at £22.00. The precedent set has a median 12.5× EV/EBITDA and a median 30 % control premium. What does each route imply per share, and why do they differ?",
+  "model_answer_md": "**Multiple route:** EV = 12.5 × 125 = £1,562.5m → equity = 1,562.5 − 180 = £1,382.5m → 1,382.5 ÷ 60 = **£23.04 a share**.\n\n**Premium route:** 22.00 × 1.30 = **£28.60 a share**.\n\nThey differ by about £5.56, and the reason is that they are anchored to different things. The multiple route starts from Halden's **earnings** and asks what buyers pay for a pound of EBITDA. The premium route starts from Halden's **share price** and asks what buyers pay over market.\n\nThe gap says Halden already trades richly relative to its earnings — at £22.00 it is on 12.0× EBITDA, close to the 12.5× precedent median. So there is little room left for a normal premium on top. When the two routes diverge like this, it usually means the target's current rating is doing something unusual, and that is worth saying rather than averaging away.",
+  "key_points": [
+    "Multiple route: 12.5 × 125 = £1,562.5m EV → £1,382.5m equity → £23.04",
+    "Premium route: 22.00 × 1.30 = £28.60",
+    "One is anchored to earnings, the other to the share price",
+    "Halden already trades at 12.0×, close to the precedent median",
+    "A wide gap signals the current rating is unusual — explain it, don't average it"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do the two routes disagree?",
+      "answer_md": "Because the premium route inherits whatever the market already thinks. If the shares are richly rated, applying a 30 % premium compounds that rating; if they are depressed, it inherits the depression. The multiple route ignores the current price entirely and prices the earnings. They agree only when the target trades in line with the precedent multiples."
+    },
+    {
+      "question": "Which does a board cite when defending a deal?",
+      "answer_md": "The premium, almost always — it is the number shareholders recognise and it frames the deal as value delivered over what they could get in the market. The multiple route is what the adviser uses internally to judge whether the price is sensible against comparable deals. Both appear in the fairness opinion."
+    }
+  ],
+  "numbers": {
+    "inputs": {
+      "ebitda": 125,
+      "net_debt": 180,
+      "shares": 60,
+      "precedent_multiple": 12.5,
+      "share_price": 22.0,
+      "premium": 0.3
+    },
+    "answer": 23.04
+  },
+  "weak_answer_note": "Computes one route only, or averages the two answers instead of explaining why they diverge — which is the real content of the question.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

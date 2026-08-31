@@ -1,0 +1,37 @@
+{
+  "slug": "ev-ebit-vs-ev-ebitda-capex",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "capex"
+  ],
+  "question": "When would you use EV/EBIT instead of EV/EBITDA?",
+  "model_answer_md": "When the companies you are comparing consume their assets at different rates.\n\nEBITDA adds depreciation back, which quietly assumes the asset base maintains itself. It does not. A manufacturer replacing plant every seven years and a software business with almost no fixed assets can show identical EBITDA while one of them has to spend heavily just to stand still.\n\n**EV/EBIT** charges depreciation, so it penalises the capital-heavy company — which is the honest treatment when capital intensity differs.\n\nYou can see it in the peer set. Penrose goes from 8.0× EV/EBITDA to 11.6× EV/EBIT, a step-up of 1.45×, while Larkfield steps up from 12.0× to 16.0×, a factor of 1.33. Penrose carries proportionally more depreciation, so more of its apparent cheapness disappears once you charge it.\n\nThe sharpest version is **EV/(EBITDA − capex)**, which charges the cash actually spent rather than the accounting estimate.",
+  "key_points": [
+    "EBITDA assumes the asset base maintains itself; it does not",
+    "EV/EBIT charges depreciation, so capital intensity shows up",
+    "Penrose steps up 8.0× → 11.6× (1.45×); Larkfield 12.0× → 16.0× (1.33×)",
+    "The step-up ratio is a quick read on relative capital intensity",
+    "EV/(EBITDA − capex) charges actual cash spend, not the accounting estimate"
+  ],
+  "follow_ups": [
+    {
+      "question": "What do the step-up numbers tell you about Penrose and Larkfield?",
+      "answer_md": "That Penrose carries proportionally heavier depreciation. Its multiple rises 45 % when you charge D&A, against 33 % for Larkfield, so part of Penrose's low EV/EBITDA is compensation for an asset base that has to be replaced rather than a bargain. On EV/EBIT the gap between them narrows."
+    },
+    {
+      "question": "How does IFRS 16 complicate this?",
+      "answer_md": "It moves rent out of operating costs and into depreciation and interest, so capitalising leases raises EBITDA while leaving EBIT roughly unchanged. That flatters EV/EBITDA for lease-heavy businesses like retailers. The fix is consistency: capitalise leases in both the enterprise value and the metric, or in neither, and treat every peer the same way."
+    }
+  ],
+  "weak_answer_note": "Says 'EBITDA ignores capex' without connecting it to why that distorts a comparison, or cannot name a situation where the distinction changes the conclusion.",
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}
