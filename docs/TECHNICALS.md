@@ -233,6 +233,7 @@ kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chap
 ### Chapters (shipped)
 | Loop | Chapter | Content | Status |
 |---|---|---|---|
+| 17 | M&A | 4 lessons (Tamar Group buying Wychwood), 22 questions, `accretion_rule` · `synergy_npv` · `ppa_goodwill`, deal summary card, cheat sheet | `generated` — paid topic, awaiting mentor approval |
 | 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
 | 16 | DCF | 7 lessons (Harbourline), 42 questions, `tv_share` · `gordon_vs_exit` · `wacc_builder` · `beta_relever`, DCF build sheet, cheat sheet | `generated` — paid topic, awaiting mentor approval |
 | 15 | Valuation | 5 lessons (Marlow Instruments), 31 questions, `football_field` (range chart + comps picker), cheat sheet | `generated` — paid topic, awaiting mentor approval |

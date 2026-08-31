@@ -1,0 +1,38 @@
+{
+  "slug": "order-the-merger-maths",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:order",
+    "accretion-dilution",
+    "walkthrough"
+  ],
+  "question": "Arrange the merger walk into working order: divide by the old shares plus the new shares issued; add synergies after tax; combine the two companies' net incomes; deduct new amortisation from write-ups; deduct the after-tax cost of the funding.",
+  "model_answer_md": "The order is:\n\n1. **Combine the two companies' net incomes** — the starting pool of earnings.\n2. **Deduct the after-tax cost of the funding** — interest on new debt and interest no longer earned on cash spent, both at (1 − tax).\n3. **Add synergies after tax** — £20m pre-tax is worth £15m to the bottom line at a 25 % rate.\n4. **Deduct new amortisation from write-ups** — the ongoing book charge purchase accounting creates.\n5. **Divide by the old shares plus the new shares issued** — stock consideration over the buyer's share price is the only thing that grows the count.\n\nSteps 2–4 are order-insensitive among themselves — they are all numerator adjustments — but all must land before the division, and the division must use the enlarged count. The two classic failures are structural, not sequential: skipping step 2 entirely, or performing step 5 with the old share count.",
+  "key_points": [
+    "Numerator first: combined income, then after-tax funding cost, synergies, new amortisation",
+    "Denominator last: old shares plus stock consideration ÷ buyer's price",
+    "Every numerator adjustment is after tax",
+    "The adjustments commute; the division does not",
+    "Most common failures: no funding cost, or the old share count"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where do deal fees slot in?",
+      "answer_md": "With the other numerator deductions, alongside steps 2–4. Advisory fees are one-off expenses in the pro-forma year; financing fees amortise over the life of the new debt, so a slice recurs annually. Neither touches the share count. In interviews it is usually enough to name them as a refinement after finishing the clean walk — volunteering them shows you know the full version exists."
+    },
+    {
+      "question": "Why must every adjustment be after tax rather than gross?",
+      "answer_md": "Because the destination is net income, which sits below the tax line. Interest is deductible, so £15m of interest only removes £11.25m of earnings; lost interest income also cancels the tax that would have been paid on it; synergies will be taxed when they arrive. Mix a single pre-tax number into the walk and the error is a third of that line at a 25 % rate — always in a direction the interviewer can hear."
+    }
+  ],
+  "weak_answer_note": "Placing the division before the funding adjustments, or presenting the five steps correctly but performing the division over the buyer's original shares when asked to demonstrate — the ordering is only evidence the machine is understood.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

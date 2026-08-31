@@ -1,17 +1,24 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-28 (Technicals v2) · **Handover written:** 2026-08-31
-- **Loop:** 16 DCF complete (PR #36). **Next: Loop 17 M&A**, then Loop 18 LBO.
-- **Branch:** none — Loops 11–16 are all merged to `main`. Branch Loop 17 off **`main`**.
-- **Last checks (on `main`):** lint ✓ typecheck ✓ build ✓ unit 374/374 ✓ e2e 67/67 ✓ `content:validate` 0 errors (28 lessons, 164 questions, 5 cheat sheets) ✓ 15 widgets registered ✓ eval lessons+questions **PASS** (schema 1.00, overlap 0, readability 4.47, mix gate 0.128 at n=156) ✓
-- **Blockers:** none for Loop 17. Lighthouse a11y never run (§ Standing gaps).
-- **Next action:** Loop 17 M&A — 4 lessons, 22 questions, `accretion_rule` / `synergy_npv` / `ppa_goodwill`, `deal_summary` template.
+- **Loop:** **17 M&A complete** on `feat/loop-17-ma` — all checks green, PR next. Then Loop 18 LBO (last).
+- **Last checks (on `feat/loop-17-ma`):** lint ✓ typecheck ✓ build ✓ unit 386/386 ✓ e2e **73/73**
+  (17-ma 6/6) ✓ `content:validate` 0 errors (32 lessons, 186 questions, 6 cheat sheets) ✓ 18 widgets
+  registered ✓ eval lessons+questions **PASS** (lessons schema 1.00, overlap 0, readability 4.35;
+  questions schema 1.00, overlap 0, mix **0.132** at n = 178) ✓ seeds 03/05 + `content:index` run ✓
+- **Spec errors found (Loop 17, verified against the library — the tally is now 17):** (15) synergy
+  NPV ≈ **£167m** not £160m (the spec left the integration cost untaxed); (16) breakeven run-rate
+  ≈ **£12.6m** pre-tax, not "9–10"; (17) the spec's difficulty summary line contradicts its own
+  table (2/7/6/3 followed). Full detail in the Loop 17 retro.
+- **Blockers:** none. Lighthouse a11y never run (§ Standing gaps).
+- **Next action:** commit → PR → `--admin` squash merge (one at a time, no `--delete-branch`),
+  then branch Loop 18 LBO off the refreshed `main`.
 
 ---
 
 ## Where the programme is
 
-**27 of 35 lessons written · 156 of ~199 questions · 15 widgets · 10 finance modules · 18 e2e specs.**
+**31 of 35 lessons written · 178 of ~202 questions · 18 widgets · 10 finance modules · 19 e2e specs.**
 
 | Loop | Chapter | Lessons | Questions | State |
 |---|---|---|---|---|
@@ -21,7 +28,7 @@
 | 14 | EqV vs EV | 4 | 29 | **merged to `main`** · approved & **live** |
 | 15 | Valuation | 5 | 31 | **merged to `main`** · `generated` |
 | 16 | DCF | 7 | 42 | **merged to `main`** · `generated` |
-| 17 | **M&A** | 4 | 22 | **not started** |
+| 17 | **M&A** | 4 | 22 | **complete on `feat/loop-17-ma`** · `generated` — PR pending |
 | 18 | **LBO** | 4 | 24 | **not started** |
 
 Accounting and EqV/EV are the only free topics and the only ones that auto-approve. Valuation, DCF,
@@ -54,7 +61,7 @@ git add -A && git commit --no-edit && git push
 Conflicts land in the same five files every time: `docs/{MASTER_PLAN,TECHNICALS}.md`,
 `docs/loops/{CURRENT,RUNLOG}.md` and `src/components/lesson/blocks/widget.tsx`. **Always verify the
 widget registry is a union afterwards** — `grep -c "as ComponentType"` should equal the number of
-built widgets (15 after Loop 16). Then delete the branch and prune.
+built widgets (18 after Loop 17). Then delete the branch and prune.
 
 `#17` (Loop 10 launch) is **deliberately untouched** — `needs-james`, placeholder legal copy and an
 unconfigured Stripe. Not this programme's work, and not something to merge on a permission rule.
@@ -118,18 +125,15 @@ Four parallel agents is the sweet spot. More than that and they collide on share
 
 ---
 
-## Loop 17 — M&A (next)
+## Loop 17 — M&A (complete, PR pending)
 
-Spec `docs/research/technicals-v2/17-ma.md`, plan `docs/loops/17-technicals-ma.md`.
-4 lessons (`why-companies-acquire`, `accretion-dilution-concepts`, `accretion-dilution-calculations`,
-`synergies-and-deal-structure`), `purchase-price-allocation` **deferred**. 22 questions
-(12 core / 6 stretch / 4 lens). Widgets `accretion_rule`, `synergy_npv`, `ppa_goodwill` (stretch).
-Company: **Tamar Group plc** (P/E 15) buying **Wychwood Ltd** (P/E 10).
+Retro: `docs/loops/17-technicals-ma.md`. Everything shipped per plan; `generated`, awaiting mentor
+approval. For Loop 18: widget props added — `accretion_rule {…, offerPe, mode: "simple"|"full"}`
+(offer value derived as offerPe × targetNetIncome), `synergy_npv {runRate, phaseInYears,
+integrationCost, discountRate, taxRate, premium}`, `ppa_goodwill {purchasePrice, bookEquity,
+writeUps, taxRate}`. Companies added: Tamar Group plc, Wychwood Ltd, Oakhurst plc, Bexfield Ltd.
 
-**`deal_summary` is a new `template` kind** — already in the contract and the `Template` component,
-so no schema change is needed; just author the block.
-
-## Loop 18 — LBO (last) — also owns the programme close
+## Loop 18 — LBO (next, last) — also owns the programme close
 
 Spec `docs/research/technicals-v2/18-lbo.md`, plan `docs/loops/18-technicals-lbo.md`.
 4 lessons including **`paper-lbo-walkthrough` — a new subtopic slug that must be added to
@@ -150,7 +154,14 @@ sheet + faded-walk review), a "with lens" option on drills and mocks, and refres
   `npx lighthouse http://localhost:3100/home/technicals/accounting/three-statement-links --only-categories=accessibility`
   against `next start`.
 - **Migrations 0010 and 0011 still unapplied** (inherited from Loops 09/10). Nothing in 11–16 needs them.
-- **Bank-wide difficulty mix is 0.128 against a 0.15 gate.** M&A and LBO add ~46 questions — watch it.
+- **Bank-wide difficulty mix is 0.132 against a 0.15 gate** after M&A (d2 heavy at 0.343 vs 0.30).
+  LBO's 24 questions must not push it over — lean d1/d4 where the spec allows.
 - Loop 04/09 content batches never ran; credit exists now (the readability judge runs live).
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
+- 2026-08-31 12:16 heartbeat
+- 2026-08-31 12:26 heartbeat
+- 2026-08-31 12:27 heartbeat
+- 2026-08-31 12:28 heartbeat
+- 2026-08-31 12:31 heartbeat
+- 2026-08-31 12:42 heartbeat

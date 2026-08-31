@@ -1,0 +1,38 @@
+{
+  "slug": "is-accretive-always-good",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "accretion-dilution",
+    "value"
+  ],
+  "question": "A board announces its acquisition will be double-digit accretive to EPS from year one. Does that settle whether shareholders should be pleased?",
+  "model_answer_md": "No. Accretion and value creation are different calculations that happen to share a press release.\n\nAccretion asks whether pro-forma EPS beats standalone EPS — an outcome of funding arithmetic. Value creation asks whether the present value of the synergies exceeds the premium paid — an NPV. Nothing forces the two to agree.\n\nThe cleanest wedge is cheap funding. Take the Tamar deal at 25 % over market: financed with 4 %-earning cash it is +20.8 % accretive *before a single synergy* — the accretion measures the gap between an 8 % earnings yield and a 3 % after-tax funding cost, and would survive a substantial overpayment intact. Double the premium and the deal still prints accretive; the extra £100m handed to Wychwood's shareholders never touches the EPS line.\n\nSo the answer to give: accretion matters because markets price off EPS, but the deal is judged by whether synergies cover the premium — and a low interest rate is not a synergy.",
+  "key_points": [
+    "Accretion = EPS arithmetic; value = PV of synergies versus premium",
+    "Cheap cash or debt can make an overpriced deal comfortably accretive",
+    "Tamar all-cash: +20.8 % with zero synergies assumed",
+    "The premium overpaid never appears in the EPS calculation",
+    "Both numbers matter, for different reasons — say which answers what"
+  ],
+  "follow_ups": [
+    {
+      "question": "Construct a deal that is accretive and destroys value.",
+      "answer_md": "Pay £600m in cheap debt for Wychwood — a £200m premium — with no synergies at all. After-tax interest at 4.5 % on £600m is £27m; the £40m of earnings acquired still exceeds it, so EPS rises and the headline reads accretive. Meanwhile £200m has moved to the sellers with nothing coming back to cover it: NPV of roughly minus £200m, delivered with an EPS increase. The financing made the earnings maths work; nothing made the price make sense."
+    },
+    {
+      "question": "Can the reverse happen — a dilutive deal that creates value?",
+      "answer_md": "Routinely. A buyer on a modest multiple paying in stock for a faster-growing business, or a pharmaceutical group buying a pre-revenue pipeline, will guide dilutive for years while acquiring assets worth more than the price. The EPS line cannot see cash flows beyond the pro-forma year, so anything whose value sits in the future — growth, a drug awaiting approval — dilutes first and pays later. Judging those deals on year-one EPS would veto some of the best ones."
+    }
+  ],
+  "weak_answer_note": "\"No, accretion isn't everything\" without the mechanism — the cheap-funding wedge — or without being able to produce an example on request. The example is what proves the point is understood.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

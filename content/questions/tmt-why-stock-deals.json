@@ -1,0 +1,38 @@
+{
+  "slug": "tmt-why-stock-deals",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "consideration"
+  ],
+  "question": "Large technology acquirers pay for deals in their own shares far more often than buyers in other sectors. Why?",
+  "model_answer_md": "Two structural reasons, both about what a growth company has and lacks.\n\n**Their paper is expensive currency.** A software acquirer on 40 times earnings has an earnings yield — the cost of paying in stock — of just 2.5 %. Almost any profitable target bought at a sane price yields more than that, so stock deals screen accretive nearly by default. Managements also lean towards paying in shares precisely when they believe their own rating is rich: issuing overvalued paper is the cheapest funding there is.\n\n**They have little else to pay with.** High-growth companies reinvest rather than hoard, so the cash for a large deal often is not there, and they carry little debt capacity — lenders struggle with businesses whose assets are engineers and code. Shares are frequently the only currency that scales to the deal.\n\nStock also shares risk: the seller's shareholders keep exposure to the combination, which softens price negotiations on targets whose value is mostly future.",
+  "key_points": [
+    "High multiples make stock cheap: 40× P/E = 2.5 % earnings yield",
+    "Managements prefer issuing paper they believe is richly valued",
+    "Growth companies hold little spare cash and limited debt capacity",
+    "Stock lets the seller keep exposure, bridging valuation gaps",
+    "Consequence: accretion from these buyers proves very little"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do investors discount the EPS accretion these deals report?",
+      "answer_md": "Because the hurdle is trivially low. Accretion against a 2.5 % cost of stock measures the buyer's own rating, not the deal's quality — almost anything clears it, including serious overpayment. Investors look instead at what cannot be flattered: revenue growth durability, free cash flow per share, and the ownership dilution — existing holders end up with a smaller slice of the combined company, and whether that trade made sense depends entirely on what was bought."
+    },
+    {
+      "question": "What happens to the analysis when the target is loss-making, as tech targets often are?",
+      "answer_md": "The P/E machinery collapses — no earnings, no earnings yield, no accretion arithmetic worth doing. The conversation moves to EV/Revenue or EV/ARR for price, to the strategic case for logic, and to the target's economics *inside the buyer*: what the product earns once plugged into the acquirer's distribution. Guidance typically concedes dilution for several years, and the deal is judged on whether the growth it buys survives long enough to pay for it."
+    }
+  ],
+  "weak_answer_note": "\"Because they can't afford cash\" alone — half the story. The expensive-paper logic, and its corollary that accretion from a 40× buyer is close to meaningless, is what the lens question is testing.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

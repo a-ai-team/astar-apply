@@ -1,0 +1,38 @@
+{
+  "slug": "what-is-goodwill",
+  "topic_slug": "ma",
+  "subtopic_slug": "synergies-and-deal-structure",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "goodwill",
+    "purchase-accounting"
+  ],
+  "question": "When the Tamar–Wychwood deal completes, a £220m goodwill entry appears on Tamar's balance sheet. Walk through how that number is built and what happens to it afterwards.",
+  "model_answer_md": "Goodwill is the residual of the purchase accounting — the slice of the price that survives every attempt to pin it to a nameable asset.\n\nAt completion, Wychwood's balance sheet is restated to fair value: book net assets of £220m, plus a £60m write-up of its brand, gives **£280m** of identifiable net assets. Tamar paid £500m. The unexplained excess is the goodwill:\n\n$$500 - 280 = \\mathbf{£220m}$$\n\nIt stands for what a healthy business is worth beyond its recorded assets — earning power, workforce, relationships, the synergies Tamar expects — none of which qualifies as a separable asset.\n\nAfterwards, under IFRS, it is **not amortised**. It sits at cost and is tested at least annually for **impairment**: if the acquired business can no longer support the residual, goodwill is written down through the income statement — a non-cash charge, and a public admission of overpayment.\n\nThe number it must never be confused with: the premium. Tamar paid £100m over Wychwood's market value but carries £220m of goodwill, because the two are measured against different baselines.",
+  "key_points": [
+    "Residual: price less fair value of identifiable net assets after write-ups",
+    "Wychwood: 500 − (220 + 60) = £220m",
+    "Represents earning power and expected synergies no asset line can hold",
+    "Not amortised under IFRS — impairment-tested annually",
+    "Distinct from the £100m premium: different baselines, different numbers"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is goodwill not simply amortised away over some period?",
+      "answer_md": "Because no defensible life exists for it. A well-run acquired business can hold its value indefinitely, so any amortisation schedule would be an arbitrary drag on reported earnings. The impairment regime is meant to be more truthful — the value stays until evidence says it has gone — though it leans on management's own cash-flow forecasts, which is why impairments so often arrive later than the underperformance that caused them."
+    },
+    {
+      "question": "How do goodwill and the premium diverge so widely — £220m against £100m here?",
+      "answer_md": "They subtract from the £500m price along different baselines. The premium subtracts Wychwood's **market capitalisation** (£400m) — what its equity traded at. Goodwill subtracts its **restated balance sheet** (£280m) — what its identifiable assets are worth. A healthy company's market value normally sits far above its book value, so goodwill normally dwarfs the premium. Buy Wychwood at exactly £400m, no premium at all, and £120m of goodwill would still appear."
+    }
+  ],
+  "weak_answer_note": "Calling goodwill the takeover premium, or the value of the brand — the brand write-up is an identifiable intangible and reduces goodwill. Also weak: saying it is amortised.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "talk-me-through-a-deal",
+  "topic_slug": "ma",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "deal-discussion",
+    "market-awareness"
+  ],
+  "question": "An interviewer asks about a recent transaction you have been following. What structure carries that answer, and what does a strong version sound like?",
+  "model_answer_md": "Eight beats, in order — the same fields as the deal summary card:\n\n1. **Who and what**: buyer, target, what each does.\n2. **Price**: the equity value, and the enterprise value if debt is assumed.\n3. **Premium and multiple**: what was paid over the undisturbed price, and the implied P/E or EV/EBITDA.\n4. **Consideration**: cash, stock, debt, or the mix — it tells you what the buyer's board believes about its own paper.\n5. **Rationale**: the one-line reason, ideally with the synergy number claimed.\n6. **Market reaction**: what the buyer's shares did on announcement — the market's verdict on whether the premium is earnable.\n7. **The risk**: integration, regulation, customer loss — the thing that could stop the synergies arriving.\n8. **Your view**: would you have advised it at that price?\n\nUsing the Tamar shape as a template: \"Tamar paid £500m for Wychwood — a 25 % premium, 12.5 times earnings against its own 15 — justified on £20m of annual cost savings from combining distribution; the deal only works if the value of those savings clears the £100m premium, and I think it does, narrowly.\"\n\nThe last beat is the differentiator. Reciting facts is preparation; having a view is judgement.",
+  "key_points": [
+    "Buyer, target, price, premium, multiple, consideration, rationale, reaction, risk, view",
+    "The consideration mix signals what the buyer thinks of its own shares",
+    "The announcement-day share move is the market's verdict",
+    "Ending with a defensible personal view is what separates candidates",
+    "One deal prepared in depth beats five known by headline"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would you have advised the buyer to do it?",
+      "answer_md": "The answer has to hang on the premium test: was the present value of deliverable synergies greater than the premium paid? A defensible \"yes\" cites the cost-synergy number and its credibility; a defensible \"no\" points at a premium that needs revenue synergies or heroic assumptions to clear. Either way, commit — \"it depends\" with no follow-through is the one wrong answer."
+    },
+    {
+      "question": "What is the biggest risk to the deal you would name?",
+      "answer_md": "Pick the one that threatens the synergies specifically, not a generic list: customer overlap that invites churn, a regulator that could demand disposals, key staff who can walk, or an integration that distracts both management teams for two years. Naming the risk that attacks the rationale — rather than any risk at all — shows you understood why the deal was done."
+    }
+  ],
+  "weak_answer_note": "Headline facts with no numbers, or numbers with no view. Also weak: choosing a mega-deal from the news but being unable to say how it was financed or what the premium was.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

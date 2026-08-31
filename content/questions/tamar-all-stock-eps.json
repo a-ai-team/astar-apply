@@ -1,0 +1,47 @@
+{
+  "slug": "tamar-all-stock-eps",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "accretion-dilution",
+    "pro-forma-eps"
+  ],
+  "question": "Tamar Group plc — net income £120m, 100m shares, share price £18 — buys Wychwood Ltd, net income £40m, for £500m paid entirely in new Tamar shares. Produce the pro-forma EPS and the accretion percentage.",
+  "model_answer_md": "Three lines, then the verdict.\n\n**New shares.** £500m of consideration in paper priced at £18: 500 ÷ 18 = **27.78m** new shares.\n\n**Pro-forma earnings.** All-stock means no financing cost to deduct — combined net income is simply 120 + 40 = **£160m**.\n\n**Pro-forma EPS.** £160m over the enlarged count of 100 + 27.78 = 127.78m shares:\n\n$$\\frac{160}{127.78} = \\mathbf{£1.252}$$\n\nAgainst standalone EPS of £1.20 that is accretion of about **4.3 %**.\n\nThe sense-check to say aloud: Tamar's stock costs it a 6.67 % earnings yield and the earnings bought yield 8.0 % on the £500m paid, so a modest positive was the expected sign before any division happened.",
+  "key_points": [
+    "New shares: 500 ÷ 18 = 27.78m",
+    "No funding cost in all-stock: pro-forma net income £160m",
+    "EPS: 160 ÷ 127.78 = £1.252",
+    "Accretion ≈ +4.3 % against £1.20 standalone",
+    "Yield check predicts the sign: 8.0 % bought vs 6.67 % given up"
+  ],
+  "follow_ups": [
+    {
+      "question": "Rerun it funded entirely with debt at 6 % pre-tax, tax 25 %.",
+      "answer_md": "Now the share count stays at 100m and the numerator takes the hit instead. Interest is 500 × 6 % = £30m, or £22.5m after tax; pro-forma net income is 120 + 40 − 22.5 = £137.5m; EPS is 137.5 ÷ 100 = **£1.375**, accretion of about **14.6 %**. More accretive than stock because 4.5 % after-tax money is cheaper than Tamar's 6.67 % paper — the same price, a different currency, triple the headline."
+    },
+    {
+      "question": "Add £20m of pre-tax synergies to the all-stock case.",
+      "answer_md": "Synergies enter the numerator after tax: 20 × 0.75 = £15m, lifting pro-forma net income to £175m. Over the same 127.78m shares, EPS becomes 175 ÷ 127.78 = **£1.37** — accretion of about **14 %**, up from 4.3 %. Worth noticing how much work the synergy line does: two-thirds of the improved headline rests on savings that have not been delivered yet."
+    }
+  ],
+  "weak_answer_note": "Dividing the £160m by the original 100m shares — the all-stock deal's entire cost lives in the share count, so forgetting the 27.78m new shares turns a 4 % answer into a fictional 33 %. Also weak: hunting for an interest deduction in a deal that has none.",
+  "numbers": {
+    "inputs": {
+      "acquirer_ni": 120,
+      "acquirer_shares": 100,
+      "acquirer_share_price": 18,
+      "target_ni": 40,
+      "offer_value": 500
+    },
+    "answer": 1.252
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

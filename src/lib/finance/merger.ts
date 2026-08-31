@@ -19,7 +19,16 @@ export type AccretionInput = {
   taxRate: number;
   /** Rate the acquirer was earning on the cash it spends. */
   foregoneInterestRate: number;
+  /** Pre-tax annual synergies; tax-affected inside. */
   synergies?: number;
+  /**
+   * Annual amortisation of intangibles written up at the deal (Loop 17, the widget's "full mode").
+   * A book charge: it reduces pre-tax income, so pro-forma EPS loses it after tax — whether or not
+   * the cash tax man allows the deduction is a deferred-tax matter EPS never sees.
+   */
+  newAmortisation?: number;
+  /** One-off deal fees, expensed pre-tax in the pro-forma year (Loop 17). */
+  fees?: number;
 };
 
 export type AccretionResult = {
@@ -55,7 +64,11 @@ export function accretionDilution(i: AccretionInput): AccretionResult {
   const afterTaxForegoneInterest = cashConsideration * i.foregoneInterestRate * (1 - i.taxRate);
 
   const proFormaNetIncome =
-    i.acquirerNetIncome + i.targetNetIncome + (i.synergies ?? 0) * (1 - i.taxRate) - afterTaxInterestCost - afterTaxForegoneInterest;
+    i.acquirerNetIncome +
+    i.targetNetIncome +
+    ((i.synergies ?? 0) - (i.newAmortisation ?? 0) - (i.fees ?? 0)) * (1 - i.taxRate) -
+    afterTaxInterestCost -
+    afterTaxForegoneInterest;
   const proFormaShares = i.acquirerShares + newShares;
   const proFormaEps = proFormaShares === 0 ? 0 : proFormaNetIncome / proFormaShares;
 
@@ -128,6 +141,28 @@ export function synergyNpv(i: SynergyInput): SynergyResult {
     byYear.push((gross - cost) * (1 - taxRate));
   }
   return { npv: npv(byYear, i.discountRate), byYear };
+}
+
+/**
+ * Perpetuity version of the synergy NPV (Loop 17): ramp years explicitly, then capitalise the
+ * run rate forever. Same conventions as `synergyNpv` — the integration cost lands in year 1 and
+ * everything is tax-affected, so a spec that leaves the one-off cost untaxed will come out lower
+ * than this (Tamar / Wychwood: ≈ £167m here vs the hand-walk's £160m).
+ */
+export function synergyPerpetuityNpv(i: Omit<SynergyInput, "years">): SynergyResult {
+  const taxRate = i.taxRate ?? 0;
+  const rampYears = Math.max(1, Math.ceil(i.phaseInYears));
+  const byYear: number[] = [];
+  for (let year = 1; year <= rampYears; year++) {
+    const ramp = i.phaseInYears <= 0 ? 1 : Math.min(1, year / i.phaseInYears);
+    const cost = year === 1 ? i.integrationCost : 0;
+    byYear.push((i.annualSynergies * ramp - cost) * (1 - taxRate));
+  }
+  const explicit = npv(byYear, i.discountRate);
+  // Level run rate from the year after the ramp, valued as at the end of the ramp.
+  const perpetuity =
+    i.discountRate <= 0 ? 0 : (i.annualSynergies * (1 - taxRate)) / i.discountRate / Math.pow(1 + i.discountRate, rampYears);
+  return { npv: explicit + perpetuity, byYear };
 }
 
 /** Premium paid over the target's undisturbed equity value, as a percentage. */

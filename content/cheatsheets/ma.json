@@ -1,0 +1,69 @@
+{
+  "topic_slug": "ma",
+  "formulas": [
+    {
+      "name": "Accretion / dilution",
+      "latex": "\\text{Accretion \\%} = \\frac{\\text{Pro-forma EPS}}{\\text{Standalone EPS}} - 1",
+      "note": "Tamar all-stock: 1.252 ÷ 1.20 − 1 = +4.3 %. Positive is accretive, negative dilutive — and neither says anything about value."
+    },
+    {
+      "name": "New shares issued",
+      "latex": "\\text{New shares} = \\frac{\\text{Stock consideration}}{\\text{Acquirer share price}}",
+      "note": "All-stock: £500m ÷ £18 = 27.78m. The 50/50 deal issues half that: £250m ÷ £18 = 13.89m."
+    },
+    {
+      "name": "After-tax cost of debt (and cash)",
+      "latex": "k_d^{AT} = r_d \\times (1 - t)",
+      "note": "New debt at 6 %: 4.5 % after tax. Cash works the same way on the interest you stop earning: 4 % becomes 3.0 %."
+    },
+    {
+      "name": "Cost of stock as a currency",
+      "latex": "\\text{Cost of stock} = \\frac{1}{P/E} = \\text{earnings yield}",
+      "note": "Tamar at 15× pays 6.67 % when it pays in shares. Wychwood earns 8.0 % on the £500m offer — which is why the all-stock deal is accretive."
+    },
+    {
+      "name": "Goodwill",
+      "latex": "\\text{Goodwill} = \\text{Price} - \\text{FV of identifiable net assets}",
+      "note": "Wychwood: 500 − (220 book + 60 write-up) = £220m. A deferred-tax liability on the write-up shrinks the identifiable assets, so goodwill rises to £235m."
+    },
+    {
+      "name": "The deal test",
+      "latex": "PV(\\text{synergies}) > \\text{Premium paid}",
+      "note": "Tamar: ≈ £167m of after-tax synergy value net of integration costs, against a £100m premium. Below the line, the deal transfers value to the seller."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "Why do companies buy other companies?",
+      "a": "Because they believe the target is worth more in their hands than the price they pay: cost synergies from duplicated functions, revenue synergies from cross-selling, a capability bought faster than it could be built, consolidation of a fragmented market, or cheap financing buying earnings. The premium only makes sense if the synergies that justify it are real and deliverable."
+    },
+    {
+      "q": "Is the deal accretive or dilutive?",
+      "a": "Accretive if pro-forma EPS beats standalone EPS. The shortcut: compare the target's earnings yield at the offer price with the after-tax cost of the funding — the acquirer's own earnings yield for stock, the after-tax interest rate for debt or cash. Cash is usually cheapest, so all-cash deals are usually the most accretive. Accretion is arithmetic, not value creation."
+    },
+    {
+      "q": "Walk through the merger maths.",
+      "a": "Combined net income, less after-tax interest on new debt, less after-tax interest lost on cash spent, plus after-tax synergies, less any new amortisation from write-ups — that is pro-forma net income. Divide by the acquirer's shares plus the new shares issued (stock consideration over the acquirer's price). Compare with standalone EPS and state the percentage."
+    },
+    {
+      "q": "What is goodwill and where do synergies fit?",
+      "a": "Goodwill is the residual: purchase price less the fair value of the target's identifiable net assets after write-ups. It sits on the balance sheet and is impairment-tested, not amortised. Synergies are the extra profit the combination earns — cost synergies are more credible than revenue ones because the buyer controls them — and their present value has to cover the premium for the deal to create value."
+    }
+  ],
+  "traps": [
+    "Comparing P/Es at the market price. The test uses the P/E at the offer price — Tamar pays 12.5×, not Wychwood's 10× — and the after-tax cost of the funding actually used.",
+    "Adding the two net incomes and dividing by the old share count. The funding cost comes off the income and the new shares go into the denominator; forgetting either is the classic failure.",
+    "Charging pre-tax interest. Every funding cost — new debt, forgone interest on cash — enters the walk after tax.",
+    "Calling the premium goodwill. They are different numbers built on different bases: £100m over the market price, £220m over identifiable net assets.",
+    "Treating accretion as proof the deal is good. Overpaying with cheap debt is still accretive — the EPS line cannot see the NPV."
+  ],
+  "one_liners": [
+    "A deal is accretive when the earnings you buy yield more, at the price you pay, than the after-tax cost of what you pay with."
+  ],
+  "you_may_hear": [
+    "Full three-statement merger models — balance sheet and cash-flow consolidation, not just the EPS line.",
+    "Asset sales vs stock sales, and the tax elections that follow.",
+    "Purchase-accounting deferred tax in detail — the DTL created by write-ups and how it unwinds.",
+    "Exchange-ratio collars on stock deals — floors and caps on how many shares the seller receives."
+  ]
+}

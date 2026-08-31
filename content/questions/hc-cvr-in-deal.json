@@ -1,0 +1,38 @@
+{
+  "slug": "hc-cvr-in-deal",
+  "topic_slug": "ma",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "consideration"
+  ],
+  "question": "Biotech acquisitions frequently include a contingent value right — extra payment only if a named milestone is reached. What problem is that structure solving, and why does it stay rare outside healthcare?",
+  "model_answer_md": "A **CVR** pays the seller's shareholders more only if a defined event occurs — a trial reads out positively, a regulator approves, sales cross a threshold. It solves two problems that reach their extreme form in biotech.\n\n**Binary outcomes.** A drug candidate passes its pivotal trial or it does not; the company is worth several times more in one branch than the other. No single upfront price is right in both worlds — any number overpays for failure or underpays for success.\n\n**Asymmetric information.** The seller's scientists understand the molecule's odds better than any buyer can. A seller confident in its data will not accept a price haircut for risk it believes is small; a buyer cannot pay full success value for risk it cannot verify.\n\nThe CVR splits the difference structurally: a lower certain payment now, plus the upside delivered *only if the seller's confidence proves justified*. Both sides bear the branch they can best afford.\n\nElsewhere it stays rare because most businesses' value arrives smoothly — there is no single observable event to hang the payment on, and a milestone that management can influence invites disputes.",
+  "key_points": [
+    "Contingent payment triggered by a named, observable milestone",
+    "Solves binary outcomes: no single price fits both branches",
+    "Solves information asymmetry: sellers monetise confidence buyers cannot verify",
+    "Buyer pays for success only once it exists",
+    "Needs a discrete, verifiable trigger — which most industries lack"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you reflect a CVR in the deal model?",
+      "answer_md": "As scenarios, never as one blended number. The base case runs on the upfront consideration alone — the contingent payment does not exist if the milestone fails. The milestone case adds the payment when it falls due, funded as the buyer states — typically debt, so its interest cost starts in that year, not at closing. Present both EPS and value paths with the approval probability stated, rather than probability-weighting them into a single figure that describes neither world."
+    },
+    {
+      "question": "What is in it for the seller's shareholders, versus holding out for more cash?",
+      "answer_md": "They keep the upside they believe in without betting the whole deal on the buyer sharing that belief. If the trial succeeds, they collect close to full success value; if it fails, they banked a fair price for a failed asset — better than the alternative of no deal, or a discounted all-cash price that paid them for failure odds they dispute. The cost is delivery risk: the milestone often depends partly on how hard the buyer pushes the programme, which is why CVR terms specify diligence obligations."
+    }
+  ],
+  "weak_answer_note": "Describing the mechanics without the two problems it solves — the binary outcome and the information gap. \"It bridges a valuation gap\" is the headline; the tested content is *why* the gap exists in biotech specifically.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

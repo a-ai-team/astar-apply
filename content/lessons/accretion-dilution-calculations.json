@@ -1,0 +1,135 @@
+{
+  "slug": "accretion-dilution-calculations",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "title": "The merger maths, one line at a time",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "The last lesson gave you the shortcut: compare the target's earnings yield at the price paid with the after-tax cost of the funding. Interviewers let you have that for about thirty seconds. Then comes the escalation — a buyer, a target, a price, a funding mix, and a request to produce the pro-forma EPS out loud.\n\nThe half-debt, half-stock version is the classic form of the question, because it makes you do everything at once: the interest maths on one half of the price and the share maths on the other. There are only five lines to get through, but two of them are where nearly everyone falls over, and interviewers know exactly which two.\n\nThis lesson is the full walk on the Tamar–Wychwood deal, then the same machine with different numbers until it runs without you thinking about it."
+      },
+      {
+        "type": "concept",
+        "heading": "A fraction where both halves move",
+        "md": "Standalone EPS is the buyer's net income over the buyer's shares. An acquisition disturbs **both halves of that fraction at once**, and keeping track of the two separately is the entire skill.\n\nThe **numerator** — pro-forma net income — starts as the two companies' earnings added together, and is then adjusted for the cost of the money. New debt brings an interest charge. Cash spent stops earning whatever it was earning. Both of those arrive *after tax*, because interest is deductible and forgone interest income would have been taxed anyway. Synergies, if you are told to include them, are added after tax for the same reason. And if the deal writes the target's assets up to fair value, the extra amortisation that creates is a further after-tax deduction.\n\nThe **denominator** — the share count — only moves if some of the price is paid in the buyer's shares. The number of new shares is mechanical: the stock portion of the consideration divided by the buyer's share price. Cash and debt leave the count alone, which is precisely why they flatter EPS.\n\nGet those two habits — *everything after tax in the numerator, new shares in the denominator* — and the rest is arithmetic."
+      },
+      {
+        "type": "mechanics",
+        "md": "Written out once, with $D$, $C$ and $K$ the debt, cash and stock portions of the price, $r_d$ the rate on the new debt, $r_c$ the rate the cash was earning, $S$ annual synergies, $A$ the new amortisation from write-ups and $t$ the tax rate:\n\n$$\\text{Pro-forma NI} = NI_{buyer} + NI_{target} - D\\,r_d(1-t) - C\\,r_c(1-t) + (S - A)(1-t)$$\n\n$$\\text{Pro-forma shares} = \\text{existing shares} + \\frac{K}{\\text{buyer's share price}}$$\n\nDivide the first by the second, set the result against standalone EPS, and quote the difference as a percentage. Advisory and financing fees, when the interviewer wants them, are one more deduction from the numerator — but in a first-round answer it is enough to *name* them as a refinement.\n\nThe order matters for your delivery. Say the numerator adjustments as you make them — \"interest of fifteen, but only eleven and a quarter after tax\" — because the interviewer is listening for the tax step specifically. It is the single most commonly dropped line in the walk."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**The deal, with the funding decided.** Tamar Group plc — net income **£120m**, **100m** shares, so EPS **£1.20**, and a share price of **£18** — is buying Wychwood Ltd, net income **£40m**, for **£500m**. The board settles on half and half: **£250m of new debt at 6 %** pre-tax, and **£250m paid in new Tamar shares**. Tax is **25 %**.\n\nRun the machine:",
+        "steps": [
+          { "label": "Interest on the new debt", "expr": "250 * 6%", "value": 15, "unit": "£m" },
+          { "label": "… which costs this after tax", "expr": "15 * 0.75", "value": 11.25, "unit": "£m" },
+          { "label": "New shares: £250m of paper at £18 each", "expr": "250 / 18", "value": 13.89, "unit": "m" },
+          { "label": "Pro-forma net income", "expr": "120 + 40 - 11.25", "value": 148.75, "unit": "£m" },
+          { "label": "Pro-forma share count", "expr": "100 + 13.89", "value": 113.89, "unit": "m" },
+          { "label": "Pro-forma EPS", "expr": "148.75 / 113.89", "value": 1.306, "unit": "£" },
+          { "label": "Against £1.20 standalone", "expr": "1.306 / 1.20 - 1", "value": 0.088, "unit": "" },
+          { "label": "Now add £20m of synergies, after tax", "expr": "20 * 0.75", "value": 15, "unit": "£m" },
+          { "label": "Net income with synergies", "expr": "148.75 + 15", "value": 163.75, "unit": "£m" },
+          { "label": "EPS with synergies", "expr": "163.75 / 113.89", "value": 1.438, "unit": "£" },
+          { "label": "Accretion with synergies", "expr": "1.438 / 1.20 - 1", "value": 0.198, "unit": "" }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "Keep everything else fixed, but pay the whole £500m in Tamar shares instead of half debt, half stock. The accretion figure goes…",
+        "options": [
+          { "label": "Higher — no interest charge at all" },
+          { "label": "Lower — stock is the dearest currency Tamar has", "correct": true },
+          { "label": "Nowhere — the price is the same either way" }
+        ],
+        "explain_md": "**Lower.** No interest charge sounds like a saving, but stock is not free — it costs Tamar its own earnings yield, 1 ÷ 15 = **6.67 %**, because every new share hands its holder a slice of all future earnings. The debt it replaces costs 6 % × 0.75 = **4.5 %** after tax. Swapping a 4.5 % currency for a 6.67 % one drags the accretion from +8.8 % back to the +4.4 % of the all-stock case.\n\nThat is the general rule doing its work: the mix decides the answer, and the cheapest funding is whatever carries the lowest after-tax cost — not whatever avoids a visible expense line."
+      },
+      {
+        "type": "widget",
+        "widget": "accretion_rule",
+        "props": { "mode": "full", "stockPct": 0.5, "debtPct": 0.5, "cashPct": 0 }
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Same machine, different deal. A buyer with net income of **£90m** and **60m** shares — EPS £1.50 — trades at **£15** a share. It pays **£360m** for a target earning **£30m**, funding it with **40 % debt at 5 %** pre-tax and **60 % in its own shares**. Tax is 25 %. Fill in the missing lines.",
+        "steps": [
+          { "label": "Interest on the new debt", "expr": "360 * 0.4 * 5%", "value": 7.2, "unit": "£m" },
+          { "label": "After-tax interest cost", "expr": "7.2 * 0.75", "value": 5.4, "unit": "£m", "blank": true },
+          { "label": "New shares issued", "expr": "360 * 0.6 / 15", "value": 14.4, "unit": "m", "blank": true },
+          { "label": "Pro-forma net income", "expr": "90 + 30 - 5.4", "value": 114.6, "unit": "£m" },
+          { "label": "Pro-forma share count", "expr": "60 + 14.4", "value": 74.4, "unit": "m" },
+          { "label": "Pro-forma EPS", "expr": "114.6 / 74.4", "value": 1.54, "unit": "£", "blank": true },
+          { "label": "Against £1.50 standalone", "expr": "1.54 / 1.50 - 1", "value": 0.0267, "unit": "" }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Add the two net incomes and divide by the buyer's shares.\"**\n\nThat sentence contains both of the walk's classic failures at once, and each one flatters the deal.\n\nFirst, it prices the money at zero. £160m of combined earnings is not what the new company makes — the funding has a cost, and it must come off after tax. Skip it and a deal financed with expensive debt looks as good as one financed with cheap cash.\n\nSecond, it freezes the share count. If any of the price is paid in stock, there are more shares in issue the moment the deal closes, and every one of them dilutes the answer. On the Tamar deal, forgetting the 13.89m new shares turns +8.8 % into a fictional +24 %.\n\nThe brutal thing about both mistakes is that the arithmetic still *works* — you get a number, confidently delivered, and it is wrong in the direction that makes you look naive about deals. An interviewer who hears £1.60 of pro-forma EPS knows exactly which two lines you skipped."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Start with the two companies' net income combined. Deduct the after-tax interest on any new debt, and the after-tax interest no longer earned on any cash spent. Add synergies after tax, and take off any new amortisation created by writing the target's assets up to fair value. That is pro-forma net income. The share count is the buyer's existing shares plus the new ones issued — the stock portion of the price divided by the buyer's share price. Divide, compare with standalone EPS, and give the difference as a percentage.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Dilution stacked on dilution",
+            "md": "In a technology deal the share count was already a moving target before the acquisition arrived. Engineers hold options and restricted stock units — pay delivered in future shares — so the buyer's *diluted* count (chapter 14's treasury-stock method) is the honest denominator, and the target usually brings unvested awards of its own that the buyer must roll over or cash out. A stock deal adds its consideration shares on top of all that: three layers of dilution, stacked.\n\nThere is a numerator quirk too. Software deals allocate a large slice of the price to intangibles — developed technology, customer relationships — and the amortisation that creates can swamp reported earnings for years. Managements respond by quoting a *cash* or *adjusted* EPS that strips it back out, which is tidier but also conveniently self-serving. Model both; trust neither on its own.",
+            "example_q": "After closing a large acquisition, a software company starts guiding on adjusted EPS. What has it stripped out, and how sceptical should you be?",
+            "answer_md": "Mostly the amortisation of acquired intangibles — a big, non-cash charge born purely of purchase accounting, so excluding it makes the years before and after the deal comparable. That part is defensible.\n\nThe scepticism belongs at the boundary. Adjusted numbers have a habit of also excluding share-based pay, integration costs and anything else inconvenient, and each exclusion flatters the deal the management chose to do. My approach: accept the intangibles adjustment, re-add share-based pay because it is genuine compensation, and check the diluted share count myself — the adjustments never touch the denominator, and that is often where the real dilution hides."
+          },
+          "healthcare": {
+            "heading": "When the price itself is a range",
+            "md": "The merger maths above assumes one number for the price. Healthcare deals often refuse to give you one. A biotech target with a drug awaiting trial results is worth two very different amounts depending on the outcome, so the consideration splits: a fixed payment now, plus a **contingent value right** or earn-out that pays more only if the milestone lands.\n\nThat breaks the single pro-forma walk into scenarios. The base case runs on the upfront price alone. The milestone case adds the later payment — usually debt-funded when it falls due, so its interest cost arrives in that year, not at closing. And the target's in-progress research lands on the balance sheet as an intangible whose accounting fate (amortised on approval, written off on failure) moves EPS with no cash attached. One deal, several answers, each honest only with its probability stated.",
+            "example_q": "Your buyer owes a further £200m if the target's lead drug is approved in two years. How does that show up in the accretion analysis?",
+            "answer_md": "As two models, not one. The base case uses only the upfront consideration — the £200m does not exist if the trial fails, so baking it in would overstate the cost of the likelier outcome.\n\nThe milestone case adds £200m of consideration paid two years out, funded however the buyer says it will fund it — typically new debt, so the after-tax interest starts in year two, and there is no share-count effect unless it is paid in stock. I would present both EPS paths and weight them by the approval probability rather than average them silently, because the whole point of a contingent structure is that the two worlds should stay visible."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Oakhurst plc earns net income of **£200m** on **80m** shares. It agrees to buy Bexfield Ltd, which earns **£45m**, for **£600m**, funded entirely with new debt at **7 %** pre-tax. Tax is 25 %.\n\nProduce the pro-forma EPS and the accretion percentage — and then find the pre-tax cost of debt at which this deal would stop adding anything to EPS at all.",
+        "model_answer_md": "Standalone EPS is 200 ÷ 80 = **£2.50**.\n\n**The walk.** Interest on the new debt is 600 × 7 % = £42m, which is 42 × 0.75 = **£31.5m** after tax. Pro-forma net income is 200 + 45 − 31.5 = **£213.5m**. All-debt funding issues no shares, so the count stays at **80m**, and pro-forma EPS is 213.5 ÷ 80 = **£2.67** — against £2.50, that is accretion of about **7 %**.\n\n**The breakeven.** The deal stops helping EPS when the after-tax cost of the debt exactly eats the target's earnings. Bexfield earns £45m on a £600m price — a **7.5 %** earnings yield. So breakeven is an after-tax debt cost of 7.5 %, which is 7.5 ÷ 0.75 = **10 % pre-tax**. You can check it: 600 × 10 % × 0.75 = £45m of after-tax interest, precisely cancelling the £45m of earnings acquired.\n\nWorth saying out loud at the end: at 7 % the deal is accretive, but that tells you the debt is cheap, not that £600m was a sensible price. Accretion and value are different questions.",
+        "rubric": [
+          "Computes interest of £42m and takes it after tax: £31.5m",
+          "Leaves the share count at 80m — all-debt deals issue no shares",
+          "Pro-forma net income £213.5m, EPS £2.67, accretion ≈ +7 %",
+          "Finds breakeven by matching the after-tax debt cost to the target's 7.5 % earnings yield: 10 % pre-tax",
+          "Notes that being accretive does not settle whether the price was right"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "How many new shares does a stock deal create?", "a": "The stock portion of the price divided by the buyer's share price — £250m of consideration at £18 a share is 13.9m new shares." },
+          { "q": "What does new acquisition debt cost the pro-forma numbers?", "a": "Principal × rate × (1 − tax). Interest is deductible, so £15m of interest only removes £11.25m of net income at a 25 % rate." },
+          { "q": "Where do synergies enter the walk?", "a": "Into pro-forma net income, after tax — £20m of pre-tax savings is worth £15m to the bottom line." },
+          { "q": "Besides interest, what else drags pro-forma net income down?", "a": "Amortisation of the intangibles written up in the deal, interest no longer earned on cash spent, and fees if you are asked for the full version." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Everything after tax in the numerator, every new share in the denominator — then divide and compare.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build pro-forma EPS for any mix of cash, stock and debt, without notes.",
+          "I can compute the new shares a stock deal issues and the after-tax cost of new debt.",
+          "I can place synergies, write-up amortisation and fees on the correct lines.",
+          "I can find the breakeven — the funding cost or synergy level at which accretion disappears.",
+          "I can finish the walk by saying why an accretive answer is not the same as a good deal."
+        ]
+      }
+    ]
+  }
+}

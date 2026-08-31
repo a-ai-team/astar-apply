@@ -1,0 +1,48 @@
+{
+  "slug": "spot-the-error-pro-forma",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:spot",
+    "accretion-dilution",
+    "error-spotting"
+  ],
+  "question": "A candidate walks the half-debt, half-stock Tamar deal like this: interest of £250m × 6 % = £15m, or £11.25m after tax; pro-forma net income 120 + 40 − 11.25 = £148.75m; divided by Tamar's 100m shares gives £1.49 — \"24 % accretive.\" What went wrong, and what is the honest answer?",
+  "model_answer_md": "The numerator is perfect. The **denominator never heard about the deal**.\n\nHalf the £500m price — £250m — is paid in new Tamar shares at £18 each, which issues 250 ÷ 18 = **13.89m** new shares. The division has to run over 100 + 13.89 = 113.89m:\n\n$$\\frac{148.75}{113.89} = \\mathbf{£1.306} \\quad\\Rightarrow\\quad \\approx \\mathbf{+8.8\\%}$$\n\nnot £1.49 and not 24 %. The candidate reported nearly three times the true accretion by pricing the stock consideration at zero — as if £250m of value had been conjured rather than paid.\n\nThe tell an interviewer hears instantly: a mixed-consideration deal whose claimed accretion *exceeds* the all-debt version of the same deal (+14.6 %) is arithmetically impossible, because stock is Tamar's dearest currency. An answer of +24 % fails that smell test before anyone checks a line.",
+  "key_points": [
+    "The interest lines are correct: £15m pre-tax, £11.25m after",
+    "Missing: 250 ÷ 18 = 13.89m new shares in the count",
+    "Correct EPS: 148.75 ÷ 113.89 = £1.306, +8.8 %",
+    "The error triples the claimed accretion — always in the flattering direction",
+    "Sense check: no mix can beat the all-debt case at +14.6 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Suppose the candidate had instead deducted the full £15m of interest with no tax adjustment — what would that error look like?",
+      "answer_md": "A smaller distortion in the opposite direction. Pro-forma income would read 120 + 40 − 15 = £145m over the correct 113.89m shares, giving £1.273 and about +6.1 % — understating true accretion by nearly three points, because the tax relief on the interest was thrown away. Forgetting the shares flatters the deal; forgetting the tax shield punishes it. Interviewers care about both, but the missing shares are the graver failure since the answer changes threefold."
+    },
+    {
+      "question": "What single habit prevents the missing-shares error?",
+      "answer_md": "Touch both halves of the fraction, every time: before dividing, ask \"what happened to the earnings?\" and \"what happened to the count?\" as separate questions. Any stock in the mix must show up as consideration ÷ buyer's share price added to the denominator. The walk in this chapter is built around exactly that rhythm — everything after tax in the numerator, every new share in the denominator — because the failure is one of attention, not knowledge."
+    }
+  ],
+  "weak_answer_note": "Noticing the answer is too high without locating the cause, or \"fixing\" it by adjusting the numerator. The £148.75m is right; only the share count is wrong, and the repair is 13.89m new shares, not a different income figure.",
+  "numbers": {
+    "inputs": {
+      "offer_value": 500,
+      "debt_pct": 0.5,
+      "stock_pct": 0.5,
+      "cost_of_debt": 0.06,
+      "tax_rate": 0.25,
+      "acquirer_share_price": 18
+    },
+    "answer": 1.306
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

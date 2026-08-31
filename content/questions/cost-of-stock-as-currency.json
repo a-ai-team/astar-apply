@@ -1,0 +1,38 @@
+{
+  "slug": "cost-of-stock-as-currency",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "accretion-dilution",
+    "earnings-yield"
+  ],
+  "question": "Paying for a deal in shares involves no interest bill and no cash leaving the company. So what does stock actually cost the buyer as a currency?",
+  "model_answer_md": "Its own **earnings yield** — one divided by its P/E.\n\nEvery new share issued carries a claim on all of the buyer's future earnings. Tamar trades at 15 times earnings, so each pound of market value it hands over in shares gives away 1 ÷ 15 = **6.67p** of annual earnings to the new holder. That is the cost: not a payment, but a dilution of every existing shareholder's slice.\n\nIt slots straight into the accretion test. Wychwood's earnings yield at the £500m offer price is 8.0 %; paying with 6.67 % money to receive 8.0 % is why the all-stock deal adds to EPS.\n\nThe corollary interviewers probe: the higher the buyer's multiple, the *cheaper* its paper. A 40× acquirer pays with 2.5 % money — which is why richly rated companies pay in shares, and why their EPS accretion impresses nobody.",
+  "key_points": [
+    "Cost of stock = earnings yield = 1 ÷ P/E",
+    "Tamar at 15×: 6.67 % — each share issued dilutes existing holders' earnings claim",
+    "No cash moves; the cost is a permanent share of future earnings",
+    "Feeds the rule: 6.67 % given up against 8.0 % received",
+    "High multiples make stock cheap, which is why high-multiple companies use it"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is the earnings yield the same thing as the cost of equity?",
+      "answer_md": "No, and the distinction is worth making cleanly. The cost of equity — CAPM's risk-free rate plus beta times the market premium — is the return shareholders *require* for bearing the risk; it prices the shares in a DCF. The earnings yield is just current earnings over current price: what a share of stock costs *in EPS terms* when used as acquisition currency. A company can have a 2.5 % earnings yield and a 9 % cost of equity at the same time — the gap is the growth the market has already paid for."
+    },
+    {
+      "question": "Why does that make analysts sceptical of accretion from high-multiple buyers?",
+      "answer_md": "Because a low bar proves nothing when cleared. At 40 times earnings the hurdle is 2.5 %, so nearly every deal screens accretive regardless of price discipline — the accretion measures the buyer's rating, not the deal's merit. The real cost is borne in ownership: existing shareholders end up with a smaller fraction of a larger company, and whether that trade was good depends on what was bought, not on the EPS print."
+    }
+  ],
+  "weak_answer_note": "Calling stock free because no cash leaves, or quoting \"1 over P/E\" without being able to say what is actually given up — the new holders' permanent claim on earnings.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "pe-rule-all-stock",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "accretion-dilution",
+    "pe-rule"
+  ],
+  "question": "Tamar trades at 15 times earnings and pays 12.5 times earnings for Wychwood, entirely in its own shares. Without touching a calculator — accretive or dilutive, and what is the rule at work?",
+  "model_answer_md": "**Accretive**, and the rule is: in an all-stock deal, a buyer on a higher P/E acquiring earnings at a lower P/E — measured at the *offer* price — always adds to EPS.\n\nThe logic runs through earnings yields, a P/E flipped upside down. Paying 12.5 times earnings means the earnings bought yield 1 ÷ 12.5 = **8.0 %** on the price. Paying in stock costs Tamar its own earnings yield, 1 ÷ 15 = **6.67 %** — every share issued hands its holder a slice of existing earnings. Receiving 8.0 % while giving up 6.67 % pushes EPS up; the full arithmetic confirms it at £1.252 against £1.20, about +4 %.\n\nThe rule flips at equality: pay stock at exactly the buyer's own multiple and EPS does not move; pay above it and the deal dilutes.",
+  "key_points": [
+    "Higher-P/E buyer, lower offer-P/E target, all stock → accretive, always",
+    "Earnings yield bought (8.0 % at 12.5×) beats earnings yield given up (6.67 % at 15×)",
+    "The comparison uses the offer P/E, premium included — never the market P/E",
+    "Breakeven is where the two multiples meet",
+    "Only settles the all-stock case; other currencies change the cost side"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why the offer P/E and not the multiple the target traded at?",
+      "answer_md": "Because nobody sells at the market price. Wychwood traded at 10 times, but Tamar pays £500m for £40m of earnings — 12.5 times once the 25 % premium is loaded on. The market multiple describes a price no buyer can transact at; the offer multiple describes the actual exchange. A target that screens cheap at its market P/E can easily stop being cheap once the premium arrives, which is exactly what this comparison exists to catch."
+    },
+    {
+      "question": "What happens to the rule when the buyer trades at 40 times?",
+      "answer_md": "It becomes almost meaningless. A 40× buyer's earnings yield — its cost of paying in stock — is 2.5 %, so virtually any profitable target at any defensible price screens accretive. The rule still holds mechanically; it just stops discriminating. That is why analysts covering high-multiple acquirers discount EPS accretion entirely and judge stock deals on growth durability, cash flow per share and how much ownership existing holders surrendered."
+    }
+  ],
+  "weak_answer_note": "Comparing 15× with Wychwood's market 10× rather than the 12.5× actually paid, or asserting the conclusion without the yield mechanism that explains it.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "compute-goodwill-wychwood",
+  "topic_slug": "ma",
+  "subtopic_slug": "synergies-and-deal-structure",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "goodwill",
+    "purchase-accounting"
+  ],
+  "question": "Tamar pays £500m for Wychwood, whose book net assets are £220m. At completion the brand is written up by £60m. How much goodwill does the deal create?",
+  "model_answer_md": "Restate first, then take the residual.\n\n**Fair value of identifiable net assets.** Book net assets plus the write-up: 220 + 60 = **£280m**.\n\n**Goodwill.** Whatever the price cannot be pinned to those identifiable assets:\n\n$$500 - 280 = \\mathbf{£220m}$$\n\nTwo details worth volunteering. The write-up *reduced* goodwill — every pound identified as brand is a pound out of the residual, so before the restatement the plug would have been £280m. And the write-up is not free going forward: the recognised brand amortises, adding a book charge to pro-forma earnings for years.",
+  "key_points": [
+    "Fair-value net assets first: 220 + 60 = £280m",
+    "Goodwill is the residual: 500 − 280 = £220m",
+    "Write-ups shift value out of goodwill into named assets",
+    "Recognised intangibles amortise; goodwill does not",
+    "Goodwill ≠ the £100m premium over market value"
+  ],
+  "follow_ups": [
+    {
+      "question": "The tax authorities will not accept the brand write-up as deductible. What does that do to the numbers?",
+      "answer_md": "It creates a **deferred tax liability** on the write-up — the book value of the brand exceeds its tax base, so future book amortisation will lack matching tax relief. At 25 % that is 60 × 25 % = £15m of DTL, which reduces identifiable net assets to £265m and pushes goodwill *up* to £235m. Counter-intuitive but mechanical: recognising an extra liability leaves more of the price unexplained, and the residual absorbs it."
+    },
+    {
+      "question": "Two years on, Wychwood is missing its plan badly. What happens on Tamar's balance sheet?",
+      "answer_md": "The annual impairment test starts to bite. If the acquired business's discounted cash flows can no longer support the £220m residual, goodwill is written down through the income statement — earnings take the full charge in one period, equity falls, and cash is untouched because nothing is paid. The market reads it as management pricing its own mistake, which is why impairment announcements are drafted so carefully and received so poorly."
+    }
+  ],
+  "weak_answer_note": "Subtracting the £400m market value and answering £100m — that is the premium, not goodwill. Or forgetting the write-up and reporting £280m. The restatement to fair value always comes before the residual.",
+  "numbers": {
+    "inputs": {
+      "price": 500,
+      "book_net_assets": 220,
+      "write_ups": 60
+    },
+    "answer": 220
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

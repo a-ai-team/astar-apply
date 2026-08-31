@@ -1,0 +1,37 @@
+{
+  "slug": "deal-protections",
+  "topic_slug": "ma",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "deal-structure"
+  ],
+  "question": "Months pass between signing a deal and completing it, and plenty can go wrong in between. What protections do the two sides negotiate?",
+  "model_answer_md": "Each protection allocates one specific risk to one side.\n\n- A **break fee** is paid by a side that abandons the deal — compensation for the other's costs and lost time, and a deterrent priced high enough to make walking away hurt. Sellers want it from buyers; buyers ask for a reverse version where the seller courts other bidders.\n- A **MAC clause** (material adverse change) lets the buyer walk if the target's business deteriorates badly before completion — protection against buying a different company from the one it priced.\n- An **earn-out** holds back part of the price until the target hits agreed results after completion. The buyer pays for performance only if it arrives; the seller carries delivery risk on a business it no longer runs.\n- An **escrow** parks part of the price with a third party for a period, available to settle claims if promised facts about the business turn out untrue.\n\nBuyers ask for MACs, earn-outs and escrows — all protection against the target being worse than advertised. Sellers ask for break fees and as much certain cash as possible.",
+  "key_points": [
+    "Break fee: compensation and deterrent for a side that walks away",
+    "MAC clause: buyer's exit if the business deteriorates pre-completion",
+    "Earn-out: price contingent on delivered results; seller carries the risk",
+    "Escrow: held-back funds against breached promises",
+    "Buyers protect against the target disappointing; sellers protect certainty of payment"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which side asks for each, and why?",
+      "answer_md": "Sort them by whose risk they cover. The seller's great fear is a buyer that signs and then leaves — so sellers demand break fees and prefer cash. The buyer's fears are all versions of the same thing: the business it completes on being worse than the one it priced — so buyers want MAC clauses for the interim, earn-outs for the future, and escrows for the past. A negotiation is essentially the two lists traded against each other and against price."
+    },
+    {
+      "question": "Why do sellers resist earn-outs so strongly?",
+      "answer_md": "Because after completion the buyer runs the business that determines whether the earn-out pays. The seller's remaining price depends on decisions — investment, accounting, management — made by the other side, which is an uncomfortable position and a well-known source of disputes. Sellers who accept one negotiate tight definitions of the target metric and covenants on how the business will be run."
+    }
+  ],
+  "weak_answer_note": "Naming the mechanisms without saying which side wants each — the allocation of risk is the entire point. Also weak: confusing a break fee (walking away) with an escrow (broken promises).",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

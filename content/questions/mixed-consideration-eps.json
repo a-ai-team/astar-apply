@@ -1,0 +1,49 @@
+{
+  "slug": "mixed-consideration-eps",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "accretion-dilution",
+    "pro-forma-eps"
+  ],
+  "question": "Tamar funds the £500m Wychwood deal half with new debt at 6 % pre-tax and half in new shares at £18. Tax is 25 %. Walk to pro-forma EPS — then rerun it with the £20m of annual pre-tax synergies included.",
+  "model_answer_md": "Both halves of the EPS fraction move, one for each half of the funding.\n\n**The numerator.** Interest on £250m of new debt at 6 % is £15m, or 15 × 0.75 = **£11.25m** after tax. Pro-forma net income: 120 + 40 − 11.25 = **£148.75m**.\n\n**The denominator.** £250m of stock at £18 a share issues 250 ÷ 18 = **13.89m** new shares, taking the count to 113.89m.\n\n**The division.**\n\n$$\\frac{148.75}{113.89} = \\mathbf{£1.306} \\quad\\Rightarrow\\quad \\text{accretion} \\approx \\mathbf{+8.8\\%}$$\n\n**With synergies.** £20m pre-tax is £15m after tax, lifting net income to £163.75m over the same shares:\n\n$$\\frac{163.75}{113.89} = \\mathbf{£1.438} \\quad\\Rightarrow\\quad \\approx \\mathbf{+19.8\\%}$$\n\nOne £20m assumption moves the answer by eleven points — which is the observation to volunteer, because it is the least certain line in the walk.",
+  "key_points": [
+    "After-tax interest: 250 × 6 % × 0.75 = £11.25m",
+    "New shares: 250 ÷ 18 = 13.89m; count becomes 113.89m",
+    "Base case: 148.75 ÷ 113.89 = £1.306, +8.8 %",
+    "Synergies add £15m after tax: £1.438, +19.8 %",
+    "The synergy line carries eleven points of the headline — flag its uncertainty"
+  ],
+  "follow_ups": [
+    {
+      "question": "The interviewer adds £10m of deal fees. Where do they land?",
+      "answer_md": "In the numerator, as one more charge: £10m pre-tax is £7.5m after tax, cutting the base-case income to £141.25m and EPS to about £1.24 — accretion drops to roughly +3 %. Fees never touch the share count. In a first-round answer it is usually enough to *name* fees as a refinement; in a full model, advisory fees are expensed while financing fees amortise over the debt's life."
+    },
+    {
+      "question": "And if the deal writes up Wychwood's intangibles, creating £6m of annual amortisation?",
+      "answer_md": "Another after-tax deduction from pro-forma income: 6 × 0.75 = £4.5m, taking the base case to £144.25m and EPS to about £1.27. It is a book charge born of purchase accounting rather than a cash cost, but EPS is a book number, so it counts — and in intangible-heavy deals this line can quietly outweigh the interest cost. It is also why acquirers fond of 'adjusted' EPS exclude exactly this item."
+    }
+  ],
+  "weak_answer_note": "Doing only one half of the damage — deducting the interest but freezing the share count, or issuing the shares but pricing the debt at zero. The 50/50 structure is designed to catch whichever half the candidate forgets.",
+  "numbers": {
+    "inputs": {
+      "offer_value": 500,
+      "debt_pct": 0.5,
+      "stock_pct": 0.5,
+      "cost_of_debt": 0.06,
+      "tax_rate": 0.25,
+      "acquirer_share_price": 18,
+      "synergies": 20
+    },
+    "answer": 1.306
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}
