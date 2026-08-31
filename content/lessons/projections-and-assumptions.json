@@ -1,0 +1,230 @@
+{
+  "slug": "projections-and-assumptions",
+  "subtopic_slug": "projections-and-assumptions",
+  "title": "Projections and the assumptions behind them",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Everything in a DCF rests on the projection, and the projection is the part nobody can check. That makes it the natural place for an interviewer to probe once you have recited the five steps.\n\nThe question comes in two forms. \"How do you project the cash flows?\" tests whether you know that revenue, margins, capital spending and working capital are four separate decisions rather than one growth rate applied to everything. \"What would make you distrust a DCF?\" tests whether you can look at someone else's model and spot the assumption doing the work.\n\nThe second is the more valuable skill, and it is genuinely useful on the job. Analysts spend far more time interrogating models than building them from scratch."
+      },
+      {
+        "type": "concept",
+        "heading": "Four decisions, not one growth rate",
+        "md": "A projection is built from the top down, and each line has its own logic.\n\n**Revenue** comes first, because almost everything else is expressed as a percentage of it. Growth should tie back to something real: the size of the market, whether the company is gaining or losing share, and how much of the growth is price versus volume. Sense-check it against the company's own history and against what analysts already publish.\n\n**Margins** come next. In most models they drift toward the company's historical average or toward what peers achieve. Assuming permanent expansion is the single most common way to inflate a valuation, because a margin gain compounds through every remaining year *and* the terminal value.\n\n**Depreciation and capital expenditure** follow the asset base. The relationship between them is diagnostic: while a business is growing, capex should exceed depreciation, because it is adding assets faster than the old ones wear out. In a steady state the two converge.\n\n**Working capital** moves with revenue. Growing companies tie up cash in receivables and inventory before customers pay, so a rising revenue line normally implies a cash outflow here.\n\nThen — and this is the step candidates skip — you **check the outputs**. A projection can be arithmetically flawless and still describe a company that could not exist."
+      },
+      {
+        "type": "mechanics",
+        "md": "Harbourline's drivers, and how each line is produced:\n\n| Line | Driver |\n|---|---|\n| Revenue growth | 6 %, 6 %, 5 %, 5 %, 4 % — fading toward the market rate |\n| EBITDA | 15 % of revenue, held flat |\n| D&A | 5 % of revenue |\n| Capex | 5.5 % of revenue |\n| ΔNWC | 10 % of the *increase* in revenue |\n\nThree points worth saying out loud in an interview.\n\nThe growth rate **fades**. A company that grows 6 % forever eventually becomes larger than its market, so the projection steps down toward something sustainable before the terminal value takes over.\n\nCapex sits **above** depreciation, at 5.5 % against 5.0 %. Harbourline is buying more lorries than it is retiring, which is what growth requires. The ratio is about **1.1×**.\n\nWorking capital is a percentage of the **change** in revenue, not of revenue itself. It is the *growth* that consumes cash, not the existing business.\n\nThen run the sanity checks:\n\n- **Implied size.** Revenue reaches £1,546m by year five — a compound growth rate of about **5.2 %**. Is that plausible for UK logistics? It is a little above nominal GDP, which is defensible for a company taking modest share.\n- **Capex against depreciation.** 1.1× while growing, converging on 1.0× in the terminal year.\n- **Cash conversion.** Unlevered free cash flow is about **43 %** of EBITDA in year one, rising to 44 % by year five. Stable is believable; a sharp jump usually means something is being assumed away."
+      },
+      {
+        "type": "predict",
+        "prompt": "Suppose Harbourline still grows revenue at 6 %, but you set capital expenditure equal to depreciation in every year instead of above it. What happens to the DCF value?",
+        "options": [
+          {
+            "label": "It goes up",
+            "correct": true
+          },
+          {
+            "label": "It goes down"
+          },
+          {
+            "label": "It stays the same — capex and depreciation cancel out"
+          }
+        ],
+        "explain_md": "It goes **up**, by roughly £6m of cash a year plus the effect on the terminal value — and that is precisely why it is a red flag rather than good news.\n\nCapex is a straight deduction from unlevered free cash flow. Cut it and cash flow rises immediately, every year, and the terminal value grows with it.\n\nBut the assumption is not credible. Harbourline is forecast to grow revenue more than 28 % over five years. A haulage business cannot move 28 % more freight with an asset base that is only being maintained, not expanded. The model would be claiming growth without paying for it.\n\nThis is the most common way a DCF gets quietly inflated, and it is easy to catch: **compare capex with depreciation**. If a company is growing and capex is at or below depreciation, ask where the growth is coming from."
+      },
+      {
+        "type": "widget",
+        "widget": "dcf_sensitivity",
+        "props": {
+          "cashFlows": [
+            81.8,
+            86.7,
+            92.4,
+            96.9,
+            102.3
+          ],
+          "finalFcf": 102.3,
+          "netDebt": 480,
+          "shares": 250,
+          "wacc": 0.08,
+          "growth": 0.02
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Harbourline's first forecast year, built line by line from the drivers. Revenue in the year just ended (FY0) was **£1,200m**.\n\nNotice that every line below is derived from revenue — that is what makes a projection auditable. Someone who disagrees with your valuation has to disagree with a specific percentage, not with a number that appeared from nowhere.",
+        "steps": [
+          {
+            "label": "Revenue, growing 6 %",
+            "expr": "1200 * 1.06",
+            "value": 1272.0,
+            "unit": "£m"
+          },
+          {
+            "label": "EBITDA at a 15 % margin",
+            "expr": "1272 * 15%",
+            "value": 190.8,
+            "unit": "£m"
+          },
+          {
+            "label": "D&A at 5 % of revenue",
+            "expr": "1272 * 5%",
+            "value": 63.6,
+            "unit": "£m"
+          },
+          {
+            "label": "EBIT",
+            "expr": "190.8 - 63.6",
+            "value": 127.2,
+            "unit": "£m"
+          },
+          {
+            "label": "Capex at 5.5 % of revenue",
+            "expr": "1272 * 5.5%",
+            "value": 69.96,
+            "unit": "£m"
+          },
+          {
+            "label": "Working capital: 10 % of the revenue increase",
+            "expr": "(1272 - 1200) * 10%",
+            "value": 7.2,
+            "unit": "£m"
+          },
+          {
+            "label": "Sanity check — capex ÷ D&A",
+            "expr": "69.96 / 63.6",
+            "value": 1.1,
+            "unit": "×"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now build Harbourline's **third** forecast year yourself. Revenue in year two was **£1,348.3m**, and year three grows at **5 %**. The drivers are unchanged: EBITDA 15 % of revenue, D&A 5 %, capex 5.5 %, and working capital 10 % of the revenue increase.",
+        "steps": [
+          {
+            "label": "Revenue, growing 5 %",
+            "expr": "1348.3 * 1.05",
+            "value": 1415.7,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "EBITDA at 15 %",
+            "expr": "1415.7 * 15%",
+            "value": 212.4,
+            "unit": "£m"
+          },
+          {
+            "label": "D&A at 5 %",
+            "expr": "1415.7 * 5%",
+            "value": 70.8,
+            "unit": "£m"
+          },
+          {
+            "label": "EBIT",
+            "expr": "212.4 - 70.8",
+            "value": 141.6,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Capex at 5.5 %",
+            "expr": "1415.7 * 5.5%",
+            "value": 77.9,
+            "unit": "£m"
+          },
+          {
+            "label": "Working capital: 10 % of the revenue increase",
+            "expr": "(1415.7 - 1348.3) * 10%",
+            "value": 6.74,
+            "unit": "£m",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Just grow everything by 5 %.\"**\n\nIt produces a tidy spreadsheet and a meaningless valuation, because the four lines are not connected in that way.\n\nGrowing **revenue** 5 % is a claim about the market and the company's share of it. Growing **margins** 5 % is a completely separate claim about pricing and cost control — and margins are a percentage, so \"growing\" them compounds into something absurd within a few years. Growing **capex** at the same rate as revenue quietly fixes the capital intensity of the business forever. And applying growth to **working capital** rather than to the change in revenue overstates the cash absorbed several times over.\n\nThe deeper error is internal consistency. A company cannot grow 8 % a year on capex below depreciation, and it cannot expand margins indefinitely while its peers stand still. When an interviewer asks what would make you distrust a model, this is the answer: not an arithmetic mistake, but a set of assumptions that could not all be true at once."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Start with revenue — growth tied to the market, the company's share and pricing, sense-checked against history and consensus. Then margins, which usually converge on the company's own history or its peers. Depreciation and capex follow the asset base, with capex above depreciation while the business is growing. Working capital moves with the change in revenue. Finally check the outputs: implied market share, capex against depreciation, cash conversion and the terminal growth rate all have to describe a company that could actually exist.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "When year eight matters more than year two",
+            "md": "Harbourline's projection can stop at five years because by then the business looks much as it does today — same margin, growth easing toward the market rate. A high-growth software company is nowhere near that point at year five.\n\nTake a company growing 40 % a year at a −10 % operating margin. Stop the forecast at year five and you would apply a terminal value to a business still losing money and still growing fast. The result would be arbitrary. So the explicit period is stretched to **eight or ten years** — long enough for growth to decelerate into the teens and for the margin to reach something a mature peer would recognise.\n\nThe useful cross-check is the **Rule of 40**: growth rate plus profit margin should total around 40 for a healthy software business. It gives you a way to judge whether the *path* is plausible, not just the endpoint. A projection that has a company at 30 % growth and 30 % margins in year eight is claiming a 60 — better than almost anything listed.\n\nState the trade-off openly: the longer forecast is less precise year by year, but far more defensible than a terminal value slapped onto a loss.",
+            "example_q": "How long should the explicit forecast period be for a high-growth software company, and why?",
+            "answer_md": "Longer than the standard five years — usually eight to ten. The purpose of the explicit period is to run until the business reaches something like a steady state, and a company growing 40 per cent a year with negative margins is plainly not there at year five. Stopping early would apply a terminal value to a loss-making business, which is not defensible.\n\nI would forecast until growth has decelerated into the teens and the margin has converged on what mature peers earn, then check the path with the Rule of 40 — growth plus margin summing to roughly 40 — to make sure I have not assumed a combination no listed company achieves. I would also expect the terminal value to be 85 per cent or more of the total and say so, because that is the honest characterisation of what the model is really betting on."
+          },
+          "healthcare": {
+            "heading": "A decision tree, not a growth rate",
+            "md": "Harbourline's revenue grows at a percentage because it sells the same service to more customers. A drug developer's revenue does not behave like that at all, so the projection is built from the bottom up.\n\nFor each product you forecast the **number of patients** with the condition, the share the drug is likely to capture, and the **price per patient per year**. Multiply those together and you have peak sales; then model the ramp toward it after launch and the decline after patent expiry. There is no single growth rate anywhere in the calculation.\n\nOn top of that sits **probability**. A drug in phase 2 has roughly a 30 % chance of ever reaching the market, so each year's forecast cash flow is weighted by the chance the programme is still alive to produce it. A company with several drugs at different stages is therefore modelled as a set of parallel branches, each with its own probability, summed at the end.\n\nThat is why the output is called a risk-adjusted NPV. And it is why the sensitivity that matters is not the discount rate but the **probability of success** — a ten-point change there moves the value more than a point of WACC ever will.",
+            "example_q": "How would you project revenue for a drug still in phase 3 trials?",
+            "answer_md": "From the bottom up rather than with a growth rate. I would start with the addressable patient population, estimate the share the drug could realistically capture given the competing treatments, and multiply by an annual price per patient to get peak sales. Then I would model the ramp — usually several years to reach peak after launch — and the decline once the patent expires and generics enter.\n\nThe critical step is probability-weighting. A phase 3 asset has perhaps a 60 per cent chance of approval, so every year's cash flow is multiplied by that before discounting, which turns the model into a risk-adjusted NPV. I would sensitise the probability of success and the peak-sales estimate ahead of the discount rate, because those two assumptions drive the answer far more."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Tilbury Freight plc** had revenue of **£500m** last year. You forecast **4 %** growth, an EBITDA margin of **12 %**, D&A at **4 %** of revenue, capex at **4.5 %** of revenue, working capital absorbing **8 %** of the revenue increase, and tax at **25 %**.\n\nBuild the first forecast year's unlevered free cash flow — and name one sanity check you would run on it.",
+        "model_answer_md": "Revenue first: £500m × 1.04 = **£520m**.\n\nEverything else follows from that:\n\n- EBITDA at 12 % = **£62.4m**\n- D&A at 4 % = **£20.8m**\n- EBIT = 62.4 − 20.8 = **£41.6m**\n- NOPAT = 41.6 × 0.75 = **£31.2m**\n- Add back D&A: 31.2 + 20.8 = **£52.0m**\n- Less capex at 4.5 % of £520m = £23.4m: **£28.6m**\n- Less working capital, 8 % of the £20m revenue increase = £1.6m\n\n**UFCF = £27.0m.**\n\nFor a sanity check I would compare **capex with D&A**: £23.4m against £20.8m is about 1.13×, comfortably above 1.0×, which is consistent with a company growing 4 %. If capex had come out below depreciation I would want to know how the growth was being delivered.\n\nI would also note cash conversion — £27.0m of UFCF on £62.4m of EBITDA is **43 %**, in a normal range for an asset-heavy business.",
+        "rubric": [
+          "Derives every line from the forecast revenue of £520m rather than from last year's £500m",
+          "Taxes EBIT, not EBITDA, giving NOPAT of £31.2m",
+          "Applies working capital to the £20m *change* in revenue, not to revenue itself",
+          "Reaches £27.0m",
+          "Names a genuine sanity check — capex against D&A, or cash conversion — and says what it would signal"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "In the terminal year, how should capex compare with depreciation?",
+            "a": "Roughly equal. A business in a steady state replaces its assets rather than adding to them."
+          },
+          {
+            "q": "Where do growth assumptions come from?",
+            "a": "The company's own history, analyst consensus, market-size research, and management guidance — the last usually with a haircut."
+          },
+          {
+            "q": "Why five years rather than three or fifteen?",
+            "a": "Long enough for the business to approach a steady state, short enough that the forecast is still credible."
+          },
+          {
+            "q": "Can margins expand every year of the forecast?",
+            "a": "Not indefinitely. Cap them at what the best peer achieves, and be ready to justify anything above the company's own history."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Revenue, margins, capital spending and working capital are four separate decisions — and the model is only credible if the outputs describe a company that could actually exist.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build a projection from revenue down, deriving each line from a stated driver.",
+          "I can explain why capex should exceed depreciation while a business is growing.",
+          "I can apply a working-capital assumption to the change in revenue rather than to revenue.",
+          "I can name three sanity checks on a finished projection and say what each would reveal.",
+          "I can explain why a model with capex below depreciation and strong growth should not be trusted."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "erp-and-rf-sources",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "capm",
+    "erp"
+  ],
+  "question": "Where do the risk-free rate and the equity risk premium actually come from?",
+  "model_answer_md": "**The risk-free rate** is a long-dated government bond yield in the currency of the cash flows — a ten-year gilt for a UK company, a ten-year Treasury for a US one. The horizon should roughly match the life of what you are valuing, which is why a ten-year is conventional rather than a three-month bill. For a company in a currency with real default risk you would start from a developed-market bond and add a country risk premium.\n\n**The equity risk premium** is an estimate, and there are two routes to it. The **historical** premium measures what equities have actually returned above bonds over a very long run — typically a century of data, giving something in the 4–7 % range depending on the market, period and whether you use an arithmetic or geometric average. The **implied** premium solves backwards from today's index level and consensus earnings for the return investors must be expecting.\n\nMost banks carry a house number, often 5–6 %. The honest answer names it as an assumption with a range around it, not a constant.",
+  "key_points": [
+    "Risk-free = long-dated government bond in the cash flows' currency",
+    "Match the bond's horizon to the valuation horizon — ten years is conventional",
+    "Historical ERP: long-run realised excess return of equities over bonds",
+    "Implied ERP: solved backwards from current index levels and forecasts",
+    "It is an estimate with a range; most banks use a house figure of 5–6 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would you use the same premium for a UK and a US company?",
+      "answer_md": "Broadly similar, because both are deep, developed markets, and each should be paired with its own government bond yield and its own currency. The bigger adjustment arises for emerging markets, where you would add a country risk premium — usually derived from the sovereign's credit spread over a developed-market benchmark, sometimes scaled up to reflect equities being more volatile than bonds. The principle is that the cash flows, the risk-free rate and the premium should all be in the same currency and the same economy."
+    },
+    {
+      "question": "Arithmetic or geometric average for the historical premium?",
+      "answer_md": "They give noticeably different answers — the arithmetic mean is always the higher of the two, often by more than a percentage point, and the gap widens with volatility. The arithmetic mean is the theoretically correct input for discounting a single future period, which is what CAPM is doing. The geometric mean describes compound realised returns over time and is lower. Most practitioners land somewhere between, or use the arithmetic figure over a long window. Knowing that the choice moves the answer materially is the point."
+    }
+  ],
+  "weak_answer_note": "Naming a number with no source. Using a short-term rate for the risk-free, which mismatches the horizon. Treating the equity risk premium as a fixed constant rather than a contested estimate is the gap that shows at this level.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

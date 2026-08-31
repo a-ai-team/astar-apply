@@ -1,0 +1,38 @@
+{
+  "slug": "why-kd-less-than-ke",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "wacc",
+    "cost-of-capital"
+  ],
+  "question": "Why is debt cheaper than equity?",
+  "model_answer_md": "Two reasons, and they are worth separating because only one of them is about risk.\n\n**Lenders take less risk.** Interest is contractual: it has to be paid on set dates, and if the company fails, lenders are repaid before shareholders see anything. Debt is often secured on assets as well. Shareholders are the residual claim — paid last, with no promise of anything — so they demand a higher return for it.\n\n**Interest is tax-deductible.** The company deducts it before calculating tax, so the government effectively pays a share. Harbourline's 6 % pre-tax cost of debt becomes 4.5 % after a 25 % tax rate. Dividends get no equivalent relief.\n\nThe combination is why the debt term in WACC is both a lower rate and adjusted downward again. What it does not mean is that more debt always lowers WACC — the cheapness runs out as leverage rises.",
+  "key_points": [
+    "Lenders have a contractual claim, paid before shareholders",
+    "Debt is often secured; equity is the residual claim",
+    "Lower risk means lenders accept a lower return",
+    "Interest is tax-deductible; dividends are not",
+    "Harbourline: 6 % pre-tax becomes 4.5 % after tax"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where does preferred stock sit?",
+      "answer_md": "Between the two, which is exactly why it exists. Preferred holders rank ahead of ordinary shareholders and usually receive a fixed dividend, so it behaves much like debt — but that dividend is **not** tax-deductible, so preferred loses the tax advantage debt enjoys. Its cost therefore sits above the after-tax cost of debt and below the cost of equity. In WACC it takes its own weight and its own rate, and on the bridge it is treated as a debt-like claim."
+    },
+    {
+      "question": "Could the cost of debt ever exceed the cost of equity?",
+      "answer_md": "For a company in serious distress, effectively yes. When default looks likely the required yield on the debt can climb into the high teens or twenties, because lenders are now bearing something close to equity risk without any of the upside. Meanwhile the equity, having already collapsed in price, can behave like a call option on recovery. The clean seniority story breaks down at that point, which is one reason distressed situations are valued with a completely different toolkit."
+    }
+  ],
+  "weak_answer_note": "Giving only the tax reason and missing seniority, or only seniority and missing the tax shield. Saying 'debt is cheaper so companies should use it' invites the follow-up about why they do not use it exclusively.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

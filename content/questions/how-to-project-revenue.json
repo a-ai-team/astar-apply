@@ -1,0 +1,38 @@
+{
+  "slug": "how-to-project-revenue",
+  "subtopic_slug": "projections-and-assumptions",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "projections",
+    "revenue"
+  ],
+  "question": "How would you go about projecting a company's revenue for five years?",
+  "model_answer_md": "I would want the growth rate to come from something real rather than being picked.\n\nThe cleanest build is **market size × market share × price**. How fast is the underlying market growing, is the company gaining or losing share within it, and what is happening to pricing? For a retailer that becomes store count times sales per store; for a subscription business, customers times revenue per customer.\n\nThen sense-check against two things: the company's **own history**, because a business that has grown 4 % for a decade rarely starts compounding at 15 %, and **analyst consensus**, which tells you what the market is already assuming.\n\nFinally the rate should **fade** toward something sustainable by the end of the forecast — Harbourline runs 6 %, 6 %, 5 %, 5 %, 4 % — because the terminal value assumes a steady state, and jumping from high growth straight into perpetuity is not one.",
+  "key_points": [
+    "Build from market size, share and price rather than assuming a rate",
+    "Sense-check against the company's own history and analyst consensus",
+    "Use the drivers that fit the business — stores, subscribers, volumes",
+    "Fade growth toward a sustainable rate by the final year",
+    "The last forecast year has to be a plausible steady state for the terminal value"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would you just use management's plan?",
+      "answer_md": "As an input, not an answer. Management plans are useful because they carry information you cannot get from outside — contracted revenue, the pipeline, capacity coming on stream. They are also systematically optimistic, especially in a sale process where the plan exists to support a price. I would take the shape of the plan seriously, haircut the growth and margin toward what the company has historically delivered, and be explicit about where I have departed from it."
+    },
+    {
+      "question": "What if the company is in a completely new market with no history?",
+      "answer_md": "Then the honest position is that the forecast carries very little information and the valuation should be presented as a wide range. I would size the addressable market from the bottom up — how many potential customers, what would they plausibly pay — and run scenarios rather than a single case. I would also lean much harder on comparable companies at similar stages, and be explicit that the terminal assumption is doing nearly all the work."
+    }
+  ],
+  "weak_answer_note": "Naming a growth rate with no reasoning behind it, or saying 'use historical growth' without acknowledging that the future may differ. Not mentioning that growth should fade toward a sustainable rate before the terminal value takes over.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

@@ -1,0 +1,137 @@
+{
+  "slug": "wacc",
+  "subtopic_slug": "wacc",
+  "title": "WACC on a listed company, and the U-shape proved",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You met WACC in the foundations chapter as a blend of two required returns, worked on a small private bakery. This lesson does the version an interviewer actually wants: a **listed** company, where you have to decide what counts as debt, take weights at market value, and know where the cost of debt came from.\n\nIt also settles something the earlier lesson could only assert. Everyone can recite that piling on debt does not lower WACC forever. Almost nobody can *show* it. By the end of this page you will have run the arithmetic both ways — holding the cost of equity fixed, and letting it rise as it should — and seen the answer flip."
+      },
+      {
+        "type": "concept",
+        "heading": "One rate for the whole business, weighted by who paid for it",
+        "md": "Harbourline is funded by two groups who want different returns, so the rate you discount its cash flows at has to be a blend of the two, weighted by how much each has put in. That much you already know.\n\nWhat changes on a listed company is that both parts of \"how much each has put in\" become judgement calls.\n\n**What counts as debt?** Not just the bank borrowings. Anything that behaves like a claim ranking ahead of shareholders belongs in the debt bucket — and for Harbourline that means the **capitalised leases** and the **preferred stock** as well as the £500m of borrowings. This should feel familiar: it is the same set of items you added in the enterprise-value bridge, and for the same reason.\n\n**Whose numbers — the accounts, or the market?** The market's. Equity is worth what the shares trade at, not what a historic balance-sheet entry says, and using book equity for a profitable listed company can understate its weight enormously. Debt is closer between the two, because bonds usually trade near par, but market value is still the right answer.\n\nThe test is simple: WACC is the return the providers of capital require **today**, so it must be weighted by what their claims are worth **today**."
+      },
+      {
+        "type": "mechanics",
+        "md": "$$WACC = \\frac{E}{D+E} \\times k_e + \\frac{D}{D+E} \\times k_d \\times (1-t)$$\n\nYou have seen the formula. The parts worth knowing at this level are where each input comes from:\n\n- **$k_e$** comes from CAPM, which you built in the previous lesson. It is an estimate, and it is the input most open to challenge.\n- **$k_d$** is *not* the interest rate printed in the accounts, which reflects debt raised years ago. It is what the company would pay to borrow **now** — read off the yield on its own traded bonds, or, if it has none, built as a spread over gilts appropriate to its credit rating.\n- **$(1-t)$** applies to debt alone, because interest is deducted before tax is calculated. Dividends are not, so there is no equivalent adjustment on the equity side.\n\nOne special case that comes up as a quick follow-up: a company funded **entirely by equity** has a WACC equal to its cost of equity — there is nothing to blend it with. In practice its beta would be lower than a levered company's, because its shareholders are not standing behind any debt, so the number would not simply be the levered figure with the debt term deleted."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline swaps £300m of equity funding for £300m of debt — equity falls to £750m, debt rises to £890m. Debt is cheaper than equity. What happens to WACC?",
+        "options": [
+          { "label": "It falls, and keeps falling the more debt is added" },
+          { "label": "It falls slightly at first, then rises if leverage keeps increasing", "correct": true },
+          { "label": "It is unchanged — the total funding is the same" },
+          { "label": "It rises immediately, because debt is riskier for the company" }
+        ],
+        "explain_md": "Work it both ways and the trap becomes visible.\n\n**Hold the cost of equity at 10 %** and the answer looks obvious: the weights shift towards the cheaper source and WACC drops to about **7.0 %**. That is the calculation most candidates do, and it is wrong.\n\n**Now let the cost of equity respond**, which it must. Harbourline's debt-to-equity ratio jumps from 0.56 to about **1.19**, so relevering the beta takes it from 1.0 to roughly **1.32** and the cost of equity from 10 % to about **11.9 %**. Lenders also want a little more for the extra risk — say 6.5 % rather than 6.0 %. Run it again and WACC comes out at about **8.1 %**, marginally *above* where it started.\n\nSo the cheap money was not free. Part of its cost was transferred onto the shareholders, and past a point the transfer more than offsets the saving. That is the U-shape, and you have just computed both sides of it."
+      },
+      {
+        "type": "widget",
+        "widget": "wacc_builder",
+        "props": {
+          "riskFree": 0.04,
+          "beta": 1.0,
+          "erp": 0.06,
+          "costOfDebt": 0.06,
+          "taxRate": 0.25,
+          "equityValue": 1050,
+          "debtValue": 590
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc.** The shares trade at £4.20 across 250m diluted shares, so equity is worth **£1,050m**. On the debt side, take the borrowings of £500m plus the capitalised leases of £45m and the preferred stock of £30m — all claims ahead of the shareholders — for **£590m** of debt-like funding. Total capital is therefore £1,640m.\n\nThe cost of equity is the **10.0 %** you built with CAPM in the last lesson. Harbourline could borrow today at **6.0 %** before tax, and the tax rate is **25 %**.",
+        "steps": [
+          { "label": "After-tax cost of debt: 6 % × (1 − 25 %)", "expr": "6% * (1 - 25%)", "value": 0.045 },
+          { "label": "Equity weight: £1,050m ÷ £1,640m", "expr": "1050 / 1640", "value": 0.64 },
+          { "label": "Debt weight: £590m ÷ £1,640m", "expr": "590 / 1640", "value": 0.36 },
+          { "label": "Equity's contribution to the blend", "expr": "(1050 / 1640) * 10%", "value": 0.064 },
+          { "label": "Debt's contribution to the blend", "expr": "(590 / 1640) * 4.5%", "value": 0.0162 },
+          { "label": "WACC for Harbourline", "expr": "(1050 / 1640) * 10% + (590 / 1640) * 4.5%", "value": 0.0802 }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now prove the trap for yourself. Harbourline swaps **£300m of equity for debt**: equity falls to £750m, debt rises to £890m. Its unlevered beta — the beta of the business with no debt at all — is **0.70**. Tax is 25 %, so the gearing factor is $(1 + 0.75 \\times D/E)$. Lenders now charge **6.5 %**.\n\nWork out what the shareholders start demanding, and then what WACC actually does.",
+        "steps": [
+          { "label": "New debt-to-equity: £890m ÷ £750m", "expr": "890 / 750", "value": 1.19 },
+          { "label": "Relevered beta: 0.70 × (1 + 0.75 × 1.19)", "expr": "0.70 * (1 + 0.75 * 1.19)", "value": 1.32, "blank": true },
+          { "label": "New cost of equity: 4 % + 1.32 × 6 %", "expr": "4% + 1.32 * 6%", "value": 0.1192, "blank": true },
+          { "label": "New WACC at the higher Ke and a 6.5 % cost of debt", "expr": "(750 / 1640) * 11.92% + (890 / 1640) * 6.5% * (1 - 25%)", "value": 0.081, "blank": true },
+          { "label": "What it would have been holding Ke at 10 % — the wrong answer", "expr": "(750 / 1640) * 10% + (890 / 1640) * 6% * (1 - 25%)", "value": 0.0702 }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Just use the interest rate from the accounts as the cost of debt.\"**\n\nThe income statement tells you what Harbourline is paying on debt it raised in the past. WACC needs what it would pay to raise debt **today** — because you are discounting cash flows that stretch into the future, funded at future prices.\n\nThe gap can be enormous. A company that fixed its borrowing in a low-rate year may be paying 3 % on the accounts while the market would charge it 7 % now. Discount at 3 % and you will systematically overvalue the business.\n\nWhere to get the right number: the **yield on the company's own traded bonds** if it has any, and otherwise a **spread over gilts** based on its credit rating. Saying that unprompted marks you out, because it shows you know the cost of debt is a market price rather than an accounting fact.\n\nThe same logic explains what happens to WACC in a recession, which is a common follow-up: the risk-free rate may fall, but credit spreads widen and equity risk premiums rise, so both costs of capital typically go **up** — and asset values come down with them."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "WACC is the blended return all the company's capital providers require, weighted by market value. Multiply the cost of equity by the equity share, add the after-tax cost of debt times the debt share. Debt is cheaper because lenders are paid first and interest is tax-deductible, but adding debt makes the remaining equity riskier, so you cannot lower WACC indefinitely. Harbourline: 64 % of 10 % plus 36 % of 4.5 % gives 8 %.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Why software barely borrows, and telecoms borrow heavily",
+            "md": "Put two technology companies side by side and the weights in the formula end up almost inverted.\n\nA growing software business has very little a lender can seize. Its assets are code, contracts and people, and people can leave. Its revenue may be recurring but its cash flows are volatile, and it is often loss-making while it invests. Lenders therefore extend little, and cheaply-priced debt is not really on offer — so the company is funded almost entirely by equity and its WACC ends up close to its cost of equity, often somewhere around 10–12 %.\n\nA mature telecoms operator is the mirror image. It owns physical networks that can be pledged, and its subscribers pay every month with low churn — the share of customers who leave each year. Lenders will fund a large share of the balance sheet against cash flows that predictable, and the interest is tax-deductible, so heavy cheap debt pulls the blend down towards 6–7 %.\n\nThe trap is reading that gap as \"the telecom is the better business\". It is a statement about debt capacity and cash-flow stability, not about returns.",
+            "example_q": "Why does a telecoms company typically have a lower WACC than a software company?",
+            "answer_md": "Mostly because of what it can borrow against. The telecom owns hard, pledgeable assets and has contracted, predictable subscriber revenue, so lenders will fund a large share of it cheaply — and that interest is tax-deductible, which pulls the blend down further. Its equity is also less volatile and less market-sensitive, so its cost of equity starts lower too.\n\nThe software company has few assets a lender would take and volatile cash flows, so it is funded largely by equity at a higher required return, and its WACC sits close to that cost of equity.\n\nI would add that a lower WACC does not make the telecom the better investment. It reflects lower risk and greater debt capacity — and it means every pound of its future cash flow is worth more today, which is a statement about the discount rate rather than about the quality of the business."
+          },
+          "healthcare": {
+            "heading": "Big pharma borrows; single-asset biotech cannot",
+            "md": "The split within healthcare is just as stark, and for the same underlying reason: lenders fund predictability.\n\nA large pharmaceutical company has dozens of approved products, diversified across therapy areas and geographies, throwing off cash under patent protection. That is exactly the profile a bond market likes, so big pharma borrows substantial amounts at fine rates, and its WACC sits meaningfully below its cost of equity.\n\nA clinical-stage biotech with one drug in development has no revenue, no assets a lender would want, and a binary outcome ahead of it. It cannot borrow on any sensible terms, so it is funded by equity — repeatedly, through successive raises — and its **WACC is simply its cost of equity**. There is nothing to blend.\n\nThat is worth stating plainly if you are asked for a discount rate for a pre-revenue biotech, because it disposes of half the question. The remaining half is the cost of equity itself, and the key move there is the one from the previous lesson: the trial risk belongs in probability-weighted cash flows, not inflated into the rate.",
+            "example_q": "What discount rate would you use for a pre-revenue biotech, and how would you build it?",
+            "answer_md": "Its WACC is its cost of equity, because a company with no revenue and no pledgeable assets cannot raise meaningful debt — there is no debt tranche to weight.\n\nI would build the cost of equity with CAPM using a peer-derived beta, since a single-asset company rarely has a reliable beta of its own. That typically lands in the low-to-mid teens: higher than large pharma because a cash-burning company is more market-sensitive, but not the 25 % people sometimes reach for.\n\nThe trial risk does not go in the rate. It is company-specific and diversifiable, so I would probability-weight the cash flows by the chance the drug reaches market and discount those at the normal rate. That keeps the discount rate comparable with other companies and puts the assumption everyone should argue about — the probability of success — out in the open."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company is funded by **£800m of equity** and **£200m of debt**. Its cost of equity is **11 %**, its cost of debt **5 %**, and tax is **25 %**. What is its WACC?\n\nThen: the debt sits on the balance sheet at a book value of **£150m** but trades at **£200m**. Which figure did you use, and why?",
+        "model_answer_md": "After-tax cost of debt is 5 % × (1 − 0.25) = **3.75 %**. Total capital is £1,000m, so the weights are 80 % equity and 20 % debt:\n\n$$WACC = 0.80 \\times 11\\% + 0.20 \\times 3.75\\% = 8.8\\% + 0.75\\% = \\mathbf{9.55\\%}$$\n\nOn the second part: I used the **market value of £200m**, which is the figure quoted in the question — so 9.55 % stands.\n\nThe reason is that WACC is the return capital providers require today, so every weight should reflect what a claim is worth today. Book value records what was raised historically and can be badly out of date. Had I wrongly used the £150m book figure, the debt weight would have fallen to about 16 % and WACC would have come out at roughly **9.86 %** — a third of a point higher, purely from a bookkeeping artefact.\n\nWorth noting that the effect is usually much larger on the equity side, where market and book values diverge far more than they do for debt.",
+        "rubric": [
+          "Takes the cost of debt after tax (3.75 %, not 5 %)",
+          "Uses weights of 80/20 and reaches 9.55 %",
+          "Chooses the market value of debt and says why weights must be current",
+          "Notes what the book-value figure would wrongly have produced, or that book and market diverge most on equity",
+          "Explains in a sentence why the cost of debt is below the cost of equity"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Where would you get the cost of debt from?", "a": "The yield on the company's own traded bonds, or a spread over gilts based on its credit rating — not the interest rate in the accounts." },
+          { "q": "Which items belong in the debt weight besides borrowings?", "a": "Anything ranking ahead of shareholders — capitalised leases, preferred stock, and an unfunded pension deficit. The same list as the EV bridge." },
+          { "q": "A company funded entirely by equity — what is its WACC?", "a": "Its cost of equity, and that cost would be lower than a levered company's because the beta is unlevered." },
+          { "q": "What happens to WACC in a recession?", "a": "It usually rises. Credit spreads widen and equity risk premiums increase, so both costs of capital go up and asset values fall." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Blend the two required returns at market-value weights — and remember that every pound of debt you add makes the remaining equity dearer, which is why WACC bottoms out rather than falling forever.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can compute a WACC on a listed company using market-value weights.",
+          "I can say which balance-sheet items belong in the debt weight, and why they match the EV bridge.",
+          "I can source a cost of debt properly, and explain why the accounts' interest rate is the wrong number.",
+          "I can demonstrate numerically why adding debt stops lowering WACC, using the relevered beta.",
+          "I can answer the 100 %-equity case and say what happens to WACC in a recession."
+        ]
+      }
+    ]
+  }
+}

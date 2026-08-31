@@ -1,0 +1,38 @@
+{
+  "slug": "why-not-net-income-in-dcf",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "ufcf",
+    "net-income"
+  ],
+  "question": "Why not just discount net income in a DCF?",
+  "model_answer_md": "Two reasons, and they pull in opposite directions.\n\n**Net income is after interest.** It belongs to shareholders alone, so it does not match WACC, which is the return demanded by shareholders *and* lenders. Discount it at WACC and you have mixed a shareholder cash flow with an all-funder rate.\n\n**Net income is not cash.** It is struck after non-cash charges like depreciation, and before the cash the business actually has to spend on capital expenditure and working capital. A company can report healthy net income while consuming cash — which is precisely what fast growth looks like.\n\nUnlevered free cash flow fixes both: it starts before interest, adds back what never moved cash, and subtracts what genuinely did.",
+  "key_points": [
+    "Net income is post-interest, so it does not pair with WACC",
+    "Net income is an accounting figure, not cash",
+    "It ignores capital expenditure and working-capital movements",
+    "UFCF corrects for both: pre-interest, and adjusted to actual cash",
+    "Growth companies can show profit while burning cash"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is there a valuation that does start from net income?",
+      "answer_md": "Yes — free cash flow to equity, which begins at net income, adds back non-cash charges, subtracts capital expenditure and working capital, and then adjusts for net borrowing. Because it is a shareholder cash flow it is discounted at the **cost of equity** and gives equity value directly. It is standard for banks, where the debt is operational, and rare elsewhere because it moves whenever the financing plan does."
+    },
+    {
+      "question": "So is EBITDA a better starting point than EBIT?",
+      "answer_md": "Not for this. Starting at EBITDA would skip the tax calculation, and tax is charged on profit after depreciation, so you would have to come back to it anyway. The convention of starting at EBIT, taxing it, then adding D&A back gets the tax right first and the cash right second. EBITDA is a useful shorthand for cash generation, but it is not a cash flow — it ignores tax, capex and working capital entirely."
+    }
+  ],
+  "weak_answer_note": "Giving only the 'not cash' reason and missing the capital-structure mismatch, which is the point the follow-ups probe. Saying net income 'includes non-cash items' without naming depreciation or explaining why that matters.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

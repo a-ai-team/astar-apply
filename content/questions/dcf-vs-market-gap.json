@@ -1,0 +1,38 @@
+{
+  "slug": "dcf-vs-market-gap",
+  "subtopic_slug": "dcf-overview",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "dcf",
+    "judgement"
+  ],
+  "question": "Your DCF says £50 a share and the stock trades at £75. What do you do with that?",
+  "model_answer_md": "I would treat it as a question about my model before treating it as a call on the stock. Three hypotheses, each testable.\n\n**My assumptions are too conservative.** Most likely the growth rate, the terminal assumption or the margin. The quickest test is a reverse DCF: hold the price at £75 and solve for the growth or margin the market must be assuming, then ask whether that number is defensible.\n\n**My discount rate is too high.** Check beta against the comparable set and the capital-structure weights. A point off WACC moves the answer a long way when the terminal value is three-quarters of it.\n\n**The market is pricing something outside my model** — a takeover premium, a pipeline asset, option value on a new product, or a sum-of-the-parts I have not broken out.\n\nOnly when all three have been tested would I conclude the stock looks expensive, and I would still present a range rather than the single number.",
+  "key_points": [
+    "Test the model before calling the market wrong",
+    "Reverse DCF: solve for the growth the price implies, then judge it",
+    "Check beta and the capital-structure weights behind WACC",
+    "Consider value outside the model: control premium, options, hidden assets",
+    "Present a range, not a point, and state the assumption doing the work"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which of the three is usually the answer?",
+      "answer_md": "Terminal assumptions, in my experience of building them. Because the terminal value is 60–80 % of the total, a modest difference in the growth rate or exit multiple explains most gaps of this size without anything else being wrong. That is exactly why the reverse DCF is the first test — it turns 'my number is lower' into 'the market is assuming 3.5 % long-run growth and I assumed 2 %', which is an argument you can actually have."
+    },
+    {
+      "question": "Would you pitch it as a short?",
+      "answer_md": "Not on a DCF alone. A model saying a share is a third overvalued is a starting point, not a thesis — and 'expensive' can stay expensive for years. I would want a catalyst that forces the gap to close, a view on what the market is missing that is genuinely differentiated, and a check on where the comparables sit, because if the whole sector trades at that level the disagreement is with the sector rather than the company."
+    }
+  ],
+  "weak_answer_note": "Concluding the stock is overvalued straight away. At this level the interviewer is testing intellectual honesty: the first suspect is your own model. Listing hypotheses without saying how you would test each one is the other half-answer.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

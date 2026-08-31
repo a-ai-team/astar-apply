@@ -1,0 +1,38 @@
+{
+  "slug": "cost-of-debt-sources",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "wacc",
+    "cost-of-debt"
+  ],
+  "question": "How would you work out a company's cost of debt?",
+  "model_answer_md": "In order of preference.\n\n**If it has traded bonds**, use the **yield to maturity** on a bond of appropriate maturity. That is the return the market currently requires to lend to this company — which is the whole point. Not the coupon: the coupon reflects conditions when the bond was issued, which may be years out of date.\n\n**If it has no traded debt but does have a credit rating**, take the risk-free rate and add the average spread for that rating. A BBB company might sit 150–200 basis points over the government curve.\n\n**If it has neither**, synthesise a rating. Compute interest cover and leverage, compare them with the published bands rating agencies use, infer the rating that implies, and add the corresponding spread.\n\nWhat I would avoid is dividing the interest expense in the accounts by the debt balance. That gives the *historical* average cost of borrowings taken out in the past, not what the company would pay today — and in a period when rates have moved sharply the two can be very far apart.",
+  "key_points": [
+    "First choice: yield to maturity on traded bonds, not the coupon",
+    "Second: risk-free rate plus the credit spread for the company's rating",
+    "Third: synthesise a rating from interest cover and leverage, then add the spread",
+    "Avoid interest expense divided by debt — that is a historical average",
+    "The cost of debt should reflect what borrowing costs today"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you do it for a private company?",
+      "answer_md": "The synthetic rating route, almost always. Take interest cover and net debt to EBITDA, compare them against the bands agencies publish, and read off the implied rating and its spread. It is worth cross-checking against what the company is actually paying on any recent facility, and against the terms comparable private businesses in the sector have raised at, if that is visible. The estimate will be rough, so I would show what WACC does if the spread is 100 basis points either side."
+    },
+    {
+      "question": "Which maturity should the bond be?",
+      "answer_md": "Something reasonably long-dated, matching the horizon of the valuation, in the same way you use a ten-year government bond rather than a three-month bill for the risk-free rate. If the company has bonds across several maturities, the longest liquid one is usually the best guide to its long-run borrowing cost. Very short-dated paper can be misleading — it is cheap partly because of when it matures, not because the company is a low credit risk."
+    }
+  ],
+  "weak_answer_note": "Using the coupon rather than the yield to maturity, or dividing interest expense by debt — both give a historical figure when the question is about today's cost. Not knowing the synthetic-rating approach leaves you stuck on private companies.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

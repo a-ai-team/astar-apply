@@ -1,0 +1,46 @@
+{
+  "slug": "exit-multiple-tv-calc",
+  "subtopic_slug": "terminal-value",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "terminal-value",
+    "calculation"
+  ],
+  "question": "Harbourline's final forecast year shows EBITDA of £231.9m. Using an exit multiple of 8.5 times, what is the terminal value — and what long-run growth rate does it imply?",
+  "model_answer_md": "The terminal value is straightforward:\n\n$$TV = 8.5 \\times 231.9 = \\mathbf{£1,971\\text{m}}$$\n\nThe cross-check is the interesting half. Rearranging the perpetuity formula to solve for growth, with final-year cash flow of £102.3m and WACC of 8 %:\n\n$$g = \\frac{TV \\times \\text{WACC} - FCF_N}{TV + FCF_N} = \\frac{1{,}971 \\times 0.08 - 102.3}{1{,}971 + 102.3} = \\mathbf{2.7\\%}$$\n\nSo an 8.5 times exit is equivalent to assuming Harbourline grows at 2.7 % forever. That is on the high side — above long-run economic growth — which tells you the multiple is slightly generous, and it is why the perpetuity method gave a lower enterprise value of £1,548m against £1,706m here.",
+  "key_points": [
+    "Terminal value = 8.5 × 231.9 = £1,971m",
+    "Implied growth = (TV × WACC − FCF_N) ÷ (TV + FCF_N)",
+    "8.5× implies about 2.7 % perpetual growth",
+    "2.7 % is slightly above long-run economic growth, so the multiple is generous",
+    "This is why the exit-multiple EV (£1,706m) exceeds the Gordon EV (£1,548m)"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is 2.7 % plausible?",
+      "answer_md": "It is at the upper end. Long-run nominal growth for a developed economy is usually taken as somewhere around 2–3 %, so 2.7 % is defensible but leaves no margin — it assumes Harbourline grows in line with or slightly ahead of the whole economy in perpetuity, which for a mature logistics business is optimistic. I would either use a lower exit multiple, around 7.5 times, or present both and be explicit that 8.5 times embeds a growth assumption at the top of the credible range."
+    },
+    {
+      "question": "Where should the exit multiple come from?",
+      "answer_md": "From where the company and its peers could plausibly trade in the final forecast year — not necessarily where they trade today. If growth has faded from 6 % to 4 % over the forecast, the company should arguably command a slightly lower multiple by year five than it does now, because it is a more mature business. Using today's multiple assumes the market rates it identically after five years of deceleration, which quietly builds in a re-rating you have not argued for."
+    }
+  ],
+  "weak_answer_note": "Calculating the terminal value and stopping, without the implied-growth cross-check — that is the discriminating half of the question. Using today's trading multiple without asking whether it still fits a slower-growing company five years out.",
+  "numbers": {
+    "inputs": {
+      "final_ebitda": 231.9,
+      "exit_multiple": 8.5,
+      "final_fcf": 102.3,
+      "wacc": 0.08
+    },
+    "answer": 1971
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

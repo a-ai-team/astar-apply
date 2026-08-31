@@ -1,0 +1,38 @@
+{
+  "slug": "why-not-100-percent-debt",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "wacc",
+    "leverage"
+  ],
+  "question": "If debt lowers WACC, what stops a company from financing itself almost entirely with debt?",
+  "model_answer_md": "The saving stops being a saving, and you can see exactly where.\n\nThe apparent benefit comes from holding the cost of equity fixed while you swap in cheaper debt. That is not what happens. Every extra pound of borrowing ranks ahead of shareholders, so their residual claim gets riskier and **beta relevers upward** — the cost of equity rises to offset much of the gain. Run Harbourline's numbers properly: push debt from 36 % to 50 % of capital and the naive calculation says WACC falls to about 7.0 %, but relever the beta and lift the cost of equity to nearly 12 %, and it comes out slightly *above* where it started.\n\nOn top of that, **lenders reprice**. Past a certain leverage they demand a higher rate and tighter covenants, so the cheap term is not even cheap any more.\n\nAnd **distress becomes real**. A heavily indebted company loses customers, suppliers tighten terms, and it cannot fund good projects when it needs to — costs that never appear in the formula.\n\nSo WACC traces a shallow **U**: it falls, flattens, then rises.",
+  "key_points": [
+    "Holding the cost of equity fixed is what creates the illusion",
+    "Relevering beta raises the cost of equity as leverage rises",
+    "Lenders reprice above a certain leverage and add covenants",
+    "Distress costs — lost customers, suppliers, foregone investment — are real but off-formula",
+    "WACC is a shallow U, not a downward line"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where is the minimum?",
+      "answer_md": "In theory at the point where the marginal tax benefit of one more pound of debt exactly equals the marginal cost of distress it creates. In practice nobody can locate it precisely, because distress costs cannot be observed until you have incurred them and they vary enormously by industry. Which is why companies target a leverage *range* or a credit rating rather than a point — and why the bottom of the U is shallow enough that being somewhere near it is what matters, not hitting it exactly."
+    },
+    {
+      "question": "Does this differ by industry?",
+      "answer_md": "Considerably. Businesses with stable, predictable cash flows and tangible assets to pledge — utilities, regulated infrastructure, some real estate — support much more debt, so their optimum sits at higher leverage. Businesses with volatile cash flows and few pledgeable assets, such as early-stage software or biotech, carry almost none: their distress costs arrive quickly and their assets do not secure a loan. That is why capital structures cluster by sector rather than by company."
+    }
+  ],
+  "weak_answer_note": "Naming only bankruptcy risk. The relevering-beta mechanism is the part that shows real understanding, because it explains why the WACC saving disappears even before any distress. Asserting the U-shape without being able to say what causes the upturn.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

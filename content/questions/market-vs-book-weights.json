@@ -1,0 +1,38 @@
+{
+  "slug": "market-vs-book-weights",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "wacc",
+    "weights"
+  ],
+  "question": "Why does WACC use market values rather than book values for the weights?",
+  "model_answer_md": "Because WACC is meant to describe what funders require **today**, and book values describe historical transactions.\n\nThe equity on the balance sheet is roughly what shareholders originally paid plus accumulated retained earnings. It has nothing to do with what the equity is worth now — a company can trade at five times its book equity, or below it. If you weight by book value you are letting an accounting record from years ago decide how much of your discount rate reflects the cost of equity.\n\nMarket capitalisation, by contrast, is what the equity is actually worth, which is what an investor would have to commit today to own it.\n\nDebt is usually closer between the two, because it is carried near par and repaid at face value — which is why using book value for debt is a common and generally harmless shortcut. But if the debt trades well away from par, the market figure is the better one.",
+  "key_points": [
+    "WACC should reflect what funders require today, not historic cost",
+    "Book equity is contributed capital plus retained earnings — not current value",
+    "Market capitalisation is what the equity is genuinely worth now",
+    "Book value for debt is usually an acceptable approximation, since it is repaid at par",
+    "Use market values for debt when it trades far from par"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the company's debt is trading at 80 pence in the pound?",
+      "answer_md": "Then the market is telling you something the balance sheet is not — that repayment is in doubt. I would use the market value of £80m per £100m of face in the weights, and more importantly I would use the **yield to maturity** at that price as the cost of debt rather than the coupon, because that is the return a lender now requires. The coupon reflects what was agreed when the debt was issued; the yield reflects today's risk. In a genuinely distressed situation the standard WACC framework starts to break down anyway."
+    },
+    {
+      "question": "How do you handle a private company with no market capitalisation?",
+      "answer_md": "You have to estimate one, which makes it circular — you need the equity value to compute WACC, and WACC to compute the equity value. The usual practical route is to use a target capital structure taken from the listed peer group rather than the company's own book values, on the reasoning that its structure should converge on the sector norm. Some people iterate: guess an equity value, compute WACC, revalue, repeat until it settles. Either way, being explicit that it is an assumption matters more than the method."
+    }
+  ],
+  "weak_answer_note": "Saying 'market values are more accurate' without explaining what book value actually represents. Not knowing that book value for debt is usually a reasonable approximation makes the answer sound rehearsed rather than understood.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

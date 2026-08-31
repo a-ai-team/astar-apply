@@ -1,0 +1,39 @@
+{
+  "slug": "tmt-rates-and-growth-stocks",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "interest-rates",
+    "growth"
+  ],
+  "question": "Why did high-growth technology shares fall more than telecoms when interest rates rose?",
+  "model_answer_md": "Because value is the present value of future cash flows, and the two sit at very different points in time.\n\nA mature telecoms operator earns most of its value from the next few years. The network is built, subscribers are paying now, and the cash arrives soon — so discounting it at a slightly higher rate changes the answer relatively little.\n\nA high-growth software company is the mirror image. It may earn nothing for several years, and the bulk of what it is worth sits a decade out or further. Because the discount factor compounds with every additional year, one extra percentage point on the rate takes a much larger bite out of a cash flow arriving in year ten than one arriving next year.\n\nSo the same move in rates removes a far larger share of the software company's value, without anything about either business changing. Bankers call this **duration**, borrowing the term from bonds: high-growth equity behaves like a long-dated bond.\n\nIt also works in reverse — when rate expectations fell back, the same shares recovered hardest.",
+  "key_points": [
+    "Value depends on when cash flows arrive, not just how large they are",
+    "Discount factors compound, so distant cash flows are far more rate-sensitive",
+    "Telecoms cash flows are near-term; high-growth software cash flows are long-dated",
+    "Neither business changed — the arithmetic of discounting did",
+    "The effect is symmetric: these shares recover hardest when rates fall"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which sector would be least sensitive?",
+      "answer_md": "Businesses whose cash flows are both near-term and stable — consumer staples, regulated utilities, established telecoms. Their value is concentrated in the next few years, so the compounding effect has less to bite on. The caveat is leverage: a heavily indebted utility may be defensive on duration but still suffer when its debt has to be refinanced at higher rates, so the equity can fall for a completely different reason. Duration and refinancing risk are separate exposures and worth separating in the answer."
+    },
+    {
+      "question": "Does this mean growth companies are simply riskier?",
+      "answer_md": "It means they are more rate-sensitive, which is not quite the same thing. Duration is a statement about *when* the cash flows arrive; risk is a statement about how *uncertain* they are. A long-dated but highly predictable stream — an inflation-linked infrastructure concession — has high duration and low business risk. What is true is that the two often coincide in technology, because the same companies tend to be both back-end loaded and uncertain, and that combination is what made the repricing so sharp."
+    }
+  ],
+  "weak_answer_note": "Saying 'growth stocks are riskier' without the duration mechanism — that is a different claim and does not explain the asymmetry. Not mentioning that nothing about the underlying businesses changed is the insight the question is testing.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

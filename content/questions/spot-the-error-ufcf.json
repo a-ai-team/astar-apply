@@ -1,0 +1,48 @@
+{
+  "slug": "spot-the-error-ufcf",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:spot",
+    "ufcf",
+    "error-spotting"
+  ],
+  "question": "A candidate builds unlevered free cash flow like this: EBIT £127.2m, less interest £30.0m, gives £97.2m; taxed at 25 % gives £72.9m; add back D&A £63.6m; less capex £70.0m; less the increase in working capital £7.2m; unlevered free cash flow £59.3m. Which line is wrong, and what should the answer be?",
+  "model_answer_md": "The **interest deduction** is the error — the second line.\n\nUnlevered free cash flow is defined as being before financing. Subtracting £30m of interest turns it into a shareholder cash flow, and it also drags the tax figure down with it, so a single mistake corrupts two lines.\n\nDone correctly:\n\n$$127.2 \\times 0.75 = 95.4 \\quad\\Rightarrow\\quad 95.4 + 63.6 - 70.0 - 7.2 = \\mathbf{£81.8\\text{m}}$$\n\nThe candidate's £59.3m understates it by £22.5m — the £30m of interest less the £7.5m of tax that was wrongly saved on it.\n\nEverything else in the build is right: D&A added back, capex and the working-capital increase both subtracted.",
+  "key_points": [
+    "Interest must not be deducted — UFCF is pre-financing by construction",
+    "The error compounds: it also understates the tax charge",
+    "Correct build: 127.2 × 0.75 + 63.6 − 70.0 − 7.2 = £81.8m",
+    "The £22.5m gap is £30m of interest less £7.5m of wrongly-saved tax",
+    "The D&A, capex and working-capital lines were all handled correctly"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where does the interest belong instead?",
+      "answer_md": "In two places, neither of them the cash flow. The cost of the debt appears in **WACC**, through the after-tax cost of debt term — and it is after tax there precisely because interest is deductible, which is where the tax shield gets counted. The debt principal appears on the **equity bridge**, subtracted from enterprise value along with the other claims ranking ahead of shareholders. Put interest in the cash flow as well and you have counted the financing twice."
+    },
+    {
+      "question": "If the candidate had wanted a levered cash flow, what else would be missing?",
+      "answer_md": "Interest would then be correct to deduct, but the build would still be incomplete. Free cash flow to equity also has to reflect **net borrowing** — debt drawn adds cash, debt repaid takes it away — and for many companies preferred dividends too. And the resulting figure must be discounted at the **cost of equity**, not WACC, giving equity value directly. Deducting interest while still discounting at WACC, which is what this build would do, is the mismatch that makes it wrong either way."
+    }
+  ],
+  "weak_answer_note": "Spotting that the answer is too low without identifying which line caused it. Or naming the interest line but missing that it also distorts the tax figure, so the total error is £22.5m rather than the £30m of interest itself.",
+  "numbers": {
+    "inputs": {
+      "ebit": 127.2,
+      "interest": 30.0,
+      "tax_rate": 0.25,
+      "da": 63.6,
+      "capex": 70.0,
+      "change_in_nwc": 7.2
+    },
+    "answer": 81.8
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

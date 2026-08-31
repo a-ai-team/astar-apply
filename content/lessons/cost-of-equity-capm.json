@@ -1,0 +1,140 @@
+{
+  "slug": "cost-of-equity-capm",
+  "subtopic_slug": "cost-of-equity-capm",
+  "title": "Cost of equity: where the discount rate starts",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You have discounted cash flows at 8 % for two chapters without anyone asking where 8 % came from. This is where it comes from — and it is the part of a DCF interviewers push hardest on, because it is the part candidates recite rather than understand.\n\nThe chain is predictable. *Talk me through the cost of equity.* Almost everyone gets that. *What is beta?* Most people say \"how risky the company is\", which is wrong and is the point of the question. *Where does beta come from, and what would you do if the company weren't listed?* That is where the conversation is actually decided."
+      },
+      {
+        "type": "concept",
+        "heading": "Shareholders price the risk they cannot escape",
+        "md": "A lender to Harbourline knows what they will get: a contracted rate of interest, paid before anyone else. A shareholder knows nothing of the sort. They are paid last, out of whatever is left, and in a bad year that is nothing. So they demand more — and the **cost of equity** is simply how much more.\n\nThe question is what that number should be, and the standard answer starts from an idea that is easy to state and easy to get wrong: **an investor is only paid for risk they cannot diversify away.**\n\nIf you hold one company, a factory fire is a disaster. If you hold two hundred, one factory fire barely registers — the other 199 holdings absorb it. Risk of that kind is *specific* to the company, and because a diversified investor can neutralise it for free, the market does not pay you to bear it.\n\nWhat you cannot escape is the market itself. When the whole economy turns down, holding two hundred companies does not save you — they mostly fall together. That shared, unavoidable movement is the risk shareholders are actually compensated for, and the model that prices it is the **capital asset pricing model**, or CAPM."
+      },
+      {
+        "type": "mechanics",
+        "md": "$$k_e = R_f + \\beta \\times \\text{ERP}$$\n\nThree inputs, each with a real-world source:\n\n- **$R_f$, the risk-free rate.** What you earn lending to a government that will not default. In the UK, the yield on a long-dated gilt — a government bond, typically the 10-year. It is the floor: no sane investor accepts less from a company than from the state.\n- **ERP, the equity risk premium.** The extra return equities have delivered over that risk-free rate, measured over long historical periods. For the UK and US, banks typically use something in the region of **5–6 %**. It is an estimate, not an observation, and reasonable people argue about it.\n- **$\\beta$, beta.** How much this share moves *with* the market. A beta of 1.0 means it has historically moved roughly one-for-one with the index; 1.5 means it amplifies market moves by half again; 0.6 means it moves less than the market. It is estimated by regressing the share's returns against the index's, and you would normally take it from a data provider or from a set of comparable companies.\n\nRead the formula as a sentence: *start at the risk-free rate, then add a premium for market risk, scaled by how exposed this particular share is to the market.* Beta is doing one job only — scaling."
+      },
+      {
+        "type": "predict",
+        "prompt": "Gilt yields rise from 4.0 % to 5.0 %. Nothing about Harbourline's business changes. What happens to its cost of equity?",
+        "options": [
+          { "label": "It rises by about a percentage point", "correct": true },
+          { "label": "It is unchanged — the business is the same" },
+          { "label": "It falls, because bonds are now more attractive than shares" },
+          { "label": "It rises by about 6 points, because the premium is multiplied too" }
+        ],
+        "explain_md": "The risk-free rate feeds **straight through**. With beta at 1.0 and the premium at 6 %, the cost of equity goes from 4 + 6 = 10 % to 5 + 6 = **11 %** — a one-point rise, matching the one-point rise in gilts.\n\nThe premium is *added*, not multiplied by the risk-free rate, so it does not scale with it.\n\nThe important part is the last sentence of the question: nothing about the business changed, yet every future cash flow is now discounted a point harder. This is why a move in government bond yields repriced essentially every listed company in 2022 — and why bankers watch gilt and Treasury yields far more closely than the phrase \"risk-free rate\" suggests."
+      },
+      {
+        "type": "widget",
+        "widget": "beta_relever",
+        "props": {
+          "comps": [
+            { "name": "Calder Freight", "leveredBeta": 1.2, "debtToEquity": 0.6 },
+            { "name": "Pentland Haulage", "leveredBeta": 0.9, "debtToEquity": 0.3 },
+            { "name": "Ravensworth Logistics", "leveredBeta": 1.1, "debtToEquity": 0.5 }
+          ],
+          "taxRate": 0.25,
+          "targetDebtToEquity": 0.5619
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc** trades at £4.20 across 250m diluted shares, so its equity is worth **£1,050m**. Take the standard UK inputs: a 10-year gilt yielding **4.0 %**, an equity risk premium of **6.0 %**, and a beta of **1.0** — Harbourline is a logistics business whose fortunes track the economy closely, so moving with the market is exactly what you would expect.\n\nThat gives the base cost of equity. Then the harder version, which is what you do when the company is private or the listed beta is unreliable: take comparable companies, strip *their* debt out of *their* betas, and put *your* company's debt back in.",
+        "steps": [
+          { "label": "Cost of equity: risk-free rate", "expr": "4%", "value": 0.04 },
+          { "label": "Plus beta times the equity risk premium", "expr": "1.0 * 6%", "value": 0.06 },
+          { "label": "Cost of equity for Harbourline", "expr": "4% + 1.0 * 6%", "value": 0.1 },
+          { "label": "Calder unlevered: 1.2 / (1 + 0.75 × 0.6)", "expr": "1.2 / (1 + 0.75 * 0.6)", "value": 0.83 },
+          { "label": "Pentland unlevered: 0.9 / (1 + 0.75 × 0.3)", "expr": "0.9 / (1 + 0.75 * 0.3)", "value": 0.73 },
+          { "label": "Ravensworth unlevered: 1.1 / (1 + 0.75 × 0.5)", "expr": "1.1 / (1 + 0.75 * 0.5)", "value": 0.8 },
+          { "label": "Median unlevered beta of the three", "expr": "0.80", "value": 0.8 },
+          { "label": "Harbourline's debt-to-equity: £590m / £1,050m", "expr": "590 / 1050", "value": 0.56 },
+          { "label": "Relevered beta: 0.80 × (1 + 0.75 × 0.56)", "expr": "0.80 * (1 + 0.75 * 0.56)", "value": 1.14 },
+          { "label": "Cost of equity on the relevered beta", "expr": "4% + 1.14 * 6%", "value": 0.1084 }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "A fourth logistics comparable, **Skerrow Transport**, has a beta of **1.5** and carries debt equal to **1.0 times** its equity. Tax is 25 %, so the factor $(1-t)$ is 0.75. Strip its debt out of its beta, then put Harbourline's lighter debt load back in.",
+        "steps": [
+          { "label": "The gearing factor: 1 + 0.75 × 1.0", "expr": "1 + 0.75 * 1.0", "value": 1.75 },
+          { "label": "Skerrow's unlevered beta: 1.5 ÷ 1.75", "expr": "1.5 / 1.75", "value": 0.86, "blank": true },
+          { "label": "Relevered at Harbourline's 0.56 debt-to-equity", "expr": "0.86 * (1 + 0.75 * 0.56)", "value": 1.22, "blank": true },
+          { "label": "Cost of equity on that beta", "expr": "4% + 1.22 * 6%", "value": 0.1132, "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Beta measures how risky the company is.\"**\n\nIt does not. Beta measures how a share moves **with the market** — and nothing else.\n\nA company can be terrifying to own and still have a low beta. A gold miner is the classic example: its share price swings violently, but the swings are driven by the gold price, which has historically had little to do with the direction of the stock market. Its risk is real and it is large — it is simply not *market* risk, so a diversified investor can hold it alongside other things and dilute it away. CAPM therefore does not pay them for it.\n\nSay it precisely and you have answered a question most candidates fumble: **beta prices co-movement with the market, not volatility, and not the chance the business fails.** Company-specific danger belongs in your cash-flow forecasts, where you can model it honestly — not smuggled into the discount rate."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "The cost of equity is the return shareholders need to hold the shares, and we estimate it with CAPM: the risk-free rate plus beta times the equity risk premium. The risk-free rate is a long government bond yield, the premium is what equities have earned over that historically, and beta measures how much the share moves with the market — the only risk a diversified investor is paid to bear. For Harbourline: 4 % plus 1.0 times 6 % gives 10 %.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "High betas, and a risk-free rate that does the damage",
+            "md": "Software companies typically carry betas above 1.2, and often well above. Part of that is genuine: their customers postpone purchases in a downturn, and they have little of the contracted, recession-proof revenue a utility enjoys.\n\nBut the bigger effect is one you have already met. A growth company's value sits far in the future, and the further out a cash flow is, the more a change in the discount rate compounds against it. So a high-growth software company gets hit twice when rates rise — once because the risk-free rate lifts its cost of equity directly, and again because its cash flows are long-dated and therefore unusually sensitive to any rate at all.\n\nFor a pre-profit company the practical problem is that there is often no reliable beta of its own — too short a trading history, too little liquidity. You take a set of listed peers, unlever their betas, and relever at your target's capital structure, exactly as in the worked example above. It is an estimate resting on an estimate, which is worth saying out loud.",
+            "example_q": "Why did software valuations fall so much further than the broader market when interest rates rose in 2022?",
+            "answer_md": "Two effects stacked. First, the risk-free rate is an input to every cost of equity, so when gilt and Treasury yields rose, every discount rate rose with them — that alone repriced the whole market.\n\nSecond, and larger for software, most of a high-growth company's value is in cash flows a decade out, and the discount factor compounds with every year. So the same one-point rise takes a much bigger bite out of a long-dated cash flow than a near-term one. Add a beta above 1.2, which amplifies the premium as well, and you get a sector falling far more than the index.\n\nNone of it required the businesses to deteriorate. It was arithmetic about *when* the cash arrives."
+          },
+          "healthcare": {
+            "heading": "Trial risk is not beta",
+            "md": "A clinical-stage biotech is one of the riskiest things you can own, and its beta is frequently **below 1.0**. Candidates find that hard to believe, and explaining why is a genuinely good answer.\n\nWhether a drug passes its Phase 3 readout has essentially nothing to do with the direction of the stock market. It is decided by biology and by a regulator. So while the share price may move violently, it moves on company-specific news — and that is exactly the risk a diversified investor eliminates by holding twenty biotechs instead of one. CAPM does not pay for it, so it does not enter the discount rate.\n\nThe risk is real, of course. It belongs in the **cash flows**, probability-weighted by the chance the drug reaches the market — the approach you met in the NPV lesson. Putting it in the rate instead would be doing the same job twice, badly, and would make the rate incomparable with every other company you look at.",
+            "example_q": "A biotech's shares swing 40 % on trial results. Should it have a very high cost of equity?",
+            "answer_md": "Not on that evidence alone. Volatility and beta are different things: beta measures co-movement with the market, and a 40 % swing driven by a trial readout is company-specific news, not a market move. A diversified investor holding many biotechs diversifies most of that away, so they are not compensated for it — which is why biotech betas are often near or below 1.0 despite the share-price drama.\n\nI would use a cost of equity in the low-to-mid teens, reflecting genuine market sensitivity for a cash-burning company, and handle the trial risk explicitly by probability-weighting the cash flows. That is more transparent, and it keeps the discount rate comparable across companies rather than hiding a judgement inside it."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company has a beta of **1.3**. The risk-free rate is **3.5 %** and the equity risk premium is **5.5 %**. What is its cost of equity? A peer in the same industry has a beta of **0.7** — which of the two is riskier *for a diversified investor*, and why?",
+        "model_answer_md": "$$k_e = 3.5\\% + 1.3 \\times 5.5\\% = 3.5\\% + 7.15\\% = \\mathbf{10.65\\%}$$\n\nThe peer, on the same inputs, comes out at 3.5 % + 0.7 × 5.5 % = **7.35 %** — over three points lower.\n\nFor a diversified investor the beta-1.3 company is the riskier holding, and the reason matters. It is not that its business is more likely to fail; beta says nothing about that. It is that its returns amplify the market's. When the index falls 10 %, this share has historically fallen around 13 %, and it does so *at the same time* as everything else in the portfolio — which is precisely the risk that cannot be diversified away and therefore has to be paid for.\n\nI would add two caveats. Both figures rest on the same risk-free rate and premium, so the comparison is really just a comparison of betas. And beta is estimated from history over a chosen window, so I would want to know it is stable before leaning on a difference of that size.",
+        "rubric": [
+          "Computes 10.65 % correctly and shows the beta × premium step",
+          "Identifies the beta-1.3 company as riskier for a diversified investor",
+          "Explains beta as co-movement with the market, not as volatility or failure risk",
+          "States that company-specific risk is diversifiable and therefore unpriced",
+          "Notes where the inputs come from, or that beta is a historical estimate"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What is the beta of the market itself?", "a": "1.0 by definition — the market moves exactly with itself." },
+          { "q": "Can a beta be negative?", "a": "Yes, though it is rare. It means the share has tended to move against the market; gold miners have historically come close." },
+          { "q": "Why unlever comparable companies' betas before using them?", "a": "Their betas reflect their own debt loads. Stripping the debt out leaves the underlying business risk, which you then relever at your company's capital structure." },
+          { "q": "What equity risk premium would you quote?", "a": "Around 5–6 % for the UK or US. It is a long-run historical estimate, not a market observation." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Cost of equity is the risk-free rate plus beta times the equity risk premium — and beta prices only how the share moves with the market, because that is the one risk a diversified investor cannot escape.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can write down CAPM and name the real-world source of each of its three inputs.",
+          "I can define beta as co-movement with the market, not as volatility or the chance of failure.",
+          "I can say which way the cost of equity moves when gilt yields change, and by how much.",
+          "I can unlever a set of comparable betas, take the median and relever at a target's capital structure.",
+          "I can explain why company-specific risk belongs in the cash flows rather than the discount rate."
+        ]
+      }
+    ]
+  }
+}

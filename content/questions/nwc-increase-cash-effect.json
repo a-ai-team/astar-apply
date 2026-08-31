@@ -1,0 +1,43 @@
+{
+  "slug": "nwc-increase-cash-effect",
+  "subtopic_slug": "unlevered-free-cash-flow",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "working-capital",
+    "ufcf"
+  ],
+  "question": "A company's net working capital rises by £5m during the year. What does that do to unlevered free cash flow, and why?",
+  "model_answer_md": "It **reduces** unlevered free cash flow by **£5m**.\n\nWorking capital is the operating money tied up in running the business — receivables plus inventory, less payables. When it rises, the company has either let customers take longer to pay or bought stock it has not yet sold. Either way, cash has gone out of the door and not yet come back.\n\nSo the UFCF line reads `− ΔNWC`, and a positive change of £5m becomes a £5m outflow.\n\nThe reason this matters beyond the arithmetic: growth consumes working capital. A business growing 20 % a year has to fund 20 % more receivables and inventory, which is why fast-growing companies can be profitable and still short of cash.",
+  "key_points": [
+    "An increase in working capital is a use of cash",
+    "UFCF subtracts the change, so +£5m of NWC is −£5m of cash flow",
+    "Working capital = receivables + inventory − payables",
+    "Growth consumes working capital, which is why growing firms can be cash-hungry",
+    "A decrease in working capital releases cash"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which moves — receivables or payables — would cause that increase?",
+      "answer_md": "Either rising receivables or rising inventory pushes working capital up, because both are assets that absorb cash: the customer has not paid, or the stock has not sold. Payables work the other way — they are a liability, so an *increase* in payables **reduces** net working capital and releases cash, since the supplier is effectively funding you. That is why stretching payables is the fastest lever a company has when it needs cash quickly, and why a sharp jump in payable days is worth asking about."
+    },
+    {
+      "question": "What would a fall in working capital tell you?",
+      "answer_md": "That cash has been released — but I would want to know why before treating it as good news. Genuinely better collection or tighter inventory management is a real improvement. The same number can also come from a business that is shrinking, where receivables and inventory fall simply because there is less activity, or from a one-off stretch of payables that cannot repeat. In a forecast, a permanent step-change in working-capital days is a strong assumption and needs justifying."
+    }
+  ],
+  "weak_answer_note": "Getting the sign backwards and calling an increase a source of cash — the single most common working-capital error. Also treating it as an accounting adjustment with no real-world meaning, rather than money genuinely tied up in receivables and stock.",
+  "numbers": {
+    "inputs": {
+      "change_in_nwc": 5
+    },
+    "answer": -5
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

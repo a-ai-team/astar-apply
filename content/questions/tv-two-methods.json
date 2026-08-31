@@ -1,0 +1,37 @@
+{
+  "slug": "tv-two-methods",
+  "subtopic_slug": "terminal-value",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "terminal-value"
+  ],
+  "question": "What are the two ways of calculating a terminal value?",
+  "model_answer_md": "**Perpetuity growth**, sometimes called the Gordon growth method: take the final forecast year's cash flow, grow it one more year, and divide by WACC minus the long-run growth rate.\n\n$$TV = \\frac{FCF_N(1+g)}{\\text{WACC} - g}$$\n\n**Exit multiple**: apply a multiple the company could plausibly trade at in the final year to its final-year EBITDA.\n\n$$TV = \\text{Multiple} \\times \\text{EBITDA}_N$$\n\nThe part worth adding unprompted is that **each implies the other**. A growth rate implies an exit multiple, and a multiple implies a growth rate — so you calculate both and check they agree. For Harbourline, 2 % growth gives a terminal value of £1,739m, which is 7.5 times final-year EBITDA and close to where the company trades today. That agreement is the sanity check.",
+  "key_points": [
+    "Perpetuity growth: FCF_N × (1 + g) ÷ (WACC − g)",
+    "Exit multiple: a plausible multiple × final-year EBITDA",
+    "Each method implies the other — a growth rate implies a multiple and vice versa",
+    "Harbourline: 2 % growth → £1,739m → 7.5× final-year EBITDA",
+    "Calculate both and check the cross-implication is sensible"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which one is preferred?",
+      "answer_md": "It depends who is asking. Perpetuity growth is more common in pure valuation work because it is internally consistent — it stays within the DCF's own logic rather than importing a number from the market. Exit multiples are more common in private equity and in leveraged buyouts, where there is a genuine intention to sell in five years and a market multiple is the realistic exit. The strongest answer is that you run both: if they disagree materially, one of the assumptions needs revisiting."
+    },
+    {
+      "question": "What happens if g is greater than WACC?",
+      "answer_md": "The formula breaks — the denominator goes negative and the terminal value comes out negative, which is meaningless. Economically it is saying the company grows faster than its cost of capital forever, which would make it infinitely valuable and eventually larger than the entire economy. It is a useful sign that something is wrong with your inputs rather than a result to report: either the growth rate is implausible or the discount rate is too low."
+    }
+  ],
+  "weak_answer_note": "Naming both methods but not knowing that each implies the other — the cross-check is the part that shows you have actually built one. Confusing the exit multiple with today's trading multiple rather than a plausible multiple in the final year.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

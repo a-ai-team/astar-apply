@@ -1,0 +1,37 @@
+{
+  "slug": "tv-share-of-value",
+  "subtopic_slug": "terminal-value",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "terminal-value"
+  ],
+  "question": "In your DCF the terminal value is about three-quarters of the enterprise value. Is that a problem?",
+  "model_answer_md": "It is normal, and it should be stated rather than hidden.\n\nSixty to eighty per cent is the usual range, and Harbourline sits at 76 %. The reason is simply that a five-year forecast covers five years, and the terminal value covers everything from year six to forever — so it would be strange if the finite part dominated.\n\nWhat it does mean is that the valuation is largely a bet on the **terminal assumptions**, so those deserve the most scrutiny and the sensitivity table should flex them. It is why I would quote a range around WACC and growth rather than a single number.\n\nWhere I would become uncomfortable is above roughly 85 %. At that point the explicit forecast is barely contributing, and the model is not really telling you anything the terminal assumption did not already contain. The fix is to extend the forecast — ten years rather than five — so more of the value comes from cash flows you have actually reasoned about. For Harbourline that pulls the terminal share down into the high 50s.",
+  "key_points": [
+    "60–80 % is normal; Harbourline is 76 %",
+    "A short forecast against an infinite tail makes this arithmetically expected",
+    "It means the terminal assumptions carry the valuation, so flex them",
+    "Above about 85 % the explicit forecast is contributing little",
+    "Extending the forecast to ten years pulls the share into the high 50s"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you reduce it?",
+      "answer_md": "Lengthen the explicit forecast, which is the only honest lever. Taking Harbourline from five years to ten moves value out of the perpetuity and into years you have actually forecast, dropping the terminal share from 76 % to the high 50s. The trade-off is that you now have to defend assumptions about years six to ten, which is real work — but that is the point. The alternative of simply lowering the terminal growth rate reduces the share by reducing the *value*, which is not the same thing at all."
+    },
+    {
+      "question": "Does a high terminal share mean the DCF is unreliable?",
+      "answer_md": "It means the DCF is mostly a statement about the long run, which is worth knowing but does not make it wrong. Every valuation method has the same property in disguise: a trading multiple is a compressed claim about all future cash flows too, it just does not show you the arithmetic. The advantage of the DCF is that it makes the assumption visible and testable. The failure is not having a high terminal share — it is having one and not telling anyone."
+    }
+  ],
+  "weak_answer_note": "Saying it is a problem and should be reduced — it is normal and expected. Or saying it is fine without knowing what range is normal, which leaves you unable to recognise the genuinely worrying case above 85 %.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

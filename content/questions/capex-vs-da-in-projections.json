@@ -1,0 +1,38 @@
+{
+  "slug": "capex-vs-da-in-projections",
+  "subtopic_slug": "projections-and-assumptions",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "capex",
+    "projections"
+  ],
+  "question": "How should capital expenditure compare with depreciation in a forecast?",
+  "model_answer_md": "It depends where the company is in its life, and the relationship is one interviewers use to test whether a forecast is internally coherent.\n\nWhile a business is **growing**, capex should sit **above** D&A. Depreciation reflects the cost of assets bought in the past; a company adding capacity is spending more than it is writing off. Harbourline runs capex at 5.5 % of revenue against D&A of 5.0 % — modestly above, which matches mid-single-digit growth.\n\nAt **steady state** the two converge. A company growing at the rate of the wider economy is broadly replacing what wears out, so by the terminal year capex ≈ D&A is the sensible assumption.\n\nSetting capex equal to D&A from year one is the classic way to flatter a valuation: cash flow rises, and nothing in the model shows that the growth being forecast has not been paid for.",
+  "key_points": [
+    "Growing companies: capex above D&A, because they are adding capacity",
+    "Steady state: capex converges on D&A — replacement only",
+    "Harbourline: 5.5 % of revenue capex against 5.0 % D&A",
+    "Capex equal to D&A while still forecasting growth flatters cash flow",
+    "The terminal year in particular should assume capex ≈ D&A"
+  ],
+  "follow_ups": [
+    {
+      "question": "What should the terminal year look like specifically?",
+      "answer_md": "It should describe a business in equilibrium, because the perpetuity formula assumes that state continues forever. Capex roughly equal to D&A, working capital growing only in line with revenue rather than stepping up, and margins at a sustainable mid-cycle level rather than a peak. If the final forecast year still shows heavy investment or an unusually good margin, the terminal value capitalises a condition that will not last — and since it is often three-quarters of the answer, that error dominates everything else."
+    },
+    {
+      "question": "Is capex below D&A ever right?",
+      "answer_md": "Yes, in a genuinely declining or harvesting business — one running its asset base down and not replacing it. It can also happen for a few years after a large investment programme finishes, when the new assets are depreciating but no further spend is needed. Both are legitimate, but neither is sustainable forever: a company cannot underinvest indefinitely and keep the same revenue, so a terminal year with capex below D&A is almost always wrong."
+    }
+  ],
+  "weak_answer_note": "Saying they should always be equal, which is only true at steady state. Or knowing the rule without being able to explain why — that depreciation reflects past spending while capex reflects present decisions.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "build-sensitivity-corner",
+  "subtopic_slug": "dcf-sensitivities",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "sensitivity",
+    "calculation"
+  ],
+  "question": "Harbourline's base case is WACC 8 % and terminal growth 2 %, giving an enterprise value of £1,548m. What is the enterprise value in the optimistic corner — WACC 7 % and growth 3 %?",
+  "model_answer_md": "Both changes work on the terminal value, and they compound.\n\nThe terminal value first, with the final year's £102.3m of cash flow:\n\n$$TV = \\frac{102.3 \\times 1.03}{0.07 - 0.03} = \\frac{105.4}{0.04} = £2{,}634\\text{m}$$\n\nThat is against £1,739m in the base case — a 51 % increase, because the spread in the denominator has narrowed from 6 points to 4.\n\nDiscounting is also gentler at 7 %, so the present value of both the explicit cash flows and that terminal value rises. Putting it together gives an enterprise value of about **£2,253m**.\n\nSo one point on each input has raised the valuation by 46 % from the base case. The equivalent pessimistic corner, 9 % and 1 %, gives £1,193m. The full range is roughly £1.2bn to £2.3bn — which is the honest way to present the answer.",
+  "key_points": [
+    "Both inputs act on the terminal value and compound",
+    "TV = 102.3 × 1.03 ÷ 0.04 = £2,634m, against £1,739m in the base case",
+    "The spread narrowing from 6 to 4 points drives most of the change",
+    "A lower WACC also discounts everything more gently",
+    "Enterprise value ≈ £2,253m, up 46 % on the base case"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is the upside corner further from the base case than the downside corner?",
+      "answer_md": "Because the terminal value is inversely proportional to the spread, and inverse relationships are asymmetric. Narrowing the spread from 6 points to 4 multiplies the terminal value by roughly 6/4, a 50 % increase. Widening it from 6 to 8 multiplies by 6/8, a 25 % decrease. So the same one-point move in each direction produces a much larger gain than loss — £2,253m up versus £1,193m down against a £1,548m base. That asymmetry is visible in every sensitivity table once you look for it."
+    },
+    {
+      "question": "Does that range mean the DCF is useless?",
+      "answer_md": "No, but it does mean the DCF should never be quoted as a single number. The range tells you honestly how much the answer depends on two assumptions nobody can know, and it is exactly why a DCF is presented alongside comparables in a football field rather than on its own. What narrows it in practice is judgement about which corners are actually credible — 3 % perpetual growth is at the top of the defensible range, so the upper corner deserves less weight than the middle of the table."
+    }
+  ],
+  "weak_answer_note": "Recalculating only the terminal value and forgetting that the lower WACC also lifts the present value of the explicit cash flows. Or applying the growth change without noticing the denominator effect, which is where most of the movement comes from.",
+  "numbers": {
+    "inputs": {
+      "final_fcf": 102.3,
+      "wacc": 0.07,
+      "growth": 0.03,
+      "base_ev": 1548
+    },
+    "answer": 2253
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

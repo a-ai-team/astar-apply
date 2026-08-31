@@ -12,6 +12,10 @@ import { TsmDilution } from "@/components/widgets/tsm-dilution";
 import { LeaseToggle } from "@/components/widgets/lease-toggle";
 import { MultipleMatcher } from "@/components/widgets/multiple-matcher";
 import { FootballField } from "@/components/widgets/football-field";
+import { TvShare } from "@/components/widgets/tv-share";
+import { GordonVsExit } from "@/components/widgets/gordon-vs-exit";
+import { WaccBuilder } from "@/components/widgets/wacc-builder";
+import { BetaRelever } from "@/components/widgets/beta-relever";
 import { Section } from "../section";
 
 /**
@@ -31,6 +35,10 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   lease_toggle: LeaseToggle as ComponentType<Record<string, unknown>>,
   multiple_matcher: MultipleMatcher as ComponentType<Record<string, unknown>>,
   football_field: FootballField as ComponentType<Record<string, unknown>>,
+  tv_share: TvShare as ComponentType<Record<string, unknown>>,
+  gordon_vs_exit: GordonVsExit as ComponentType<Record<string, unknown>>,
+  wacc_builder: WaccBuilder as ComponentType<Record<string, unknown>>,
+  beta_relever: BetaRelever as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

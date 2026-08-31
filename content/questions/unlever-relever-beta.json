@@ -1,0 +1,50 @@
+{
+  "slug": "unlever-relever-beta",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "beta",
+    "capm"
+  ],
+  "question": "Three comparable companies have levered betas of 1.2, 0.9 and 1.1 at debt-to-equity ratios of 0.6, 0.3 and 0.5. Tax is 25 %. Harbourline's debt-to-equity is 0.56. What beta should you use for Harbourline, and what cost of equity does it give?",
+  "model_answer_md": "Three steps: unlever each comparable, take the median, then relever at Harbourline's structure.\n\n**Unlever** using $\\beta_U = \\beta_L \\div (1 + (1-t)\\frac{D}{E})$:\n\n- 1.2 ÷ (1 + 0.75 × 0.6) = **0.83**\n- 0.9 ÷ (1 + 0.75 × 0.3) = **0.73**\n- 1.1 ÷ (1 + 0.75 × 0.5) = **0.80**\n\n**Median = 0.80.** That is the underlying business risk, with financing stripped out.\n\n**Relever** at Harbourline's D/E of 0.56:\n\n$$\\beta_L = 0.80 \\times (1 + 0.75 \\times 0.56) = \\mathbf{1.14}$$\n\nThen CAPM: $4.0\\% + 1.14 \\times 6.0\\% = \\mathbf{10.8\\%}$.\n\nNote that this is higher than the 10.0 % you get from assuming a beta of exactly 1.0 — Harbourline carries slightly more leverage than the typical comparable, so its equity is a bit riskier.",
+  "key_points": [
+    "Unlever each comparable to strip out its own financing",
+    "βU = βL ÷ (1 + (1−t) × D/E): 0.83, 0.73, 0.80",
+    "Take the median unlevered beta: 0.80",
+    "Relever at the target's D/E: 0.80 × (1 + 0.75 × 0.56) = 1.14",
+    "CAPM: 4.0 % + 1.14 × 6.0 % = 10.8 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why the median rather than the mean?",
+      "answer_md": "Because a small sample is easily distorted by one outlier. A single comparable with an unusual capital structure, a takeover rumour in the estimation window or a thinly traded share can drag a mean of three or five noticeably, while the median barely moves. With larger peer sets the two converge and the choice matters less, but with three or four names the median is the safer statistic. Either way I would look at the spread as well as the midpoint."
+    },
+    {
+      "question": "What is the (1 − t) doing in the formula?",
+      "answer_md": "It reflects the tax shield. Debt makes the remaining equity riskier, but not by the full amount of the debt, because the interest is tax-deductible and the government effectively absorbs part of the cost. So the leverage effect on beta is scaled down by (1 − t). If tax were zero the formula would collapse to βL = βU × (1 + D/E) and the relevered beta here would be 1.25 rather than 1.14 — a meaningfully higher cost of equity."
+    }
+  ],
+  "weak_answer_note": "Averaging the raw levered betas without unlevering, which mixes business risk with each company's financing choice. Relevering at the comparables' average leverage rather than the target's. Forgetting the (1 − t) term.",
+  "numbers": {
+    "inputs": {
+      "beta_1": 1.2,
+      "de_1": 0.6,
+      "beta_2": 0.9,
+      "de_2": 0.3,
+      "beta_3": 1.1,
+      "de_3": 0.5,
+      "tax_rate": 0.25,
+      "target_de": 0.56
+    },
+    "answer": 1.14
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

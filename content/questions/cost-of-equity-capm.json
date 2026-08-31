@@ -1,0 +1,45 @@
+{
+  "slug": "cost-of-equity-capm",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "capm",
+    "cost-of-equity"
+  ],
+  "question": "Harbourline has a beta of 1.0. Gilts yield 4.0 % and the equity risk premium is 6.0 %. What return do its shareholders require?",
+  "model_answer_md": "Use the capital asset pricing model:\n\n$$k_e = R_f + \\beta \\times \\text{ERP} = 4.0\\% + 1.0 \\times 6.0\\% = \\mathbf{10.0\\%}$$\n\nRead it as two parts. The 4 % is what you can earn without taking equity risk at all — the gilt. The 6 % on top is what investors have historically been paid for accepting equity risk, scaled by beta.\n\nHarbourline's beta of 1.0 means it moves roughly in line with the market, so it earns the full premium and nothing extra. A beta of 1.5 would give 4 + 9 = 13 %; a beta of 0.6 would give 4 + 3.6 = 7.6 %.",
+  "key_points": [
+    "CAPM: cost of equity = risk-free rate + beta × equity risk premium",
+    "4.0 % + 1.0 × 6.0 % = 10.0 %",
+    "The risk-free rate is a long-dated government bond yield",
+    "Beta scales the market premium to this particular share",
+    "A beta of 1.0 means the full premium and no more"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens if gilt yields rise to 5 %?",
+      "answer_md": "The cost of equity rises to **11 %** — the risk-free rate feeds straight through, one for one, with the premium unchanged. That is a large part of why almost every valuation in the market falls together when rates rise: nothing about the individual companies has changed, but the rate at which their future cash flows are discounted has, and the effect is biggest for companies whose cash flows sit furthest out."
+    },
+    {
+      "question": "Where does the 6 % equity risk premium come from?",
+      "answer_md": "Two approaches. The **historical** premium measures what equities have actually returned above government bonds over a long run of data, typically a century or so, which for developed markets lands somewhere in the 4–7 % range depending on the period and the averaging method. The **implied** premium works backwards from today's index level and consensus earnings to solve for the return the market is currently pricing. Banks tend to have a house number; what matters in an interview is knowing it is an estimate with a range, not a constant."
+    }
+  ],
+  "weak_answer_note": "Reciting the formula without saying what the parts mean. Using a short-dated bill rather than a long government bond for the risk-free rate — the horizon should match the cash flows. Confusing the equity risk premium with the total market return.",
+  "numbers": {
+    "inputs": {
+      "risk_free": 0.04,
+      "beta": 1.0,
+      "equity_risk_premium": 0.06
+    },
+    "answer": 0.1
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

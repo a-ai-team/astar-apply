@@ -1,0 +1,38 @@
+{
+  "slug": "wacc-100-equity",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "wacc",
+    "cost-of-equity"
+  ],
+  "question": "A company has no debt at all. What is its WACC?",
+  "model_answer_md": "Its **cost of equity** — there is nothing else in the blend to weight against.\n\nWith the debt weight at zero, the formula collapses to the equity term alone:\n\n$$\\text{WACC} = 1.0 \\times k_e + 0 = k_e$$\n\nThe part worth adding, because it is where the follow-up goes, is that this cost of equity is **lower** than the same company would have if it carried debt. Beta reflects leverage, so an all-equity company has an unlevered beta. Harbourline's unlevered beta is about 0.80, giving roughly 4 % + 0.80 × 6 % = **8.8 %** — lower than the 10.8 % its levered equity requires.\n\nSo an all-equity company has a higher WACC than the same business modestly levered, but a lower cost of equity. Those two facts sound contradictory and are not.",
+  "key_points": [
+    "With no debt, WACC equals the cost of equity",
+    "The debt weight is zero, so the formula reduces to the equity term",
+    "That cost of equity uses the unlevered beta, so it is lower than a levered one",
+    "Harbourline unlevered: roughly 4 % + 0.80 × 6 % = 8.8 %",
+    "Higher WACC than a modestly levered version of the same business, but lower cost of equity"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is that WACC higher or lower than if it took on some debt?",
+      "answer_md": "Higher, at moderate leverage. Adding debt brings in a cheaper, tax-deductible source of funding, and although the cost of equity rises as beta relevers, at low leverage it does not rise enough to offset the benefit — so WACC falls. That is the downward part of the U. Keep adding debt and the relevering effect, lender repricing and distress costs eventually dominate and WACC turns back up. So an unlevered company usually sits slightly to the left of its own optimum."
+    },
+    {
+      "question": "Why would a company choose to have no debt then?",
+      "answer_md": "Flexibility, mostly. Debt comes with covenants and fixed repayments, which is exactly what you do not want if your cash flows are volatile or if you might need to raise money quickly during a downturn. Companies with unpredictable earnings, few pledgeable assets, or large uncertain investment programmes often prefer to give up the tax shield in exchange for the option to act. Technology and biotech are the obvious examples, and their capital structures reflect it."
+    }
+  ],
+  "weak_answer_note": "Answering 'the cost of equity' and stopping there. The question is easy; the discrimination comes from knowing the beta is unlevered, so this cost of equity is not the same number as the levered company's.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

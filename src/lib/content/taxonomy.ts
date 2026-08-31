@@ -147,14 +147,16 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "Free cash flow, the discount rate and terminal value — built step by step with real numbers.",
     source_section: "DCF – assumptions & analysis / the discount rate",
     subtopics: [
-      sub("dcf-overview", "What a DCF is doing", "concept", "DCF – assumptions & analysis", 8),
-      sub("unlevered-free-cash-flow", "Unlevered free cash flow", "calculation", "DCF – assumptions & analysis", 9),
-      sub("projections-and-assumptions", "Projections and assumptions", "mixed", "DCF – assumptions & analysis", 9),
+      // Loop 16: seven lessons carry the chapter. `levered-dcf-and-variants` (levered DCF, APV) is
+      // named in the cheat sheet's "you may hear" box — deferred, slug kept.
+      sub("dcf-overview", "What a DCF is doing", "concept", "DCF – assumptions & analysis", 6),
+      sub("unlevered-free-cash-flow", "Unlevered free cash flow", "calculation", "DCF – assumptions & analysis", 6),
+      sub("projections-and-assumptions", "Projections and assumptions", "mixed", "DCF – assumptions & analysis", 6),
       sub("dcf-sensitivities", "Sensitivities and sanity checks", "mixed", "DCF – assumptions & analysis", 6),
-      sub("cost-of-equity-capm", "Cost of equity and CAPM", "calculation", "DCF – the discount rate", 12),
-      sub("wacc", "WACC", "calculation", "DCF – the discount rate", 12),
-      sub("terminal-value", "Terminal value", "calculation", "DCF – assumptions & analysis", 9),
-      sub("levered-dcf-and-variants", "Levered DCF and other variants", "concept", "DCF – the discount rate", 8),
+      sub("cost-of-equity-capm", "Cost of equity and CAPM", "calculation", "DCF – the discount rate", 6),
+      sub("wacc", "WACC", "calculation", "DCF – the discount rate", 6),
+      sub("terminal-value", "Terminal value", "calculation", "DCF – assumptions & analysis", 6),
+      { ...sub("levered-dcf-and-variants", "Levered DCF and other variants", "concept", "DCF – the discount rate", 0), deferred: true },
     ],
   },
   {

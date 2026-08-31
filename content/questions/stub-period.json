@@ -1,0 +1,38 @@
+{
+  "slug": "stub-period",
+  "subtopic_slug": "dcf-sensitivities",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "stub-period",
+    "discounting"
+  ],
+  "question": "You are valuing a company in September but its financial year ends in December. How do you handle the first period?",
+  "model_answer_md": "With a **stub period** — you only discount the portion of the year that is still ahead of you.\n\nFrom late September to the December year end is roughly a quarter of a year, so you take about 25 % of that year's cash flow and discount it over 0.25 years rather than a full one. Everything after that shifts accordingly: the next full year is discounted over 1.25 years, the one after over 2.25, and so on.\n\nThe reasoning is simply that you cannot claim value you have already missed. Cash the company generated in the first nine months has been earned and spent or retained; a buyer today is only acquiring what comes next.\n\nTwo details. The cash flow for the stub should reflect the actual remaining months rather than a flat quarter if the business is seasonal — a retailer's December quarter is not a quarter of its year. And if you are combining this with the mid-year convention, the stub is discounted over half its own length, so 0.125 years rather than 0.25.",
+  "key_points": [
+    "Discount only the part of the current year still to come",
+    "Roughly a quarter remaining in late September, discounted over 0.25 years",
+    "All later years shift by the same fraction: 1.25, 2.25, and so on",
+    "You cannot value cash flows that have already happened",
+    "Adjust for seasonality rather than assuming a flat quarter"
+  ],
+  "follow_ups": [
+    {
+      "question": "How does that combine with the mid-year convention?",
+      "answer_md": "You apply mid-year within the stub as well as the full years. If a quarter of the year remains, that cash arrives on average at the midpoint of the remaining period, so it is discounted over 0.125 years rather than 0.25. Subsequent years then run at 0.75, 1.75, 2.75 and so on — a half-year earlier than the stub-adjusted end-year positions. It is fiddly, and the combined effect is small, but it is worth being able to describe because it shows you understand both adjustments rather than reciting them."
+    },
+    {
+      "question": "Does the terminal value shift too?",
+      "answer_md": "Yes — it has to move with whatever the final forecast year has become. If the stub has shifted the last full year from a five-year to a 4.25-year discount position, the terminal value is discounted over 4.25 years rather than 5. Forgetting that is a common slip: people adjust the explicit cash flows carefully and then leave the terminal value discounted at its original factor, which inconsistently mixes two different valuation dates in the same model."
+    }
+  ],
+  "weak_answer_note": "Discounting the whole current year as though none of it had happened, which values cash flows that are already gone. Or handling the stub correctly but forgetting to shift every subsequent year and the terminal value by the same fraction.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

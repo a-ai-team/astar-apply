@@ -1,0 +1,227 @@
+{
+  "slug": "dcf-overview",
+  "subtopic_slug": "dcf-overview",
+  "title": "What a DCF is actually doing",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"Walk me through a DCF\" is the most predictable technical question in banking. It is asked in almost every interview, at every firm, at every stage — and it is asked precisely *because* it is predictable. The interviewer already knows you have rehearsed it. What they are listening for is whether you understand the machine you are describing, or whether you have memorised a list.\n\nThe tell is the follow-up. Anyone can recite five steps. Far fewer can say which step the answer actually depends on, or what to do when the number they produce disagrees with the share price on the screen. That is the conversation this lesson is preparing you for.\n\nYou already have the two ideas underneath it: discounting a future pound back to today, and blending the cost of equity and debt into a single rate. A DCF is those two ideas applied to a whole company."
+      },
+      {
+        "type": "concept",
+        "heading": "A business is worth the cash it will hand over",
+        "md": "Strip away the jargon and a discounted cash flow model makes one claim: **a company is worth the cash it will generate for its owners and lenders, converted into today's money.**\n\nThat is it. Everything else is bookkeeping around that sentence.\n\nTwo consequences follow, and both come up as follow-ups.\n\nFirst, a DCF is **intrinsic**. Comparable companies and precedent transactions tell you what the market is paying for similar businesses right now; a DCF tells you what *your own forecast* implies. It is the only one of the three main methods that does not need a peer group — which makes it the only one you can use on a business with no real comparables, and the only one that can tell you the market is wrong.\n\nSecond, that independence is also its weakness. A DCF has no external anchor. Change your growth assumption by a point and the answer moves by hundreds of millions. So the honest output is never a single number: it is a **range**, plus a clear statement of what you had to believe to get there."
+      },
+      {
+        "type": "mechanics",
+        "md": "The mechanics are five steps, always in this order.\n\n**1. Project unlevered free cash flow.** Forecast the cash the operations throw off, usually for five years. *Unlevered* means before any interest is paid, so the cash belongs to everyone who funded the business — lenders and shareholders together. (Lesson 2 builds this line properly.)\n\n**2. Pick a discount rate.** Because that cash belongs to all funders, you discount it at the blended rate they all require: the weighted average cost of capital, or WACC. Harbourline's is **8.0 %**.\n\n**3. Value everything after the forecast.** You cannot forecast to infinity, so you stop at year five and put a single number on all the years beyond — the **terminal value**. The perpetuity growth method takes the final year's cash flow, grows it once more, and divides by the discount rate less that growth rate:\n\n$$TV = \\frac{CF_5 \\times (1 + g)}{r - g}$$\n\n**4. Discount and add.** Bring the five cash flows and the terminal value back to today. The total is **enterprise value** — the value of the operating business.\n\n**5. Bridge to the share price.** Subtract debt, add cash, subtract the other claims that rank ahead of shareholders, and divide by the diluted share count.\n\nNote where you land at each stage: step 4 gives you enterprise value, step 5 gives you equity value. Saying \"and that gives me the share price\" after step 4 is the most common slip in the whole answer."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline's five forecast years of cash flow add up to £460m before any discounting. Once everything is discounted, roughly what share of the final enterprise value do those five years represent?",
+        "options": [
+          {
+            "label": "About 80 % — the forecast is most of the value"
+          },
+          {
+            "label": "About 50 % — an even split"
+          },
+          {
+            "label": "About 25 % — most of the value is beyond year five",
+            "correct": true
+          }
+        ],
+        "explain_md": "Just **24 %**. The five years you carefully forecast contribute £364m of a £1,548m enterprise value; the terminal value — the single number standing in for every year after year five — contributes the other £1,184m, or **76 %**.\n\nThis is the fact that reframes the whole model. Candidates spend their preparation on the projection and treat terminal value as a formula at the end. In reality the terminal value *is* the valuation, and the two inputs that drive it — the discount rate and the long-run growth rate — are where the argument always ends up. Drag the sliders below and watch how little the projection matters by comparison."
+      },
+      {
+        "type": "widget",
+        "widget": "tv_share",
+        "props": {
+          "cashFlows": [
+            81.8,
+            86.7,
+            92.4,
+            96.9,
+            102.3
+          ],
+          "wacc": 0.08,
+          "growth": 0.02,
+          "finalEbitda": 231.9,
+          "years": 5
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc**, the UK logistics company from the enterprise-value chapter. Its shares trade at **£4.20** and there are **250m** of them, so the market values its equity at **£1,050m**.\n\nThe forecast gives five years of unlevered free cash flow — **£81.8m, £86.7m, £92.4m, £96.9m and £102.3m** — and we discount at Harbourline's WACC of **8.0 %**, assuming its cash flows grow at **2 %** a year forever afterwards.\n\nThe bridge at the end uses Harbourline's balance sheet: borrowings **£500m**, cash **£120m**, preferred stock **£30m**, non-controlling interests **£25m** and capitalised leases **£45m**.",
+        "steps": [
+          {
+            "label": "Present value of the five forecast years",
+            "expr": "81.8/1.08 + 86.7/1.08^2 + 92.4/1.08^3 + 96.9/1.08^4 + 102.3/1.08^5",
+            "value": 364.3,
+            "unit": "£m"
+          },
+          {
+            "label": "Terminal value: grow year 5 once, divide by (8 % − 2 %)",
+            "expr": "102.3 * 1.02 / (8% - 2%)",
+            "value": 1739.1,
+            "unit": "£m"
+          },
+          {
+            "label": "Terminal value discounted back five years",
+            "expr": "1739.1 / 1.08^5",
+            "value": 1183.6,
+            "unit": "£m"
+          },
+          {
+            "label": "Enterprise value",
+            "expr": "364.3 + 1183.6",
+            "value": 1547.9,
+            "unit": "£m"
+          },
+          {
+            "label": "Equity value after the bridge",
+            "expr": "1547.9 - 500 + 120 - 30 - 25 - 45",
+            "value": 1067.9,
+            "unit": "£m"
+          },
+          {
+            "label": "Value per share",
+            "expr": "1067.9 / 250",
+            "value": 4.27,
+            "unit": "£"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now change one assumption. Everything about Harbourline stays the same — the same five cash flows, the same 8 % discount rate, the same balance sheet — except that you assume it grows at **2.5 %** a year forever instead of 2 %.\n\nThe present value of the five forecast years is unchanged at **£364.3m**, because nothing about the forecast moved. Fill in the three numbers that did.",
+        "steps": [
+          {
+            "label": "Present value of the five forecast years (unchanged)",
+            "expr": "364.3",
+            "value": 364.3,
+            "unit": "£m"
+          },
+          {
+            "label": "Terminal value at 2.5 % growth",
+            "expr": "102.3 * 1.025 / (8% - 2.5%)",
+            "value": 1906.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Terminal value discounted back five years",
+            "expr": "1906.5 / 1.08^5",
+            "value": 1297.6,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Enterprise value",
+            "expr": "364.3 + 1297.6",
+            "value": 1661.9,
+            "unit": "£m"
+          },
+          {
+            "label": "Value per share after the same bridge",
+            "expr": "(1661.9 - 480) / 250",
+            "value": 4.73,
+            "unit": "£",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"A DCF tells you what the company is worth.\"**\n\nIt tells you what the company is worth *if every one of your assumptions is right*. That is a very different claim, and interviewers listen for the difference.\n\nYou saw it a moment ago: moving the long-run growth rate by half a percentage point — an assumption nobody can verify — moved Harbourline from £4.27 to £4.73 a share, an 11 % swing. Nothing about the business changed. Only a number in a spreadsheet did.\n\nSo the value of a DCF is not really the number it produces. It is that the method **forces every assumption into the open**. Comps hide your judgement inside a peer group; a DCF makes you write down what you think the margin will be in year five and defend it. That is why bankers build them even when they trust the comps more.\n\nThe answer that lands is: *\"a DCF gives me a range, and more usefully it tells me what I have to believe for the share to be worth what it trades at.\"*"
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A DCF values a business as the present value of the cash it will generate. Five steps: project unlevered free cash flow for five to ten years; work out a discount rate — the WACC — reflecting the risk of those cash flows; calculate a terminal value for everything after the projection, using a perpetuity growth rate or an exit multiple; discount the cash flows and the terminal value back to today and add them to get enterprise value; then subtract net debt and other claims and divide by diluted shares to get value per share.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Valuing growth you cannot see yet",
+            "md": "Harbourline throws off cash from year one, which makes the model tidy. A loss-making software company does the opposite: it spends heavily on sales and marketing to win customers who pay back over years, so unlevered free cash flow is **negative** for the first three or four years of the forecast.\n\nThat breaks the standard five-year model. If you stop at year five while the company is still burning cash, almost all the value sits in a terminal value applied to a business that has never demonstrated it can be profitable — an obviously fragile answer.\n\nThe fix is to **stretch the explicit period to eight or ten years**, forecasting until growth has slowed and margins have settled somewhere a mature software peer would recognise. The terminal value share often still climbs above 85 %.\n\nThe honest framing in an interview: the question is not whether you believe the year-two loss, it is whether you believe the **year-eight margin**. That single assumption carries the valuation, and you should say so before you are asked.",
+            "example_q": "How would you run a DCF on a company that is burning cash every year?",
+            "answer_md": "I would extend the explicit forecast well beyond five years — usually eight to ten — so the projection runs until growth has slowed and margins have reached something like a steady state. Stopping at year five while the business is still loss-making would put essentially the entire valuation into a terminal value applied to negative cash flow, which is not defensible.\n\nI would anchor the terminal margin on mature peers rather than on the company's own plan, and I would state the terminal value share openly — if it is 85 % or more, the model is really a bet on one assumption, and the interviewer will respect hearing that from me rather than having to drag it out."
+          },
+          "healthcare": {
+            "heading": "Cash flows that might never arrive",
+            "md": "A logistics company's forecast is about *how much* cash arrives. A drug developer's is first about *whether any arrives at all*.\n\nA medicine in phase 2 trials might reach the market and earn billions, or fail its next readout and earn nothing. There is very little in between. So healthcare analysts do not simply forecast the successful outcome and discount it — that would value a coin toss as though it had already landed. Instead each year's cash flow is multiplied by the **probability the drug ever reaches patients** (roughly 30 % at phase 2) *before* any discounting happens.\n\nThe other change is at the end. Standard DCFs assume a business grows gently forever. A drug does not: when its patent expires, generic competitors arrive and revenue collapses, often by 80–90 % within two years. So the perpetuity is replaced by an explicit decline to a small residual tail.\n\nAdjust both and the model has a name of its own: a **risk-adjusted NPV**, or rNPV.",
+            "example_q": "Why can't you use a normal terminal value for a single-drug biotech?",
+            "answer_md": "Because a perpetuity assumes a steady state that a single drug never reaches. Its cash flows are protected by a patent, and when that expires generics enter and revenue typically falls 80 to 90 per cent within about two years. Growing the final year's cash flow forever would value revenue the company is contractually going to lose.\n\nInstead I would model the cliff explicitly — forecast through patent expiry, apply the decline, and leave only a small residual tail if the product retains any share. I would also probability-weight the cash flows for the chance of approval before discounting, rather than burying that risk in the discount rate, since trial failure is specific to the drug rather than a market risk."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Ravensworth Foods plc** expects unlevered free cash flow of **£40m, £44m and £48m** over the next three years. Its WACC is **9 %**, and you assume **2 %** growth forever afterwards. It has **£150m** of net debt and **100m** shares outstanding.\n\nTalk through the five steps out loud, then give a value per share.",
+        "model_answer_md": "**Step 1 — the cash flows** are given: £40m, £44m and £48m.\n\n**Step 2 — the discount rate** is given: 9 %.\n\n**Step 3 — terminal value.** Grow the final year once and divide by the rate less growth:\n\n$$TV = \\frac{48 \\times 1.02}{0.09 - 0.02} = £699.4\\text{m}$$\n\n**Step 4 — discount everything and add.** The three forecast years are worth £36.7m + £37.0m + £37.1m = **£110.8m** today. The terminal value is discounted over three years, because it is valued as at the end of year three: £699.4m ÷ 1.09³ = **£540.1m**. Enterprise value is therefore £110.8m + £540.1m = **£650.9m**.\n\n**Step 5 — bridge to equity.** Subtract the £150m of net debt: **£500.9m**, over 100m shares, giving **£5.01 a share**.\n\nI would add that £540m of the £651m — **83 %** — is terminal value, so this is really a valuation of the growth rate, and I would present a range rather than £5.01.",
+        "rubric": [
+          "Names the five steps in order rather than jumping straight to arithmetic",
+          "Discounts each forecast year separately at 9 %",
+          "Grows the year-three cash flow once (48 × 1.02) before dividing by (r − g)",
+          "Discounts the terminal value over three years, not four",
+          "Subtracts net debt before dividing by the share count",
+          "Notes that most of the value is terminal, and offers a range rather than a single number"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Why \"unlevered\" free cash flow?",
+            "a": "It is the cash available to every provider of capital, before interest — so it pairs with WACC and produces enterprise value."
+          },
+          {
+            "q": "Why not just forecast thirty years and skip the terminal value?",
+            "a": "Forecasts beyond about five to ten years are guesswork. The terminal value handles everything after that in one honest assumption."
+          },
+          {
+            "q": "Which does a DCF produce first — enterprise value or equity value?",
+            "a": "Enterprise value. Equity value comes after the bridge: subtract debt and other claims, add cash."
+          },
+          {
+            "q": "What is a DCF's biggest weakness?",
+            "a": "Its sensitivity to the discount rate and terminal growth — most of the value sits in the terminal value, and both inputs drive it."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**A DCF is the present value of the cash a business will produce — and since most of that value sits beyond the forecast, the discount rate and the growth rate are the answer, not the projection.**"
+      },
+      {
+        "type": "template",
+        "kind": "dcf_sheet",
+        "props": {
+          "years": 5,
+          "company": "Harbourline plc",
+          "prefill": "labels"
+        }
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can walk through a DCF in five steps, in order, without notes.",
+          "I can say what unlevered free cash flow is and why it pairs with WACC.",
+          "I can calculate a terminal value with the perpetuity growth method and discount it correctly.",
+          "I can bridge from enterprise value to a value per share.",
+          "I can say roughly what share of the value is terminal, and why that matters more than the projection."
+        ]
+      }
+    ]
+  }
+}

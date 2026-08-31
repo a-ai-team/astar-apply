@@ -1,0 +1,38 @@
+{
+  "slug": "when-dcf-is-wrong-tool",
+  "subtopic_slug": "dcf-overview",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – assumptions & analysis",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "dcf",
+    "limitations"
+  ],
+  "question": "When would a DCF be the wrong tool to reach for?",
+  "model_answer_md": "Three situations come up.\n\n**Banks and insurers.** For them debt is not financing, it is raw material — an unlevered cash flow does not mean anything. You value them on equity metrics instead: price to book, price to tangible book, or a dividend discount model discounted at the cost of equity.\n\n**Companies with no visible route to cash.** An early-stage business whose cash flows only turn positive somewhere beyond year ten puts essentially all of its value in the terminal assumption, so the model tells you about your own assumptions rather than about the company.\n\n**Cyclicals caught at a turning point.** Build off a peak or trough year and you extrapolate a condition that will not last. If you do use a DCF here, normalise to mid-cycle margins and say so.\n\nThe honest framing is that a DCF is always *available* — the question is how much weight it deserves against comparables in the range you present.",
+  "key_points": [
+    "Banks and insurers: debt is operational, so unlevered cash flow is meaningless",
+    "Pre-revenue or long-dated businesses: value sits almost entirely in the terminal assumption",
+    "Cyclicals at a peak or trough: the base year misleads unless normalised",
+    "Alternatives are P/B, P/TBV and a dividend discount model for financials",
+    "A DCF is rarely useless, but sometimes deserves little weight in the range"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would you use instead for a bank?",
+      "answer_md": "Price to book or price to tangible book against peers, and a dividend discount model — project distributable earnings, take out what has to be retained to meet capital requirements, and discount the rest at the cost of equity. Return on equity against the cost of equity explains most of where a bank's multiple should sit: earn more than you charge and it trades above book, earn less and it trades below."
+    },
+    {
+      "question": "And a company with negative free cash flow for years?",
+      "answer_md": "I would extend the explicit forecast until the business actually reaches steady state — ten years rather than five — so the terminal value is not carrying an implausible share of the answer. Then I would sense-check it against revenue multiples for peers at a similar growth rate, and present the DCF as a range with the terminal margin stated as the key assumption, because that is what the whole valuation turns on."
+    }
+  ],
+  "weak_answer_note": "Saying a DCF 'always works if your assumptions are right' — technically true and useless. Missing financials, which is the case interviewers most often have in mind. Or claiming a DCF cannot value a loss-making company at all, when the real issue is where the value concentrates.",
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "numbers": null
+}

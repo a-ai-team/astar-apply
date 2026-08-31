@@ -87,3 +87,51 @@ export function releveredBetaFromComps({ comps, targetDebtToEquity, targetTaxRat
     relevered: releverBeta({ unleveredBeta: medianUnlevered, debtToEquity: targetDebtToEquity, taxRate: targetTaxRate }),
   };
 }
+
+export type LeverageSweepInput = {
+  /** The company's observed (levered) beta at `baseDebtToEquity`. */
+  beta: number;
+  baseDebtToEquity: number;
+  riskFree: number;
+  equityRiskPremium: number;
+  costOfDebt: number;
+  taxRate: number;
+  /** Relever beta as leverage rises — the honest version. False holds beta fixed. */
+  relever?: boolean;
+  /**
+   * Lenders re-price above this leverage. Beyond it the cost of debt rises quadratically at
+   * `spreadSlope`, which is what turns the curve back up and produces the U (Loop 16).
+   */
+  spreadFrom?: number;
+  spreadSlope?: number;
+  /** Debt-to-value points to evaluate, 0–0.95. */
+  points?: number[];
+};
+
+export type LeveragePoint = { debtWeight: number; beta: number; costOfEquity: number; costOfDebt: number; wacc: number };
+
+/**
+ * WACC across a range of capital structures — the picture behind "why not fund everything with
+ * debt?". With `relever: false` and a flat cost of debt the curve is a straight line down, which is
+ * exactly the naive answer; relevering beta and letting lenders re-price bends it into a U.
+ */
+export function leverageSweep(i: LeverageSweepInput): LeveragePoint[] {
+  const unlevered = unleverBeta({ leveredBeta: i.beta, debtToEquity: i.baseDebtToEquity, taxRate: i.taxRate });
+  const spreadFrom = i.spreadFrom ?? 0.4;
+  const spreadSlope = i.spreadSlope ?? 0.35;
+  const points = i.points ?? Array.from({ length: 17 }, (_, n) => n * 0.05);
+  return points.map((debtWeight) => {
+    const dv = Math.min(0.95, Math.max(0, debtWeight));
+    const debtToEquity = dv >= 1 ? Number.POSITIVE_INFINITY : dv / (1 - dv);
+    const beta = i.relever ? releverBeta({ unleveredBeta: unlevered, debtToEquity, taxRate: i.taxRate }) : i.beta;
+    const costOfEquity = costOfEquityCapm({ riskFree: i.riskFree, beta, equityRiskPremium: i.equityRiskPremium });
+    const excess = Math.max(0, dv - spreadFrom);
+    const costOfDebt = i.relever ? i.costOfDebt + spreadSlope * excess ** 2 : i.costOfDebt;
+    return { debtWeight: dv, beta, costOfEquity, costOfDebt, wacc: (1 - dv) * costOfEquity + dv * costOfDebt * (1 - i.taxRate) };
+  });
+}
+
+/** The capital structure with the lowest WACC in a sweep — the bottom of the U. */
+export function minimumWaccPoint(points: LeveragePoint[]): LeveragePoint | null {
+  return points.reduce<LeveragePoint | null>((best, p) => (best === null || p.wacc < best.wacc ? p : best), null);
+}
