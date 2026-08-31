@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { findSubtopic } from "@/lib/content/taxonomy";
 import { CURRICULUM, TOTAL_TARGET_QUESTIONS } from "../taxonomy";
 import { difficultyMix, lessonTargets, parseCustomId, questionTargets, targetFromCustomId } from "./targets";
 import { estimateBatch, heuristicTokens, usageCost } from "./cost";
@@ -36,7 +37,10 @@ describe("targets", () => {
     const existing = { lessons: [], questions: [{ slug: "q", subtopic_slug: "ev-bridge-calculations", kind: "calculation" as const, question: "Compute EV." }] };
     const t = questionTargets(existing, { slugs: ["ev-bridge-calculations"] });
     expect(t).toHaveLength(1);
-    expect(t[0].count).toBe(8);
+    // Derived, not pinned: every Technicals v2 chapter rewrites `target_questions`. The invariant
+    // is that the target drops by exactly the number of questions that already exist.
+    const target = findSubtopic("ev-bridge-calculations")!.subtopic.target_questions;
+    expect(t[0].count).toBe(target - 1);
     expect(t[0].input.existing_questions).toEqual(["Compute EV."]);
   });
   it("difficultyMix uses largest remainder", () => {

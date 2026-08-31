@@ -118,11 +118,13 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "What each value means, the bridge between them, and which metrics pair with which.",
     source_section: "Equity value & enterprise value – concepts / calculations",
     subtopics: [
-      sub("equity-and-enterprise-value", "Equity value and enterprise value", "concept", "EqV & EV – concepts", 9),
-      sub("ev-bridge-calculations", "The EqV → EV bridge", "calculation", "EqV & EV – calculations", 9),
-      sub("diluted-shares", "Diluted share count", "calculation", "EqV & EV – calculations", 6),
-      sub("ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions", "mixed", "EqV & EV – concepts", 6),
-      sub("pairing-metrics-with-values", "Pairing metrics with the right value", "concept", "EqV & EV – concepts", 4),
+      // Loop 14: four lessons carry the chapter. `ev-edge-cases` folds into the bridge lesson
+      // (leases, pensions, NCI and preferred all appear there) — deferred, slug kept.
+      sub("equity-and-enterprise-value", "Equity value and enterprise value", "concept", "EqV & EV – concepts", 7),
+      sub("ev-bridge-calculations", "The EqV → EV bridge", "calculation", "EqV & EV – calculations", 8),
+      sub("diluted-shares", "Diluted share count", "calculation", "EqV & EV – calculations", 7),
+      { ...sub("ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions", "mixed", "EqV & EV – concepts", 0), deferred: true },
+      sub("pairing-metrics-with-values", "Pairing metrics with the right value", "concept", "EqV & EV – concepts", 6),
     ],
   },
   {

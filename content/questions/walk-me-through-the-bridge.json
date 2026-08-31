@@ -1,0 +1,36 @@
+{
+  "slug": "walk-me-through-the-bridge",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Put the steps of the equity-value-to-enterprise-value bridge in the right order, and say what each one is doing.",
+  "model_answer_md": "Start at **equity value** — share price times diluted shares.\n\n**Add borrowings.** A buyer inherits the debt and has to service or repay it, so it is part of what the business costs.\n\n**Subtract cash.** The buyer gets the cash on day one and can put it straight against that debt, so the true cost is lower by that amount. Debt less cash is net debt.\n\n**Add preferred shares.** They rank ahead of the ordinary equity, so they are another claim to settle.\n\n**Add non-controlling interests.** The consolidated accounts include all of a partly-owned subsidiary's earnings, so the bridge has to include all of its value too.\n\n**Add lease liabilities** where the EBITDA you are comparing against is before lease costs.\n\nFor Harbourline: 1,050 + 500 − 120 + 30 + 25 + 45 = **£1,530m**.",
+  "key_points": [
+    "Begin at equity value on a diluted basis",
+    "Add debt, subtract cash — the buyer inherits one and receives the other",
+    "Add preferred and non-controlling interests as claims ranking ahead of ordinary equity",
+    "Add lease liabilities when EBITDA is measured before lease costs",
+    "Harbourline lands at £1,530m"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is NCI added rather than subtracted?",
+      "answer_md": "Because consolidated EBITDA already includes 100 % of the subsidiary. Adding NCI keeps the numerator and denominator describing the same thing."
+    },
+    {
+      "question": "What is the net-debt double-count people fall into?",
+      "answer_md": "Adding net debt *and* then adding gross borrowings again, or subtracting cash twice. Decide whether you are working with gross debt and cash separately or with a single net debt figure, and say which."
+    }
+  ],
+  "weak_answer_note": "Recites the line items in the wrong order or cannot explain why cash is deducted, treating the bridge as a formula to memorise rather than a set of claims.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:order"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

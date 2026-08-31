@@ -1,0 +1,35 @@
+{
+  "slug": "tsm-price-sensitivity",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "diluted-shares",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Under the treasury-stock method, what happens to dilution as the share price rises?",
+  "model_answer_md": "Dilution gets **worse**, which surprises most people the first time.\n\nThe proceeds the company collects are fixed by the strike price — 20m options at £2.10 always brings in £42m, whatever the shares are doing. But those proceeds buy fewer and fewer shares as the price climbs. At £4.20 the £42m buys back 10m shares, so net dilution is 10m. At £8.40 it buys back only 5m, so net dilution rises to 15m.\n\nSo a rising share price makes each option more valuable to its holder and more costly to existing shareholders at the same time. The dilution is capped, though: as the price runs away the buyback tends towards nothing and the net dilution approaches the full option count.",
+  "key_points": [
+    "Proceeds are fixed by the strike, not the market price",
+    "A higher price means the proceeds repurchase fewer shares",
+    "At £4.20 dilution is 10m; at £8.40 it is 15m",
+    "Dilution is capped at the full option count as the price runs away"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why are the proceeds fixed?",
+      "answer_md": "Because the holder pays the strike price, which was set when the option was granted. The market price determines what the shares are worth, not what the holder pays for them."
+    },
+    {
+      "question": "Is there a ceiling on the dilution?",
+      "answer_md": "Yes — the gross option count. As the share price rises the repurchase shrinks towards zero, so net dilution approaches the full 20m but never exceeds it."
+    }
+  ],
+  "weak_answer_note": "Says dilution falls as the price rises, reasoning that the company collects more money — it does not, because the strike is fixed.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

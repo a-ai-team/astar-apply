@@ -1,0 +1,42 @@
+{
+  "slug": "debt-raise-ev-eqv",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Harbourline borrows a further £100m and simply holds the proceeds as cash. What happens to its equity value and its enterprise value?",
+  "model_answer_md": "Neither moves.\n\nDebt goes up by £100m, so borrowings become £600m. Cash goes up by the same £100m, to £220m. Net debt is 600 − 220 = £380m, exactly what it was before. Enterprise value stays at **£1,530m**.\n\nEquity value is also unchanged on day one — the company has swapped nothing for nothing, and the shares are worth what they were.\n\nThe intuition worth saying out loud is that borrowing money does not make a business better at what it does. EV measures the operating business, so an act of pure financing should leave it alone. Over time the interest costs will bite, but that is a separate effect.",
+  "key_points": [
+    "Debt +£100m and cash +£100m are offsetting entries",
+    "Net debt is unchanged at £380m",
+    "EV stays at £1,530m; equity value is unchanged on day one",
+    "Financing decisions do not change the value of the operations"
+  ],
+  "follow_ups": [
+    {
+      "question": "Now the company spends that £100m on a machine. What changes?",
+      "answer_md": "Cash falls £100m, so net debt rises to £480m and EV rises to £1,630m. The company now genuinely owns more, funded by borrowing — that is an investing decision, not a financing one."
+    },
+    {
+      "question": "What about a year later, once it has paid interest on the new debt?",
+      "answer_md": "Interest reduces net income and therefore cash, so net debt creeps up and equity value falls to reflect the cost. The neutrality only holds at the moment of the raise."
+    }
+  ],
+  "weak_answer_note": "Says EV rises by £100m because debt rose, forgetting that the offsetting cash sits on the other side of the bridge.",
+  "numbers": {
+    "inputs": {
+      "debt_raised": 100,
+      "opening_debt": 500,
+      "opening_cash": 120
+    },
+    "answer": 1530
+  },
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

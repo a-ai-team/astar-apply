@@ -1,0 +1,44 @@
+{
+  "slug": "lens-tmt-net-cash-ev",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A large software company has a £20bn market capitalisation, £1bn of debt and £6bn of cash. What is its enterprise value, and what does the result tell you?",
+  "model_answer_md": "EV = 20 + 1 − 6 = **£15bn**, comfortably below the market capitalisation.\n\nThat inversion is normal for a mature technology business and catches people out. Software companies generate cash faster than they can reinvest it, and they have little to borrow against, so they accumulate large balances and carry almost no debt. Run them through the bridge and net debt is negative, so enterprise value lands below equity value.\n\nThe practical consequence is that valuing the operating business on the market capitalisation would overstate it by £5bn — a quarter of the headline number. And because these companies often have thin or negative EBITDA in their growth phase, the multiple you pair with that £15bn is frequently EV/Revenue or EV/ARR rather than EV/EBITDA.",
+  "key_points": [
+    "EV = 20 + 1 − 6 = £15bn, below the £20bn market cap",
+    "Net cash inverts the usual relationship between the two values",
+    "Software generates cash quickly and has little to borrow against",
+    "Using market cap would overstate the operating business by £5bn",
+    "Pair with EV/Revenue or EV/ARR where EBITDA is thin"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do these companies hold so much cash?",
+      "answer_md": "They convert profit to cash quickly, have few physical assets to invest in, and value the flexibility for acquisitions. Repatriation and tax considerations have historically kept some of it offshore too."
+    },
+    {
+      "question": "Which multiple would you pair with that EV?",
+      "answer_md": "EV/Revenue or EV/ARR while margins are still developing, moving to EV/EBITDA once profitability is established. Both are EV multiples because revenue and EBITDA are pre-interest."
+    }
+  ],
+  "weak_answer_note": "Adds the cash instead of subtracting it and reaches £27bn, or reports EV above market cap without noticing that net cash must pull it below.",
+  "numbers": {
+    "inputs": {
+      "market_cap": 20,
+      "debt": 1,
+      "cash": 6
+    },
+    "answer": 15
+  },
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

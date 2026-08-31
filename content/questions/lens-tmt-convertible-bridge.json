@@ -1,0 +1,37 @@
+{
+  "slug": "lens-tmt-convertible-bridge",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "diluted-shares",
+  "kind": "concept",
+  "difficulty": 4,
+  "question": "A technology company has funded itself with a convertible bond that is now deep in the money. How does that affect the bridge, and what do you need to be careful about?",
+  "model_answer_md": "Once a convertible is deep in the money you treat it as equity, not debt. The bond will convert, so you add the shares it becomes to the diluted count and remove the principal from the debt side of the bridge. Doing only half of that — adding the shares while leaving the debt in place — counts the same instrument twice and inflates enterprise value.\n\nConvertibles are common in technology for a straightforward reason: a company with volatile prospects and few assets can borrow far more cheaply by attaching an equity option to the bond, and founders accept dilution that only happens if the shares do well.\n\nTwo things to be careful about. First, the accounting treatment and the valuation treatment do not always agree — the accounts may split the instrument into debt and equity components, but the bridge needs a single decision. Second, many issuers buy a **call spread** alongside the bond to push the effective conversion point higher, so the economic dilution can be smaller than the terms alone suggest. Check the filings before assuming.",
+  "key_points": [
+    "Deep in the money → if-converted: add the shares, remove the principal",
+    "Doing only one half double-counts the instrument",
+    "Convertibles are cheap funding for volatile, asset-light companies",
+    "Accounting treatment and valuation treatment can differ",
+    "A call spread or hedge can reduce the real dilution"
+  ],
+  "follow_ups": [
+    {
+      "question": "What is a convertible hedge doing?",
+      "answer_md": "The issuer buys call options on its own stock to offset the shares it will have to deliver, effectively raising the price at which dilution starts. It reduces economic dilution without changing the bond's stated terms."
+    },
+    {
+      "question": "Does the accounting split matter for the bridge?",
+      "answer_md": "Not directly. The accounts may show debt and equity components separately, but the bridge needs one consistent economic decision — in or out — applied the same way across every company you compare."
+    }
+  ],
+  "weak_answer_note": "Adds the converted shares while leaving the bond in the debt line, or treats a deep-in-the-money convertible as straight debt because that is how it appears on the balance sheet.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "lens:tmt"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

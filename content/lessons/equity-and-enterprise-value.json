@@ -1,0 +1,192 @@
+{
+  "slug": "equity-and-enterprise-value",
+  "subtopic_slug": "equity-and-enterprise-value",
+  "title": "What each value means, and who it belongs to",
+  "ordinal": 1,
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 7,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "\"What's the difference between equity value and enterprise value?\" is asked in almost every technical interview, and it is asked early. It costs the interviewer ten seconds and tells them whether you think about a company as a set of *claims* or as a single number on a screen.\n\nThe trap is that both answers sound the same in a bad candidate's mouth. Everyone can say one is bigger than the other. What separates people is being able to say **who each number belongs to**, and therefore which one is relevant to the question being asked.\n\nThis lesson is deliberately light on arithmetic. One formula, one picture. The full bridge, with every line item, is the next lesson."
+      },
+      {
+        "type": "concept",
+        "heading": "A house with a mortgage on it",
+        "md": "Suppose a friend tells you their flat is \"worth £400,000\". You ask what they would walk away with if they sold tomorrow, and the answer is £90,000 — because £310,000 of mortgage has to be cleared first.\n\nBoth numbers are true. They are answers to different questions.\n\n- **£400,000** is what the *asset* is worth. Anyone buying it has to fund the whole thing, whatever the current owner happens to owe.\n- **£90,000** is what the *owner's stake* is worth once the lender has been paid.\n\nCompanies work the same way, with more claimants.\n\n**Equity value** is the owner's stake: share price multiplied by the diluted share count. It belongs to ordinary shareholders and nobody else. When a newspaper says a company \"is worth £3bn\", this is almost always the number they mean.\n\n**Enterprise value** is the flat. It is what the operating business is worth to *everyone* who has financed it — shareholders, lenders, and the smaller claimants in between. It is the number that answers \"what would it cost to own this business outright, owing nothing to anyone?\"\n\nThe reason both exist is comparison. Two identical businesses can have wildly different equity values purely because one borrowed and the other did not. Enterprise value strips that difference out."
+      },
+      {
+        "type": "mechanics",
+        "md": "Start from the shareholders' stake and add back the claims that sit in front of them:\n\n$$\\text{EV} = \\text{EqV} + \\text{net debt} + \\text{other senior claims}$$\n\nwhere **net debt** is simply borrowings less cash.\n\nTwo things about that formula are worth slowing down on.\n\n**Why add debt?** Because whoever buys the shares inherits the borrowings. Paying £1,050m for the equity of a company that owes £500m means committing to something much larger than £1,050m.\n\n**Why subtract cash?** This is the part candidates fumble. Cash is not being called worthless — it is already inside the equity value, because the share price reflects it. The point is that a buyer gets that cash back on day one and can throw it straight at the debt they just took on. The *net* amount genuinely at risk in the operating business is lower by exactly the cash balance.\n\nThe smaller claims — preferred shares, non-controlling interests, lease obligations — follow the same test: *does this rank ahead of ordinary shareholders, and must a buyer deal with it?* If yes, it goes in. Those are the subject of the next lesson."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline plc's share price doubles overnight from £4.20 to £8.40. Nothing else about the company changes — same debt, same cash. What happens to its enterprise value?",
+        "options": [
+          {
+            "label": "Enterprise value also doubles"
+          },
+          {
+            "label": "Enterprise value rises by £1,050m",
+            "correct": true
+          },
+          {
+            "label": "Enterprise value is unchanged — the business is the same"
+          },
+          {
+            "label": "Enterprise value falls, because the shares are now expensive"
+          }
+        ],
+        "explain_md": "Equity value goes from £1,050m to £2,100m, a rise of **£1,050m** — and every other line in the bridge is untouched, so enterprise value rises by that same £1,050m.\n\nNotice it does *not* double. EV started at £1,430m and ends at £2,480m: a 73 % rise, not 100 %. The net debt of £380m rode along unchanged and diluted the percentage move.\n\nThe wrong answer worth understanding is the third one. It is tempting to say \"the business hasn't changed, so its value hasn't changed\" — but enterprise value is a *market* measure, not an accounting one. If the market now thinks the business is worth more, EV rises. What stays fixed when a share price moves is the debt, not the value."
+      },
+      {
+        "type": "widget",
+        "widget": "ev_bridge",
+        "props": {
+          "company": "Harbourline plc",
+          "share_price": 4.2,
+          "diluted_shares": 250,
+          "debt": 500,
+          "cash": 120,
+          "preferred": 0,
+          "nci": 0,
+          "leases": 0
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc** is a UK logistics business. Its shares trade at **£4.20** and there are **250m** of them on a diluted basis. The balance sheet shows **£500m** of borrowings and **£120m** of cash.\n\nWe will stop at net debt here; the preferred shares, minority interests and leases come in the next lesson.",
+        "steps": [
+          {
+            "label": "Equity value — what the shares are worth",
+            "expr": "4.20 * 250",
+            "value": 1050,
+            "unit": "£m"
+          },
+          {
+            "label": "Net debt — borrowings less cash",
+            "expr": "500 - 120",
+            "value": 380,
+            "unit": "£m"
+          },
+          {
+            "label": "Enterprise value, before the smaller claims",
+            "expr": "1050 + 380",
+            "value": 1430,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Bad news arrives and Harbourline's share price falls to **£3.60**. The balance sheet has not changed. Work out what that does to each value.",
+        "steps": [
+          {
+            "label": "New equity value",
+            "expr": "3.60 * 250",
+            "value": 900,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Net debt — unchanged",
+            "expr": "500 - 120",
+            "value": 380,
+            "unit": "£m"
+          },
+          {
+            "label": "New enterprise value",
+            "expr": "900 + 380",
+            "value": 1280,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Change in enterprise value",
+            "expr": "1280 - 1430",
+            "value": -150,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Enterprise value is just a fancy name for market cap.\"**\n\nThey are different numbers measuring different things, and conflating them is the single fastest way to lose the thread of a valuation question.\n\nMarket capitalisation *is* equity value — and usually the lazy version of it, calculated on basic shares rather than diluted ones. It is the shareholders' stake and nothing more.\n\nThe reason the distinction earns its keep is comparability. Picture two logistics firms with identical operations, identical profits and identical market caps of £1bn. One is debt-free; the other carries £600m of net debt. Their equity values say they are the same size. Their enterprise values — £1bn against £1.6bn — say the second business is 60 % larger as an *operating asset*, and its owners simply financed it differently.\n\nIf you only ever look at market cap, those two companies are indistinguishable. That is why the multiples in the next chapter are built on enterprise value."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Equity value is what the shares are worth — share price times diluted shares — so it belongs to ordinary shareholders alone. Enterprise value is what the operating business is worth to everyone financing it: shareholders, lenders and the claims in between. You move between them by adding the claims that rank ahead of shareholders and subtracting cash, since a buyer gets that cash back. Harbourline's shares are worth about £1.05bn, but with £380m of net debt the business is worth roughly £1.4bn.",
+        "seconds": 40
+      },
+      {
+        "type": "lens",
+        "slot": "after-worked-calc",
+        "variants": {
+          "tmt": {
+            "heading": "Why big tech's enterprise value is smaller than its market cap",
+            "md": "Harbourline is a normal industrial company: it borrows, and its enterprise value sits above its equity value. Large software and platform businesses often run the other way round.\n\nThese companies generate cash faster than they can spend it, and they have little need to borrow — few factories, no fleet, no warehouses. So they accumulate enormous cash balances against modest debt. Put that through the bridge and net debt comes out **negative**, which means enterprise value lands *below* equity value.\n\nInterviewers ask about this precisely because the sign trips people up. A candidate who has memorised \"EV is bigger than equity value\" says something confused; a candidate who understands the mechanism says \"they hold net cash, so a buyer effectively gets a rebate on day one\".\n\nThe practical consequence is that ignoring the distinction badly overstates how expensive these companies look. A firm on a £20bn market cap holding £5bn of net cash is being valued at £15bn for its actual operations — a quarter cheaper than the headline suggests.",
+            "example_q": "A software company has a £20bn market cap, £1bn of debt and £6bn of cash. What is its enterprise value, and why is it lower than the market cap?",
+            "answer_md": "Enterprise value is £20bn plus £1bn of debt less £6bn of cash, so about **£15bn**.\n\nIt is lower because the company holds £5bn more cash than debt — net cash rather than net debt. A buyer paying £20bn for the shares would inherit that £6bn balance and could use it immediately, so the true cost of owning the operating business is around £15bn.\n\nIt matters for valuation: if I compared this company to a peer on a market-cap basis I would make it look 33 % more expensive than it is. The cash is real value, but it is not part of what the operations are worth."
+          },
+          "healthcare": {
+            "heading": "A biotech with no revenue and a £900m equity value",
+            "md": "Clinical-stage biotech makes the split unusually vivid, because the two numbers can be miles apart and both are meaningful.\n\nA company that has just completed a fundraising might hold £400m of cash, carry no debt at all, and trade at a £900m equity value despite selling nothing. Run the bridge and enterprise value is roughly £500m.\n\nThat £500m is the interesting number. It is the market's price for the **pipeline alone** — the drugs in trials, stripped of the money in the bank. The equity value blends two quite different things: a pile of cash whose value nobody disputes, and a set of scientific bets whose value is entirely a matter of opinion. Enterprise value isolates the part where the opinion lives.\n\nThis is also why the cash balance is watched so closely. It is not just an asset; it is the runway that determines whether the company reaches its next readout without having to raise again on bad terms.",
+            "example_q": "Why can a biotech that has never sold anything have a large equity value?",
+            "answer_md": "Because equity value prices *expected future* cash flows, not past ones. If the market believes a drug in trials has a real chance of reaching patients, the profits it would then generate are worth something today, discounted for time and for the risk it fails.\n\nOn top of that sits the cash the company has already raised, which is real value with no uncertainty attached.\n\nWhat I would want to separate is those two components. Enterprise value — equity value less the net cash — tells me what the market is actually paying for the science. If a company has a £900m equity value and £400m of cash, then about £500m is the pipeline, and that is the number I would test against the probability of success."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Tanfield Media plc** trades at **£8.00** with **60m** diluted shares. It has **£90m** of debt and **£150m** of cash. Which is bigger — equity value or enterprise value — and by how much? Say what that difference tells you about the company.",
+        "model_answer_md": "Equity value is 8.00 × 60 = **£480m**.\n\nNet debt is 90 − 150 = **−£60m**. Tanfield holds net *cash*, so this is negative.\n\nEnterprise value is 480 − 60 = **£420m**.\n\nSo equity value is the larger of the two, by **£60m** — exactly the net cash balance. That inversion happens whenever a company holds more cash than debt.\n\nWhat it tells you: a buyer would pay £480m to the shareholders, take on £90m of borrowings, and immediately receive £150m of cash. The operating business itself is really costing about £420m. If I were comparing Tanfield with a levered competitor, the £420m is the number to use — otherwise the cash balance makes it look more expensive than it is.",
+        "rubric": [
+          "Uses the diluted share count to reach £480m of equity value",
+          "Computes net debt as negative £60m rather than treating debt and cash separately",
+          "Reaches an enterprise value of £420m",
+          "States explicitly that equity value is the bigger number, and that net cash is why",
+          "Says something about what a buyer actually pays or why the distinction matters for comparison"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Who does equity value belong to?",
+            "a": "Ordinary shareholders only — it is their residual stake after every other claim."
+          },
+          {
+            "q": "Who does enterprise value belong to?",
+            "a": "Everyone financing the business together: shareholders, lenders and the claims ranking in between."
+          },
+          {
+            "q": "Does a change in the share price move enterprise value?",
+            "a": "Yes, one-for-one through equity value. The debt and cash lines do not move, so EV shifts by the same amount in pounds."
+          },
+          {
+            "q": "A company holds more cash than debt. Is EV bigger or smaller than equity value?",
+            "a": "Smaller. Net debt is negative, so the bridge subtracts rather than adds."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Equity value is the owner's stake; enterprise value is the whole asset — and the gap between them is net debt.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can say who each of the two values belongs to, not just which is bigger.",
+          "I can explain why cash is subtracted without claiming that cash is worthless.",
+          "I can say what happens to both values when the share price moves.",
+          "I can recognise a net-cash company and explain why its EV sits below its market cap.",
+          "I can say why enterprise value is the right basis for comparing two differently financed companies."
+        ]
+      }
+    ]
+  }
+}

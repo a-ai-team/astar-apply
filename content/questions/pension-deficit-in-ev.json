@@ -1,0 +1,35 @@
+{
+  "slug": "pension-deficit-in-ev",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 3,
+  "question": "Harbourline's notes disclose a £35m unfunded pension deficit. Does it belong in enterprise value?",
+  "model_answer_md": "Usually yes, treated as a debt-like item. A deficit is a shortfall the company has promised to make good out of future cash, and it ranks ahead of the shareholders in any practical sense — a buyer inherits the obligation and will have to fund it.\n\nAdding it takes Harbourline from £1,530m to **£1,565m**.\n\nTwo refinements worth mentioning. Contributions are generally tax-deductible, so some analysts add the deficit net of tax rather than gross. And a pension *surplus* is not automatically an asset you can subtract — the company often cannot get the money out, so many analysts ignore it.\n\nAs with every judgement line in the bridge, state the treatment you have chosen and apply it to every comparable.",
+  "key_points": [
+    "An unfunded deficit is a promise funded from future cash",
+    "It ranks ahead of shareholders, so it is debt-like",
+    "Harbourline: £1,530m + £35m = £1,565m",
+    "Consider adding it net of tax; a surplus is usually not subtracted"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why net of tax?",
+      "answer_md": "Because the contributions that clear the deficit are deductible, so the real cost to the company is the deficit less the tax relief — roughly 75 % of it at a 25 % rate."
+    },
+    {
+      "question": "What if the scheme is in surplus?",
+      "answer_md": "Be cautious. A surplus is often trapped: the company cannot simply withdraw it. Most analysts leave it out rather than treating it as recoverable cash."
+    }
+  ],
+  "weak_answer_note": "Ignores the deficit entirely, or adds it without acknowledging that this is a judgement rather than a rule.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

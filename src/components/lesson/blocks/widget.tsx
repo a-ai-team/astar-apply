@@ -8,6 +8,9 @@ import { DiscountDial } from "@/components/widgets/discount-dial";
 import { FadedWalk } from "@/components/widgets/faded-walk";
 import { CashCycle } from "@/components/widgets/cash-cycle";
 import { FilingsToggle } from "@/components/widgets/filings-toggle";
+import { TsmDilution } from "@/components/widgets/tsm-dilution";
+import { LeaseToggle } from "@/components/widgets/lease-toggle";
+import { MultipleMatcher } from "@/components/widgets/multiple-matcher";
 import { Section } from "../section";
 
 /**
@@ -23,6 +26,9 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   faded_walk: FadedWalk as ComponentType<Record<string, unknown>>,
   cash_cycle: CashCycle as ComponentType<Record<string, unknown>>,
   filings_toggle: FilingsToggle as ComponentType<Record<string, unknown>>,
+  tsm_dilution: TsmDilution as ComponentType<Record<string, unknown>>,
+  lease_toggle: LeaseToggle as ComponentType<Record<string, unknown>>,
+  multiple_matcher: MultipleMatcher as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

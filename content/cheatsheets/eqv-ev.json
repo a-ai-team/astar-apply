@@ -1,0 +1,75 @@
+{
+  "topic_slug": "eqv-ev",
+  "formulas": [
+    {
+      "name": "Equity value",
+      "latex": "\\text{EqV} = P \\times N_{\\text{diluted}}",
+      "note": "Share price × fully diluted shares. Harbourline: £4.20 × 250m = £1,050m. Use the diluted count, never the basic one."
+    },
+    {
+      "name": "The bridge to enterprise value",
+      "latex": "\\text{EV} = \\text{EqV} + \\text{Debt} - \\text{Cash} + \\text{Preferred} + \\text{NCI} + \\text{Leases}",
+      "note": "Harbourline: 1,050 + 500 − 120 + 30 + 25 + 45 = £1,530m. Add an unfunded pension deficit where there is one."
+    },
+    {
+      "name": "Net debt",
+      "latex": "\\text{Net debt} = \\text{Debt} - \\text{Cash}",
+      "note": "£380m for Harbourline. Add it once — adding debt and then also adding net debt is the classic double-count."
+    },
+    {
+      "name": "Treasury-stock method",
+      "latex": "N_{\\text{diluted}} = N_{\\text{basic}} + N_{\\text{opt}} - \\frac{N_{\\text{opt}} \\times K}{P}",
+      "note": "In-the-money options only. Harbourline: 240m + 20m − (20m × 2.10 ÷ 4.20) = 250m. The company is assumed to buy shares back with the exercise proceeds."
+    },
+    {
+      "name": "The two multiples",
+      "latex": "\\frac{\\text{EV}}{\\text{EBITDA}} = 9.0\\times, \\qquad \\text{P/E} = \\frac{\\text{EqV}}{\\text{Net income}} = 14.8\\times",
+      "note": "Pre-interest metric on top of EV; post-interest metric on top of equity value. Never cross them."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "What is the difference between equity value and enterprise value?",
+      "a": "Equity value is what the shareholders' stake is worth — share price times diluted shares. Enterprise value is what the whole operating business is worth, regardless of who funded it, so it adds the claims that rank ahead of shareholders and strips out cash, which is not part of operations. Buying the equity gets you the residual; buying the enterprise gets you the business and its obligations."
+    },
+    {
+      "q": "Walk me through the bridge from equity value to enterprise value.",
+      "a": "Start at equity value, add debt and other debt-like claims — preferred stock, non-controlling interests, capitalised leases, an unfunded pension deficit — then subtract cash and equivalents. For Harbourline: £1,050m plus £500m of borrowings, less £120m of cash, plus £30m preferred, £25m NCI and £45m of leases gives an enterprise value of £1,530m."
+    },
+    {
+      "q": "Why do you subtract cash?",
+      "a": "Because cash is not part of the operating business. A buyer acquiring the whole company gets the cash back immediately and can use it to reduce the effective price, so the true cost of the operations is the purchase price less the cash it comes with. It is the same reason cash is often described as negative debt."
+    },
+    {
+      "q": "Why add non-controlling interests?",
+      "a": "Because of a consistency problem. When a parent controls a subsidiary it consolidates 100 % of that subsidiary's revenue and EBITDA, even if it owns only part of it. Adding NCI to enterprise value puts the numerator on the same footing as the denominator, so EV/EBITDA compares like with like."
+    },
+    {
+      "q": "Can enterprise value be negative, and what would that mean?",
+      "a": "Yes, when a company holds more cash than its market capitalisation plus its debt-like claims. It usually says the market expects that cash to be burned — a business losing money with no credible route to profit. It is a signal about expectations rather than a free lunch, though it can also flag a genuinely mispriced situation."
+    }
+  ],
+  "traps": [
+    "Market capitalisation is not enterprise value — it is the starting point of the bridge, not the answer.",
+    "Cash is subtracted, never added.",
+    "Non-controlling interests are added, not subtracted; associates are the ones that come out.",
+    "Use net new shares from the treasury-stock method, not the gross option count.",
+    "Options only dilute when they are in the money — below the strike they add nothing.",
+    "Adding debt and then also adding net debt double-counts the borrowings.",
+    "Capitalising leases raises EV and EBITDA together — adjust both or neither, and treat every comparable the same way.",
+    "P/E compares differently levered companies badly, because it is after interest; use EV/EBITDA for that."
+  ],
+  "one_liners": [
+    "Equity value is the shareholders' slice; enterprise value is the whole pie.",
+    "Pre-interest metric on top of EV; post-interest metric on top of equity value.",
+    "Options dilute only when they are in the money, and only by the net share count.",
+    "Cash is negative debt — that is why it comes out of the bridge."
+  ],
+  "you_may_hear": [
+    "Equity-method investments in associates, subtracted from enterprise value.",
+    "Restricted cash, and whether it can really be netted off.",
+    "Minority put options and other contingent claims on the bridge.",
+    "Convertible hedges and warrant structures around a convertible issue.",
+    "The tax shield on an unfunded pension deficit."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "compute-multiples-marlow",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "pairing-metrics-with-values",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Marlow Foods has an enterprise value of £955m, equity value of £1,000m, EBITDA of £95m, EBIT of £70m, net income of £48m and revenue of £820m. Give the main multiples and say which you would lead with.",
+  "model_answer_md": "Pairing each metric with the right value:\n\n- EV/EBITDA = 955 ÷ 95 = **10.05×**\n- EV/EBIT = 955 ÷ 70 = **13.64×**\n- EV/Revenue = 955 ÷ 820 = **1.17×**\n- P/E = 1,000 ÷ 48 = **20.83×**\n\nI would lead with EV/EBITDA at roughly 10×, because it is the standard operating multiple and it lets me compare Marlow with peers that carry different amounts of debt.\n\nOne thing worth flagging: the P/E of 20.8× looks high next to the EV/EBITDA of 10×, and the reason is Marlow's net cash. Its equity value sits *above* its enterprise value, so the equity multiple is pushed up by a cash pile that has nothing to do with how the business trades.",
+  "key_points": [
+    "EV/EBITDA 10.05× — the multiple to lead with",
+    "EV/EBIT 13.64× and EV/Revenue 1.17×",
+    "P/E 20.83×, using equity value against net income",
+    "The high P/E reflects net cash lifting equity value above EV"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which would you lead with and why?",
+      "answer_md": "EV/EBITDA. It is the default operating multiple and it neutralises the effect of different capital structures, so the comparison is between businesses rather than balance sheets."
+    },
+    {
+      "question": "How does the net cash affect the P/E?",
+      "answer_md": "It inflates it. Equity value includes the cash, but net income earns almost nothing on it, so the ratio looks expensive. Some analysts strip the cash out of both sides to get a cleaner earnings multiple."
+    }
+  ],
+  "weak_answer_note": "Divides enterprise value by net income, or equity value by EBITDA, producing a mismatched multiple and never noticing.",
+  "numbers": {
+    "inputs": {
+      "ev": 955,
+      "eqv": 1000,
+      "ebitda": 95,
+      "ebit": 70,
+      "net_income": 48,
+      "revenue": 820
+    },
+    "answer": 10.05
+  },
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

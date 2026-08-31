@@ -1,0 +1,43 @@
+{
+  "slug": "convertible-if-converted",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "diluted-shares",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Harbourline also has a £60m convertible bond with a £3.00 conversion price. The shares trade at £4.20. How do you handle it?",
+  "model_answer_md": "The conversion price is below the market price, so a holder is better off converting than holding the bond. You use the **if-converted** method and treat it as equity.\n\nThat means two things happen together. The bond converts into 60 ÷ 3.00 = **20m new shares**, taking the diluted count from 250m to **270m**. And the £60m of debt disappears from the balance sheet, so it comes *out* of the enterprise value bridge.\n\nBoth halves matter. The classic error is to add the shares and leave the debt in, which double-counts the same instrument — you would be paying for it twice, once through the extra equity and once through the borrowings.\n\nIf the conversion price were above the market price you would do the opposite: leave the share count alone and keep the £60m as debt.",
+  "key_points": [
+    "Conversion price £3.00 is below the £4.20 market price, so it converts",
+    "60 ÷ 3.00 = 20m new shares, diluted count 270m",
+    "The £60m of debt leaves the bridge at the same time",
+    "Out of the money, it stays as debt and adds no shares"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the conversion price were £5.00 instead?",
+      "answer_md": "It would be out of the money, so no conversion. The share count stays at 250m and the £60m remains as debt in the bridge."
+    },
+    {
+      "question": "What is the net effect on enterprise value?",
+      "answer_md": "Equity value rises by the 20m shares at £4.20, or £84m, and debt falls by £60m. So EV rises by the difference — the conversion is not value-neutral, which is why you must state which treatment you have used."
+    }
+  ],
+  "weak_answer_note": "Adds the 20m shares but leaves the £60m sitting in debt, counting the same instrument on both sides of the bridge.",
+  "numbers": {
+    "inputs": {
+      "principal": 60,
+      "conversion_price": 3,
+      "share_price": 4.2,
+      "basic_diluted": 250
+    },
+    "answer": 270
+  },
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

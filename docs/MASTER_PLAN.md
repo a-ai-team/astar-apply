@@ -68,14 +68,14 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 8 | [Firm interview bank + Pulse](loops/08-firms-pulse.md) | Real-question bank by firm/stage/programme (mentor-sourced), market-news digest (Pulse) | merged (partial) |
 | 9 | [Industry modules](loops/09-industry-modules.md) | 18 industry/group technical modules from the 400Q industry taxonomy | merged (partial) |
 | 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook — **stays an open PR for James** | planned |
-| 11 | [Technicals v2 platform](loops/11-technicals-platform.md) | Finance-maths library (132 tests), widget kit, `predict` / `fill_numbers` / `order_steps` / `lens` / `template` blocks, industry-lens picker (TMT, Healthcare), question depth/lens/format tags, cheat-sheet route | merged (pending PR) |
-| 12 | [Technicals: Finance foundations](loops/12-technicals-foundations.md) | 3 lessons, 12 Qs, `discount_dial`, cheat sheet | merged (pending PR) |
+| 11 | [Technicals v2 platform](loops/11-technicals-platform.md) | Finance-maths library (132 tests), widget kit, `predict` / `fill_numbers` / `order_steps` / `lens` / `template` blocks, industry-lens picker (TMT, Healthcare), question depth/lens/format tags, cheat-sheet route | merged |
+| 12 | [Technicals: Finance foundations](loops/12-technicals-foundations.md) | 3 lessons, 12 Qs, `discount_dial`, cheat sheet | merged |
 <<<<<<< HEAD
-| 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — **approved & live** | merged (pending PR) |
+| 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — **approved & live** | merged |
 =======
 | 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — auto-approves | planned |
 >>>>>>> origin/feat/technicals-platform
-| 14 | [Technicals: EqV vs EV](loops/14-technicals-eqv-ev.md) | 4 lessons, 28 Qs, `tsm_dilution` `lease_toggle` `multiple_matcher` — auto-approves | planned |
+| 14 | [Technicals: EqV vs EV](loops/14-technicals-eqv-ev.md) | 4 lessons, 28 Qs, `tsm_dilution` `lease_toggle` `multiple_matcher` — **approved & live** | merged (pending PR) |
 | 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | planned |
 | 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | planned |
 | 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | planned |

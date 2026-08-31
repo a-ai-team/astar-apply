@@ -8,7 +8,7 @@
   "prompt_version": null,
   "body": {
     "version": 1,
-    "reading_minutes": 11,
+    "reading_minutes": 12,
     "blocks": [
       {
         "type": "why_here",
@@ -25,7 +25,7 @@
       },
       {
         "type": "worked_calc",
-        "md": "**Harbourline plc**, a UK logistics company. From its latest annual report and today's share price:\n\n- Share price £4.20, diluted shares 250m\n- Borrowings £500m, cash £120m\n- Preferred shares £30m, non-controlling interest £25m, lease liabilities £45m\n\nBuild EV one line at a time:",
+        "md": "**Harbourline plc**, a UK logistics company. From its latest annual report and today's share price:\n\n- Share price £4.20, diluted shares 250m\n- Borrowings £500m, cash £120m\n- Preferred shares £30m, non-controlling interest £25m, lease liabilities £45m\n\nBuild EV one line at a time:\n\nOne further item sits in the notes rather than on the face of the balance sheet: an **unfunded pension deficit of £35m**. It is a stretch item — see the final step.",
         "steps": [
           {
             "label": "Equity value",
@@ -56,12 +56,18 @@
             "expr": "1485 + 45",
             "value": 1530,
             "unit": "£m"
+          },
+          {
+            "label": "Stretch: + unfunded pension deficit",
+            "expr": "1530 + 35",
+            "value": 1565,
+            "unit": "£m"
           }
         ]
       },
       {
         "type": "trap",
-        "md": "**\"Cash is an asset, so surely it makes the company worth more — why subtract it?\"**\n\nIt does make the *shares* worth more: cash is already inside equity value, because the market price reflects it. The bridge is not saying cash is bad. It is saying that once you own the whole company, the cash is yours to use against the debt you have taken on, so the *net* amount you are really paying for the operating business is lower.\n\nThe second-most-common slip is the direction of NCI. Students subtract it because \"we don't own that bit\". But the point of EV is to match the *consolidated* EBITDA, which includes 100 % of the subsidiary. To make numerator and denominator consistent you **add** NCI."
+        "md": "**\"Cash is an asset, so surely it makes the company worth more — why subtract it?\"**\n\nIt does make the *shares* worth more: cash is already inside equity value, because the market price reflects it. The bridge is not saying cash is bad. It is saying that once you own the whole company, the cash is yours to use against the debt you have taken on, so the *net* amount you are really paying for the operating business is lower.\n\nThe second-most-common slip is the direction of NCI. Students subtract it because \"we don't own that bit\". But the point of EV is to match the *consolidated* EBITDA, which includes 100 % of the subsidiary. To make numerator and denominator consistent you **add** NCI.\n\nOne more slip to guard against: if an interviewer hands you *net debt* directly, that figure has already had cash taken out of it. Subtracting cash again is a double-count, and it is a surprisingly easy mistake to make under pressure when you are working through the bridge line by line."
       },
       {
         "type": "canonical_answer",
@@ -103,18 +109,53 @@
         }
       },
       {
+        "type": "predict",
+        "prompt": "Harbourline uses £100m of its cash to repay £100m of its borrowings. What happens to equity value and enterprise value?",
+        "options": [
+          {
+            "label": "Both fall by £100m"
+          },
+          {
+            "label": "Equity value is unchanged, but enterprise value falls by £100m"
+          },
+          {
+            "label": "Both are unchanged",
+            "correct": true
+          },
+          {
+            "label": "Equity value falls by £100m, but enterprise value is unchanged"
+          }
+        ],
+        "explain_md": "Cash drops from £120m to £20m and borrowings drop from £500m to £400m. Net debt was 500 − 120 = £380m; it is now 400 − 20 = **£380m**. Identical.\n\nSo enterprise value does not move. Neither does equity value: the company handed over an asset and extinguished a liability of exactly the same size, so the shareholders' stake is worth precisely what it was.\n\nThis is the mirror image of the earlier prediction. Raising debt and holding the cash left both values alone; spending cash to clear debt leaves both alone too. In each case the *composition* of the balance sheet changed while the **net** position did not — and the bridge only ever cared about the net position."
+      },
+      {
+        "type": "widget",
+        "widget": "lease_toggle",
+        "props": {
+          "ebitda": 170,
+          "ebit": 120,
+          "debt": 500,
+          "cash": 120,
+          "leaseLiability": 45,
+          "annualRent": 12,
+          "equityValue": 1050,
+          "preferred": 30,
+          "nci": 25
+        }
+      },
+      {
         "type": "lens",
         "slot": "after-worked-calc",
         "variants": {
           "tmt": {
-            "heading": "Tech: net cash, and an enterprise value below the market cap",
-            "md": "Large technology companies often hold more cash than debt. Run the bridge and net debt comes out **negative**, so enterprise value lands *below* equity value — the opposite of the industrial example above, and a result that makes candidates hesitate when they should not.\n\nTwo TMT-specific items to remember. First, **convertible bonds**: cheap debt that turns into shares if the price rises far enough. If it is deep in the money you treat it as equity and add the shares; if not, it is debt in the bridge. Say which you are assuming and why. Second, **share-based compensation** inflates the share count year after year, so use a genuinely diluted count rather than the basic one on the cover of the accounts.\n\nAnd because many high-growth names have little or no EBITDA, the multiple you pair with EV is often EV/Revenue — still an EV multiple, because revenue is a pre-interest number available to everyone.",
+            "heading": "The bridge lines that trip people up in tech",
+            "md": "The previous lesson covered why a cash-rich technology company can have an enterprise value below its market capitalisation. Here the question is narrower and more practical: which lines of the bridge behave differently, and what do you actually do with them?\n\nTwo come up constantly. **Convertible bonds** are debt that turns into shares if the price rises far enough, so they sit in exactly one of two places and never both. Deep in the money, treat them as equity: add the shares they would convert into and leave the principal out of the bridge. Out of the money, treat them as ordinary debt and leave the share count alone. Say which you are assuming *before* you compute anything — the interviewer is testing whether you noticed the choice existed.\n\nThe second is **share-based compensation**. It does not appear in the bridge at all, but it quietly inflates the share count every year, so a diluted count taken from last year's accounts understates today's equity value.",
             "example_q": "A software company has a £5bn market cap, £800m of cash, £200m of convertible debt trading well in the money, and no other debt. What is its enterprise value?",
             "answer_md": "The convertible is deep in the money, so I would treat it as equity rather than debt: it will convert into shares, and I add those shares to the diluted count instead of adding £200m of debt.\n\nOn that basis enterprise value is the £5bn equity value — already including the converted shares — less £800m of cash, so about **£4.2bn**. If the convertible were out of the money I would instead leave the share count alone and add the £200m as debt, giving £4.4bn. The important part is stating the assumption before doing the arithmetic."
           },
           "healthcare": {
-            "heading": "Biotech: cash-rich, and sometimes an enterprise value near zero",
-            "md": "A clinical-stage biotech that has just raised money can hold cash worth a large fraction of its market value. Put that through the bridge and enterprise value can come out very small — occasionally **negative**, meaning the market is valuing the company at less than the cash in its account.\n\nThat is a real signal, not an arithmetic error, and interviewers ask about it precisely to see whether you panic. A negative EV usually says the market expects the cash to be burned on trials it does not believe in. The right answer names the mechanism rather than declaring the shares a bargain.\n\nOne judgement call comes up often: **milestone and royalty obligations** owed to a partner. They are not borrowings, but they are contractual claims ahead of shareholders, so many analysts treat the present value of committed milestones as debt-like in the bridge. There is no single right answer — say what you are doing and why.",
+            "heading": "The bridge lines that trip people up in healthcare",
+            "md": "The previous lesson covered why a cash-rich biotech can have a very small enterprise value. The practical question here is which claims belong in the bridge alongside ordinary borrowings.\n\nThe awkward one is **milestone and royalty obligations** owed to a partner or a licensor. They are not borrowings, and they are contingent — payable only if a drug hits a development or sales target. But they are contractual claims that rank ahead of shareholders, so many analysts add the present value of the committed portion as a debt-like item. There is no settled convention; what matters is that you name the item, say how you are treating it and why, and stay consistent across every company you compare.\n\n**Convertible debt** is common here too, for the same reason it is common in software: pre-profit companies raise it because it is cheap. Treat it exactly as you would in tech — shares if it is in the money, debt if it is not.",
             "example_q": "A biotech has a £400m market cap and £450m of cash after a raise. What does a negative enterprise value tell you?",
             "answer_md": "Enterprise value is roughly £400m less £450m, so about **negative £50m** — the market is valuing the operating business at less than nothing.\n\nThat is a statement about expected burn, not a free lunch. The market is saying it expects the company to spend that cash on programmes that will not generate a return, so a pound inside this company is worth less than a pound outside it. I would want to know the runway, what the next data readout is and when it lands, because that readout is what the whole valuation is really about."
           }
@@ -159,13 +200,14 @@
       },
       {
         "type": "your_turn",
-        "prompt": "**Marlow Foods** trades at £12.50 with 80m diluted shares. It has £260m of bonds, £340m of cash, no preferred shares, £15m of NCI and £20m of lease liabilities. Say the bridge out loud, then calculate its enterprise value. Is EV bigger or smaller than equity value, and why?",
-        "model_answer_md": "Equity value = 12.50 × 80 = **£1,000m**.\n\nNet debt = 260 − 340 = **−£80m** (net *cash*).\n\nEV = 1,000 − 80 + 0 + 15 + 20 = **£955m**.\n\nEV is *smaller* than equity value because Marlow has more cash than debt. A buyer would pay £1,000m for the shares, inherit £260m of bonds, but immediately get £340m of cash back, so the operating business really costs about £955m once the smaller claims are added.",
+        "prompt": "**Marlow Foods** trades at £12.50 with 80m diluted shares. It has £260m of bonds, £340m of cash, no preferred shares, £15m of NCI and £20m of lease liabilities. Say the bridge out loud, then calculate its enterprise value. Is EV bigger or smaller than equity value, and why?\n\n**Stretch:** the notes also disclose a **£25m unfunded pension deficit**. Does that change your answer?",
+        "model_answer_md": "Equity value = 12.50 × 80 = **£1,000m**.\n\nNet debt = 260 − 340 = **−£80m** (net *cash*).\n\nEV = 1,000 − 80 + 0 + 15 + 20 = **£955m**.\n\nEV is *smaller* than equity value because Marlow has more cash than debt. A buyer would pay £1,000m for the shares, inherit £260m of bonds, but immediately get £340m of cash back, so the operating business really costs about £955m once the smaller claims are added.\n\n**Stretch — the pension deficit.** A deficit is money Marlow must eventually put in from its own cash, so most analysts treat it exactly like debt and add it to the bridge:\n\nEV = 955 + 25 = **£980m**.\n\nThe test is the one used for every other line: does this claim rank ahead of ordinary shareholders, and will a buyer have to deal with it? A funding shortfall on a pension scheme passes both, so it goes in. Say the assumption out loud — some analysts add it after tax, since the contributions are deductible.",
         "rubric": [
           "Uses diluted shares to get £1,000m equity value",
           "Computes net debt as negative (net cash of £80m)",
           "Adds NCI and leases, arrives at ~£955m",
-          "Explains that net cash makes EV lower than EqV"
+          "Explains that net cash makes EV lower than EqV",
+          "Stretch: treats the pension deficit as debt-like and reaches ~£980m, stating the assumption"
         ]
       },
       {

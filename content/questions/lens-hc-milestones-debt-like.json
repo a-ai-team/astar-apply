@@ -1,0 +1,37 @@
+{
+  "slug": "lens-hc-milestones-debt-like",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 4,
+  "question": "A biotech owes milestone payments to a licensing partner. Do those belong in enterprise value?",
+  "model_answer_md": "There is no settled convention, which is precisely why it is asked. The defensible answer explains the reasoning and then commits.\n\nMilestones are contingent — payable only if a compound reaches a development or sales target — so they are not borrowings, and they are not certain. But they are contractual obligations that rank ahead of shareholders, and a buyer inherits them. On that basis many analysts treat the **probability-weighted present value** of the committed payments as a debt-like item and add it to enterprise value.\n\nThe alternative is to leave them out of the bridge and instead build them into the cash flows of whatever valuation you are running, so the cost appears in the year it would actually be paid. Both are defensible; what is not defensible is doing both, or doing neither without noticing.\n\nSo: state the treatment, say why, and apply it consistently to every company in the comparison.",
+  "key_points": [
+    "Milestones are contingent, not borrowings, but rank ahead of shareholders",
+    "A common treatment is the probability-weighted present value added as debt-like",
+    "The alternative is to model them in the cash flows instead",
+    "Never do both — that double-counts the obligation",
+    "State the assumption and apply it consistently across comparables"
+  ],
+  "follow_ups": [
+    {
+      "question": "What about milestones the company expects to receive?",
+      "answer_md": "The mirror image. A receivable milestone is a contingent asset, so it would be subtracted from EV — again probability-weighted, and again only if you have not already put it in the cash flows."
+    },
+    {
+      "question": "How would you treat an ongoing royalty on sales?",
+      "answer_md": "Usually inside the cash flows rather than the bridge, because it scales with revenue rather than being a fixed claim. Capitalising a royalty stream into a single debt-like figure is possible but harder to defend."
+    }
+  ],
+  "weak_answer_note": "States flatly that milestones are debt with no mention of the contingency, or ignores them because they are not on the balance sheet.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "lens:healthcare"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}

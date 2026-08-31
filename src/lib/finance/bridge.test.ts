@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bridgeRows, computeBridge, enterpriseToEquity, equityToEnterprise, pairsWith } from "./bridge";
+import { bridgeRows, computeBridge, enterpriseToEquity, equityToEnterprise, leaseView, pairsWith } from "./bridge";
 
 // The Loop 03 widget defaults — behaviour must not change.
 const HARBOURLINE = { share_price: 4.2, diluted_shares: 250, debt: 500, cash: 120, preferred: 30, nci: 25, leases: 45 };
@@ -69,5 +69,42 @@ describe("pairsWith", () => {
   it("is case-insensitive and returns null for anything else", () => {
     expect(pairsWith("  ebitda ")).toBe("enterprise");
     expect(pairsWith("Gross margin")).toBeNull();
+  });
+});
+
+describe("leaseView — IFRS 16 (Loop 14)", () => {
+  // Harbourline plc: EqV 1,050 · debt 500 · cash 120 · preferred 30 · NCI 25 · leases 45.
+  const harbourline = { ebitda: 170, ebit: 120, equityValue: 1050, debt: 500, cash: 120, preferred: 30, nci: 25, leaseLiability: 45, annualRent: 12 };
+
+  it("capitalised: EBITDA 170 against EV 1,530 → 9.0×", () => {
+    const v = leaseView(harbourline, true);
+    expect(v.ebitda).toBe(170);
+    expect(v.ev).toBe(1530);
+    expect(v.evEbitda).toBeCloseTo(9.0, 2);
+  });
+
+  it("not capitalised: rent returns to costs and the liability leaves the bridge → 9.4×", () => {
+    const v = leaseView(harbourline, false);
+    expect(v.ebitda).toBe(158);
+    expect(v.ev).toBe(1485);
+    expect(v.evEbitda).toBeCloseTo(9.4, 1);
+  });
+
+  it("EBIT is unchanged either way — rent is swapped for right-of-use depreciation", () => {
+    expect(leaseView(harbourline, true).ebit).toBe(leaseView(harbourline, false).ebit);
+  });
+
+  it("both sides move together, so the multiple shifts far less than either input", () => {
+    const on = leaseView(harbourline, true);
+    const off = leaseView(harbourline, false);
+    const evMove = Math.abs(on.ev - off.ev) / off.ev; // ~3.0%
+    const multMove = Math.abs(on.evEbitda - off.evEbitda) / off.evEbitda; // ~4.2%
+    expect(evMove).toBeLessThan(0.05);
+    expect(multMove).toBeLessThan(0.05);
+  });
+
+  it("a company with no leases is unaffected by the toggle", () => {
+    const none = { ...harbourline, leaseLiability: 0, annualRent: 0 };
+    expect(leaseView(none, true)).toEqual(leaseView(none, false));
   });
 });

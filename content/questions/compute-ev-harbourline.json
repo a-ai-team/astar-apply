@@ -39,7 +39,9 @@
   "tags": [
     "ev",
     "bridge",
-    "calculation"
+    "calculation",
+    "depth:sa-core",
+    "format:fill"
   ],
   "status": "approved"
 }

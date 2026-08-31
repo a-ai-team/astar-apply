@@ -28,7 +28,9 @@
   "tags": [
     "ev",
     "cash",
-    "edge-cases"
+    "edge-cases",
+    "depth:sa-stretch",
+    "format:verbal"
   ],
   "status": "approved"
 }

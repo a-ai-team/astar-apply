@@ -1,0 +1,35 @@
+{
+  "slug": "why-two-values",
+  "topic_slug": "eqv-ev",
+  "subtopic_slug": "equity-and-enterprise-value",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "Why do we bother with two different measures of value at all?",
+  "model_answer_md": "Because they answer different questions. Equity value tells you what the shareholders' slice is worth. Enterprise value tells you what the whole operating business is worth to everybody who funded it — lenders included.\n\nThe reason it matters is comparability. Two companies can run identical operations and be worth the same as businesses, but if one is heavily borrowed and the other is debt-free, their equity values will be miles apart. That difference is a financing decision, not an operating one.\n\nEnterprise value strips the financing out, so you can line companies up against each other and compare the businesses rather than their balance sheets. That is why operating multiples are built on EV.",
+  "key_points": [
+    "They answer different questions: shareholders' slice vs whole business",
+    "Capital structure moves equity value without changing the operations",
+    "EV is capital-structure-neutral, so it makes companies comparable",
+    "Operating multiples are therefore built on EV"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which one matters to a buyer of the whole company?",
+      "answer_md": "Enterprise value in economic terms — it is what they are really acquiring — but they write the cheque for the equity and then deal with the debt, so both appear in the deal."
+    },
+    {
+      "question": "Which do you use for multiples?",
+      "answer_md": "It depends on the metric. Anything measured before interest belongs with EV; anything after interest belongs with equity value."
+    }
+  ],
+  "weak_answer_note": "Treats them as interchangeable, or says EV is 'just equity value plus debt' with no explanation of why anyone would want that number.",
+  "numbers": null,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal"
+  ],
+  "status": "approved",
+  "generated_by": "human",
+  "prompt_version": null
+}
