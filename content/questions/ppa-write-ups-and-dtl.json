@@ -1,0 +1,38 @@
+{
+  "slug": "ppa-write-ups-and-dtl",
+  "topic_slug": "ma",
+  "subtopic_slug": "synergies-and-deal-structure",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "purchase-accounting",
+    "deferred-tax"
+  ],
+  "question": "Purchase accounting writes the target's assets up to fair value. Trace the consequences of those write-ups through the income statement, the tax accounts and the goodwill figure.",
+  "model_answer_md": "Three consequences, one per destination.\n\n**Income statement.** Written-up plant depreciates from its new, higher base, and newly recognised intangibles — Wychwood's £60m brand, a customer list — amortise. Pro-forma earnings carry these extra book charges for years, even if the deal performs perfectly. It is a cost of the accounting, not of failure.\n\n**Tax accounts.** The tax authorities usually keep the *old* asset values, so the extra book depreciation and amortisation earns no tax relief. Book value above tax base creates a **deferred tax liability** — on Wychwood's £60m write-up at 25 %, a £15m DTL — which then unwinds year by year as the charges flow through.\n\n**Goodwill.** Both effects reshuffle the residual. Write-ups move value out of goodwill into named assets (down); the DTL is an extra liability recognised, shrinking identifiable net assets and pushing goodwill back up. Wychwood: £220m plain, **£235m** with the DTL booked.\n\nThe pattern to hold onto: the price never changes — purchase accounting only decides which lines carry it and how fast it drips through earnings.",
+  "key_points": [
+    "Write-ups create extra depreciation and amortisation in book earnings",
+    "No matching tax relief → DTL = write-up × tax rate (60 × 25 % = £15m)",
+    "Write-ups cut goodwill; the DTL adds it back (220 → 235)",
+    "The DTL unwinds as the extra charges are booked",
+    "Allocation changes the earnings path, never the price paid"
+  ],
+  "follow_ups": [
+    {
+      "question": "Do the write-ups change the cash taxes the group actually pays?",
+      "answer_md": "In the standard share purchase, no — the tax computation still runs off the old asset values, so the cash tax bill is what it always was. The extra depreciation and the DTL are book constructs reconciling the accounts to that unchanged cash reality. The exception is a deal structured as an *asset* purchase, where the tax base steps up too: then the extra depreciation is genuinely deductible, cash taxes fall, and no DTL arises — one reason buyers sometimes pay more for that structure."
+    },
+    {
+      "question": "Why does recognising a liability make goodwill bigger — should it not make the deal look worse?",
+      "answer_md": "Goodwill is not a verdict, it is a remainder. The price is fixed at £500m; identifiable net assets after the DTL are 220 + 60 − 15 = £265m; whatever the identifiable pile cannot explain — now £235m — lands in the residual by construction. Nothing about the deal's quality moved. The place the DTL genuinely matters is the earnings path and the balance-sheet ratios, not the attractiveness of the transaction."
+    }
+  ],
+  "weak_answer_note": "Knowing write-ups create amortisation but not the tax leg — or asserting the DTL reduces goodwill when it does the opposite. The three destinations move together, and interviewers probe the one you leave out.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

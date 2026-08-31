@@ -1,0 +1,38 @@
+{
+  "slug": "cash-stock-debt-which-accretive",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "accretion-dilution",
+    "consideration"
+  ],
+  "question": "The same target at the same price can be paid for with cash, new debt or new shares. Rank the three by how much they flatter the buyer's EPS, and justify the order.",
+  "model_answer_md": "Rank them by the after-tax cost of the currency — the cheaper the money, the more accretive the deal.\n\n- **Cash** costs the interest the balance no longer earns. Tamar's deposits earn 4 %, which is **3.0 %** after tax — almost nothing given up, so the all-cash version is the most accretive: +20.8 %.\n- **Debt** costs the borrowing rate after tax: 6 % becomes **4.5 %**. Middle of the table: +14.6 %.\n- **Stock** costs the buyer its own earnings yield, 1 ÷ 15 = **6.67 %** for Tamar — the dearest currency it has, and the least accretive: +4.3 %.\n\nEach cost is set against the same prize, Wychwood's 8.0 % earnings yield at the offer price. All three clear it today, which is why all three are accretive — but by very different margins.\n\nThe ranking is a fact about today's rates, not a law: it holds while after-tax interest sits below earnings yields, and rate rises compress it from the bottom.",
+  "key_points": [
+    "Order by after-tax cost: cash 3.0 % < debt 4.5 % < stock 6.67 %",
+    "Tamar's three outcomes: +20.8 %, +14.6 %, +4.3 %",
+    "All compared against the 8.0 % earnings yield bought",
+    "The ranking reflects current rates, not a permanent rule",
+    "Most accretive is not the same as most sensible"
+  ],
+  "follow_ups": [
+    {
+      "question": "Rates rise sharply — what happens to the ranking?",
+      "answer_md": "The gap closes from both ends: new debt costs more, and higher deposit rates make spending cash dearer in forgone interest. Push the pre-tax cost of debt past about 10.7 % on the Tamar deal and the after-tax cost overtakes Wychwood's 8 % earnings yield — the all-debt version turns dilutive while the all-stock one, whose cost depends on Tamar's multiple rather than on rates, is untouched. High-rate environments quietly rehabilitate stock as a currency."
+    },
+    {
+      "question": "If cash is the most accretive, why does anyone pay with anything else?",
+      "answer_md": "Because accretion is not the only constraint. Few buyers hold the price in spare cash; draining the balance sheet or leveraging up costs flexibility and rating headroom, and a debt-heavy deal adds risk the EPS line never shows. Stock lets a buyer do a larger deal, shares the risk with the seller's shareholders — and managements prefer paying in their own paper precisely when they believe it is richly valued. The mix is a balance-sheet and signalling decision, not just an EPS one."
+    }
+  ],
+  "weak_answer_note": "The right order without the after-tax costs that produce it, or forgetting that spending cash has a cost at all — the forgone interest line is the one most commonly missed.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

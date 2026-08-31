@@ -1,0 +1,38 @@
+{
+  "slug": "why-do-companies-acquire",
+  "topic_slug": "ma",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "rationale",
+    "synergies"
+  ],
+  "question": "What makes one company decide to buy another — what are the reasons that actually stand up?",
+  "model_answer_md": "The test behind every good reason is the same: the target has to be worth more *inside the buyer* than the price paid, premium included.\n\nThe reasons that pass it:\n\n- **Cost synergies** — removing duplicated spend: one head office, combined procurement, overlapping sites closed. Tamar's case for Wychwood rests on about £20m a year of exactly this.\n- **Revenue synergies** — cross-selling each side's products to the other's customers, or reaching markets the buyer could not.\n- **Capability** — a technology, licence or team bought faster and more surely than it could be built.\n- **Consolidation** — rolling up a fragmented market for scale and pricing discipline.\n- **Cheap financing** — borrowing cheaply to buy a stream of earnings; real, but the weakest reason on its own.\n\nThe answer earns its marks by pairing the rationale with the risk: the premium is certain and paid on day one, while the synergies arrive later and might not arrive at all.",
+  "key_points": [
+    "The test: worth more inside the buyer than the price paid",
+    "Cost synergies, revenue synergies, capability, consolidation, cheap financing",
+    "Cost synergies are the most credible because the buyer controls them",
+    "The premium is certain up front; the synergies are hoped for",
+    "Naming rationale and risk together is what a strong answer does"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which of those reasons fits a deal you have been following?",
+      "answer_md": "The move is to name the deal, the price and the stated rationale, then judge it: \"the buyer justified the premium on cost synergies from combining distribution — that is the credible kind, because management controls delivery.\" Having one completed deal summary card ready — buyer, target, price, premium, multiple, consideration, rationale, risk — turns this from an ambush into your best moment."
+    },
+    {
+      "question": "When is building something better than buying it?",
+      "answer_md": "When time is not critical, the capability is not scarce, and the premium plus integration cost exceeds what organic investment would take. Buying wins when speed matters — a market closing, a technology maturing — or when the asset is genuinely unique. The honest framing is that build costs less but takes longer and might fail; buy costs more but is certain and immediate. The premium is the price of that certainty."
+    }
+  ],
+  "weak_answer_note": "A list of buzzwords with no test behind it — or leading with \"scale\" and \"being bigger\", which are outcomes rather than reasons. Strong answers state that the premium must be earned back by something specific.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "what-is-accretion-dilution",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "accretion-dilution"
+  ],
+  "question": "Analysts label every announced deal accretive or dilutive within minutes. What are they measuring?",
+  "model_answer_md": "One comparison: the buyer's earnings per share *as if the deal had happened* — its **pro-forma EPS** — against its EPS standing alone. Higher is **accretive**; lower is **dilutive**.\n\nBoth halves of the EPS fraction can move. Pro-forma earnings are the two companies' net incomes combined, less the after-tax cost of the money used to pay — interest on new debt, interest no longer earned on cash spent — plus any synergies, after tax. The share count grows only if part of the price is paid in the buyer's shares.\n\nOn the Tamar–Wychwood deal, the all-stock version produces EPS of £1.252 against £1.20 standalone: accretive by about 4 %.\n\nWorth saying unprompted: this is arithmetic about EPS, not a verdict on the deal. Boards watch it because shareholders price their shares off earnings, but a deal can be accretive and still destroy value.",
+  "key_points": [
+    "Pro-forma EPS versus standalone EPS — higher accretive, lower dilutive",
+    "Numerator: combined earnings less after-tax funding costs, plus after-tax synergies",
+    "Denominator grows only with stock consideration",
+    "Tamar all-stock: £1.252 vs £1.20, about +4 %",
+    "An EPS outcome, not a measure of value creation"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is an accretive deal a value-creating deal?",
+      "answer_md": "No — the two questions share no arithmetic. Accretion compares earnings yields and funding costs; value creation compares the present value of synergies with the premium paid. Cheap debt can make almost any purchase accretive, including a badly overpriced one. The interviewer asking this wants the distinction stated plainly: accretion is an earnings optics question, NPV is the economics."
+    },
+    {
+      "question": "Why do boards and markets care about it at all, then?",
+      "answer_md": "Because EPS is the number the market prices shares off, guidance is built on, and management incentives frequently reference. A dilutive deal forces management to argue \"trust us, the value arrives later\" — a harder public case, whatever the NPV says. So accretion functions as a constraint on which deals get done, which is exactly why interviewers expect you to compute it and to distrust it in the same breath."
+    }
+  ],
+  "weak_answer_note": "Defining accretive as \"good for the company\" rather than as an EPS comparison, or describing only the numerator and forgetting that stock consideration moves the share count too.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

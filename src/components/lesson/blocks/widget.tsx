@@ -16,6 +16,9 @@ import { TvShare } from "@/components/widgets/tv-share";
 import { GordonVsExit } from "@/components/widgets/gordon-vs-exit";
 import { WaccBuilder } from "@/components/widgets/wacc-builder";
 import { BetaRelever } from "@/components/widgets/beta-relever";
+import { AccretionRule } from "@/components/widgets/accretion-rule";
+import { SynergyNpv } from "@/components/widgets/synergy-npv";
+import { PpaGoodwill } from "@/components/widgets/ppa-goodwill";
 import { Section } from "../section";
 
 /**
@@ -39,6 +42,9 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   gordon_vs_exit: GordonVsExit as ComponentType<Record<string, unknown>>,
   wacc_builder: WaccBuilder as ComponentType<Record<string, unknown>>,
   beta_relever: BetaRelever as ComponentType<Record<string, unknown>>,
+  accretion_rule: AccretionRule as ComponentType<Record<string, unknown>>,
+  synergy_npv: SynergyNpv as ComponentType<Record<string, unknown>>,
+  ppa_goodwill: PpaGoodwill as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

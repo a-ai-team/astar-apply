@@ -1,0 +1,37 @@
+{
+  "slug": "synergies-cost-vs-revenue",
+  "topic_slug": "ma",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "synergies"
+  ],
+  "question": "Deal announcements promise cost synergies and revenue synergies. What is the difference, and which deserve more belief?",
+  "model_answer_md": "**Cost synergies** are savings from removing duplication once two companies become one: a single head office, combined purchasing on twice the volume, overlapping depots or plants closed. **Revenue synergies** are extra sales from the combination — each side's products pushed through the other's customers and channels.\n\nCost synergies deserve more belief, and the reason is control. Management decides to close the duplicate office, and it closes; the saving is theirs to deliver. Revenue synergies require *customers* to change behaviour — to buy more, renew, accept the cross-sell — and no management team controls its customers. That is why analysts take a stated cost number roughly at face value and cut a stated revenue number heavily, often by half or more.\n\nOn the Tamar–Wychwood deal the entire case is the credible kind: about £20m a year of duplicated distribution cost that disappears when the networks combine.",
+  "key_points": [
+    "Cost = duplication removed; revenue = extra sales from the combination",
+    "Cost synergies are controllable by the buyer — that is what makes them credible",
+    "Revenue synergies depend on customer behaviour nobody controls",
+    "Analysts haircut revenue synergies heavily, cost synergies lightly",
+    "Tamar's £20m case is entirely cost-side, which strengthens it"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you check a management synergy number?",
+      "answer_md": "Decompose it. Ask what specifically is being removed — how many roles, which sites, what procurement categories — and compare the total with what similar deals achieved as a percentage of the target's cost base. A number that arrives without a bridge underneath it is a marketing figure. Then check the cost to achieve: genuine programmes state redundancy and integration costs alongside the savings."
+    },
+    {
+      "question": "What are dis-synergies?",
+      "answer_md": "Value the combination destroys. Customers who used both suppliers deliberately may leave to keep a second source; key staff depart in the disruption; two brands can blur into one weaker one; and management attention drains into integration for a year or more. Serious deal models carry a line for revenue *lost*, not just gained — its absence is a tell that the case was built to persuade."
+    }
+  ],
+  "weak_answer_note": "Defining the two without ranking them, or ranking them without the control argument. \"Cost synergies are more certain\" is the conclusion; the reason — the buyer controls delivery — is what earns the mark.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

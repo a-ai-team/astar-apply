@@ -1,0 +1,47 @@
+{
+  "slug": "breakeven-synergies",
+  "topic_slug": "ma",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "synergies",
+    "premium"
+  ],
+  "question": "Tamar pays a £100m premium for Wychwood. Synergies phase in over two years — half the run rate in year one, the full amount from year two, forever — with a £20m one-off integration cost in year one. Tax is 25 % and Tamar discounts at 8 %. Roughly what annual pre-tax run rate of synergies does the deal need just to cover the premium?",
+  "model_answer_md": "About **£12.6m a year pre-tax**.\n\nThe machinery, for a run rate $S$: after tax the recurring saving is $0.75S$. Year one delivers half the run rate less the integration cost, all taxed: $(0.5S - 20) \\times 0.75$, discounted one year. From year two the full after-tax amount runs as a perpetuity, $0.75S \\div 0.08$, valued at the end of year one and discounted back.\n\nCheck £12.6m against the £100m hurdle:\n\n- Year one: $(6.3 - 20) \\times 0.75 = -£10.3\\text{m}$, worth $-£9.5\\text{m}$ today — the programme starts underwater.\n- Perpetuity: $12.6 \\times 0.75 = £9.45\\text{m}$ a year; $9.45 \\div 0.08 = £118.1\\text{m}$ at end-year one; $118.1 \\div 1.08 = £109.4\\text{m}$ today.\n- Total: $109.4 - 9.5 \\approx £100\\text{m}$. Covered, exactly.\n\nTamar's actual programme claims £20m — roughly £167m of value on the same arithmetic — so the deal clears its hurdle with room for the plan to disappoint by about a third.",
+  "key_points": [
+    "Breakeven run rate ≈ £12.6m pre-tax against the £100m premium",
+    "Tax the synergies and the integration cost alike: everything at 75 %",
+    "Half-rate year one minus the one-off cost makes year one negative",
+    "Run rate ÷ discount rate as a perpetuity from year two, discounted back",
+    "Tamar's claimed £20m is worth ≈ £167m — comfortable cover"
+  ],
+  "follow_ups": [
+    {
+      "question": "The integration takes twice as long — a four-year phase-in. What happens to the value?",
+      "answer_md": "Every year of delay pushes full run-rate money further into the discount factor's teeth, so the value falls and the breakeven run rate rises. The one-off cost still lands early, so the early years get worse at both ends: less saving arriving, same money spent. Slippage in the phase-in is the quietest way a deal that cleared its premium on paper fails to in practice — the run rate is eventually achieved, just too late to be worth enough."
+    },
+    {
+      "question": "Why does the breakeven matter more than the headline synergy number?",
+      "answer_md": "Because it converts the deal into a single falsifiable question: does management's number clear the hurdle, and by how much? Tamar claiming £20m against a £12.6m breakeven means the plan can fall a third short and still justify the premium. A deal whose claimed synergies sit *at* breakeven has no margin for the usual disappointments — and one below it is a transfer to the seller's shareholders, announced with a straight face."
+    }
+  ],
+  "weak_answer_note": "Dividing the premium by the pre-tax run rate as if a pound of synergy were a pound of value — forgetting tax, the phase-in and the integration cost. That shortcut suggests £5m covers it; the honest arithmetic says £12.6m.",
+  "numbers": {
+    "inputs": {
+      "premium": 100,
+      "phase_in_years": 2,
+      "integration_cost": 20,
+      "tax_rate": 0.25,
+      "discount_rate": 0.08
+    },
+    "answer": 12.6
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

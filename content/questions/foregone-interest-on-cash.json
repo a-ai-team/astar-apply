@@ -1,0 +1,48 @@
+{
+  "slug": "foregone-interest-on-cash",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "accretion-dilution",
+    "consideration"
+  ],
+  "question": "Tamar funds the £500m Wychwood purchase entirely from its own bank balance, which had been earning 4 % pre-tax. Tax is 25 %. What does spending the cash cost the pro-forma numbers, and where does EPS land?",
+  "model_answer_md": "Spending cash is not free — the group stops earning the interest on it.\n\n**The cost.** £500m at 4 % is £20m of interest income that no longer arrives. That income would have been taxed, so the net loss to earnings is 20 × 0.75 = **£15m** after tax.\n\n**The EPS.** Pro-forma net income is 120 + 40 − 15 = **£145m**. No shares are issued in a cash deal, so the count stays at 100m:\n\n$$\\frac{145}{100} = \\mathbf{£1.45}$$\n\nAgainst £1.20 standalone that is accretion of about **20.8 %** — the biggest of the three funding routes, because after-tax deposit interest of 3.0 % is the cheapest money Tamar has.",
+  "key_points": [
+    "Forgone interest: 500 × 4 % = £20m pre-tax, £15m after tax",
+    "Pro-forma net income: 120 + 40 − 15 = £145m",
+    "Share count unchanged at 100m — cash issues nothing",
+    "EPS £1.45, accretion ≈ +20.8 %",
+    "Cash is the cheapest currency: 3.0 % after tax against an 8.0 % yield bought"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does the forgone interest come off after tax?",
+      "answer_md": "Because the interest income it replaces was itself taxable. Had the £20m arrived, the tax bill would have taken £5m of it; losing the income also cancels that tax, so net earnings only fall by £15m. Every line of the merger walk gets this treatment — interest paid, interest lost, synergies — because EPS is an after-tax number and mixing pre-tax items into it overstates every effect by a third at a 25 % rate."
+    },
+    {
+      "question": "Suppose the cash had been sitting at 0 % — what changes?",
+      "answer_md": "The deduction vanishes: cash earning nothing costs nothing to spend, in earnings terms. Pro-forma net income becomes the full £160m over 100m shares — EPS £1.60, accretion of 33 %. Which exposes the flattery in the metric: idle cash makes any acquisition look brilliant on the EPS line, precisely because the money was doing nothing before. The earnings maths improves as the opportunity cost falls, while the wisdom of the price is untouched."
+    }
+  ],
+  "weak_answer_note": "Treating the cash as free and reporting £160m of pro-forma income, or deducting the full £20m without the tax adjustment. The after-tax step is the one interviewers listen for.",
+  "numbers": {
+    "inputs": {
+      "offer_value": 500,
+      "cash_rate": 0.04,
+      "tax_rate": 0.25,
+      "acquirer_ni": 120,
+      "target_ni": 40,
+      "acquirer_shares": 100
+    },
+    "answer": 1.45
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

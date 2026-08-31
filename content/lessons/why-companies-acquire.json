@@ -1,0 +1,104 @@
+{
+  "slug": "why-companies-acquire",
+  "subtopic_slug": "why-companies-acquire",
+  "title": "Why buy a company at all — and how to talk about a deal",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Every M&A conversation in an interview comes down to two prompts. The first is some version of *what makes an acquisition worth doing?* The second — near-guaranteed in a UK round — is an invitation to discuss a live deal you have been following. Both are testing the same thing: whether you can connect a price to a reason.\n\nThis chapter runs one deal through every lesson so the numbers become familiar. **Tamar Group plc**, a listed company, is buying **Wychwood Ltd**. In this lesson you meet the deal and learn to say *why* it might make sense; the next two lessons ask whether it helps or hurts Tamar's earnings; the last one asks whether it creates any value at all."
+      },
+      {
+        "type": "concept",
+        "heading": "The only test that matters",
+        "md": "A buyer almost never gets a company at its market price — it has to pay more to persuade shareholders to sell the whole business. That extra is called the **premium**. So an acquisition only makes sense if the target is worth more *inside the buyer* than the price paid, premium included.\n\nWhat could make a business worth more in someone else's hands? The recurring reasons:\n\n- **Cost synergies** — savings from removing duplicated spending: two head offices become one, purchasing is combined, overlapping depots close. (*Synergies* are profits the combined group earns that neither company could alone.)\n- **Revenue synergies** — extra sales from cross-selling each side's products to the other's customers, or entering markets the buyer could not reach.\n- **Capability** — buying a technology, licence or team is often faster and surer than building it.\n- **Consolidation** — rolling up a fragmented market to gain scale and pricing discipline.\n- **Cheap financing** — when borrowing is cheap, buying a stream of earnings can look inexpensive. (Treat this one with suspicion; lesson 2 explains why.)\n\nA good interview answer names the reason *and* the risk: the premium is paid on day one and is certain, while the synergies arrive later and might not."
+      },
+      {
+        "type": "mechanics",
+        "md": "The deal in numbers. All figures are £m unless they are per share.\n\n**Tamar Group plc** earns net income of **£120m** and has **100m shares**, so earnings per share (**EPS** — profit divided by share count) are **£1.20**. The shares trade at **£18.00**, which is 15 times EPS — a **P/E of 15×** (price ÷ earnings, the multiple the market puts on each pound of profit). Market value of its equity: **£1,800m**.\n\n**Wychwood Ltd** earns **£40m** over **50m shares** — EPS **£0.80** — and trades at **£8.00**, a P/E of 10× and a market capitalisation of **£400m**.\n\nTamar offers **£10.00 per share**: 25 % above the market price, so a **25 % premium**, and £10 × 50m shares = an equity purchase price of **£500m**. Dividing that price by Wychwood's £40m of earnings gives the multiple actually being paid: **12.5×** — the *offer* P/E, higher than the 10× the market had it at, still below Tamar's own 15×.\n\nWhy pay £500m for a £400m company? Tamar's case is concrete: Wychwood's distribution network overlaps with its own, and combining the two would remove about **£20m** of duplicated cost every year.\n\nAt the end of this lesson you will find a printable **deal summary card**. Fill it in for Tamar / Wychwood first, then again for a real transaction from this month's Pulse — walking into an interview with one completed card is what turns \"tell me about a deal\" from a trap into a gift."
+      },
+      {
+        "type": "predict",
+        "prompt": "Tamar pays £500m for a company the market valued at £400m yesterday. On the day the deal completes, who has captured that extra £100m?",
+        "options": [
+          { "label": "Tamar's shareholders — they now own Wychwood" },
+          { "label": "Wychwood's shareholders — they were paid it", "correct": true },
+          { "label": "Nobody — it nets out inside the combined group" }
+        ],
+        "explain_md": "**Wychwood's shareholders walk away with it.** They held shares worth £8.00 each and were paid £10.00 — the £100m premium is a transfer from buyer to seller, banked and gone the moment the deal closes.\n\nWhich reframes the whole question of whether the deal is any good. Tamar starts £100m behind. It only comes out ahead if the value it can create — the £20m of annual cost savings, mainly — is worth more in today's money than the £100m it handed over. The premium is the hurdle; the synergies have to clear it. Lesson 4 does that arithmetic properly."
+      },
+      {
+        "type": "template",
+        "kind": "deal_summary",
+        "props": {}
+      },
+      {
+        "type": "trap",
+        "md": "**\"They should buy it — the combined group would be bigger.\"**\n\nSize is an outcome, not a reason. Every acquisition makes the buyer bigger; most of the bad ones were justified in exactly these words. Revenue that merely *adds* creates nothing — shareholders could have bought shares in both companies themselves, for free, without paying anyone a 25 % premium.\n\nThe test is always the same: is the target worth *more inside the buyer* than the price paid? That requires something specific — costs that disappear, sales neither side could make alone, a capability that would take years to build. If the best argument for a deal is scale itself, the premium is a gift to the seller's shareholders.\n\nInterviewers set this trap gently: \"the deal doubles their market share — good deal?\" The answer they want starts with \"that depends what the extra share lets them do…\""
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Acquisitions make sense when the target is worth more in the buyer's hands than the price paid. The usual sources of that extra value are cost synergies from removing duplicated functions, revenue synergies from cross-selling or reaching new markets, acquiring a capability or technology faster than building it, or consolidating a fragmented industry. Because the buyer pays a premium up front, a good answer names the rationale and the risk together: the deal only works if the synergies are genuinely deliverable and worth more than the premium.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Acquihires and platform deals",
+            "md": "In technology the stated rationale is often not earnings at all. An **acquihire** buys a team — the product may be shut down the week the deal closes. A **platform deal** buys distribution or data: a small product plugged into a large installed base can be worth multiples of its standalone value, because the platform multiplies its reach overnight.\n\nPayment is usually mostly in shares. Growth companies trade on high multiples — their paper is expensive currency in the best sense — and they rarely hold spare cash, so stock is both the cheapest and the only consideration available.\n\nOne extra line now belongs in any tech deal discussion: *will it clear?* Regulators scrutinise platform companies buying small potential rivals far more closely than they once did, so completion risk is part of the rationale, not an afterthought.",
+            "example_q": "A software company that has never made a profit sells for £300m to a large platform. What is the buyer paying for?",
+            "answer_md": "Not the target's earnings — there are none. The buyer is paying for a capability or a product wedge, valued on *its own* economics: plugged into the platform's distribution, the target's product might reach fifty times the customers at almost no extra cost. The £300m is justified by what the asset earns inside the buyer, not what it earned standalone.\n\nThe honest caveat: deals priced this way have no floor from current profits, so if the integration or the cross-sell disappoints, there is nothing underneath. That is why the same logic that justifies the price also concentrates the risk."
+          },
+          "healthcare": {
+            "heading": "Buying a pipeline, not profits",
+            "md": "Large pharmaceutical companies face a structural clock: when a drug's patent expires, generic copies arrive and its revenue collapses. The cheapest insurance is often to buy a biotech whose drug candidates — its **pipeline** — can refill the shelf before the cliff arrives.\n\nThe target may have no revenue for years, so earnings-based arithmetic is irrelevant. The deal is judged on the risk-adjusted value of the drugs: probability of trial success times the cash flows if approved.\n\nBecause buyer and seller rarely agree on those probabilities, biotech deals often include a **contingent value right (CVR)** — extra cash paid only if a named milestone is hit, such as a trial readout or regulatory approval. It bridges the valuation gap by letting the seller share the upside without the buyer paying today for success that has not happened.",
+            "example_q": "Why do CVRs appear so often in biotech acquisitions and almost nowhere else?",
+            "answer_md": "Because biotech outcomes are binary and the two sides know different things. A drug either passes its trial or it does not, and the seller's scientists usually understand the odds better than the buyer's. A CVR resolves both problems at once: the buyer pays a lower certain price plus a contingent payment that only lands if the milestone is hit, and the seller keeps a share of the upside it believes in.\n\nIn most other industries value arrives smoothly rather than in binary jumps, so there is no single observable milestone to hang a payment on — which is why the structure stays rare outside healthcare."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Kestrel Foods plc** — the crisps and snacks business from the Accounting chapter — trades on a P/E of 18. It offers **£1.2bn** for a rival that earns net income of **£80m** and has a market capitalisation of **£1.0bn**.\n\nGive the implied P/E of the offer and the premium being paid, then suggest two plausible rationales — and say what the premium commits Kestrel to.",
+        "model_answer_md": "**The multiple.** Implied P/E = price ÷ target earnings = 1,200 ÷ 80 = **15×**. Kestrel is paying 15 times earnings for a business while its own shares trade at 18 times — buying earnings more cheaply than the market rates its own.\n\n**The premium.** £1.2bn against a £1.0bn market value is **£200m extra, or 20 %** — a fairly standard control premium for a listed target.\n\n**Two rationales.** A cost case: two snacks businesses can share manufacturing, distribution and a head office, so duplicated overhead disappears. A revenue case: each side's brands can be pushed through the other's retailer relationships and regions, selling more than either could alone.\n\n**What the premium commits Kestrel to.** The £200m is paid on day one and is certain. The deal only creates value if the present value of those synergies exceeds £200m — so the moment the offer is announced, Kestrel's management owes its shareholders roughly that much in deliverable savings and extra profit. Naming that hurdle, unprompted, is what separates a good interview answer from a list of buzzwords.",
+        "rubric": [
+          "Implied P/E: 1,200 ÷ 80 = 15×",
+          "Premium: £200m over the £1.0bn market value, i.e. 20 %",
+          "One cost rationale (shared manufacturing, distribution or overhead) and one revenue rationale (cross-selling brands through each other's channels)",
+          "States that the premium must be covered by the present value of synergies for the deal to create value"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Give two examples of cost synergies.", "a": "One head office instead of two, and combined procurement — buying inputs at better prices on twice the volume. Overlapping depots or plants closing is a third." },
+          { "q": "Cost synergies or revenue synergies — which would you underwrite?", "a": "Cost. The buyer controls whether a duplicated function is removed; revenue synergies depend on customers choosing to buy more, which nobody controls." },
+          { "q": "What is a control premium?", "a": "The extra over the market share price a buyer pays to own the whole company and direct it — you cannot buy control at the price of a single share." },
+          { "q": "Who tends to pay more for the same asset — a strategic buyer or a financial buyer?", "a": "The strategic buyer. It can add synergies to the standalone value; a financial buyer, such as a private equity fund, generally cannot." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**The premium is certain and paid on day one; the synergies are hoped for and arrive later — a deal is only worth doing if the second outweighs the first.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can list the main reasons companies acquire — cost and revenue synergies, capability, consolidation — and say which are credible.",
+          "I can compute an offer premium and an implied P/E from a headline price.",
+          "I can explain why the premium transfers value to the seller, and what has to be true for the buyer to win it back.",
+          "I can discuss a live deal using the deal summary card: price, premium, multiple, consideration, rationale, risk.",
+          "I can push back on 'bigger is better' with the worth-more-inside-the-buyer test."
+        ]
+      }
+    ]
+  }
+}

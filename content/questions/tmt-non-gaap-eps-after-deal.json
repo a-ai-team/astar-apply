@@ -1,0 +1,38 @@
+{
+  "slug": "tmt-non-gaap-eps-after-deal",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:tmt",
+    "adjusted-eps"
+  ],
+  "question": "The quarter after closing a big acquisition, a software company's results lead with an \"adjusted\" EPS figure well above the statutory one. What has been stripped out, and how should an analyst treat it?",
+  "model_answer_md": "The main exclusion is **amortisation of acquired intangibles**. A software target's balance sheet is mostly air, so purchase accounting allocates much of the price to developed technology and customer relationships — and the resulting amortisation can suppress statutory EPS for half a decade. Management strips it out to show the business as if the purchase-accounting drag did not exist.\n\nThat specific adjustment has a defence: the charge is non-cash, created by the deal's accounting rather than its operations, and removing it makes the years before and after the acquisition comparable.\n\nThe scepticism belongs at the boundary. Adjusted figures habitually grow to exclude share-based compensation, integration costs, restructuring — each exclusion flattering the deal management chose to do. A working approach: accept the acquired-intangibles adjustment, put share-based pay back because it is genuine compensation, and check the diluted share count independently — the adjustments never touch the denominator, and after a stock deal that is where the dilution actually lives.",
+  "key_points": [
+    "Chief exclusion: amortisation of intangibles created by the deal",
+    "Defensible core: non-cash, purchase-accounting-born, aids comparability",
+    "Boundary creep: SBC and integration costs slip into the exclusions",
+    "Re-add share-based pay; it is real compensation",
+    "The share count is never adjusted — verify dilution yourself"
+  ],
+  "follow_ups": [
+    {
+      "question": "Should you accept the adjusted number for valuation work?",
+      "answer_md": "Use it with repairs, not as offered. For multiples, an EPS or EBITDA that excludes acquired-intangible amortisation but *includes* share-based pay is the honest middle: comparable across the deal without pretending employee equity is free. Better still, step around the argument entirely with free cash flow per share, which no adjustment narrative can reach. The one thing never to do is compare one company's adjusted figure with another's statutory one — half the sector's apparent valuation gaps are definitional."
+    },
+    {
+      "question": "Why does this issue barely arise for an industrial acquirer?",
+      "answer_md": "Because an industrial target's price mostly lands on assets that were already on its balance sheet — plant, property, inventory — with modest write-ups and modest incremental depreciation. A software target's price lands almost entirely on newly recognised intangibles plus goodwill, so the amortisation created can rival the target's own profits. The bigger the gap between a target's book value and its price, the louder the adjusted-EPS conversation afterwards."
+    }
+  ],
+  "weak_answer_note": "Dismissing all adjusted figures as spin, or accepting them whole. The tested skill is drawing the line: which exclusion has an accounting rationale, which is management marking its own homework.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

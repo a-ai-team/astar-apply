@@ -1,0 +1,128 @@
+{
+  "slug": "synergies-and-deal-structure",
+  "subtopic_slug": "synergies-and-deal-structure",
+  "title": "Synergies, goodwill and what the premium buys",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Tamar is paying £500m for a company the stock market priced at £400m the day before. That extra £100m — the premium — leaves Tamar's shareholders' pockets on day one and lands in Wychwood's. It is not a rounding detail; it is the whole bet.\n\nThe argument for making that bet is **synergies**: profits the combined group can earn that neither company could reach alone. The accounting record of the bet is **goodwill**: a £220m entry that appears on Tamar's balance sheet at completion and sits there waiting to embarrass management if the plan fails.\n\nInterviewers love this corner of M&A because the three numbers — premium, synergy value, goodwill — sound interchangeable and are not. This lesson makes each one precise, shows how the deal's structure protects (or exposes) each side, and gives you the one-line test of whether a deal was worth doing."
+      },
+      {
+        "type": "concept",
+        "heading": "Two kinds of synergy, one test",
+        "md": "**Cost synergies** are savings from removing duplication: one head office instead of two, combined purchasing, a single sales force covering both product lines. **Revenue synergies** are extra sales from the combination — cross-selling each company's products to the other's customers, or pushing one product through the other's distribution.\n\nThey are not equally believable. Cost synergies sit inside the buyer's control: management decides to close the duplicate office, and it closes. Revenue synergies depend on *customers* choosing to buy more, which management can encourage but cannot decide. Analysts routinely take management's cost-synergy number at something near face value and cut the revenue number heavily.\n\nSynergies also cost money to reach — redundancy payments, systems integration, rebranding. These **integration costs** arrive early and in cash, while the savings build over a year or two: Tamar expects **£20m** a year of pre-tax cost savings once bedded in, but only **£10m** in the first year, and getting there costs a one-off **£20m**.\n\nAll of which feeds one test, and it is the sentence to remember: **a deal creates value for the buyer only if the present value of the synergies, after tax and after the cost of achieving them, exceeds the premium paid.** The premium is certain and paid up front. The synergies are hoped for. That asymmetry is why most premiums are hard to earn back."
+      },
+      {
+        "type": "mechanics",
+        "md": "**Valuing the synergy stream.** Treat it like any other cash flow: tax it, phase it in, charge the one-off cost, discount at the buyer's rate. Once the run rate is reached it behaves like a perpetuity — a steady annual amount valued at *amount ÷ discount rate*, then discounted back to today. The worked numbers below do exactly this for Tamar at its **8 %** discount rate.\n\n**Goodwill.** When the deal completes, Wychwood's assets and liabilities are restated to fair value — the **write-ups** — and whatever the price exceeds even that restated total becomes goodwill:\n\n$$\\text{Goodwill} = \\text{Price} - \\underbrace{\\left(\\text{book net assets} + \\text{write-ups}\\right)}_{\\text{fair value of identifiable net assets}}$$\n\nGoodwill is *identifiable-nothing* — the residual you cannot pin to any asset you could sell separately. Under IFRS it is not amortised; it is tested annually for **impairment**, and written down, through the income statement, if the acquired business can no longer support it. The write-ups themselves are not free either: written-up plant depreciates more, and recognised intangibles amortise, so pro-forma earnings carry an extra charge for years. (There is a further wrinkle — a deferred tax liability on the write-ups — kept behind the reveal in the widget below.)\n\n**Structure as protection.** The consideration mix and the contract both allocate risk. A **break fee** compensates a side abandoned at the altar. A **MAC clause** (material adverse change) lets a buyer walk if the business deteriorates badly before completion. An **earn-out** holds back part of the price until the target hits agreed results — the buyer pays for performance only if it arrives; the seller carries delivery risk on a business it no longer runs. An **escrow** parks part of the price with a third party against nasty surprises. Buyers ask for MACs, earn-outs and escrows; sellers ask for break fees and cash."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Part one — is the premium covered?** Tamar's premium is 500 − 400 = **£100m**. Set against it the synergy programme: £20m a year pre-tax at run rate, £10m in year one, a £20m one-off integration cost also in year one, tax at 25 %, discounted at Tamar's 8 %. Value the steady state as a perpetuity running from year two, valued as at the end of year one, then discounted back.\n\n**Part two — what lands on the balance sheet?** Wychwood's book net assets are **£220m**, and its brand is written up by **£60m** at completion.",
+        "steps": [
+          { "label": "Year-one synergies, after tax", "expr": "10 * 0.75", "value": 7.5, "unit": "£m" },
+          { "label": "One-off integration cost, after tax", "expr": "20 * 0.75", "value": 15, "unit": "£m" },
+          { "label": "Year one, net", "expr": "7.5 - 15", "value": -7.5, "unit": "£m" },
+          { "label": "Present value of year one", "expr": "-7.5 / 1.08", "value": -6.94, "unit": "£m" },
+          { "label": "Run-rate synergies, after tax", "expr": "20 * 0.75", "value": 15, "unit": "£m" },
+          { "label": "Perpetuity from year two, valued at end of year one", "expr": "15 / 0.08", "value": 187.5, "unit": "£m" },
+          { "label": "… discounted back one year", "expr": "187.5 / 1.08", "value": 173.6, "unit": "£m" },
+          { "label": "Synergy value, net of the cost to achieve", "expr": "173.6 - 6.9", "value": 166.7, "unit": "£m" },
+          { "label": "Fair value of identifiable net assets", "expr": "220 + 60", "value": 280, "unit": "£m" },
+          { "label": "Goodwill", "expr": "500 - 280", "value": 220, "unit": "£m" },
+          { "label": "Going deeper: deferred tax on the write-up", "expr": "60 * 25%", "value": 15, "unit": "£m" },
+          { "label": "Goodwill with that liability recognised", "expr": "500 - 280 + 15", "value": 235, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "Suppose Tamar's advisers decide Wychwood's brand deserves a bigger write-up — £90m instead of £60m. Goodwill goes…",
+        "options": [
+          { "label": "Up — the deal recognises more intangible value" },
+          { "label": "Down — goodwill is what is left over", "correct": true },
+          { "label": "Nowhere — write-ups and goodwill are separate entries" }
+        ],
+        "explain_md": "**Down.** Goodwill is a residual, not a valuation: price minus the fair value of everything you *can* identify. Every pound of extra write-up moves a pound out of the unexplained residual and into a named asset — the brand — so a £90m uplift would cut goodwill from £220m to £190m.\n\nThe price has not changed and neither has the deal's economics; the £500m has simply been *allocated* differently. What does change is the future income statement: named intangibles amortise while goodwill does not, so a bigger write-up means lower reported earnings for years. That trade-off — and the deferred tax twist that partially reverses it — is what the second widget below lets you push around."
+      },
+      {
+        "type": "widget",
+        "widget": "synergy_npv",
+        "props": {}
+      },
+      {
+        "type": "widget",
+        "widget": "ppa_goodwill",
+        "props": {}
+      },
+      {
+        "type": "trap",
+        "md": "**\"Goodwill is the premium Tamar paid over the market price.\"**\n\nIt sounds definitional, and the two numbers are not even close: the premium is **£100m**, goodwill is **£220m**.\n\nThey answer different questions against different baselines. The premium compares the price with Wychwood's *market capitalisation* — what its equity traded at. Goodwill compares the price with the *fair value of Wychwood's identifiable net assets* — what its restated balance sheet shows. Wychwood's balance sheet (£280m after write-ups) was worth far less than its market value (£400m), which is entirely normal: a healthy company's earning power, workforce and market position are worth more than its recorded assets, and none of those appears on its own balance sheet.\n\nSo goodwill would exist *even in a deal with no premium at all* — buying Wychwood at exactly £400m would still create £120m of it. Conflate the two in an interview and you have told the interviewer you have never actually looked at how a completed deal lands in the accounts."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Synergies are the profits a combination earns that neither company could alone — cost savings from removing duplication, revenue gains from cross-selling — and cost synergies are the credible half because the buyer controls their delivery. Goodwill is the residual once the deal is booked: the price less the fair value of the target's identifiable net assets after write-ups. It is not amortised, but tested annually for impairment. The test of the deal itself is simple: the present value of the after-tax synergies, net of integration costs, must exceed the premium.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Revenue synergies the market refuses to pay for",
+            "md": "Technology deals are pitched on revenue synergies almost by definition — \"their product through our installed base\" is the sector's standard rationale. The market's response is equally standard: a heavy haircut, often half or more, because cross-selling depends on customers renewing, integrating and expanding, none of which the acquirer controls. What moves the buyer's share price on announcement day is the *cost* line — overlapping sales teams, duplicated cloud spend, two R&D groups building the same feature.\n\nPurchase accounting bites harder here too. A software target's balance sheet is mostly air, so nearly the whole price becomes write-ups — developed technology, customer relationships — plus goodwill, and the resulting amortisation can hold reported EPS underwater for half a decade. Hence the sector's fondness for adjusted earnings, and the analyst's duty to read them with one eyebrow raised.",
+            "example_q": "A deal announcement claims £100m of annual revenue synergies. What do you actually do with that number?",
+            "answer_md": "Cut it, then test what is left. I would start with a haircut of at least half — revenue synergies need customers to act, and customer behaviour is not management's to promise. Then I would look for the assumptions underneath: what retention rate, what attach rate, over what period, and whether the two customer bases genuinely overlap or merely both exist.\n\nSeparately, I would check whether the deal still clears its premium on cost synergies alone. If it does, the revenue case is upside and the deal is defensible without heroics. If it only works with the full £100m believed, the buyer has paid today for behaviour it hopes other people adopt later — and I would say so."
+          },
+          "healthcare": {
+            "heading": "A pipeline on the balance sheet",
+            "md": "In a biotech acquisition the usual allocation flips: there may be almost no revenue, no distribution network and little plant, so the price lands overwhelmingly on one intangible — **in-process research and development**, the pipeline itself — with a slice of goodwill on top. IPR&D has unusual accounting: it is not amortised while the drug is still in trials; approval starts the amortisation clock, and a failed trial writes the asset off in one stroke. A single press release about trial results can move the balance sheet by hundreds of millions.\n\nAt the other end of healthcare sit the roll-ups — dental chains, veterinary groups, care homes — where synergies look much more like the Tamar kind: shared procurement, one back office, standardised systems. The quiet third synergy there is **multiple arbitrage**: buy a single-site practice at six times earnings, and it is revalued inside a group the market prices at twelve. Nothing about the practice changed; its ownership did.",
+            "example_q": "A pharmaceutical group buys a biotech with one Phase III drug. Where does the purchase price end up on the buyer's balance sheet?",
+            "answer_md": "Mostly in a single intangible: in-process R&D, the fair value of the pipeline drug. Book net assets are usually trivial, so after writing up what little exists, IPR&D absorbs the bulk of the price and goodwill takes the remainder.\n\nThe accounting then waits on the science. While the drug remains in trials the IPR&D sits unamortised, tested for impairment. Approval converts it to a finite-life intangible amortised over the patent period; failure means an immediate write-off through the income statement — non-cash, but a very public admission of what the deal was really worth."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A buyer pays **£900m** for a company whose book net assets are **£500m**. At completion, property is written up by **£100m** and a customer-list intangible of **£50m** is recognised for the first time.\n\nCalculate the goodwill. Then explain what happens — in the accounts and to the story — if the acquired business underperforms badly two years later.",
+        "model_answer_md": "**The goodwill.** Fair value of identifiable net assets is 500 + 100 + 50 = **£650m**. Goodwill is the residual: 900 − 650 = **£250m**.\n\n**If it goes wrong.** Goodwill is tested for impairment at least annually. If the acquired business can no longer support a £250m residual — its cash flow projections have fallen — the buyer writes goodwill down through the income statement. The charge is **non-cash**: no money leaves, and cash flow is untouched, but reported earnings take the full hit in one period. It is also a confession with a number attached — the market reads an impairment as management admitting it overpaid, which is why these announcements are so carefully worded and so badly received.\n\nWorth adding for the full answer: the write-ups have their own afterlife regardless of performance. The £100m of extra property value depreciates and the £50m customer list amortises, so earnings carry an extra charge every year even if the deal goes perfectly — a cost of purchase accounting, not of failure.",
+        "rubric": [
+          "Restates net assets to fair value first: 500 + 100 + 50 = £650m",
+          "Goodwill as the residual: 900 − 650 = £250m",
+          "Underperformance → impairment test → goodwill written down through the income statement",
+          "States that the impairment is non-cash but signals overpayment",
+          "Notes the write-ups create ongoing depreciation and amortisation either way"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Is goodwill amortised under IFRS?", "a": "No — it stays at cost and is tested for impairment at least annually; only a write-down moves it." },
+          { "q": "Run-rate versus one-off synergies?", "a": "Run-rate is the steady annual saving once integration is complete; a one-off happens once and should never be capitalised into the deal case as if it recurred." },
+          { "q": "What is a break fee?", "a": "A payment owed if one side abandons the deal — it compensates the other's costs and makes walking away expensive enough to deter." },
+          { "q": "Why do sellers dislike earn-outs?", "a": "Part of their price now depends on results delivered by a business the buyer controls — they carry the risk without holding the wheel." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**The premium is certain and paid today; synergies are hoped for and arrive later — a deal only works if the second outweighs the first.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can value a synergy programme — taxed, phased in, net of integration costs — and set it against the premium.",
+          "I can say why cost synergies deserve more belief than revenue synergies.",
+          "I can compute goodwill from the price and the fair value of identifiable net assets, and keep it distinct from the premium.",
+          "I can explain what an impairment means, mechanically and as a signal.",
+          "I can name the main deal protections — break fee, MAC, earn-out, escrow — and which side asks for each."
+        ]
+      }
+    ]
+  }
+}

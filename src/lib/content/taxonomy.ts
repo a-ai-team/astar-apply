@@ -164,11 +164,14 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "Why companies buy each other, and whether the deal is accretive or dilutive.",
     source_section: "Merger models – concepts / calculations",
     subtopics: [
-      sub("why-companies-acquire", "Why companies acquire", "concept", "Merger models – concepts", 8),
-      sub("accretion-dilution-concepts", "Accretion / dilution: the idea", "concept", "Merger models – concepts", 8),
-      sub("accretion-dilution-calculations", "Accretion / dilution: the numbers", "calculation", "Merger models – calculations", 9),
-      sub("purchase-price-allocation", "Purchase price allocation and goodwill", "mixed", "Merger models – calculations", 6),
-      sub("synergies-and-deal-structure", "Synergies, consideration and deal structure", "mixed", "Merger models – concepts", 6),
+      // Loop 17: four lessons carry the chapter on the one Tamar / Wychwood deal. PPA beyond one
+      // stretch widget and two questions is folded into `synergies-and-deal-structure` — deferred,
+      // slug kept. Targets are the 18 non-lens questions (lens questions are tagged, not targeted).
+      sub("why-companies-acquire", "Why companies acquire", "concept", "Merger models – concepts", 5),
+      sub("accretion-dilution-concepts", "Accretion / dilution: the idea", "concept", "Merger models – concepts", 5),
+      sub("accretion-dilution-calculations", "Accretion / dilution: the numbers", "calculation", "Merger models – calculations", 5),
+      { ...sub("purchase-price-allocation", "Purchase price allocation and goodwill", "mixed", "Merger models – calculations", 0), deferred: true },
+      sub("synergies-and-deal-structure", "Synergies, consideration and deal structure", "mixed", "Merger models – concepts", 3),
     ],
   },
   {

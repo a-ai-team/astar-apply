@@ -1,0 +1,38 @@
+{
+  "slug": "hc-dilutive-biotech-deal",
+  "topic_slug": "ma",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lens:healthcare",
+    "accretion-dilution"
+  ],
+  "question": "A pharmaceutical group announces a £2bn acquisition of a biotech and guides that the deal will dilute EPS for four years. The shares barely move. Why is the market so relaxed about four years of dilution?",
+  "model_answer_md": "Because the dilution is **structural** — it describes the shape of a pipeline acquisition, not the quality of this one.\n\nA pre-revenue biotech contributes zero earnings, brings a heavy research budget the buyer must keep funding, and the £2bn — often debt-funded — adds an interest bill. Every line of the accretion arithmetic points down, for any buyer, at any price. The EPS walk simply cannot see what was bought: risk-adjusted cash flows from a drug that has not launched.\n\nSo the market grades the deal on the variables EPS ignores: the lead asset's probability of approval, its peak sales potential, patent life after launch, and how the price compares with the risk-adjusted value of those flows. \"Dilutive until launch in year four, strongly accretive after\" is the standard announcement language — a concession to the arithmetic, followed by the horizon that matters.\n\nThe strategic backdrop makes the tolerance rational: large pharma faces patent cliffs, and buying a pipeline before the cliff is often cheaper than the alternative of watching revenue expire.",
+  "key_points": [
+    "No target earnings + ongoing R&D + financing cost = mechanical dilution",
+    "The dilution says nothing about whether £2bn was a good price",
+    "Judged on probability of success, peak sales and patent life instead",
+    "Standard guidance shape: dilutive to launch, accretive after",
+    "Patent-cliff pressure makes pipeline buying rational despite the EPS cost"
+  ],
+  "follow_ups": [
+    {
+      "question": "When does a deal like this turn accretive, and what could delay it?",
+      "answer_md": "At launch — approval starts revenue, the acquired programme stops being pure cost, and typically the in-process R&D intangible begins amortising against the new income. Guidance of \"accretive from year four\" therefore assumes the trial reads out on schedule and the regulator co-operates. A delayed readout, a request for another study, or a slower launch ramp each push the crossover out — which is why the honest model runs scenarios keyed to the drug's calendar, not a single smooth path."
+    },
+    {
+      "question": "So how do you judge whether the buyer overpaid, if not by EPS?",
+      "answer_md": "Risk-adjusted NPV against price. Take the drug's forecast cash flows through patent expiry, weight by the probability of approval for its trial stage, discount, and compare with the £2bn plus the funding cost — adding any pipeline optionality beyond the lead asset. If the rNPV covers the price on defensible probability and peak-sales assumptions, the four dilutive years are the accounting shadow of a good deal. If it only works at heroic assumptions, the dilution guidance was the least of the problems."
+    }
+  ],
+  "weak_answer_note": "Treating the four-year dilution as evidence of overpayment, or waving it off without the mechanism — no earnings, extra R&D, financing cost. The tested move is separating what EPS can measure from what the deal is actually for.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

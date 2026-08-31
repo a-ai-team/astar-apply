@@ -50,34 +50,76 @@ path items); `npm run seed -- 05` (flashcards from core / stretch only); `npm ru
 - Overlap check: the P/E 15-buys-10 setup is canonical everywhere — keep our wording and numbers (12.5× offer P/E, Tamar / Wychwood) distinct; run overlap before commit.
 
 ## Acceptance checks
-- [ ] lint / typecheck / build / test:unit / test:e2e
-- [ ] `content:validate` 0 errors: 4 lessons (all with `predict`, a widget, both lens variants, `fill_numbers` in lesson 3), 22 questions, cheat sheet
-- [ ] vitest `merger.test.ts` reproduces every spec number (± 0.5 %)
-- [ ] `eval --suite lessons,questions`: schema 100 %, overlap 0 (readability ≥ 4 when credit)
-- [ ] `seed -- 03` → 4 `generated` lessons + 22 questions; `seed -- 05` derives 18 cards, 0 for lens questions; both idempotent
-- [ ] Playwright `e2e/17-ma.spec.ts` (approve lesson 2 in `beforeAll`, restore after): predict → widget slider changes accretion % → lens Healthcare shows CVR heading → `deal_summary` renders and prints (media emulation) → cheat sheet lists 6 formulas
-- [ ] nothing auto-approved (M&A is a paid, non-free topic)
+- [x] lint / typecheck / build / test:unit (386/386) / test:e2e (**73/73**)
+- [x] `content:validate` 0 errors: 4 lessons (all with `predict`, both lens variants, `fill_numbers` in lesson 3; lesson 1 carries the `deal_summary` template instead of a widget, per the spec), 22 questions, cheat sheet — 32 lessons / 186 questions / 6 sheets total
+- [x] vitest `merger.test.ts` reproduces every spec number ± 0.5 % (12 new pinned cases, 25/25) — **except two the spec got wrong**, corrected against the library: synergy NPV ≈ £167m not £160m, breakeven run-rate ≈ £12.6m not £9–10m (§ Retro)
+- [x] `eval --suite lessons,questions`: lessons schema 1.00, overlap 0, readability 4.35; questions schema 1.00, overlap 0, mix 0.132 at n = 178
+- [x] `seed -- 03` → 4 `generated` lessons + 22 questions, idempotent; `seed -- 05` unchanged for now — flashcards derive **at approval** (18 eligible: 12 core + 6 stretch; the 4 lens questions are excluded), same as Valuation and DCF
+- [x] Playwright `e2e/17-ma.spec.ts` 6/6 (approves the four lessons in `beforeAll`, restores after): predict gate → `ar-accretion` +4.3 % flips dilutive at a 16× offer → healthcare lens shows the CVR material → `deal_summary` renders its 13 rows and survives print emulation → cheat sheet lists the 6 formulas
+- [x] nothing auto-approved (M&A is paid; the e2e restores original statuses)
 
 ## Tasks
-- [ ] `merger.ts` additions + tests
-- [ ] widgets `accretion_rule`, `synergy_npv`, `ppa_goodwill` + registry
-- [ ] `deal_summary` template kind (schema enum, renderer, labels, indexer)
-- [ ] taxonomy: defer PPA subtopic, rewrite `target_questions`
-- [ ] lesson 1 `why-companies-acquire` (+ validate)
-- [ ] lesson 2 `accretion-dilution-concepts` (+ validate)
-- [ ] lesson 3 `accretion-dilution-calculations` (+ validate)
-- [ ] lesson 4 `synergies-and-deal-structure` (+ validate)
-- [ ] 22 questions (12 core, 6 stretch, 4 lens) with tags, follow-ups, `numbers` on the 5 fill questions
-- [ ] cheat sheet `ma.json`
-- [ ] seeds 03 / 05, `content:index`, eval
-- [ ] `e2e/17-ma.spec.ts`, docs, retro, RUNLOG
+- [x] `merger.ts` additions + tests (`newAmortisation`/`fees` on `accretionDilution`; `synergyPerpetuityNpv`)
+- [x] widgets `accretion_rule` (simple/full mode), `synergy_npv`, `ppa_goodwill` + registry (18 entries)
+- [x] `deal_summary` template kind — already shipped by Loop 11 (schema enum, renderer rows, labels); lesson 1 authors the block
+- [x] taxonomy: defer PPA subtopic, rewrite `target_questions` to 5/5/5/3
+- [x] lesson 1 `why-companies-acquire` (+ validate)
+- [x] lesson 2 `accretion-dilution-concepts` (+ validate)
+- [x] lesson 3 `accretion-dilution-calculations` (+ validate)
+- [x] lesson 4 `synergies-and-deal-structure` (+ validate)
+- [x] 22 questions (12 core, 6 stretch, 4 lens) with tags, follow-ups, `numbers` on the 5 fill questions
+- [x] cheat sheet `ma.json`
+- [x] seeds 03 / 05, `content:index` (231 chunks), eval
+- [x] `e2e/17-ma.spec.ts`, docs, retro, RUNLOG
 
 ## Blocked-on-human (defaults)
 Approval → stays `generated` (paid topic, no auto-approve); deal-template persistence → localStorage
 only (no table); stretch widget `ppa_goodwill` shown inside lesson 4 behind a "Going deeper" reveal.
 
 ## Blocked
-_(record blockers here during the run)_
+1. **Lighthouse a11y not run** — no headless Chrome in this sandbox (standing gap since Loop 11).
+2. **Nothing is approved for students.** M&A is a **paid** topic: 4 lessons, 22 questions and the
+   cheat sheet load as `generated`. **James/Tesleem:** approve in `/admin/review`, then
+   `npm run seed -- 05 && npm run content:index`.
 
 ## Retro
-_(written at the end of the loop)_
+- **Shipped:** four lessons on one deal — Tamar Group plc (P/E 15) buying Wychwood Ltd at a 25 %
+  premium / 12.5× offer P/E — covering rationale (+ the printable `deal_summary` card), the
+  accretion/dilution idea (earnings-yield framing), the full merger maths (50/50 walk with
+  `fill_numbers`), and synergies/goodwill/structure; **22 questions** (12 core / 6 stretch / 4 lens;
+  17 verbal / 5 fill with `numbers` / 1 order / 1 spot… as tagged); `content/cheatsheets/ma.json`;
+  three widgets — `accretion_rule` (simple + full mode), `synergy_npv` (perpetuity NPV vs the
+  premium), `ppa_goodwill` (inside its own "Going deeper" reveal) — plus `synergyPerpetuityNpv` and
+  optional `newAmortisation`/`fees` in `merger.ts` (12 new tests, 25/25).
+- **Verification:** eval lessons **PASS** (schema 1.00, overlap 0, readability 4.35) and questions
+  **PASS** (schema 1.00, overlap 0, mix 0.132 at n = 178). unit 386/386, e2e 73/73, build ✓.
+- **Three more spec errors (15–17), all caught before authoring** by verifying against the library:
+  (15) the spec's synergy PV "≈ £160m" leaves the £20m integration cost untaxed; the library taxes
+  every line (`(gross − cost) × (1 − t)`), giving **≈ £167m** — conclusion vs the £100m premium
+  unchanged; (16) the breakeven-run-rate prompt "≈ £9–10m pre-tax" is wrong by *any* method — the
+  true breakeven is **≈ £12.6m** (even the spec's own arithmetic gives ~13); (17) the difficulty-mix
+  summary line ("1×2 · 2×6 · 3×6 · 4×4") contradicts the spec's own question table, which sums to
+  2/7/6/3 — the table was followed; the bank-wide gate is the arbiter.
+- **Kestrel Foods reused deliberately.** Lesson 1's your-turn keeps Chapter 13's Kestrel as an
+  acquirer at P/E 18 — checked against every Chapter 13 figure first: nothing there pins a P/E or
+  market cap, so this is continuity (the company the student already knows), not a Loop 16-style
+  contradiction. New names introduced: **Oakhurst plc / Bexfield Ltd** (lesson 3 your-turn, all-debt
+  variant, hand-checked: £600m at 7 % → EPS £2.669, +6.75 %, breakeven rate 10 % pre-tax).
+- **Decisions taken by default:** (1) content stays `generated` (paid topic). (2) The `deal_summary`
+  template stays a printable blank like the other three template kinds — no localStorage drafting;
+  adding editable fields to one kind only would diverge from established template behaviour.
+  (3) `ppa_goodwill` renders inside a native `<details>` reveal owned by the widget itself, so no
+  renderer change was needed.
+- **Out-of-scope observations for James:** (a) the merged DCF cheat sheet's discounting note still
+  claims mid-year lifts EV "about 3–4 %", contradicting Loop 16's own retro (library: +0.9 %) — one
+  line to fix; (b) the readability judge sampled Loop 15's `multiples-and-metrics` at 3.3, alleging
+  its TMT lens answer says both companies score 30 on the Rule of 40 when one scores 45 — worth a
+  look next time someone is in that file (chapter average still passed at 4.35).
+- **Loop 18 must know:** (1) widget props added here: `accretion_rule {acquirerNetIncome,
+  acquirerShares, acquirerPe, targetNetIncome, offerPe, stockPct, debtPct, cashPct, costOfDebt,
+  cashRate, taxRate, synergies, fees, mode: "simple"|"full"}` (offer value is derived as
+  offerPe × targetNetIncome), `synergy_npv {runRate, phaseInYears, integrationCost, discountRate,
+  taxRate, premium}`, `ppa_goodwill {purchasePrice, bookEquity, writeUps, taxRate}`. (2) Companies
+  now in use additionally: Tamar Group plc, Wychwood Ltd (17), Oakhurst plc, Bexfield Ltd (17).
+  (3) The mix gate sits at **0.132** after this chapter (was 0.128) — LBO's 24 questions must not
+  push it over 0.15; d2 is now the heavy band (0.343 vs target 0.30).

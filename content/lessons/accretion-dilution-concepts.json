@@ -1,0 +1,117 @@
+{
+  "slug": "accretion-dilution-concepts",
+  "subtopic_slug": "accretion-dilution-concepts",
+  "title": "Accretive or dilutive: the rule you can run in your head",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "The moment a deal is announced, analysts ask one mechanical question before any of the interesting ones: does it raise or lower the buyer's earnings per share? Raise it and the deal is **accretive**; lower it and it is **dilutive**. Boards guide on it, press releases lead with it, and interviewers love it because there is a shortcut — a rule you can run in your head in five seconds, before touching a single line of a model.\n\nThis lesson builds that rule from the Tamar / Wychwood numbers you met in lesson 1, then shows why the answer changes with *how the deal is paid for* — and why an accretive deal is not automatically a good one."
+      },
+      {
+        "type": "concept",
+        "heading": "Every deal is a swap of yields",
+        "md": "Start with the definition. Take the combined company's earnings, divide by the shares that exist after the deal, and compare that **pro-forma EPS** (*pro forma* just means \"as if the deal had happened\") with the buyer's EPS on its own. Higher is accretive; lower is dilutive.\n\nThe shortcut comes from thinking of the deal as a swap. The buyer hands over something that has a cost, and receives a stream of earnings in return.\n\nWhat it *receives*: the target's earnings relative to the price paid — its **earnings yield at the offer price**. Wychwood earns £40m and Tamar is paying £500m, so the earnings bought yield 40 ÷ 500 = 8.0 %. (Earnings yield is just a P/E flipped upside down: paying 12.5× earnings means earning 1 ÷ 12.5 = 8 % on the price.)\n\nWhat it *gives up* depends on the currency:\n\n- **Stock** costs the buyer its own earnings yield — issuing shares hands new shareholders a slice of existing earnings. For Tamar at a P/E of 15×, that is 1 ÷ 15 = 6.67 %.\n- **Cash** costs the interest it would have earned, after tax. Tamar's cash earns 4 %; at a 25 % tax rate that is 3.0 %.\n- **Debt** costs the interest paid on it, after tax: 6 % borrowing becomes 4.5 %.\n\n**The rule: a deal is accretive when the earnings yield received beats the after-tax cost of the currency given up.** Stock at 6.67 % buying earnings that yield 8.0 % is accretive. Cash at 3.0 % or debt at 4.5 % is more accretive still — which is why, with rates below most earnings yields, all-cash deals usually flatter EPS the most."
+      },
+      {
+        "type": "mechanics",
+        "md": "The full calculation behind the shortcut, for an all-stock offer:\n\n1. **New shares.** Tamar pays £500m in shares priced at £18.00 each, so it must issue\n$$\\frac{500}{18} = 27.78\\text{m new shares}$$\n2. **Pro-forma earnings.** With no financing cost to deduct in an all-stock deal, combined net income is simply £120m + £40m = £160m.\n3. **Pro-forma EPS.** £160m over the enlarged share count of 100m + 27.78m = 127.78m shares:\n$$\\frac{160}{127.78} = £1.252$$\n4. **Verdict.** Against standalone EPS of £1.20 that is about **4.3 % accretive** — modest, exactly as the yield gap (8.0 % received vs 6.67 % paid) suggested.\n\nSwap the currency and only the deduction changes. Fund the £500m from cash earning 4 % and the group forgoes £20m of interest, £15m after tax: net income £145m over an unchanged 100m shares gives EPS of **£1.45, up 20.8 %**. Borrow it at 6 % and the after-tax charge is £22.5m: EPS **£1.375, up 14.6 %**. Same company, same price — three different headlines."
+      },
+      {
+        "type": "worked_calc",
+        "md": "The all-stock case, step by step. Tamar: net income **£120m**, **100m shares**, EPS **£1.20**, share price **£18.00**. Offer for Wychwood: **£500m**, all in new Tamar shares. Wychwood's net income: **£40m**.",
+        "steps": [
+          { "label": "New shares issued: consideration ÷ Tamar's share price", "expr": "500 / 18", "value": 27.78, "unit": "m" },
+          { "label": "Pro-forma net income (no financing cost in all-stock)", "expr": "120 + 40", "value": 160, "unit": "£m" },
+          { "label": "Pro-forma share count", "expr": "100 + 27.78", "value": 127.78, "unit": "m" },
+          { "label": "Pro-forma EPS", "expr": "160 / 127.78", "value": 1.252, "unit": "£" },
+          { "label": "Accretion vs the £1.20 standalone", "expr": "1.252 / 1.20 - 1", "value": 0.043, "unit": "" },
+          { "label": "Check via yields: earnings yield bought", "expr": "40 / 500", "value": 0.08, "unit": "" },
+          { "label": "…against the earnings yield of the stock given up", "expr": "1 / 15", "value": 0.0667, "unit": "" }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "Tamar's shares trade at 15 times earnings, and it is paying 12.5 times earnings for Wychwood, entirely in stock. Pro-forma EPS will be…",
+        "options": [
+          { "label": "Higher than £1.20 — accretive", "correct": true },
+          { "label": "Lower than £1.20 — dilutive" },
+          { "label": "Exactly £1.20 — the multiples cancel out" }
+        ],
+        "explain_md": "**Higher — the deal is accretive.** Run the yield swap: Tamar receives earnings yielding 8.0 % on the price paid (1 ÷ 12.5) and pays with stock costing its own earnings yield of 6.67 % (1 ÷ 15). Receiving more than you give up pushes EPS upward — to £1.252, about 4.3 % above standalone.\n\nThe same logic in multiples: a buyer on a *higher* P/E using its stock to buy earnings at a *lower* P/E is always accretive, because each pound of its own earnings is more expensively rated than the pound it is buying. Try it in the widget below: drag the offer P/E up towards 15× and watch the accretion drain away to zero — the flip happens exactly where the two multiples meet."
+      },
+      {
+        "type": "widget",
+        "widget": "accretion_rule",
+        "props": { "mode": "simple" }
+      },
+      {
+        "type": "trap",
+        "md": "**\"Their P/E is 10 and ours is 15, so buying them is accretive.\"**\n\nTwo mistakes hide in that sentence.\n\nFirst, **the market P/E is not the price**. Nobody sells a company at yesterday's share price — Tamar is paying £500m, not £400m, so the multiple that matters is the *offer* P/E of 12.5×, premium included. A target that looks cheap at its market multiple can easily stop being cheap once the premium is loaded on.\n\nSecond, **the comparison depends on the currency**. The 15×-versus-12.5× check only settles an *all-stock* deal. Pay with borrowed money instead, and the relevant cost is the after-tax interest rate — and a low-P/E target bought with expensive enough debt still dilutes. Rates change the answer; the multiples alone never decide it.\n\nThe repair is always the same sentence: compare the target's earnings yield *at the price actually paid* with the after-tax cost of *the funding actually used*."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A deal is accretive if the buyer's pro-forma EPS exceeds its standalone EPS, and dilutive if it falls short. The quick test compares the target's earnings yield at the offer price with the after-tax cost of the funding. Stock costs the buyer its own earnings yield — the inverse of its P/E — so a higher-P/E buyer paying in shares for a lower offer-P/E target is accretive. Cash and debt cost after-tax interest, usually cheaper still, which is why all-cash deals flatter EPS most. Accretion is arithmetic, though — not proof the deal creates value.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "High-multiple paper makes everything accretive",
+            "md": "Run the rule on a software acquirer trading at 40 times earnings. Its earnings yield — the cost of paying in stock — is 1 ÷ 40 = 2.5 %. Almost any profitable target bought at any sane price yields more than that, so almost every all-stock deal it does will screen as accretive.\n\nWhich is precisely why analysts in the sector ignore the metric. Serial technology acquirers pay in shares *because* their paper is expensive, and EPS accretion at a 2.5 % hurdle proves nothing about whether value was created. The sophisticated questions move elsewhere: is revenue growth durable, what happens to cash flow per share, how much ownership did existing holders surrender?\n\nAnd when the target is loss-making — common in tech — there is no target P/E at all. The rule collapses entirely, and the conversation shifts to EV/Revenue and strategic fit.",
+            "example_q": "Why would an investor shrug at a software acquirer announcing an EPS-accretive stock deal?",
+            "answer_md": "Because at a 40× P/E the bar is on the floor. The acquirer's earnings yield is 2.5 %, so any target bought below 40 times earnings mechanically lifts EPS — accretion is a property of the buyer's own rating, not of the deal's quality. The dilution of ownership is real even when EPS rises: existing shareholders own less of a bigger earnings pool.\n\nSo investors look past it, to whether the acquisition sustains growth, what it does to free cash flow per share, and whether the strategic logic survives without the flattering arithmetic."
+          },
+          "healthcare": {
+            "heading": "Dilutive by design",
+            "md": "A pharmaceutical company buying a pre-revenue biotech signs up for years of guaranteed dilution: the target contributes zero earnings, adds a heavy research budget, and the consideration — often debt-funded — brings an interest bill. Every line of the accretion arithmetic points down.\n\nBoards do it anyway, because the value sits in future risk-adjusted cash flows that EPS cannot see. The market judges these deals on the probability the lead drug succeeds and what it could sell at peak, not on next year's earnings per share.\n\nExpect announcement language shaped accordingly: \"dilutive until launch in year four, strongly accretive thereafter.\" The phrasing concedes the arithmetic while pointing at the horizon that matters.",
+            "example_q": "A £2bn biotech acquisition is guided as dilutive for four years. Has the buyer overpaid?",
+            "answer_md": "You cannot tell from that fact alone — the dilution is structural, not diagnostic. A pre-revenue target with an R&D budget dilutes any buyer for exactly as long as the pipeline takes to reach market; the guidance is describing biology and accounting, not deal quality.\n\nThe real test is whether the risk-adjusted value of the pipeline — probability of approval times peak sales cash flows, discounted — exceeds the £2bn plus the financing cost. Check that, and check whether the buyer could fund the R&D years comfortably. A deal can be dilutive for four years and excellent, or accretive immediately and terrible."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A buyer on a P/E of 12 — net income **£60m**, **50m shares** — offers for a target earning **£20m**, paying **14 times** the target's earnings, entirely in stock.\n\nAccretive or dilutive? Call it with the yield rule first, then do the arithmetic: how big is the move in EPS?",
+        "model_answer_md": "**The call.** The buyer's earnings yield is 1 ÷ 12 = 8.3 % — that is what its stock costs as currency. The earnings it is buying yield 1 ÷ 14 = 7.1 % at the offer price. Paying 8.3 % to receive 7.1 % is a losing swap: **dilutive**, before any arithmetic.\n\n**The arithmetic.** The buyer's EPS is 60 ÷ 50 = £1.20, so its shares trade at 12 × £1.20 = £14.40. The offer is 14 × £20m = £280m, requiring 280 ÷ 14.40 = **19.4m new shares**. Combined earnings of £80m spread over 69.4m shares give pro-forma EPS of\n\n$$\\frac{80}{69.4} = £1.15$$\n\nagainst £1.20 standalone — **dilution of roughly 4 %**.\n\n**The rescue clause.** Synergies could reverse the verdict: the pro-forma earnings only need a few million pounds of extra profit before the sign flips. Which is exactly why managements defending a dilutive deal reach for the synergy number — and why the next lesson puts synergies into the calculation properly.",
+        "rubric": [
+          "Calls it dilutive from the yields alone: 8.3 % cost of stock vs 7.1 % earnings yield bought",
+          "New shares: £280m ÷ £14.40 = 19.4m",
+          "Pro-forma EPS: 80 ÷ 69.4 = £1.15, roughly 4 % below the £1.20 standalone",
+          "Notes that synergies could reverse the conclusion"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What does paying in stock cost the buyer?", "a": "Its own earnings yield — one divided by its P/E. Issuing shares gives new holders a claim on existing earnings." },
+          { "q": "What does paying in cash cost?", "a": "The after-tax interest the cash was earning — income the group no longer receives once the cash is spent." },
+          { "q": "Why does cash usually produce the most accretion?", "a": "Because after-tax deposit rates sit below almost any target's earnings yield, cash is normally the cheapest currency available." },
+          { "q": "Accretive deal — good deal?", "a": "Not necessarily. Accretion is an EPS arithmetic outcome, not an NPV. Overpaying with cheap debt can be accretive and still destroy value." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Accretive when the earnings yield you buy beats the after-tax cost of what you pay with — and the price is the offer, never yesterday's share price.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can define accretion and dilution in terms of pro-forma versus standalone EPS.",
+          "I can run the yield rule in my head: earnings yield at the offer price against the after-tax cost of stock, cash or debt.",
+          "I can compute an all-stock pro-forma EPS — new shares, combined earnings, the division — in under a minute.",
+          "I can rank cash, debt and stock by their cost as deal currencies and say why rates could reorder them.",
+          "I can explain why an accretive deal is not automatically a value-creating one."
+        ]
+      }
+    ]
+  }
+}
