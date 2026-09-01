@@ -1,7 +1,7 @@
 {
   "topic_slug": "finance-foundations",
   "source_topic": "Finance concepts",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "slug": "lens-healthcare-probability-before-discount",
@@ -32,7 +32,7 @@
   "numbers": {
     "inputs": {
       "probability_of_success": 0.6,
-      "value_if_approved": 2.0,
+      "value_if_approved": 2,
       "trial_cost": 0.5
     },
     "answer": 0.7

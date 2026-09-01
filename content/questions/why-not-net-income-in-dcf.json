@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Giving only the 'not cash' reason and missing the capital-structure mismatch, which is the point the follow-ups probe. Saying net income 'includes non-cash items' without naming depreciation or explaining why that matters.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

@@ -3,7 +3,7 @@
   "subtopic_slug": "precedent-transactions",
   "title": "Precedent transactions and the control premium",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -56,31 +56,31 @@
           "peers": [
             {
               "name": "Brantwood Sensors",
-              "evEbitda": 11.0,
+              "evEbitda": 11,
               "growth": 0.08,
               "margin": 0.16
             },
             {
               "name": "Thornbury Optics",
-              "evEbitda": 9.0,
+              "evEbitda": 9,
               "growth": 0.04,
               "margin": 0.157
             },
             {
               "name": "Larkfield Controls",
-              "evEbitda": 12.0,
+              "evEbitda": 12,
               "growth": 0.12,
               "margin": 0.167
             },
             {
               "name": "Penrose Metrology",
-              "evEbitda": 8.0,
+              "evEbitda": 8,
               "growth": 0.03,
               "margin": 0.16
             },
             {
               "name": "Halden Labs",
-              "evEbitda": 12.0,
+              "evEbitda": 12,
               "growth": 0.1,
               "margin": 0.167
             }
@@ -111,7 +111,7 @@
               "mid": 1350
             }
           ],
-          "currentPrice": 9.0,
+          "currentPrice": 9,
           "mode": "field"
         }
       },

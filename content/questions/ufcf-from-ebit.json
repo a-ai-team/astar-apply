@@ -35,13 +35,13 @@
       "ebit": 127.2,
       "tax_rate": 0.25,
       "da": 63.6,
-      "capex": 70.0,
+      "capex": 70,
       "change_in_nwc": 7.2
     },
     "answer": 81.8
   },
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

@@ -3,7 +3,7 @@
   "subtopic_slug": "cost-of-equity-capm",
   "title": "Cost of equity: where the discount rate starts",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Gilt yields rise from 4.0 % to 5.0 %. Nothing about Harbourline's business changes. What happens to its cost of equity?",
         "options": [
-          { "label": "It rises by about a percentage point", "correct": true },
-          { "label": "It is unchanged — the business is the same" },
-          { "label": "It falls, because bonds are now more attractive than shares" },
-          { "label": "It rises by about 6 points, because the premium is multiplied too" }
+          {
+            "label": "It rises by about a percentage point",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — the business is the same"
+          },
+          {
+            "label": "It falls, because bonds are now more attractive than shares"
+          },
+          {
+            "label": "It rises by about 6 points, because the premium is multiplied too"
+          }
         ],
         "explain_md": "The risk-free rate feeds **straight through**. With beta at 1.0 and the premium at 6 %, the cost of equity goes from 4 + 6 = 10 % to 5 + 6 = **11 %** — a one-point rise, matching the one-point rise in gilts.\n\nThe premium is *added*, not multiplied by the risk-free rate, so it does not scale with it.\n\nThe important part is the last sentence of the question: nothing about the business changed, yet every future cash flow is now discounted a point harder. This is why a move in government bond yields repriced essentially every listed company in 2022 — and why bankers watch gilt and Treasury yields far more closely than the phrase \"risk-free rate\" suggests."
       },
@@ -39,9 +48,21 @@
         "widget": "beta_relever",
         "props": {
           "comps": [
-            { "name": "Calder Freight", "leveredBeta": 1.2, "debtToEquity": 0.6 },
-            { "name": "Pentland Haulage", "leveredBeta": 0.9, "debtToEquity": 0.3 },
-            { "name": "Ravensworth Logistics", "leveredBeta": 1.1, "debtToEquity": 0.5 }
+            {
+              "name": "Calder Freight",
+              "leveredBeta": 1.2,
+              "debtToEquity": 0.6
+            },
+            {
+              "name": "Pentland Haulage",
+              "leveredBeta": 0.9,
+              "debtToEquity": 0.3
+            },
+            {
+              "name": "Ravensworth Logistics",
+              "leveredBeta": 1.1,
+              "debtToEquity": 0.5
+            }
           ],
           "taxRate": 0.25,
           "targetDebtToEquity": 0.5619
@@ -51,26 +72,85 @@
         "type": "worked_calc",
         "md": "**Harbourline plc** trades at £4.20 across 250m diluted shares, so its equity is worth **£1,050m**. Take the standard UK inputs: a 10-year gilt yielding **4.0 %**, an equity risk premium of **6.0 %**, and a beta of **1.0** — Harbourline is a logistics business whose fortunes track the economy closely, so moving with the market is exactly what you would expect.\n\nThat gives the base cost of equity. Then the harder version, which is what you do when the company is private or the listed beta is unreliable: take comparable companies, strip *their* debt out of *their* betas, and put *your* company's debt back in.",
         "steps": [
-          { "label": "Cost of equity: risk-free rate", "expr": "4%", "value": 0.04 },
-          { "label": "Plus beta times the equity risk premium", "expr": "1.0 * 6%", "value": 0.06 },
-          { "label": "Cost of equity for Harbourline", "expr": "4% + 1.0 * 6%", "value": 0.1 },
-          { "label": "Calder unlevered: 1.2 / (1 + 0.75 × 0.6)", "expr": "1.2 / (1 + 0.75 * 0.6)", "value": 0.83 },
-          { "label": "Pentland unlevered: 0.9 / (1 + 0.75 × 0.3)", "expr": "0.9 / (1 + 0.75 * 0.3)", "value": 0.73 },
-          { "label": "Ravensworth unlevered: 1.1 / (1 + 0.75 × 0.5)", "expr": "1.1 / (1 + 0.75 * 0.5)", "value": 0.8 },
-          { "label": "Median unlevered beta of the three", "expr": "0.80", "value": 0.8 },
-          { "label": "Harbourline's debt-to-equity: £590m / £1,050m", "expr": "590 / 1050", "value": 0.56 },
-          { "label": "Relevered beta: 0.80 × (1 + 0.75 × 0.56)", "expr": "0.80 * (1 + 0.75 * 0.56)", "value": 1.14 },
-          { "label": "Cost of equity on the relevered beta", "expr": "4% + 1.14 * 6%", "value": 0.1084 }
+          {
+            "label": "Cost of equity: risk-free rate",
+            "expr": "4%",
+            "value": 0.04
+          },
+          {
+            "label": "Plus beta times the equity risk premium",
+            "expr": "1.0 * 6%",
+            "value": 0.06
+          },
+          {
+            "label": "Cost of equity for Harbourline",
+            "expr": "4% + 1.0 * 6%",
+            "value": 0.1
+          },
+          {
+            "label": "Calder unlevered: 1.2 / (1 + 0.75 × 0.6)",
+            "expr": "1.2 / (1 + 0.75 * 0.6)",
+            "value": 0.83
+          },
+          {
+            "label": "Pentland unlevered: 0.9 / (1 + 0.75 × 0.3)",
+            "expr": "0.9 / (1 + 0.75 * 0.3)",
+            "value": 0.73
+          },
+          {
+            "label": "Ravensworth unlevered: 1.1 / (1 + 0.75 × 0.5)",
+            "expr": "1.1 / (1 + 0.75 * 0.5)",
+            "value": 0.8
+          },
+          {
+            "label": "Median unlevered beta of the three",
+            "expr": "0.80",
+            "value": 0.8
+          },
+          {
+            "label": "Harbourline's debt-to-equity: £590m / £1,050m",
+            "expr": "590 / 1050",
+            "value": 0.56
+          },
+          {
+            "label": "Relevered beta: 0.80 × (1 + 0.75 × 0.56)",
+            "expr": "0.80 * (1 + 0.75 * 0.56)",
+            "value": 1.14
+          },
+          {
+            "label": "Cost of equity on the relevered beta",
+            "expr": "4% + 1.14 * 6%",
+            "value": 0.1084
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "A fourth logistics comparable, **Skerrow Transport**, has a beta of **1.5** and carries debt equal to **1.0 times** its equity. Tax is 25 %, so the factor $(1-t)$ is 0.75. Strip its debt out of its beta, then put Harbourline's lighter debt load back in.",
         "steps": [
-          { "label": "The gearing factor: 1 + 0.75 × 1.0", "expr": "1 + 0.75 * 1.0", "value": 1.75 },
-          { "label": "Skerrow's unlevered beta: 1.5 ÷ 1.75", "expr": "1.5 / 1.75", "value": 0.86, "blank": true },
-          { "label": "Relevered at Harbourline's 0.56 debt-to-equity", "expr": "0.86 * (1 + 0.75 * 0.56)", "value": 1.22, "blank": true },
-          { "label": "Cost of equity on that beta", "expr": "4% + 1.22 * 6%", "value": 0.1132, "blank": true }
+          {
+            "label": "The gearing factor: 1 + 0.75 × 1.0",
+            "expr": "1 + 0.75 * 1.0",
+            "value": 1.75
+          },
+          {
+            "label": "Skerrow's unlevered beta: 1.5 ÷ 1.75",
+            "expr": "1.5 / 1.75",
+            "value": 0.86,
+            "blank": true
+          },
+          {
+            "label": "Relevered at Harbourline's 0.56 debt-to-equity",
+            "expr": "0.86 * (1 + 0.75 * 0.56)",
+            "value": 1.22,
+            "blank": true
+          },
+          {
+            "label": "Cost of equity on that beta",
+            "expr": "4% + 1.22 * 6%",
+            "value": 0.1132,
+            "blank": true
+          }
         ]
       },
       {
@@ -115,10 +195,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "What is the beta of the market itself?", "a": "1.0 by definition — the market moves exactly with itself." },
-          { "q": "Can a beta be negative?", "a": "Yes, though it is rare. It means the share has tended to move against the market; gold miners have historically come close." },
-          { "q": "Why unlever comparable companies' betas before using them?", "a": "Their betas reflect their own debt loads. Stripping the debt out leaves the underlying business risk, which you then relever at your company's capital structure." },
-          { "q": "What equity risk premium would you quote?", "a": "Around 5–6 % for the UK or US. It is a long-run historical estimate, not a market observation." }
+          {
+            "q": "What is the beta of the market itself?",
+            "a": "1.0 by definition — the market moves exactly with itself."
+          },
+          {
+            "q": "Can a beta be negative?",
+            "a": "Yes, though it is rare. It means the share has tended to move against the market; gold miners have historically come close."
+          },
+          {
+            "q": "Why unlever comparable companies' betas before using them?",
+            "a": "Their betas reflect their own debt loads. Stripping the debt out leaves the underlying business risk, which you then relever at your company's capital structure."
+          },
+          {
+            "q": "What equity risk premium would you quote?",
+            "a": "Around 5–6 % for the UK or US. It is a long-run historical estimate, not a market observation."
+          }
         ]
       },
       {

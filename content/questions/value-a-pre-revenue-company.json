@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Reaches straight for EV/Revenue when there is no revenue to divide by, or proposes a DCF without acknowledging that nearly all the value sits in assumptions about years five and beyond.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

@@ -35,14 +35,14 @@
       "net_debt": 180,
       "shares": 60,
       "precedent_multiple": 12.5,
-      "share_price": 22.0,
+      "share_price": 22,
       "premium": 0.3
     },
     "answer": 23.04
   },
   "weak_answer_note": "Computes one route only, or averages the two answers instead of explaining why they diverge — which is the real content of the question.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

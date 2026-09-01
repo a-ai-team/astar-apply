@@ -3,7 +3,7 @@
   "subtopic_slug": "returns-irr-mom",
   "title": "Returns: the three levers and the maths you do out loud",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,21 +27,58 @@
         "type": "worked_calc",
         "md": "Back to **Pennard Logistics**, the deal running through this chapter. Marlow Capital, the private-equity fund buying it, paid an **£400m** enterprise value plus **£10m** of fees, funded with **£250m** of debt and a **£160m** equity cheque. Five years on, EBITDA has grown from £50m to **£63.8m** at 5 % a year, the company has repaid debt down to **£115.7m**, and the business sells at the same 8× multiple for **£510.4m**, leaving **£394.7m** for the equity.\n\nNow split that gain into the levers.",
         "steps": [
-          { "label": "Money multiple on the cheque", "expr": "394.7 / 160", "value": 2.47, "unit": "×" },
-          { "label": "Lever one — EBITDA growth, held at the entry multiple", "expr": "(63.8 - 50) * 8", "value": 110.4, "unit": "£m" },
-          { "label": "Lever two — debt repaid from the company's own cash", "expr": "250 - 115.7", "value": 134.3, "unit": "£m" },
-          { "label": "Lever three — multiple expansion (exit 8×, entry 8×)", "expr": "(8 - 8) * 63.8", "value": 0, "unit": "£m" },
-          { "label": "The sponsor's actual gain", "expr": "394.7 - 160", "value": 234.7, "unit": "£m" },
-          { "label": "Cross-check: levers less the fees paid at entry", "expr": "110.4 + 134.3 - 10", "value": 234.7, "unit": "£m" }
+          {
+            "label": "Money multiple on the cheque",
+            "expr": "394.7 / 160",
+            "value": 2.47,
+            "unit": "×"
+          },
+          {
+            "label": "Lever one — EBITDA growth, held at the entry multiple",
+            "expr": "(63.8 - 50) * 8",
+            "value": 110.4,
+            "unit": "£m"
+          },
+          {
+            "label": "Lever two — debt repaid from the company's own cash",
+            "expr": "250 - 115.7",
+            "value": 134.3,
+            "unit": "£m"
+          },
+          {
+            "label": "Lever three — multiple expansion (exit 8×, entry 8×)",
+            "expr": "(8 - 8) * 63.8",
+            "value": 0,
+            "unit": "£m"
+          },
+          {
+            "label": "The sponsor's actual gain",
+            "expr": "394.7 - 160",
+            "value": 234.7,
+            "unit": "£m"
+          },
+          {
+            "label": "Cross-check: levers less the fees paid at entry",
+            "expr": "110.4 + 134.3 - 10",
+            "value": 234.7,
+            "unit": "£m"
+          }
         ]
       },
       {
         "type": "predict",
         "prompt": "Same deal, but the market softens and Pennard exits at 7× instead of 8×. Roughly what happens to the IRR?",
         "options": [
-          { "label": "It falls to about 15–16 %", "correct": true },
-          { "label": "It barely changes — the debt was repaid either way" },
-          { "label": "It rises — a lower multiple means a cheaper business" }
+          {
+            "label": "It falls to about 15–16 %",
+            "correct": true
+          },
+          {
+            "label": "It barely changes — the debt was repaid either way"
+          },
+          {
+            "label": "It rises — a lower multiple means a cheaper business"
+          }
         ],
         "explain_md": "One turn of multiple comes straight off the equity. Exit value becomes 7 × £63.8m ≈ £447m, so the equity is worth about **£331m** instead of £395m — a MoM of roughly **2.07×**, which the anchors place just above 15 %. The exact figure is **15.7 %**.\n\nNotice the asymmetry of who bears it: enterprise value fell about 12 %, but the equity fell about 16 %. That is the amplifier working in reverse — and it is why the third lever, the one the sponsor cannot control, is the one investment committees assume away."
       },
@@ -54,10 +91,33 @@
         "type": "fill_numbers",
         "md": "The anchors are worth deriving once so you trust them forever. Each one is the multiple taken to the power of one-fifth — a fifth root, because five years of compounding have to produce the whole multiple — minus the one you started with. Fill in the gaps, as decimals.",
         "steps": [
-          { "label": "2.0× over five years (as a decimal)", "expr": "2 ^ 0.2 - 1", "value": 0.149, "unit": "", "blank": true },
-          { "label": "2.5× over five years (as a decimal)", "expr": "2.5 ^ 0.2 - 1", "value": 0.201, "unit": "", "blank": true },
-          { "label": "3.0× over five years (as a decimal)", "expr": "3 ^ 0.2 - 1", "value": 0.246, "unit": "" },
-          { "label": "Rule-of-72 check: years to double at 20 %", "expr": "72 / 20", "value": 3.6, "unit": "years", "blank": true }
+          {
+            "label": "2.0× over five years (as a decimal)",
+            "expr": "2 ^ 0.2 - 1",
+            "value": 0.149,
+            "unit": "",
+            "blank": true
+          },
+          {
+            "label": "2.5× over five years (as a decimal)",
+            "expr": "2.5 ^ 0.2 - 1",
+            "value": 0.201,
+            "unit": "",
+            "blank": true
+          },
+          {
+            "label": "3.0× over five years (as a decimal)",
+            "expr": "3 ^ 0.2 - 1",
+            "value": 0.246,
+            "unit": ""
+          },
+          {
+            "label": "Rule-of-72 check: years to double at 20 %",
+            "expr": "72 / 20",
+            "value": 3.6,
+            "unit": "years",
+            "blank": true
+          }
         ]
       },
       {
@@ -102,10 +162,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Roughly what IRR is a 2× over five years?", "a": "About 15 % — one of the three anchors worth memorising." },
-          { "q": "What does the money multiple ignore that IRR does not?", "a": "Time. A 2× in three years and a 2× in ten years are the same MoM but wildly different IRRs." },
-          { "q": "Which of the three levers do sponsors refuse to underwrite?", "a": "Multiple expansion — the deal must work at an exit multiple no higher than entry." },
-          { "q": "Same multiple, longer hold — what happens to IRR?", "a": "It falls; the same gain spread over more years compounds at a lower rate." }
+          {
+            "q": "Roughly what IRR is a 2× over five years?",
+            "a": "About 15 % — one of the three anchors worth memorising."
+          },
+          {
+            "q": "What does the money multiple ignore that IRR does not?",
+            "a": "Time. A 2× in three years and a 2× in ten years are the same MoM but wildly different IRRs."
+          },
+          {
+            "q": "Which of the three levers do sponsors refuse to underwrite?",
+            "a": "Multiple expansion — the deal must work at an exit multiple no higher than entry."
+          },
+          {
+            "q": "Same multiple, longer hold — what happens to IRR?",
+            "a": "It falls; the same gain spread over more years compounds at a lower rate."
+          }
         ]
       },
       {

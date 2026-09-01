@@ -34,13 +34,13 @@
       "ebitda": 110,
       "net_debt": 140,
       "shares": 50,
-      "median_multiple": 11.0
+      "median_multiple": 11
     },
     "answer": 21.4
   },
   "weak_answer_note": "Takes the mean of the five multiples instead of the median, or divides enterprise value by the share count without deducting the £140m of net debt.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Stopping at 'the discount rate goes up so value goes down' without explaining why the effect is uneven across companies — the duration point is what the question is really testing. Forgetting the cost of debt also rises, not just the cost of equity.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

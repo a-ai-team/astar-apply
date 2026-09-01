@@ -90,8 +90,8 @@ predict-gate → widget → worked calc → faded numbers → free-recall answer
 (TMT, Healthcare) swaps in context sections and unlocks lens-tagged questions in drills and mocks;
 the 10-week path walks all 35 lessons with a cheat-sheet review day per chapter. All content was
 hand-authored in-loop from the per-chapter specs, with every number verified against the maths
-library — **20 spec errors were caught this way**. Accounting and EqV/EV are approved and live
-(free tier); Valuation, DCF, M&A and LBO await mentor approval in `/admin/review`.
+library — **21 spec errors were caught this way**. All seven chapters are **approved and live**
+(James approved the remaining five on 2026-09-01; 176 flashcards, 654 indexed chunks).
 
 ## Feature parity checklist vs financefluency.co.uk
 

@@ -3,7 +3,7 @@
   "subtopic_slug": "terminal-value",
   "title": "Terminal value: the three-quarters you cannot skip",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Harbourline's terminal value uses 2 % perpetual growth. If you moved that to 3 % and changed nothing else, roughly how much would the enterprise value rise?",
         "options": [
-          { "label": "About 5 %" },
-          { "label": "About 20 %", "correct": true },
-          { "label": "About 50 %" },
-          { "label": "It would not change — growth is already in the cash flows" }
+          {
+            "label": "About 5 %"
+          },
+          {
+            "label": "About 20 %",
+            "correct": true
+          },
+          {
+            "label": "About 50 %"
+          },
+          {
+            "label": "It would not change — growth is already in the cash flows"
+          }
         ],
         "explain_md": "About **20 %**, and the reason is the denominator. At 8 % discount and 2 % growth you are dividing by 6 points; at 3 % growth you divide by 5. That is a sixth less, so the terminal value rises by roughly a fifth — and since terminal value is about three-quarters of Harbourline's enterprise value, most of that increase lands in the final answer.\n\nThis is why one percentage point on terminal growth is not a detail. It is one of the two numbers your whole valuation rests on, and an interviewer changing it mid-question is testing whether you know that."
       },
@@ -49,24 +58,87 @@
         "type": "worked_calc",
         "md": "**Harbourline plc**, the company running through this chapter. Its final forecast year — FY5 — produces **£102.3m** of unlevered free cash flow and **£231.9m** of EBITDA. The discount rate is **8.0 %**, and the five forecast years discount back to **£364m** of present value.\n\nNow value everything after FY5, both ways. Long-run growth of **2 %** is a defensible assumption for a UK logistics business: roughly the rate the economy grows in nominal terms, which is the ceiling a mature company can sustain forever. The peers trade at **8.5×** EBITDA.",
         "steps": [
-          { "label": "Gordon: grow FY5 cash flow one more year", "expr": "102.3 * (1 + 2%)", "value": 104.35, "unit": "£m" },
-          { "label": "Gordon: divide by (WACC − g)", "expr": "104.35 / (8% - 2%)", "value": 1739.1, "unit": "£m" },
-          { "label": "The multiple that terminal value implies", "expr": "1739.1 / 231.9", "value": 7.5, "unit": "×" },
-          { "label": "Discount it back five years", "expr": "1739.1 / (1 + 8%)^5", "value": 1183.6, "unit": "£m" },
-          { "label": "Enterprise value, Gordon method", "expr": "364.3 + 1183.6", "value": 1547.9, "unit": "£m" },
-          { "label": "Share of value sitting in the terminal", "expr": "1183.6 / 1547.9", "value": 0.765, "unit": "" },
-          { "label": "Exit multiple: 8.5× FY5 EBITDA", "expr": "8.5 * 231.9", "value": 1971.2, "unit": "£m" },
-          { "label": "The growth rate that terminal value implies", "expr": "(1971.2 * 8% - 102.3) / (1971.2 + 102.3)", "value": 0.0267, "unit": "" }
+          {
+            "label": "Gordon: grow FY5 cash flow one more year",
+            "expr": "102.3 * (1 + 2%)",
+            "value": 104.35,
+            "unit": "£m"
+          },
+          {
+            "label": "Gordon: divide by (WACC − g)",
+            "expr": "104.35 / (8% - 2%)",
+            "value": 1739.1,
+            "unit": "£m"
+          },
+          {
+            "label": "The multiple that terminal value implies",
+            "expr": "1739.1 / 231.9",
+            "value": 7.5,
+            "unit": "×"
+          },
+          {
+            "label": "Discount it back five years",
+            "expr": "1739.1 / (1 + 8%)^5",
+            "value": 1183.6,
+            "unit": "£m"
+          },
+          {
+            "label": "Enterprise value, Gordon method",
+            "expr": "364.3 + 1183.6",
+            "value": 1547.9,
+            "unit": "£m"
+          },
+          {
+            "label": "Share of value sitting in the terminal",
+            "expr": "1183.6 / 1547.9",
+            "value": 0.765,
+            "unit": ""
+          },
+          {
+            "label": "Exit multiple: 8.5× FY5 EBITDA",
+            "expr": "8.5 * 231.9",
+            "value": 1971.2,
+            "unit": "£m"
+          },
+          {
+            "label": "The growth rate that terminal value implies",
+            "expr": "(1971.2 * 8% - 102.3) / (1971.2 + 102.3)",
+            "value": 0.0267,
+            "unit": ""
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "The two methods have not agreed. Gordon at 2 % growth gave £1,739m and implied a 7.5× multiple; the peers trade at 8.5×, which implies 2.7 % growth instead. Finish the exit-multiple case and see how much that one turn of multiple is worth.",
         "steps": [
-          { "label": "Discount the 8.5× terminal value back five years", "expr": "1971.2 / (1 + 8%)^5", "value": 1341.5, "unit": "£m", "blank": true },
-          { "label": "Enterprise value, exit-multiple method", "expr": "364.3 + 1341.5", "value": 1705.8, "unit": "£m", "blank": true },
-          { "label": "The gap between the two methods", "expr": "1705.8 - 1547.9", "value": 157.9, "unit": "£m" },
-          { "label": "That gap as a share of the Gordon answer", "expr": "157.9 / 1547.9", "value": 0.102, "unit": "", "blank": true }
+          {
+            "label": "Discount the 8.5× terminal value back five years",
+            "expr": "1971.2 / (1 + 8%)^5",
+            "value": 1341.5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Enterprise value, exit-multiple method",
+            "expr": "364.3 + 1341.5",
+            "value": 1705.8,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "The gap between the two methods",
+            "expr": "1705.8 - 1547.9",
+            "value": 157.9,
+            "unit": "£m"
+          },
+          {
+            "label": "That gap as a share of the Gordon answer",
+            "expr": "157.9 / 1547.9",
+            "value": 0.102,
+            "unit": "",
+            "blank": true
+          }
         ]
       },
       {
@@ -111,10 +183,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Which method do bankers actually use?", "a": "The exit multiple in practice, because it is anchored in observable prices — with the perpetuity as the cross-check. Academics prefer it the other way round." },
-          { "q": "What if the growth rate exceeds the discount rate?", "a": "The formula breaks — the denominator goes negative and the terminal value comes out negative. It is telling you the assumption is nonsense, not that the company is worthless." },
-          { "q": "Why discount the terminal value five years and not six?", "a": "Because it is valued as at the end of year 5 — the same date as the final forecast cash flow." },
-          { "q": "What share of a DCF usually sits in the terminal value?", "a": "Typically 60–80 % for a mature business, and higher for a growth company. Harbourline's is about 76 %." }
+          {
+            "q": "Which method do bankers actually use?",
+            "a": "The exit multiple in practice, because it is anchored in observable prices — with the perpetuity as the cross-check. Academics prefer it the other way round."
+          },
+          {
+            "q": "What if the growth rate exceeds the discount rate?",
+            "a": "The formula breaks — the denominator goes negative and the terminal value comes out negative. It is telling you the assumption is nonsense, not that the company is worthless."
+          },
+          {
+            "q": "Why discount the terminal value five years and not six?",
+            "a": "Because it is valued as at the end of year 5 — the same date as the final forecast cash flow."
+          },
+          {
+            "q": "What share of a DCF usually sits in the terminal value?",
+            "a": "Typically 60–80 % for a mature business, and higher for a growth company. Harbourline's is about 76 %."
+          }
         ]
       },
       {

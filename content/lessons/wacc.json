@@ -3,7 +3,7 @@
   "subtopic_slug": "wacc",
   "title": "WACC on a listed company, and the U-shape proved",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Harbourline swaps £300m of equity funding for £300m of debt — equity falls to £750m, debt rises to £890m. Debt is cheaper than equity. What happens to WACC?",
         "options": [
-          { "label": "It falls, and keeps falling the more debt is added" },
-          { "label": "It falls slightly at first, then rises if leverage keeps increasing", "correct": true },
-          { "label": "It is unchanged — the total funding is the same" },
-          { "label": "It rises immediately, because debt is riskier for the company" }
+          {
+            "label": "It falls, and keeps falling the more debt is added"
+          },
+          {
+            "label": "It falls slightly at first, then rises if leverage keeps increasing",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — the total funding is the same"
+          },
+          {
+            "label": "It rises immediately, because debt is riskier for the company"
+          }
         ],
         "explain_md": "Work it both ways and the trap becomes visible.\n\n**Hold the cost of equity at 10 %** and the answer looks obvious: the weights shift towards the cheaper source and WACC drops to about **7.0 %**. That is the calculation most candidates do, and it is wrong.\n\n**Now let the cost of equity respond**, which it must. Harbourline's debt-to-equity ratio jumps from 0.56 to about **1.19**, so relevering the beta takes it from 1.0 to roughly **1.32** and the cost of equity from 10 % to about **11.9 %**. Lenders also want a little more for the extra risk — say 6.5 % rather than 6.0 %. Run it again and WACC comes out at about **8.1 %**, marginally *above* where it started.\n\nSo the cheap money was not free. Part of its cost was transferred onto the shareholders, and past a point the transfer more than offsets the saving. That is the U-shape, and you have just computed both sides of it."
       },
@@ -39,7 +48,7 @@
         "widget": "wacc_builder",
         "props": {
           "riskFree": 0.04,
-          "beta": 1.0,
+          "beta": 1,
           "erp": 0.06,
           "costOfDebt": 0.06,
           "taxRate": 0.25,
@@ -51,23 +60,70 @@
         "type": "worked_calc",
         "md": "**Harbourline plc.** The shares trade at £4.20 across 250m diluted shares, so equity is worth **£1,050m**. On the debt side, take the borrowings of £500m plus the capitalised leases of £45m and the preferred stock of £30m — all claims ahead of the shareholders — for **£590m** of debt-like funding. Total capital is therefore £1,640m.\n\nThe cost of equity is the **10.0 %** you built with CAPM in the last lesson. Harbourline could borrow today at **6.0 %** before tax, and the tax rate is **25 %**.",
         "steps": [
-          { "label": "After-tax cost of debt: 6 % × (1 − 25 %)", "expr": "6% * (1 - 25%)", "value": 0.045 },
-          { "label": "Equity weight: £1,050m ÷ £1,640m", "expr": "1050 / 1640", "value": 0.64 },
-          { "label": "Debt weight: £590m ÷ £1,640m", "expr": "590 / 1640", "value": 0.36 },
-          { "label": "Equity's contribution to the blend", "expr": "(1050 / 1640) * 10%", "value": 0.064 },
-          { "label": "Debt's contribution to the blend", "expr": "(590 / 1640) * 4.5%", "value": 0.0162 },
-          { "label": "WACC for Harbourline", "expr": "(1050 / 1640) * 10% + (590 / 1640) * 4.5%", "value": 0.0802 }
+          {
+            "label": "After-tax cost of debt: 6 % × (1 − 25 %)",
+            "expr": "6% * (1 - 25%)",
+            "value": 0.045
+          },
+          {
+            "label": "Equity weight: £1,050m ÷ £1,640m",
+            "expr": "1050 / 1640",
+            "value": 0.64
+          },
+          {
+            "label": "Debt weight: £590m ÷ £1,640m",
+            "expr": "590 / 1640",
+            "value": 0.36
+          },
+          {
+            "label": "Equity's contribution to the blend",
+            "expr": "(1050 / 1640) * 10%",
+            "value": 0.064
+          },
+          {
+            "label": "Debt's contribution to the blend",
+            "expr": "(590 / 1640) * 4.5%",
+            "value": 0.0162
+          },
+          {
+            "label": "WACC for Harbourline",
+            "expr": "(1050 / 1640) * 10% + (590 / 1640) * 4.5%",
+            "value": 0.0802
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "Now prove the trap for yourself. Harbourline swaps **£300m of equity for debt**: equity falls to £750m, debt rises to £890m. Its unlevered beta — the beta of the business with no debt at all — is **0.70**. Tax is 25 %, so the gearing factor is $(1 + 0.75 \\times D/E)$. Lenders now charge **6.5 %**.\n\nWork out what the shareholders start demanding, and then what WACC actually does.",
         "steps": [
-          { "label": "New debt-to-equity: £890m ÷ £750m", "expr": "890 / 750", "value": 1.19 },
-          { "label": "Relevered beta: 0.70 × (1 + 0.75 × 1.19)", "expr": "0.70 * (1 + 0.75 * 1.19)", "value": 1.32, "blank": true },
-          { "label": "New cost of equity: 4 % + 1.32 × 6 %", "expr": "4% + 1.32 * 6%", "value": 0.1192, "blank": true },
-          { "label": "New WACC at the higher Ke and a 6.5 % cost of debt", "expr": "(750 / 1640) * 11.92% + (890 / 1640) * 6.5% * (1 - 25%)", "value": 0.081, "blank": true },
-          { "label": "What it would have been holding Ke at 10 % — the wrong answer", "expr": "(750 / 1640) * 10% + (890 / 1640) * 6% * (1 - 25%)", "value": 0.0702 }
+          {
+            "label": "New debt-to-equity: £890m ÷ £750m",
+            "expr": "890 / 750",
+            "value": 1.19
+          },
+          {
+            "label": "Relevered beta: 0.70 × (1 + 0.75 × 1.19)",
+            "expr": "0.70 * (1 + 0.75 * 1.19)",
+            "value": 1.32,
+            "blank": true
+          },
+          {
+            "label": "New cost of equity: 4 % + 1.32 × 6 %",
+            "expr": "4% + 1.32 * 6%",
+            "value": 0.1192,
+            "blank": true
+          },
+          {
+            "label": "New WACC at the higher Ke and a 6.5 % cost of debt",
+            "expr": "(750 / 1640) * 11.92% + (890 / 1640) * 6.5% * (1 - 25%)",
+            "value": 0.081,
+            "blank": true
+          },
+          {
+            "label": "What it would have been holding Ke at 10 % — the wrong answer",
+            "expr": "(750 / 1640) * 10% + (890 / 1640) * 6% * (1 - 25%)",
+            "value": 0.0702
+          }
         ]
       },
       {
@@ -112,10 +168,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Where would you get the cost of debt from?", "a": "The yield on the company's own traded bonds, or a spread over gilts based on its credit rating — not the interest rate in the accounts." },
-          { "q": "Which items belong in the debt weight besides borrowings?", "a": "Anything ranking ahead of shareholders — capitalised leases, preferred stock, and an unfunded pension deficit. The same list as the EV bridge." },
-          { "q": "A company funded entirely by equity — what is its WACC?", "a": "Its cost of equity, and that cost would be lower than a levered company's because the beta is unlevered." },
-          { "q": "What happens to WACC in a recession?", "a": "It usually rises. Credit spreads widen and equity risk premiums increase, so both costs of capital go up and asset values fall." }
+          {
+            "q": "Where would you get the cost of debt from?",
+            "a": "The yield on the company's own traded bonds, or a spread over gilts based on its credit rating — not the interest rate in the accounts."
+          },
+          {
+            "q": "Which items belong in the debt weight besides borrowings?",
+            "a": "Anything ranking ahead of shareholders — capitalised leases, preferred stock, and an unfunded pension deficit. The same list as the EV bridge."
+          },
+          {
+            "q": "A company funded entirely by equity — what is its WACC?",
+            "a": "Its cost of equity, and that cost would be lower than a levered company's because the beta is unlevered."
+          },
+          {
+            "q": "What happens to WACC in a recession?",
+            "a": "It usually rises. Credit spreads widen and equity risk premiums increase, so both costs of capital go up and asset values fall."
+          }
         ]
       },
       {

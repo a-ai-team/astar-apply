@@ -3,7 +3,7 @@
   "subtopic_slug": "why-companies-acquire",
   "title": "Why buy a company at all — and how to talk about a deal",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,9 +27,16 @@
         "type": "predict",
         "prompt": "Tamar pays £500m for a company the market valued at £400m yesterday. On the day the deal completes, who has captured that extra £100m?",
         "options": [
-          { "label": "Tamar's shareholders — they now own Wychwood" },
-          { "label": "Wychwood's shareholders — they were paid it", "correct": true },
-          { "label": "Nobody — it nets out inside the combined group" }
+          {
+            "label": "Tamar's shareholders — they now own Wychwood"
+          },
+          {
+            "label": "Wychwood's shareholders — they were paid it",
+            "correct": true
+          },
+          {
+            "label": "Nobody — it nets out inside the combined group"
+          }
         ],
         "explain_md": "**Wychwood's shareholders walk away with it.** They held shares worth £8.00 each and were paid £10.00 — the £100m premium is a transfer from buyer to seller, banked and gone the moment the deal closes.\n\nWhich reframes the whole question of whether the deal is any good. Tamar starts £100m behind. It only comes out ahead if the value it can create — the £20m of annual cost savings, mainly — is worth more in today's money than the £100m it handed over. The premium is the hurdle; the synergies have to clear it. Lesson 4 does that arithmetic properly."
       },
@@ -79,10 +86,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Give two examples of cost synergies.", "a": "One head office instead of two, and combined procurement — buying inputs at better prices on twice the volume. Overlapping depots or plants closing is a third." },
-          { "q": "Cost synergies or revenue synergies — which would you underwrite?", "a": "Cost. The buyer controls whether a duplicated function is removed; revenue synergies depend on customers choosing to buy more, which nobody controls." },
-          { "q": "What is a control premium?", "a": "The extra over the market share price a buyer pays to own the whole company and direct it — you cannot buy control at the price of a single share." },
-          { "q": "Who tends to pay more for the same asset — a strategic buyer or a financial buyer?", "a": "The strategic buyer. It can add synergies to the standalone value; a financial buyer, such as a private equity fund, generally cannot." }
+          {
+            "q": "Give two examples of cost synergies.",
+            "a": "One head office instead of two, and combined procurement — buying inputs at better prices on twice the volume. Overlapping depots or plants closing is a third."
+          },
+          {
+            "q": "Cost synergies or revenue synergies — which would you underwrite?",
+            "a": "Cost. The buyer controls whether a duplicated function is removed; revenue synergies depend on customers choosing to buy more, which nobody controls."
+          },
+          {
+            "q": "What is a control premium?",
+            "a": "The extra over the market share price a buyer pays to own the whole company and direct it — you cannot buy control at the price of a single share."
+          },
+          {
+            "q": "Who tends to pay more for the same asset — a strategic buyer or a financial buyer?",
+            "a": "The strategic buyer. It can add synergies to the standalone value; a financial buyer, such as a private equity fund, generally cannot."
+          }
         ]
       },
       {

@@ -32,7 +32,7 @@
   "numbers": {
     "inputs": {
       "shares": 120,
-      "price": 9.0,
+      "price": 9,
       "debt": 240,
       "leases": 30,
       "cash": 60,
@@ -45,7 +45,7 @@
   },
   "weak_answer_note": "Uses market capitalisation instead of enterprise value for the EV multiples, or forgets the £30m of leases and reaches 8.4× — the very error that makes multiples incomparable.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

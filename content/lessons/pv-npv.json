@@ -3,7 +3,7 @@
   "subtopic_slug": "pv-npv",
   "title": "NPV and IRR: should Ashdown open the thirteenth shop?",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "The thirteenth shop has an NPV of +£0.40m at an 8 % discount rate. If Ashdown's cost of capital rose to 15 %, what would happen to that NPV?",
         "options": [
-          { "label": "It stays comfortably positive" },
-          { "label": "It falls to roughly zero", "correct": true },
-          { "label": "It becomes strongly negative, around −£0.4m" },
-          { "label": "It is unaffected — NPV does not depend on the rate" }
+          {
+            "label": "It stays comfortably positive"
+          },
+          {
+            "label": "It falls to roughly zero",
+            "correct": true
+          },
+          {
+            "label": "It becomes strongly negative, around −£0.4m"
+          },
+          {
+            "label": "It is unaffected — NPV does not depend on the rate"
+          }
         ],
         "explain_md": "It lands at almost exactly **zero**, because the shop's IRR is about **15.2 %**. That is what IRR *means*: the rate at which the project stops adding value. You did not need to recompute anything — knowing the IRR tells you immediately where the NPV crosses zero, which is why interviewers like the number even though NPV is the better decision rule."
       },
@@ -39,8 +48,14 @@
         "widget": "discount_dial",
         "props": {
           "mode": "npv",
-          "cashflows": [0.6, 0.6, 0.6, 0.6, 0.6],
-          "outlay": 2.0,
+          "cashflows": [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          "outlay": 2,
           "rate": 0.08,
           "midYear": false
         }
@@ -49,21 +64,68 @@
         "type": "worked_calc",
         "md": "The thirteenth shop costs **£2.0m** to fit out today and is expected to return **£0.6m a year for five years**. Ashdown discounts at **8 %**.",
         "steps": [
-          { "label": "Annuity factor, 8 % over 5 years", "expr": "(1 - 1.08^-5) / 8%", "value": 3.993, "unit": "×" },
-          { "label": "Present value of the five £0.6m inflows", "expr": "0.6 * 3.993", "value": 2.396, "unit": "£m" },
-          { "label": "NPV after the £2.0m fit-out", "expr": "2.396 - 2.0", "value": 0.396, "unit": "£m" },
-          { "label": "Check the IRR: NPV at 15 %", "expr": "0.6 * ((1 - 1.15^-5) / 15%) - 2.0", "value": 0.011, "unit": "£m" },
-          { "label": "And at 16 % — so the IRR sits between", "expr": "0.6 * ((1 - 1.16^-5) / 16%) - 2.0", "value": -0.036, "unit": "£m" },
-          { "label": "Simple payback, ignoring time value", "expr": "2.0 / 0.6", "value": 3.33, "unit": "years" }
+          {
+            "label": "Annuity factor, 8 % over 5 years",
+            "expr": "(1 - 1.08^-5) / 8%",
+            "value": 3.993,
+            "unit": "×"
+          },
+          {
+            "label": "Present value of the five £0.6m inflows",
+            "expr": "0.6 * 3.993",
+            "value": 2.396,
+            "unit": "£m"
+          },
+          {
+            "label": "NPV after the £2.0m fit-out",
+            "expr": "2.396 - 2.0",
+            "value": 0.396,
+            "unit": "£m"
+          },
+          {
+            "label": "Check the IRR: NPV at 15 %",
+            "expr": "0.6 * ((1 - 1.15^-5) / 15%) - 2.0",
+            "value": 0.011,
+            "unit": "£m"
+          },
+          {
+            "label": "And at 16 % — so the IRR sits between",
+            "expr": "0.6 * ((1 - 1.16^-5) / 16%) - 2.0",
+            "value": -0.036,
+            "unit": "£m"
+          },
+          {
+            "label": "Simple payback, ignoring time value",
+            "expr": "2.0 / 0.6",
+            "value": 3.33,
+            "unit": "years"
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "Ashdown's landlord wants a **£0.4m** premium on top of the fit-out, so the shop now costs **£2.4m**. Same £0.6m a year for five years, same 8 % rate. Does it still clear the bar?",
         "steps": [
-          { "label": "Present value of the inflows (unchanged)", "expr": "0.6 * 3.993", "value": 2.396, "unit": "£m" },
-          { "label": "NPV at the higher cost", "expr": "2.396 - 2.4", "value": -0.004, "unit": "£m", "blank": true },
-          { "label": "Annual cash flow needed to break even", "expr": "2.4 / 3.993", "value": 0.601, "unit": "£m", "blank": true }
+          {
+            "label": "Present value of the inflows (unchanged)",
+            "expr": "0.6 * 3.993",
+            "value": 2.396,
+            "unit": "£m"
+          },
+          {
+            "label": "NPV at the higher cost",
+            "expr": "2.396 - 2.4",
+            "value": -0.004,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Annual cash flow needed to break even",
+            "expr": "2.4 / 3.993",
+            "value": 0.601,
+            "unit": "£m",
+            "blank": true
+          }
         ]
       },
       {
@@ -108,10 +170,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "What does NPV > 0 actually tell you?", "a": "The project returns more than the discount rate, so it creates value beyond the next best alternative." },
-          { "q": "Define IRR in one line.", "a": "The discount rate at which the project's NPV equals zero." },
-          { "q": "Can NPV and IRR disagree?", "a": "Yes — for mutually exclusive projects that differ in size or in the timing of their cash flows. Follow NPV." },
-          { "q": "What does the payback period ignore?", "a": "The time value of money, and every pound of cash after the payback date." }
+          {
+            "q": "What does NPV > 0 actually tell you?",
+            "a": "The project returns more than the discount rate, so it creates value beyond the next best alternative."
+          },
+          {
+            "q": "Define IRR in one line.",
+            "a": "The discount rate at which the project's NPV equals zero."
+          },
+          {
+            "q": "Can NPV and IRR disagree?",
+            "a": "Yes — for mutually exclusive projects that differ in size or in the timing of their cash flows. Follow NPV."
+          },
+          {
+            "q": "What does the payback period ignore?",
+            "a": "The time value of money, and every pound of cash after the payback date."
+          }
         ]
       },
       {

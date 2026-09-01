@@ -34,16 +34,16 @@
       "ebitda": 150,
       "net_debt": 210,
       "shares": 120,
-      "comps_multiple": 11.0,
+      "comps_multiple": 11,
       "precedent_multiple": 12.5,
       "dcf_ev_low": 1250,
       "dcf_ev_high": 1450
     },
-    "answer": 12.0
+    "answer": 12
   },
   "weak_answer_note": "Divides enterprise value by the share count without removing net debt, or forgets that the £30m of leases is part of net debt.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

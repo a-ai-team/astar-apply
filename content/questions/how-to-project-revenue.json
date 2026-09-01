@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Naming a growth rate with no reasoning behind it, or saying 'use historical growth' without acknowledging that the future may differ. Not mentioning that growth should fade toward a sustainable rate before the terminal value takes over.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

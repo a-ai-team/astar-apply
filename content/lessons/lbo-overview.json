@@ -3,7 +3,7 @@
   "subtopic_slug": "lbo-overview",
   "title": "What an LBO is: buying with borrowed money",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,9 +27,16 @@
         "type": "predict",
         "prompt": "Marlow Capital funds the £410m purchase with £250m of debt and £160m of equity. Suppose it had instead paid the whole £410m in equity, and everything about the exit was unchanged. Compared with that all-equity version, what does the £250m of debt do to the fund's *money multiple* — the cash returned per pound invested?",
         "options": [
-          { "label": "Raises it — same profit on a much smaller cheque", "correct": true },
-          { "label": "Lowers it — interest payments eat the return" },
-          { "label": "Leaves it unchanged — the business is worth the same either way" }
+          {
+            "label": "Raises it — same profit on a much smaller cheque",
+            "correct": true
+          },
+          {
+            "label": "Lowers it — interest payments eat the return"
+          },
+          {
+            "label": "Leaves it unchanged — the business is worth the same either way"
+          }
         ],
         "explain_md": "It **raises it**, and by a lot. The pounds of profit are broadly similar in both versions — the business is the same business. What changes is the denominator. Earn roughly £235m of profit on a £410m cheque and you have about 1.6× your money; concentrate most of that profit onto a £160m cheque and you are near 2.5×.\n\nThe interest cost is real — it drains some cash that would otherwise pile up — but it is small next to the effect of shrinking the cheque. That is why the debt is there. The catch is symmetry: leverage magnifies the downside identically, which the widget below will happily demonstrate if you drag the assumptions the wrong way."
       },
@@ -80,10 +87,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "What is the point of all the debt?", "a": "It shrinks the equity cheque, so whatever value the deal creates lands on fewer pounds — magnifying the return, and the risk." },
-          { "q": "Whose cash actually repays the loans?", "a": "The target company's own free cash flow. The debt sits on its balance sheet, not the fund's." },
-          { "q": "How long does a fund typically own the business?", "a": "Four to six years — long enough to grow EBITDA and pay down debt, short enough to return money to investors." },
-          { "q": "Name the three ways out.", "a": "Sell to a strategic buyer, sell to another sponsor (a secondary buyout), or float it on the stock market." }
+          {
+            "q": "What is the point of all the debt?",
+            "a": "It shrinks the equity cheque, so whatever value the deal creates lands on fewer pounds — magnifying the return, and the risk."
+          },
+          {
+            "q": "Whose cash actually repays the loans?",
+            "a": "The target company's own free cash flow. The debt sits on its balance sheet, not the fund's."
+          },
+          {
+            "q": "How long does a fund typically own the business?",
+            "a": "Four to six years — long enough to grow EBITDA and pay down debt, short enough to return money to investors."
+          },
+          {
+            "q": "Name the three ways out.",
+            "a": "Sell to a strategic buyer, sell to another sponsor (a secondary buyout), or float it on the stock market."
+          }
         ]
       },
       {

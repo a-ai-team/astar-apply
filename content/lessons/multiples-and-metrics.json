@@ -3,7 +3,7 @@
   "subtopic_slug": "multiples-and-metrics",
   "title": "Which multiple, when — and why similar companies differ",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Marlow and Brantwood Sensors run essentially the same EBITDA margin — 16.7 % against 16.0 %. Brantwood is forecast to grow 8 % next year; Marlow 6 %. All else equal, which should trade on the higher EV/EBITDA?",
         "options": [
-          { "label": "Brantwood, the faster grower", "correct": true },
-          { "label": "Marlow — a lower growth rate means less risk" },
-          { "label": "The same — identical margins mean identical multiples" },
-          { "label": "It cannot be determined without the P/E ratios" }
+          {
+            "label": "Brantwood, the faster grower",
+            "correct": true
+          },
+          {
+            "label": "Marlow — a lower growth rate means less risk"
+          },
+          {
+            "label": "The same — identical margins mean identical multiples"
+          },
+          {
+            "label": "It cannot be determined without the P/E ratios"
+          }
         ],
         "explain_md": "Brantwood. Hold the margin still and growth is the only thing moving, so every pound of Brantwood's EBITDA today buys you more EBITDA in future years than a pound of Marlow's does. A multiple is a compressed DCF, and a DCF pays more for a stream that grows faster.\n\nIn the real peer table Brantwood trades at **11.0×** and Marlow at **8.6×** — a wider gap than two points of growth alone would justify, which is your cue to look for the other drivers: returns on capital, risk, size and liquidity."
       },
@@ -39,14 +48,38 @@
         "widget": "multiple_matcher",
         "props": {
           "metrics": [
-            { "label": "Revenue", "kind": "ev" },
-            { "label": "EBITDA", "kind": "ev" },
-            { "label": "EBIT", "kind": "ev" },
-            { "label": "EBITDA − capex", "kind": "ev" },
-            { "label": "Unlevered free cash flow", "kind": "ev" },
-            { "label": "Net income", "kind": "equity" },
-            { "label": "Earnings per share", "kind": "equity" },
-            { "label": "Book equity", "kind": "equity" }
+            {
+              "label": "Revenue",
+              "kind": "ev"
+            },
+            {
+              "label": "EBITDA",
+              "kind": "ev"
+            },
+            {
+              "label": "EBIT",
+              "kind": "ev"
+            },
+            {
+              "label": "EBITDA − capex",
+              "kind": "ev"
+            },
+            {
+              "label": "Unlevered free cash flow",
+              "kind": "ev"
+            },
+            {
+              "label": "Net income",
+              "kind": "equity"
+            },
+            {
+              "label": "Earnings per share",
+              "kind": "equity"
+            },
+            {
+              "label": "Book equity",
+              "kind": "equity"
+            }
           ]
         }
       },
@@ -54,24 +87,87 @@
         "type": "worked_calc",
         "md": "**Marlow at today's price.** The shares are £9.00, there are 120m of them, so equity value is £1,080m; adding £240m of borrowings and £30m of leases and taking out £60m of cash gives an enterprise value of £1,290m. Against EBITDA of £150m, EBIT of £110m, net income of £72m and revenue of £900m, that is four multiples from the same company.\n\nThen the peer comparison that makes the point about drivers: **Larkfield Controls** grows 12 % a year, **Penrose Metrology** grows 3 %, and their EBITDA margins are 16.7 % and 16.0 % — near enough identical.",
         "steps": [
-          { "label": "Marlow EV/EBITDA", "expr": "1290 / 150", "value": 8.6, "unit": "×" },
-          { "label": "Marlow EV/EBIT", "expr": "1290 / 110", "value": 11.73, "unit": "×" },
-          { "label": "Marlow P/E", "expr": "1080 / 72", "value": 15, "unit": "×" },
-          { "label": "Marlow EV/Revenue", "expr": "1290 / 900", "value": 1.43, "unit": "×" },
-          { "label": "Larkfield EV/EBITDA", "expr": "2400 / 200", "value": 12, "unit": "×" },
-          { "label": "Penrose EV/EBITDA", "expr": "640 / 80", "value": 8, "unit": "×" },
-          { "label": "The gap between them, in turns", "expr": "12 - 8", "value": 4, "unit": "×" }
+          {
+            "label": "Marlow EV/EBITDA",
+            "expr": "1290 / 150",
+            "value": 8.6,
+            "unit": "×"
+          },
+          {
+            "label": "Marlow EV/EBIT",
+            "expr": "1290 / 110",
+            "value": 11.73,
+            "unit": "×"
+          },
+          {
+            "label": "Marlow P/E",
+            "expr": "1080 / 72",
+            "value": 15,
+            "unit": "×"
+          },
+          {
+            "label": "Marlow EV/Revenue",
+            "expr": "1290 / 900",
+            "value": 1.43,
+            "unit": "×"
+          },
+          {
+            "label": "Larkfield EV/EBITDA",
+            "expr": "2400 / 200",
+            "value": 12,
+            "unit": "×"
+          },
+          {
+            "label": "Penrose EV/EBITDA",
+            "expr": "640 / 80",
+            "value": 8,
+            "unit": "×"
+          },
+          {
+            "label": "The gap between them, in turns",
+            "expr": "12 - 8",
+            "value": 4,
+            "unit": "×"
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "Now the capital-intensity point, which is where EV/EBIT earns its place. Depreciation is a real cost — it is the price of the assets being used up — and EBITDA pretends it is not there. The size of the step from EV/EBITDA up to EV/EBIT tells you how asset-hungry a business is.\n\n**Penrose** has EBITDA of £80m and EBIT of £55m, so £25m of depreciation against an enterprise value of £640m. **Larkfield** has EBITDA of £200m and EBIT of £150m — £50m of depreciation on an enterprise value of £2,400m. Work out which one the market is really paying more for.",
         "steps": [
-          { "label": "Penrose EV/EBITDA", "expr": "640 / 80", "value": 8, "unit": "×" },
-          { "label": "Penrose EV/EBIT", "expr": "640 / 55", "value": 11.64, "unit": "×", "blank": true },
-          { "label": "Penrose: the step-up from EBITDA to EBIT", "expr": "11.64 / 8", "value": 1.46, "unit": "×", "blank": true },
-          { "label": "Larkfield EV/EBIT", "expr": "2400 / 150", "value": 16, "unit": "×" },
-          { "label": "Larkfield: the step-up", "expr": "16 / 12", "value": 1.33, "unit": "×", "blank": true }
+          {
+            "label": "Penrose EV/EBITDA",
+            "expr": "640 / 80",
+            "value": 8,
+            "unit": "×"
+          },
+          {
+            "label": "Penrose EV/EBIT",
+            "expr": "640 / 55",
+            "value": 11.64,
+            "unit": "×",
+            "blank": true
+          },
+          {
+            "label": "Penrose: the step-up from EBITDA to EBIT",
+            "expr": "11.64 / 8",
+            "value": 1.46,
+            "unit": "×",
+            "blank": true
+          },
+          {
+            "label": "Larkfield EV/EBIT",
+            "expr": "2400 / 150",
+            "value": 16,
+            "unit": "×"
+          },
+          {
+            "label": "Larkfield: the step-up",
+            "expr": "16 / 12",
+            "value": 1.33,
+            "unit": "×",
+            "blank": true
+          }
         ]
       },
       {
@@ -116,10 +212,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "What does P/E pair with, and why?", "a": "Equity value — earnings are struck after interest and tax, so they belong to shareholders alone." },
-          { "q": "When do you reach for EV/Revenue?", "a": "When earnings are negative or too immature to be informative — early-stage or heavily loss-making businesses." },
-          { "q": "Express a multiple as an idea, not a formula.", "a": "A compressed DCF: higher growth, lower risk and better returns on capital all buy a higher multiple." },
-          { "q": "Why is EV/Net income never used?", "a": "It mismatches the claimants — enterprise value is before debt is served, net income is after." }
+          {
+            "q": "What does P/E pair with, and why?",
+            "a": "Equity value — earnings are struck after interest and tax, so they belong to shareholders alone."
+          },
+          {
+            "q": "When do you reach for EV/Revenue?",
+            "a": "When earnings are negative or too immature to be informative — early-stage or heavily loss-making businesses."
+          },
+          {
+            "q": "Express a multiple as an idea, not a formula.",
+            "a": "A compressed DCF: higher growth, lower risk and better returns on capital all buy a higher multiple."
+          },
+          {
+            "q": "Why is EV/Net income never used?",
+            "a": "It mismatches the claimants — enterprise value is before debt is served, net income is after."
+          }
         ]
       },
       {

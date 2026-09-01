@@ -230,16 +230,16 @@ index). Contract additions (block types `predict`, `fill_numbers`, `order_steps`
 chapter each from its spec. Final shape: **35 lessons, ~200 chapter questions, 20 widgets, 7 cheat
 sheets, 4 printable templates**, a re-sequenced 10-week path (each chapter ends on its cheat sheet),
 and a lens option on drills and mocks. Every worked number was verified against `src/lib/finance/`
-before authoring — 20 spec errors were caught and corrected that way (see the loop retros).
+before authoring — 21 spec errors were caught and corrected that way (see the loop retros).
 
 ### Chapters (shipped)
 | Loop | Chapter | Content | Status |
 |---|---|---|---|
-| 18 | LBO | 4 lessons (Pennard Logistics), 24 questions, `lbo_returns` · `paper_lbo` stepper, paper-LBO sheet, cheat sheet; + 10-week path re-sequence and lens drills/mocks | `generated` — paid topic, awaiting mentor approval |
-| 17 | M&A | 4 lessons (Tamar Group buying Wychwood), 22 questions, `accretion_rule` · `synergy_npv` · `ppa_goodwill`, deal summary card, cheat sheet | `generated` — paid topic, awaiting mentor approval |
-| 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
-| 16 | DCF | 7 lessons (Harbourline), 42 questions, `tv_share` · `gordon_vs_exit` · `wacc_builder` · `beta_relever`, DCF build sheet, cheat sheet | `generated` — paid topic, awaiting mentor approval |
-| 15 | Valuation | 5 lessons (Marlow Instruments), 31 questions, `football_field` (range chart + comps picker), cheat sheet | `generated` — paid topic, awaiting mentor approval |
+| 18 | LBO | 4 lessons (Pennard Logistics), 24 questions, `lbo_returns` · `paper_lbo` stepper, paper-LBO sheet, cheat sheet; + 10-week path re-sequence and lens drills/mocks | **approved & live** (2026-09-01) |
+| 17 | M&A | 4 lessons (Tamar Group buying Wychwood), 22 questions, `accretion_rule` · `synergy_npv` · `ppa_goodwill`, deal summary card, cheat sheet | **approved & live** (2026-09-01) |
+| 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | **approved & live** (2026-09-01) |
+| 16 | DCF | 7 lessons (Harbourline), 42 questions, `tv_share` · `gordon_vs_exit` · `wacc_builder` · `beta_relever`, DCF build sheet, cheat sheet | **approved & live** (2026-09-01) |
+| 15 | Valuation | 5 lessons (Marlow Instruments), 31 questions, `football_field` (range chart + comps picker), cheat sheet | **approved & live** (2026-09-01) |
 | 14 | EqV vs EV | 4 lessons (Harbourline), 28 questions, `tsm_dilution` · `lease_toggle` · `multiple_matcher`, cheat sheet | **approved** (free topic) — part of 63 flashcards, 231 chunks |
 | 13 | Accounting | 8 lessons (Kestrel Foods), 40 questions, `faded_walk` · `cash_cycle` · `filings_toggle`, cheat sheet | **approved** (free topic, auto-approved on green evals) — 41 flashcards, 166 chunks |
 

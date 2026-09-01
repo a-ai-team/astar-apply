@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Getting the pairing backwards — discounting unlevered cash flow at the cost of equity, or levered at WACC. Also naming the difference as 'one includes debt' without saying which value each produces, which is the part that matters.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

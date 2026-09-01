@@ -3,7 +3,7 @@
   "subtopic_slug": "accretion-dilution-concepts",
   "title": "Accretive or dilutive: the rule you can run in your head",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,29 +27,73 @@
         "type": "worked_calc",
         "md": "The all-stock case, step by step. Tamar: net income **£120m**, **100m shares**, EPS **£1.20**, share price **£18.00**. Offer for Wychwood: **£500m**, all in new Tamar shares. Wychwood's net income: **£40m**.",
         "steps": [
-          { "label": "New shares issued: consideration ÷ Tamar's share price", "expr": "500 / 18", "value": 27.78, "unit": "m" },
-          { "label": "Pro-forma net income (no financing cost in all-stock)", "expr": "120 + 40", "value": 160, "unit": "£m" },
-          { "label": "Pro-forma share count", "expr": "100 + 27.78", "value": 127.78, "unit": "m" },
-          { "label": "Pro-forma EPS", "expr": "160 / 127.78", "value": 1.252, "unit": "£" },
-          { "label": "Accretion vs the £1.20 standalone", "expr": "1.252 / 1.20 - 1", "value": 0.043, "unit": "" },
-          { "label": "Check via yields: earnings yield bought", "expr": "40 / 500", "value": 0.08, "unit": "" },
-          { "label": "…against the earnings yield of the stock given up", "expr": "1 / 15", "value": 0.0667, "unit": "" }
+          {
+            "label": "New shares issued: consideration ÷ Tamar's share price",
+            "expr": "500 / 18",
+            "value": 27.78,
+            "unit": "m"
+          },
+          {
+            "label": "Pro-forma net income (no financing cost in all-stock)",
+            "expr": "120 + 40",
+            "value": 160,
+            "unit": "£m"
+          },
+          {
+            "label": "Pro-forma share count",
+            "expr": "100 + 27.78",
+            "value": 127.78,
+            "unit": "m"
+          },
+          {
+            "label": "Pro-forma EPS",
+            "expr": "160 / 127.78",
+            "value": 1.252,
+            "unit": "£"
+          },
+          {
+            "label": "Accretion vs the £1.20 standalone",
+            "expr": "1.252 / 1.20 - 1",
+            "value": 0.043,
+            "unit": ""
+          },
+          {
+            "label": "Check via yields: earnings yield bought",
+            "expr": "40 / 500",
+            "value": 0.08,
+            "unit": ""
+          },
+          {
+            "label": "…against the earnings yield of the stock given up",
+            "expr": "1 / 15",
+            "value": 0.0667,
+            "unit": ""
+          }
         ]
       },
       {
         "type": "predict",
         "prompt": "Tamar's shares trade at 15 times earnings, and it is paying 12.5 times earnings for Wychwood, entirely in stock. Pro-forma EPS will be…",
         "options": [
-          { "label": "Higher than £1.20 — accretive", "correct": true },
-          { "label": "Lower than £1.20 — dilutive" },
-          { "label": "Exactly £1.20 — the multiples cancel out" }
+          {
+            "label": "Higher than £1.20 — accretive",
+            "correct": true
+          },
+          {
+            "label": "Lower than £1.20 — dilutive"
+          },
+          {
+            "label": "Exactly £1.20 — the multiples cancel out"
+          }
         ],
         "explain_md": "**Higher — the deal is accretive.** Run the yield swap: Tamar receives earnings yielding 8.0 % on the price paid (1 ÷ 12.5) and pays with stock costing its own earnings yield of 6.67 % (1 ÷ 15). Receiving more than you give up pushes EPS upward — to £1.252, about 4.3 % above standalone.\n\nThe same logic in multiples: a buyer on a *higher* P/E using its stock to buy earnings at a *lower* P/E is always accretive, because each pound of its own earnings is more expensively rated than the pound it is buying. Try it in the widget below: drag the offer P/E up towards 15× and watch the accretion drain away to zero — the flip happens exactly where the two multiples meet."
       },
       {
         "type": "widget",
         "widget": "accretion_rule",
-        "props": { "mode": "simple" }
+        "props": {
+          "mode": "simple"
+        }
       },
       {
         "type": "trap",
@@ -92,10 +136,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "What does paying in stock cost the buyer?", "a": "Its own earnings yield — one divided by its P/E. Issuing shares gives new holders a claim on existing earnings." },
-          { "q": "What does paying in cash cost?", "a": "The after-tax interest the cash was earning — income the group no longer receives once the cash is spent." },
-          { "q": "Why does cash usually produce the most accretion?", "a": "Because after-tax deposit rates sit below almost any target's earnings yield, cash is normally the cheapest currency available." },
-          { "q": "Accretive deal — good deal?", "a": "Not necessarily. Accretion is an EPS arithmetic outcome, not an NPV. Overpaying with cheap debt can be accretive and still destroy value." }
+          {
+            "q": "What does paying in stock cost the buyer?",
+            "a": "Its own earnings yield — one divided by its P/E. Issuing shares gives new holders a claim on existing earnings."
+          },
+          {
+            "q": "What does paying in cash cost?",
+            "a": "The after-tax interest the cash was earning — income the group no longer receives once the cash is spent."
+          },
+          {
+            "q": "Why does cash usually produce the most accretion?",
+            "a": "Because after-tax deposit rates sit below almost any target's earnings yield, cash is normally the cheapest currency available."
+          },
+          {
+            "q": "Accretive deal — good deal?",
+            "a": "Not necessarily. Accretion is an EPS arithmetic outcome, not an NPV. Overpaying with cheap debt can be accretive and still destroy value."
+          }
         ]
       },
       {

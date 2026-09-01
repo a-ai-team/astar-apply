@@ -32,7 +32,7 @@
   "numbers": {
     "inputs": {
       "shares": 120,
-      "price": 9.0,
+      "price": 9,
       "debt": 240,
       "cash": 60,
       "lease_liability": 30,
@@ -43,7 +43,7 @@
   },
   "weak_answer_note": "Removes the lease liability from enterprise value but leaves EBITDA at £150m — the mismatched 8.40× — which is precisely the inconsistency the question is testing.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

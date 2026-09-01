@@ -3,7 +3,7 @@
   "subtopic_slug": "dcf-sensitivities",
   "title": "Sensitivities: why a DCF is a range, not a number",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Which single change moves Harbourline's enterprise value more: cutting the discount rate by one percentage point, or raising revenue growth by one percentage point in every one of the five forecast years?",
         "options": [
-          { "label": "The discount rate cut", "correct": true },
-          { "label": "The revenue growth increase" },
-          { "label": "They move it by roughly the same amount" },
-          { "label": "Neither — both are inside the rounding" }
+          {
+            "label": "The discount rate cut",
+            "correct": true
+          },
+          {
+            "label": "The revenue growth increase"
+          },
+          {
+            "label": "They move it by roughly the same amount"
+          },
+          {
+            "label": "Neither — both are inside the rounding"
+          }
         ],
         "explain_md": "**The discount rate**, and not by a little.\n\nRaising revenue growth by a point lifts each forecast year's cash flow modestly, and compounds to a slightly larger final-year figure that feeds the terminal value. Worth real money — but it only touches the numerator.\n\nCutting the discount rate by a point does two things at once. It raises the present value of every single year, *and* it shrinks the terminal denominator from 6 points to 5 — which lifts the terminal value by a fifth on its own. Since the terminal value is about three-quarters of the total, that second effect dominates everything else in the model.\n\nThis is the intuition behind the whole lesson: the inputs that touch the *denominator* of the terminal value matter more than the inputs that touch the cash flows."
       },
@@ -38,7 +47,13 @@
         "type": "widget",
         "widget": "dcf_sensitivity",
         "props": {
-          "cashFlows": [81.8, 86.7, 92.4, 96.9, 102.3],
+          "cashFlows": [
+            81.8,
+            86.7,
+            92.4,
+            96.9,
+            102.3
+          ],
           "finalFcf": 102.3,
           "netDebt": 480,
           "shares": 250,
@@ -50,23 +65,81 @@
         "type": "worked_calc",
         "md": "**Harbourline's grid, corner to corner.** The base case discounts at **8 %** with **2 %** terminal growth and gives an enterprise value of **£1,548m**. Below, the two corners — and what each does to the value per share once you deduct the £480m of debt-like claims (£380m net debt plus £30m preferred, £25m non-controlling interests and £45m of leases) and divide by 250m shares.\n\nNotice how much larger the swing is than anything the operating assumptions could produce.",
         "steps": [
-          { "label": "Base case: enterprise value", "expr": "364.3 + 1183.6", "value": 1547.9, "unit": "£m" },
-          { "label": "Base case: value per share", "expr": "(1547.9 - 480) / 250", "value": 4.27, "unit": "£" },
-          { "label": "Pessimistic corner (9 % / 1 %): per share", "expr": "(1193.9 - 480) / 250", "value": 2.86, "unit": "£" },
-          { "label": "Optimistic corner (7 % / 3 %): per share", "expr": "(2252.6 - 480) / 250", "value": 7.09, "unit": "£" },
-          { "label": "The optimistic corner as a multiple of the pessimistic", "expr": "2252.6 / 1193.9", "value": 1.887, "unit": "×" },
-          { "label": "Mid-year convention: enterprise value", "expr": "378.6 + 1183.6", "value": 1562.2, "unit": "£m" },
-          { "label": "What the mid-year convention is worth", "expr": "1562.2 / 1547.9 - 1", "value": 0.0092, "unit": "" }
+          {
+            "label": "Base case: enterprise value",
+            "expr": "364.3 + 1183.6",
+            "value": 1547.9,
+            "unit": "£m"
+          },
+          {
+            "label": "Base case: value per share",
+            "expr": "(1547.9 - 480) / 250",
+            "value": 4.27,
+            "unit": "£"
+          },
+          {
+            "label": "Pessimistic corner (9 % / 1 %): per share",
+            "expr": "(1193.9 - 480) / 250",
+            "value": 2.86,
+            "unit": "£"
+          },
+          {
+            "label": "Optimistic corner (7 % / 3 %): per share",
+            "expr": "(2252.6 - 480) / 250",
+            "value": 7.09,
+            "unit": "£"
+          },
+          {
+            "label": "The optimistic corner as a multiple of the pessimistic",
+            "expr": "2252.6 / 1193.9",
+            "value": 1.887,
+            "unit": "×"
+          },
+          {
+            "label": "Mid-year convention: enterprise value",
+            "expr": "378.6 + 1183.6",
+            "value": 1562.2,
+            "unit": "£m"
+          },
+          {
+            "label": "What the mid-year convention is worth",
+            "expr": "1562.2 / 1547.9 - 1",
+            "value": 0.0092,
+            "unit": ""
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "The market values Harbourline's equity at £4.20 a share — £1,050m across 250m shares. Work out what enterprise value the market is implying, and where that sits against your base case. This is the calculation that turns a sensitivity table into an argument.",
         "steps": [
-          { "label": "Market equity value", "expr": "4.20 * 250", "value": 1050, "unit": "£m" },
-          { "label": "Market-implied enterprise value", "expr": "1050 + 480", "value": 1530, "unit": "£m", "blank": true },
-          { "label": "Your base case, less the market's number", "expr": "1547.9 - 1530", "value": 17.9, "unit": "£m", "blank": true },
-          { "label": "That difference as a share of the market's value", "expr": "17.9 / 1530", "value": 0.0117, "unit": "", "blank": true }
+          {
+            "label": "Market equity value",
+            "expr": "4.20 * 250",
+            "value": 1050,
+            "unit": "£m"
+          },
+          {
+            "label": "Market-implied enterprise value",
+            "expr": "1050 + 480",
+            "value": 1530,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Your base case, less the market's number",
+            "expr": "1547.9 - 1530",
+            "value": 17.9,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "That difference as a share of the market's value",
+            "expr": "17.9 / 1530",
+            "value": 0.0117,
+            "unit": "",
+            "blank": true
+          }
         ]
       },
       {
@@ -112,10 +185,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Which way does the mid-year convention move the value, and by roughly how much?", "a": "Up — cash is assumed to arrive on average half a year sooner. For Harbourline it is worth about 1 %." },
-          { "q": "After the discount rate and terminal growth, what is the next most sensitive input?", "a": "The operating margin. It changes the cash flows, though not the multiplier applied to them." },
-          { "q": "Why sensitise WACC against growth rather than WACC against revenue?", "a": "Because those two are the terminal-value drivers, and the terminal value is most of the answer." },
-          { "q": "How wide should a sensitivity range be?", "a": "About a point either way on each driver. Much wider and you are no longer valuing the company, you are listing possibilities." }
+          {
+            "q": "Which way does the mid-year convention move the value, and by roughly how much?",
+            "a": "Up — cash is assumed to arrive on average half a year sooner. For Harbourline it is worth about 1 %."
+          },
+          {
+            "q": "After the discount rate and terminal growth, what is the next most sensitive input?",
+            "a": "The operating margin. It changes the cash flows, though not the multiplier applied to them."
+          },
+          {
+            "q": "Why sensitise WACC against growth rather than WACC against revenue?",
+            "a": "Because those two are the terminal-value drivers, and the terminal value is most of the answer."
+          },
+          {
+            "q": "How wide should a sensitivity range be?",
+            "a": "About a point either way on each driver. Much wider and you are no longer valuing the company, you are listing possibilities."
+          }
         ]
       },
       {

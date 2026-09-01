@@ -3,7 +3,7 @@
   "subtopic_slug": "wacc-intro",
   "title": "WACC: the blended price of money",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Ashdown swaps £1m of equity funding for £1m of extra bank debt at the same 8 % rate, leaving the cost of equity and everything else unchanged. What happens to its WACC?",
         "options": [
-          { "label": "It falls, from about 11.3 % to about 10 %", "correct": true },
-          { "label": "It is unchanged — the total funding is the same" },
-          { "label": "It rises, because debt adds risk" },
-          { "label": "It falls to the after-tax cost of debt, 6 %" }
+          {
+            "label": "It falls, from about 11.3 % to about 10 %",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — the total funding is the same"
+          },
+          {
+            "label": "It rises, because debt adds risk"
+          },
+          {
+            "label": "It falls to the after-tax cost of debt, 6 %"
+          }
         ],
         "explain_md": "On these inputs it falls to exactly **10 %**: the weights shift from ⅔/⅓ to ½/½, and you are moving money from a 14 % source to a 6 % source.\n\nBut read the question again — it *told you* to hold the cost of equity fixed. In reality it would not stay at 14 %: more debt in front of the owners makes their residual claim riskier, so they would demand more. That assumption is precisely the trap in the next section, and this prediction is how you feel it working."
       },
@@ -39,32 +48,102 @@
         "widget": "discount_dial",
         "props": {
           "mode": "npv",
-          "cashflows": [0.6, 0.6, 0.6, 0.6, 0.6],
-          "outlay": 2.0,
-          "wacc": { "E": 4, "D": 2, "ke": 0.14, "kd": 0.08, "t": 0.25 }
+          "cashflows": [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          "outlay": 2,
+          "wacc": {
+            "E": 4,
+            "D": 2,
+            "ke": 0.14,
+            "kd": 0.08,
+            "t": 0.25
+          }
         }
       },
       {
         "type": "worked_calc",
         "md": "Ashdown is funded by **£4m of equity** and **£2m of bank debt**. The bank charges **8 %**; the owners expect **14 %** for the risk they are taking; the tax rate is **25 %**.\n\nThen the pay-off: use that WACC instead of the rough 8 % from the last lesson, and see what happens to the thirteenth shop.",
         "steps": [
-          { "label": "After-tax cost of debt", "expr": "8% * (1 - 25%)", "value": 0.06, "unit": "" },
-          { "label": "Equity weight", "expr": "4 / 6", "value": 0.667, "unit": "" },
-          { "label": "Equity contribution to the blend", "expr": "(4 / 6) * 14%", "value": 0.0933, "unit": "" },
-          { "label": "Debt contribution to the blend", "expr": "(2 / 6) * 6%", "value": 0.02, "unit": "" },
-          { "label": "WACC", "expr": "0.0933 + 0.02", "value": 0.1133, "unit": "" },
-          { "label": "The shop's NPV at 11.33 % instead of 8 %", "expr": "0.6 * ((1 - 1.1133^-5) / 0.1133) - 2.0", "value": 0.199, "unit": "£m" }
+          {
+            "label": "After-tax cost of debt",
+            "expr": "8% * (1 - 25%)",
+            "value": 0.06,
+            "unit": ""
+          },
+          {
+            "label": "Equity weight",
+            "expr": "4 / 6",
+            "value": 0.667,
+            "unit": ""
+          },
+          {
+            "label": "Equity contribution to the blend",
+            "expr": "(4 / 6) * 14%",
+            "value": 0.0933,
+            "unit": ""
+          },
+          {
+            "label": "Debt contribution to the blend",
+            "expr": "(2 / 6) * 6%",
+            "value": 0.02,
+            "unit": ""
+          },
+          {
+            "label": "WACC",
+            "expr": "0.0933 + 0.02",
+            "value": 0.1133,
+            "unit": ""
+          },
+          {
+            "label": "The shop's NPV at 11.33 % instead of 8 %",
+            "expr": "0.6 * ((1 - 1.1133^-5) / 0.1133) - 2.0",
+            "value": 0.199,
+            "unit": "£m"
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "The bank offers Ashdown a cheaper rate of **6 %** if it takes more debt: **£3m of debt and £3m of equity**. The owners, seeing the extra leverage, now want **16 %**. Tax is still 25 %. Work out whether the cheaper debt actually helped.",
         "steps": [
-          { "label": "After-tax cost of debt", "expr": "6% * (1 - 25%)", "value": 0.045, "unit": "", "blank": true },
-          { "label": "Equity contribution", "expr": "(3 / 6) * 16%", "value": 0.08, "unit": "", "blank": true },
-          { "label": "Debt contribution", "expr": "(3 / 6) * 4.5%", "value": 0.0225, "unit": "" },
-          { "label": "New WACC", "expr": "0.08 + 0.0225", "value": 0.1025, "unit": "", "blank": true },
-          { "label": "Change against the original 11.33 %", "expr": "0.1025 - 0.1133", "value": -0.0108, "unit": "" }
+          {
+            "label": "After-tax cost of debt",
+            "expr": "6% * (1 - 25%)",
+            "value": 0.045,
+            "unit": "",
+            "blank": true
+          },
+          {
+            "label": "Equity contribution",
+            "expr": "(3 / 6) * 16%",
+            "value": 0.08,
+            "unit": "",
+            "blank": true
+          },
+          {
+            "label": "Debt contribution",
+            "expr": "(3 / 6) * 4.5%",
+            "value": 0.0225,
+            "unit": ""
+          },
+          {
+            "label": "New WACC",
+            "expr": "0.08 + 0.0225",
+            "value": 0.1025,
+            "unit": "",
+            "blank": true
+          },
+          {
+            "label": "Change against the original 11.33 %",
+            "expr": "0.1025 - 0.1133",
+            "value": -0.0108,
+            "unit": ""
+          }
         ]
       },
       {
@@ -109,10 +188,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Why is the cost of equity higher than the cost of debt?", "a": "Shareholders are the residual claim — paid last, with no contract — so they demand more for the extra risk." },
-          { "q": "What is the (1 − t) doing in the formula?", "a": "Interest is tax-deductible, so borrowing cuts the tax bill and debt's true cost is lower than the headline rate." },
-          { "q": "Which cash flow does WACC discount?", "a": "Unlevered free cash flow — the cash available to all providers of capital, before interest." },
-          { "q": "A company funded entirely by equity — what is its WACC?", "a": "Its cost of equity. There is nothing to blend it with." }
+          {
+            "q": "Why is the cost of equity higher than the cost of debt?",
+            "a": "Shareholders are the residual claim — paid last, with no contract — so they demand more for the extra risk."
+          },
+          {
+            "q": "What is the (1 − t) doing in the formula?",
+            "a": "Interest is tax-deductible, so borrowing cuts the tax bill and debt's true cost is lower than the headline rate."
+          },
+          {
+            "q": "Which cash flow does WACC discount?",
+            "a": "Unlevered free cash flow — the cash available to all providers of capital, before interest."
+          },
+          {
+            "q": "A company funded entirely by equity — what is its WACC?",
+            "a": "Its cost of equity. There is nothing to blend it with."
+          }
         ]
       },
       {

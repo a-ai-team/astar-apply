@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Says 'EBITDA ignores capex' without connecting it to why that distorts a comparison, or cannot name a situation where the distinction changes the conclusion.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

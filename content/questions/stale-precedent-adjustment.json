@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Silently includes the stale deal in the median, or excludes it without saying so — in a four-deal set that single choice moves the answer materially.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

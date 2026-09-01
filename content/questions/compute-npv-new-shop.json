@@ -1,7 +1,7 @@
 {
   "topic_slug": "finance-foundations",
   "source_topic": "Finance concepts",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "slug": "compute-npv-new-shop",
@@ -33,7 +33,7 @@
       "annual_cash_flow": 0.6,
       "years": 5,
       "rate": 0.08,
-      "outlay": 2.0
+      "outlay": 2
     },
     "answer": 0.396
   },

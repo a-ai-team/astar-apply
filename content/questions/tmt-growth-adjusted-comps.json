@@ -31,9 +31,9 @@
   ],
   "numbers": {
     "inputs": {
-      "peer_a_multiple": 5.0,
+      "peer_a_multiple": 5,
       "peer_a_growth": 10,
-      "peer_b_multiple": 12.0,
+      "peer_b_multiple": 12,
       "peer_b_growth": 45,
       "target_growth": 35,
       "arr": 40
@@ -42,7 +42,7 @@
   },
   "weak_answer_note": "Averages the two multiples to 8.5× and applies it, which prices a 35 % grower as though it grew at 27.5 % — the exact mistake the growth-adjusted method exists to avoid.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

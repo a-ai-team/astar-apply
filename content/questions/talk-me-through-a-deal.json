@@ -32,7 +32,7 @@
   ],
   "weak_answer_note": "Headline facts with no numbers, or numbers with no view. Also weak: choosing a mega-deal from the news but being unable to say how it was financed or what the premium was.",
   "numbers": null,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

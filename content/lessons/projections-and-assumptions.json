@@ -3,7 +3,7 @@
   "subtopic_slug": "projections-and-assumptions",
   "title": "Projections and the assumptions behind them",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -65,7 +65,7 @@
           {
             "label": "Revenue, growing 6 %",
             "expr": "1200 * 1.06",
-            "value": 1272.0,
+            "value": 1272,
             "unit": "£m"
           },
           {

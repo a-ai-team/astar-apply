@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Says EV/EBITDA is 'better' without the pre- versus post-interest logic, or fails to name a case where P/E is the right tool.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

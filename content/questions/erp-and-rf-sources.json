@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Naming a number with no source. Using a short-term rate for the risk-free, which mismatches the horizon. Treating the equity risk premium as a fixed constant rather than a contested estimate is the gap that shows at this level.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null
