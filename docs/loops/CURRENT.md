@@ -43,17 +43,24 @@ and an unresolved merge-conflict marker sitting live in `docs/MASTER_PLAN.md`.
 
 1. ~~Approve the paid chapters~~ **Done 2026-09-01** — James approved everything in chat; 154 items
    auto-approved via `content:approve` (eval-gated), flashcards and index refreshed.
-2. **Lighthouse a11y** (standing gap since Loop 11, no headless Chrome in the sandbox):
-   `npx lighthouse http://localhost:3100/home/technicals/accounting/three-statement-links --only-categories=accessibility`
-   against `next start` clears Loops 11–18 in one run.
-3. **Two one-line content fixes flagged by the gates** (pre-existing, on `main`): the DCF cheat
-   sheet's discounting note claims mid-year lifts EV "3–4 %" (library: +0.9 %); Loop 15's
-   `multiples-and-metrics` TMT lens answer has a Rule-of-40 inconsistency the readability judge
-   keeps sampling low (3.3).
-4. **Migrations 0010/0011 remain unapplied** (inherited from Loops 09/10; nothing in 11–18 needs
-   them — seed 03 warns and works around). **PR #17** (Loop 10 launch) is still deliberately
-   untouched: `needs-james`, placeholder legal copy, unconfigured Stripe.
+2. ~~Lighthouse a11y~~ **Done 2026-09-01** — run for the first time (real Chrome on James's machine,
+   headless, through the private-area gate with the team-session cookie):
+   `three-statement-links` **0.97**, `paper-lbo-walkthrough` **1.0**. Two small non-blocking audit
+   notes for whenever someone is in those components: one colour-contrast instance on the accounting
+   page, and the print-style tables (`Template`, statement tables) use header-less `<td>` rows
+   (`td-has-header`) — a `<th scope="row">` on the label column would clear it.
+3. ~~Two one-line content fixes~~ **Done 2026-09-01** — the DCF cheat sheet now states the mid-year
+   lift correctly (just under 1 %, TV still end-of-year discounted) and the `multiples-and-metrics`
+   Rule-of-40 answer now scores B at 45 (was wrongly "level at 30"); lessons eval re-run **PASS**
+   (readability 4.48), content re-indexed.
+4. ~~Migration 0010~~ **Applied 2026-09-01** (`db push` reached Postgres from this machine; the
+   seed-03 `group_family` warning is gone, 18 industry modules seed fully). **0011 was never on
+   `main`** — it lives on PR #17 (Loop 10 launch), which remains deliberately untouched:
+   `needs-james`, placeholder legal copy, unconfigured Stripe.
 5. Loop 04/09 batch content runs never happened; credit exists now if top-ups are ever wanted.
+
+**Nothing else is outstanding.** The programme and its follow-ups are complete; the only open item
+in the repo is the launch itself (PR #17), which is James's by design.
 
 ## Merging — how it works here
 
@@ -111,3 +118,4 @@ again, conflicts land in `docs/{MASTER_PLAN,TECHNICALS}.md`, `docs/loops/{CURREN
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
 - 2026-09-01 heartbeat
 - 2026-09-01 20:45 heartbeat
+- 2026-09-01 22:16 heartbeat

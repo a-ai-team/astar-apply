@@ -34,7 +34,7 @@
     {
       "name": "Discounting",
       "latex": "PV = \\frac{CF_t}{(1+r)^t} \\quad \\text{(mid-year: } t - 0.5\\text{)}",
-      "note": "The mid-year convention assumes cash arrives evenly through the year, lifting Harbourline's EV by about 3–4 %."
+      "note": "The mid-year convention assumes cash arrives evenly through the year. The terminal value still discounts at the final year's end-of-year factor, so the lift to Harbourline's EV is small — just under 1 %."
     },
     {
       "name": "Relevering beta",
