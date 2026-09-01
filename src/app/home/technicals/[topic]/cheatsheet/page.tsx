@@ -23,7 +23,7 @@ export default async function CheatSheetPage({ params }: PageProps<"/home/techni
   if (!topic || !sheet) notFound();
 
   return (
-    <article className="max-w-3xl print:max-w-none" data-testid="cheatsheet">
+    <article className="w-full" data-testid="cheatsheet">
       <nav className="text-sm text-muted print:hidden">
         <Link href="/home/technicals" className="hover:text-fg">Technicals</Link>
         <span className="mx-1">/</span>
