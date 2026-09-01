@@ -1,0 +1,37 @@
+{
+  "slug": "three-return-levers",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "return-levers"
+  ],
+  "question": "Where does a sponsor's profit on an LBO actually come from? Name the sources — and say which one leverage is not.",
+  "model_answer_md": "Three levers, and one amplifier that is often mistaken for a fourth.\n\n**EBITDA growth.** The business earns more at exit than at entry, so at the same multiple it is worth more. On Pennard, £50m growing to £63.8m is worth an extra (63.8 − 50) × 8 = **£110.4m** at the entry multiple.\n\n**Deleveraging.** Free cash flow repays debt, and every pound repaid is a pound of exit value that belongs to the equity instead of the lenders. Pennard repays 250 − 115.7 = **£134.3m** over the hold.\n\n**Multiple expansion.** Selling at a higher multiple than you paid. It is real when it happens, but it depends on market conditions the sponsor does not control — so investment committees insist the deal works with the exit multiple flat, and Pennard's plan assumes exactly that: **£0** from this lever.\n\n**Leverage is not on the list.** Debt creates none of the gain; it shrinks the cheque the gain is measured against, so the same pool of value produces a higher multiple on equity — in both directions. The sentence that shows command: the levers create the value, leverage decides how hard it hits the cheque.",
+  "key_points": [
+    "EBITDA growth: worth £110.4m on Pennard at the entry multiple",
+    "Deleveraging: £134.3m of debt repaid transfers to the equity",
+    "Multiple expansion: real but not underwritten — Pennard assumes £0",
+    "Leverage is an amplifier, not a lever — it creates nothing",
+    "Levers less the £10m of fees reconcile to the £234.7m sponsor gain"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which of the three do sponsors refuse to underwrite, and why?",
+      "answer_md": "Multiple expansion. Entry and exit multiples are set by markets — rates, sentiment, sector fashion — none of which the sponsor controls or can plan for, so a deal that needs a richer exit multiple to work is a bet on weather, not a plan. Committees therefore require the returns case to clear its hurdle at an exit multiple no higher than entry; anything the market adds later is treated as upside, not thesis."
+    },
+    {
+      "question": "Which lever dominated Pennard?",
+      "answer_md": "Deleveraging, narrowly: £134.3m of debt repaid against £110.4m from EBITDA growth, with the multiple contributing nothing by assumption. That balance is typical of a moderate-growth, cash-generative business at five turns of leverage — and it is worth saying out loud in an interview, because it demonstrates the counterintuitive point that a flat-multiple LBO on a 5 %-growth company still returns 2.5× largely on cash generation alone."
+    }
+  ],
+  "weak_answer_note": "Listing \"leverage\" as a source of value, or naming the three levers without being able to size any of them on the deal in front of you. The decomposition — 110.4 growth, 134.3 paydown, nil multiple, less 10 of fees — is what turns the list into an answer.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

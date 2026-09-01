@@ -72,3 +72,39 @@ describe("selectMock", () => {
     expect(selectMock(p).ids).toEqual(["accounting-0"]);
   });
 });
+
+describe("the lens gate (Loop 18)", () => {
+  const lensQ = (id: string, topic: string, lens: string, difficulty = 2): PoolQuestion => ({ id, topic_slug: topic, subtopic_slug: null, difficulty, tags: [`lens:${lens}`, "depth:sa-core"] });
+
+  it("a generalist drill never sees lens-tagged questions", () => {
+    const p = [...pool({ ma: [1, 2, 3] }), lensQ("ma-tmt", "ma", "tmt"), lensQ("ma-hc", "ma", "healthcare")];
+    const s = selectDrill(p, "ma", { rng: seededRng(4) });
+    expect(s.ids.sort()).toEqual(["ma-0", "ma-1", "ma-2"]);
+  });
+
+  it("choosing TMT adds lens:tmt questions and still hides lens:healthcare", () => {
+    const p = [...pool({ ma: [1, 2, 3] }), lensQ("ma-tmt", "ma", "tmt"), lensQ("ma-hc", "ma", "healthcare")];
+    const s = selectDrill(p, "ma", { rng: seededRng(4), lens: "tmt" });
+    expect(s.ids).toContain("ma-tmt");
+    expect(s.ids).not.toContain("ma-hc");
+  });
+
+  it("the mock behaves the same way", () => {
+    const p = [...pool({ accounting: [1, 2], dcf: [2, 3] }), lensQ("dcf-tmt", "dcf", "tmt"), lensQ("acc-hc", "accounting", "healthcare")];
+    const generalist = selectMock(p, { rng: seededRng(6) });
+    expect(generalist.ids).not.toContain("dcf-tmt");
+    expect(generalist.ids).not.toContain("acc-hc");
+    const tmt = selectMock(p, { rng: seededRng(6), lens: "tmt" });
+    expect(tmt.ids).toContain("dcf-tmt");
+    expect(tmt.ids).not.toContain("acc-hc");
+  });
+
+  it("adding lens questions to the pool leaves a generalist run's seeded order untouched", () => {
+    // The gate filters before any shuffle, so the RNG consumes exactly the same draws — the
+    // regression guard for the seeded behaviour e2e 07 and 09 depend on.
+    const base = pool({ accounting: [1, 1, 2, 2, 3, 3, 2, 1] });
+    const withLens = [...base, lensQ("acc-tmt", "accounting", "tmt"), lensQ("acc-hc", "accounting", "healthcare")];
+    expect(selectDrill(withLens, "accounting", { rng: seededRng(7) }).ids).toEqual(selectDrill(base, "accounting", { rng: seededRng(7) }).ids);
+    expect(selectMock(withLens, { rng: seededRng(11) }).ids).toEqual(selectMock(base, { rng: seededRng(11) }).ids);
+  });
+});

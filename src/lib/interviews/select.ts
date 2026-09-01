@@ -4,10 +4,21 @@
 // a mock takes up to MOCK_SIZE round-robin across the technical topics (so a 6-question pool gives
 // a 6-question mock and the UI says so).
 import type { SupabaseClient } from "@supabase/supabase-js";
+import type { LensSlug } from "@/lib/content/lesson-schema";
 import { CURRICULUM } from "@/lib/content/taxonomy";
 import { DRILL_SIZE, MOCK_SIZE } from "./types";
 
-export type PoolQuestion = { id: string; topic_slug: string; subtopic_slug: string | null; difficulty: number };
+export type PoolQuestion = { id: string; topic_slug: string; subtopic_slug: string | null; difficulty: number; tags?: string[] };
+
+/**
+ * Lens gate (Loop 18): a generalist run never sees `lens:`-tagged questions; choosing a lens adds
+ * that lens's questions and still hides the other lens's. Filtered before any shuffle, so the
+ * seeded order of a lens-free pool is untouched.
+ */
+function lensAllows(q: PoolQuestion, lens?: LensSlug): boolean {
+  const lensTags = (q.tags ?? []).filter((t) => t.startsWith("lens:"));
+  return lensTags.length === 0 || (!!lens && lensTags.includes(`lens:${lens}`));
+}
 
 /** The technical topics a full mock draws from, in the order the curriculum teaches them. */
 export const MOCK_TOPICS: readonly string[] = CURRICULUM.filter((t) => t.kind === "core" || t.kind === "foundation").map((t) => t.slug);
@@ -41,10 +52,10 @@ export function shuffle<T>(xs: readonly T[], rng: Rng): T[] {
 export type Selection = { ids: string[]; requested: number; shortfall: number; topics: string[] };
 
 /** Drill: up to DRILL_SIZE random approved questions from one topic, difficulties 1–3 (falls back to any difficulty when that leaves fewer than DRILL_SIZE). */
-export function selectDrill(pool: readonly PoolQuestion[], topicSlug: string, opts: { n?: number; rng?: Rng } = {}): Selection {
+export function selectDrill(pool: readonly PoolQuestion[], topicSlug: string, opts: { n?: number; rng?: Rng; lens?: LensSlug } = {}): Selection {
   const n = opts.n ?? DRILL_SIZE;
   const rng = opts.rng ?? Math.random;
-  const inTopic = pool.filter((q) => q.topic_slug === topicSlug);
+  const inTopic = pool.filter((q) => q.topic_slug === topicSlug && lensAllows(q, opts.lens));
   const preferred = inTopic.filter((q) => (DRILL_DIFFICULTIES as readonly number[]).includes(q.difficulty));
   const candidates = preferred.length >= n ? preferred : inTopic;
   const picked = shuffle(candidates, rng).slice(0, n);
@@ -56,13 +67,13 @@ export function selectDrill(pool: readonly PoolQuestion[], topicSlug: string, op
  * have approved questions, each topic's candidates shuffled, no repeats), then ordered easy → hard
  * with topics interleaved so the candidate never gets five accounting questions in a row.
  */
-export function selectMock(pool: readonly PoolQuestion[], opts: { n?: number; rng?: Rng; topics?: readonly string[] } = {}): Selection {
+export function selectMock(pool: readonly PoolQuestion[], opts: { n?: number; rng?: Rng; topics?: readonly string[]; lens?: LensSlug } = {}): Selection {
   const n = opts.n ?? MOCK_SIZE;
   const rng = opts.rng ?? Math.random;
   const topics = opts.topics ?? MOCK_TOPICS;
   const byTopic = new Map<string, PoolQuestion[]>();
   for (const t of topics) {
-    const qs = pool.filter((q) => q.topic_slug === t && (MOCK_DIFFICULTIES as readonly number[]).includes(q.difficulty));
+    const qs = pool.filter((q) => q.topic_slug === t && (MOCK_DIFFICULTIES as readonly number[]).includes(q.difficulty) && lensAllows(q, opts.lens));
     if (qs.length) byTopic.set(t, shuffle(qs, rng));
   }
   const picked: PoolQuestion[] = [];
@@ -85,7 +96,7 @@ export function selectMock(pool: readonly PoolQuestion[], opts: { n?: number; rn
 
 /** Approved questions with their topic/subtopic slugs (RLS on the cookie client already hides drafts; the filter is belt and braces). */
 export async function loadPool(db: SupabaseClient, topicSlug?: string): Promise<PoolQuestion[]> {
-  let q = db.from("questions").select("id, difficulty, status, topic:topics!inner(slug), subtopic:subtopics(slug)").eq("status", "approved");
+  let q = db.from("questions").select("id, difficulty, status, tags, topic:topics!inner(slug), subtopic:subtopics(slug)").eq("status", "approved");
   if (topicSlug) q = q.eq("topic.slug", topicSlug);
   const { data, error } = await q;
   if (error) throw error;
@@ -94,5 +105,6 @@ export async function loadPool(db: SupabaseClient, topicSlug?: string): Promise<
     difficulty: r.difficulty as number,
     topic_slug: (r.topic as unknown as { slug: string }).slug,
     subtopic_slug: (r.subtopic as unknown as { slug: string } | null)?.slug ?? null,
+    tags: (r.tags as string[] | null) ?? [],
   }));
 }

@@ -1,0 +1,38 @@
+{
+  "slug": "tmt-rate-sensitivity",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "lens:tmt",
+    "format:verbal",
+    "return-levers"
+  ],
+  "question": "A wave of software buyouts signed at 2021 prices went on to disappoint their sponsors. Using the three-lever framework, explain what went wrong — and what it says about software LBOs generally.",
+  "model_answer_md": "The lever nobody underwrites went sharply negative, and on software structures it had further to fall.\n\nSoftware multiples are long-duration assets: most of the value sits in earnings far in the future, so the multiple buyers will pay is acutely sensitive to interest rates. In 2021, with rates near zero, entry multiples printed at record levels. When rates rose, the buyers those sponsors would eventually face repriced — and deals faced exiting several turns below entry. On a structure levered six or seven times, **multiple compression** of that size can consume the entire equity gain: the third lever did not just miss, it ran backwards.\n\nThe other two levers largely kept working. Subscription revenue kept converting to cash, so **deleveraging** continued; **net revenue retention** kept the growth lever turning. The vintage's lesson is not that software LBOs are broken — it is that entry price is the one decision a sponsor makes with full information, and paying a rate-inflated multiple is a levered bet that the rate environment holds for five years.\n\nThe general point for the sector: high leverage is *earned* by predictable cash flows, but high entry multiples are a separate risk that no amount of revenue visibility hedges.",
+  "key_points": [
+    "Software multiples price off rates — long-duration cash flows",
+    "2021: record entry multiples at near-zero rates; then rates rose",
+    "Exit multiples compressed several turns → the third lever went negative",
+    "At 6–7× leverage, compression can erase the whole equity gain",
+    "Growth (retention) and deleveraging kept working — entry price was the error"
+  ],
+  "follow_ups": [
+    {
+      "question": "How could a sponsor have protected the deal?",
+      "answer_md": "Only partly. Interest-rate caps and swaps hedge the cash cost of the floating debt, protecting the deleveraging lever — most 2021 sponsors had those. But no instrument hedges the multiple a future buyer will pay; the only real protections are made at entry: pay a price that clears the hurdle at a *normalised* exit multiple rather than the prevailing one, lever a turn or two below the maximum on offer, and buy growth strong enough that the EBITDA lever can outrun compression. Survivors of the vintage mostly did the last — or simply held on and let the rate cycle turn."
+    },
+    {
+      "question": "Which lever still works in that environment?",
+      "answer_md": "Deleveraging, above all — recurring revenue keeps converting to cash whatever multiples do, and every pound repaid is immune to the market's mood at exit. Growth also survives where retention holds, though a downturn can slow new bookings. This is why rate-shocked sponsors shifted their story from \"multiple at exit\" to \"cash pay-down and NRR\": the levers within the company's control became the whole investment case, and hold periods stretched to give them time to work."
+    }
+  ],
+  "weak_answer_note": "Blaming \"overpaying\" without the mechanism — the rate-to-multiple link and the leverage that amplified it — or claiming software stopped being LBO-able. The framework answer names which lever failed, why, and which kept working.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

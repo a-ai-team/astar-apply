@@ -1,0 +1,37 @@
+{
+  "slug": "what-is-an-lbo",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lbo-basics"
+  ],
+  "question": "In a sentence or three: what actually happens in a leveraged buyout, and whose money is at work?",
+  "model_answer_md": "A private-equity fund — the **sponsor** — buys a company using mostly borrowed money, typically half to two-thirds of the price, and a minority cheque of its own. The debt is raised against the target's cash flows and sits on the **target's** balance sheet, and over a four-to-six-year hold the company repays it out of its own free cash flow while growing EBITDA. At exit the business is sold — ideally at the same or a better multiple — and because the original cheque was small, the return on it is magnified.\n\nNumbers make it concrete. Pennard Logistics: £400m of enterprise value at 8× EBITDA plus £10m of fees, funded with £250m of debt and £160m of equity. Five years later the business sells for about £510m with £116m of debt left, so the equity collects roughly £395m — about 2.5× the cheque.\n\nThe sentence worth getting exactly right: the *company* deleverages; the sponsor benefits.",
+  "key_points": [
+    "Mostly debt, minority equity — the debt sits on the target's balance sheet",
+    "The company repays the debt from its own free cash flow, not the sponsor",
+    "Hold of four to six years: grow EBITDA, pay down debt, sell",
+    "The small cheque is what magnifies the return — in both directions",
+    "A worked anchor: £160m in, ≈ £395m out on Pennard, ≈ 2.5×"
+  ],
+  "follow_ups": [
+    {
+      "question": "Who actually repays the debt?",
+      "answer_md": "The target company, out of its own free cash flow — the cash left each year after interest, tax and capital spending. The loans are Pennard's liability, not Marlow Capital's, and the fund never sends the lenders a cheque. This is why the screening question for candidates is cash generation rather than growth: a business that converts profit into cash reliably can carry and shed a lot of debt."
+    },
+    {
+      "question": "Why not just buy it with equity and skip the interest bill?",
+      "answer_md": "Because the profit pool would then sit on a cheque two and a half times the size. Pay Pennard's £410m all in equity and the same ≈ £100m of business improvement produces about 1.3× the money; concentrate it on a £160m cheque and it is nearer 2.5×. The interest cost is real but small next to the denominator effect — and the honest caveat is that the same concentration magnifies losses identically if the plan misses."
+    }
+  ],
+  "weak_answer_note": "Describing it as 'the fund borrows money to buy a company' without placing the debt on the target's balance sheet, or claiming the sponsor repays the loans. The direction of the deleveraging sentence is exactly what the interviewer is listening for.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

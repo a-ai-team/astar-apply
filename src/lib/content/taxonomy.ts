@@ -179,11 +179,16 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "How private equity buys with debt, and the mental maths that gets you through the interview.",
     source_section: "LBO models – concepts / calculations",
     subtopics: [
-      sub("lbo-overview", "What an LBO is", "concept", "LBO models – concepts", 8),
+      // Loop 18: four lessons carry the chapter on the Pennard Logistics deal. `debt-tranches`
+      // folds into sources-and-uses and `lbo-mental-maths` into returns-irr-mom — both deferred,
+      // slugs kept. `paper-lbo-walkthrough` is the one NEW v2 subtopic slug in the programme.
+      // Targets are the 20 non-lens questions (lens questions are tagged, not targeted).
+      sub("lbo-overview", "What an LBO is", "concept", "LBO models – concepts", 5),
       sub("sources-and-uses", "Sources and uses", "calculation", "LBO models – calculations", 4),
-      sub("debt-tranches", "Debt tranches and covenants", "concept", "LBO models – concepts", 8),
+      { ...sub("debt-tranches", "Debt tranches and covenants", "concept", "LBO models – concepts", 0), deferred: true },
       sub("returns-irr-mom", "Returns: IRR and money multiple", "calculation", "LBO models – calculations", 6),
-      sub("lbo-mental-maths", "LBO mental maths", "calculation", "LBO models – calculations", 4),
+      { ...sub("lbo-mental-maths", "LBO mental maths", "calculation", "LBO models – calculations", 0), deferred: true },
+      sub("paper-lbo-walkthrough", "The paper LBO", "calculation", "LBO models – calculations", 5),
     ],
   },
   {
@@ -442,44 +447,94 @@ export function findSubtopic(slug: string): { topic: CurriculumTopic; subtopic: 
 
 export const TOTAL_TARGET_QUESTIONS = CURRICULUM.reduce((n, t) => n + t.subtopics.reduce((m, s) => m + s.target_questions, 0), 0);
 
-// Default learning path: 10 weeks × 5 days; day 5 is a review placeholder (lesson_slug null).
-// `lesson_slug` is the planned lesson slug (one lesson per subtopic, slug = subtopic slug, except
-// the two Loop 03 hand-written lessons). Items whose lesson does not exist yet are stored with
-// `lesson_id = null` and resolved when Loop 04 loads the lesson.
-export type PathDay = { day: number; label: string; lesson_slug: string | null; question_set?: string[] };
+// Default learning path: 10 weeks × 5 days. Re-sequenced by Loop 18 onto the 35 v2 lessons —
+// every `lesson_slug` is a written, non-deferred chapter lesson (plus `ev-bridge-basics`, the
+// hand-written Loop 03 lesson that Loop 14 extended in place and that fills the bridge slot).
+// Day 5 of a completed chapter is its cheat sheet + faded review (`cheatsheet` names the topic;
+// `learning_path_items.lesson_id` stays null and the week page links the cheat-sheet route).
+// Week 10's fit lessons are still planned content: stored with `lesson_id = null` until written.
+export type PathDay = { day: number; label: string; lesson_slug: string | null; question_set?: string[]; cheatsheet?: TopicSlug };
 export type PathWeek = { week: number; title: string; topic_slug: TopicSlug; days: PathDay[] };
 
-const week = (week: number, title: string, topic_slug: TopicSlug, lessons: [string, string][]): PathWeek => ({
-  week, title, topic_slug,
-  days: [
-    ...lessons.map(([lesson_slug, label], i) => ({ day: i + 1, label, lesson_slug })),
-    { day: 5, label: "Review: flashcards + 5-question drill", lesson_slug: null },
-  ],
-});
+const week = (week: number, title: string, topic_slug: TopicSlug, days: PathDay[]): PathWeek => ({ week, title, topic_slug, days });
+const lessonDay = (day: number, lesson_slug: string, label: string): PathDay => ({ day, label, lesson_slug });
+const drillDay = (day: number, label: string): PathDay => ({ day, label, lesson_slug: null });
+const sheetDay = (topic: TopicSlug, label = "Cheat sheet + faded review"): PathDay => ({ day: 5, label, lesson_slug: null, cheatsheet: topic });
 
 export const DEFAULT_PATH = {
   slug: "default-10-week",
   title: "10-week technicals path",
-  description: "Foundations → accounting → EqV/EV → valuation → DCF → M&A → LBO → fit and a full mock. Four lessons a week plus a review day.",
+  description: "Foundations → accounting → EqV/EV → valuation → DCF → M&A → LBO → fit and a full mock. Lessons through the week, the chapter's cheat sheet and a faded review to close it.",
   weeks: [
-    week(1, "Finance foundations", "finance-foundations", [["time-value-of-money", "Time value of money"], ["discount-rates-and-risk", "Discount rates and risk"], ["pv-npv", "Present value and NPV"], ["irr-and-payback", "IRR and payback"]]),
-    week(2, "Accounting concepts", "accounting", [["three-statements-overview", "The three statements at a glance"], ["income-statement", "Income statement"], ["balance-sheet", "Balance sheet"], ["cash-flow-statement", "Cash flow statement"]]),
-    week(3, "Accounting walkthroughs", "accounting", [["three-statement-links", "How the three statements link"], ["working-capital", "Working capital"], ["single-step-walkthroughs", "Single-step walkthroughs"], ["multi-step-walkthroughs", "Multi-step walkthroughs"]]),
-    week(4, "Equity value vs enterprise value", "eqv-ev", [["equity-and-enterprise-value", "Equity value and enterprise value"], ["ev-bridge-basics", "The EqV → EV bridge"], ["diluted-shares", "Diluted share count"], ["ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions"]]),
-    week(5, "Valuation & multiples", "valuation", [["valuation-methodologies", "The three methodologies"], ["comparable-companies", "Comparable companies"], ["precedent-transactions", "Precedent transactions"], ["multiples-and-metrics", "Multiples and metrics"]]),
-    week(6, "DCF assumptions", "dcf", [["dcf-overview", "What a DCF is doing"], ["unlevered-free-cash-flow", "Unlevered free cash flow"], ["projections-and-assumptions", "Projections and assumptions"], ["dcf-sensitivities", "Sensitivities and sanity checks"]]),
-    week(7, "DCF discount rate & terminal value", "dcf", [["cost-of-equity-capm", "Cost of equity and CAPM"], ["wacc", "WACC"], ["terminal-value", "Terminal value"], ["levered-dcf-and-variants", "Levered DCF and other variants"]]),
-    week(8, "M&A", "ma", [["why-companies-acquire", "Why companies acquire"], ["accretion-dilution-concepts", "Accretion / dilution: the idea"], ["accretion-dilution-calculations", "Accretion / dilution: the numbers"], ["purchase-price-allocation", "Purchase price allocation and goodwill"]]),
-    week(9, "LBO", "lbo", [["lbo-overview", "What an LBO is"], ["sources-and-uses", "Sources and uses"], ["debt-tranches", "Debt tranches and covenants"], ["returns-irr-mom", "Returns: IRR and money multiple"]]),
-    {
-      week: 10, title: "Fit + full mock", topic_slug: "fit-behavioural" as TopicSlug,
-      days: [
-        { day: 1, label: "The big five fit questions", lesson_slug: "big-five-fit" },
-        { day: 2, label: "Why banking, why this firm", lesson_slug: "why-banking-why-firm" },
-        { day: 3, label: "Walking through your CV", lesson_slug: "cv-and-experience" },
-        { day: 4, label: "Full mock: 15 timed questions (Loop 07)", lesson_slug: null },
-        { day: 5, label: "Review: weak areas + flashcards", lesson_slug: null },
-      ],
-    },
+    week(1, "Finance foundations", "finance-foundations", [
+      lessonDay(1, "time-value-of-money", "Time value of money"),
+      lessonDay(2, "pv-npv", "Present value, NPV and IRR"),
+      lessonDay(3, "wacc-intro", "WACC: a first look"),
+      drillDay(4, "Question drill: foundations"),
+      sheetDay("finance-foundations"),
+    ]),
+    week(2, "Accounting: the three statements", "accounting", [
+      lessonDay(1, "three-statements-overview", "The three statements at a glance"),
+      lessonDay(2, "income-statement", "Income statement"),
+      lessonDay(3, "balance-sheet", "Balance sheet"),
+      lessonDay(4, "cash-flow-statement", "Cash flow statement"),
+      drillDay(5, "Review: flashcards + 5-question drill"),
+    ]),
+    week(3, "Accounting: links and walkthroughs", "accounting", [
+      lessonDay(1, "three-statement-links", "How the three statements link"),
+      lessonDay(2, "working-capital", "Working capital"),
+      lessonDay(3, "single-step-walkthroughs", "Single-step walkthroughs"),
+      lessonDay(4, "multi-step-walkthroughs", "Multi-step walkthroughs"),
+      sheetDay("accounting"),
+    ]),
+    week(4, "Equity value vs enterprise value", "eqv-ev", [
+      lessonDay(1, "equity-and-enterprise-value", "Equity value and enterprise value"),
+      lessonDay(2, "ev-bridge-basics", "The EqV → EV bridge"),
+      lessonDay(3, "diluted-shares", "Diluted share count"),
+      lessonDay(4, "pairing-metrics-with-values", "Pairing metrics with the right value"),
+      sheetDay("eqv-ev"),
+    ]),
+    week(5, "Valuation", "valuation", [
+      lessonDay(1, "valuation-methodologies", "The three methodologies"),
+      lessonDay(2, "comparable-companies", "Comparable companies"),
+      lessonDay(3, "precedent-transactions", "Precedent transactions"),
+      lessonDay(4, "multiples-and-metrics", "Multiples and metrics"),
+      { day: 5, label: "Choosing and presenting + cheat sheet", lesson_slug: "choosing-and-presenting", cheatsheet: "valuation" },
+    ]),
+    week(6, "DCF: cash flows and assumptions", "dcf", [
+      lessonDay(1, "dcf-overview", "What a DCF is doing"),
+      lessonDay(2, "unlevered-free-cash-flow", "Unlevered free cash flow"),
+      lessonDay(3, "projections-and-assumptions", "Projections and assumptions"),
+      lessonDay(4, "cost-of-equity-capm", "Cost of equity and CAPM"),
+      drillDay(5, "Review: flashcards + 5-question drill"),
+    ]),
+    week(7, "DCF: discount rate and terminal value", "dcf", [
+      lessonDay(1, "wacc", "WACC"),
+      lessonDay(2, "terminal-value", "Terminal value"),
+      lessonDay(3, "dcf-sensitivities", "Sensitivities and sanity checks"),
+      drillDay(4, "Full DCF drill"),
+      sheetDay("dcf"),
+    ]),
+    week(8, "M&A", "ma", [
+      lessonDay(1, "why-companies-acquire", "Why companies acquire"),
+      lessonDay(2, "accretion-dilution-concepts", "Accretion / dilution: the idea"),
+      lessonDay(3, "accretion-dilution-calculations", "Accretion / dilution: the numbers"),
+      lessonDay(4, "synergies-and-deal-structure", "Synergies, consideration and deal structure"),
+      sheetDay("ma"),
+    ]),
+    week(9, "LBO", "lbo", [
+      lessonDay(1, "lbo-overview", "What an LBO is"),
+      lessonDay(2, "sources-and-uses", "Sources and uses"),
+      lessonDay(3, "returns-irr-mom", "Returns: IRR and money multiple"),
+      lessonDay(4, "paper-lbo-walkthrough", "The paper LBO"),
+      sheetDay("lbo"),
+    ]),
+    week(10, "Fit + full mock", "fit-behavioural", [
+      lessonDay(1, "big-five-fit", "The big five fit questions"),
+      lessonDay(2, "why-banking-why-firm", "Why banking, why this firm"),
+      lessonDay(3, "cv-and-experience", "Walking through your CV"),
+      drillDay(4, "Full mock: 15 timed questions — with lens optional"),
+      drillDay(5, "Review: weak areas + flashcards"),
+    ]),
   ] as PathWeek[],
 };

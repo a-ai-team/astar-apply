@@ -1,0 +1,37 @@
+{
+  "slug": "irr-vs-mom",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "returns"
+  ],
+  "question": "Private-equity returns are always quoted twice — a money multiple and an IRR. What is each one measuring, and what does one of them see that the other ignores?",
+  "model_answer_md": "**Money multiple** (MoM): exit equity divided by the equity invested. Pennard returns roughly £395m on a £160m cheque — **2.47×**. It answers the simplest question there is: how many times did the money come back?\n\n**IRR**: the annualised rate that compounds the cheque into the proceeds. For one payment in and one out it is the multiple taken to the power of one over the years, minus one — Pennard's 2.47× over five years is about **20 %** a year.\n\nThe difference is **time**. MoM is blind to it: 2.47× in three years and 2.47× in ten years read identically, though one is a brilliant deal and the other a mediocre one. IRR charges for every year the money is out — the same multiple over ten years is only about 9.5 % annualised.\n\nBoth get reported because each covers the other's weakness: IRR can be flattered by returning money quickly, while MoM shows the sheer quantum of profit regardless of pace.",
+  "key_points": [
+    "MoM = exit equity ÷ equity invested; Pennard ≈ 2.47×",
+    "IRR = the annualised compounding rate; 2.47× over 5 years ≈ 20 %",
+    "MoM ignores time entirely; IRR charges for it",
+    "Same multiple, longer hold → same MoM, lower IRR",
+    "The pair is reported together because each corrects the other"
+  ],
+  "follow_ups": [
+    {
+      "question": "Same multiple, but the hold stretches from five years to seven. What moves?",
+      "answer_md": "The multiple does not move at all — that is the point of it. The IRR falls, because the same gain now compounds over seven years instead of five: 2.47× annualises to about 13.8 % over seven years against 19.8 % over five. Six points of headline return vanish without a pound of value changing, which is why sponsors care so much about how *long* capital is deployed, not just how it multiplies."
+    },
+    {
+      "question": "Which of the two do the fund's investors care about more?",
+      "answer_md": "Honest answer: both, for different reasons. IRR is the headline league-table number and drives carry hurdles, but LPs know it can be engineered — early dividends and subscription-line borrowing lift IRR without adding profit. The money multiple resists that manipulation: it measures how much cash actually came back per pound committed. A seasoned LP reads them together — a high IRR on a 1.4× multiple means the fund gave the money back quickly, not that it made much."
+    }
+  ],
+  "weak_answer_note": "Defining both correctly but missing the one-word difference — time — or being unable to convert between them on round numbers. \"2.5× over five years is about 20 %\" is the expected fluency even in a definitional answer.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

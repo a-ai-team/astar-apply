@@ -1,0 +1,139 @@
+{
+  "slug": "paper-lbo-walkthrough",
+  "subtopic_slug": "paper-lbo-walkthrough",
+  "title": "The paper LBO: five minutes, no calculator",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "At the elite boutiques, in leveraged finance, and in any process where private equity is the destination, one exercise separates candidates more reliably than anything else in this course: \"take me through a quick LBO on paper.\" Five minutes. A pen. No calculator, no model, no template.\n\nIt sounds harder than the merger maths and it is actually easier — because the interviewer is not marking your arithmetic. They are marking whether you own the *structure*: money in, cash generated, debt repaid, business sold, returns stated. Candidates fail it by reaching for precision they cannot compute in their heads. This lesson teaches you the structure, then the discipline of rounding aggressively and narrating as you go."
+      },
+      {
+        "type": "concept",
+        "heading": "Structure over precision",
+        "md": "A paper LBO is the whole of the last three lessons compressed into one spoken walk with rounded numbers.\n\nEverything you have met stays: the entry price comes from a multiple on EBITDA, the funding splits into debt and an equity plug, free cash flow sweeps against the debt, and the exit pays the equity whatever is left after the remaining debt. What changes is the standard of accuracy. Interest on \"about £250m at 6 %\" is \"call it £15m\". Tax is \"a quarter of what's left\". If a year's cash flow works out to £23.5m, it is £24m and you keep moving.\n\nThe deliverable is a *narration*, not a spreadsheet: you talk the interviewer down the page, announcing each block before you fill it in. Hesitation between blocks costs more marks than a pound or two of rounding error, because the structure is the thing being examined."
+      },
+      {
+        "type": "mechanics",
+        "md": "The five blocks, in the order you say them:\n\n1. **Sources and uses.** Entry multiple × EBITDA, plus fees; debt from the leverage multiple; equity is the plug.\n2. **Free cash flow.** For each year: EBITDA, minus interest, minus tax, minus capex and any working-capital build. Round each year to the nearest pound-million.\n3. **Paydown.** Every pound of that cash flow repays debt. Keep a running debt balance — on Pennard the yearly cash flows go roughly \"20, 24, 27, 30, 34 — call it £135m of debt gone\".\n4. **Exit.** Exit multiple × final-year EBITDA gives enterprise value; subtract the *remaining* debt to get exit equity.\n5. **Returns.** Exit equity over the cheque is the money multiple; convert it with the anchors — 2× ≈ 15 %, 2.5× ≈ 20 %, 3× ≈ 25 % over five years.\n\nTwo rounding habits keep the arithmetic honest: work interest off the *opening* debt each year, and when EBITDA grows 5 % a year for five years, add roughly a quarter to the starting figure (1.05⁵ ≈ 1.28) rather than compounding year by year out loud."
+      },
+      {
+        "type": "predict",
+        "prompt": "Before any arithmetic: Pennard is bought at 8× and sold at 8×, EBITDA grows 5 % a year, and every pound of free cash flow repays debt. Will the sponsor's money multiple land nearest 1.5×, 2.5× or 3.5×?",
+        "options": [
+          { "label": "About 1.5× — no multiple expansion means little upside" },
+          { "label": "About 2.5×", "correct": true },
+          { "label": "About 3.5× — five turns of leverage guarantees it" }
+        ],
+        "explain_md": "About **2.5×** — and the reason is that the quiet lever does most of the work. Growth at 5 % adds roughly £14m of EBITDA, worth about £110m at the entry multiple. But five years of cash generation repays about £135m of debt, and every pound of it transfers straight to the equity. Together they turn a £160m cheque into roughly £395m even with the exit multiple flat.\n\nThis is the intuition the exercise is really testing: a flat-multiple, moderate-growth LBO still works, because deleveraging alone carries it most of the way."
+      },
+      {
+        "type": "widget",
+        "widget": "paper_lbo",
+        "props": {}
+      },
+      {
+        "type": "worked_calc",
+        "md": "The full Pennard walk, exactly as you would say it. Entry: **£50m** of EBITDA at **8×**, plus **£10m** of fees. Leverage: **5×** EBITDA at a blended **6 %**. Growth **5 %** a year for five years takes EBITDA to **£63.8m**; year one's cash flow is EBITDA less £15m interest, £6.9m tax and £10m capex; the sweep leaves **£115.7m** of debt at exit.",
+        "steps": [
+          { "label": "Enterprise value at entry", "expr": "8 * 50", "value": 400, "unit": "£m" },
+          { "label": "Total uses, adding the fees", "expr": "400 + 10", "value": 410, "unit": "£m" },
+          { "label": "Debt: five turns of EBITDA", "expr": "5 * 50", "value": 250, "unit": "£m" },
+          { "label": "The equity cheque — the plug", "expr": "410 - 250", "value": 160, "unit": "£m" },
+          { "label": "Year-one interest at the 6 % blend", "expr": "250 * 6%", "value": 15, "unit": "£m" },
+          { "label": "Year-one free cash flow", "expr": "52.5 - 15 - 6.9 - 10", "value": 20.6, "unit": "£m" },
+          { "label": "Debt repaid across the five years", "expr": "250 - 115.7", "value": 134.3, "unit": "£m" },
+          { "label": "Exit enterprise value at 8×", "expr": "8 * 63.8", "value": 510.4, "unit": "£m" },
+          { "label": "Exit equity, net of the remaining debt", "expr": "510.4 - 115.7", "value": 394.7, "unit": "£m" },
+          { "label": "Money multiple — then say \"call it 20 %\"", "expr": "394.7 / 160", "value": 2.47, "unit": "×" }
+        ]
+      },
+      {
+        "type": "order_steps",
+        "prompt": "Put the paper-LBO narration in the order an interviewer expects to hear it.",
+        "steps": [
+          "Sources and uses: price the deal, size the debt, plug the equity",
+          "Project each year's free cash flow from EBITDA",
+          "Sweep the cash flow against the debt, keeping a running balance",
+          "Exit enterprise value: exit multiple times final-year EBITDA",
+          "Subtract the remaining debt to get exit equity",
+          "Money multiple: exit equity over the cheque",
+          "IRR from the anchors"
+        ]
+      },
+      {
+        "type": "template",
+        "kind": "paper_lbo",
+        "props": {}
+      },
+      {
+        "type": "trap",
+        "md": "**\"Give me a second — I'll build out the debt schedule properly.\"**\n\nThis instinct feels rigorous and it fails the exercise. A full schedule needs a tranche-by-tranche interest stack, mandatory amortisation, a cash sweep with a minimum cash floor — none of which you can hold in your head, all of which the interviewer knows you cannot hold in your head. Attempting it produces the worst possible outcome: silence, followed by arithmetic errors.\n\nThe exercise rewards the opposite. One blended interest rate. Tax as a quarter of profit. Cash flows rounded to the nearest million and *announced* — \"call it £20m in year one, growing to about £34m\" — so the interviewer can follow the running debt balance with you.\n\nThe other classic failure hides at the exit: subtracting the debt you *started* with. The company spent five years repaying it; the number that comes off the exit value is the **remaining** balance. On Pennard the difference between the two is the entire £134m deleveraging lever — get it wrong and your money multiple is off by nearly a full turn."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "I'd start with sources and uses: 8× on £50m of EBITDA is £400m, plus £10m of fees; five turns of leverage gives £250m of debt, so the equity cheque is £160m. Then cash flow: EBITDA less interest, tax and capex — roughly £20m in year one rising to £34m — all swept against the debt, about £135m repaid over five years. At exit, 8× on £64m of EBITDA is about £510m; less the £116m still outstanding leaves roughly £395m of equity. That's 2.5× on £160m — call it a 20 % IRR.",
+        "seconds": 60
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "The same walk with recurring revenue",
+            "md": "Run Pennard again as a software business with the same £50m of EBITDA and the walk changes in two places. Lenders will fund **6.5×** against subscription revenue, so debt is £325m and the cheque shrinks to **£85m**. And capex is tiny — call D&A and capex £2m each — so far more of each year's EBITDA survives into free cash flow.\n\nThe heavier debt costs more to carry: interest starts near £20m, and the sweep clears about **£149m** over the five years, leaving roughly £176m at exit. Exit value is the same £510m, so the equity collects about **£334m** — on an £85m cheque, that is **≈ 3.9×**, an IRR in the low thirties.\n\nSame business performance, dramatically better return, and every extra point of it bought with risk: at 6.5× of leverage, a wobble in EBITDA that Pennard-the-haulier would absorb puts the software deal's equity underwater. The lender's comfort — churn low, revenue contracted — is the only reason the structure exists.",
+            "example_q": "Redo the paper LBO with 6.5× leverage and 90 % cash conversion. What changes?",
+            "answer_md": "Sources and uses first: uses are still £410m, but debt is 6.5 × £50m = £325m, so the cheque is £85m. Cash flow: with capex near zero, most of EBITDA converts — but interest on £325m at around 6 % starts near £20m, so early years sweep about £23m, growing as the balance falls. Call it £150m repaid, leaving roughly £175m at exit. Exit is unchanged at about £510m, so equity is around £335m — call it **4× and an IRR in the low 30s**, against 2.5× and 20 % for the logistics version. The closing point: the uplift comes entirely from the smaller cheque, and it is only available because recurring revenue lets lenders tolerate the leverage."
+          },
+          "healthcare": {
+            "heading": "The same walk with bolt-ons",
+            "md": "Healthcare roll-ups change what the free cash flow is *for*. Instead of sweeping it against debt, the platform spends it buying more clinics — say **£30m a year at 6×**, which adds roughly **£5m of EBITDA** with each year's spending.\n\nRun that for five years: about £150m spent, roughly **£25m of extra EBITDA** on top of the organic base — and the debt has not fallen at all, because the cash went on acquisitions. At an 8× exit, that acquired EBITDA is worth about **£200m** against the £150m it cost. Value appears from the gap between the 6× paid and the 8× realised — the multiple-arbitrage lever — rather than from deleveraging.\n\nThe trade is explicit: a bigger, faster-growing business at exit, but full leverage all the way through the hold. If tariffs are cut or integration stumbles, there is no repaid-debt cushion to fall back on.",
+            "example_q": "Is spending free cash flow on bolt-ons better than repaying debt?",
+            "answer_md": "It depends on one comparison: the multiple you pay for the bolt-ons against the multiple you expect at exit. Buying EBITDA at 6× and selling the enlarged group at 8× turns £150m of spending into roughly £200m of exit value — better than the pound-for-pound transfer that debt repayment offers. If the bolt-on multiple were at or above the exit multiple, repaying debt would win. The caveat that completes the answer: bolt-ons keep leverage high for the whole hold, and integration costs quietly tax the acquired EBITDA, so the arbitrage has to clear a risk hurdle, not just an arithmetic one."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Your turn to narrate, start to finish. A sponsor buys a company with **£30m** of EBITDA at **7×**, using **4×** of leverage; fees are **£5m**. Free cash flow is a flat **£10m** a year, all swept against debt. After five years the business sells at **7×** on EBITDA that has grown to **£36m**. Talk through the paper LBO and state the return.",
+        "model_answer_md": "**Sources and uses.** 7 × £30m is £210m, plus £5m of fees — £215m of uses. Debt is 4 × £30m = **£120m**, so the equity cheque is 215 − 120 = **£95m**.\n\n**Cash flow and paydown.** £10m a year for five years is **£50m**, all of it repaying debt: £120m becomes **£70m**.\n\n**Exit.** 7 × £36m = **£252m** of enterprise value; subtract the *remaining* £70m of debt — not the original £120m — and the equity collects **£182m**.\n\n**Returns.** £182m on £95m is a shade over **1.9×**. That sits below the 2× anchor, so the IRR is below 15 % — **call it 14 %**.\n\nThe closing sentence interviewers reward: a flat multiple, modest growth and only 4× of leverage produce a workable-but-unexciting deal — this is what an LBO looks like when deleveraging is the only lever really pulling.",
+        "rubric": [
+          "Builds sources and uses that balance: £215m of uses, £120m of debt, £95m equity plug",
+          "Sweeps the flat £10m FCF against debt: £120m falls to £70m",
+          "Subtracts the remaining £70m at exit, not the original £120m",
+          "States the money multiple (≈ 1.9×) before converting to an IRR of about 14 % via the anchors",
+          "Narrates the blocks in order without stopping to rebuild anything precisely"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "First block of a paper LBO?", "a": "Sources and uses — price the deal, size the debt, plug the equity." },
+          { "q": "What happens to each year's free cash flow?", "a": "It repays debt — keep a running balance of what is left." },
+          { "q": "Exit equity equals what?", "a": "Exit enterprise value minus the debt still outstanding at exit." },
+          { "q": "2.5× over five years is roughly what IRR?", "a": "About 20 % — the middle anchor." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Five blocks, said in order with rounded numbers, beat a perfect model you cannot finish: price it, cash it, repay it, sell it, state the multiple.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can narrate a paper LBO in the five-block order without a calculator.",
+          "I can round each year's cash flow and keep a running debt balance out loud.",
+          "I can subtract the remaining — not the original — debt at exit, and say why the difference is the deleveraging lever.",
+          "I can state the money multiple first and convert it to an IRR with the anchors.",
+          "I can adapt the walk for a high-leverage software deal or a bolt-on roll-up and explain what changes."
+        ]
+      }
+    ]
+  }
+}

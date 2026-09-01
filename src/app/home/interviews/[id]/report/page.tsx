@@ -6,6 +6,7 @@ import { notFound, redirect } from "next/navigation";
 import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { getInterview, getInterviewQuestions, getTurns } from "@/lib/interviews/queries";
+import { LENS_LABELS } from "@/lib/content/taxonomy";
 import { deliveryScore } from "@/lib/interviews/speech-metrics";
 import { AskMentorButton } from "@/components/chat/ask-mentor-button";
 import { Markdown } from "@/components/lesson/markdown";
@@ -35,7 +36,8 @@ export default async function InterviewReportPage({ params }: PageProps<"/home/i
   const withMetrics = graded.filter((t) => t.transcript_meta && t.transcript_meta.wpm != null);
   const delivery = withMetrics.length ? mean(withMetrics.map((t) => deliveryScore({ words: (t.answer_text ?? "").trim().split(/\s+/).filter(Boolean).length, wpm: t.transcript_meta!.wpm, filler_count: t.transcript_meta!.filler_count }).score)) : null;
   const report = interview.report;
-  const lessonSlugs = report?.focus_areas.map((f) => f.lesson_slug) ?? [];
+  const lens = report?.params?.lens ?? null;
+  const lessonSlugs = report?.focus_areas?.map((f) => f.lesson_slug) ?? [];
   const { data: lessonRows } = lessonSlugs.length ? await db.from("lessons").select("slug, title, subtopic:subtopics!inner(topic:topics!inner(slug))").in("slug", lessonSlugs) : { data: [] };
   const lessons = new Map((lessonRows ?? []).map((l) => [l.slug as string, { title: l.title as string, topic: (l.subtopic as unknown as { topic: { slug: string } }).topic.slug }]));
   const title = interview.mode === "drill" ? `Drill · ${[...questions.values()][0]?.topic_title ?? "topic"}` : "Full mock";
@@ -46,7 +48,10 @@ export default async function InterviewReportPage({ params }: PageProps<"/home/i
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold" data-testid="report-heading">{title} — report</h1>
-          <p className="mt-1 text-sm text-muted">{graded.length} of {turns.length} answered · {interview.status === "abandoned" ? "abandoned" : "completed"} {interview.completed_at ? new Date(interview.completed_at).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }) : ""}</p>
+          <p className="mt-1 text-sm text-muted">
+            {graded.length} of {turns.length} answered · {interview.status === "abandoned" ? "abandoned" : "completed"} {interview.completed_at ? new Date(interview.completed_at).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }) : ""}
+            {lens && <span data-testid="interview-lens-label"> · {LENS_LABELS[lens]} lens</span>}
+          </p>
         </div>
         <Link href="/home/interviews" className="text-sm text-muted hover:text-fg">← Mock interviews</Link>
       </div>
@@ -73,7 +78,7 @@ export default async function InterviewReportPage({ params }: PageProps<"/home/i
         )}
       </div>
 
-      {report && (
+      {report && report.summary_md && report.focus_areas && (
         <section className="grid gap-4 md:grid-cols-3" data-testid="report-body">
           <Card className="md:col-span-3">
             <CardTitle>Debrief</CardTitle>

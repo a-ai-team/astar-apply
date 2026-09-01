@@ -1,0 +1,37 @@
+{
+  "slug": "exit-routes",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "exits"
+  ],
+  "question": "The hold is over and the fund needs its money back. What are the ways out of an LBO?",
+  "model_answer_md": "Three full exits, plus one partial one worth naming.\n\n**Sale to a strategic buyer** — a company in the same industry. Usually the best price, because a strategic can pay for synergies no one else has access to.\n\n**Secondary buyout** — sale to another private-equity fund, which runs the playbook again. Common when the business still has an obvious next chapter (more bolt-ons, a new geography) but no strategic steps up.\n\n**IPO** — floating the company on the stock market. It is a route to liquidity rather than a clean exit: the fund sells a slice at listing and the rest over time, exposed to the share price and lock-up periods throughout.\n\nThe partial route is a **dividend recapitalisation** — the company re-borrows against its now-lower debt and pays the fund a dividend mid-hold. Cash comes back early, but the fund still owns the business and the leverage goes back up.",
+  "key_points": [
+    "Strategic sale, secondary buyout, or IPO — the three full exits",
+    "Strategics usually pay the most, because synergies justify a premium",
+    "A secondary buyout passes the deal to another sponsor",
+    "An IPO is staged liquidity with market risk, not a clean sale",
+    "A dividend recap returns cash early without selling — a partial exit"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which route tends to fetch the highest price, and why?",
+      "answer_md": "The strategic sale. A trade buyer can remove duplicated costs, cross-sell into its own customer base and sometimes take out a competitor — value that exists only in its hands — so it can outbid a financial buyer and still do well. A secondary buyer has no synergies and must make the returns maths work on leverage and improvement alone, which caps what it can pay."
+    },
+    {
+      "question": "Why might an IPO be the least attractive route for a sponsor?",
+      "answer_md": "Because it is slow and uncertain where the other routes are final. The fund typically sells only a minority at the listing, is locked up for months on the remainder, and rides the share price for the whole sell-down — so the exit value is not known on day one and can deteriorate. It also prices at a public-market multiple with no control premium. IPOs get chosen when the business is too large for buyers, or public markets are paying multiples no acquirer will match."
+    }
+  ],
+  "weak_answer_note": "Stopping at 'sell it or float it'. Naming the secondary buyout and knowing the IPO is a staged, risky route — not a cash-on-completion sale — is what separates a prepared answer.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

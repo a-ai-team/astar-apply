@@ -1,0 +1,105 @@
+{
+  "slug": "lbo-overview",
+  "subtopic_slug": "lbo-overview",
+  "title": "What an LBO is: buying with borrowed money",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Every chapter so far has asked what a company is worth. This one asks a different question: how does someone make money *buying* it — specifically, buying it with mostly borrowed money?\n\nThat is the business model of **private equity**, and interviewers reach for it constantly, even in banking interviews, because it tests everything at once: valuation, debt, cash flow and mental arithmetic. If you can explain a leveraged buyout clearly — and later in this chapter, sketch one on paper in five minutes — you have separated yourself from most of the room.\n\nOne deal runs through all four lessons. **Pennard Logistics Ltd** is a UK contract-logistics business earning **£50m of EBITDA** — earnings before interest, tax, depreciation and amortisation, the rough measure of operating cash profit that everything in this chapter is priced off. A private-equity fund we will call **Marlow Capital** (a fund, not to be confused with Marlow Instruments from the valuation chapter) buys it, holds it for five years, and sells it. Watch what happens to the money."
+      },
+      {
+        "type": "concept",
+        "heading": "The house analogy, with real numbers",
+        "md": "A **leveraged buyout** — LBO — works the way most people buy a house: a small deposit, a large mortgage, and the hope that when you sell, the gain lands on your deposit rather than being shared with the bank.\n\nMarlow Capital, the **sponsor** — the private-equity fund doing the buying — pays **8×** Pennard's £50m EBITDA, so **£400m** for the business, plus **£10m** of deal fees: **£410m** all-in. It funds that with **£250m of borrowed money** and only **£160m of its own** — the equity cheque, the deposit.\n\nFive years later Pennard has grown and the fund sells it for about **£510m**. In the meantime the business's own cash has repaid roughly **£134m** of the loans. So of that £510m, only about £116m still belongs to the lenders — the rest, about **£395m**, belongs to the fund.\n\n£160m in, £395m out. The business grew by about a quarter; the sponsor's money multiplied by roughly two and a half. That gap — modest growth in the company, outsized growth in the equity — is the entire point of the leverage."
+      },
+      {
+        "type": "mechanics",
+        "md": "Five moving parts decide the outcome.\n\n**The price.** Entry EBITDA times the entry multiple. Pennard: 8 × £50m = £400m, quoted **cash-free, debt-free** — the price of the business itself, before anyone's financing.\n\n**The debt.** Lenders will fund a multiple of EBITDA — here 5×, or £250m. It is raised *against Pennard's cash flows* and sits on **Pennard's** balance sheet, not the fund's.\n\n**The equity cheque.** Whatever the debt does not cover, including fees: £410m − £250m = **£160m**.\n\n**The hold.** Four to six years in which the company grows EBITDA and uses its **free cash flow** — the cash left after interest, tax and investment — to repay debt.\n\n**The exit.** Sale to another company, sale to another fund, or a stock-market listing. Equity at exit is the exit price *minus whatever debt remains*.\n\nWhich businesses suit this? Ones a lender can trust: **stable, predictable cash flows**, **low capital spending**, room to run the business better, a management team worth backing, and ideally a price below what the business is really worth. A wildly cyclical or capital-hungry company fails the test — its cash flow cannot be promised to a lender."
+      },
+      {
+        "type": "predict",
+        "prompt": "Marlow Capital funds the £410m purchase with £250m of debt and £160m of equity. Suppose it had instead paid the whole £410m in equity, and everything about the exit was unchanged. Compared with that all-equity version, what does the £250m of debt do to the fund's *money multiple* — the cash returned per pound invested?",
+        "options": [
+          { "label": "Raises it — same profit on a much smaller cheque", "correct": true },
+          { "label": "Lowers it — interest payments eat the return" },
+          { "label": "Leaves it unchanged — the business is worth the same either way" }
+        ],
+        "explain_md": "It **raises it**, and by a lot. The pounds of profit are broadly similar in both versions — the business is the same business. What changes is the denominator. Earn roughly £235m of profit on a £410m cheque and you have about 1.6× your money; concentrate most of that profit onto a £160m cheque and you are near 2.5×.\n\nThe interest cost is real — it drains some cash that would otherwise pile up — but it is small next to the effect of shrinking the cheque. That is why the debt is there. The catch is symmetry: leverage magnifies the downside identically, which the widget below will happily demonstrate if you drag the assumptions the wrong way."
+      },
+      {
+        "type": "widget",
+        "widget": "lbo_returns",
+        "props": {}
+      },
+      {
+        "type": "trap",
+        "md": "**\"The sponsor pays down the debt over the hold.\"**\n\nIt does not, and interviewers listen for exactly this mistake. The debt is raised against Pennard and sits on **Pennard's balance sheet**; it is repaid out of **Pennard's own free cash flow** — the £20m-odd a year left after interest, tax and capital spending. Marlow Capital never sends the lenders a cheque.\n\nThis is why the cliché about LBO candidates is cash generation rather than growth. A business that converts profit into cash reliably can carry — and shed — a lot of debt. A business with brilliant prospects but no spare cash cannot service the loans at all, however fast it grows.\n\nSay it precisely in an interview: *the company* deleverages; the sponsor merely benefits. Getting the direction of that sentence right is worth more than it seems."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A leveraged buyout is a private-equity fund buying a company with mostly debt — typically half to two-thirds of the price — and a minority equity cheque. The debt is raised against the target's cash flows and sits on its balance sheet, and the company repays it from its own free cash flow over a four-to-six-year hold while growing EBITDA. At exit the business is sold, ideally at the same or a better multiple, and because the original cheque was small, the return on it is magnified. On Pennard, £160m of equity became roughly £395m in five years.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Why software is the sponsor's favourite",
+            "md": "Look at what a lender wants — predictable cash — and subscription software is almost a caricature of it. Revenue is contracted a year or more ahead, gross margins run past 80 %, and capital spending is a rounding error, so an unusually large share of EBITDA turns into cash the lender can count on. The consequence is more debt: software take-privates routinely carry **6–7× EBITDA** of leverage where a logistics business like Pennard gets 4–5×.\n\nThe number a lender asks about first is **churn** — the rate at which customers cancel. Low churn is what makes the revenue 'visible'; a rising churn line quietly converts a bond-like revenue stream back into an ordinary risky one.\n\nOne boundary matters. Loss-making growth software is *not* an LBO candidate, however large its market. Lenders lend against cash flow, not against a story about the future — with no EBITDA there is nothing to size the debt on.",
+            "example_q": "Why can a software company support more leverage than a haulier?",
+            "answer_md": "Because its cash flows are easier to promise to someone. Subscription revenue is contracted and renewals are statistically predictable, gross margins are high and capex is minimal, so far more of each pound of EBITDA survives into free cash flow — and free cash flow is what services debt. A haulier's earnings swing with volumes, fuel and a heavy fleet-replacement bill, so lenders cap it at fewer turns.\n\nI would add the caveat: this only holds for *profitable* software with low churn. A growth business burning cash has no debt capacity at all — lenders lend against cash, not market size."
+          },
+          "healthcare": {
+            "heading": "Roll-ups — and why biotech is off the table",
+            "md": "Sponsors love the unglamorous end of healthcare: dental chains, veterinary groups, care providers. Demand is steady, the market is fragmented, and a fund can **buy and build** — acquire dozens of small practices at low multiples, attach them to a platform, and sell the assembled group at a bigger one. Lesson three puts numbers on that arithmetic.\n\nBut lenders cap the leverage below what the steadiness alone would suggest, because much of the revenue comes from one payer. If the NHS or an insurer cuts its tariff — the fee paid per treatment — every clinic's EBITDA falls at once. Debt gets sized off that downside case, not the base case.\n\nAt the other extreme sits biotech: no revenue, no EBITDA, and a pipeline that succeeds or fails on trial results. There is nothing to lend against and a real chance of zero. No lender will fund it, so it cannot be an LBO — funds that want the exposure write growth-equity cheques instead, with little or no debt.",
+            "example_q": "Would a sponsor do an LBO of a Phase 2 biotech?",
+            "answer_md": "No. An LBO needs debt, and debt needs cash flow to service it — a Phase 2 biotech has no revenue, let alone EBITDA, and its value hangs on a binary trial outcome. No lender will size a loan against that, so the structure is unavailable.\n\nThat does not mean private capital avoids biotech; it means the instrument changes. Funds invest there through growth equity or venture rounds, where the downside is losing the equity rather than defaulting on loans. The LBO machine needs steady cash — in healthcare that points at services roll-ups, not drug development."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A sponsor buys **Kite Bakeries** at an enterprise value of **£300m**, funding it with **£180m of debt** and **£120m of equity**. Five years on, it sells the business for **£360m**, and over the hold Kite's cash flow has repaid **£90m** of the debt.\n\nWork out the money multiple, put a rough IRR on it, and say where the debt repayments came from.",
+        "model_answer_md": "**Debt remaining.** £180m borrowed, £90m repaid by Kite's own free cash flow — the sponsor never paid a penny of it — leaves **£90m** outstanding at exit.\n\n**Equity at exit.** £360m sale price − £90m of remaining debt = **£270m**.\n\n**Money multiple.** £270m ÷ £120m = **2.25×** on the sponsor's cheque. As a share of the price, the debt was 60 % — a typical structure.\n\n**Rough IRR.** Use the anchors: 2× over five years is about 15 %, 2.5× about 20 %. At 2.25× the answer sits between them — call it **17–18 %** (the exact figure is 17.6 %).\n\nWorth noticing: the sale price rose only 20 %, but the equity more than doubled. A fifth of the gain came from the business being worth more; the rest came from £90m of debt quietly becoming £90m of equity.",
+        "rubric": [
+          "Computes exit equity net of the *remaining* debt: 360 − 90 = £270m",
+          "Money multiple = exit equity over entry equity: 270 / 120 = 2.25×",
+          "Brackets the IRR from the anchors — between 15 % (2×) and 20 % (2.5×), so ≈ 17–18 %",
+          "States that the £90m of repayments came from Kite's own cash flow, not the sponsor's",
+          "Names the leverage: £180m of £300m, i.e. 60 % of the price"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What is the point of all the debt?", "a": "It shrinks the equity cheque, so whatever value the deal creates lands on fewer pounds — magnifying the return, and the risk." },
+          { "q": "Whose cash actually repays the loans?", "a": "The target company's own free cash flow. The debt sits on its balance sheet, not the fund's." },
+          { "q": "How long does a fund typically own the business?", "a": "Four to six years — long enough to grow EBITDA and pay down debt, short enough to return money to investors." },
+          { "q": "Name the three ways out.", "a": "Sell to a strategic buyer, sell to another sponsor (a secondary buyout), or float it on the stock market." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**An LBO buys a company with borrowed money the company itself pays back — the sponsor keeps everything left over at the exit.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can explain a leveraged buyout in plain terms, with Pennard's numbers attached.",
+          "I can say who repays the debt, and why that makes cash generation the first test of a candidate.",
+          "I can list what makes a good LBO target — and what disqualifies one.",
+          "I can compute a money multiple from an exit and bracket its IRR from the 2× and 2.5× anchors.",
+          "I can explain why leverage magnifies returns without creating value by itself."
+        ]
+      }
+    ]
+  }
+}

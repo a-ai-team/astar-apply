@@ -1,0 +1,47 @@
+{
+  "slug": "paper-lbo-pennard",
+  "topic_slug": "lbo",
+  "subtopic_slug": "paper-lbo-walkthrough",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "paper-lbo"
+  ],
+  "question": "Five minutes, a pen, no calculator: £50m of EBITDA bought at 8× with £10m of fees, five turns of debt at a 6 % blend, EBITDA growing 5 % a year, capex equal to depreciation, tax at 25 %, sold at 8× after five years. Talk it through and land on a return.",
+  "model_answer_md": "Narrate the five blocks in order, rounding as you go.\n\n**Sources and uses.** 8 × 50 = £400m, plus £10m of fees — £410m of uses. Five turns of debt is £250m, so the equity cheque is **£160m**.\n\n**Free cash flow.** Each year: EBITDA, less interest at 6 % on the opening debt, less a quarter in tax, less capex. Year one: 52.5 − 15 − 7 − 10 ≈ **£20m**; the bill shrinks as debt falls, so the years run roughly \"20, 24, 27, 30, 34\".\n\n**Paydown.** All of it sweeps against the debt — call it **£135m** gone, leaving about £115m outstanding.\n\n**Exit.** Growth at 5 % for five years adds about a quarter to EBITDA: call it £64m. At 8× that is **≈ £510m** of enterprise value; less the £115m still owed leaves **≈ £395m** for the equity.\n\n**Returns.** £395m on £160m is just under **2.5×** — the anchor says **about 20 %**.\n\nThe precise schedule gives 2.47× and 19.8 %; the rounded narration lands within a rounding error of it, which is the entire point of the exercise.",
+  "key_points": [
+    "S&U: 410 of uses = 250 debt + 160 equity — say it before computing anything else",
+    "FCF ≈ EBITDA − interest on opening debt − 25 % tax − capex: \"20, 24, 27, 30, 34\"",
+    "Sweep: ≈ £135m repaid, ≈ £115m remaining",
+    "Exit: 8 × ≈ 64 ≈ £510m; equity ≈ £395m after remaining debt",
+    "2.5× → ≈ 20 % from the anchor; announce each block as you enter it"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would you change to push this deal towards a 25 % IRR?",
+      "answer_md": "A 25 % IRR over five years needs about 3×, so the equity must reach roughly £480m — £85m more. The honest routes, in the order a sponsor would rank them: pay less at entry (7× drops the cheque to £110m and 395 ÷ 110 is already 3.6×); grow EBITDA faster, since every extra pound is worth eight at exit; or exit earlier, because 2.5× in four years is nearly 26 %. What you do not say is \"assume a 9× exit\" — that is the lever committees refuse to underwrite."
+    },
+    {
+      "question": "Suppose half the debt had been PIK instead of cash-pay. Directionally, what changes?",
+      "answer_md": "PIK — payment-in-kind — accrues its interest onto the principal instead of taking cash. So the yearly cash interest bill halves, free cash flow rises, and the cash-pay tranche is repaid faster; but the PIK balance *grows* every year at its (higher) rate. At exit there is more debt to subtract than the swept schedule suggests, and whether the equity ends ahead depends on the PIK rate against the value of the faster sweep. At summer level: name the mechanism — less cash out now, more debt at exit — and stop there."
+    }
+  ],
+  "weak_answer_note": "Attempting year-by-year compounding and tranche-level interest out loud, going silent mid-walk, or subtracting the original £250m at exit. Rounded numbers announced block by block beat precise numbers that never arrive.",
+  "numbers": {
+    "inputs": {
+      "ebitda": 50,
+      "entry_multiple": 8,
+      "leverage": 5,
+      "fees": 10,
+      "growth": 0.05,
+      "years": 5
+    },
+    "answer": 2.47
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

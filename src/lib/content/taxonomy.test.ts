@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { ALL_CURRICULUM, CURRICULUM, DEFAULT_PATH, findSubtopic, FREE_TOPIC_SLUGS, INDUSTRY_CURRICULUM, INDUSTRY_MODULES, isContentTopicSlug, isTopicSlug, lessonTargetCount, questionTargetCount, TOTAL_TARGET_QUESTIONS } from "./taxonomy";
 
@@ -20,13 +22,39 @@ describe("curriculum taxonomy", () => {
     expect(TOTAL_TARGET_QUESTIONS).toBeLessThanOrEqual(400);
   });
 
-  it("default path is 10 weeks × 5 days with day 5 a review and every lesson slug a subtopic or a hand-written lesson", () => {
+  it("default path is 10 weeks × 5 days and no lesson slug points at a deferred subtopic", () => {
     expect(DEFAULT_PATH.weeks).toHaveLength(10);
+    // `ev-bridge-basics` is the hand-written Loop 03 lesson (its subtopic is ev-bridge-calculations).
     const handWritten = new Set(["ev-bridge-basics"]);
     for (const w of DEFAULT_PATH.weeks) {
       expect(w.days.map((d) => d.day)).toEqual([1, 2, 3, 4, 5]);
-      expect(w.days[4].lesson_slug).toBeNull();
-      for (const d of w.days) if (d.lesson_slug && !handWritten.has(d.lesson_slug)) expect(findSubtopic(d.lesson_slug), d.lesson_slug).toBeDefined();
+      for (const d of w.days) {
+        if (!d.lesson_slug || handWritten.has(d.lesson_slug)) continue;
+        const hit = findSubtopic(d.lesson_slug);
+        expect(hit, d.lesson_slug).toBeDefined();
+        expect(hit?.subtopic.deferred, `${d.lesson_slug} is deferred`).not.toBe(true);
+      }
+    }
+  });
+
+  it("the technicals weeks (1–9) name all 35 v2 lessons, each written in content/", () => {
+    const slugs = DEFAULT_PATH.weeks
+      .filter((w) => w.week <= 9)
+      .flatMap((w) => w.days.map((d) => d.lesson_slug).filter((s): s is string => s !== null));
+    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(slugs).toHaveLength(35);
+    for (const s of slugs) {
+      expect(existsSync(path.resolve(__dirname, "../../../content/lessons", `${s}.json`)), `content/lessons/${s}.json`).toBe(true);
+    }
+  });
+
+  it("exactly 7 days carry a cheat sheet, one per chapter with a sheet on disk", () => {
+    const sheets = DEFAULT_PATH.weeks.flatMap((w) => w.days.filter((d) => d.cheatsheet));
+    expect(sheets).toHaveLength(7);
+    const topics = sheets.map((d) => d.cheatsheet!);
+    expect(new Set(topics).size).toBe(topics.length);
+    for (const t of topics) {
+      expect(existsSync(path.resolve(__dirname, "../../../content/cheatsheets", `${t}.json`)), `content/cheatsheets/${t}.json`).toBe(true);
     }
   });
 });

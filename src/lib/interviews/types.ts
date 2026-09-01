@@ -1,5 +1,6 @@
 // Shared types for Loop 07 mock interviews (docs/loops/07-mock-interviews.md § Data model).
 import { z } from "zod";
+import type { LensSlug } from "@/lib/content/lesson-schema";
 
 export type InterviewMode = "drill" | "mock";
 export type InterviewStatus = "in_progress" | "completed" | "abandoned";
@@ -37,6 +38,13 @@ export const ReportSchema = z.object({
 export type FocusArea = z.infer<typeof FocusAreaSchema>;
 export type Report = z.infer<typeof ReportSchema>;
 
+/**
+ * What actually sits in `interviews.report` (Loop 18): the built report plus run parameters that
+ * exist from creation — currently just the chosen industry lens. Stored inside the existing jsonb,
+ * no column. A row that is still in progress may hold only `{ params }`.
+ */
+export type StoredReport = Partial<Report> & { params?: { lens?: LensSlug } };
+
 export type TranscriptMeta = { wpm: number | null; filler_count: number; fillers: string[]; duration_s: number; late?: boolean; voice?: boolean };
 
 export type InterviewRow = {
@@ -50,7 +58,7 @@ export type InterviewRow = {
   started_at: string;
   completed_at: string | null;
   overall_score: number | null;
-  report: Report | null;
+  report: StoredReport | null;
 };
 
 export type TurnRow = {

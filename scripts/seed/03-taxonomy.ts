@@ -54,8 +54,19 @@ export async function seedTaxonomy() {
   if (lErr) throw lErr;
   const lessonId = new Map((lessons ?? []).map((l) => [l.slug as string, l.id as string]));
   let nItems = 0;
+  let nLessonDays = 0;
+  let nResolved = 0;
+  let nSheets = 0;
+  const unresolved: string[] = [];
   for (const w of DEFAULT_PATH.weeks) {
     for (const d of w.days) {
+      if (d.lesson_slug) {
+        nLessonDays++;
+        if (lessonId.has(d.lesson_slug)) nResolved++;
+        else unresolved.push(`w${w.week}d${d.day} ${d.lesson_slug}`);
+      }
+      if (d.cheatsheet) nSheets++;
+      // Cheat-sheet days stay `lesson_id: null` — the week page links the sheet from DEFAULT_PATH.
       const { error } = await db.from("learning_path_items").upsert(
         { path_id: p.id, week: w.week, day: d.day, lesson_id: d.lesson_slug ? (lessonId.get(d.lesson_slug) ?? null) : null, question_set: d.question_set ?? [], label: d.label },
         { onConflict: "path_id,week,day" },
@@ -64,5 +75,6 @@ export async function seedTaxonomy() {
       nItems++;
     }
   }
-  console.log(`seed 03: path ${DEFAULT_PATH.slug} with ${nItems} items (${[...lessonId.keys()].length} lessons resolvable)`);
+  console.log(`seed 03: path ${DEFAULT_PATH.slug} with ${nItems} items (${nResolved}/${nLessonDays} lessons resolved, ${nSheets} cheat-sheet days)`);
+  if (unresolved.length) console.warn(`seed 03: unresolved path lessons — ${unresolved.join(", ")}`);
 }

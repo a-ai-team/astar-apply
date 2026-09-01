@@ -1,0 +1,43 @@
+{
+  "slug": "exit-multiple-sensitivity",
+  "topic_slug": "lbo",
+  "subtopic_slug": "paper-lbo-walkthrough",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "sensitivity"
+  ],
+  "question": "You have just narrated Pennard to 2.5× at an 8× exit. The interviewer leans in: \"how much is one turn of the exit multiple worth?\" Answer it without restarting the walk.",
+  "model_answer_md": "One turn of the exit multiple is one extra (or missing) multiple on final-year EBITDA, and it lands entirely on the equity — the debt is owed regardless.\n\n$$1\\times \\text{ on } £63.8\\text{m of exit EBITDA} = \\mathbf{±£63.8m \\text{ of equity}}$$\n\nOn the £160m cheque that is\n\n$$\\frac{63.8}{160} \\approx \\mathbf{±0.4\\times \\text{ of money multiple}}$$\n\nSo: 9× takes the deal from 2.47× to about 2.9× (IRR toward 24 %); 7× drops it to about 2.07× (IRR toward 15–16 %). Roughly four or five points of IRR per turn, either direction.\n\nThe follow-through that earns the mark: this sensitivity is why the base case holds the multiple flat. A swing that size, controlled entirely by market conditions at the time of sale, is not something a committee will let the plan depend on — the walk has to clear its hurdle before the weather is consulted.",
+  "key_points": [
+    "±1× on exit EBITDA of £63.8m = ±£63.8m of equity, pound for pound",
+    "On a £160m cheque, ≈ ±0.4× of MoM per turn",
+    "Roughly ±4–5 IRR points per turn on this deal",
+    "The debt absorbs none of it — the swing is all equity",
+    "This sensitivity is the argument for underwriting a flat multiple"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do sponsors underwrite a flat exit multiple when history says multiples often rise?",
+      "answer_md": "Because the base case is a promise to the investment committee, not a forecast. The exit multiple is set by conditions five years out that nobody can influence — rates, sentiment, who else is bidding — so building it into the plan converts a controllable deal into a market bet levered five times. Assuming flat means the deal must work on growth and cash generation alone; any expansion that arrives is upside on top. It also disciplines entry pricing: a sponsor who needs 9× at exit to justify 8× at entry is really saying the price is too high today."
+    },
+    {
+      "question": "Which would you rather stress: the exit multiple or the growth rate?",
+      "answer_md": "Stress both, but fear the multiple. A point of annual growth compounds to about £3m of exit EBITDA on Pennard — worth roughly £25m at 8×, well under half a turn's £63.8m. And the two are correlated in the wrong direction: the conditions that compress exit multiples are usually the ones that slow growth too, so the stresses arrive together. The growth lever at least responds to management action; the multiple responds to nothing the sponsor does."
+    }
+  ],
+  "weak_answer_note": "Re-running the whole model instead of reasoning at the margin, or applying the turn to entry EBITDA (£50m) rather than exit EBITDA (£63.8m). The one-line answer — a turn is £63.8m, all of it equity, about 0.4× of MoM — is the fluency being tested.",
+  "numbers": {
+    "inputs": {
+      "exit_ebitda": 63.8,
+      "entry_equity": 160
+    },
+    "answer": 63.8
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

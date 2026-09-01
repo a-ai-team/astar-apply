@@ -70,29 +70,28 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 10 | [Launch](loops/10-launch.md) | Public landing, pricing tiers (free / core / AI), Stripe, SEO, analytics, non-target playbook — **stays an open PR for James** | planned |
 | 11 | [Technicals v2 platform](loops/11-technicals-platform.md) | Finance-maths library (132 tests), widget kit, `predict` / `fill_numbers` / `order_steps` / `lens` / `template` blocks, industry-lens picker (TMT, Healthcare), question depth/lens/format tags, cheat-sheet route | merged |
 | 12 | [Technicals: Finance foundations](loops/12-technicals-foundations.md) | 3 lessons, 12 Qs, `discount_dial`, cheat sheet | merged |
-<<<<<<< HEAD
 | 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — **approved & live** | merged |
-=======
-| 13 | [Technicals: Accounting](loops/13-technicals-accounting.md) | 8 lessons, 40 Qs, `faded_walk` `cash_cycle` `filings_toggle`, 3-statement grid template — auto-approves | planned |
->>>>>>> origin/feat/technicals-platform
-| 14 | [Technicals: EqV vs EV](loops/14-technicals-eqv-ev.md) | 4 lessons, 28 Qs, `tsm_dilution` `lease_toggle` `multiple_matcher` — **approved & live** | open-pr (#34) |
-| 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | open-pr (#35) |
-| 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | merged (pending PR) |
-| 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | planned |
-| 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | planned |
+| 14 | [Technicals: EqV vs EV](loops/14-technicals-eqv-ev.md) | 4 lessons, 28 Qs, `tsm_dilution` `lease_toggle` `multiple_matcher` — **approved & live** | merged (#34) |
+| 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | merged (#35) |
+| 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | merged (#36) |
+| 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | merged (#38) |
+| 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | this PR |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.
 
-### Technicals v2 (Loops 11–18) — the summer-internship prep pack
-Planned 2026-08-28 (research: `docs/research/technicals-v2/`). Scope is **exactly what a UK
-penultimate-year candidate needs** for a summer-internship AC — 35 lessons and 135 core questions
-(+38 stretch for elite boutiques / LevFin, +26 industry-lens questions = 199), not the 400Q guide's 413.
-Every lesson: predict-gate → interactive widget → worked calc → faded numbers → free-recall answer;
-an optional **industry lens** (TMT, Healthcare) swaps in context sections; every chapter ships a
-printable cheat sheet and, where useful, a paper template. Content is **hand-authored by the agent
-in-loop** from the per-chapter spec (`docs/research/technicals-v2/1N-*.md`); the Loop 04 batch
-pipeline stays for top-ups. Run order 11 → 18; Loop 11 must merge before any chapter loop.
+### Technicals v2 (Loops 11–18) — the summer-internship prep pack — **complete**
+Planned 2026-08-28, shipped 2026-08-31/09-01 (research: `docs/research/technicals-v2/`). Scope is
+**exactly what a UK penultimate-year candidate needs** for a summer-internship AC: **35 lessons
+across 7 chapters** (Foundations 3 · Accounting 8 · EqV/EV 4 · Valuation 5 · DCF 7 · M&A 4 · LBO 4),
+**~200 chapter questions** tagged `depth:` / `lens:` / `format:`, **20 interactive widgets** over the
+`src/lib/finance/` maths library, 7 printable cheat sheets and 4 paper templates. Every lesson:
+predict-gate → widget → worked calc → faded numbers → free-recall answer; the **industry lens**
+(TMT, Healthcare) swaps in context sections and unlocks lens-tagged questions in drills and mocks;
+the 10-week path walks all 35 lessons with a cheat-sheet review day per chapter. All content was
+hand-authored in-loop from the per-chapter specs, with every number verified against the maths
+library — **20 spec errors were caught this way**. Accounting and EqV/EV are approved and live
+(free tier); Valuation, DCF, M&A and LBO await mentor approval in `/admin/review`.
 
 ## Feature parity checklist vs financefluency.co.uk
 

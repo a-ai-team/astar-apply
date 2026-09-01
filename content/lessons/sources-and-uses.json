@@ -1,0 +1,128 @@
+{
+  "slug": "sources-and-uses",
+  "subtopic_slug": "sources-and-uses",
+  "title": "Sources and uses: where the money comes from",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Before any returns can be discussed, a deal has to answer two bookkeeping questions: what is all the money for, and where is it coming from? The two-column table that answers them — **sources and uses** — is the first thing built in any buyout model, and interviewers use it as a speed check: can you assemble it without hesitation, and do you know which line flexes when another one moves?\n\nIt is also where the sponsor's cheque is actually determined. The £160m of equity in the Pennard deal was not chosen — it fell out of this table. Understanding *why* it fell out that way is the difference between reciting the deal and understanding it."
+      },
+      {
+        "type": "concept",
+        "heading": "Two columns that must agree",
+        "md": "**Uses** is the shopping list — everything the money has to pay for on day one. Three things, usually: the price of the business itself, any of the target's **existing debt** that has to be repaid at completion (lenders to the old structure want their money back when control changes), and the **fees** — bankers, lawyers, financing costs.\n\n**Sources** is where it all comes from: the new debt, raised in one or more layers — **tranches** — plus the sponsor's equity.\n\nThe two columns must total the same number, and only one line can flex to make that happen. Lenders decide how much they will lend — a multiple of EBITDA, decided by *them*, not the sponsor. Every other line is a fact of the deal. So the **sponsor's equity is the plug**: uses minus debt, whatever that comes to.\n\nThat single observation answers a whole family of interview questions. Anything that raises uses — higher price, more old debt to refinance, fatter fees — lands pound-for-pound on the equity cheque, unless the lenders happen to stretch."
+      },
+      {
+        "type": "mechanics",
+        "md": "The debt itself comes in layers, ranked by who gets paid first if things go wrong.\n\n**Senior secured debt** sits at the top: first claim on the assets, lowest risk, and therefore the cheapest money — on Pennard, a **senior term loan** priced around 5.5 %. Lenders typically provide three to four turns of EBITDA here.\n\nBelow it can sit a **second lien** or **mezzanine** layer — paid after the senior lenders, riskier, and charging more (around 8 % on Pennard's second lien). Below all the debt sits the equity, last in the queue and unlimited in its upside.\n\nWhy not fund the whole price with debt, since it is cheaper than equity? Because interest has to be paid in cash every year, and somewhere past five or six turns of EBITDA the interest bill would swallow the company's entire cash flow. Lenders cap leverage well before that point — the cap is theirs to set, which is exactly why equity is the plug.\n\nA full debt schedule with covenants and amortisation belongs to the job, not the interview; the summer-level version is the two-column table and the logic of the plug."
+      },
+      {
+        "type": "worked_calc",
+        "md": "Build Pennard's table. The fund pays **8×** on **£50m** of EBITDA, Pennard carries no existing debt to refinance, and fees are **£10m**. The lenders offer five turns of EBITDA in two layers: a **£200m senior term loan** at 5.5 % — four turns — and a **£50m second lien** at 8 %.",
+        "steps": [
+          { "label": "Enterprise value: 8× on £50m", "expr": "8 * 50", "value": 400, "unit": "£m" },
+          { "label": "Total uses: price plus fees", "expr": "400 + 10", "value": 410, "unit": "£m" },
+          { "label": "Senior term loan: four turns of EBITDA", "expr": "4 * 50", "value": 200, "unit": "£m" },
+          { "label": "Year-one interest across both layers", "expr": "200 * 5.5% + 50 * 8%", "value": 15, "unit": "£m" },
+          { "label": "Blended rate on the £250m of debt", "expr": "15 / 250", "value": 0.06, "unit": "" },
+          { "label": "Sponsor equity — the plug", "expr": "410 - 250", "value": 160, "unit": "£m" },
+          { "label": "Equity as a share of the sources", "expr": "160 / 410", "value": 0.39, "unit": "" }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "The lawyers run over budget: fees rise from £10m to £20m. The lenders shrug — they sized their £250m off EBITDA and will not lend a pound more. Which line of the table changes?",
+        "options": [
+          { "label": "Sponsor equity rises by £10m", "correct": true },
+          { "label": "The debt rises by £10m" },
+          { "label": "The purchase price falls by £10m" }
+        ],
+        "explain_md": "**Equity takes it.** Uses are now £420m; the debt is fixed at £250m because debt capacity is the *lenders'* decision, made off EBITDA, and EBITDA has not changed. The only line that can move is the plug: the cheque becomes £170m.\n\nThis is the everyday consequence of equity being the balancing item — every extra pound of uses that the lenders will not fund is a pound of the sponsor's money. It is also why sponsors negotiate fees harder than the fee sizes alone would seem to justify: fees come straight out of their return."
+      },
+      {
+        "type": "widget",
+        "widget": "lbo_returns",
+        "props": {}
+      },
+      {
+        "type": "fill_numbers",
+        "md": "A different target. The sellers want **£220m for the equity**, the business carries **£30m of existing net debt** that must be repaid at completion, and fees are **£6m**. The lenders offer **4.5 turns** on the company's **£40m** of EBITDA. Complete the table.",
+        "steps": [
+          { "label": "Total uses: equity price + refinanced debt + fees", "expr": "220 + 30 + 6", "value": 256, "unit": "£m" },
+          { "label": "Debt: 4.5 turns on £40m", "expr": "4.5 * 40", "value": 180, "unit": "£m", "blank": true },
+          { "label": "Sponsor equity — the plug", "expr": "256 - 180", "value": 76, "unit": "£m", "blank": true },
+          { "label": "Equity as a share of total sources", "expr": "76 / 256", "value": 0.297, "unit": "", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Five turns of leverage on an 8× deal — so the equity must be three turns, £150m.\"**\n\nClose, wrong, and revealing. Equity is not \"100 % minus the leverage\", because the debt funds the *enterprise value* arithmetic while the equity has to cover **all the uses** — and uses include things the multiple maths never sees: fees, and any old debt being refinanced.\n\nPennard shows the gap at its smallest: £400m of price minus £250m of debt suggests £150m, but the £10m of fees are a use too, so the cheque is **£160m**. Add a target with £30m of existing borrowings to repay and the gap widens to £40m.\n\nThe interview version of the mistake is answering \"how much equity?\" straight from the multiples. The safe habit is mechanical: write down the full uses column *first*, subtract what the lenders will provide, and let the equity be whatever is left. That is what \"equity is the plug\" means in practice."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Uses are everything the deal must pay for on day one: the purchase price, any existing debt refinanced at completion, and fees. Sources are where the money comes from: senior debt — usually three to four turns of EBITDA — sometimes a junior or mezzanine layer, and the sponsor's equity, which is the plug that makes the two columns balance, because debt capacity is set by the lenders. On Pennard, £410m of uses was met with £250m of debt and £160m of equity — roughly 60/40.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Six turns and a covenant-lite loan",
+            "md": "Rebuild Pennard's table for a software business with the same **£50m of EBITDA** and the leverage lenders actually offer that profile — **6.5 turns**, often in a single **unitranche** loan on covenant-lite terms (loose ongoing conditions, priced for it).\n\nUses are unchanged at £410m. Debt is now 6.5 × £50m = **£325m**, so the plug shrinks to **£85m — about 21 % of the sources**, half of Pennard's share. Same business size, same price; the equity cheque nearly halves purely because lenders trust recurring revenue further.\n\nWhen EBITDA is temporarily depressed by growth spending, lenders sometimes size the loan off **annual recurring revenue** (ARR) instead — an ARR loan — on the argument that the subscription base, not this year's profit, is the real collateral. Name it; do not model it.",
+            "example_q": "Why might a software LBO need a smaller equity cheque than a logistics one at the same price?",
+            "answer_md": "Because the debt line is bigger, and equity is only ever the plug. Lenders will fund 6–7 turns of EBITDA against contracted, low-churn subscription revenue versus 4–5 against freight volumes, so on identical £410m uses the software deal might carry £325m of debt to Pennard's £250m — cutting the cheque from £160m to £85m.\n\nThe flip side belongs in the answer too: the smaller cheque is bought with more interest and less room for error. The structure is more efficient, not safer."
+          },
+          "healthcare": {
+            "heading": "Leverage with a tariff attached",
+            "md": "A dental or care-home roll-up looks steady — people do not defer fillings for long — so you might expect software-style leverage. Lenders disagree, and the reason sits outside the company: much of its revenue is set by a **tariff**, the fee an NHS contract or insurer pays per treatment, and a single funding decision can cut every site's revenue at once.\n\nSo before sizing the debt, lenders run a **reimbursement haircut** case: tariff down some percentage, staff-cost inflation up, occupancy softer — and offer perhaps 4–4.5 turns *of the downside EBITDA*, not the base case. The equity plug is computed against a debt number that already assumes a moderately bad year.\n\nThe habit to show in an interview: in payer-dependent sectors, ask whose decision the revenue line really is before trusting any multiple of it.",
+            "example_q": "What would a lender stress before funding a care-home buyout?",
+            "answer_md": "The lines management does not control. Tariff rates first — a cut by the public payer hits every home simultaneously, so the lender reprices EBITDA under a fee-reduction scenario. Then staffing costs, the biggest expense and politically exposed through minimum-wage moves; then occupancy.\n\nDebt gets sized off that stressed EBITDA — typically four to four and a half turns — which is why a business this stable still carries less leverage than a software company. The equity cheque absorbs the difference."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Denholm Coldstores Ltd**, a refrigerated-warehouse operator with **£55m of EBITDA**, is for sale. The sellers want **£340m for the equity**; the company has **£45m of existing net debt** the lenders require repaid at completion; fees will run to **£8m**. The lenders offer **four turns** of EBITDA.\n\nAssemble the sources and uses, state the sponsor's cheque, and give equity as a percentage of the total.",
+        "model_answer_md": "**Uses.** Equity purchase £340m + refinanced debt £45m + fees £8m = **£393m**. All three are cash out of the door on day one, so all three must be funded.\n\n**Sources.** Debt: 4 × £55m = **£220m** — the lenders' number, fixed. Equity is the plug: 393 − 220 = **£173m**.\n\n**The shape.** Equity is 173 ÷ 393 = **44 %** of the sources — a conservative structure, four turns of leverage on a business whose earnings a lender can chill but not freeze.\n\nThe check worth saying aloud: the £45m of old debt did not change the company's value, but it raised the cheque by £45m, because it is a use and the lenders' £220m was never going to stretch for it.",
+        "rubric": [
+          "Builds uses as price + refinanced debt + fees: 340 + 45 + 8 = £393m",
+          "Treats the refinanced £45m as a use, not a reduction of anything",
+          "Sizes debt from the lenders' terms: 4 × 55 = £220m",
+          "Derives equity as the plug: 393 − 220 = £173m",
+          "States the share: 173 / 393 ≈ 44 %"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Which line balances the table?", "a": "Sponsor equity — debt capacity is fixed by the lenders, so equity covers whatever uses remain." },
+          { "q": "Refinanced old debt: source or use?", "a": "A use — it is money that must be paid out at completion, so it raises the equity cheque." },
+          { "q": "Which layer of the debt is cheapest, and why?", "a": "Senior secured — first claim on the assets means least risk, so the lowest rate." },
+          { "q": "Why not fund the entire price with debt?", "a": "Cash interest would outrun the company's cash flow, and lenders cap leverage long before that point." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Write down everything the deal must pay for, subtract what the lenders will give you — the equity cheque is whatever is left.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build a sources and uses table from a price, a fee number and the lenders' leverage offer.",
+          "I can explain why sponsor equity is the plug, and predict which line moves when fees or refinanced debt change.",
+          "I can rank the debt layers by seniority and cost, and say why senior debt is cheapest.",
+          "I can explain why lenders — not sponsors — set the leverage, and why 100 % debt is impossible.",
+          "I can adjust the whole table for a sector where lenders fund more turns, or size debt off a stressed EBITDA."
+        ]
+      }
+    ]
+  }
+}

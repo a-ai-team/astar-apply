@@ -1,0 +1,46 @@
+{
+  "slug": "spot-the-error-paper-lbo",
+  "topic_slug": "lbo",
+  "subtopic_slug": "paper-lbo-walkthrough",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:spot",
+    "paper-lbo",
+    "error-spotting"
+  ],
+  "question": "A candidate finishes the Pennard walk like this: \"Exit is 8× on £63.8m, so £510.4m of enterprise value. Take off the £250m of debt and the equity gets £260.4m — about 1.63× on the £160m cheque, so an IRR of maybe 10 %.\" The arithmetic is clean. What did they do wrong?",
+  "model_answer_md": "They subtracted the debt the deal **started** with. Five years of the walk they had just narrated — every pound of free cash flow sweeping against the loans — took the balance from £250m down to **£115.7m**, and the exit subtraction has to use what is *left*:\n\n$$510.4 - 115.7 = \\mathbf{£394.7m} \\quad\\Rightarrow\\quad \\frac{394.7}{160} = \\mathbf{2.47\\times} \\;\\approx\\; 20\\%$$\n\nnot £260.4m and 1.63×.\n\nThe size of the mistake is not random: 394.7 − 260.4 = **£134.3m**, which is exactly the debt repaid. Subtracting entry debt erases the deleveraging lever — the single largest source of value in this deal — after having correctly computed every cash flow that produced it.\n\nThe smell test that catches it live: this walk showed healthy cash generation and a flat exit multiple, and 1.63× would mean all that sweeping barely moved the return. When a conclusion contradicts the middle of your own walk, the last subtraction is the first suspect.",
+  "key_points": [
+    "The subtraction must use remaining debt (£115.7m), not entry debt (£250m)",
+    "Correct: 510.4 − 115.7 = £394.7m → 2.47× ≈ 20 %",
+    "The error's size equals the paydown: 394.7 − 260.4 = £134.3m",
+    "Subtracting entry debt deletes the deleveraging lever from the answer",
+    "Sense check: strong sweeping plus a flat multiple cannot produce 1.6×"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does the gap between the wrong and right answers equal the paydown exactly?",
+      "answer_md": "Because the two answers differ only in which debt figure was subtracted: entry debt less remaining debt *is* the cumulative repayment, £250m − £115.7m = £134.3m. There is a neat identity behind it — exit equity can be written as entry equity plus the three levers less fees, and using entry debt in the subtraction zeroes out precisely the deleveraging term while leaving growth and the multiple untouched. The error is a clean surgical removal of one lever, which is why it is such a good diagnostic of whether a candidate understands where the value came from."
+    },
+    {
+      "question": "Could the debt at exit ever be higher than at entry — and what would the same mistake do then?",
+      "answer_md": "Yes: a PIK tranche accrues interest onto the principal, and a dividend recapitalisation deliberately re-levers mid-hold to pay the sponsor early. In either case remaining debt exceeds entry debt, and subtracting the entry figure now *flatters* the equity instead of punishing it — the error flips sign. That is the deeper lesson: the rule is not \"use the smaller number\", it is \"use the balance actually outstanding on the day the business is sold\"."
+    }
+  ],
+  "weak_answer_note": "Sensing the return is too low without locating the wrong subtraction, or \"fixing\" it by adjusting the exit multiple. Every number before the last line was right; only the debt figure needs repair, and its correction is worth £134.3m of equity.",
+  "numbers": {
+    "inputs": {
+      "exit_ev": 510.4,
+      "entry_debt": 250,
+      "remaining_debt": 115.7,
+      "entry_equity": 160
+    },
+    "answer": 2.47
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

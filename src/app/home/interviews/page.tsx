@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { verifySession } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
+import { LENS_LABELS, LENSES } from "@/lib/content/taxonomy";
 import { drillTopics, listInterviews } from "@/lib/interviews/queries";
 import { MOCK_TOPICS } from "@/lib/interviews/select";
 import { DRILL_SECONDS, DRILL_SIZE, MOCK_SECONDS, MOCK_SIZE } from "@/lib/interviews/types";
@@ -46,20 +47,30 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
           {topics.length === 0 ? (
             <p className="mt-4 text-sm text-muted">No approved questions yet.</p>
           ) : (
-            <ul className="mt-4 flex flex-col gap-2">
-              {topics.map((t) => (
-                <li key={t.slug}>
-                  <form action={startInterview} className="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2">
-                    <input type="hidden" name="mode" value="drill" />
-                    <input type="hidden" name="topic" value={t.slug} />
+            // One form for the whole picker: the submit button carries the topic, and the lens
+            // select (Loop 18) applies to whichever drill is started.
+            <form action={startInterview} className="mt-4 flex flex-col gap-3">
+              <input type="hidden" name="mode" value="drill" />
+              <label className="flex flex-col gap-1 text-sm">
+                <span className="text-xs text-muted">Industry lens (optional) — adds that lens&apos;s questions to the mix</span>
+                <select name="lens" defaultValue="" className="rounded-md border border-border bg-bg px-2 py-1.5 text-sm" data-testid="interview-lens-select">
+                  <option value="">Generalist</option>
+                  {LENSES.map((l) => (
+                    <option key={l.slug} value={l.slug}>{l.label}</option>
+                  ))}
+                </select>
+              </label>
+              <ul className="flex flex-col gap-2">
+                {topics.map((t) => (
+                  <li key={t.slug} className="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2">
                     <span className="text-sm">
                       {t.title} <span className="text-xs text-muted">· {Math.min(t.count, DRILL_SIZE)} of {t.count} question{t.count === 1 ? "" : "s"}{t.count < DRILL_SIZE ? " (small pool)" : ""}</span>
                     </span>
-                    <Button type="submit" size="sm" variant="secondary" data-testid={`start-drill-${t.slug}`}>Start drill</Button>
-                  </form>
-                </li>
-              ))}
-            </ul>
+                    <Button type="submit" name="topic" value={t.slug} size="sm" variant="secondary" data-testid={`start-drill-${t.slug}`}>Start drill</Button>
+                  </li>
+                ))}
+              </ul>
+            </form>
           )}
         </Card>
         <Card data-testid="mock-card">
@@ -70,6 +81,15 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
           </p>
           <form action={startInterview} className="mt-4 flex flex-col gap-3">
             <input type="hidden" name="mode" value="mock" />
+            <label className="flex flex-col gap-1 text-sm">
+              <span className="text-xs text-muted">Industry lens (optional)</span>
+              <select name="lens" defaultValue="" className="rounded-md border border-border bg-bg px-2 py-1.5 text-sm" data-testid="interview-lens-select">
+                <option value="">Generalist</option>
+                {LENSES.map((l) => (
+                  <option key={l.slug} value={l.slug}>{l.label}</option>
+                ))}
+              </select>
+            </label>
             <label className="flex flex-col gap-1 text-sm">
               <span className="text-xs text-muted">Add an industry module (optional)</span>
               <select name="industry" defaultValue="" className="rounded-md border border-border bg-bg px-2 py-1.5 text-sm" data-testid="mock-industry" disabled={industries.length === 0}>
@@ -112,6 +132,7 @@ export default async function InterviewsPage({ searchParams }: PageProps<"/home/
                 <li key={h.id}>
                   <Link href={href} className="flex flex-wrap items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-sm hover:border-muted" data-testid="history-item" data-status={h.status}>
                     <span className="font-medium">{h.mode === "drill" ? `Drill · ${h.topic?.title ?? "topic"}` : h.topic ? `Full mock · ${h.topic.title}` : "Full mock"}</span>
+                    {h.lens && <span className="text-xs text-muted" data-testid="interview-lens-label">· {LENS_LABELS[h.lens]} lens</span>}
                     <span className="text-muted">{h.count} Q</span>
                     <Badge tone={s.tone}>{s.label}</Badge>
                     {h.overall_score != null && <span className="ml-auto tabular-nums">{Number(h.overall_score).toFixed(1)} / 10</span>}

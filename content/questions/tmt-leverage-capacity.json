@@ -1,0 +1,38 @@
+{
+  "slug": "tmt-leverage-capacity",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "lens:tmt",
+    "format:verbal",
+    "leverage"
+  ],
+  "question": "Lenders will fund six or seven turns of EBITDA on a software take-private but only four or five on a logistics business the same size. What justifies the gap — and what is the first number a software lender asks for?",
+  "model_answer_md": "The gap is entirely about how promisable the cash flows are.\n\nSubscription software revenue is **contracted ahead of time** and renews at statistically predictable rates; gross margins run past 80 %; and capital spending is minimal, so an unusually large share of each pound of EBITDA survives into free cash flow — the thing that actually services debt. A haulier's earnings move with volumes, fuel and a heavy fleet-replacement cycle, so the same £50m of EBITDA supports fewer turns.\n\nThe first number the lender asks for is **churn** — the rate at which customers cancel. Low churn is what makes the revenue 'visible' and bond-like; a rising churn line converts it back into ordinary risky revenue, and the extra turns of leverage disappear with it.\n\nThe boundary matters as much as the rule: growth software with negative EBITDA has **no** debt capacity at all. Lenders lend against cash flow, not addressable market — no EBITDA, no LBO.",
+  "key_points": [
+    "Debt capacity follows cash-flow predictability, not company quality",
+    "Contracted, renewing revenue + low capex → high EBITDA-to-cash conversion",
+    "6–7× for software versus 4–5× for an asset-heavy business",
+    "Churn is the lender's first question — it prices the revenue's visibility",
+    "Loss-making growth software has zero debt capacity: no EBITDA, no LBO"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is fast-growing, loss-making software excluded when its revenue is just as recurring?",
+      "answer_md": "Because there is nothing to size the loan on and nothing to pay interest with. Leverage is quoted as a multiple of EBITDA, and cash interest must be paid out of current cash flow — a business reinvesting past break-even fails both tests today, whatever its trajectory. Sponsors wanting that exposure write growth-equity cheques instead, where the downside is the equity rather than a default."
+    },
+    {
+      "question": "What is an ARR loan?",
+      "answer_md": "A loan sized off **annual recurring revenue** rather than EBITDA, used when a software company's profits are temporarily depressed by growth spending. The lender's argument is that the subscription base itself is the collateral — cut the growth spend and the EBITDA reappears. These loans carry tighter terms and usually convert to conventional EBITDA-based leverage once profitability normalises. At summer level: name it, don't model it."
+    }
+  ],
+  "weak_answer_note": "Answering 'software is higher quality' or 'software grows faster'. Growth is not the reason — predictability and cash conversion are, and the churn question is the tell that you know what the lender is underwriting.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

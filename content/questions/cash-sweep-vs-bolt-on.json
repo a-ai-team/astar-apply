@@ -1,0 +1,37 @@
+{
+  "slug": "cash-sweep-vs-bolt-on",
+  "topic_slug": "lbo",
+  "subtopic_slug": "paper-lbo-walkthrough",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "capital-allocation"
+  ],
+  "question": "Each year Pennard's free cash flow can either repay the loans or fund acquisitions of smaller competitors at lower multiples. How should a sponsor think about that choice?",
+  "model_answer_md": "It is a single comparison dressed up as a strategy question: **the multiple paid for the bolt-on against the multiple expected at exit.**\n\nRepaying debt transfers value pound for pound — £30m of cash flow becomes £30m of extra exit equity, reliably and boringly.\n\nSpending the same £30m on a competitor at 6× buys £5m of EBITDA. If the enlarged group exits at 8×, that EBITDA is worth £40m — the £30m became £40m at the moment of purchase, before any operational improvement. Run it for a hold and the arithmetic compounds: £150m of cash flow redirected into bolt-ons at 6× adds roughly £25m of EBITDA, worth about £200m at an 8× exit, against the £150m of debt that could otherwise have been repaid.\n\nSo when the bolt-on multiple sits below the exit multiple, acquisitions win on expected value — that is **multiple arbitrage**. The price of winning is risk: the debt never falls, so the business carries full leverage through the entire hold, integration costs quietly tax the acquired EBITDA, and if the exit multiple disappoints, the arbitrage shrinks while the leverage does not. Deleveraging is the safe pound; the bolt-on is the bigger, riskier one.",
+  "key_points": [
+    "The test: bolt-on multiple versus expected exit multiple",
+    "Debt repayment converts FCF to equity pound for pound — certain but capped",
+    "Buying at 6× and exiting at 8× turns £30m of cash into ≈ £40m of value",
+    "The cost: leverage stays high all hold, and integration eats into acquired EBITDA",
+    "Arbitrage beats deleveraging on expectation, not on risk"
+  ],
+  "follow_ups": [
+    {
+      "question": "When is the bolt-on clearly the better use of the cash?",
+      "answer_md": "When the spread is wide and the integration is rehearsed: targets available meaningfully below the platform's exit multiple, a repeatable playbook for folding them in (shared back office, procurement, rota systems), and enough covenant headroom that carrying full leverage through the hold is survivable. Healthcare and dental roll-ups are the textbook case — single-site practices at 5–6× against platform exits near 10×. If the spread narrows to a turn or the pipeline of willing sellers dries up, the maths reverts to repaying debt."
+    },
+    {
+      "question": "What does the bolt-on strategy do to leverage over the hold?",
+      "answer_md": "Measured in pounds, debt stays where it started — the cash that would have repaid it went on acquisitions. Measured in turns, leverage actually improves as acquired EBITDA arrives: £250m over an EBITDA base heading towards £89m is under 3×, against the 5× at entry. Lenders look at the ratio, which is why credit agreements often permit acquisitions from cash flow. But the pound amount is what must be refinanced or repaid at exit, and a wobble in EBITDA un-improves the ratio instantly — the cushion a repaid balance would have provided simply is not there."
+    }
+  ],
+  "weak_answer_note": "Framing it as growth versus prudence without the multiple comparison, or forgetting the risk half — a bolt-on answer that never mentions sustained leverage and integration cost reads as a pitch, not an analysis.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

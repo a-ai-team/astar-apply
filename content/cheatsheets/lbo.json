@@ -1,0 +1,75 @@
+{
+  "topic_slug": "lbo",
+  "formulas": [
+    {
+      "name": "Debt raised",
+      "latex": "\\text{Debt} = \\text{Leverage (turns)} \\times \\text{EBITDA}",
+      "note": "Pennard: 5.0× on £50m = £250m, blending to 6 % cash interest. Lenders set the turns; the sponsor takes what is offered."
+    },
+    {
+      "name": "Sponsor equity (the plug)",
+      "latex": "\\text{Equity} = \\text{Uses} - \\text{Debt}",
+      "note": "Uses run £400m EV + £10m fees = £410m; less £250m of debt leaves a £160m cheque — 39 % of the deal, and not £150m, because the fees are a use."
+    },
+    {
+      "name": "Free cash flow",
+      "latex": "\\text{FCF} = \\text{EBITDA} - \\text{Interest} - \\text{Tax} - \\text{Capex} - \\Delta\\text{NWC}",
+      "note": "Pennard year 1: 52.5 − 15.0 − 6.9 − 10 = £20.6m, every pound of it swept against the debt. When capex equals D&A, FCF equals net income."
+    },
+    {
+      "name": "Exit equity",
+      "latex": "\\text{Exit equity} = \\text{Exit multiple} \\times \\text{EBITDA}_N - \\text{Remaining debt}",
+      "note": "8.0× on £63.8m = £510.4m, less the £115.7m still owed = £394.7m. Remaining debt — never the debt you started with."
+    },
+    {
+      "name": "Money multiple and IRR",
+      "latex": "\\text{MoM} = \\frac{\\text{Exit equity}}{\\text{Entry equity}} \\qquad \\text{IRR} = \\text{MoM}^{1/n} - 1",
+      "note": "£394.7m on £160m is 2.47×; over five years that is 2.47^{0.2} − 1 ≈ 19.8 %. MoM ignores time; IRR punishes a slow deal."
+    },
+    {
+      "name": "Rule of 72",
+      "latex": "\\text{Years to double} \\approx \\frac{72}{\\text{IRR \\%}}",
+      "note": "At 20 % money doubles in about 3.6 years — the sanity check on any anchor you quote."
+    }
+  ],
+  "canonical": [
+    {
+      "q": "What is a leveraged buyout?",
+      "a": "A sponsor buys a company using mostly debt — typically half to two-thirds of the price — and a minority equity cheque. The debt is raised against the target's cash flows and sits on its balance sheet; the company repays it from free cash flow over a four-to-six-year hold. At exit the business is sold, ideally at the same or better multiple, and because the cheque was small the return on it is magnified."
+    },
+    {
+      "q": "What makes a good LBO candidate?",
+      "a": "Stable, predictable cash flows to service the debt; low capital requirements so cash converts; scope to take cost out; a capable management team; assets or contracts a lender can underwrite; and an entry price that is not already full. Cyclical earnings, heavy capex and regulatory exposure all cap the leverage a deal can carry."
+    },
+    {
+      "q": "Sources and uses?",
+      "a": "Uses are what the money buys: the purchase price, any existing debt refinanced at close, and fees. Sources are where it comes from: senior debt sized by the lenders in turns of EBITDA, perhaps a junior layer, and the sponsor's equity — the plug that makes the sides balance. On Pennard, £410m of uses is funded £250m debt and £160m equity, about 60/40."
+    },
+    {
+      "q": "How does the sponsor make money?",
+      "a": "Three levers. EBITDA growth: the business is worth more at exit. Deleveraging: free cash flow repays debt, so more of the exit value belongs to the equity. Multiple expansion: selling on a better multiple than you paid — which sponsors do not underwrite. Leverage amplifies whatever the levers deliver. On Pennard, growth adds about £110m and paydown about £134m; the multiple adds nothing, and £160m becomes roughly £395m."
+    },
+    {
+      "q": "Narrate a paper LBO.",
+      "a": "Sources and uses first: 8× on £50m is £400m, plus £10m of fees; five turns of debt is £250m, so the cheque is £160m. Then cash: EBITDA less interest, tax and capex runs roughly £20m rising to £34m, all of it repaying debt — call it £135m over the hold. Exit at 8× on £64m is about £510m; take off the £115m still owed and the equity is £395m. That is 2.5× on £160m — around 20 %."
+    }
+  ],
+  "traps": [
+    "Saying the sponsor repays the debt. The company does, from its own free cash flow — which is why cash generation beats growth as the screening question.",
+    "Treating leverage as a value creator. It concentrates the value on a smaller cheque and adds interest and risk; the value itself comes from the three levers.",
+    "Computing equity as 100 % minus the leverage. Equity is the plug on the uses side — fees and refinanced debt both enlarge the cheque.",
+    "Subtracting entry debt at exit. The business has been repaying it for five years; use the remaining balance, and the difference is exactly the paydown.",
+    "Building a full debt schedule in a paper LBO. Round aggressively and narrate the structure — precision is not what is being tested."
+  ],
+  "one_liners": [
+    "Debt shrinks the cheque; cash flow shrinks the debt; the exit pays the equity."
+  ],
+  "you_may_hear": [
+    "Cash sweeps and minimum-cash assumptions in the debt schedule.",
+    "PIK toggles — interest accrued onto the principal instead of paid in cash.",
+    "Maintenance vs incurrence covenants, and covenant-lite loans.",
+    "Dividend recapitalisations — re-levering mid-hold to return cash early.",
+    "Management rollover and sweet equity.",
+    "Unitranche facilities from private-credit funds."
+  ]
+}

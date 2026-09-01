@@ -1,0 +1,37 @@
+{
+  "slug": "rates-rise-after-close",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "interest-rates"
+  ],
+  "question": "Six months after Marlow Capital closes on Pennard, base rates rise two full points. Trace what that does to the deal.",
+  "model_answer_md": "It attacks the deal through two separate channels — one on the cash flows, one on the exit.\n\n**The cash channel.** Leveraged loans price at a floating rate — a benchmark plus a margin — so when the benchmark rises two points, Pennard's interest bill rises with it. On £250m that is roughly £5m more cash out every year, and because every pound of free cash flow was earmarked for debt repayment, the deleveraging lever slows: less repaid each year, more debt still outstanding at exit, less of the exit value reaching the equity.\n\n**The exit channel.** Multiples are inverse to discount rates. The buyers Marlow will face in year five are running their own financing maths at the new rates, and they will pay fewer turns of EBITDA — so the lever the committee pencilled at zero threatens to go negative.\n\n**What survives, and what protects.** EBITDA growth is untouched unless the rate rise also cools demand. And most sponsors buy protection at close — interest-rate caps or swaps fixing some of the floating exposure for the first few years — which blunts the cash channel. Nothing hedges the exit multiple; that risk is simply held.",
+  "key_points": [
+    "Senior LBO debt floats: benchmark + margin, so the interest bill rises immediately",
+    "Higher interest → less FCF → slower paydown → more debt at exit",
+    "Buyers at exit price off higher rates → multiple compression risk",
+    "Growth is the surviving lever unless demand also weakens",
+    "Caps and swaps hedge the cash channel; nothing hedges the exit multiple"
+  ],
+  "follow_ups": [
+    {
+      "question": "How exactly do sponsors hedge this?",
+      "answer_md": "With interest-rate derivatives arranged at or soon after close. A **cap** sets a ceiling on the floating benchmark — the fund pays a premium and is compensated whenever rates fix above the strike. A **swap** exchanges the floating rate for a fixed one on part of the balance. Lenders often require a minimum portion hedged for the first two or three years precisely because an unhedged rate shock eats the cash that was meant to repay them. The hedge protects the coupon, not the principal: the deal still carries the same leverage."
+    },
+    {
+      "question": "Which parts of the debt stack float, and which are fixed?",
+      "answer_md": "The senior bank debt — term loans — floats over the benchmark, which is why it responds instantly to base-rate moves. High-yield bonds, where a structure includes them, pay a fixed coupon set at issue, so existing bonds are immune to the rise (though refinancing them later costs more). Pennard's structure is loan-heavy, which is normal for mid-market deals — meaning most of the stack floats and the cash channel bites almost in full without a hedge."
+    }
+  ],
+  "weak_answer_note": "Mentioning only the higher interest cost and stopping. The complete answer traces the second-order effect — slower deleveraging — and the exit-multiple channel, then names the hedge and its limits.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}
