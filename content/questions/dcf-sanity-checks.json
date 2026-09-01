@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Checking only that the spreadsheet has no errors. The question is about whether the *answer* is credible, not whether the arithmetic works. Not knowing what a normal terminal-value share looks like leaves you with no yardstick at all.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

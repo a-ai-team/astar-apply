@@ -3,7 +3,7 @@
   "subtopic_slug": "synergies-and-deal-structure",
   "title": "Synergies, goodwill and what the premium buys",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,27 +27,94 @@
         "type": "worked_calc",
         "md": "**Part one — is the premium covered?** Tamar's premium is 500 − 400 = **£100m**. Set against it the synergy programme: £20m a year pre-tax at run rate, £10m in year one, a £20m one-off integration cost also in year one, tax at 25 %, discounted at Tamar's 8 %. Value the steady state as a perpetuity running from year two, valued as at the end of year one, then discounted back.\n\n**Part two — what lands on the balance sheet?** Wychwood's book net assets are **£220m**, and its brand is written up by **£60m** at completion.",
         "steps": [
-          { "label": "Year-one synergies, after tax", "expr": "10 * 0.75", "value": 7.5, "unit": "£m" },
-          { "label": "One-off integration cost, after tax", "expr": "20 * 0.75", "value": 15, "unit": "£m" },
-          { "label": "Year one, net", "expr": "7.5 - 15", "value": -7.5, "unit": "£m" },
-          { "label": "Present value of year one", "expr": "-7.5 / 1.08", "value": -6.94, "unit": "£m" },
-          { "label": "Run-rate synergies, after tax", "expr": "20 * 0.75", "value": 15, "unit": "£m" },
-          { "label": "Perpetuity from year two, valued at end of year one", "expr": "15 / 0.08", "value": 187.5, "unit": "£m" },
-          { "label": "… discounted back one year", "expr": "187.5 / 1.08", "value": 173.6, "unit": "£m" },
-          { "label": "Synergy value, net of the cost to achieve", "expr": "173.6 - 6.9", "value": 166.7, "unit": "£m" },
-          { "label": "Fair value of identifiable net assets", "expr": "220 + 60", "value": 280, "unit": "£m" },
-          { "label": "Goodwill", "expr": "500 - 280", "value": 220, "unit": "£m" },
-          { "label": "Going deeper: deferred tax on the write-up", "expr": "60 * 25%", "value": 15, "unit": "£m" },
-          { "label": "Goodwill with that liability recognised", "expr": "500 - 280 + 15", "value": 235, "unit": "£m" }
+          {
+            "label": "Year-one synergies, after tax",
+            "expr": "10 * 0.75",
+            "value": 7.5,
+            "unit": "£m"
+          },
+          {
+            "label": "One-off integration cost, after tax",
+            "expr": "20 * 0.75",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Year one, net",
+            "expr": "7.5 - 15",
+            "value": -7.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Present value of year one",
+            "expr": "-7.5 / 1.08",
+            "value": -6.94,
+            "unit": "£m"
+          },
+          {
+            "label": "Run-rate synergies, after tax",
+            "expr": "20 * 0.75",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Perpetuity from year two, valued at end of year one",
+            "expr": "15 / 0.08",
+            "value": 187.5,
+            "unit": "£m"
+          },
+          {
+            "label": "… discounted back one year",
+            "expr": "187.5 / 1.08",
+            "value": 173.6,
+            "unit": "£m"
+          },
+          {
+            "label": "Synergy value, net of the cost to achieve",
+            "expr": "173.6 - 6.9",
+            "value": 166.7,
+            "unit": "£m"
+          },
+          {
+            "label": "Fair value of identifiable net assets",
+            "expr": "220 + 60",
+            "value": 280,
+            "unit": "£m"
+          },
+          {
+            "label": "Goodwill",
+            "expr": "500 - 280",
+            "value": 220,
+            "unit": "£m"
+          },
+          {
+            "label": "Going deeper: deferred tax on the write-up",
+            "expr": "60 * 25%",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Goodwill with that liability recognised",
+            "expr": "500 - 280 + 15",
+            "value": 235,
+            "unit": "£m"
+          }
         ]
       },
       {
         "type": "predict",
         "prompt": "Suppose Tamar's advisers decide Wychwood's brand deserves a bigger write-up — £90m instead of £60m. Goodwill goes…",
         "options": [
-          { "label": "Up — the deal recognises more intangible value" },
-          { "label": "Down — goodwill is what is left over", "correct": true },
-          { "label": "Nowhere — write-ups and goodwill are separate entries" }
+          {
+            "label": "Up — the deal recognises more intangible value"
+          },
+          {
+            "label": "Down — goodwill is what is left over",
+            "correct": true
+          },
+          {
+            "label": "Nowhere — write-ups and goodwill are separate entries"
+          }
         ],
         "explain_md": "**Down.** Goodwill is a residual, not a valuation: price minus the fair value of everything you *can* identify. Every pound of extra write-up moves a pound out of the unexplained residual and into a named asset — the brand — so a £90m uplift would cut goodwill from £220m to £190m.\n\nThe price has not changed and neither has the deal's economics; the £500m has simply been *allocated* differently. What does change is the future income statement: named intangibles amortise while goodwill does not, so a bigger write-up means lower reported earnings for years. That trade-off — and the deferred tax twist that partially reverses it — is what the second widget below lets you push around."
       },
@@ -103,10 +170,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Is goodwill amortised under IFRS?", "a": "No — it stays at cost and is tested for impairment at least annually; only a write-down moves it." },
-          { "q": "Run-rate versus one-off synergies?", "a": "Run-rate is the steady annual saving once integration is complete; a one-off happens once and should never be capitalised into the deal case as if it recurred." },
-          { "q": "What is a break fee?", "a": "A payment owed if one side abandons the deal — it compensates the other's costs and makes walking away expensive enough to deter." },
-          { "q": "Why do sellers dislike earn-outs?", "a": "Part of their price now depends on results delivered by a business the buyer controls — they carry the risk without holding the wheel." }
+          {
+            "q": "Is goodwill amortised under IFRS?",
+            "a": "No — it stays at cost and is tested for impairment at least annually; only a write-down moves it."
+          },
+          {
+            "q": "Run-rate versus one-off synergies?",
+            "a": "Run-rate is the steady annual saving once integration is complete; a one-off happens once and should never be capitalised into the deal case as if it recurred."
+          },
+          {
+            "q": "What is a break fee?",
+            "a": "A payment owed if one side abandons the deal — it compensates the other's costs and makes walking away expensive enough to deter."
+          },
+          {
+            "q": "Why do sellers dislike earn-outs?",
+            "a": "Part of their price now depends on results delivered by a business the buyer controls — they carry the risk without holding the wheel."
+          }
         ]
       },
       {

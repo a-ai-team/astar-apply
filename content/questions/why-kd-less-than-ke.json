@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Giving only the tax reason and missing seniority, or only seniority and missing the tax shield. Saying 'debt is cheaper so companies should use it' invites the follow-up about why they do not use it exclusively.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

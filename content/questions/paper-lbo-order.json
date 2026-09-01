@@ -32,7 +32,7 @@
   ],
   "weak_answer_note": "Placing the IRR conversion before the money multiple, or treating the FCF projection and the sweep as separable when interest depends on the running balance. The rigid dependency chain is the understanding being tested.",
   "numbers": null,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

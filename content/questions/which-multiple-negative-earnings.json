@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Answers 'EV/Revenue' and stops, without acknowledging that it implies a margin assumption or that a sector KPI is usually better.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

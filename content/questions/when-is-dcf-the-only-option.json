@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Says 'when there are no comparables' and stops, without naming the situations that produce that or acknowledging the DCF still needs a sanity check.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

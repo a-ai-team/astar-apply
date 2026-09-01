@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Defines the Rule of 40 as a formula without saying what trade-off it captures, or treats it as a pass/fail test rather than one input into where on the line a company sits.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

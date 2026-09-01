@@ -33,13 +33,13 @@
   "numbers": {
     "inputs": {
       "risk_free": 0.04,
-      "beta": 1.0,
+      "beta": 1,
       "equity_risk_premium": 0.06
     },
     "answer": 0.1
   },
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

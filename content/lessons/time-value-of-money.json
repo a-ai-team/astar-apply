@@ -3,7 +3,7 @@
   "subtopic_slug": "time-value-of-money",
   "title": "Why a pound today beats a pound later",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,10 +27,19 @@
         "type": "predict",
         "prompt": "Ashdown Bakeries is owed a £1.0m supplier rebate in three years, discounted at 8 %. If the payment slips from year 3 to year 5, what happens to its present value?",
         "options": [
-          { "label": "It falls by less than 10 %" },
-          { "label": "It falls by more than 10 %", "correct": true },
-          { "label": "It is unchanged — the cash is the same" },
-          { "label": "It falls by exactly two years' interest, 16 %" }
+          {
+            "label": "It falls by less than 10 %"
+          },
+          {
+            "label": "It falls by more than 10 %",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — the cash is the same"
+          },
+          {
+            "label": "It falls by exactly two years' interest, 16 %"
+          }
         ],
         "explain_md": "It falls from **£0.794m to £0.681m** — about **14 %**. Two extra years means dividing by 1.08 twice more, and because it compounds the loss is bigger than \"two lots of 8 % of the original\" but smaller than a flat 16 %. This is the whole reason a delay in a project matters even when no cash is lost: waiting has a price, and the price compounds."
       },
@@ -39,7 +48,11 @@
         "widget": "discount_dial",
         "props": {
           "mode": "pv",
-          "cashflows": [0, 0, 1.0],
+          "cashflows": [
+            0,
+            0,
+            1
+          ],
           "rate": 0.08,
           "midYear": false
         }
@@ -48,20 +61,62 @@
         "type": "worked_calc",
         "md": "Ashdown Bakeries is owed a **£1.0m rebate in three years**. Two rates are defensible. A UK government gilt yields **4 %** — that is what waiting costs when repayment is certain. Ashdown's own bank charges it **8 %** — that is what waiting costs when the money depends on Ashdown's supplier actually paying.\n\nThe gap between the two answers is the price of the risk.",
         "steps": [
-          { "label": "PV at the 4 % gilt rate", "expr": "1.0 / 1.04^3", "value": 0.889, "unit": "£m" },
-          { "label": "PV at Ashdown's 8 % rate", "expr": "1.0 / 1.08^3", "value": 0.794, "unit": "£m" },
-          { "label": "The price of Ashdown's risk", "expr": "0.889 - 0.794", "value": 0.095, "unit": "£m" },
-          { "label": "PV at 8 % with the mid-year convention", "expr": "1.0 / 1.08^2.5", "value": 0.825, "unit": "£m" }
+          {
+            "label": "PV at the 4 % gilt rate",
+            "expr": "1.0 / 1.04^3",
+            "value": 0.889,
+            "unit": "£m"
+          },
+          {
+            "label": "PV at Ashdown's 8 % rate",
+            "expr": "1.0 / 1.08^3",
+            "value": 0.794,
+            "unit": "£m"
+          },
+          {
+            "label": "The price of Ashdown's risk",
+            "expr": "0.889 - 0.794",
+            "value": 0.095,
+            "unit": "£m"
+          },
+          {
+            "label": "PV at 8 % with the mid-year convention",
+            "expr": "1.0 / 1.08^2.5",
+            "value": 0.825,
+            "unit": "£m"
+          }
         ]
       },
       {
         "type": "fill_numbers",
         "md": "Now the same rebate, but the supplier is shakier and the right rate is **12 %**. Fill in the two numbers that carry the insight — the rest are done for you.",
         "steps": [
-          { "label": "One year of waiting: PV of £1.0m in year 1", "expr": "1.0 / 1.12", "value": 0.893, "unit": "£m" },
-          { "label": "Three years of waiting: PV of £1.0m in year 3", "expr": "1.0 / 1.12^3", "value": 0.712, "unit": "£m", "blank": true },
-          { "label": "Eight years of waiting: PV of £1.0m in year 8", "expr": "1.0 / 1.12^8", "value": 0.404, "unit": "£m", "blank": true },
-          { "label": "Value lost between year 3 and year 8", "expr": "0.712 - 0.404", "value": 0.308, "unit": "£m" }
+          {
+            "label": "One year of waiting: PV of £1.0m in year 1",
+            "expr": "1.0 / 1.12",
+            "value": 0.893,
+            "unit": "£m"
+          },
+          {
+            "label": "Three years of waiting: PV of £1.0m in year 3",
+            "expr": "1.0 / 1.12^3",
+            "value": 0.712,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Eight years of waiting: PV of £1.0m in year 8",
+            "expr": "1.0 / 1.12^8",
+            "value": 0.404,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Value lost between year 3 and year 8",
+            "expr": "0.712 - 0.404",
+            "value": 0.308,
+            "unit": "£m"
+          }
         ]
       },
       {
@@ -106,10 +161,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Discount rate goes up — does present value rise or fall?", "a": "Falls. You are dividing by a bigger number, once per year." },
-          { "q": "Two identical £1m payments, one in year 2 and one in year 6. Which is worth more today?", "a": "Year 2 — fewer rounds of discounting." },
-          { "q": "What two things is a discount rate paying for?", "a": "Waiting (opportunity cost) and risk." },
-          { "q": "Does the mid-year convention raise or lower a valuation?", "a": "Raises it — you assume cash arrives on average half a year sooner." }
+          {
+            "q": "Discount rate goes up — does present value rise or fall?",
+            "a": "Falls. You are dividing by a bigger number, once per year."
+          },
+          {
+            "q": "Two identical £1m payments, one in year 2 and one in year 6. Which is worth more today?",
+            "a": "Year 2 — fewer rounds of discounting."
+          },
+          {
+            "q": "What two things is a discount rate paying for?",
+            "a": "Waiting (opportunity cost) and risk."
+          },
+          {
+            "q": "Does the mid-year convention raise or lower a valuation?",
+            "a": "Raises it — you assume cash arrives on average half a year sooner."
+          }
         ]
       },
       {

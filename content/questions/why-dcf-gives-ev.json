@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Saying 'because it uses WACC' without explaining that the cash flow is also pre-interest. The insight is the *match* between numerator and denominator, not either one alone. Claiming a DCF gives equity value directly is the outright error.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

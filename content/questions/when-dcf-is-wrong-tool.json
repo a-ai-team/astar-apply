@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Saying a DCF 'always works if your assumptions are right' — technically true and useless. Missing financials, which is the case interviewers most often have in mind. Or claiming a DCF cannot value a loss-making company at all, when the real issue is where the value concentrates.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

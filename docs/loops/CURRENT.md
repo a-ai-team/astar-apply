@@ -20,13 +20,18 @@
 | Loop | Chapter | Lessons | Questions | State |
 |---|---|---|---|---|
 | 11 | Platform | — | — | merged |
-| 12 | Finance foundations | 3 | 12 | merged · `generated` |
+| 12 | Finance foundations | 3 | 12 | merged · approved & **live** |
 | 13 | Accounting | 8 | 42 | merged · approved & **live** |
 | 14 | EqV vs EV | 4 | 29 | merged · approved & **live** |
-| 15 | Valuation | 5 | 31 | merged · `generated` |
-| 16 | DCF | 7 | 42 | merged (#36) · `generated` |
-| 17 | M&A | 4 | 22 | merged (#38) · `generated` |
-| 18 | LBO | 4 | 24 | **merged via this PR** · `generated` |
+| 15 | Valuation | 5 | 31 | merged · approved & **live** |
+| 16 | DCF | 7 | 42 | merged (#36) · approved & **live** |
+| 17 | M&A | 4 | 22 | merged (#38) · approved & **live** |
+| 18 | LBO | 4 | 24 | merged (#39) · approved & **live** |
+
+**2026-09-01: James approved everything.** All 154 remaining `generated` items (23 lessons + 131
+questions across Foundations, Valuation, DCF, M&A, LBO) passed `content:approve` with 0 skips —
+`content_reviews` rows recorded, **176 flashcards** derived (26 lens questions excluded by rule),
+**654 chunks** indexed for the Mentor. The whole curriculum is live.
 
 **21 spec errors** were caught across the run by verifying every number against `src/lib/finance/*`
 before writing prose — the single highest-value habit of the whole programme (per-loop detail in the
@@ -36,9 +41,8 @@ and an unresolved merge-conflict marker sitting live in `docs/MASTER_PLAN.md`.
 
 ## For James & Tesleem — everything that needs a human
 
-1. **Approve the four paid chapters** in `/admin/review` — Valuation (31), DCF (42), M&A (22) and
-   LBO (24 questions, 4 lessons each chapter) all sit `generated` by policy. After approving:
-   `npm run seed -- 05 && npm run content:index` (derives the flashcards, indexes the chunks).
+1. ~~Approve the paid chapters~~ **Done 2026-09-01** — James approved everything in chat; 154 items
+   auto-approved via `content:approve` (eval-gated), flashcards and index refreshed.
 2. **Lighthouse a11y** (standing gap since Loop 11, no headless Chrome in the sandbox):
    `npx lighthouse http://localhost:3100/home/technicals/accounting/three-statement-links --only-categories=accessibility`
    against `next start` clears Loops 11–18 in one run.
@@ -106,3 +110,4 @@ again, conflicts land in `docs/{MASTER_PLAN,TECHNICALS}.md`, `docs/loops/{CURREN
 
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
 - 2026-09-01 heartbeat
+- 2026-09-01 20:45 heartbeat

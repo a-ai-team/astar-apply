@@ -39,10 +39,10 @@
       "change_in_nwc": 3.75,
       "tax_rate": 0.25
     },
-    "answer": 27.0
+    "answer": 27
   },
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

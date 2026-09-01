@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Answering with a fixed rule (\"leverage is always five or six times\") or claiming the sponsor chooses the level. The multiple is an output of the lenders' downside analysis, and it moves with the business's cash-flow quality and the credit cycle.",
   "numbers": null,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

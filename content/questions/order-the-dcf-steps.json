@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Discounting before estimating a rate, or treating the terminal value as something you simply add on without discounting it. Bridging to equity before the terminal value is included is the other common ordering error.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

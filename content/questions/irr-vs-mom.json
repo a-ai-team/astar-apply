@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Defining both correctly but missing the one-word difference — time — or being unable to convert between them on round numbers. \"2.5× over five years is about 20 %\" is the expected fluency even in a definitional answer.",
   "numbers": null,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null
 }

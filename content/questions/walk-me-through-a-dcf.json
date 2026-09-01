@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Reciting the five steps with no numbers, forgetting that the terminal value also has to be discounted, or stopping at enterprise value without bridging to equity. Saying 'discount the cash flows' without naming WACC, or naming WACC without being able to say why it is the right rate, both invite the obvious follow-up.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "States that the median is 'more accurate' without explaining outlier sensitivity, or quotes a median from a set too small for it to mean anything.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

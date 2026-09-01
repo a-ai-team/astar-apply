@@ -3,7 +3,7 @@
   "subtopic_slug": "unlevered-free-cash-flow",
   "title": "Unlevered free cash flow",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -77,13 +77,13 @@
           {
             "label": "Add back D&A (no cash left the business)",
             "expr": "95.4 + 63.6",
-            "value": 159.0,
+            "value": 159,
             "unit": "£m"
           },
           {
             "label": "Less capital expenditure",
             "expr": "159.0 - 70.0",
-            "value": 89.0,
+            "value": 89,
             "unit": "£m"
           },
           {

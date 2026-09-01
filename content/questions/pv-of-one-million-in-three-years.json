@@ -1,7 +1,7 @@
 {
   "topic_slug": "finance-foundations",
   "source_topic": "Finance concepts",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "slug": "pv-of-one-million-in-three-years",
@@ -29,7 +29,7 @@
   "weak_answer_note": "Multiplies by 0.92 three times, subtracts 8 % per year in a straight line (giving £0.76m), or uses the wrong exponent — discounting two or four years instead of three.",
   "numbers": {
     "inputs": {
-      "cash_flow": 1.0,
+      "cash_flow": 1,
       "rate": 0.08,
       "years": 3
     },

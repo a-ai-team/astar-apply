@@ -32,7 +32,7 @@
   ],
   "weak_answer_note": "Applying a standard perpetuity and treating the cliff as a growth-rate adjustment. Or knowing the revenue falls but not proposing to forecast explicitly through it, which is the practical answer an interviewer wants.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

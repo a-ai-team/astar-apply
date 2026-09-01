@@ -30,7 +30,7 @@
   ],
   "weak_answer_note": "Describes the chart's appearance without saying why a range beats a point estimate, or treats the overlap as the 'answer' with no comment on the gaps.",
   "topic_slug": "valuation",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

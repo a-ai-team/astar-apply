@@ -3,7 +3,7 @@
   "subtopic_slug": "accretion-dilution-calculations",
   "title": "The merger maths, one line at a time",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,45 +27,150 @@
         "type": "worked_calc",
         "md": "**The deal, with the funding decided.** Tamar Group plc — net income **£120m**, **100m** shares, so EPS **£1.20**, and a share price of **£18** — is buying Wychwood Ltd, net income **£40m**, for **£500m**. The board settles on half and half: **£250m of new debt at 6 %** pre-tax, and **£250m paid in new Tamar shares**. Tax is **25 %**.\n\nRun the machine:",
         "steps": [
-          { "label": "Interest on the new debt", "expr": "250 * 6%", "value": 15, "unit": "£m" },
-          { "label": "… which costs this after tax", "expr": "15 * 0.75", "value": 11.25, "unit": "£m" },
-          { "label": "New shares: £250m of paper at £18 each", "expr": "250 / 18", "value": 13.89, "unit": "m" },
-          { "label": "Pro-forma net income", "expr": "120 + 40 - 11.25", "value": 148.75, "unit": "£m" },
-          { "label": "Pro-forma share count", "expr": "100 + 13.89", "value": 113.89, "unit": "m" },
-          { "label": "Pro-forma EPS", "expr": "148.75 / 113.89", "value": 1.306, "unit": "£" },
-          { "label": "Against £1.20 standalone", "expr": "1.306 / 1.20 - 1", "value": 0.088, "unit": "" },
-          { "label": "Now add £20m of synergies, after tax", "expr": "20 * 0.75", "value": 15, "unit": "£m" },
-          { "label": "Net income with synergies", "expr": "148.75 + 15", "value": 163.75, "unit": "£m" },
-          { "label": "EPS with synergies", "expr": "163.75 / 113.89", "value": 1.438, "unit": "£" },
-          { "label": "Accretion with synergies", "expr": "1.438 / 1.20 - 1", "value": 0.198, "unit": "" }
+          {
+            "label": "Interest on the new debt",
+            "expr": "250 * 6%",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "… which costs this after tax",
+            "expr": "15 * 0.75",
+            "value": 11.25,
+            "unit": "£m"
+          },
+          {
+            "label": "New shares: £250m of paper at £18 each",
+            "expr": "250 / 18",
+            "value": 13.89,
+            "unit": "m"
+          },
+          {
+            "label": "Pro-forma net income",
+            "expr": "120 + 40 - 11.25",
+            "value": 148.75,
+            "unit": "£m"
+          },
+          {
+            "label": "Pro-forma share count",
+            "expr": "100 + 13.89",
+            "value": 113.89,
+            "unit": "m"
+          },
+          {
+            "label": "Pro-forma EPS",
+            "expr": "148.75 / 113.89",
+            "value": 1.306,
+            "unit": "£"
+          },
+          {
+            "label": "Against £1.20 standalone",
+            "expr": "1.306 / 1.20 - 1",
+            "value": 0.088,
+            "unit": ""
+          },
+          {
+            "label": "Now add £20m of synergies, after tax",
+            "expr": "20 * 0.75",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Net income with synergies",
+            "expr": "148.75 + 15",
+            "value": 163.75,
+            "unit": "£m"
+          },
+          {
+            "label": "EPS with synergies",
+            "expr": "163.75 / 113.89",
+            "value": 1.438,
+            "unit": "£"
+          },
+          {
+            "label": "Accretion with synergies",
+            "expr": "1.438 / 1.20 - 1",
+            "value": 0.198,
+            "unit": ""
+          }
         ]
       },
       {
         "type": "predict",
         "prompt": "Keep everything else fixed, but pay the whole £500m in Tamar shares instead of half debt, half stock. The accretion figure goes…",
         "options": [
-          { "label": "Higher — no interest charge at all" },
-          { "label": "Lower — stock is the dearest currency Tamar has", "correct": true },
-          { "label": "Nowhere — the price is the same either way" }
+          {
+            "label": "Higher — no interest charge at all"
+          },
+          {
+            "label": "Lower — stock is the dearest currency Tamar has",
+            "correct": true
+          },
+          {
+            "label": "Nowhere — the price is the same either way"
+          }
         ],
         "explain_md": "**Lower.** No interest charge sounds like a saving, but stock is not free — it costs Tamar its own earnings yield, 1 ÷ 15 = **6.67 %**, because every new share hands its holder a slice of all future earnings. The debt it replaces costs 6 % × 0.75 = **4.5 %** after tax. Swapping a 4.5 % currency for a 6.67 % one drags the accretion from +8.8 % back to the +4.4 % of the all-stock case.\n\nThat is the general rule doing its work: the mix decides the answer, and the cheapest funding is whatever carries the lowest after-tax cost — not whatever avoids a visible expense line."
       },
       {
         "type": "widget",
         "widget": "accretion_rule",
-        "props": { "mode": "full", "stockPct": 0.5, "debtPct": 0.5, "cashPct": 0 }
+        "props": {
+          "mode": "full",
+          "stockPct": 0.5,
+          "debtPct": 0.5,
+          "cashPct": 0
+        }
       },
       {
         "type": "fill_numbers",
         "md": "Same machine, different deal. A buyer with net income of **£90m** and **60m** shares — EPS £1.50 — trades at **£15** a share. It pays **£360m** for a target earning **£30m**, funding it with **40 % debt at 5 %** pre-tax and **60 % in its own shares**. Tax is 25 %. Fill in the missing lines.",
         "steps": [
-          { "label": "Interest on the new debt", "expr": "360 * 0.4 * 5%", "value": 7.2, "unit": "£m" },
-          { "label": "After-tax interest cost", "expr": "7.2 * 0.75", "value": 5.4, "unit": "£m", "blank": true },
-          { "label": "New shares issued", "expr": "360 * 0.6 / 15", "value": 14.4, "unit": "m", "blank": true },
-          { "label": "Pro-forma net income", "expr": "90 + 30 - 5.4", "value": 114.6, "unit": "£m" },
-          { "label": "Pro-forma share count", "expr": "60 + 14.4", "value": 74.4, "unit": "m" },
-          { "label": "Pro-forma EPS", "expr": "114.6 / 74.4", "value": 1.54, "unit": "£", "blank": true },
-          { "label": "Against £1.50 standalone", "expr": "1.54 / 1.50 - 1", "value": 0.0267, "unit": "" }
+          {
+            "label": "Interest on the new debt",
+            "expr": "360 * 0.4 * 5%",
+            "value": 7.2,
+            "unit": "£m"
+          },
+          {
+            "label": "After-tax interest cost",
+            "expr": "7.2 * 0.75",
+            "value": 5.4,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "New shares issued",
+            "expr": "360 * 0.6 / 15",
+            "value": 14.4,
+            "unit": "m",
+            "blank": true
+          },
+          {
+            "label": "Pro-forma net income",
+            "expr": "90 + 30 - 5.4",
+            "value": 114.6,
+            "unit": "£m"
+          },
+          {
+            "label": "Pro-forma share count",
+            "expr": "60 + 14.4",
+            "value": 74.4,
+            "unit": "m"
+          },
+          {
+            "label": "Pro-forma EPS",
+            "expr": "114.6 / 74.4",
+            "value": 1.54,
+            "unit": "£",
+            "blank": true
+          },
+          {
+            "label": "Against £1.50 standalone",
+            "expr": "1.54 / 1.50 - 1",
+            "value": 0.0267,
+            "unit": ""
+          }
         ]
       },
       {
@@ -110,10 +215,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "How many new shares does a stock deal create?", "a": "The stock portion of the price divided by the buyer's share price — £250m of consideration at £18 a share is 13.9m new shares." },
-          { "q": "What does new acquisition debt cost the pro-forma numbers?", "a": "Principal × rate × (1 − tax). Interest is deductible, so £15m of interest only removes £11.25m of net income at a 25 % rate." },
-          { "q": "Where do synergies enter the walk?", "a": "Into pro-forma net income, after tax — £20m of pre-tax savings is worth £15m to the bottom line." },
-          { "q": "Besides interest, what else drags pro-forma net income down?", "a": "Amortisation of the intangibles written up in the deal, interest no longer earned on cash spent, and fees if you are asked for the full version." }
+          {
+            "q": "How many new shares does a stock deal create?",
+            "a": "The stock portion of the price divided by the buyer's share price — £250m of consideration at £18 a share is 13.9m new shares."
+          },
+          {
+            "q": "What does new acquisition debt cost the pro-forma numbers?",
+            "a": "Principal × rate × (1 − tax). Interest is deductible, so £15m of interest only removes £11.25m of net income at a 25 % rate."
+          },
+          {
+            "q": "Where do synergies enter the walk?",
+            "a": "Into pro-forma net income, after tax — £20m of pre-tax savings is worth £15m to the bottom line."
+          },
+          {
+            "q": "Besides interest, what else drags pro-forma net income down?",
+            "a": "Amortisation of the intangibles written up in the deal, interest no longer earned on cash spent, and fees if you are asked for the full version."
+          }
         ]
       },
       {

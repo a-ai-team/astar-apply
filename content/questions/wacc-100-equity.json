@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Answering 'the cost of equity' and stopping there. The question is easy; the discrimination comes from knowing the beta is unlevered, so this cost of equity is not the same number as the levered company's.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

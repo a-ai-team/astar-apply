@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Saying 'market values are more accurate' without explaining what book value actually represents. Not knowing that book value for debt is usually a reasonable approximation makes the answer sound rehearsed rather than understood.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null

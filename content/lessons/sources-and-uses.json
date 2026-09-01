@@ -3,7 +3,7 @@
   "subtopic_slug": "sources-and-uses",
   "title": "Sources and uses: where the money comes from",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,22 +27,64 @@
         "type": "worked_calc",
         "md": "Build Pennard's table. The fund pays **8×** on **£50m** of EBITDA, Pennard carries no existing debt to refinance, and fees are **£10m**. The lenders offer five turns of EBITDA in two layers: a **£200m senior term loan** at 5.5 % — four turns — and a **£50m second lien** at 8 %.",
         "steps": [
-          { "label": "Enterprise value: 8× on £50m", "expr": "8 * 50", "value": 400, "unit": "£m" },
-          { "label": "Total uses: price plus fees", "expr": "400 + 10", "value": 410, "unit": "£m" },
-          { "label": "Senior term loan: four turns of EBITDA", "expr": "4 * 50", "value": 200, "unit": "£m" },
-          { "label": "Year-one interest across both layers", "expr": "200 * 5.5% + 50 * 8%", "value": 15, "unit": "£m" },
-          { "label": "Blended rate on the £250m of debt", "expr": "15 / 250", "value": 0.06, "unit": "" },
-          { "label": "Sponsor equity — the plug", "expr": "410 - 250", "value": 160, "unit": "£m" },
-          { "label": "Equity as a share of the sources", "expr": "160 / 410", "value": 0.39, "unit": "" }
+          {
+            "label": "Enterprise value: 8× on £50m",
+            "expr": "8 * 50",
+            "value": 400,
+            "unit": "£m"
+          },
+          {
+            "label": "Total uses: price plus fees",
+            "expr": "400 + 10",
+            "value": 410,
+            "unit": "£m"
+          },
+          {
+            "label": "Senior term loan: four turns of EBITDA",
+            "expr": "4 * 50",
+            "value": 200,
+            "unit": "£m"
+          },
+          {
+            "label": "Year-one interest across both layers",
+            "expr": "200 * 5.5% + 50 * 8%",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Blended rate on the £250m of debt",
+            "expr": "15 / 250",
+            "value": 0.06,
+            "unit": ""
+          },
+          {
+            "label": "Sponsor equity — the plug",
+            "expr": "410 - 250",
+            "value": 160,
+            "unit": "£m"
+          },
+          {
+            "label": "Equity as a share of the sources",
+            "expr": "160 / 410",
+            "value": 0.39,
+            "unit": ""
+          }
         ]
       },
       {
         "type": "predict",
         "prompt": "The lawyers run over budget: fees rise from £10m to £20m. The lenders shrug — they sized their £250m off EBITDA and will not lend a pound more. Which line of the table changes?",
         "options": [
-          { "label": "Sponsor equity rises by £10m", "correct": true },
-          { "label": "The debt rises by £10m" },
-          { "label": "The purchase price falls by £10m" }
+          {
+            "label": "Sponsor equity rises by £10m",
+            "correct": true
+          },
+          {
+            "label": "The debt rises by £10m"
+          },
+          {
+            "label": "The purchase price falls by £10m"
+          }
         ],
         "explain_md": "**Equity takes it.** Uses are now £420m; the debt is fixed at £250m because debt capacity is the *lenders'* decision, made off EBITDA, and EBITDA has not changed. The only line that can move is the plug: the cheque becomes £170m.\n\nThis is the everyday consequence of equity being the balancing item — every extra pound of uses that the lenders will not fund is a pound of the sponsor's money. It is also why sponsors negotiate fees harder than the fee sizes alone would seem to justify: fees come straight out of their return."
       },
@@ -55,10 +97,33 @@
         "type": "fill_numbers",
         "md": "A different target. The sellers want **£220m for the equity**, the business carries **£30m of existing net debt** that must be repaid at completion, and fees are **£6m**. The lenders offer **4.5 turns** on the company's **£40m** of EBITDA. Complete the table.",
         "steps": [
-          { "label": "Total uses: equity price + refinanced debt + fees", "expr": "220 + 30 + 6", "value": 256, "unit": "£m" },
-          { "label": "Debt: 4.5 turns on £40m", "expr": "4.5 * 40", "value": 180, "unit": "£m", "blank": true },
-          { "label": "Sponsor equity — the plug", "expr": "256 - 180", "value": 76, "unit": "£m", "blank": true },
-          { "label": "Equity as a share of total sources", "expr": "76 / 256", "value": 0.297, "unit": "", "blank": true }
+          {
+            "label": "Total uses: equity price + refinanced debt + fees",
+            "expr": "220 + 30 + 6",
+            "value": 256,
+            "unit": "£m"
+          },
+          {
+            "label": "Debt: 4.5 turns on £40m",
+            "expr": "4.5 * 40",
+            "value": 180,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Sponsor equity — the plug",
+            "expr": "256 - 180",
+            "value": 76,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Equity as a share of total sources",
+            "expr": "76 / 256",
+            "value": 0.297,
+            "unit": "",
+            "blank": true
+          }
         ]
       },
       {
@@ -103,10 +168,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "Which line balances the table?", "a": "Sponsor equity — debt capacity is fixed by the lenders, so equity covers whatever uses remain." },
-          { "q": "Refinanced old debt: source or use?", "a": "A use — it is money that must be paid out at completion, so it raises the equity cheque." },
-          { "q": "Which layer of the debt is cheapest, and why?", "a": "Senior secured — first claim on the assets means least risk, so the lowest rate." },
-          { "q": "Why not fund the entire price with debt?", "a": "Cash interest would outrun the company's cash flow, and lenders cap leverage long before that point." }
+          {
+            "q": "Which line balances the table?",
+            "a": "Sponsor equity — debt capacity is fixed by the lenders, so equity covers whatever uses remain."
+          },
+          {
+            "q": "Refinanced old debt: source or use?",
+            "a": "A use — it is money that must be paid out at completion, so it raises the equity cheque."
+          },
+          {
+            "q": "Which layer of the debt is cheapest, and why?",
+            "a": "Senior secured — first claim on the assets means least risk, so the lowest rate."
+          },
+          {
+            "q": "Why not fund the entire price with debt?",
+            "a": "Cash interest would outrun the company's cash flow, and lenders cap leverage long before that point."
+          }
         ]
       },
       {

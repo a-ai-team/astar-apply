@@ -3,7 +3,7 @@
   "subtopic_slug": "paper-lbo-walkthrough",
   "title": "The paper LBO: five minutes, no calculator",
   "ordinal": 1,
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "body": {
@@ -27,9 +27,16 @@
         "type": "predict",
         "prompt": "Before any arithmetic: Pennard is bought at 8× and sold at 8×, EBITDA grows 5 % a year, and every pound of free cash flow repays debt. Will the sponsor's money multiple land nearest 1.5×, 2.5× or 3.5×?",
         "options": [
-          { "label": "About 1.5× — no multiple expansion means little upside" },
-          { "label": "About 2.5×", "correct": true },
-          { "label": "About 3.5× — five turns of leverage guarantees it" }
+          {
+            "label": "About 1.5× — no multiple expansion means little upside"
+          },
+          {
+            "label": "About 2.5×",
+            "correct": true
+          },
+          {
+            "label": "About 3.5× — five turns of leverage guarantees it"
+          }
         ],
         "explain_md": "About **2.5×** — and the reason is that the quiet lever does most of the work. Growth at 5 % adds roughly £14m of EBITDA, worth about £110m at the entry multiple. But five years of cash generation repays about £135m of debt, and every pound of it transfers straight to the equity. Together they turn a £160m cheque into roughly £395m even with the exit multiple flat.\n\nThis is the intuition the exercise is really testing: a flat-multiple, moderate-growth LBO still works, because deleveraging alone carries it most of the way."
       },
@@ -42,16 +49,66 @@
         "type": "worked_calc",
         "md": "The full Pennard walk, exactly as you would say it. Entry: **£50m** of EBITDA at **8×**, plus **£10m** of fees. Leverage: **5×** EBITDA at a blended **6 %**. Growth **5 %** a year for five years takes EBITDA to **£63.8m**; year one's cash flow is EBITDA less £15m interest, £6.9m tax and £10m capex; the sweep leaves **£115.7m** of debt at exit.",
         "steps": [
-          { "label": "Enterprise value at entry", "expr": "8 * 50", "value": 400, "unit": "£m" },
-          { "label": "Total uses, adding the fees", "expr": "400 + 10", "value": 410, "unit": "£m" },
-          { "label": "Debt: five turns of EBITDA", "expr": "5 * 50", "value": 250, "unit": "£m" },
-          { "label": "The equity cheque — the plug", "expr": "410 - 250", "value": 160, "unit": "£m" },
-          { "label": "Year-one interest at the 6 % blend", "expr": "250 * 6%", "value": 15, "unit": "£m" },
-          { "label": "Year-one free cash flow", "expr": "52.5 - 15 - 6.9 - 10", "value": 20.6, "unit": "£m" },
-          { "label": "Debt repaid across the five years", "expr": "250 - 115.7", "value": 134.3, "unit": "£m" },
-          { "label": "Exit enterprise value at 8×", "expr": "8 * 63.8", "value": 510.4, "unit": "£m" },
-          { "label": "Exit equity, net of the remaining debt", "expr": "510.4 - 115.7", "value": 394.7, "unit": "£m" },
-          { "label": "Money multiple — then say \"call it 20 %\"", "expr": "394.7 / 160", "value": 2.47, "unit": "×" }
+          {
+            "label": "Enterprise value at entry",
+            "expr": "8 * 50",
+            "value": 400,
+            "unit": "£m"
+          },
+          {
+            "label": "Total uses, adding the fees",
+            "expr": "400 + 10",
+            "value": 410,
+            "unit": "£m"
+          },
+          {
+            "label": "Debt: five turns of EBITDA",
+            "expr": "5 * 50",
+            "value": 250,
+            "unit": "£m"
+          },
+          {
+            "label": "The equity cheque — the plug",
+            "expr": "410 - 250",
+            "value": 160,
+            "unit": "£m"
+          },
+          {
+            "label": "Year-one interest at the 6 % blend",
+            "expr": "250 * 6%",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Year-one free cash flow",
+            "expr": "52.5 - 15 - 6.9 - 10",
+            "value": 20.6,
+            "unit": "£m"
+          },
+          {
+            "label": "Debt repaid across the five years",
+            "expr": "250 - 115.7",
+            "value": 134.3,
+            "unit": "£m"
+          },
+          {
+            "label": "Exit enterprise value at 8×",
+            "expr": "8 * 63.8",
+            "value": 510.4,
+            "unit": "£m"
+          },
+          {
+            "label": "Exit equity, net of the remaining debt",
+            "expr": "510.4 - 115.7",
+            "value": 394.7,
+            "unit": "£m"
+          },
+          {
+            "label": "Money multiple — then say \"call it 20 %\"",
+            "expr": "394.7 / 160",
+            "value": 2.47,
+            "unit": "×"
+          }
         ]
       },
       {
@@ -114,10 +171,22 @@
       {
         "type": "quick_fire",
         "pairs": [
-          { "q": "First block of a paper LBO?", "a": "Sources and uses — price the deal, size the debt, plug the equity." },
-          { "q": "What happens to each year's free cash flow?", "a": "It repays debt — keep a running balance of what is left." },
-          { "q": "Exit equity equals what?", "a": "Exit enterprise value minus the debt still outstanding at exit." },
-          { "q": "2.5× over five years is roughly what IRR?", "a": "About 20 % — the middle anchor." }
+          {
+            "q": "First block of a paper LBO?",
+            "a": "Sources and uses — price the deal, size the debt, plug the equity."
+          },
+          {
+            "q": "What happens to each year's free cash flow?",
+            "a": "It repays debt — keep a running balance of what is left."
+          },
+          {
+            "q": "Exit equity equals what?",
+            "a": "Exit enterprise value minus the debt still outstanding at exit."
+          },
+          {
+            "q": "2.5× over five years is roughly what IRR?",
+            "a": "About 20 % — the middle anchor."
+          }
         ]
       },
       {

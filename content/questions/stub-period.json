@@ -31,7 +31,7 @@
   ],
   "weak_answer_note": "Discounting the whole current year as though none of it had happened, which values cash flows that are already gone. Or handling the stub correctly but forgetting to shift every subsequent year and the terminal value by the same fraction.",
   "topic_slug": "dcf",
-  "status": "generated",
+  "status": "approved",
   "generated_by": "human",
   "prompt_version": null,
   "numbers": null
