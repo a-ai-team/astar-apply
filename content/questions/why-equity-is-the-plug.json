@@ -1,0 +1,37 @@
+{
+  "slug": "why-equity-is-the-plug",
+  "topic_slug": "lbo",
+  "subtopic_slug": "sources-and-uses",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "sources-and-uses"
+  ],
+  "question": "In a sources and uses table, why is it always the sponsor's equity that balances the two columns rather than the debt?",
+  "model_answer_md": "Because of who controls each line.\n\nThe uses are facts of the deal: the price the sellers accepted, the old debt that must be repaid at completion, the fees. The debt is the **lenders'** decision — they offer a multiple of EBITDA, sized off the cash flows they trust, and the sponsor cannot will that number higher. That leaves exactly one line under the sponsor's control, so by construction the equity cheque is whatever the uses require after the lenders have spoken:\n\n$$\\text{Equity} = \\text{Uses} - \\text{Debt}$$\n\nThe practical consequence is that anything that raises uses — a higher price, fatter fees, more old borrowings to refinance — lands **pound-for-pound on the cheque**, and anything that raises debt capacity shrinks it. On Pennard: £410m of uses, £250m from the lenders, £160m plug.\n\nIt also explains sponsor behaviour: negotiating fees hard, courting lenders early, and preferring sectors where lenders fund more turns — every one of those moves the plug.",
+  "key_points": [
+    "Uses are facts; debt is the lenders' decision; equity is the only free line",
+    "Equity = uses − debt, by construction",
+    "Extra uses (price, fees, refinanced debt) raise the cheque pound-for-pound",
+    "More debt capacity shrinks the cheque — hence the courting of lenders",
+    "Pennard: 410 − 250 = £160m"
+  ],
+  "follow_ups": [
+    {
+      "question": "What actually raises a company's debt capacity?",
+      "answer_md": "Anything that makes the cash flows easier to promise: more EBITDA, obviously, but more subtly its predictability — contracted or repeat revenue, diversified customers and payers, low capex so earnings convert to cash, and hard assets or contracts to secure against. Market conditions matter too: the same business supports more turns when credit is cheap and lenders are competing. That is why identical companies can carry different leverage in different years."
+    },
+    {
+      "question": "What is an equity cure?",
+      "answer_md": "A covenant-repair mechanism worth naming rather than modelling: if the company breaches a leverage covenant, the sponsor may inject fresh equity that the covenant test counts as EBITDA or debt reduction, 'curing' the breach and keeping the lenders at bay. It is a right negotiated into loan documents, usually capped in frequency — and it is a reminder that the plug can be called on again after day one."
+    }
+  ],
+  "weak_answer_note": "Saying 'equity fills the gap' without the ownership logic — the point is that lenders fix the debt line off EBITDA, which is why the gap exists and why it lands on the sponsor. Bonus marks flow from the pound-for-pound consequence for fees and refinanced debt.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

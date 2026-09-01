@@ -1,0 +1,38 @@
+{
+  "slug": "ideal-lbo-candidate",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "lbo-basics",
+    "screening"
+  ],
+  "question": "A sponsor is screening targets. Which characteristics put a business on the shortlist for a buyout, and which quietly disqualify it?",
+  "model_answer_md": "Everything on the shortlist traces back to one requirement: a lender must be able to trust the cash flows the debt will be raised against.\n\n**Wanted:** stable, predictable cash generation — contracted or repeat revenue rather than lumpy projects; **low capital spending**, so profit actually converts into cash that can service debt; scope to run the business better — costs to take out, pricing left on the table; a management team worth backing (or replaceable); an asset base or contracts a lender can secure against; and ideally a price below what the business is worth, perhaps because it is non-core to its current owner.\n\n**Disqualifying:** heavily cyclical earnings — the debt is fixed but the EBITDA is not; capex-hungry operations that eat their own cash flow; regulatory or single-customer exposure that can reprice revenue overnight; and anything pre-profit, however exciting, because there is no EBITDA to size a loan on.\n\nPennard Logistics fits the template: steady contract logistics, modest capex, 5× of debt comfortably serviced.",
+  "key_points": [
+    "The organising test: can the cash flows be promised to a lender?",
+    "Stability and predictability of EBITDA beat headline growth",
+    "Low capex, so earnings convert to debt-servicing cash",
+    "Operational upside and credible management add the equity story",
+    "Cyclicality, heavy capex and regulatory repricing risk cap or kill the debt"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would a highly profitable but cyclical mining business qualify?",
+      "answer_md": "Almost never at meaningful leverage. The debt service is fixed; a miner's EBITDA can halve with the commodity price, and the peak-cycle year a sponsor would be buying in is precisely when earnings flatter the leverage maths. Lenders size debt off a through-cycle or trough EBITDA, which produces so few turns that the deal loses the point of the structure. Cyclical businesses get bought by sponsors — but with modest debt and a very different underwriting."
+    },
+    {
+      "question": "Why does low capital spending matter so much?",
+      "answer_md": "Because debt is serviced with cash, not with EBITDA. Two businesses with identical £50m EBITDA are entirely different credits if one must reinvest £30m a year in fleet and plant while the other spends £5m on laptops — the second converts most of its earnings into free cash flow that can pay interest and repay principal. That conversion rate is why software carries 6–7× of leverage while a haulier gets 4–5×."
+    }
+  ],
+  "weak_answer_note": "Reciting 'strong cash flows' without explaining why the lender's perspective drives the list, or naming growth as the top criterion. Fast growth is nice; bankable cash flow is the entry ticket.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

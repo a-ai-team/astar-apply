@@ -123,6 +123,13 @@ export type PaperLboInput = {
   daPctOfEbitda?: number;
   capexPctOfEbitda?: number;
   nwcPctOfEbitda?: number;
+  /**
+   * Flat annual amounts (Loop 18) — the Pennard convention, where D&A and capex are both £10m
+   * every year so FCF equals net income. Each one overrides its percentage when set.
+   */
+  daAmount?: number;
+  capexAmount?: number;
+  nwcAmount?: number;
   fees?: number;
   netDebtRepaid?: number;
   /** Cash left in the business rather than swept against debt. */
@@ -145,6 +152,22 @@ export type PaperLboYear = {
   openingDebt: number;
   closingDebt: number;
 };
+
+/** The mental-maths anchors every LBO interview leans on: MoM over five years → rough IRR. */
+export const IRR_ANCHORS: { moM: number; approxIrr: number }[] = [
+  { moM: 2, approxIrr: 0.15 },
+  { moM: 2.5, approxIrr: 0.2 },
+  { moM: 3, approxIrr: 0.25 },
+];
+
+/**
+ * The nearest five-year anchor for a money multiple, with the exact IRR alongside — the
+ * "2.5× is about 20 %" move a paper LBO ends on. `paper_lbo`'s final step grades against this.
+ */
+export function irrAnchor(moM: number, years = 5): { anchorMoM: number; approxIrr: number; exactIrr: number } {
+  const nearest = IRR_ANCHORS.reduce((best, a) => (Math.abs(a.moM - moM) < Math.abs(best.moM - moM) ? a : best), IRR_ANCHORS[0]);
+  return { anchorMoM: nearest.moM, approxIrr: nearest.approxIrr, exactIrr: impliedRateFromMultiple(moM, years) };
+}
 
 export type PaperLboResult = {
   sourcesUses: SourcesUsesResult;
@@ -185,12 +208,12 @@ export function paperLbo(i: PaperLboInput): PaperLboResult {
     ebitda = ebitda * (1 + i.ebitdaGrowth);
     const openingDebt = debt;
     const interest = openingDebt * blendedRate;
-    const da = ebitda * daPct;
+    const da = i.daAmount ?? ebitda * daPct;
     const ebit = ebitda - da;
     const pretaxIncome = ebit - interest;
     const tax = Math.max(0, pretaxIncome) * i.taxRate;
-    const capex = ebitda * capexPct;
-    const changeInNwc = ebitda * nwcPct;
+    const capex = i.capexAmount ?? ebitda * capexPct;
+    const changeInNwc = i.nwcAmount ?? ebitda * nwcPct;
     // Cash flow available for debt service: EBITDA less cash interest, tax, capex and working capital.
     const freeCashFlow = ebitda - interest - tax - capex - changeInNwc;
     const debtRepaid = Math.max(0, Math.min(openingDebt, freeCashFlow - (i.minimumCash ?? 0)));

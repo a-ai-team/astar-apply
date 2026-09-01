@@ -1,0 +1,38 @@
+{
+  "slug": "hc-why-not-biotech",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "lens:healthcare",
+    "format:verbal",
+    "screening"
+  ],
+  "question": "A fund with a healthcare mandate is shown a promising Phase 2 biotech at an attractive valuation. Why is a buyout structure unavailable, and what would the fund do instead?",
+  "model_answer_md": "An LBO needs debt, and debt needs two things a Phase 2 biotech cannot offer: cash flow to pay the interest, and a base of value that survives bad news.\n\nThe company has **no revenue and no EBITDA** — there is nothing to size a loan against, and no cash to service one. Worse, the value is **binary**: it hangs on trial results, so a failed readout can take the enterprise value most of the way to zero overnight. A lender's upside is a fixed coupon; its downside here is total. No coupon prices that, so no lender participates, and without lenders there is no leverage to buy with.\n\nWhat the fund does instead is change instrument: **growth equity** or venture-style investment — an unlevered minority or control cheque where the worst case is losing the equity, not defaulting on loans. The LBO machine stays pointed at the other end of healthcare: services businesses with steady, reimbursed cash flows.",
+  "key_points": [
+    "No EBITDA → nothing to size debt on, nothing to pay interest with",
+    "Binary trial risk → a lender's fixed upside cannot price a near-total downside",
+    "No lender means no leverage, so the LBO structure simply is not available",
+    "The alternative is growth equity — same exposure, no debt, different risk shape",
+    "LBO-able healthcare is the services end: steady, multi-payer cash flows"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which parts of healthcare do work as buyouts?",
+      "answer_md": "The cash-generative service layers: dental and veterinary chains, care homes, clinics, pharmacies, labs and healthcare IT — steady demand, repeat revenue, fragmented markets that suit buy-and-build. These have real EBITDA that lenders can underwrite, and their risk is gradual (tariffs, staffing costs) rather than binary, which is the shape debt can live with."
+    },
+    {
+      "question": "Even there, what caps the leverage below what the stability suggests?",
+      "answer_md": "Payer concentration. When the NHS or a large insurer sets the fee per treatment, a single tariff decision cuts every site's revenue simultaneously — so lenders run a reimbursement-haircut scenario and size the debt off that downside EBITDA, typically landing at four to four and a half turns rather than software's six or seven. Staffing-cost inflation and regulation reinforce the discount."
+    }
+  ],
+  "weak_answer_note": "Saying 'biotech is too risky' without the mechanism. The precise answer is structural: no cash flow to service debt plus binary outcomes means no lender — and the fund switches instrument rather than walking away from the sector.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -3,8 +3,9 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { QuestionBodySchemaLoose } from "@/lib/practice/question-body";
 import { getFirmInterviewQuestions } from "@/lib/firms/queries";
+import type { LensSlug } from "@/lib/content/lesson-schema";
 import type { GradeQuestion } from "./grade";
-import type { InterviewRow, TurnRow } from "./types";
+import type { InterviewRow, StoredReport, TurnRow } from "./types";
 
 export type InterviewQuestion = GradeQuestion & { subtopic_slug: string | null; subtopic_title: string | null; source?: "curriculum" | "firm" };
 
@@ -52,14 +53,15 @@ async function getCurriculumQuestions(db: SupabaseClient, ids: string[]): Promis
   return out;
 }
 
-export type InterviewSummary = Pick<InterviewRow, "id" | "mode" | "status" | "started_at" | "completed_at" | "overall_score"> & { count: number; topic: { slug: string; title: string } | null };
+export type InterviewSummary = Pick<InterviewRow, "id" | "mode" | "status" | "started_at" | "completed_at" | "overall_score"> & { count: number; topic: { slug: string; title: string } | null; lens: LensSlug | null };
 
 export async function listInterviews(db: SupabaseClient, limit = 20): Promise<InterviewSummary[]> {
-  const { data, error } = await db.from("interviews").select("id, mode, status, started_at, completed_at, overall_score, question_ids, topic:topics(slug, title)").order("started_at", { ascending: false }).limit(limit);
+  const { data, error } = await db.from("interviews").select("id, mode, status, started_at, completed_at, overall_score, question_ids, report, topic:topics(slug, title)").order("started_at", { ascending: false }).limit(limit);
   if (error) throw error;
   return (data ?? []).map((r) => ({
     id: r.id as string, mode: r.mode as InterviewRow["mode"], status: r.status as InterviewRow["status"], started_at: r.started_at as string, completed_at: r.completed_at as string | null,
     overall_score: r.overall_score as number | null, count: ((r.question_ids as string[] | null) ?? []).length, topic: (r.topic as unknown as { slug: string; title: string } | null) ?? null,
+    lens: (r.report as StoredReport | null)?.params?.lens ?? null,
   }));
 }
 

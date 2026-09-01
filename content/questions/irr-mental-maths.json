@@ -1,0 +1,43 @@
+{
+  "slug": "irr-mental-maths",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "mental-maths"
+  ],
+  "question": "No calculator: a fund doubles its money over five years. Rough IRR? Now 2.5× over five years, and 3× over five years — and show one way to sanity-check yourself.",
+  "model_answer_md": "These are the three anchors the whole exercise runs on:\n\n| MoM over 5 years | Rough IRR | Exact |\n|---|---|---|\n| 2.0× | ≈ 15 % | 14.9 % |\n| 2.5× | ≈ 20 % | 20.1 % |\n| 3.0× | ≈ 25 % | 24.6 % |\n\nEach comes from the fifth root: the rate must compound five times into the multiple, so IRR = MoM^(1/5) − 1. Nobody takes fifth roots aloud — the anchors are memorised, and everything in between is interpolated: \"about 2.2×, so between the 15 and the 20 — call it 17\".\n\nThe sanity check is the **rule of 72**: money doubles in roughly 72 ÷ the rate. At 15 %, doubling takes about 72 ÷ 15 ≈ 4.8 years — consistent with 2× over five. At 20 %, about 3.6 years — so 2.5× over five (a double plus half again) fits. Quote the anchor, run the 72 check, move on.",
+  "key_points": [
+    "IRR = MoM^(1/years) − 1 for a single cheque in and out",
+    "The anchors: 2× ≈ 15 %, 2.5× ≈ 20 %, 3× ≈ 25 % over five years",
+    "Interpolate between anchors rather than computing",
+    "Rule of 72: doubling years ≈ 72 ÷ rate — the spoken cross-check",
+    "At 20 %, money doubles in about 3.6 years"
+  ],
+  "follow_ups": [
+    {
+      "question": "3× over seven years instead?",
+      "answer_md": "Lower than the five-year 25 % — the same gain is spread over two extra years. The seventh root of 3 is about 1.17, so **roughly 17 %**. Without the root: stretching a five-year 25 % across seven years costs a few points a year, landing in the high teens; the rule of 72 agrees, since 17 % doubles money in about 4.2 years, giving a double and most of another across seven."
+    },
+    {
+      "question": "And 2× in only three years?",
+      "answer_md": "Sharply higher than the five-year 15 % — the double arrived early. The cube root of 2 is about 1.26, so **roughly 26 %**. The rule of 72 gets you there directly: doubling in three years needs 72 ÷ 3 = 24, and the exact answer sits just above it. This is the direction interviews probe most, because it shows you understand IRR rewards speed, not just size."
+    }
+  ],
+  "weak_answer_note": "Reaching for MoM^(1/5) as if a calculator were available, or quoting anchors without a check. The examiner wants the stored numbers, an interpolation habit, and the rule of 72 offered unprompted.",
+  "numbers": {
+    "inputs": {
+      "mom": 2.5,
+      "years": 5
+    },
+    "answer": 0.201
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "returns-decomposition",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "return-levers"
+  ],
+  "question": "Marlow Capital turned £160m into £394.7m on Pennard. Attribute the £234.7m gain: how much came from each lever, and does it reconcile?",
+  "model_answer_md": "Work each lever at its own reference point, then check the bridge closes.\n\n**EBITDA growth**, held at the entry multiple — the value the business added by earning more:\n\n$$(63.8 - 50) \\times 8 = \\mathbf{£110.4m}$$\n\n**Deleveraging** — debt repaid out of the company's own cash flow, every pound of it transferred to the equity:\n\n$$250 - 115.7 = \\mathbf{£134.3m}$$\n\n**Multiple expansion** — entry 8×, exit 8×:\n\n$$(8 - 8) \\times 63.8 = \\mathbf{£0}$$\n\n**Reconcile.** The levers sum to £244.7m of equity value created; the sponsor's cheque also carried the £10m of fees paid at entry, so the gain on the cheque is\n\n$$110.4 + 134.3 + 0 - 10 = \\mathbf{£234.7m} = 394.7 - 160 \\;✓$$\n\nThe reading to volunteer: deleveraging edged out growth, the multiple was assumed flat — a cash-generation deal, not a market-timing one.",
+  "key_points": [
+    "Growth at the entry multiple: (63.8 − 50) × 8 = £110.4m",
+    "Deleveraging: 250 − 115.7 = £134.3m",
+    "Multiple expansion: nil — exit assumed at entry's 8×",
+    "Fees of £10m bridge the levers to the cheque: 244.7 − 10 = 234.7",
+    "The decomposition must reconcile exactly to exit equity minus entry equity"
+  ],
+  "follow_ups": [
+    {
+      "question": "Rates rise sharply just after the deal closes. Which levers take the hit?",
+      "answer_md": "Two of the three. Deleveraging weakens directly: a higher interest bill drains free cash flow, so less debt is repaid each year and more remains at exit. And the exit multiple comes under pressure, because buyers discounting future earnings at higher rates pay fewer turns — the lever that was pencilled at zero can go negative. EBITDA growth is the survivor, unless the rate rise also cools the company's end markets. Hedging — caps and swaps on the floating tranches — buys protection on the first effect but not the second."
+    },
+    {
+      "question": "What if Marlow had paid 9× at entry instead of 8×?",
+      "answer_md": "Every lever gets harder. Uses rise to £460m, so at the same £250m of debt the cheque grows to £210m. The growth lever is measured at 9×, but if the exit still prints at 8× the multiple lever turns negative: (8 − 9) × 63.8 ≈ −£64m. With the debt roll unchanged, exit equity is the same £394.7m on a £210m cheque — about **1.9×** instead of 2.47×. One turn of entry price cost more than half a turn of return, which is why \"cheaper entry\" is the first answer to how any deal reaches a higher IRR."
+    }
+  ],
+  "weak_answer_note": "Measuring growth at the exit multiple and expansion at entry EBITDA (double-counting the cross term), or presenting three numbers that do not sum to the equity gain. The reconciliation line is the difference between an attribution and three guesses.",
+  "numbers": {
+    "inputs": {
+      "entry_ebitda": 50,
+      "exit_ebitda": 63.8,
+      "entry_multiple": 8,
+      "exit_multiple": 8,
+      "entry_debt": 250,
+      "exit_debt": 115.7,
+      "fees": 10
+    },
+    "answer": 234.7
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

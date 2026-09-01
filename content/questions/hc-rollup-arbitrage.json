@@ -1,0 +1,38 @@
+{
+  "slug": "hc-rollup-arbitrage",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "lens:healthcare",
+    "format:verbal",
+    "roll-up"
+  ],
+  "question": "A sponsor pays 10× for a dental platform, then buys independent practices at 6× and expects to exit the whole group at 10×. Show where the value appears in that arithmetic — and what has to hold for it to be real.",
+  "model_answer_md": "The value appears **at the moment of each acquisition**, from the gap between the buying and the selling multiple.\n\nTake £10m of bolt-on EBITDA acquired across the hold at 6×: it costs **£60m**. At exit the group sells as one business at 10×, so that same EBITDA is valued at **£100m** — £40m of value created before any operational improvement, purely because small single-site practices trade cheaply and a scaled platform does not. Lower the blended entry multiple, exit at the platform multiple, and the spread is the return: this is **multiple arbitrage**, a genuine fourth lever alongside growth, deleveraging and market-driven multiple expansion.\n\nWhy the spread exists is worth saying: an independent practice has no management depth, no systems and essentially one buyer type, so it cannot command a platform price. The roll-up manufactures the thing the market pays for — scale, professional management, a diversified payer base.\n\nWhat has to hold: the bolt-ons must actually integrate (central procurement, shared back office, retained clinicians), the pipeline of willing sellers at 6× must last the hold, and the exit multiple must survive scrutiny of a group assembled at speed. And because revenue often depends on NHS or insurer tariffs, a reimbursement cut hits every site at once — which is why lenders cap the leverage on roll-ups despite the arbitrage.",
+  "key_points": [
+    "£10m of EBITDA bought at 6× costs £60m; valued at £100m at a 10× exit",
+    "The £40m gap is created at purchase — multiple arbitrage, the roll-up's fourth lever",
+    "The spread exists because single sites lack scale, management and buyers",
+    "Conditions: real integration, a lasting pipeline of sellers, a defensible exit multiple",
+    "Tariff/reimbursement risk hits all sites at once — so leverage stays moderate"
+  ],
+  "follow_ups": [
+    {
+      "question": "What breaks the arithmetic?",
+      "answer_md": "Three things, usually in combination. Integration cost: rebranding, systems, locum cover and clinician churn are cash expenses that eat the acquired EBITDA — pay 6× for earnings that then shrink and the real multiple paid was 7× or 8×. Competition for targets: once several sponsors run the same playbook in a sector, practice prices get bid from 6× towards 8× and the spread collapses. And the exit multiple itself: a buyer who sees a loose federation of clinics rather than an integrated company will not pay the platform price — at which point the arbitrage was borrowed, not earned."
+    },
+    {
+      "question": "What does a synergy look like in this kind of deal?",
+      "answer_md": "Mostly central and procedural rather than strategic: group-wide procurement of consumables and lab work, one finance and rostering back office replacing a bookkeeper per practice, better utilisation of chairs and clinician time, and group contracts with insurers a single site could never negotiate. Each one lifts the acquired EBITDA after purchase — a second, smaller layer of value on top of the arbitrage. The honest caveat is that clinical staffing costs run the other way, since retaining the dentists who generate the revenue usually means paying them more within a group structure."
+    }
+  ],
+  "weak_answer_note": "Describing the roll-up as \"buying growth\" without locating where the value arises — the entry-versus-exit multiple spread — or omitting the risk half. An answer without integration cost and tariff exposure is the pitch deck, not the analysis.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

@@ -16,6 +16,8 @@ import { TvShare } from "@/components/widgets/tv-share";
 import { GordonVsExit } from "@/components/widgets/gordon-vs-exit";
 import { WaccBuilder } from "@/components/widgets/wacc-builder";
 import { BetaRelever } from "@/components/widgets/beta-relever";
+import { LboReturns } from "@/components/widgets/lbo-returns";
+import { PaperLbo } from "@/components/widgets/paper-lbo";
 import { AccretionRule } from "@/components/widgets/accretion-rule";
 import { SynergyNpv } from "@/components/widgets/synergy-npv";
 import { PpaGoodwill } from "@/components/widgets/ppa-goodwill";
@@ -45,6 +47,8 @@ const WIDGETS: Partial<Record<WidgetName, ComponentType<Record<string, unknown>>
   accretion_rule: AccretionRule as ComponentType<Record<string, unknown>>,
   synergy_npv: SynergyNpv as ComponentType<Record<string, unknown>>,
   ppa_goodwill: PpaGoodwill as ComponentType<Record<string, unknown>>,
+  lbo_returns: LboReturns as ComponentType<Record<string, unknown>>,
+  paper_lbo: PaperLbo as ComponentType<Record<string, unknown>>,
 };
 
 export function Widget({ block }: { block: z.infer<typeof WidgetBlock> }) {

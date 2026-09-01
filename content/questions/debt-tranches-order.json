@@ -1,0 +1,37 @@
+{
+  "slug": "debt-tranches-order",
+  "topic_slug": "lbo",
+  "subtopic_slug": "sources-and-uses",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:order",
+    "capital-structure"
+  ],
+  "question": "Rank these claims on an LBO'd company from first-paid to last-paid if things go wrong, and say what happens to the cost of each as you descend: sponsor equity; mezzanine / high-yield notes; senior secured term loan; second lien.",
+  "model_answer_md": "The order of the queue:\n\n1. **Senior secured term loan** — first claim on the assets and cash flows.\n2. **Second lien** — secured, but contractually behind the senior lenders.\n3. **Mezzanine / high-yield notes** — unsecured or deeply subordinated; on Pennard-style deals this is where interest sometimes accrues rather than being paid in cash.\n4. **Sponsor equity** — last in the queue, first to absorb losses, unlimited upside.\n\nThe cost rises as you descend, because each layer is paid only after everything above it: Pennard's senior loan prices around 5.5 %, its second lien around 8 %, mezzanine would run into double digits, and equity requires ~20 %+ returns to be worth writing.\n\nOne sentence ties it together: **seniority buys safety, and safety is cheap** — the whole capital structure is a price list for positions in the repayment queue.",
+  "key_points": [
+    "Senior secured → second lien → mezzanine / high yield → equity",
+    "Cost rises down the stack: ≈ 5.5 % → 8 % → double digits → equity returns",
+    "Each layer is paid only after every layer above it",
+    "Equity absorbs first losses and keeps all residual upside",
+    "The stack is a price list for repayment-queue positions"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why exactly is senior debt the cheapest money in the deal?",
+      "answer_md": "Because it is the safest position anyone can hold. Senior lenders have first security over the assets, get paid first from cash flows, and in a downside scenario recover most or all of their money while everyone beneath them takes losses. Less risk demands less return, so the rate is lowest — and it is why sponsors max out the senior layer before touching anything dearer."
+    },
+    {
+      "question": "Where does PIK debt sit in this picture?",
+      "answer_md": "In the junior layers — mezzanine territory. PIK ('payment in kind') means interest is not paid in cash but added to the principal, which compounds. It suits a company whose cash flow is fully committed to senior debt service, and lenders charge handsomely for waiting. The consequence to name: a PIK balance *grows* through the hold, so the debt subtracted at exit can be larger than the debt drawn at entry."
+    }
+  ],
+  "weak_answer_note": "Confusing 'second lien' with unsecured debt, or ranking equity anywhere but last. The order is the definition of the words — what earns credit is linking each step down to a step up in price.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

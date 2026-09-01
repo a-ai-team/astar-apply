@@ -1,0 +1,127 @@
+{
+  "slug": "returns-irr-mom",
+  "subtopic_slug": "returns-irr-mom",
+  "title": "Returns: the three levers and the maths you do out loud",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You know what an LBO is and how the money is raised. The question that follows, in almost every interview that gets this far, is where the sponsor's profit actually comes from — and it arrives with a nasty companion: \"so a 2.5× over five years is what IRR, roughly?\"\n\nThat second question is asked without a calculator on the table, deliberately. The interviewer is not testing whether you can compound; they are testing whether you have internalised a handful of anchors well enough to talk and think at the same time. This lesson gives you both halves: the three levers that create the profit, and the mental arithmetic that lets you price it out loud."
+      },
+      {
+        "type": "concept",
+        "heading": "Three levers, and one amplifier",
+        "md": "A sponsor's gain on a deal can always be split into three pieces.\n\n**EBITDA growth.** The business earns more at exit than at entry, so at the same multiple it is worth more. This is the lever the sponsor's operating plan is supposed to pull — pricing, volume, cost.\n\n**Deleveraging.** Every pound of debt the company repays from its own cash flow is a pound of exit value that now belongs to the equity rather than the lenders. Nothing about the business has to improve for this lever to work; it only has to keep generating cash.\n\n**Multiple expansion.** Selling at a higher multiple than you paid. It happens — a bigger, better business commands a better price — but it depends on market conditions the sponsor does not control, which is why investment committees refuse to *underwrite* it: the deal must work assuming the exit multiple equals the entry multiple.\n\nNotice what is not on the list: leverage. Debt is not a lever, it is an **amplifier**. It shrinks the equity cheque the gains are measured against, so whatever the three levers produce lands on fewer pounds of equity — in both directions."
+      },
+      {
+        "type": "mechanics",
+        "md": "Two measures of return, and the shortcuts between them.\n\n**Money multiple** (MoM, sometimes \"multiple on invested capital\"): exit equity divided by the equity cheque. It answers \"how many times did my money come back?\" and ignores how long it took.\n\n**IRR** (internal rate of return): the annualised rate that compounds the cheque into the exit proceeds. For a single cheque in and a single payment out:\n\n$$IRR = \\text{MoM}^{1/\\text{years}} - 1$$\n\nBecause the exam room has no calculator, learn the five-year **anchors**:\n\n| MoM over 5 years | IRR |\n|---|---|\n| 2.0× | ≈ 15 % |\n| 2.5× | ≈ 20 % |\n| 3.0× | ≈ 25 % |\n\nAnd the **rule of 72** as the cross-check: money doubles in roughly 72 ÷ the rate. At 20 % that is about 3.6 years — so 2× in five years must be *below* 20 %, which the anchor confirms at 15 %.\n\nInterpolate for anything in between and say you are doing so. \"About 2.2×, so between the 15 and 20 anchors — call it 17\" is exactly the fluency being tested."
+      },
+      {
+        "type": "worked_calc",
+        "md": "Back to **Pennard Logistics**, the deal running through this chapter. Marlow Capital, the private-equity fund buying it, paid an **£400m** enterprise value plus **£10m** of fees, funded with **£250m** of debt and a **£160m** equity cheque. Five years on, EBITDA has grown from £50m to **£63.8m** at 5 % a year, the company has repaid debt down to **£115.7m**, and the business sells at the same 8× multiple for **£510.4m**, leaving **£394.7m** for the equity.\n\nNow split that gain into the levers.",
+        "steps": [
+          { "label": "Money multiple on the cheque", "expr": "394.7 / 160", "value": 2.47, "unit": "×" },
+          { "label": "Lever one — EBITDA growth, held at the entry multiple", "expr": "(63.8 - 50) * 8", "value": 110.4, "unit": "£m" },
+          { "label": "Lever two — debt repaid from the company's own cash", "expr": "250 - 115.7", "value": 134.3, "unit": "£m" },
+          { "label": "Lever three — multiple expansion (exit 8×, entry 8×)", "expr": "(8 - 8) * 63.8", "value": 0, "unit": "£m" },
+          { "label": "The sponsor's actual gain", "expr": "394.7 - 160", "value": 234.7, "unit": "£m" },
+          { "label": "Cross-check: levers less the fees paid at entry", "expr": "110.4 + 134.3 - 10", "value": 234.7, "unit": "£m" }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "Same deal, but the market softens and Pennard exits at 7× instead of 8×. Roughly what happens to the IRR?",
+        "options": [
+          { "label": "It falls to about 15–16 %", "correct": true },
+          { "label": "It barely changes — the debt was repaid either way" },
+          { "label": "It rises — a lower multiple means a cheaper business" }
+        ],
+        "explain_md": "One turn of multiple comes straight off the equity. Exit value becomes 7 × £63.8m ≈ £447m, so the equity is worth about **£331m** instead of £395m — a MoM of roughly **2.07×**, which the anchors place just above 15 %. The exact figure is **15.7 %**.\n\nNotice the asymmetry of who bears it: enterprise value fell about 12 %, but the equity fell about 16 %. That is the amplifier working in reverse — and it is why the third lever, the one the sponsor cannot control, is the one investment committees assume away."
+      },
+      {
+        "type": "widget",
+        "widget": "lbo_returns",
+        "props": {}
+      },
+      {
+        "type": "fill_numbers",
+        "md": "The anchors are worth deriving once so you trust them forever. Each one is the multiple taken to the power of one-fifth — a fifth root, because five years of compounding have to produce the whole multiple — minus the one you started with. Fill in the gaps, as decimals.",
+        "steps": [
+          { "label": "2.0× over five years (as a decimal)", "expr": "2 ^ 0.2 - 1", "value": 0.149, "unit": "", "blank": true },
+          { "label": "2.5× over five years (as a decimal)", "expr": "2.5 ^ 0.2 - 1", "value": 0.201, "unit": "", "blank": true },
+          { "label": "3.0× over five years (as a decimal)", "expr": "3 ^ 0.2 - 1", "value": 0.246, "unit": "" },
+          { "label": "Rule-of-72 check: years to double at 20 %", "expr": "72 / 20", "value": 3.6, "unit": "years", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"Leverage creates value.\"**\n\nIt does not, and saying it does is the fastest way to fail this topic with confidence.\n\nRun Pennard with no debt at all: the sponsor writes a £410m cheque, collects £510.4m at exit, and the *value created* — about £100m of it from EBITDA growth, none from deleveraging because there is nothing to delever — is much the same money. What changes is the denominator. With £160m at risk instead of £410m, a similar pool of gains becomes 2.5× instead of about 1.3×.\n\nSo the debt did two things: it concentrated the gains on a small cheque, and it charged interest and added risk for the privilege. The gains themselves came from the business growing and the debt being repaid out of cash flow. If the operating plan fails, the same concentration works in reverse — a modest fall in enterprise value can wipe the equity out entirely.\n\nThe interview-safe formulation: leverage *magnifies* returns; the levers *create* them."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A sponsor's return comes from three levers. EBITDA growth — the business earns more at exit, so it is worth more. Deleveraging — free cash flow repays debt, so more of the exit value belongs to the equity. And multiple expansion — selling on a higher multiple than you paid, which sponsors deliberately do not underwrite. Leverage itself creates nothing; it magnifies whatever the levers produce. On Pennard, growth added about £110m and debt paydown about £134m, the multiple added nothing, and £160m became £395m — 2.5×, roughly a 20 % IRR.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Where software returns actually come from",
+            "md": "Software deals run the same three levers with a different balance. Lenders will fund six or seven turns of EBITDA against subscription revenue, and with capex tiny, most of each year's EBITDA turns into cash — so the deleveraging lever is far bigger relative to the cheque than it was for Pennard. The growth lever runs through **net revenue retention**: if existing customers alone spend 110 % of last year's amount, EBITDA compounds before a single new logo is signed.\n\nThe dangerous one is the third lever. Software multiples are long-duration assets priced off interest rates, and a sponsor who *paid* a rate-inflated multiple has quietly bet the environment holds. The 2021 vintage showed what happens otherwise: deals entered at peak multiples met rising rates, exit multiples compressed, and the third lever went negative by more than the other two could cover.",
+            "example_q": "Why did software LBOs done at 2021 multiples struggle?",
+            "answer_md": "Because the lever nobody underwrites went sharply negative. Entry multiples were at record levels when rates were near zero; as rates rose, the multiples buyers would pay at exit compressed, so deals faced selling at several turns below entry. Growth and deleveraging still worked — recurring revenue kept converting to cash — but on a 6–7× levered structure, a few turns of multiple compression can consume the entire equity gain. The honest answer notes the fix, too: sponsors who survived either held longer, waiting out the rate cycle, or had bought growth strong enough for the EBITDA lever to outrun the multiple."
+          },
+          "healthcare": {
+            "heading": "Buy-and-build arithmetic",
+            "md": "Healthcare services — dental groups, vet chains, care providers — add a genuine fourth lever: **multiple arbitrage**. The sponsor buys a platform at, say, 10× and then acquires small independent practices at 5–6×, because a single-site clinic has no management depth and no buyer competition. Every bolt-on is bought below the multiple the enlarged platform will eventually sell for, so value is created at the moment of purchase, before any operational improvement.\n\nThe arithmetic has enemies. Integration costs are real cash — new systems, rebranding, locum cover while staff turn over — and they land in EBITDA. And because revenue often depends on a public payer, a tariff cut hits the growth lever across every clinic at once. Lenders know both, which is why a roll-up at 10× headline leverage does not exist: the debt is sized against the downside case, not the arbitrage.",
+            "example_q": "How does a dental roll-up create value?",
+            "answer_md": "Mostly through the entry price, not the exit. The platform trades at a scale multiple — call it 10× — while individual practices can be bought at around 6×, so each acquisition adds EBITDA at a discount to what the group is worth per pound of earnings. Central procurement, shared back office and better rota management then lift the acquired EBITDA itself. At exit, the enlarged group sells as one business at the platform multiple. The risks to name: integration cost eats the early gains, the model needs a steady pipeline of willing sellers, and a reimbursement cut hits every site simultaneously — which is why leverage stays moderate."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A fund turns a **£100m** cheque into **£300m** over five years. What IRR is that, roughly? And what does the answer become if the same journey takes **seven** years?",
+        "model_answer_md": "**State the multiple first.** £300m on £100m is a 3.0× money multiple.\n\n**Five years.** That is a stored anchor: 3× over five years is **about 25 %** (the exact figure is 24.6 %). Cross-check with the rule of 72: at 25 %, money doubles in roughly 72 ÷ 25 ≈ 2.9 years, so five years gives you a double and most of another — consistent with 3×.\n\n**Seven years.** Same multiple, more time, so the IRR must fall. Formally it is $3^{1/7} - 1$: the seventh root of 3 is about 1.17, so **roughly 17 %**. If you cannot take a seventh root in your head, reason from the anchor: stretching a five-year 25 % across two extra years costs several points a year, landing in the high teens.\n\nThe sentence that earns the mark: the multiple did not change, but the IRR dropped by a third — MoM ignores time, IRR charges for it.",
+        "rubric": [
+          "States the money multiple (3×) before any rate",
+          "Uses the five-year anchor: 3× ≈ 25 %",
+          "Adjusts for the longer hold: 3× over 7 years ≈ 17 %",
+          "Notes that IRR falls with time while MoM is unchanged",
+          "Runs a rule-of-72 sanity check on at least one answer"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Roughly what IRR is a 2× over five years?", "a": "About 15 % — one of the three anchors worth memorising." },
+          { "q": "What does the money multiple ignore that IRR does not?", "a": "Time. A 2× in three years and a 2× in ten years are the same MoM but wildly different IRRs." },
+          { "q": "Which of the three levers do sponsors refuse to underwrite?", "a": "Multiple expansion — the deal must work at an exit multiple no higher than entry." },
+          { "q": "Same multiple, longer hold — what happens to IRR?", "a": "It falls; the same gain spread over more years compounds at a lower rate." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Growth builds the value, cash flow shifts it from lenders to owners, and the multiple is weather — leverage just decides how hard all of it hits the cheque.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can name the three levers and say which one dominated a given deal.",
+          "I can explain why leverage magnifies returns without creating value.",
+          "I can convert a money multiple into a rough IRR using the five-year anchors.",
+          "I can adjust that estimate for a longer or shorter hold, and sanity-check it with the rule of 72.",
+          "I can decompose Pennard's £235m gain into growth, deleveraging and fees out loud."
+        ]
+      }
+    ]
+  }
+}

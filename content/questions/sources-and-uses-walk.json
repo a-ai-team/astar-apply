@@ -1,0 +1,45 @@
+{
+  "slug": "sources-and-uses-walk",
+  "topic_slug": "lbo",
+  "subtopic_slug": "sources-and-uses",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "sources-and-uses"
+  ],
+  "question": "Pennard Logistics: £50m of EBITDA bought at 8×, £10m of fees, no existing debt to refinance. The lenders provide five turns of EBITDA — a £200m senior term loan at 5.5 % and a £50m second lien at 8 %. Assemble the two columns and state the sponsor's cheque.",
+  "model_answer_md": "**Uses** — everything to be paid on day one:\n\n| Use | £m |\n|---|---|\n| Enterprise value: 8 × 50 | 400 |\n| Fees | 10 |\n| **Total uses** | **410** |\n\n**Sources** — where it comes from. Debt first, because the lenders' number is fixed: £200m + £50m = **£250m**, five turns exactly. The sponsor's equity is the plug:\n\n$$410 - 250 = \\mathbf{£160m}$$\n\nSo the table balances at £410m: £250m of debt (61 %) and £160m of equity (39 %). Worth volunteering: the blended interest cost is 200 × 5.5 % + 50 × 8 % = £15m, or 6 % on the £250m — the number that drives year one of the cash-flow schedule.\n\nThe £10m of fees is why the cheque is £160m and not the £150m the multiples alone would suggest — fees are a use, and every use the lenders will not fund lands on the equity.",
+  "key_points": [
+    "Uses: 8 × 50 = £400m of EV, plus £10m of fees = £410m",
+    "Debt is the lenders' fixed number: £250m across two tranches",
+    "Equity is the plug: 410 − 250 = £160m, not 400 − 250 = £150m",
+    "Blended interest: £15m a year to start, a 6 % rate",
+    "Structure reads ≈ 60/40 debt to equity"
+  ],
+  "follow_ups": [
+    {
+      "question": "The fees come in at £20m instead. What changes?",
+      "answer_md": "Only the plug. Uses rise to £420m; the lenders sized £250m off EBITDA and EBITDA has not moved, so the debt is unchanged and the cheque becomes 420 − 250 = **£170m**. Every extra pound of uses the lenders decline to fund is a pound of sponsor money — which is why funds negotiate fees as hard as they do."
+    },
+    {
+      "question": "Now suppose the target also carried £30m of old debt the lenders require repaid at completion.",
+      "answer_md": "Refinanced debt is a **use** — cash out of the door on day one. Uses become 400 + 30 + 10 = £440m against the same £250m of new debt, so the equity plug rises to **£190m**. The company is not worth a pound more; the cheque is £30m bigger. This is the standard trap: old debt raises the equity requirement, it does not reduce anything."
+    }
+  ],
+  "weak_answer_note": "Computing equity as EV minus debt (£150m) — forgetting fees are a use — or treating refinanced debt as a source. The reliable habit: write the complete uses column first, subtract the lenders' number, let equity be the remainder.",
+  "numbers": {
+    "inputs": {
+      "ebitda": 50,
+      "entry_multiple": 8,
+      "fees": 10,
+      "leverage_turns": 5
+    },
+    "answer": 160
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

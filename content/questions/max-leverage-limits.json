@@ -1,0 +1,37 @@
+{
+  "slug": "max-leverage-limits",
+  "topic_slug": "lbo",
+  "subtopic_slug": "sources-and-uses",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "leverage"
+  ],
+  "question": "Marlow Capital would happily borrow more than five turns of EBITDA for Pennard — a bigger loan means a smaller cheque. Something stops them. What sets the ceiling on leverage?",
+  "model_answer_md": "The ceiling is set by the lenders, not the sponsor — and they are looking at four things.\n\n**Interest coverage.** Cash interest has to be paid out of current cash flow with room to spare. Pennard's £250m at 6 % costs £15m against £52.5m of year-one EBITDA — comfortable. Push leverage towards seven turns and the interest bill approaches £25m before a single bad year, and the margin for error disappears.\n\n**Earnings quality.** Stable, contracted, repeatable EBITDA supports more turns than cyclical EBITDA of the same size, because the lender is underwriting the *worst* year of the hold, not the average one.\n\n**Covenant headroom.** The loan documents cap ratios like debt-to-EBITDA; leverage is sized so a plausible downturn does not trip them on day 400.\n\n**Market appetite.** Debt is syndicated or placed with credit funds, and what they will absorb moves with the credit cycle — the same business can raise 5.5× in a hot market and 4× in a cold one.\n\nThe sponsor's own restraint matters less than candidates expect: the equity cheque *is* the loss-absorbing layer, and the people funding the rest decide how thin they will let it get.",
+  "key_points": [
+    "Lenders set the ceiling — they size debt off the downside case, not the plan",
+    "Interest coverage: cash interest must clear comfortably in a bad year",
+    "Cyclical or concentrated earnings support fewer turns than contracted ones",
+    "Covenants need headroom against a plausible downturn",
+    "Credit-market appetite moves the same business's capacity across the cycle"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does a logistics business cap out near 5× when a software company the same size can carry 7×?",
+      "answer_md": "Because the lender's question is how much of the EBITDA reliably becomes cash. A haulier's earnings move with volumes and fuel and it must keep replacing a fleet, so a meaningful slice of EBITDA is already spoken for before debt service. Subscription software has contracted revenue, high margins and almost no capital spending, so nearly every pound of EBITDA is available to the lenders — and they respond by funding more turns of it. Same headline EBITDA, different cash behind it."
+    },
+    {
+      "question": "What is the first thing a lender looks at when sizing the loan?",
+      "answer_md": "The stability of the cash flows they are lending against — usually approached through a downside case: how far could EBITDA fall in a recession, a customer loss or a tariff cut, and would the business still cover interest and stay inside its covenants at the proposed debt level? Everything else — the tranching, the pricing, the final number of turns — follows from that stress test. A good summer answer names the test rather than reciting a fixed multiple."
+    }
+  ],
+  "weak_answer_note": "Answering with a fixed rule (\"leverage is always five or six times\") or claiming the sponsor chooses the level. The multiple is an output of the lenders' downside analysis, and it moves with the business's cash-flow quality and the credit cycle.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

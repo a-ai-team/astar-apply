@@ -24,19 +24,32 @@ export default async function WeekPage({ params }: PageProps<"/home/path/[week]"
         <h1 className="mt-2 text-2xl font-semibold" data-testid="week-heading">Week {n}: {plan?.title ?? ""}</h1>
       </div>
       <ol className="flex flex-col gap-3" data-testid="day-list">
-        {items.map((it) => (
-          <li key={it.id} className="flex items-center gap-3 rounded-lg border border-border bg-surface p-4" data-testid="day-row">
-            <span className="w-14 shrink-0 text-xs uppercase tracking-wide text-muted">Day {it.day}</span>
-            {it.lesson && plan ? (
-              <Link href={`/home/technicals/${plan.topic_slug}/${it.lesson.slug}`} className="text-sm underline-offset-2 hover:underline" data-testid="day-lesson-link">
-                {it.lesson.title} <span className="text-xs text-muted">· {it.lesson.reading_minutes} min</span>
-              </Link>
-            ) : (
-              <span className="text-sm">{it.label}</span>
-            )}
-            <span className="ml-auto">{it.lesson ? <Badge tone="accent">Ready</Badge> : it.day === 5 ? <Badge>Review</Badge> : <Badge>Coming soon</Badge>}</span>
-          </li>
-        ))}
+        {items.map((it) => {
+          // Cheat-sheet days are label-only in the DB (`lesson_id` null); the sheet's topic
+          // lives in DEFAULT_PATH, so the link is resolved from the plan rather than a row.
+          const planDay = plan?.days.find((d) => d.day === it.day);
+          const cheatsheet = planDay?.cheatsheet;
+          return (
+            <li key={it.id} className="flex items-center gap-3 rounded-lg border border-border bg-surface p-4" data-testid="day-row">
+              <span className="w-14 shrink-0 text-xs uppercase tracking-wide text-muted">Day {it.day}</span>
+              <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                {it.lesson && plan ? (
+                  <Link href={`/home/technicals/${plan.topic_slug}/${it.lesson.slug}`} className="text-sm underline-offset-2 hover:underline" data-testid="day-lesson-link">
+                    {it.lesson.title} <span className="text-xs text-muted">· {it.lesson.reading_minutes} min</span>
+                  </Link>
+                ) : !cheatsheet ? (
+                  <span className="text-sm">{it.label}</span>
+                ) : null}
+                {cheatsheet ? (
+                  <Link href={`/home/technicals/${cheatsheet}/cheatsheet`} className="text-sm underline-offset-2 hover:underline" data-testid="path-cheatsheet-link">
+                    {it.lesson ? "Cheat sheet" : it.label}
+                  </Link>
+                ) : null}
+              </span>
+              <span className="ml-auto">{it.lesson ? <Badge tone="accent">Ready</Badge> : cheatsheet ? <Badge tone="accent">Cheat sheet</Badge> : planDay?.lesson_slug ? <Badge>Coming soon</Badge> : it.day === 5 ? <Badge>Review</Badge> : <Badge>Drill</Badge>}</span>
+            </li>
+          );
+        })}
       </ol>
       <div className="flex justify-between text-sm">
         {n > 1 ? <Link href={`/home/path/${n - 1}`} className="text-muted hover:text-fg">← Week {n - 1}</Link> : <span />}

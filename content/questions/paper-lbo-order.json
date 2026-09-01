@@ -1,0 +1,38 @@
+{
+  "slug": "paper-lbo-order",
+  "topic_slug": "lbo",
+  "subtopic_slug": "paper-lbo-walkthrough",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:order",
+    "paper-lbo",
+    "walkthrough"
+  ],
+  "question": "Put the paper-LBO narration into working order: convert the multiple to an IRR with the anchors; subtract the remaining debt to get exit equity; build sources and uses; state the money multiple; project each year's free cash flow; apply the exit multiple to final-year EBITDA; sweep the cash flow against the debt.",
+  "model_answer_md": "The order is:\n\n1. **Build sources and uses** — price the deal, size the debt, plug the equity. Nothing downstream works without the cheque and the opening debt balance.\n2. **Project each year's free cash flow** — EBITDA less interest, tax and capex, rounded to the pound-million.\n3. **Sweep the cash flow against the debt** — a running balance, because next year's interest depends on this year's paydown.\n4. **Apply the exit multiple to final-year EBITDA** — enterprise value at the sale.\n5. **Subtract the remaining debt to get exit equity** — the balance after five years of sweeping, never the opening £250m.\n6. **State the money multiple** — exit equity over the cheque from step 1.\n7. **Convert to an IRR with the anchors** — 2×/2.5×/3× ≈ 15/20/25 % over five years.\n\nThe dependencies make the order rigid in a way the merger walk's is not: steps 2 and 3 interleave year by year (interest needs the running balance), step 5 needs step 3's ending balance, and step 6 needs both ends of the deal. Skipping ahead is not a style error — the numbers literally do not exist yet.",
+  "key_points": [
+    "S&U first: the cheque and opening debt anchor everything after",
+    "FCF and the sweep interleave — interest is charged on the running balance",
+    "Exit EV before exit equity; equity nets the remaining debt",
+    "MoM before IRR; IRR arrives via the anchors, not a root",
+    "The order is forced by dependency, not convention"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where do the fees enter this sequence?",
+      "answer_md": "In step 1, on the uses side. Pennard's £10m of fees takes uses to £410m and — because the lenders' £250m is fixed — lands entirely on the equity plug, which becomes £160m rather than £150m. They never reappear later in the walk: their whole effect is a bigger cheque, which quietly lowers the money multiple in step 6. Mentioning that one-line effect unprompted is an easy mark."
+    },
+    {
+      "question": "What if the business finishes the hold with cash on the balance sheet?",
+      "answer_md": "Then the subtraction in step 5 uses **net** debt: remaining borrowings less the cash held. A £10m cash balance at exit adds £10m straight to the equity, exactly as if it had been used to repay debt. In the standard paper LBO the question never arises because every pound of free cash flow is swept — but a version with a minimum-cash assumption, or FCF arriving after the final repayment date, needs the net figure, and saying \"net of any cash\" shows you know the general rule."
+    }
+  ],
+  "weak_answer_note": "Placing the IRR conversion before the money multiple, or treating the FCF projection and the sweep as separable when interest depends on the running balance. The rigid dependency chain is the understanding being tested.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

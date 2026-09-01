@@ -1,0 +1,44 @@
+{
+  "slug": "pennard-returns",
+  "topic_slug": "lbo",
+  "subtopic_slug": "returns-irr-mom",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "returns"
+  ],
+  "question": "Pennard reaches exit: enterprise value £510.4m at 8× on £63.8m of EBITDA, with £115.7m of debt still outstanding. Marlow Capital's cheque was £160m five years ago. State the return, both ways.",
+  "model_answer_md": "**Exit equity first.** The lenders are repaid before the equity sees anything:\n\n$$510.4 - 115.7 = \\mathbf{£394.7m}$$\n\n— call it £395m. The subtraction uses the debt *remaining* at exit, not the £250m the deal started with; the company spent five years repaying the difference.\n\n**Money multiple.**\n\n$$\\frac{394.7}{160} = \\mathbf{2.47\\times}$$\n\n**IRR.** 2.47× over five years sits on the 2.5× anchor, so **about 20 %** (the exact figure is 19.8 %). Rule-of-72 check: 20 % doubles money in ~3.6 years, so five years gives a double and half again — consistent.\n\nSaid as one sentence, the way an interviewer wants it: £160m in, £395m out — just under 2.5×, call it a 20 % IRR.",
+  "key_points": [
+    "Exit equity = exit EV less remaining debt: 510.4 − 115.7 = £394.7m",
+    "The remaining £115.7m, never the entry £250m",
+    "MoM = 394.7 ÷ 160 = 2.47×",
+    "2.47× ≈ the 2.5× anchor → IRR ≈ 20 % (19.8 % exact)",
+    "State the multiple first, then convert"
+  ],
+  "follow_ups": [
+    {
+      "question": "The market softens and the exit prints at 7× instead. Now what?",
+      "answer_md": "One turn comes straight off the equity. Exit EV is 7 × £63.8m ≈ £447m; less the same £115.7m of debt leaves about **£331m** — a MoM of **2.07×**, which the anchors put a touch above 15 % (exactly 15.7 %). Note the gearing of the damage: enterprise value fell about 12 % but the equity fell about 16 %, because the debt takes none of the pain. That asymmetry is why the exit multiple is the assumption committees refuse to flatter."
+    },
+    {
+      "question": "Same numbers, but the exit takes seven years to arrive.",
+      "answer_md": "The multiple is untouched — still 2.47× — but the IRR decays to 2.47^(1/7) − 1 ≈ **13.8 %**. Two extra years of the same profit cost six points of annualised return, dropping the deal from a solid outcome to a below-hurdle one for most funds. It is the cleanest illustration of the MoM-versus-IRR distinction: the money came back the same, the clock did not."
+    }
+  ],
+  "weak_answer_note": "Subtracting the £250m of entry debt (giving £260.4m and 1.63× — understated by the entire deleveraging lever), or quoting an IRR before the multiple. The order is equity, multiple, anchor.",
+  "numbers": {
+    "inputs": {
+      "exit_ev": 510.4,
+      "remaining_debt": 115.7,
+      "entry_equity": 160
+    },
+    "answer": 2.47
+  },
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

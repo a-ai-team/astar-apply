@@ -1,0 +1,38 @@
+{
+  "slug": "why-leverage-boosts-returns",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "leverage",
+    "returns"
+  ],
+  "question": "Mechanically, what does all that debt do to the sponsor's return — and what does it cost?",
+  "model_answer_md": "The debt shrinks the denominator. The value a deal creates — the business growing, its cash flow repaying borrowings — is broadly the same pool of pounds however the purchase was funded. Funding most of the price with debt means that pool lands on a small equity cheque instead of a large one, so the *return on the cheque* is multiplied.\n\nPennard makes it visible: roughly £235m of gain on a £160m cheque is about 2.5×; the same gain on an all-equity £410m cheque would have been nearer 1.3×. Two smaller effects help: interest is **tax-deductible**, so the state subsidises part of the carrying cost, and the discipline of debt service tends to sharpen operations.\n\nThe costs are symmetrical and real: cash interest drains free cash flow every year, and the same concentration that magnifies gains magnifies losses — a modest fall in enterprise value can wipe the equity out entirely. Leverage buys amplitude, not value.",
+  "key_points": [
+    "Same value creation, smaller denominator — the cheque, not the profit, is what shrinks",
+    "Pennard: ≈ 2.5× levered versus ≈ 1.3× all-equity on similar gains",
+    "Interest is tax-deductible, softening the carrying cost",
+    "The magnification is symmetric: downside is amplified identically",
+    "Leverage is an amplifier, not a source of value"
+  ],
+  "follow_ups": [
+    {
+      "question": "So does the leverage itself create any value?",
+      "answer_md": "No — and saying so cleanly is worth marks. The value comes from the levers: EBITDA growth, debt repaid out of the company's cash flow, and any multiple improvement at exit. Leverage decides how much of that value each pound of equity captures, while adding interest cost and risk for the privilege. The tax-deductibility of interest is the one genuine sliver of created value, and it is small next to the concentration effect."
+    },
+    {
+      "question": "What stops a sponsor using even more of it?",
+      "answer_md": "The lenders, before anything else — they size debt off EBITDA and stop where interest coverage gets thin, because past five or six turns the cash interest starts consuming the company's entire free cash flow. Beyond that, covenants need headroom, cyclical or payer-dependent revenue gets a haircut before sizing, and the sponsor's own risk appetite bites: at extreme leverage a small operational stumble hands the company to the lenders."
+    }
+  ],
+  "weak_answer_note": "Answering 'debt is cheaper than equity' and stopping. That is true but is not the mechanism — the mechanism is the shrunken denominator, and the complete answer names the symmetric downside.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

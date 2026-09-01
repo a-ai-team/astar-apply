@@ -16,6 +16,7 @@ import { checkOwnership } from "@/lib/interviews/ownership";
 import { getInterview, getInterviewQuestions, getTurns } from "@/lib/interviews/queries";
 import { buildReport, loadLessonIndex, type ReportTurn } from "@/lib/interviews/report";
 import { loadPool, MOCK_TOPICS, selectDrill, selectMock } from "@/lib/interviews/select";
+import { isLensSlug } from "@/lib/content/taxonomy";
 import { DRILL_SECONDS, LATE_GRACE_SECONDS, MOCK_SECONDS, type Grade, type InterviewMode, type TranscriptMeta } from "@/lib/interviews/types";
 import { typedMetrics } from "@/lib/interviews/speech-metrics";
 
@@ -31,13 +32,17 @@ export async function startInterview(formData: FormData): Promise<void> {
   // Loop 09: a full mock may add one industry module (`industry_topic_id` on the interview) so
   // 3–4 of its questions join the generalist round-robin.
   const industrySlug = String(formData.get("industry") ?? "").trim();
+  // Loop 18: an optional industry lens unlocks that lens's `lens:`-tagged questions. Invalid
+  // values fall back to generalist rather than erroring — the select only offers valid slugs.
+  const lensRaw = String(formData.get("lens") ?? "").trim();
+  const lens = isLensSlug(lensRaw) ? lensRaw : undefined;
   if (mode !== "drill" && mode !== "mock") throw new Error("bad mode");
   if (mode === "drill" && !/^[a-z0-9-]+$/.test(topicSlug)) throw new Error("bad topic");
   if (industrySlug && !/^[a-z0-9-]+$/.test(industrySlug)) throw new Error("bad industry");
   const db = await createClient();
   const pool = await loadPool(db, mode === "drill" ? topicSlug : undefined);
   const mockTopics = mode === "mock" && industrySlug ? [...MOCK_TOPICS, industrySlug] : undefined;
-  const sel = mode === "drill" ? selectDrill(pool, topicSlug) : selectMock(pool, mockTopics ? { topics: mockTopics } : {});
+  const sel = mode === "drill" ? selectDrill(pool, topicSlug, { lens }) : selectMock(pool, { ...(mockTopics ? { topics: mockTopics } : {}), lens });
   if (!sel.ids.length) redirect(`/home/interviews?error=${encodeURIComponent(mode === "drill" ? `No approved questions in ${topicSlug} yet.` : "No approved questions yet.")}`);
   let topicId: string | null = null;
   const wantedSlug = mode === "drill" ? topicSlug : industrySlug;
@@ -47,7 +52,9 @@ export async function startInterview(formData: FormData): Promise<void> {
   }
   const { data: created, error } = await db
     .from("interviews")
-    .insert({ user_id: session.userId, mode, topic_id: topicId, question_ids: sel.ids, seconds_per_question: mode === "drill" ? DRILL_SECONDS : MOCK_SECONDS })
+    // The lens lives inside the report jsonb from day one (`{ params: { lens } }`, no column);
+    // finishInterview merges the built report around it.
+    .insert({ user_id: session.userId, mode, topic_id: topicId, question_ids: sel.ids, seconds_per_question: mode === "drill" ? DRILL_SECONDS : MOCK_SECONDS, report: lens ? { params: { lens } } : null })
     .select("id")
     .single();
   if (error || !created) throw new Error(error?.message ?? "could not create interview");
@@ -187,7 +194,7 @@ export async function finishInterview(interviewId: string): Promise<ActionResult
   const interview = await getInterview(admin, interviewId);
   const own = checkOwnership(interview, session.userId);
   if (!own.ok) return { ok: false, error: own.error, status: own.status };
-  if (interview!.status === "completed" && interview!.report) return { ok: true, overall: interview!.overall_score, focusAreas: interview!.report.focus_areas.length };
+  if (interview!.status === "completed" && interview!.report?.focus_areas) return { ok: true, overall: interview!.overall_score, focusAreas: interview!.report.focus_areas.length };
   if (interview!.status === "abandoned") return { ok: false, error: "this interview was abandoned", status: 409 };
   const turns = await getTurns(admin, interviewId);
   const questions = await getInterviewQuestions(admin, turns.map((t) => t.question_id));
@@ -202,7 +209,10 @@ export async function finishInterview(interviewId: string): Promise<ActionResult
   const mode = await resolveChatMode();
   const { report, prompt_version } = await buildReport({ mode: interview!.mode, turns: reportTurns, lessons }, graded.length ? mode : "fixture");
   const db = await createClient();
-  const { error } = await db.from("interviews").update({ status: "completed", completed_at: new Date().toISOString(), overall_score: overall, report, prompt_version }).eq("id", interviewId);
+  // Keep the run params (Loop 18: the lens) that startInterview stored alongside the built report.
+  const params = interview!.report?.params;
+  const storedReport = params ? { ...report, params } : report;
+  const { error } = await db.from("interviews").update({ status: "completed", completed_at: new Date().toISOString(), overall_score: overall, report: storedReport, prompt_version }).eq("id", interviewId);
   if (error) return { ok: false, error: error.message };
   return { ok: true, overall, focusAreas: report.focus_areas.length };
 }

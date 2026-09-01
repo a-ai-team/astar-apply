@@ -1,0 +1,38 @@
+{
+  "slug": "dividend-recap-basic",
+  "topic_slug": "lbo",
+  "subtopic_slug": "lbo-overview",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "exits",
+    "dividend-recap"
+  ],
+  "question": "Three years into the hold, the fund has an offer from its lenders rather than a buyer: a dividend recapitalisation. What is being proposed, and what is the trade?",
+  "model_answer_md": "The company has spent three years repaying debt, so its leverage has fallen well below what lenders would happily fund. A **dividend recapitalisation** re-borrows against that spare capacity — the company raises new debt and pays the proceeds straight out to the sponsor as a dividend.\n\nThe fund gets part of its money back **without selling anything**: it still owns the whole business and keeps all the remaining upside. On a deal like Pennard, debt paid down from £250m towards £180m might be re-levered back up, with the difference landing in the fund's account.\n\nThe trade is that the risk clock restarts. The company carries full leverage again, with the later years' interest bill, and the deleveraging lever must do its work a second time. The equity cushion that had been built up is handed out rather than left protecting the deal — which is why recaps cluster in strong credit markets and strong-performing companies, and attract criticism everywhere else.",
+  "key_points": [
+    "Re-borrow against repaid debt; pay the new proceeds to the sponsor as a dividend",
+    "Returns cash mid-hold with no sale — ownership and upside are retained",
+    "Leverage and interest cost go back up; the equity cushion is paid away",
+    "Only available when performance and credit markets both cooperate",
+    "A partial exit in effect, named alongside the three true exit routes"
+  ],
+  "follow_ups": [
+    {
+      "question": "What does a recap do to IRR versus the money multiple?",
+      "answer_md": "It flatters IRR more than MoM. IRR rewards getting cash back early — a large dividend in year three does disproportionate work compounding-wise, even if the eventual exit proceeds shrink because the re-levered debt must be repaid from them. The money multiple barely moves, and can even fall slightly once the extra interest is paid. A fund quoting a strong IRR on a recapped deal may be describing timing, not value — which is why sophisticated investors look at both numbers."
+    },
+    {
+      "question": "Why would lenders agree to fund a dividend rather than the business?",
+      "answer_md": "Because they are lending against the same cash flows either way, at fees and margins they like, to a company that has just proved three years of reliable debt service. From the lender's seat, re-levering a known performer to five turns is more attractive than lending to an unknown at the same level. Covenants and market conditions gate it — in tight markets recap financing disappears first."
+    }
+  ],
+  "weak_answer_note": "Describing it as the company 'paying a special dividend from cash'. The defining feature is new borrowing funding the dividend — leverage rises. Also weak: not knowing it returns cash without a sale.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "human",
+  "prompt_version": null
+}

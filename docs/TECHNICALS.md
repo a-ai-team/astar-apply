@@ -222,17 +222,20 @@ same counts from the base tables (the family always comes from `taxonomy.ts`).
   (approves the Real Estate lesson + 8 questions and derives their cards in `beforeAll`, restores in
   `afterAll`); vitest in `taxonomy.test.ts`, `targets.test.ts`.
 
-## Technicals v2 — the summer-internship prep pack (Loops 11–18, planned 2026-08-28)
+## Technicals v2 — the summer-internship prep pack (Loops 11–18, complete 2026-09-01)
 Research and per-chapter content specs: `docs/research/technicals-v2/` (`README.md` there is the
-index). Contract additions (new block types `predict`, `fill_numbers`, `order_steps`, `lens`,
+index). Contract additions (block types `predict`, `fill_numbers`, `order_steps`, `lens`,
 `template`; widget names; question tags `depth:` / `lens:` / `format:`; cheat sheets):
-`docs/loops/CONTRACTS.md` § Technicals v2. Loop 11 builds the platform (`src/lib/finance/`, the widget
-kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chapter each from its spec —
-35 lessons, 135 core + 38 stretch + 26 lens questions. This section is rewritten by Loop 18.
+`docs/loops/CONTRACTS.md` § Technicals v2. Loop 11 built the platform; Loops 12–18 hand-authored one
+chapter each from its spec. Final shape: **35 lessons, ~200 chapter questions, 20 widgets, 7 cheat
+sheets, 4 printable templates**, a re-sequenced 10-week path (each chapter ends on its cheat sheet),
+and a lens option on drills and mocks. Every worked number was verified against `src/lib/finance/`
+before authoring — 20 spec errors were caught and corrected that way (see the loop retros).
 
 ### Chapters (shipped)
 | Loop | Chapter | Content | Status |
 |---|---|---|---|
+| 18 | LBO | 4 lessons (Pennard Logistics), 24 questions, `lbo_returns` · `paper_lbo` stepper, paper-LBO sheet, cheat sheet; + 10-week path re-sequence and lens drills/mocks | `generated` — paid topic, awaiting mentor approval |
 | 17 | M&A | 4 lessons (Tamar Group buying Wychwood), 22 questions, `accretion_rule` · `synergy_npv` · `ppa_goodwill`, deal summary card, cheat sheet | `generated` — paid topic, awaiting mentor approval |
 | 12 | Finance foundations | 3 lessons (Ashdown Bakeries), 12 questions, `discount_dial`, cheat sheet | `generated` — awaiting mentor approval |
 | 16 | DCF | 7 lessons (Harbourline), 42 questions, `tv_share` · `gordon_vs_exit` · `wacc_builder` · `beta_relever`, DCF build sheet, cheat sheet | `generated` — paid topic, awaiting mentor approval |
@@ -250,9 +253,15 @@ kit, the lens picker, the cheat-sheet route); Loops 12–18 hand-author one chap
   `src/components/lesson/blocks/`; approval rules in `lesson-schema.ts` (`lensProblems`, `isV2Body`).
 - **Widget kit**: `src/components/widgets/kit/` (`Slider`, `AnimatedNumber`, `WidgetFrame`,
   `Waterfall`, `Heatmap`, `StackedBar`, `fmt`, `scale`, `useReducedMotion`) — hand SVG, **no new
-  deps**. Live widgets: `ev_bridge` (refactored), `three_statement` (Statement Ripple, nine walk
-  variants, reduced-motion step-through), `dcf_sensitivity` (WACC × g heatmap). Unlisted names still
-  render the dashed placeholder; `blocks/widget.tsx` is now a registry.
+  deps**. `blocks/widget.tsx` is a registry, **20 widgets live** after Loop 18 (`grep -c "as
+  ComponentType"` = 20); unlisted names render the dashed placeholder.
+- **Learning path** (Loop 18): `DEFAULT_PATH` walks all 35 v2 lessons over weeks 1–9 with a
+  cheat-sheet day closing each chapter (`PathDay.cheatsheet`), then fit + a full mock in week 10;
+  `/home/path/[week]` links sheet days to the cheat-sheet route.
+- **Lens drills & mocks** (Loop 18): the drill picker and full-mock form take Generalist / TMT /
+  Healthcare & Biotech; `select.ts` includes `lens:<slug>` questions only when that lens is chosen
+  (generalist runs exclude them), `startInterview` stores the lens in `interviews.report.params`,
+  history rows label it.
 - **Industry lens**: `LENSES` in `taxonomy.ts` (TMT, Healthcare & Biotech). `?lens=` on the lesson
   page, mirrored to `localStorage["astar.lens"]`, `LensPicker` in the lesson header, `LensProvider` →
   `useLens()`. A lens block with a missing variant is a readable approval problem, not a zod error.
