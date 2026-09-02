@@ -5,7 +5,7 @@
   `/home` is now the integrated-toolkit landing (wordmark hero, toolkit grid, route to the offer,
   10-week spine, Mentor + bench, in-the-works row); the header wordmark hides while the hero wordmark
   is on screen; `/` redirects to `/home` (the "Coming soon" page is gone).
-- **Last checks (Loop 19):** lint ✓ typecheck ✓ build ✓ unit **403/403** ✓ e2e — see RUNLOG ✓
+- **Last checks (Loop 19):** lint ✓ typecheck ✓ build ✓ unit **403/403** ✓ e2e **80/80** ✓ (PR #44)
   visual check 375 / 768 / 1280 ✓
 - **Blockers:** none.
 
