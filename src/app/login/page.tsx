@@ -19,7 +19,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center bg-bg font-sans">
       <main className="flex w-full max-w-xs flex-col items-center gap-8 px-6 py-24">
-        <Image src="/wordmark.png" alt="A* Apply" width={220} height={85} className="h-auto w-44" priority />
+        <Image src="/wordmark.png" alt="A* Apply" width={220} height={106} className="h-auto w-44" priority />
         <LoginForm
           next={dest}
           initialError={error === "link" ? "That link is invalid or has expired. Request a new one." : undefined}

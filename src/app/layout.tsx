@@ -22,13 +22,14 @@ const display = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "A* Apply",
-  description: "A* Apply, from A* AI. Coming soon.",
+  description: "A* Apply: the toolkit for spring week and summer internship applications, from A* AI.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

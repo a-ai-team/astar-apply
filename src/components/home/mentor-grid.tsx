@@ -11,7 +11,7 @@ export function MentorGrid() {
     <div className="grid grid-cols-1 gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4" data-testid="mentor-grid">
       {cells.map((cell, i) =>
         isSeat(cell) ? (
-          <Reveal key={`seat-${i}`} delay={i * 70} className="flex min-h-[300px] flex-col items-center justify-center gap-5 bg-bg px-6 py-10 text-center" data-testid="mentor-seat">
+          <Reveal key={`seat-${i}`} delay={i * 70} className="flex min-h-[200px] flex-col items-center justify-center gap-5 bg-bg sm:min-h-[300px] px-6 py-10 text-center" data-testid="mentor-seat">
             <span className="flex h-[88px] w-[88px] items-center justify-center rounded-full border border-dashed border-border" aria-hidden>
               <span className="h-1 w-1 rounded-full bg-muted/60" />
             </span>

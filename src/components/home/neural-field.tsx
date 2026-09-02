@@ -2,7 +2,7 @@
 
 // Full-bleed "neural field" behind the /home hero — the same vocabulary as the chat halo
 // (hairline ivory links, a few gold signals hopping between nodes, nodes warming on arrival)
-// spread across the hero as a wide band that thickens towards the mentor's portrait. Scroll
+// spread across the hero as a wide band that thickens towards the wordmark (`[data-field-focus]`). Scroll
 // dissolves it: as the hero leaves the viewport the links fade, the signals die out and the
 // whole field drifts down slightly. Canvas 2D, no deps; responsive via ResizeObserver;
 // reduced-motion → one static frame; paused while the tab is hidden; DPR capped at 2.
@@ -88,7 +88,7 @@ export function NeuralField({ className }: { className?: string }) {
       const gc = g.getContext("2d")!;
       gc.scale(dpr, dpr);
       const grad = gc.createRadialGradient(gs / 2, gs / 2, 0, gs / 2, gs / 2, gs / 2);
-      grad.addColorStop(0, `rgba(${GOLD}, 0.16)`);
+      grad.addColorStop(0, `rgba(${GOLD}, 0.10)`);
       grad.addColorStop(0.4, `rgba(${GOLD}, 0.05)`);
       grad.addColorStop(1, `rgba(${GOLD}, 0)`);
       gc.fillStyle = grad;
