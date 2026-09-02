@@ -73,3 +73,5 @@ conflict in `src/components/lesson/blocks/widget.tsx`: `grep -c "as ComponentTyp
 ## Heartbeat (Stop hook appends here; keep last 10 lines)
 - 2026-09-01 22:56 heartbeat
 - 2026-09-01 23:07 heartbeat
+- 2026-09-02 08:52 heartbeat
+- 2026-09-02 12:42 heartbeat
