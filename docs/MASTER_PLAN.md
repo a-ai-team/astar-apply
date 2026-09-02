@@ -76,7 +76,7 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | merged (#36) |
 | 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | merged (#38) |
 | 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | merged (#39) |
-| 19 | [Home toolkit landing](loops/19-home-toolkit.md) | `/home` redesigned around the integrated toolkit (wordmark hero, toolkit grid, route to the offer, 10-week spine, Mentor, in-the-works row); header brand hidden until the hero scrolls away; `/` redirects to `/home` | merged |
+| 19 | [Home toolkit landing](loops/19-home-toolkit.md) | `/home` redesigned around the integrated toolkit (wordmark hero, toolkit grid, route to the offer, 10-week spine, Mentor, in-the-works row); header brand hidden until the hero scrolls away; `/` redirects to `/home` | merged (#44) |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.
