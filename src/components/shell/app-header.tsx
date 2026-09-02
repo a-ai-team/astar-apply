@@ -59,8 +59,8 @@ export function AppHeader({ items, staffItem, right }: { items: NavItem[]; staff
       data-testid="app-header"
     >
       <div className="flex h-16 items-center gap-8 px-4 md:px-6">
-        <Link href="/home" className="flex shrink-0 items-center rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-accent" data-testid="nav-logo" aria-label="A* Apply home">
-          <Image src="/wordmark.png" alt="A* Apply" width={140} height={54} priority className="h-auto w-28" />
+        <Link href="/home" className="flex shrink-0 items-center rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-accent" data-testid="nav-logo" data-brand aria-label="A* Apply home">
+          <Image src="/wordmark.png" alt="A* Apply" width={140} height={68} priority className="h-auto w-28" />
         </Link>
         <nav className="hidden min-w-0 flex-1 items-center gap-7 overflow-x-auto md:flex" aria-label="Primary" data-testid="nav-bar">
           {items.map((i) => link(i))}

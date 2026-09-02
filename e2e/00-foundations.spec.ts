@@ -7,7 +7,7 @@ test.describe("Loop 00 foundations", () => {
     await signInAs(page, "e2e-student@astar.test", "/home");
     await expect(page).toHaveURL(/\/home$/);
     await expect(page.getByTestId("app-shell")).toBeVisible();
-    await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
+    await expect(page.getByTestId("home-heading")).toHaveText("Everything between you and the offer.");
     await expect(page.getByTestId("user-avatar")).toHaveText("E");
     await expect(page.getByTestId("user-avatar")).toHaveAttribute("title", "e2e-student@astar.test");
   });
@@ -38,5 +38,17 @@ test.describe("Loop 00 foundations", () => {
     await page.goto("/home");
     await expect(page).toHaveURL(/\/unlock\?next=%2Fhome$/);
     await expect(page.getByTestId("unlock-heading")).toHaveText("Enter the team key");
+  });
+
+  // No more "Coming soon": `/` is the door to /home (src/app/page.tsx), and the gate takes it from there.
+  test("/ redirects to /home (and on to /unlock without the key)", async ({ page, baseURL }) => {
+    await page.goto("/");
+    await expect(page).toHaveURL(/\/unlock\?next=%2Fhome$/);
+
+    await unlockPrivateArea(page, baseURL!);
+    await signInAs(page, "e2e-student@astar.test", "/home");
+    await page.goto("/");
+    await expect(page).toHaveURL(/\/home$/);
+    await expect(page.getByTestId("home-heading")).toBeVisible();
   });
 });

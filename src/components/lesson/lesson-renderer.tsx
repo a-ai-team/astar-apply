@@ -54,7 +54,7 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
 
 export function LessonRenderer({ body, lessonId }: { body: LessonBody; lessonId?: string }) {
   return (
-    <article className="flex max-w-3xl flex-col gap-10" data-testid="lesson-renderer">
+    <article className="flex w-full flex-col gap-10" data-testid="lesson-renderer">
       {body.blocks.map((block, i) => (
         <div key={`${block.type}-${i}`} id={blockAnchor(i)} data-block-index={i} className="scroll-mt-20 target:rounded-lg target:ring-2 target:ring-accent/40 target:ring-offset-4 target:ring-offset-bg">
           <LessonBlockView block={block} />

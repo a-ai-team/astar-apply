@@ -45,7 +45,7 @@ when you touch `src/lib/ai`, `supabase`, `content`, `src/app`, or tests.
 - Stay inside the current loop's task list. Three failed builds on one task → mark it blocked, move on.
 
 ## Private area
-`/` is public "Coming soon". Real site lives at `/home`, gated by `PRIVATE_ACCESS_KEY` in
+`/` redirects to `/home`, the toolkit landing (`docs/loops/19-home-toolkit.md`), gated by `PRIVATE_ACCESS_KEY` in
 `src/proxy.ts`; the key alone signs the browser into a shared admin "team" Supabase session
 (`src/lib/team-session.ts`). Magic-link login is kept but unlinked — see `docs/PRIVATE_AREA.md`.
 

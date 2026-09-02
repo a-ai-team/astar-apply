@@ -18,7 +18,7 @@ test.describe("Team entry", () => {
 
     await expect(page).toHaveURL(/\/home$/);
     await expect(page.getByTestId("app-shell")).toBeVisible();
-    await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
+    await expect(page.getByTestId("home-heading")).toHaveText("Everything between you and the offer.");
 
     // The team user is admin, so staff pages open too.
     await page.goto("/admin");

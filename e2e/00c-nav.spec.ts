@@ -43,18 +43,49 @@ test.describe("Sticky horizontal nav", () => {
   });
 });
 
-// /home landing (feat/home-landing): hero CTA, neural field, mentor bench.
+// /home landing (Loop 19): wordmark hero that hides the header brand, toolkit grid, route, path,
+// mentor bench, "in the works" row. Copy in src/content/home.ts.
 test.describe("/home landing", () => {
-  test("hero, field and bench render; CTA opens the Mentor", async ({ page, baseURL }) => {
+  test("hero wordmark hides the header brand until scrolled; toolkit, bench and works render", async ({ page, baseURL }) => {
     await unlockPrivateArea(page, baseURL!);
     await signInAs(page, "e2e-student@astar.test", "/home");
-    await expect(page.getByTestId("home-heading")).toHaveText("Ask the people who actually got in.");
+    await expect(page.getByTestId("home-heading")).toHaveText("Everything between you and the offer.");
     await expect(page.getByTestId("neural-field")).toBeAttached();
-    await expect(page.getByTestId("home-mentor-card")).toHaveAttribute("href", "/home/mentor");
+    await expect(page.getByTestId("hero-wordmark")).toBeVisible();
+    await expect(page.getByTestId("hero-cta-path")).toHaveAttribute("href", "/home/path");
+
+    // One brand at a time: the header's copy is hidden while the hero wordmark is on screen.
+    await expect(page.locator("html")).toHaveAttribute("data-hero-brand", "visible");
+    await expect(page.getByTestId("nav-logo")).toBeHidden();
+
+    for (const [id, href] of [
+      ["home-mentor-card", "/home/mentor"],
+      ["home-technicals-card", "/home/technicals"],
+      ["home-practice-card", "/home/practice"],
+      ["home-interviews-card", "/home/interviews"],
+      ["home-path-card", "/home/path"],
+    ] as const) {
+      await expect(page.getByTestId(id)).toHaveAttribute("href", href);
+    }
+    await expect(page.getByTestId("home-route").getByRole("listitem")).toHaveCount(5);
+    await expect(page.getByTestId("home-path-spine").getByRole("listitem")).toHaveCount(10);
+
+    const works = page.getByTestId("home-works");
+    await expect(works).toContainText("Firm question banks");
+    await expect(works).toContainText("Pulse");
+    await expect(works).not.toContainText("£");
+    await expect(works).not.toContainText(/live/i);
+
     await page.getByTestId("mentor-grid").scrollIntoViewIfNeeded();
     await expect(page.getByTestId("mentor-tile").first()).toContainText("Tesleem Fowora");
     await expect(page.getByTestId("mentor-seat")).toHaveCount(3);
+    // Past the hero, the header brand is back.
+    await expect(page.locator("html")).not.toHaveAttribute("data-hero-brand", "visible");
+    await expect(page.getByTestId("nav-logo")).toBeVisible();
+
     await page.getByTestId("home-mentor-card").click();
     await expect(page).toHaveURL(/\/home\/mentor/);
+    await expect(page.locator("html")).not.toHaveAttribute("data-hero-brand", "visible");
+    await expect(page.getByTestId("nav-logo")).toBeVisible();
   });
 });

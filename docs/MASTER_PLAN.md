@@ -22,7 +22,7 @@ Not an application tracker. Separate site from the main A* AI product; shares th
 
 | Area | Finding | Consequence |
 |---|---|---|
-| Repo | Next.js 16.3 App Router, React 19, Tailwind 4, Vercel. Only a "Coming soon" page + key-gated `/home`. **Repo is public.** | Nothing copyrighted or secret in git. Read `node_modules/next/dist/docs/` before coding. |
+| Repo | Next.js 16.3 App Router, React 19, Tailwind 4, Vercel. `/` redirects to the key-gated `/home`. **Repo is public.** | Nothing copyrighted or secret in git. Read `node_modules/next/dist/docs/` before coding. |
 | 400Q guide | 413 Qs: ~73 fit, ~191 generalist technical across 13 sections, ~149 industry. Each technical topic splits *Concepts* / *Calculations*. Copyrighted (BIWS). | Use as taxonomy + hidden eval set. Never as content. Details: `research/400q-taxonomy.md`. |
 | financefluency.co.uk | Nav: Curriculum (9 topics / 39 lessons, first two free) · Practice · Flashcards (spaced repetition) · Interviews (194 real Qs across 14 banks, tagged by stage/programme) · Pulse (market news) · Non-Target playbook · Pricing free / £4.99 / £9.99 (AI tools on top tier). AI-graded mock interviews (pace, filler words, eye contact), live DCF workshop. | Feature-parity list below. Details: `research/financefluency.md`. |
 | Claude API | Use `claude-opus-5`, adaptive thinking, streaming, prompt caching, server-side refusal fallbacks; PDF/image input native; citations supported. (`/claude-api` skill.) | Chatbot on the Anthropic TS SDK directly — no LangChain. |
@@ -75,7 +75,8 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 15 | [Technicals: Valuation](loops/15-technicals-valuation.md) | 5 lessons, 31 Qs, `football_field` + comps picker | merged (#35) |
 | 16 | [Technicals: DCF](loops/16-technicals-dcf.md) | 7 lessons, 42 Qs, `tv_share` `gordon_vs_exit` `wacc_builder` `beta_relever`, DCF build sheet | merged (#36) |
 | 17 | [Technicals: M&A](loops/17-technicals-ma.md) | 4 lessons, 22 Qs, `accretion_rule` `synergy_npv` `ppa_goodwill`, deal-summary template | merged (#38) |
-| 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | this PR |
+| 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | merged (#39) |
+| 19 | [Home toolkit landing](loops/19-home-toolkit.md) | `/home` redesigned around the integrated toolkit (wordmark hero, toolkit grid, route to the offer, 10-week spine, Mentor, in-the-works row); header brand hidden until the hero scrolls away; `/` redirects to `/home` | merged (#44) |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.
