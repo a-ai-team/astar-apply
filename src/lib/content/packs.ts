@@ -11,9 +11,15 @@ import type { CheatSheet } from "./cheatsheet-schema";
 import { pickRoundRobin } from "./pack-files";
 import { CURRICULUM, DEFAULT_PATH, type PathDay, type PathWeek } from "./taxonomy";
 
-/** Practice questions in a technical week's pack, and in week 10's cross-chapter mock. */
-export const PACK_PRACTICE_SIZE = 10;
+/** Week 10's cross-chapter mock. Technical weeks have no cap: they print every core question. */
 export const PACK_MOCK_SIZE = 15;
+/**
+ * What a technical week prints: the `depth:sa-core` questions — the ones asked of everyone
+ * (docs/research/technicals-v2/00-syllabus.md § 2). Stretch questions stay on the site, `order` and
+ * `spot` formats repeat a block the lesson already prints, and `pack:skip` marks a question that
+ * restates another in the same week.
+ */
+const PACK_EXCLUDED_TAGS = ["format:order", "format:spot", "pack:skip"];
 
 export type PackLesson = { id: string; slug: string; title: string; reading_minutes: number; body: LessonBody; subtopic_slug: string | null };
 export type PackQuestion = { slug: string; difficulty: number; question: string; body: QuestionBody; topic_title: string };
@@ -65,7 +71,9 @@ export async function getWeekPack(db: SupabaseClient, week: number): Promise<Wee
   const toPack = (q: QuestionJoin): PackQuestion => ({ slug: q.slug, difficulty: q.difficulty, question: q.question, body: q.body, topic_title: q.topic?.title ?? "" });
 
   const subtopics = days.flatMap((d) => (d.lesson?.subtopic_slug ? [d.lesson.subtopic_slug] : []));
-  const weekSet = pickRoundRobin(subtopics.map((s) => bank.filter((q) => q.subtopic?.slug === s)), PACK_PRACTICE_SIZE);
+  // In lesson order, easiest first inside each lesson (the bank query is already sorted that way).
+  const core = bank.filter((q) => q.tags.includes("depth:sa-core") && !q.tags.some((t) => PACK_EXCLUDED_TAGS.includes(t)));
+  const weekSet = subtopics.flatMap((s) => core.filter((q) => q.subtopic?.slug === s));
   if (weekSet.length > 0) return { plan, days, cheatsheet, practice: { kind: "week", questions: weekSet.map(toPack) } };
 
   // No lesson questions this week (week 10): a spoken mock dealt across every technical chapter.

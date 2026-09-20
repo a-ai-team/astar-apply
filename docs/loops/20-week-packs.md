@@ -36,10 +36,12 @@ lens choice). Any change to the launch PR (#17).
   beneath, `predict` as A–D with the answer, `order_steps` with the order, widgets as a one-line
   pointer to the site. **Lens blocks are left out** — the generalist lesson is complete without
   them and the pack is the core, nothing more.
-- **Practice set** — 10 questions dealt round-robin across the week's subtopics (easiest first
-  inside each). Week 10 has no lesson questions, so it gets a **15-question spoken mock** across all
-  seven chapters, rotating second-order → numerical → why → definition; `format:fill|order|spot`
-  questions are excluded from the mock.
+- **Core questions** — every `depth:sa-core` question for the week's lessons, in lesson order,
+  easiest first inside each lesson, with model answers at the back (8–20 a week). Not printed:
+  `sa-stretch` and lens questions (site only), `format:order` / `format:spot` (they repeat a block
+  the lesson already prints) and anything tagged `pack:skip` (a restatement of another question in
+  the same week). Week 10 has no lesson questions, so it gets a **15-question spoken mock** across
+  all seven chapters, rotating second-order → numerical → why → definition.
 - **Print layout** (`globals.css`, `@media print`): A4; **mirrored margins for double-sided
   printing** (20 mm binding edge, 12 mm outer, via `@page :left/:right`); every lesson, the cheat
   sheet, the questions and the answers start a new page; self-contained blocks (tables, traps,
@@ -102,3 +104,29 @@ five defects the audit surfaced on the live path (draft leakage, the week-10 404
 the unhidden print header, value formatting). Slipped: week 10's PDF carries the plan and the mock
 only until its lessons are approved. Next loop must know: stored PDFs are snapshots — rebuild after
 content changes; `formatValue` now owns unit placement, so new units go in `UNIT_AFFIX`.
+
+## Coverage audit (2026-09-20, follow-up PR)
+James: "it's basically all I need to know to get through — nothing more, nothing less." Checked the
+printed packs against `docs/research/technicals-v2/00-syllabus.md` § 4 (the top-20 summer-level
+technicals) and the 400Q section map (`docs/research/400q-taxonomy.md`; the PDF itself was not read).
+
+**Found:** the lessons cover all twelve Tier-A and all six Tier-B questions, but the first cut of the
+practice set dealt the ten *easiest* questions per week, so the questions actually asked were missing
+from the paper: rank the three methods, why similar companies trade differently, valuing a company
+with no revenue, the UFCF and terminal-value calculations, "is 75 % terminal value a problem", why
+not 100 % debt, the P/E accretion rule and the all-stock EPS walk, sources & uses and the IRR mental
+maths, the EV bridge calculation, inventory on credit, profitable-but-bankrupt.
+
+**Fixed:** packs now print every core question (above). Two questions that restate another in the
+same week are tagged `pack:skip` (`most-important-statement`, `da-up-10-walkthrough`); the bank is
+otherwise untouched. Packs run 24–47 pages (12–24 sheets double-sided); 328 pages for all ten.
+
+**Still not on the path (not built — needs a decision):**
+- Tier C #20, *a current market event / your view on the M&A market* — inherently current, so it
+  belongs to Pulse rather than a static PDF; a one-page "how to talk about the market" frame could
+  sit in week 10.
+- *What does an investment bank do* (`what-banks-do` has no lesson) — a common HireVue opener.
+- Brain teasers / estimation (`brain-teasers` has no lesson) — occasional, BofA-style.
+- Restructuring basics — only for PJT / Lazard / HL / Rothschild Rx seats.
+- One orphan: `trapped-cash-and-ev` sits in `ev-edge-cases`, which no week teaches (stretch).
+

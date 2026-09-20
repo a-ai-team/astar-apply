@@ -33,6 +33,7 @@
     "depth:sa-core",
     "format:verbal",
     "walkthrough",
-    "depreciation"
+    "depreciation",
+    "pack:skip"
   ]
 }

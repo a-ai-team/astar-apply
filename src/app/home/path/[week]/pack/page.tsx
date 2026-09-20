@@ -69,7 +69,7 @@ export default async function WeekPackPage({ params, searchParams }: PageProps<"
         <Image src="/wordmark.png" alt="A* Apply" width={140} height={68} className="h-auto w-32 print:brightness-0" />
         <p className={`mt-8 ${eyebrow}`}>{DEFAULT_PATH.title} · Week {n} of {DEFAULT_PATH.weeks.length}</p>
         <h1 className="mt-1 font-display text-4xl font-semibold" data-testid="pack-heading">{plan.title}</h1>
-        {lessons.length > 0 && <p className="mt-2 text-sm text-muted">{lessons.length} lesson{lessons.length === 1 ? "" : "s"} · about {minutes} minutes of reading · {practice.questions.length} {mock ? "mock" : "practice"} questions with answers</p>}
+        {lessons.length > 0 && <p className="mt-2 text-sm text-muted">{lessons.length} lesson{lessons.length === 1 ? "" : "s"} · about {minutes} minutes of reading · {practice.questions.length} {mock ? "mock" : "core"} questions with answers</p>}
 
         <h2 className={`mt-8 ${eyebrow}`}>The week</h2>
         <table className="mt-2 w-full text-sm" data-testid="pack-plan">
@@ -90,7 +90,7 @@ export default async function WeekPackPage({ params, searchParams }: PageProps<"
           <li>Write the fill-in numbers in pen; the blanks are answered directly beneath each table.</li>
           {mock
             ? <li>Sit the mock in one go: 15 questions, about two minutes each, spoken out loud. Mark yourself against the answers at the back.</li>
-            : <li>The practice set is for the drill day. Its answers are at the back, on their own pages.</li>}
+            : <li>The core questions are the ones asked of everyone — if you can answer all of them out loud, the week is done. Answers are at the back, on their own pages.</li>}
           <li>The interactive models, industry lenses, flashcards and timed mocks live on the site — the pack is the part that works on paper.</li>
         </ul>
       </header>
@@ -114,9 +114,9 @@ export default async function WeekPackPage({ params, searchParams }: PageProps<"
       {practice.questions.length > 0 && (
         <>
           <section className="mt-16 print:mt-0" data-pack-break data-testid="pack-practice">
-            <p className={eyebrow}>Week {n} · {mock ? "Full mock" : "Practice"}</p>
-            <h1 className="mt-1 text-3xl font-semibold">{mock ? "Full mock: every chapter, timed" : "Practice questions"}</h1>
-            <p className="mt-2 text-sm text-muted">{mock ? "About two minutes a question, out loud, no notes. Thirty minutes in total." : "Answer each one out loud before you turn to the answers."}</p>
+            <p className={eyebrow}>Week {n} · {mock ? "Full mock" : "Core questions"}</p>
+            <h1 className="mt-1 text-3xl font-semibold">{mock ? "Full mock: every chapter, timed" : "The questions you must be able to answer"}</h1>
+            <p className="mt-2 text-sm text-muted">{mock ? "About two minutes a question, out loud, no notes. Thirty minutes in total." : "Every core question for this week, in lesson order. Answer each one out loud before you turn to the answers; the stretch questions for elite-boutique and later rounds are on the site."}</p>
             <ol className="mt-6 grid gap-5">{practice.questions.map((q, i) => <PracticeQuestion key={q.slug} q={q} n={i + 1} answer={false} />)}</ol>
           </section>
           <section className="mt-16 print:mt-0" data-pack-break data-testid="pack-answers">

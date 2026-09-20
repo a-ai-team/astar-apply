@@ -4,7 +4,7 @@
 - **Loop:** **20 Week packs — merged (#46)** (plan `docs/loops/20-week-packs.md`).
   Every week of the 10-week path downloads as a print-ready A4 PDF (`/home/path/<week>/pdf`, built
   by `npm run packs:build` into the private `packs` bucket from the pack page
-  `/home/path/<week>/pack`): lessons laid out open, cheat sheet, practice set + answers, duplex
+  `/home/path/<week>/pack`): lessons laid out open, cheat sheet, every core question + answers, duplex
   margins. Path audit fixed draft leakage, the week-10 lesson 404, dead drill days, the print header
   and worked-example value formatting. Three week-10 fit lessons drafted and loaded as `generated`.
 - **Last checks (Loop 20):** lint ✓ typecheck ✓ build ✓ unit **409/409** ✓ e2e `20`+`18`+`03`
@@ -86,3 +86,7 @@ conflict in `src/components/lesson/blocks/widget.tsx`: `grep -c "as ComponentTyp
 - 2026-09-20 18:04 heartbeat
 - 2026-09-20 18:56 heartbeat
 - 2026-09-20 19:00 heartbeat
+- 2026-09-20 19:01 heartbeat
+- 2026-09-20 19:12 heartbeat
+- 2026-09-20 19:13 heartbeat
+- 2026-09-20 19:17 heartbeat
