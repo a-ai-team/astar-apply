@@ -1,6 +1,6 @@
 # Loop 20 — Week packs: the 10-week path on paper
 
-_Status: open PR (#46). Protocol: `docs/loops/README.md`. Asked for by James in chat, 2026-09-20: "check
+_Status: merged (#46). Protocol: `docs/loops/README.md`. Asked for by James in chat, 2026-09-20: "check
 through the 10-week path that it's all ready; each week should have a fully made PDF that can be
 downloaded — and printed, both sides, looking really good. Practical: exactly what you need to
 know, nothing more, nothing less."_
