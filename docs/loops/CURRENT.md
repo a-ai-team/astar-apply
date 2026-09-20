@@ -1,7 +1,7 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-28 (Technicals v2) · **Programme completed:** 2026-09-01
-- **Loop:** **20 Week packs — open PR** (`feat/week-packs`, plan `docs/loops/20-week-packs.md`).
+- **Loop:** **20 Week packs — merged (#46)** (plan `docs/loops/20-week-packs.md`).
   Every week of the 10-week path downloads as a print-ready A4 PDF (`/home/path/<week>/pdf`, built
   by `npm run packs:build` into the private `packs` bucket from the pack page
   `/home/path/<week>/pack`): lessons laid out open, cheat sheet, practice set + answers, duplex
@@ -84,3 +84,5 @@ conflict in `src/components/lesson/blocks/widget.tsx`: `grep -c "as ComponentTyp
 - 2026-09-02 12:42 heartbeat
 - 2026-09-02 12:47 heartbeat
 - 2026-09-20 18:04 heartbeat
+- 2026-09-20 18:56 heartbeat
+- 2026-09-20 19:00 heartbeat
