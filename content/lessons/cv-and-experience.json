@@ -1,0 +1,94 @@
+{
+  "slug": "cv-and-experience",
+  "subtopic_slug": "cv-and-experience",
+  "title": "Walking through your CV: every line is a question waiting",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude-fable-5-1",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "The interviewer has one document about you, and it is lying on the desk between you. For most of a fit interview they are simply reading down it and asking about whatever catches their eye.\n\nThat makes the CV unusual among interview topics: it is the only one where **you wrote the question paper**. Every line you chose to include is a question you have agreed to answer, and every line you left vague is a question you have made harder. This lesson is about preparing the page so that the questions it invites are the ones you want — and then being able to talk through it without reading it out."
+      },
+      {
+        "type": "concept",
+        "heading": "A CV is a list of claims, and the interview is the audit",
+        "md": "Read your CV the way an interviewer does: as a series of claims to be tested. *\"Treasurer, student investment fund\"* claims you handled money and made decisions. *\"Proficient in Excel\"* claims you can build something in it right now. *\"Interested in financial markets\"* claims you can talk about what happened in them this week.\n\nThree consequences follow.\n\n**Anything on the page is fair game.** A hobby, a language, a module, a job from four years ago. If you would not be comfortable being asked about a line for two minutes, the line should not be there.\n\n**Vague lines get hard questions.** *\"Helped manage the society's finances\"* invites \"what exactly did you do?\" — and you start the answer on the back foot. *\"Rebuilt the society's budget tracker, cutting month-end reconciliation from two days to three hours\"* invites \"how?\", which is a question you would love to be asked.\n\n**Numbers carry the weight.** A bullet that starts with a verb and ends with a number — what you did, and how much difference it made — is both harder to doubt and easier to talk about. The number can be small. *Twelve members*, *£400 raised*, *three hours saved* are all fine. What matters is that it is a fact rather than a description."
+      },
+      {
+        "type": "mechanics",
+        "md": "### The walkthrough\n\n*\"Walk me through your CV\"* is not *tell me about yourself* in different words, though the two must agree. The story is selective; the walkthrough is **ordered**. Go forwards in time, and for each step give two things: what you did there, and **why you moved on to the next thing**. The joins are the point. An interviewer is listening for whether your path was chosen or merely happened.\n\nKeep it to about two minutes. Spend the least time on the oldest material — school gets one clause — and the most on whatever is most recent and most relevant.\n\n### Three questions per line\n\nFor every bullet on the page, prepare answers to:\n\n1. **What exactly did you do?** Your own actions, in the order you took them.\n2. **What was hard about it?** If nothing was, it is a weak bullet.\n3. **What would you do differently?** The same closing beat as your stories from day one of this week.\n\nThat is the whole preparation. Most CVs have eight to twelve bullets, so it is an evening's work, and it removes the most common way candidates come unstuck: being surprised by their own CV.\n\n### No finance experience\n\nIn your second year, almost nobody has real finance experience, and interviewers do not expect it. What they look for is the same qualities shown somewhere else: reliability in a part-time job, responsibility for money in a society, persistence in a sport, accuracy in anything. Do not apologise for the experience you have and do not inflate it. Translate it: say what you did, then say which part of it is the same muscle the job uses.\n\n### Gaps, low marks and changes of direction\n\nIf there is something awkward on the page — a weak first-year result, a gap, a switched course — prepare one calm sentence on what happened and one on what changed. Then stop. A short, factual answer closes the topic; a long defensive one opens it."
+      },
+      {
+        "type": "predict",
+        "prompt": "Nadia's CV lists \"Conversational Spanish\" under skills. Her interviewer, it turns out, grew up in Madrid and switches to Spanish to ask about her weekend. She manages one halting sentence. What has this cost her?",
+        "options": [
+          { "label": "Nothing — language skills are irrelevant to an investment banking internship" },
+          { "label": "A little — the interviewer will simply ignore that line" },
+          { "label": "A lot — the interviewer now wonders what else on the page is overstated", "correct": true },
+          { "label": "It helps — it shows she is willing to try under pressure" }
+        ],
+        "explain_md": "The Spanish itself does not matter. What matters is that a CV is a page of claims the interviewer mostly **cannot check** — they take your word for the fund returns, the hours worked, the role you played in the group project. They extend that trust by sampling: test one or two lines, and if those hold, believe the rest.\n\nSo a single overstated line does not cost you that line. It lowers the credibility of every other line on the page, including the true ones.\n\nThe fix is cheap. Either describe it exactly — *\"Spanish: basic (GCSE)\"* — or remove it. The same rule applies to *\"Proficient in Python\"* after one online course, and to *\"keen follower of markets\"* if you could not say what moved this week."
+      },
+      {
+        "type": "order_steps",
+        "prompt": "Put the parts of a two-minute CV walkthrough in the order you would say them.",
+        "steps": [
+          "One clause on school, then your course and why you chose it",
+          "Your first significant experience at university, and what it led to",
+          "Your most recent and most relevant experience, in the most detail",
+          "What all of that adds up to — what you want next",
+          "Why that is this role at this firm"
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**Reading the page back to the person holding it.**\n\n*\"So first I did my A-levels, where I got three As, then I went to Leeds to study economics, and in first year I joined the investment society…\"* — every fact in that sentence is already printed in front of the interviewer. You have used twenty seconds and added nothing.\n\nThe walkthrough is for what the page **cannot** say: why you chose each step, what changed your mind, what connects a pharmacy job to a student fund to this interview. Facts are on the paper. Reasons are what you bring.\n\nThe opposite trap is just as common: **disowning a line**. *\"Oh, that was just a small thing\"* about your own bullet point tells the interviewer you padded the page. If it is worth a line, it is worth thirty seconds of real detail — and if it is not, delete it before they find it."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "*A model for shape, not for copying — yours must be true.*\n\nI chose economics at Leeds because I wanted the maths of A-level with something about how decisions get made. In first year I joined the student investment fund as an analyst, mostly to find out whether I liked the work — I did, enough to stand for treasurer, which is where I rebuilt our portfolio tracker and pitched my first stock. Alongside that I've kept a weekend pharmacy job since sixth form; it is not finance, but it is four years of turning up and getting the details right, and I think that is most of what a first-year analyst is trusted with. Put together, I want work where careful analysis ends in a real decision — which is what brought me to advisory, and to you.",
+        "seconds": 75
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Take the **weakest bullet** on your CV — the one you would least like to be asked about. Rewrite it so that it starts with a verb and ends with a number, then write your answers to the three questions: *what exactly did you do, what was hard, what would you do differently?*",
+        "model_answer_md": "A worked example of the rewrite.\n\n**Before.** *\"Helped organise events for the economics society.\"*\n\nIt starts with *helped*, which hides what you did, and it ends with no result. The obvious question is \"what did you actually do?\", and the honest answer had better be good.\n\n**After.** *\"Organised four speaker events for the economics society, raising average attendance from 25 to 60.\"*\n\nThe verb is yours, the number is a fact, and the natural follow-up is now \"how did you more than double attendance?\" — a question you want.\n\n**The three questions.** *What did I do?* Moved the events from Friday to Tuesday, booked speakers members had asked for in a survey, and advertised through course group chats rather than posters. *What was hard?* Two speakers cancelled in the same week and I had to fill a slot in four days. *What would I do differently?* Line up a reserve speaker for every event from the start.\n\n**If you cannot rewrite it.** Sometimes there is no verb you can honestly claim and no number at all. That is useful information: the line is padding. Delete it and give the space to something you can talk about.",
+        "rubric": [
+          "The rewritten bullet opens with a verb describing your own action — not \"helped\", \"assisted\" or \"involved in\"",
+          "It ends with a number or another checkable fact",
+          "Nothing in it is overstated — you could defend every word for two minutes",
+          "You have a specific answer to what was hard about it",
+          "You have a specific answer to what you would do differently"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What shape should a strong CV bullet have?", "a": "Start with a verb, end with a number — what you did and how much difference it made." },
+          { "q": "What three questions should you prepare for every line?", "a": "What exactly did you do, what was hard about it, and what would you do differently." },
+          { "q": "How does a CV walkthrough differ from \"tell me about yourself\"?", "a": "It is ordered rather than selective: forwards in time, giving the reason for each move." },
+          { "q": "Why is one overstated line so costly?", "a": "Interviewers test a sample of claims — one that fails lowers their trust in every other line." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**You wrote the question paper: put nothing on the page you cannot discuss for two minutes, and use the walkthrough for the reasons the page cannot show.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can walk through my CV in about two minutes, giving the reason for each move rather than repeating the facts.",
+          "I can rewrite a vague bullet so it starts with a verb and ends with a number.",
+          "I have answers to what I did, what was hard and what I would change for every line on the page.",
+          "I can present non-finance experience as evidence of the qualities the job needs, without inflating it.",
+          "I can address a gap or a weak result in two calm sentences and then stop."
+        ]
+      }
+    ]
+  }
+}

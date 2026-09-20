@@ -25,7 +25,8 @@
     "content:approve": "tsx scripts/content/approve.ts",
     "content:index": "tsx scripts/content/index-content.ts",
     "firms:author": "tsx scripts/firms/author.ts",
-    "pulse:generate": "tsx scripts/pulse/generate.ts"
+    "pulse:generate": "tsx scripts/pulse/generate.ts",
+    "packs:build": "tsx scripts/path/build-packs.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",

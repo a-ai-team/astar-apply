@@ -1,0 +1,83 @@
+{
+  "slug": "why-banking-why-firm",
+  "subtopic_slug": "why-banking-why-firm",
+  "title": "Why banking, why this firm: two answers nobody else could give",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude-fable-5-1",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Yesterday's lesson ended your story on the words *which is why I'm here*. Today's two questions are the interviewer asking you to prove it.\n\n*Why banking?* and *why this firm?* are asked in almost every first round, often back to back, and they are where the most candidates sound identical. The interviewer has heard \"fast-paced environment\", \"steep learning curve\" and \"your collaborative culture\" several times already that morning. None of those answers is wrong. They are just **transferable** — they could be said by anyone, about any bank — and an answer that could be said by anyone tells the interviewer nothing about you.\n\nThe whole lesson is one test, applied twice: *could somebody else have given this answer?*"
+      },
+      {
+        "type": "concept",
+        "heading": "The swap test",
+        "md": "Take any sentence from your answer and try two swaps.\n\n**Swap the candidate.** Could the person interviewing after you say the same sentence? *\"I enjoy working with numbers and people\"* survives the swap, so it is worthless. *\"Pitching a retailer to our student fund's committee was the first time I had to defend a valuation against people who disagreed\"* does not — it belongs to one person.\n\n**Swap the firm.** Could you read the sentence out at a competitor without changing a word? *\"You have a strong reputation and a global platform\"* works at forty banks. *\"You advised on the packaging deal in March, and I'd like to understand how a team of your size won that mandate\"* works at one.\n\nA strong *why banking* fails the first swap. A strong *why this firm* fails both.\n\nThis also tells you what each question is really checking. *Why banking* checks that you know what the job is — long hours of careful, often repetitive analysis in support of someone else's decision — and want it anyway. *Why this firm* checks that you have done some work. Both are, underneath, the same thing an analyst does every day: replace a general statement with a specific, checkable one."
+      },
+      {
+        "type": "mechanics",
+        "md": "### Building *why banking*\n\nThree sentences, each doing a different job:\n\n1. **The moment.** Something that actually happened and first made the work interesting — a society pitch, a module, a conversation, a deal you followed. It can be small. It must be real, because the follow-up will be \"tell me more about that\".\n2. **What you understand the job to be.** One sentence that shows you know an intern builds models and slides, checks numbers and sits at the bottom of a team. Say the unglamorous part out loud; it is the clearest signal that you have talked to people who do it.\n3. **Why that suits you.** Tie it to evidence from your story — the same evidence you used yesterday, not new material.\n\nIf you are asked *why not consulting, or asset management?*, do not run the other career down. Say what is different about this one that you specifically want — for advisory work, usually that the analysis ends in a single real transaction with a price on it.\n\n### Building *why this firm*\n\nYou need **one concrete thing per firm**, and you need it written down before the interview, not invented during it. There are only three kinds that work:\n\n- **A deal.** One transaction the firm worked on, which you can describe in two sentences: who bought what, and why it made sense. You met the way to do this in the M&A week — the deal summary card is exactly this preparation.\n- **A strength.** Something the firm is genuinely known for — a sector team, a product, the size of its deal teams — and why that matters *to you* rather than in general.\n- **A person.** Something someone who works there told you, at an event or in a conversation. One real sentence from a real person outweighs a page of website research.\n\nThen join it to yourself: the concrete thing, followed by *and that matters to me because…*. Without the second half you have shown research; with it you have shown motivation.\n\n### The honest version of culture\n\nYou cannot know a firm's culture from outside, and interviewers know that you cannot. If people are the reason, make it specific: whom you met, what they said, what you noticed. \"Everyone I spoke to at your open evening had moved between teams at least once, which I had not heard elsewhere\" is an observation. \"I love the culture\" is a guess."
+      },
+      {
+        "type": "predict",
+        "prompt": "Nadia is interviewing at Calloway Reece, a mid-sized advisory firm. Which opening to \"why this firm?\" is strongest?",
+        "options": [
+          { "label": "\"Calloway Reece is one of the most prestigious names in the industry, and I want to learn from the best.\"" },
+          { "label": "\"I'm drawn to your collaborative culture and the early responsibility you give juniors.\"" },
+          { "label": "\"You advised a listed packaging group on buying a private rival in March. I read the announcement, and I'd like to work somewhere an analyst sees a deal like that from start to finish.\"", "correct": true },
+          { "label": "\"Honestly, I'm applying widely, but you're one of my top choices.\"" }
+        ],
+        "explain_md": "Run the swap test. The first two openings could be read out, unchanged, at any of Nadia's other interviews — the interviewer has no way to tell whether she knows anything about the firm at all.\n\nThe third fails both swaps. It names something only this firm did, shows she took the trouble to read about it, and joins it to a reason that is about her: she wants to see a whole deal, which is a real feature of smaller teams rather than flattery.\n\nIt also sets up the next ten minutes in her favour. The likely follow-up is \"what did you make of that deal?\" — a question she prepared for last night. The fourth option is at least honest, but honesty about your process is not what was asked; honesty about your *reasons* is."
+      },
+      {
+        "type": "trap",
+        "md": "**Naming a deal you cannot discuss.**\n\nMentioning a transaction is the strongest move in a *why this firm* answer, which is exactly why it is dangerous done badly. The interviewer may have worked on it. If you name it, expect: *why did the buyer want it? Was the price sensible? Would you have advised it?*\n\nSo the rule is two sentences in, five minutes behind. For any deal you mention you should be able to give the buyer, the target, roughly what was paid, the stated reason, and one risk — the deal summary card from the M&A week, filled in. You do not need an original opinion on the valuation. You do need to not be surprised by the second question.\n\nThe quieter version of this trap is **name-dropping a person** you met for ninety seconds at a careers fair. If you cannot say what they told you, leave them out."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "*A model for shape, not for copying — yours must be true.*\n\nWhat first drew me in was pitching a stock to our student fund's committee and having to defend the valuation when people pushed back — I liked that the analysis had to survive an argument. I know an intern's work is mostly building and checking the numbers behind someone else's advice, and that is the part I want to get good at first. As for Calloway Reece: you advised on the packaging acquisition in March, and with deal teams your size an analyst sees the whole transaction rather than one slice of it. That is the experience I'm looking for, and it is why you are near the top of my list.",
+        "seconds": 60
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Pick one firm you are genuinely applying to. Write your **one concrete thing** for it — a deal, a strength or a person — in two sentences, followed by one sentence beginning *\"and that matters to me because…\"*.\n\nThen apply both swaps to every sentence.",
+        "model_answer_md": "Mark it against the two swaps, sentence by sentence.\n\n**Swap the firm.** Read your first two sentences and replace the firm's name with a competitor's. If they still make sense, the concrete thing is not concrete yet. \"A leading M&A franchise\" is not a deal; \"advised the buyer on a named transaction, in a named month\" is.\n\n**Swap the candidate.** Read your third sentence and ask whether the next applicant could say it. \"Because I want to learn from the best\" survives the swap. \"Because the thing I enjoyed most in the fund was following one company for a whole year, and your sector teams would let me do that\" does not — and it borrows evidence from the story you built yesterday, which is what keeps the five answers consistent.\n\n**The five-minute check.** If your concrete thing is a deal, fill in a deal summary card for it now. If it is a person, write down what they actually said. If you cannot, choose a different thing: the answer is only as strong as your ability to survive the follow-up.",
+        "rubric": [
+          "Names one specific, checkable thing — a transaction, a recognised strength or a conversation with a named person",
+          "The first two sentences could not be said about a competitor without changes",
+          "Includes a reason the thing matters to you, drawn from your own story",
+          "You could talk about the deal or the conversation for several minutes if asked",
+          "Contains no claims about culture that you could not have observed yourself"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What is the swap test?", "a": "Could another candidate say this sentence, or could you say it at another firm? If so, it carries no information." },
+          { "q": "What three kinds of concrete thing work in a \"why this firm\" answer?", "a": "A deal the firm worked on, a genuine strength of the firm, or something a person there told you." },
+          { "q": "What should the middle sentence of \"why banking\" show?", "a": "That you understand what the job really is — including the unglamorous part — and still want it." },
+          { "q": "What must you be able to do before naming a deal?", "a": "Give buyer, target, rough price, rationale and one risk — and hold a five-minute conversation about it." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**If another candidate could say it, or you could say it to another firm, it is not an answer yet — one real moment for banking, one concrete thing for the firm.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can apply the swap test to my own answers and cut every sentence that survives it.",
+          "I can answer \"why banking\" in three sentences: the moment, what the job is, why it suits me.",
+          "I have one concrete thing — a deal, a strength or a person — written down for each firm I am applying to.",
+          "I can discuss any deal I mention for five minutes using the deal summary card.",
+          "I can answer \"why not another career?\" without criticising the alternative."
+        ]
+      }
+    ]
+  }
+}

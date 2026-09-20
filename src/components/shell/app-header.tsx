@@ -57,6 +57,7 @@ export function AppHeader({ items, staffItem, right }: { items: NavItem[]; staff
       ref={ref}
       className="sticky top-0 z-30 border-b border-transparent bg-bg transition-colors duration-300 data-[scrolled]:border-border"
       data-testid="app-header"
+      data-app-header
     >
       <div className="flex h-16 items-center gap-8 px-4 md:px-6">
         <Link href="/home" className="flex shrink-0 items-center rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-accent" data-testid="nav-logo" data-brand aria-label="A* Apply home">
