@@ -59,7 +59,7 @@ export async function topicOverview(db: SupabaseClient) {
   });
 }
 
-export type PathItemRow = { id: string; week: number; day: number; lesson_id: string | null; question_set: unknown; label: string; lesson: { slug: string; title: string; reading_minutes: number } | null };
+export type PathItemRow = { id: string; week: number; day: number; lesson_id: string | null; question_set: unknown; label: string; lesson: { slug: string; title: string; reading_minutes: number; topic_slug: string } | null };
 
 export async function getPath(db: SupabaseClient, slug = "default-10-week") {
   const { data: path, error } = await db.from("learning_paths").select("*").eq("slug", slug).maybeSingle();
@@ -67,10 +67,19 @@ export async function getPath(db: SupabaseClient, slug = "default-10-week") {
   if (!path) return null;
   const { data: items, error: iErr } = await db
     .from("learning_path_items")
-    .select("id, week, day, lesson_id, question_set, label, lesson:lessons(slug, title, reading_minutes)")
+    .select("id, week, day, lesson_id, question_set, label, lesson:lessons(slug, title, reading_minutes, status, subtopic:subtopics(topic:topics(slug)))")
     .eq("path_id", path.id)
     .order("week")
     .order("day");
   if (iErr) throw iErr;
-  return { path: path as { id: string; slug: string; title: string; weeks: number; description: string }, items: (items ?? []) as unknown as PathItemRow[] };
+  // Only `approved` lessons count as ready: the shared team session is staff, whose RLS also reads
+  // drafts. `topic_slug` is the lesson's own topic — a week can borrow a lesson from another chapter
+  // (week 10's "why banking" lives under `why-banking`, not the week's `fit-behavioural`).
+  type Joined = Omit<PathItemRow, "lesson"> & { lesson: { slug: string; title: string; reading_minutes: number; status: string; subtopic: { topic: { slug: string } | null } | null } | null };
+  const rows = ((items ?? []) as unknown as Joined[]).map((i): PathItemRow => {
+    const l = i.lesson;
+    const topic_slug = l?.subtopic?.topic?.slug;
+    return { ...i, lesson: l && l.status === "approved" && topic_slug ? { slug: l.slug, title: l.title, reading_minutes: l.reading_minutes, topic_slug } : null };
+  });
+  return { path: path as { id: string; slug: string; title: string; weeks: number; description: string }, items: rows };
 }

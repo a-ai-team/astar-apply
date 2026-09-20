@@ -1,0 +1,93 @@
+{
+  "slug": "big-five-fit",
+  "subtopic_slug": "big-five-fit",
+  "title": "The five fit questions, and the story that answers them",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude-fable-5-1",
+  "prompt_version": null,
+  "body": {
+    "version": 1,
+    "reading_minutes": 8,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Nine weeks of this path were about being *right*. This week is about being *chosen*. A first-round interview for a summer internship is usually thirty minutes, and in most of them the technical questions take up less than half. The rest is **fit** — the interviewer working out whether you want this job for a real reason, whether you would be easy to work next to at midnight, and whether they would put you in front of a client.\n\nThe good news is that fit is more predictable than technicals. Almost every fit question you will be asked is one of five, or a rewording of one of five. This lesson names them, says what each is really testing, and builds the one answer that the other four lean on: your story."
+      },
+      {
+        "type": "concept",
+        "heading": "Five questions, one candidate",
+        "md": "Strip away the wording and a fit interview asks five things:\n\n1. **Tell me about yourself.** Can you explain in ninety seconds how you got here and why this is the obvious next step?\n2. **Why banking?** Do you know what the job actually is, and want *that* — rather than the salary or the name?\n3. **Why this firm?** Have you done any work on us specifically, or are we application number fourteen?\n4. **What are your strengths and weaknesses?** Do you know yourself, and can you be honest without falling apart?\n5. **Tell me about a time you…** led, failed, disagreed, worked in a team. Is there evidence, or only adjectives?\n\nNotice what they have in common: none of them is asking for an opinion. Each one is asking for **evidence about you**. \"I am hard-working\" is a claim. \"I worked twenty hours a week at a pharmacy through first year and still came out with a first\" is evidence — and the interviewer will draw the conclusion themselves, which is far more persuasive than being told it.\n\nThe second thing they have in common is that the answers must agree with each other. The person in your *tell me about yourself* has to be the same person who turns up in your strengths, your *why banking* and your CV. That is why you prepare fit as **one story with five entrances**, not as five separate scripts."
+      },
+      {
+        "type": "mechanics",
+        "md": "### The ninety-second story\n\n*Tell me about yourself* is nearly always the first question, and it sets the agenda — interviewers pick their follow-ups from whatever you mention. Build it in three parts:\n\n- **Now** (about fifteen seconds). What you study, where, and what year. One line.\n- **The two things that point here** (about fifty seconds). Two experiences — not five — that make finance a logical direction. Each gets one sentence on what you did and one on what it taught you. They do not need to be finance experiences; they need to *point* somewhere.\n- **Why this room** (about twenty-five seconds). What you want next, and why that is this role at this firm. End on the firm, so the last thing the interviewer hears is about them.\n\nNinety seconds is roughly 220 words spoken at a calm pace. If you are past two minutes, something from before university is still in there. Cut it.\n\n### The story bank\n\nFor question five you cannot predict the wording, so do not prepare answers — prepare **stories**. Four is enough: one where you led, one where a team was difficult, one where you failed, one where you had to learn something fast. Each story can be bent to fit a dozen different prompts.\n\nTell every story in the same four beats: the **situation** in one sentence, what **you** did (not what *we* did), the **result** with a number if there is one, and what you would **do differently**. The last beat is the one most candidates skip and the one interviewers remember, because it is the only part that cannot be rehearsed without actually having thought about it.\n\n### Weaknesses\n\nA weakness answer has three parts: a real weakness that is not fatal to the job, an example of it costing you something, and what you now do about it. \"I take on too much and then deliver late — it cost me a deadline on a group project, so now I write down what I am dropping before I say yes to anything\" is a complete answer. A strength dressed up as a weakness is not."
+      },
+      {
+        "type": "predict",
+        "prompt": "An interviewer opens with \"Tell me about yourself.\" Nadia has prepared a thorough answer that walks through her A-levels, her gap year, all three of her society roles and both part-time jobs. It runs to four minutes. What is the most likely effect?",
+        "options": [
+          { "label": "It helps — the interviewer now has the full picture and can pick what interests them" },
+          { "label": "It hurts — the interviewer stops listening after about ninety seconds and she has used more than an eighth of the interview", "correct": true },
+          { "label": "It makes no difference, because the first question is only a warm-up" },
+          { "label": "It helps, because a longer answer leaves less time for technical questions" }
+        ],
+        "explain_md": "A thirty-minute interview holds perhaps eight questions. Four minutes on the first is more than an eighth of her time spent reading out her CV, which the interviewer already has on the desk.\n\nThe deeper problem is **selection**. Choosing two experiences out of seven tells the interviewer you can work out what matters — which is most of what a junior banker does all day with information. Listing all seven says you could not decide.\n\nAnd it is never only a warm-up. Whatever you mention becomes the menu for the next ten minutes, so a short, deliberate answer is also how you steer the interview towards your best material."
+      },
+      {
+        "type": "order_steps",
+        "prompt": "Put the beats of a \"tell me about a time you…\" answer in the order you would say them.",
+        "steps": [
+          "The situation and what made it hard, in one sentence",
+          "What you personally did",
+          "The result, with a number if you have one",
+          "What you would do differently now"
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"I'm a perfectionist.\"**\n\nEvery interviewer has heard the weakness that is secretly a boast, and it lands badly for a specific reason: the question was a test of honesty and self-knowledge, and you have just declined to take it.\n\nThe same trap has a second form in question five — the story told entirely in the first person plural. *\"We decided… we built… we won.\"* The interviewer cannot hire *we*. If they have to ask \"and what did **you** do?\", the story has already failed once.\n\nThe third form is the adjective list: *hard-working, analytical, a team player*. Anyone can say those words, so they carry no information. Replace each adjective with the thing that happened, and let the interviewer supply the adjective."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "*A model for shape, not for copying — yours must be true.*\n\nI'm a second-year economics student at Leeds. Two things have pointed me towards banking. Last year I was treasurer of the university's student investment fund, where I rebuilt how we track the portfolio and pitched a retailer to the committee — that was the first time I had to defend a valuation to people who disagreed with it, and I found I enjoyed it. Alongside that I've worked weekends in a pharmacy since sixth form, which taught me more than anything about being reliable when it is dull. I want a role where the analysis ends in a real decision, and advisory work at a firm your size means seeing a whole deal rather than a slice of one — which is why I'm here.",
+        "seconds": 75
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Write your own ninety-second *tell me about yourself* in the three-part shape — **now**, **two things that point here**, **why this room** — then read it aloud with a timer running.\n\nBefore you check it against the rubric, underline every adjective you used about yourself.",
+        "model_answer_md": "There is no single right answer, but there is a reliable way to mark your own.\n\n**Time.** Between 75 and 100 seconds read aloud. Under a minute usually means the two experiences have no detail; over two means there are more than two.\n\n**The underlined adjectives.** Each one is a claim without evidence. Take the first — say, *analytical* — and ask what you did that would make a stranger use that word about you. Say that instead and delete the adjective.\n\n**The join.** The weakest point in most drafts is the move from the second experience to *why this room*. It should feel like a consequence (\"…which is why I want work where the analysis ends in a decision\") rather than a change of subject (\"…and I am also very interested in banking\").\n\n**The last sentence.** It should be about the firm or the role, not about you. If it could be read out unchanged at a different firm, it is not finished yet — the next lesson fixes that.",
+        "rubric": [
+          "Runs 75–100 seconds when read aloud at a calm pace",
+          "Opens with course, university and year in one line",
+          "Uses exactly two experiences, each with what you did and what it taught you",
+          "Contains evidence rather than adjectives — no unsupported claims about yourself",
+          "Ends on the role and the firm, as a consequence of what came before"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "How long should \"tell me about yourself\" run?", "a": "About ninety seconds — three parts: now, two things that point here, why this room." },
+          { "q": "How many prepared stories cover most \"tell me about a time\" questions?", "a": "Four: leading, a difficult team, a failure, and learning something fast." },
+          { "q": "What are the three parts of a weakness answer?", "a": "A real, non-fatal weakness; an example of it costing you something; what you now do about it." },
+          { "q": "Which beat of a story do candidates most often skip?", "a": "What they would do differently — the only part that shows reflection rather than rehearsal." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Fit questions ask for evidence, not adjectives — prepare one true story with five entrances, and let the interviewer reach the flattering conclusion themselves.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can name the five fit questions and say what each one is really testing.",
+          "I can give a ninety-second account of myself in three parts that ends on the firm.",
+          "I have four stories, each told as situation, my action, result and what I would change.",
+          "I can give a weakness that is real, with its cost and what I do about it.",
+          "I can spot an adjective in my own answer and replace it with what actually happened."
+        ]
+      }
+    ]
+  }
+}

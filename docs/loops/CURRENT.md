@@ -1,13 +1,15 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-28 (Technicals v2) · **Programme completed:** 2026-09-01
-- **Loop:** **19 Home toolkit landing — done** (`feat/home-toolkit`, plan `docs/loops/19-home-toolkit.md`).
-  `/home` is now the integrated-toolkit landing (wordmark hero, toolkit grid, route to the offer,
-  10-week spine, Mentor + bench, in-the-works row); the header wordmark hides while the hero wordmark
-  is on screen; `/` redirects to `/home` (the "Coming soon" page is gone).
-- **Last checks (Loop 19):** lint ✓ typecheck ✓ build ✓ unit **403/403** ✓ e2e **80/80** ✓ (PR #44)
-  visual check 375 / 768 / 1280 ✓
-- **Blockers:** none.
+- **Loop:** **20 Week packs — open PR** (`feat/week-packs`, plan `docs/loops/20-week-packs.md`).
+  Every week of the 10-week path downloads as a print-ready A4 PDF (`/home/path/<week>/pdf`, built
+  by `npm run packs:build` into the private `packs` bucket from the pack page
+  `/home/path/<week>/pack`): lessons laid out open, cheat sheet, practice set + answers, duplex
+  margins. Path audit fixed draft leakage, the week-10 lesson 404, dead drill days, the print header
+  and worked-example value formatting. Three week-10 fit lessons drafted and loaded as `generated`.
+- **Last checks (Loop 20):** lint ✓ typecheck ✓ build ✓ unit **409/409** ✓ e2e `20`+`18`+`03`
+  **13/13** ✓ · ten PDFs read page by page and uploaded (2026-09-20)
+- **Blockers:** none. **Needs a human:** approve the three week-10 fit lessons (item 0 below).
 
 ---
 
@@ -20,6 +22,11 @@ Mentor. Per-loop detail: the loop docs and `RUNLOG.md`.
 
 ## For James & Tesleem — everything that needs a human
 
+0. **Week 10 fit lessons** (`big-five-fit`, `why-banking-why-firm`, `cv-and-experience`) are drafted
+   and `generated` — not live. The mentor corpus is thin on fit, so Tesleem should read them. Then:
+   `npm run content:approve -- --topic fit-behavioural,why-banking` and
+   `npm run packs:build -- --week 10`. **Rebuild packs after any content change** — stored PDFs are
+   snapshots.
 1. **The launch itself** — PR #17 (Loop 10): `needs-james`, placeholder legal copy, unconfigured
    Stripe, migration 0011 lives only there. `/` currently redirects to `/home`; at launch `/` becomes
    the public landing (the redirect in `src/app/page.tsx` is a temporary 307 on purpose).
@@ -30,7 +37,7 @@ Mentor. Per-loop detail: the loop docs and `RUNLOG.md`.
 4. Two non-blocking Lighthouse a11y notes (2026-09-01): one colour-contrast instance on the
    accounting page; print-style tables use header-less `<td>` rows (`td-has-header`).
 
-**Nothing else is outstanding.**
+**Nothing else is outstanding.** (35 technical lessons live; 38 lesson files with the three fit drafts.)
 
 ## Landing page — where things live (Loop 19)
 
@@ -75,3 +82,4 @@ conflict in `src/components/lesson/blocks/widget.tsx`: `grep -c "as ComponentTyp
 - 2026-09-01 23:07 heartbeat
 - 2026-09-02 08:52 heartbeat
 - 2026-09-02 12:42 heartbeat
+- 2026-09-02 12:47 heartbeat

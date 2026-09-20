@@ -3,9 +3,16 @@ import type { WorkedCalcBlock } from "@/lib/content/lesson-schema";
 import { Markdown } from "../markdown";
 import { Section } from "../section";
 
+/** Units that hug the number (£12m, £1.31, 15×, 250m); any other unit follows after a space. */
+const UNIT_AFFIX: Record<string, [prefix: string, suffix: string]> = { "£m": ["£", "m"], "£": ["£", ""], "×": ["", "×"], m: ["", "m"] };
+
 export function formatValue(value: number, unit?: string) {
-  const n = Math.abs(value) >= 1000 ? value.toLocaleString("en-GB", { maximumFractionDigits: 2 }) : value.toLocaleString("en-GB", { maximumFractionDigits: 2 });
-  return unit ? `${unit === "£m" ? "£" : ""}${n}${unit === "£m" ? "m" : ` ${unit}`}` : n;
+  // Unit-less steps are rates, weights and betas held as decimals: at 2 dp a 4.5 % cost of debt
+  // reads "0.05" and an 8.02 % WACC is indistinguishable from the 7.02 % wrong answer.
+  const n = Math.abs(value).toLocaleString("en-GB", { maximumFractionDigits: unit ? 2 : 4 });
+  const [prefix, suffix] = unit ? (UNIT_AFFIX[unit] ?? ["", ` ${unit}`]) : ["", ""];
+  // The sign leads the currency symbol: −£10m, never £-10m.
+  return `${value < 0 ? "−" : ""}${prefix}${n}${suffix}`;
 }
 
 export function WorkedCalc({ block }: { block: z.infer<typeof WorkedCalcBlock> }) {

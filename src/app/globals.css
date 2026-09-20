@@ -159,6 +159,9 @@ body {
     --fg: #111111;
     --muted: #444444;
     --border: #bbbbbb;
+    /* Champagne gold and the coral danger tone wash out on paper — ink-weight versions. */
+    --accent: #7a5c14;
+    --danger: #a3261c;
   }
   body {
     background: #fff !important;
@@ -174,5 +177,55 @@ body {
   [data-testid="cheatsheet"] section,
   [data-testid^="template-"] {
     break-inside: avoid;
+  }
+
+  /* Week packs (Loop 20): A4, one lesson per run of pages, nothing orphaned or sliced. The same
+     margins are passed to Playwright in scripts/path/build-packs.ts so the footer has room. */
+  @page {
+    size: A4;
+    margin: 16mm 15mm 18mm;
+  }
+  /* Double-sided: the binding edge (inside of each sheet) gets the room for a hole punch. */
+  @page :right {
+    margin-left: 20mm;
+    margin-right: 12mm;
+  }
+  @page :left {
+    margin-left: 12mm;
+    margin-right: 20mm;
+  }
+  [data-pack] {
+    font-size: 10.5pt;
+  }
+  [data-pack-break] {
+    break-before: page;
+  }
+  [data-pack] h1,
+  [data-pack] h2,
+  [data-pack] h3,
+  [data-pack] [data-block] > p:first-child {
+    break-after: avoid;
+  }
+  [data-pack] table,
+  [data-pack] tr,
+  [data-pack] li,
+  [data-pack] .katex-display,
+  /* Self-contained blocks move to the next page whole — no heading stranded above its table, no
+     list cut after three items. Prose blocks (concept, mechanics, your turn) flow freely. */
+  [data-pack] :is([data-block="worked_calc"], [data-block="fill_numbers"], [data-block="order_steps"], [data-block="trap"],
+    [data-block="one_liner"], [data-block="canonical_answer"], [data-block="quick_fire"], [data-block="scenario"],
+    [data-block="key_metrics"], [data-block="now_you_can"], [data-block="widget"], [data-block="predict"]),
+  [data-pack] [data-pack-keep] {
+    break-inside: avoid;
+  }
+  /* Model answers run long: let them flow across pages, but never strand the question line. */
+  [data-pack] li[data-testid="pack-answer"] {
+    break-inside: auto;
+  }
+  [data-pack] li[data-testid="pack-answer"] p:first-child {
+    break-after: avoid;
+  }
+  [data-pack] .prose-lesson table {
+    display: table;
   }
 }
