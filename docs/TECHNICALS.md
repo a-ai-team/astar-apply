@@ -236,7 +236,8 @@ before authoring — 21 spec errors were caught and corrected that way (see the 
 Every week downloads as one print-ready, double-sided A4 PDF from its week page
 (`/home/path/<week>/pdf`). The pack page `/home/path/<week>/pack` *is* the PDF source: cover and
 plan, each approved lesson laid out with nothing to click (`PrintLesson`), the chapter cheat sheet,
-a 10-question practice set and its model answers (week 10: a 15-question spoken mock). Lens blocks
+every core (`sa-core`) question for the week with model answers at the back (week 10: a
+15-question spoken mock). Lens blocks
 are not printed. `npm run packs:build` renders the pages with Playwright and uploads to the private
 `packs` Storage bucket — **re-run it after any lesson, cheat sheet or question change**; PDFs are
 never committed. Details: `docs/loops/20-week-packs.md`.
