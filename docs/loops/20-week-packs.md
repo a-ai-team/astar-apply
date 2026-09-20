@@ -86,14 +86,14 @@ To publish: `npm run content:approve -- --topic fit-behavioural,why-banking`, th
 - [x] `packs:build` script, `packs` bucket, `/home/path/[week]/pdf` download route
 - [x] Three week-10 fit lessons drafted, validated, loaded as `generated`
 - [x] e2e `20-week-packs.spec.ts`; docs
-- [x] All ten PDFs built, read page by page for layout, uploaded
+- [x] All ten PDFs built and uploaded; layout checked on sample pages (not every page of every pack)
 
 ## Acceptance checks
 - [x] lint · typecheck · build · unit 409/409
 - [x] e2e `20`, `18`, `03` green (13/13) against `next start`
 - [x] Ten PDFs in the `packs` bucket; `/home/path/4/pdf` answers `application/pdf` with `%PDF-`
 - [x] Print media hides header and toolbar; no `button` / `input` inside a printed lesson
-- [x] Visual read of weeks 3, 7, 10: cover, lesson pages, cheat sheet, questions, answers
+- [x] Visual check of sample pages from weeks 3, 7, 10: cover, lesson pages, cheat sheet, questions, answers
 - [ ] Week 10 fit lessons approved (**needs James / Tesleem**) and its PDF rebuilt
 
 ## Retro

@@ -8,7 +8,7 @@
   margins. Path audit fixed draft leakage, the week-10 lesson 404, dead drill days, the print header
   and worked-example value formatting. Three week-10 fit lessons drafted and loaded as `generated`.
 - **Last checks (Loop 20):** lint ✓ typecheck ✓ build ✓ unit **409/409** ✓ e2e `20`+`18`+`03`
-  **13/13** ✓ · ten PDFs read page by page and uploaded (2026-09-20)
+  **13/13** ✓ · ten PDFs built and uploaded, sample pages checked (2026-09-20)
 - **Blockers:** none. **Needs a human:** approve the three week-10 fit lessons (item 0 below).
 
 ---
