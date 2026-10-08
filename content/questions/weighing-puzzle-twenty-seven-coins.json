@@ -1,0 +1,37 @@
+{
+  "slug": "weighing-puzzle-twenty-seven-coins",
+  "subtopic_slug": "brain-teasers",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Fit – Outside the box",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "brain-teaser",
+    "logic"
+  ],
+  "question": "You have 27 identical-looking coins; one is slightly heavier. Using a balance scale, what is the minimum number of weighings needed to guarantee finding it, and how?",
+  "model_answer_md": "**Three weighings.**\n\nEach weighing has three outcomes — left heavier, right heavier, or balanced — so it can narrow the search to one third. Split into thirds every time:\n\n1. Weigh 9 against 9, leaving 9 aside. The heavier side holds the coin; if they balance, it is in the 9 aside. **9 left.**\n2. Weigh 3 against 3 from those 9, 3 aside. **3 left.**\n3. Weigh 1 against 1, 1 aside. The heavier side is the coin; a balance means it is the one aside.\n\nIn general, $n$ weighings can find one heavy coin among up to $3^n$ coins: 3 for 1 weighing, 9 for 2, 27 for 3.",
+  "key_points": [
+    "Each weighing has three outcomes, so split into thirds",
+    "27 → 9 → 3 → 1",
+    "Three weighings",
+    "General rule: up to 3ⁿ coins in n weighings"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why not split into halves?",
+      "answer_md": "Halving ignores the third outcome — the balance. Weighing 13 against 13 with one aside uses only two of the three possible results efficiently and needs more weighings in the worst case."
+    },
+    {
+      "question": "What if you did not know whether the odd coin was heavier or lighter?",
+      "answer_md": "It becomes harder, because each weighing has to identify both which coin and which direction. The classic version finds the odd coin among 12 in three weighings, and the bound is lower than 27 because more outcomes are needed."
+    }
+  ],
+  "weak_answer_note": "Answering four or five from halving, or giving the right number without the thirds logic.",
+  "numbers": null,
+  "topic_slug": "fit-behavioural",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

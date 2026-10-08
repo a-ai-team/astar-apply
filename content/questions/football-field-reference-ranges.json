@@ -1,0 +1,36 @@
+{
+  "slug": "football-field-reference-ranges",
+  "subtopic_slug": "choosing-and-presenting",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "football-field"
+  ],
+  "question": "Besides the valuation methods, what else usually appears on a football field, and why?",
+  "model_answer_md": "Three **reference ranges** that are not valuations but help the client read them:\n\n- **The 52-week trading range** — the high and low share price over the past year, showing where the market has recently priced the company.\n- **Analyst price targets** — the range of brokers' 12-month targets, showing what the market expects.\n- **Premiums paid** — the typical takeover premium in comparable deals applied to the **undisturbed** share price, showing what a bid would need to look like.\n\nThey give context: if every valuation bar sits below the 52-week low, either the market has been too optimistic or the valuation is missing something — and the client will ask which.",
+  "key_points": [
+    "52-week high / low: recent market pricing",
+    "Analyst price targets: market expectations",
+    "Premiums paid on the undisturbed price: what a bid needs to offer",
+    "Context for the valuation bars, not valuations themselves"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do these not count as valuations?",
+      "answer_md": "They describe what the market has done or expects, not what the business is worth from its fundamentals. A 52-week range can reflect sentiment or a market-wide sell-off; analyst targets can cluster around each other."
+    },
+    {
+      "question": "Which reference bar is most relevant in a takeover?",
+      "answer_md": "Premiums paid, because the board will judge an offer against both the undisturbed price and what shareholders in similar deals have received."
+    }
+  ],
+  "weak_answer_note": "Listing only comps, precedents and DCF, or describing the 52-week range as a valuation method.",
+  "numbers": null,
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

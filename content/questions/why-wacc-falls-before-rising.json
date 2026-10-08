@@ -1,0 +1,39 @@
+{
+  "slug": "why-wacc-falls-before-rising",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "wacc",
+    "cost-of-capital",
+    "leverage"
+  ],
+  "question": "If adding debt makes the cost of equity rise, why does WACC fall at first rather than rising straight away?",
+  "model_answer_md": "Because at low levels of debt the **saving** from swapping equity for cheaper debt is larger than the **extra** return shareholders demand.\n\nTwo things push WACC down when a lightly-geared company borrows to replace equity: debt is cheaper than equity because lenders are paid first, and the interest is **tax-deductible**, so its after-tax cost is lower still. One thing pushes WACC up: the remaining equity now stands behind more debt, so its beta and cost of equity rise.\n\nAt low leverage the first effect wins, mainly because of the tax shield. As leverage climbs, the cost of equity rises faster, and lenders start charging more too because default becomes a real possibility. Eventually the increases outweigh the saving, and WACC turns back up — the **U-shape**. The bottom of the U is the theoretical optimal capital structure.\n\nWithout tax and without any cost of distress, the two effects would cancel exactly and WACC would not move at all — which shows the dip is really the tax shield at work.",
+  "key_points": [
+    "Swapping equity for debt saves money at first — debt is cheaper and tax-deductible",
+    "But the remaining equity becomes riskier, so its cost rises",
+    "At low leverage the saving wins, mainly through the tax shield",
+    "At high leverage the rising Ke and Kd win — WACC turns up",
+    "No tax, no distress: WACC would stay flat"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where is the bottom of the U for a real company?",
+      "answer_md": "Nobody can compute it precisely. In practice companies target a credit rating — often investment-grade — and the leverage that rating allows is their working answer."
+    },
+    {
+      "question": "Why do lenders start charging more at high leverage?",
+      "answer_md": "Because the chance of default rises and less of the company's value stands behind each pound of debt. They price that through a wider spread, and eventually through tighter terms or refusing to lend at all."
+    }
+  ],
+  "weak_answer_note": "Saying WACC falls forever because debt is cheaper, or that it rises immediately. Not naming the tax shield as the reason the dip exists.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "buyback-ev-eqv",
+  "subtopic_slug": "ev-bridge-calculations",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "buyback"
+  ],
+  "question": "A company spends £50m of its cash buying back its own shares at the market price. What happens to its equity value and its enterprise value?",
+  "model_answer_md": "**Equity value falls by £50m; enterprise value is unchanged.**\n\nThe company cancels £50m worth of shares at the market price, so the market value of the remaining equity is £50m lower — the price per share is unchanged in a fair-price buyback, but there are fewer shares.\n\nCash also falls by £50m, so **net debt rises by £50m**. In the bridge, equity value is down £50m and net debt is up £50m: they cancel, and EV stays where it was.\n\nThat is the intuition too: EV values the operating business, and a buyback does not change the business — it only returns cash to shareholders.",
+  "key_points": [
+    "Equity value falls by the amount spent",
+    "Share price unchanged at a fair price — fewer shares",
+    "Cash falls, so net debt rises by the same amount",
+    "EV unchanged — the operating business is the same"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the buyback were funded with new debt instead?",
+      "answer_md": "Same answer: equity value falls by £50m and net debt rises by £50m (debt up instead of cash down), so EV is unchanged. Whether the cash came from the balance sheet or a new loan, the operations are untouched."
+    },
+    {
+      "question": "Does a buyback raise EPS?",
+      "answer_md": "Often, yes — net income is shared across fewer shares. But it also loses the interest on the cash spent (or adds interest on new debt), so it raises EPS only if the earnings yield on the shares, net income ÷ market cap, is higher than the after-tax interest rate given up. That is the same test as accretion / dilution."
+    }
+  ],
+  "weak_answer_note": "Saying EV falls because the company has less cash, or that EV rises because net debt rises — missing that the two moves cancel.",
+  "numbers": null,
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

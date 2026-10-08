@@ -1,0 +1,37 @@
+{
+  "slug": "associate-vs-subsidiary",
+  "topic_slug": "accounting",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "How do the accounts treat a 30 % stake in another company compared with an 80 % stake?",
+  "model_answer_md": "It depends on **control**.\n\n- **30 % — an associate.** The owner has significant influence but not control, so it uses the **equity method**. Its 30 % share of the investee's net income appears on one line below operating profit. The balance sheet carries one line, **investment in associates**, which grows with that share of profit and falls with dividends received.\n- **80 % — a subsidiary.** The owner controls it, so it **consolidates**: 100 % of the subsidiary's revenue, costs, assets and debt go into the group accounts. The 20 % owned by others appears as **non-controlling interest (NCI)**, a separate part of equity, and NCI's share of profit is deducted at the bottom of the income statement.\n\nThe rough thresholds are under 20 % (an investment at fair value), 20–50 % (associate) and over 50 % (subsidiary). What really decides it is influence and control, not the exact percentage.",
+  "key_points": [
+    "20–50 % with influence: equity method, one line of profit",
+    "Over 50 % / control: consolidate 100 %",
+    "Minority's share shown as non-controlling interest",
+    "Control, not the exact percentage, decides"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do we add NCI in the bridge to enterprise value?",
+      "answer_md": "Because consolidated EBITDA includes 100 % of the subsidiary. If the multiple's denominator counts all of it, enterprise value must count all of it too, including the part owned by others."
+    },
+    {
+      "question": "And why subtract associates?",
+      "answer_md": "For the mirror-image reason: their profit sits below EBITDA, so their value is not in an EBITDA-based multiple. Leaving it in EV would mismatch the numerator and the denominator."
+    }
+  ],
+  "weak_answer_note": "Says an 80 % stake reports 80 % of revenue, or confuses the equity method with consolidation.",
+  "numbers": null,
+  "source_topic": "Accounting – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "associates",
+    "nci"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

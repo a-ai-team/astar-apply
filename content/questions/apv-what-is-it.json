@@ -1,0 +1,37 @@
+{
+  "slug": "apv-what-is-it",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "apv",
+    "tax-shield"
+  ],
+  "question": "What is adjusted present value, and when is it more useful than a WACC-based DCF?",
+  "model_answer_md": "**Adjusted present value (APV)** values a company in two separate pieces and adds them:\n\n1. **The business as if it had no debt** — unlevered free cash flow discounted at the **unlevered cost of equity**, the return shareholders would want with no borrowing at all.\n2. **The value the debt adds** — mainly the present value of the **interest tax shields**, the tax saved because interest is deductible (less, in a fuller version, the expected cost of financial distress).\n\nA WACC-based DCF folds the tax benefit of debt into a lower discount rate instead. That works when the mix of debt and equity is roughly stable. APV is more useful when it is not — an **LBO** is the classic case, where debt starts high and is paid down year by year, so a single WACC would be wrong in almost every year. With APV you simply value each year's tax shield on that year's actual debt.",
+  "key_points": [
+    "APV = unlevered value + PV of interest tax shields",
+    "Unlevered value uses the unlevered cost of equity",
+    "WACC puts the tax benefit into the rate; APV puts it in a separate line",
+    "Best when leverage changes a lot over time, e.g. an LBO"
+  ],
+  "follow_ups": [
+    {
+      "question": "What rate would you discount the tax shields at?",
+      "answer_md": "Usually the cost of debt, on the view that the tax saving is about as risky as the debt that creates it. Some practitioners use the unlevered cost of equity instead, arguing that the shields depend on the company being profitable enough to use them."
+    },
+    {
+      "question": "What does APV make visible that WACC hides?",
+      "answer_md": "How much of the valuation comes from financing rather than from the business. With WACC the tax benefit is buried in the rate; with APV it is a separate number you can see and challenge."
+    }
+  ],
+  "weak_answer_note": "Describing APV as just another name for a levered DCF. Not being able to name the two components, or the situation where it beats WACC.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

@@ -1,0 +1,149 @@
+{
+  "slug": "other-methodologies",
+  "subtopic_slug": "other-methodologies",
+  "title": "Beyond the big three: sum-of-the-parts, the LBO floor and the rest of the football field",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 11,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Comps, precedents and a DCF carry most valuations. But a real football field has more bars than three, and the follow-up questions go there: *how would you value a group with three unrelated divisions? What could a private-equity buyer afford to pay? How do you value a bank? What would you show alongside the valuation bars?*\n\nNone of these needs a new skill. Each is the same arithmetic you already have, pointed at a particular situation. This lesson covers when each one is used, the number it produces, and where it tends to land relative to the others."
+      },
+      {
+        "type": "concept",
+        "heading": "Sum-of-the-parts: value each division as the business it is",
+        "md": "A **sum-of-the-parts** (SOTP) valuation splits a group into its divisions, values each with the multiple appropriate to *its own* industry, then adds them up. You use it when a single multiple would mislead — a group with a slow packaging arm and a fast-growing software arm deserves neither the packaging multiple nor the software one across the whole.\n\nThe steps: value each division's EV; **subtract head-office costs** that no division carries (capitalise them at a multiple, because a buyer of the whole group pays for them every year); then walk from the total EV to equity value with the usual bridge.\n\nListed groups often trade **below** their SOTP value — the **conglomerate discount**. Investors may doubt that capital is allocated well across unrelated businesses, or simply prefer to own the parts separately. The size of that gap is exactly what an activist or a break-up adviser points to."
+      },
+      {
+        "type": "concept",
+        "heading": "Floors, ceilings and reference ranges",
+        "md": "**LBO analysis as a floor.** Ask what a private-equity buyer could pay and still earn its target return (say 20–25 % a year). Work backwards: estimate the exit equity, divide by the money multiple the target IRR implies, and that is the most equity the sponsor can put in; add the debt it can raise and you have the maximum price. Because a sponsor has no synergies and needs a high return, this usually lands **below** comps and precedents — a floor for what a credible bidder would pay.\n\n**Liquidation and replacement cost.** Liquidation value is what the assets would fetch in a forced sale, less every liability — the true floor, relevant only for a business that might be wound up. Replacement cost is what it would cost to build the same business from scratch — a rough ceiling, and the logic behind \"buy versus build\".\n\n**Dividend discount model (DDM).** For a bank, debt is not financing — it is the raw material of the business (deposits are lent out). So EV and EBITDA are meaningless, and you value the **equity directly**: dividends discounted at the cost of equity. With steady growth, value per share = next year's dividend ÷ (cost of equity − growth).\n\n**Reference ranges, not valuations.** Football fields usually also show the **52-week trading range**, **analyst price targets** and a **premiums-paid** bar: the typical takeover premium in comparable deals (often 25–40 % in the UK) applied to the *undisturbed* share price — the price before any bid rumours."
+      },
+      {
+        "type": "mechanics",
+        "md": "**Two clean-ups that come before any multiple**\n\n**Normalise EBITDA.** Strip out one-offs so the multiple prices recurring profit: add back a one-off restructuring charge or a legal settlement, remove a one-off gain such as a property sale. Be sceptical of \"adjusted EBITDA\" that adds back the same \"one-off\" every year.\n\n**Calendarise.** Peers with different year-ends must be put on the same 12 months. For a March year-end peer, calendar-year EBITDA = 3 months of the year to March plus 9 months of the following year:\n\n$$\\text{EBITDA}_{\\text{Dec}} = 0.25 \\times \\text{FY to Mar } Y + 0.75 \\times \\text{FY to Mar } Y{+}1$$\n\nA peer with £80m to March 2026 and £96m to March 2027 has calendar-2026 EBITDA of 0.25 × 80 + 0.75 × 96 = **£92m**."
+      },
+      {
+        "type": "predict",
+        "prompt": "For a healthy, growing listed company with no obvious synergy buyer, which bar on the football field usually sits lowest?",
+        "options": [
+          { "label": "Precedent transactions" },
+          { "label": "The DCF" },
+          { "label": "The LBO analysis", "correct": true },
+          { "label": "The premiums-paid range" }
+        ],
+        "explain_md": "A sponsor brings no synergies and needs 20–25 % a year on its equity, so the price that clears that hurdle is usually the lowest on the page. Precedents and premiums-paid both include a control premium, so they sit highest. In the widget below, Marlow's LBO bar sits at £7.94–8.72 a share — below even today's £9.00 price — while the premiums-paid bar reaches £12.60."
+      },
+      {
+        "type": "widget",
+        "widget": "football_field",
+        "props": {
+          "mode": "field",
+          "subject": { "name": "Marlow Instruments plc", "ebitda": 150, "netDebt": 210, "shares": 120 },
+          "methods": [
+            { "label": "52-week trading range (£7.40–10.10)", "low": 1098, "high": 1422, "mid": 1290 },
+            { "label": "Trading comps (8.0×–12.0×)", "low": 1200, "high": 1800, "mid": 1650 },
+            { "label": "Precedent transactions (11.0×–14.0×)", "low": 1650, "high": 2100, "mid": 1875 },
+            { "label": "Premiums paid (25–40 % on £9.00)", "low": 1560, "high": 1722, "mid": 1614 },
+            { "label": "DCF (EV £1,250–1,450m)", "low": 1250, "high": 1450, "mid": 1350 },
+            { "label": "LBO at 20–25 % IRR", "low": 1163, "high": 1256, "mid": 1210 }
+          ],
+          "currentPrice": 9,
+          "display": "share"
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Marlow Instruments plc** — EBITDA **£150m**, net debt £210m, 120m shares, trading at £9.00. A sponsor can borrow **5.0× EBITDA** and wants a **20 % IRR** over **five years**. Its plan: grow EBITDA to **£190m**, repay **£300m** of debt from cash flow, and exit at a cautious **9.0×** — below the 11× peer median. Fees are ignored.",
+        "steps": [
+          { "label": "Debt raised at entry: 5.0 × £150m", "expr": "5 * 150", "value": 750 },
+          { "label": "Exit enterprise value: 9.0 × £190m", "expr": "9 * 190", "value": 1710 },
+          { "label": "Exit equity: £1,710m − (£750m − £300m) of debt left", "expr": "1710 - (750 - 300)", "value": 1260 },
+          { "label": "Money multiple for 20 % over 5 years: 1.2^5", "expr": "1.2^5", "value": 2.49 },
+          { "label": "Most equity the sponsor can invest: £1,260m ÷ 2.49", "expr": "1260 / 1.2^5", "value": 506.4 },
+          { "label": "Maximum enterprise value: £750m + £506m", "expr": "750 + 1260 / 1.2^5", "value": 1256.4 },
+          { "label": "Per share: (£1,256m − £210m net debt) ÷ 120m", "expr": "(750 + 1260 / 1.2^5 - 210) / 120", "value": 8.72, "unit": "£" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "**Fernleigh Group** has three divisions. Packaging earns EBITDA of **£80m** (peers trade at **8×**), chemicals **£50m** (**6×**) and software **£20m** (**15×**). Head office costs **£10m** a year, capitalised at **8×**. Net debt is **£260m** and there are **100m** shares, trading at **£7.65**.",
+        "steps": [
+          { "label": "Packaging EV: 80 × 8", "expr": "80 * 8", "value": 640 },
+          { "label": "Chemicals EV: 50 × 6", "expr": "50 * 6", "value": 300 },
+          { "label": "Software EV: 20 × 15", "expr": "20 * 15", "value": 300 },
+          { "label": "Group EV after head office: 640 + 300 + 300 − 10 × 8", "expr": "640 + 300 + 300 - 10 * 8", "value": 1160, "blank": true },
+          { "label": "Equity value: 1,160 − 260", "expr": "1160 - 260", "value": 900, "blank": true },
+          { "label": "SOTP value per share", "expr": "900 / 100", "value": 9, "unit": "£", "blank": true },
+          { "label": "Conglomerate discount: 1 − 7.65 ÷ 9.00", "expr": "1 - 7.65 / 9", "value": 0.15 }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**Treating every bar on the football field as a valuation.**\n\nThe 52-week range, analyst targets and premiums-paid are **reference points** — they tell you what the market has paid or expects, not what the business is worth. A premiums-paid bar also has a hidden dependency: it must start from the **undisturbed** price. Apply a 30 % premium to a share price already inflated by bid rumours and you double-count the premium.\n\nThe other common slip is forgetting **head-office costs** in a sum-of-the-parts. Add up the divisions and stop, and you have valued a group that runs itself for free; that overstatement can be most of the apparent \"conglomerate discount\"."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Beyond comps, precedents and a DCF, I would use sum-of-the-parts for a group with unrelated divisions — each valued at its own multiple, less capitalised head-office costs. An LBO analysis shows what a sponsor could pay at its target return, usually the floor. Banks are valued on dividends, not EV. Liquidation value is the floor of last resort, replacement cost a rough ceiling, and the 52-week range, analyst targets and premiums paid are reference points.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Telecoms: the towers are worth more than the group",
+            "md": "Telecoms groups are a favourite SOTP case. The mobile network itself trades at a modest multiple, but the **mast towers** and **fibre** underneath it are infrastructure with long contracted rents, and infrastructure investors pay much higher multiples for that kind of steady income.\n\nSo an SOTP that values the towers at an infrastructure multiple and the operating business at a telecoms multiple can come out well above the group's market value. That gap is why many operators have sold or spun off their towers — a break-up turns the SOTP value into cash.",
+            "example_q": "Why might a mobile operator's towers be worth more on their own than inside the group?",
+            "answer_md": "Because they are valued differently. Inside the group they earn the operator's multiple; on their own they are infrastructure with long, contracted, inflation-linked rents from several tenants, which infrastructure buyers value at a much higher multiple. A sum-of-the-parts shows the gap, and a sale or spin-off realises it."
+          },
+          "healthcare": {
+            "heading": "Pharma: a pipeline is a sum of drugs",
+            "md": "A pharmaceutical group is naturally valued in parts. The marketed drugs are valued on their cash flows until each loses patent protection; each **pipeline drug** is valued as a risk-adjusted NPV (rNPV — the NPV weighted by the probability of approval); and a **consumer-health** arm, selling over-the-counter products, is valued at consumer-goods multiples.\n\nAdd the parts and subtract central research and head-office costs. Several large groups have spun off their consumer-health businesses precisely because the SOTP showed the market was not paying for them inside the group.",
+            "example_q": "How would you value a pharma group with marketed drugs, a pipeline and a consumer-health arm?",
+            "answer_md": "In parts. Marketed drugs on their cash flows until patent expiry, each pipeline asset as a risk-adjusted NPV weighted by its chance of approval, and the consumer-health arm on consumer-goods multiples. Then subtract unallocated research and head-office costs, and bridge from the total EV to equity value."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "You are asked to value **a UK retail bank** and **a listed group that owns a brewery and a software company**. Which methodologies would you lead with for each, and why?",
+        "model_answer_md": "**The bank:** I would value the equity directly, not EV. A bank's debt — mainly deposits — is the raw material it lends out, so separating operations from financing makes no sense and EV/EBITDA is meaningless. I would lead with a **dividend discount model** and equity multiples such as **price-to-book** and **P/E**, cross-checked against peers.\n\n**The brewery-and-software group:** a **sum-of-the-parts**. The two businesses grow at very different rates and trade at very different multiples, so one group multiple would undervalue the software and overvalue the brewery. Value each division on its own peers (and a DCF where useful), subtract capitalised head-office costs, then bridge to equity value. I would compare the result with the market value to show any conglomerate discount.",
+        "rubric": [
+          "Bank: values equity directly — DDM, P/BV, P/E — and says why EV does not work",
+          "Group: sum-of-the-parts with each division on its own multiple",
+          "Subtracts head-office costs",
+          "Mentions the conglomerate discount as the comparison"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Which bar is usually lowest on the football field?", "a": "The LBO analysis — no synergies and a 20–25 % return hurdle. Liquidation value is lower still, but only shown in distress." },
+          { "q": "What do you apply a premiums-paid range to?", "a": "The undisturbed share price — before any bid rumour moved it." },
+          { "q": "Why value a bank with a DDM?", "a": "Debt is its raw material, not financing, so EV is meaningless; you value the equity directly from its dividends." },
+          { "q": "What does normalising EBITDA mean?", "a": "Removing one-off charges and gains so the multiple is applied to recurring profit." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Same arithmetic, different situation: value a group by its parts, a bank by its dividends, and a sponsor's ceiling by working back from its target return.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build a sum-of-the-parts and explain the conglomerate discount.",
+          "I can solve for the price a sponsor can pay at a target IRR and explain why it is usually the floor.",
+          "I can say why banks are valued with a DDM and when liquidation or replacement cost matters.",
+          "I can normalise EBITDA and calendarise a peer with a different year-end.",
+          "I can explain the reference bars on a football field and what premiums-paid must start from."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "combined-balance-sheet-day-one",
+  "subtopic_slug": "purchase-price-allocation",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "purchase-accounting",
+    "balance-sheet"
+  ],
+  "question": "Tamar (assets £1,400m, liabilities £400m, equity £1,000m) buys Wychwood (assets £300m, liabilities £80m, equity £220m) for £500m: £250m of new debt and £250m of new shares. The brand is written up by £60m, with a 25 % deferred tax liability. Walk me through the combined balance sheet on completion.",
+  "model_answer_md": "Add, eliminate, record the funding, record the allocation.\n\n**Goodwill first:** DTL = 60 × 25 % = £15m; goodwill = 500 − (220 + 60 − 15) = **£235m**.\n\n**Assets:** 1,400 + 300 + 60 brand write-up + 235 goodwill = **£1,995m**.\n\n**Liabilities:** 400 + 80 + 250 new debt + 15 DTL = **£745m**.\n\n**Equity:** Wychwood's £220m is **eliminated**, because Tamar has paid for it. What remains is Tamar's £1,000m plus the £250m of new shares = **£1,250m**.\n\n**Check:** 745 + 1,250 = 1,995. It balances because goodwill is defined as whatever makes it balance.",
+  "key_points": [
+    "Goodwill = 500 − (220 + 60 − 15) = £235m",
+    "Assets: both sides + write-up + goodwill = £1,995m",
+    "Liabilities: both sides + new debt + DTL = £745m",
+    "Target equity eliminated; equity = 1,000 + 250 = £1,250m",
+    "Balances by construction — goodwill is the plug"
+  ],
+  "follow_ups": [
+    {
+      "question": "What changes if Tamar paid £100m of the price from its own cash?",
+      "answer_md": "Assets fall by the £100m spent, and either the new debt or the new shares fall by £100m, depending on which leg the cash replaces. Goodwill is unchanged at £235m because the price and the net assets acquired are unchanged. Funding only moves the right-hand side and the cash line."
+    },
+    {
+      "question": "Why not simply add the two equity figures together?",
+      "answer_md": "Because Wychwood's equity belonged to its old shareholders, and they have been paid £500m for it. Keeping it would count the same ownership twice: once as Wychwood's equity and again as the cash, debt or shares Tamar used to buy it. Consolidated equity is the buyer's equity plus whatever new shares it issued."
+    }
+  ],
+  "weak_answer_note": "Keeping the target's equity. Leaving out the DTL, or putting it on the asset side. Getting goodwill without restating the net assets first.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

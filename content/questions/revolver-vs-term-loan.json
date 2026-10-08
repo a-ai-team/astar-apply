@@ -1,0 +1,38 @@
+{
+  "slug": "revolver-vs-term-loan",
+  "topic_slug": "lbo",
+  "subtopic_slug": "debt-tranches",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "capital-structure"
+  ],
+  "question": "What is a revolving credit facility, and why does a buyout have one alongside its term loans?",
+  "model_answer_md": "A **revolving credit facility** — a revolver — is a committed borrowing line that the company can draw, repay and redraw up to a limit, like a corporate overdraft. A term loan is drawn once, at completion, to pay for the deal.\n\nThe revolver is there for **liquidity**, not for the purchase. Working capital swings through the year — stock is built before a busy season, customers pay late — and the revolver covers those gaps so the company never runs short of cash. It is usually undrawn at completion, ranks senior and secured alongside the term loans, and is the cheapest money in the structure, with a small commitment fee on the unused part.\n\nLenders watch how much of it is drawn: a revolver drawn to its limit is one of the first signs of trouble.",
+  "key_points": [
+    "Committed line the company draws, repays and redraws — a corporate overdraft",
+    "Funds working-capital swings, not the purchase price",
+    "Usually undrawn at completion; senior secured; cheapest money",
+    "Commitment fee on the unused amount",
+    "Fully drawn revolver is an early distress signal"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do banks often insist on providing the revolver if they want the term loan?",
+      "answer_md": "Because the revolver alone is unattractive — low pricing, mostly undrawn — but it gives the bank a relationship and a senior, secured position. Banks bundle it with more profitable roles such as arranging the term loans or bonds."
+    },
+    {
+      "question": "Why might a sponsor draw the revolver in a crisis even if it does not need the cash yet?",
+      "answer_md": "To secure liquidity before lenders can refuse — if a covenant is breached, the bank may stop further drawings. Drawing early puts cash on the balance sheet while the line is still available, as many companies did in early 2020."
+    }
+  ],
+  "weak_answer_note": "Describing the revolver as part of the acquisition funding, or not knowing it is usually undrawn at completion and exists for working capital.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "A committed borrowing line the company can draw and repay as needed — a corporate overdraft. It funds working-capital swings, not the purchase, is usually undrawn at completion, and is senior, secured and cheap."
+}

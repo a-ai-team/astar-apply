@@ -1,0 +1,36 @@
+{
+  "slug": "contribution-analysis-what-and-why",
+  "subtopic_slug": "purchase-price-allocation",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "contribution-analysis"
+  ],
+  "question": "What is a contribution analysis, and when would a banker put one in front of a board?",
+  "model_answer_md": "A **contribution analysis** shows what share of the combined company's revenue, EBITDA, net income (and sometimes cash flow or assets) each side brings, and sets it against the share of the enlarged company each side will own.\n\nIt matters most in **stock-for-stock deals and mergers of near-equals**, where the main thing being negotiated is the ownership split rather than a cash price. If one side contributes 40 % of EBITDA but is offered 35 % of the shares, its board will want either a better ratio or a reason, such as a premium, the other side's faster growth or expected synergies.\n\nIt is a sanity check rather than a valuation. It ignores growth, risk and leverage differences, which is why it sits on the football field alongside the other methods instead of replacing them.",
+  "key_points": [
+    "Each side's share of combined revenue, EBITDA, net income",
+    "Compared against each side's share of ownership",
+    "Most used in stock deals and mergers of equals",
+    "A negotiating and fairness check, not a valuation method",
+    "Blind to growth, risk and leverage differences"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which metric is most misleading in a contribution analysis?",
+      "answer_md": "Net income can be, because it is after interest. A heavily indebted side contributes less net income than its operations deserve, and an unlevered side more. EBITDA or revenue are cleaner operating views, and comparing several lines shows where the split is sensitive."
+    },
+    {
+      "question": "Why does a target that contributes 25 % of earnings often accept less than 25 % of the shares?",
+      "answer_md": "Because it is usually being paid a premium in another form. In a takeover, the premium over the undisturbed price compensates for giving up some earnings share. In a true merger of equals with no premium, the split tends to track contribution much more closely."
+    }
+  ],
+  "weak_answer_note": "Describing it as a valuation method in its own right. Not linking it to the ownership split. Not knowing when it is used.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

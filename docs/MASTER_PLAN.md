@@ -78,6 +78,7 @@ Each loop follows `docs/loops/README.md` and the shared `docs/loops/CONTRACTS.md
 | 18 | [Technicals: LBO](loops/18-technicals-lbo.md) | 4 lessons, 24 Qs, `lbo_returns` `paper_lbo`, paper-LBO sheet; 10-week path + lens drills + docs refresh | merged (#39) |
 | 19 | [Home toolkit landing](loops/19-home-toolkit.md) | `/home` redesigned around the integrated toolkit (wordmark hero, toolkit grid, route to the offer, 10-week spine, Mentor, in-the-works row); header brand hidden until the hero scrolls away; `/` redirects to `/home` | merged (#44) |
 | 20 | [Week packs](loops/20-week-packs.md) | 10-week path audit + one print-ready, double-sided A4 PDF per week (`/home/path/<week>/pack` → `npm run packs:build` → private `packs` bucket → `/home/path/<week>/pdf`); three week-10 fit lessons drafted (`generated`) | merged (#46) |
+| 21 | [Technicals complete](loops/21-technicals-complete.md) | Syllabus + 400Q gap audit (`coverage` eval suite); 10 stretch lessons + 78 questions filling every gap (deferred tax, EV edge cases, SOTP/DDM/LBO floor, levered DCF/APV, PPA, debt tranches, restructuring, payback/bonds, brain teasers); master guide `/home/technicals/guide` + PDF | open-pr |
 
 Loops 0–2 are the chatbot MVP. Loops 3–5 are the Technicals MVP. 6+ is where we pass
 financefluency.

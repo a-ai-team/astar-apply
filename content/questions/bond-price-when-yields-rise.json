@@ -1,0 +1,37 @@
+{
+  "slug": "bond-price-when-yields-rise",
+  "subtopic_slug": "discount-rates-and-risk",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Finance concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "bonds",
+    "interest-rates"
+  ],
+  "question": "If market interest rates rise, what happens to the price of an existing bond — and which bonds are hit hardest?",
+  "model_answer_md": "The price **falls**. A bond's coupon is fixed when it is issued, so if the market now demands a higher return, the only way a new buyer can earn it is by paying less for the same fixed cash flows. Price and yield move in **opposite directions**.\n\nLonger-dated bonds fall most. Their cash flows — especially the repayment of face value — are further in the future, and a higher discount rate shrinks distant cash flows far more than near ones. A 5 % coupon bond priced at £100 falls to about **£94.75** with three years left if yields go to 7 %, but to about **£85.95** with ten years left. That sensitivity is called **duration**.",
+  "key_points": [
+    "Price and yield move inversely",
+    "Fixed coupon means price must adjust to give the new yield",
+    "Long-dated bonds are more rate-sensitive (higher duration)",
+    "3-year vs 10-year example: £94.75 vs £85.95 at 7 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does the same logic apply to shares?",
+      "answer_md": "Yes. A company whose value comes mostly from cash flows far in the future — a fast-growing tech company — behaves like a long bond and falls more when rates rise than a mature company paying out most of its cash now."
+    },
+    {
+      "question": "When does a bond trade above face value?",
+      "answer_md": "When its coupon is higher than the market yield. Investors pay a premium for the above-market coupon, and the price drifts back to face value as maturity approaches."
+    }
+  ],
+  "weak_answer_note": "Saying the price rises because the bond now \"pays more\", or not knowing that maturity affects sensitivity.",
+  "numbers": null,
+  "topic_slug": "finance-foundations",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

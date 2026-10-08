@@ -1,0 +1,38 @@
+{
+  "slug": "payback-period-flaws",
+  "subtopic_slug": "irr-and-payback",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Finance concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "payback",
+    "investment-decision"
+  ],
+  "question": "What is the payback period, and why is it a poor way to decide between projects?",
+  "model_answer_md": "The **payback period** is the time a project takes to return the cash spent on it at the start. Spend £1.2m, get £0.4m a year back, and it pays back in three years.\n\nIt is a poor decision rule for two reasons. First, it **ignores the time value of money**: a pound in year three counts the same as a pound today. Second, it **ignores everything after the payback date**, so a project that pays back fast and then stops can beat one that pays back a year later and earns for a decade.\n\nIt is still useful as a **risk screen** — how long is our money exposed? — but the decision itself should be made on NPV.",
+  "key_points": [
+    "Payback = time for inflows to recover the initial outlay",
+    "Ignores the time value of money",
+    "Ignores all cash after the cut-off",
+    "Useful as a risk / liquidity screen, not a decision rule",
+    "Decide on NPV"
+  ],
+  "follow_ups": [
+    {
+      "question": "How does discounted payback improve on it?",
+      "answer_md": "It uses the present value of each year's cash flow instead of the raw amount, so it accounts for the time value of money. It always comes out longer than simple payback. It still ignores everything after the cut-off, so it remains a screen rather than a full decision rule."
+    },
+    {
+      "question": "Why do managers still use payback?",
+      "answer_md": "Because it is simple to explain and speaks directly to risk and liquidity: a business short of cash, or operating somewhere uncertain, cares a lot about getting its money back quickly. Used alongside NPV it adds information; used instead of NPV it misleads."
+    }
+  ],
+  "weak_answer_note": "Defining payback correctly but naming only one flaw, or calling it a good decision rule because it is simple. Missing that it ignores cash after the cut-off.",
+  "numbers": null,
+  "topic_slug": "finance-foundations",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

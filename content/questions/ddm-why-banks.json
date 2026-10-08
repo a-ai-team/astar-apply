@@ -1,0 +1,38 @@
+{
+  "slug": "ddm-why-banks",
+  "subtopic_slug": "other-methodologies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "ddm",
+    "banks"
+  ],
+  "question": "Why would you value a bank with a dividend discount model rather than an EV/EBITDA multiple or an unlevered DCF?",
+  "model_answer_md": "Because for a bank, **debt is not financing — it is the business**. A bank takes in deposits and borrows in the markets, then lends that money out; interest paid is its main cost, not a financing choice. So you cannot separate operations from capital structure, and **EV and EBITDA lose their meaning**.\n\nInstead you value the **equity directly**. A **dividend discount model** discounts the dividends shareholders will receive at the cost of equity. With steady growth:\n\n$$\\text{Value per share} = \\frac{D_1}{k_e - g}$$\n\nA bank expected to pay **£0.50** next year, with a **10 %** cost of equity and **4 %** growth: £0.50 ÷ (10 % − 4 %) = **£8.33** a share.\n\nDividends also suit banks because regulators cap what they can pay out according to their capital, so payouts track what the business can genuinely afford. Alongside a DDM you would use **price-to-book** and **P/E**.",
+  "key_points": [
+    "Debt and deposits are a bank's raw material, not financing",
+    "EV and EBITDA are therefore meaningless",
+    "Value equity directly: DDM at the cost of equity",
+    "D1 ÷ (ke − g): £0.50 ÷ 6 % = £8.33",
+    "Cross-check with P/BV and P/E"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why price-to-book for a bank?",
+      "answer_md": "A bank's assets are mainly loans and securities carried close to market value, so book equity is a meaningful measure of what shareholders own. P/BV compared with return on equity shows whether the market thinks the bank earns more or less than its cost of equity."
+    },
+    {
+      "question": "Which other businesses are valued this way?",
+      "answer_md": "Insurers, for the same reason — investment income from premiums is the business. Some steady utilities and REITs are also valued on dividends, though they can be valued on EV as well."
+    }
+  ],
+  "weak_answer_note": "Trying to compute an EV for a bank by subtracting deposits as debt, or not explaining why the usual approach fails.",
+  "numbers": null,
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

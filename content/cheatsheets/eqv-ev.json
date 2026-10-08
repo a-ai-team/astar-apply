@@ -25,6 +25,16 @@
       "name": "The two multiples",
       "latex": "\\frac{\\text{EV}}{\\text{EBITDA}} = 9.0\\times, \\qquad \\text{P/E} = \\frac{\\text{EqV}}{\\text{Net income}} = 14.8\\times",
       "note": "Pre-interest metric on top of EV; post-interest metric on top of equity value. Never cross them."
+    },
+    {
+      "name": "Bridge with an associate",
+      "latex": "EV = EqV + \\text{Net debt} + \\text{Pref} + \\text{NCI} + \\text{Leases} - \\text{Associates}",
+      "note": "Harbourline: 1,530 − 60 = £1,470m. The associate's profit sits below EBITDA, so its value comes out."
+    },
+    {
+      "name": "Transactions and the two values",
+      "latex": "\\Delta EV = \\text{operating assets bought or sold};\\ \\Delta EqV = \\text{value to or from shareholders}",
+      "note": "Buyback −100 EqV / 0 EV; cash, debt or share-funded acquisition +100 EV; only the share-funded one is +100 EqV."
     }
   ],
   "canonical": [
@@ -47,6 +57,10 @@
     {
       "q": "Can enterprise value be negative, and what would that mean?",
       "a": "Yes, when a company holds more cash than its market capitalisation plus its debt-like claims. It usually says the market expects that cash to be burned — a business losing money with no credible route to profit. It is a signal about expectations rather than a free lunch, though it can also flag a genuinely mispriced situation."
+    },
+    {
+      "q": "A company buys back £50m of shares with cash — what happens to EqV and EV?",
+      "a": "Equity value falls £50m; cash falls £50m so net debt rises £50m; EV is unchanged because the operating business is the same."
     }
   ],
   "traps": [
@@ -57,17 +71,21 @@
     "Options only dilute when they are in the money — below the strike they add nothing.",
     "Adding debt and then also adding net debt double-counts the borrowings.",
     "Capitalising leases raises EV and EBITDA together — adjust both or neither, and treat every comparable the same way.",
-    "P/E compares differently levered companies badly, because it is after interest; use EV/EBITDA for that."
+    "P/E compares differently levered companies badly, because it is after interest; use EV/EBITDA for that.",
+    "Adding an associate to EV because it is an asset — its profit is not in EBITDA, so subtract it.",
+    "Saying a cash-funded acquisition lowers EV — EV rises by the price paid however the deal is funded.",
+    "Subtracting all balance-sheet cash for a business that needs some of it to operate, or whose cash is trapped abroad."
   ],
   "one_liners": [
     "Equity value is the shareholders' slice; enterprise value is the whole pie.",
     "Pre-interest metric on top of EV; post-interest metric on top of equity value.",
     "Options dilute only when they are in the money, and only by the net share count.",
-    "Cash is negative debt — that is why it comes out of the bridge."
+    "Cash is negative debt — that is why it comes out of the bridge.",
+    "If an asset's profit is not in EBITDA, its value comes out of EV.",
+    "Paying investors moves equity value; buying operations moves enterprise value.",
+    "Book equity can be negative; market equity value cannot."
   ],
   "you_may_hear": [
-    "Equity-method investments in associates, subtracted from enterprise value.",
-    "Restricted cash, and whether it can really be netted off.",
     "Minority put options and other contingent claims on the bridge.",
     "Convertible hedges and warrant structures around a convertible issue.",
     "The tax shield on an unfunded pension deficit."

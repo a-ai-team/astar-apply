@@ -152,7 +152,12 @@ one passing line) · **GAP** not in the course. Slugs: `L:` lesson, `Q:` questio
 | Estimation / market sizing method | **GAP** |
 | Classic logic puzzles (clock angle, probability basics) | **GAP** |
 
-## Build list (gaps → Loop 21 tasks)
+## Build list (gaps → Loop 21 tasks) — all written 2026-10-08, `generated` pending approval
+
+Every **GAP** and **~** row above is now taught by the lesson / questions named below (status `generated`
+until James approves). Bond basics live in `discount-rates-and-risk`; UK Takeover Code basics in
+`purchase-price-allocation`; credit stats and the LBO floor in `debt-tranches` / `other-methodologies`.
+
 1. **finance-foundations:** lesson `irr-and-payback` (payback, IRR flaws, MIRR named, multiple IRRs) and lesson `discount-rates-and-risk` (risk ↔ return, opportunity cost, real vs nominal, **bond price vs yield**, growing perpetuity).
 2. **accounting:** lesson `deferred-taxes-and-other-items` (DTA/DTL, NOLs, IFRS 16 on the statements, associates & NCI, intangibles amortisation, IFRS vs US GAAP). Question top-ups: accrued/prepaid walk, share issue, share buyback, PP&E write-down, convertible conversion, bad-debt provision.
 3. **eqv-ev:** lesson `ev-edge-cases` (associates, NOLs, excess cash, book vs market equity, negative equity value). Question top-ups: buyback, acquisition paid with cash / stock / debt, options in tranches.

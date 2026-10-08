@@ -1,0 +1,39 @@
+{
+  "slug": "currency-mismatch-spot-the-error",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:spot",
+    "dcf",
+    "currency",
+    "error-spotting"
+  ],
+  "question": "A colleague values a Brazilian subsidiary. The cash flows are forecast in Brazilian reais, growing 9 % a year, and discounted at the group's sterling WACC of 8 %, with a terminal growth rate of 3 %. What is wrong, and how would you fix it?",
+  "model_answer_md": "The **currency of the cash flows does not match the currency of the discount rate.**\n\nMost of that 9 % growth is Brazilian inflation, which runs well above UK inflation. The 8 % WACC is built on a UK gilt yield, which assumes UK inflation. Discounting high-inflation reais at a low-inflation sterling rate makes every future cash flow look worth too much, and the value comes out far too high.\n\nThe terminal value has the same problem in a different form: a 3 % perpetual growth rate in reais is probably below Brazilian inflation, which implies the business shrinks in real terms forever — inconsistent with the 9 % explicit growth.\n\nTwo valid fixes:\n\n1. **Stay in reais.** Build the discount rate on a Brazilian government yield, add the usual premia (and a country risk premium if the beta does not capture it), use a terminal growth rate consistent with Brazilian inflation, and convert the final value to sterling at today's exchange rate.\n2. **Convert to sterling first.** Translate each year's forecast at forward exchange rates consistent with the interest-rate gap between the two countries, then discount at the sterling WACC.",
+  "key_points": [
+    "Error: reais cash flows discounted at a sterling rate",
+    "The inflation in the cash flows and in the rate must match",
+    "Here the mismatch overvalues the subsidiary",
+    "Terminal growth must also be consistent with the cash-flow currency",
+    "Fix: local-currency rate throughout, or convert the forecast to sterling first"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would adding a country risk premium to the 8 % fix it?",
+      "answer_md": "No — that addresses a different risk. The core problem is inflation: the rate is built on the wrong risk-free rate. You need a reais-based risk-free rate first, and then decide separately whether a country premium is warranted."
+    },
+    {
+      "question": "Which exchange rate do you convert the final value at?",
+      "answer_md": "Today's spot rate, if you valued it in reais. The future exchange-rate path is already reflected in the inflation built into the reais cash flows and rate."
+    }
+  ],
+  "weak_answer_note": "Spotting that the growth rate looks high but not identifying the currency mismatch. Suggesting a country risk premium as the whole fix.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

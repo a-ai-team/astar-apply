@@ -1,0 +1,36 @@
+{
+  "slug": "share-funded-acquisition-ev",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "transactions"
+  ],
+  "question": "Two companies each buy the same £200m business. One pays with new shares, the other borrows £200m. Compare the effect on each buyer's equity value and enterprise value.",
+  "model_answer_md": "**Both buyers' enterprise values rise by £200m. Only the share-funded buyer's equity value rises.**\n\n**Share-funded:** it issues £200m of new shares to the seller, so equity value rises by £200m. Net debt is unchanged. EV rises by £200m.\n\n**Debt-funded:** debt rises by £200m, so net debt rises by £200m. No shares are issued, so equity value is unchanged. EV rises by £200m.\n\nThe EVs move identically because both companies now own the same extra operating business; EV does not care how it was paid for. Equity value differs because the claims differ: one buyer added new shareholders, the other added lenders.\n\nIn practice the funding still matters — the debt-funded buyer is more leveraged and pays interest, the share-funded one has diluted its owners — but that shows up in risk, EPS and the market's reaction, not in the immediate bridge.",
+  "key_points": [
+    "EV rises by the price paid either way — same operating assets bought",
+    "Share-funded: equity value +£200m, net debt unchanged",
+    "Debt-funded: equity value unchanged, net debt +£200m",
+    "Funding changes who holds the claim, not the size of the business"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which deal is more likely to be accretive to EPS?",
+      "answer_md": "Usually the debt-funded one, because after-tax interest is typically cheaper than the earnings yield given up by issuing shares. That is the accretion / dilution test: compare the target's earnings yield with the after-tax cost of each currency."
+    },
+    {
+      "question": "What happens to the share-funded buyer's share price on announcement?",
+      "answer_md": "In theory nothing, if it paid a fair price in fairly valued shares. In practice it moves on the market's view of the deal — overpaying or a poor strategic fit pushes it down, credible synergies push it up."
+    }
+  ],
+  "weak_answer_note": "Saying the debt-funded buyer's EV is unchanged because it has more debt and the same equity, or that equity value rises in both cases.",
+  "numbers": null,
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

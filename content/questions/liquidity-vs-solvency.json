@@ -1,0 +1,38 @@
+{
+  "slug": "liquidity-vs-solvency",
+  "topic_slug": "lbo",
+  "subtopic_slug": "distress-and-restructuring",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "restructuring"
+  ],
+  "question": "What is the difference between a liquidity problem and a solvency problem?",
+  "model_answer_md": "**Liquidity** is about cash and timing: can the company pay its bills, interest and debt maturities when they fall due? **Solvency** is about value: is the business worth more than everything it owes?\n\nThey can come apart. A sound, valuable company with a large loan maturing next month and lenders unwilling to refinance has a **liquidity** problem — it may need only time or new money. A company whose enterprise value has fallen below its debt has a **solvency** problem even if it can pay this quarter's interest — the debt must be reduced, so someone takes a loss.\n\nThe distinction drives the cure: bridges and extensions for liquidity; a debt-for-equity swap or a court process for solvency.",
+  "key_points": [
+    "Liquidity: can it pay debts as they fall due (cash, timing)",
+    "Solvency: is enterprise value above total debt",
+    "A valuable company can still be illiquid",
+    "Liquidity fixes: time, new money, amend and extend",
+    "Solvency fixes: cut the debt — someone takes a loss"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which is more urgent?",
+      "answer_md": "Usually liquidity, because running out of cash forces an immediate outcome; a solvency problem can persist for a while if interest is still being paid, though it worsens with time."
+    },
+    {
+      "question": "How does UK law reflect the two?",
+      "answer_md": "Insolvency is tested both ways — a cash-flow test (paying debts as they fall due) and a balance-sheet test (liabilities against assets)."
+    }
+  ],
+  "weak_answer_note": "Treating the two as the same thing, or saying a company is insolvent simply because it has made a loss.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Liquidity = can it pay debts as they fall due (cash and timing). Solvency = is it worth more than it owes (value). Liquidity needs time or new money; solvency needs the debt cut."
+}

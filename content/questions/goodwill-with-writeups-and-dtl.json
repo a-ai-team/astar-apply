@@ -1,0 +1,48 @@
+{
+  "slug": "goodwill-with-writeups-and-dtl",
+  "subtopic_slug": "purchase-price-allocation",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "goodwill",
+    "purchase-accounting",
+    "deferred-tax"
+  ],
+  "question": "A buyer pays £900m for a company with book net assets of £500m. On completion, property is written up by £100m and a customer list worth £60m is recognised. Tax is 25 %. Calculate the deferred tax liability and the goodwill.",
+  "model_answer_md": "Goodwill is the residual once the target's net assets are restated to fair value — including the tax consequence of restating them.\n\n- **Total write-ups:** 100 + 60 = **£160m**\n- **Deferred tax liability:** 160 × 25 % = **£40m**. The tax values of the assets do not step up, so the extra book value will never earn tax relief.\n- **Identifiable net assets at fair value:** 500 + 160 − 40 = **£620m**\n- **Goodwill:** 900 − 620 = **£280m**\n\nWithout the DTL you would get £240m. The liability reduces the net assets acquired, so it raises goodwill pound for pound.",
+  "key_points": [
+    "Write-ups total £160m",
+    "DTL = 160 × 25 % = £40m",
+    "Fair value of identifiable net assets = 500 + 160 − 40 = £620m",
+    "Goodwill = 900 − 620 = £280m",
+    "The DTL increases goodwill by its full amount"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does the DTL arise at all?",
+      "answer_md": "Because the write-ups raise the book value of the assets but, in a share purchase, their tax values stay at the old figures. The extra depreciation and amortisation the write-ups create will be charged in the accounts but never deducted for tax. Accounting recognises that future tax cost now, as a liability, and lets it unwind as the charges flow through."
+    },
+    {
+      "question": "Would an asset purchase change the answer?",
+      "answer_md": "Usually, yes. In an asset purchase the tax values reset to what the buyer paid, so book and tax values match and there is no DTL on the write-ups. Goodwill would be £240m rather than £280m, and the buyer would also get tax relief on more of the price, which is one reason buyers like asset deals."
+    }
+  ],
+  "weak_answer_note": "Forgetting the DTL, which gives £240m. Treating the DTL as an asset that reduces goodwill. Adding the write-ups to the price instead of to net assets.",
+  "numbers": {
+    "inputs": {
+      "price": 900,
+      "book_net_assets": 500,
+      "property_write_up": 100,
+      "customer_list": 60,
+      "tax_rate": 0.25
+    },
+    "answer": 280
+  },
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

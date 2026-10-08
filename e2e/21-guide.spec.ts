@@ -26,6 +26,7 @@ test.describe("loop 21: complete technicals guide", () => {
 
   test("the PDF link ends in a file or the print-ready page", async ({ page, baseURL }) => {
     await unlockPrivateArea(page, baseURL!);
+    await page.goto("/home/technicals/guide"); // signs the team session in first
     const res = await page.request.get("/home/technicals/guide/pdf", { maxRedirects: 0 });
     if (res.status() === 200) expect(res.headers()["content-type"]).toBe("application/pdf");
     else expect(res.headers()["location"]).toContain("/home/technicals/guide?print=1");

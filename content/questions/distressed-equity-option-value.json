@@ -1,0 +1,39 @@
+{
+  "slug": "distressed-equity-option-value",
+  "topic_slug": "lbo",
+  "subtopic_slug": "distress-and-restructuring",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "restructuring",
+    "option-value"
+  ],
+  "question": "A company's enterprise value is below its debt, yet its shares still trade at 10p. Why aren't they worth zero?",
+  "model_answer_md": "Because shareholders own an **option**, not a claim on today's value.\n\nWith limited liability, the most a shareholder can lose is what they paid. If the business recovers before the debt has to be repaid — a better year, a lower interest-rate environment, an asset sale at a good price — all the value above the debt goes to the shares. So equity behaves like a **call option on the enterprise value with a strike price equal to the debt**.\n\nTwo things give that option value: **time** until the debt matures or a restructuring is forced, and **volatility** in the business's value. The more of each, the higher the share price, even while the company is underwater.\n\nThe value disappears when time runs out: in a restructuring under absolute priority the shareholders receive nothing, unless creditors give them a small stake to win their cooperation.",
+  "key_points": [
+    "Limited liability: downside capped, upside unlimited",
+    "Equity ≈ call option on EV struck at the debt",
+    "Value comes from time to maturity and volatility",
+    "Option value vanishes when a restructuring is forced",
+    "Shareholders may get a small 'tip' for cooperation"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why might shareholders of a distressed company favour riskier strategies?",
+      "answer_md": "Because they keep all the upside while creditors bear most of the downside. Raising volatility increases the option's value — the classic conflict between shareholders and creditors in distress."
+    },
+    {
+      "question": "What does this imply for the company's bonds?",
+      "answer_md": "They trade well below par: the market is pricing a recovery of less than 100p in the pound."
+    }
+  ],
+  "weak_answer_note": "Saying the market is simply mistaken, or that shares in an insolvent company must be worth exactly zero.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Equity is a call option on the enterprise value struck at the debt: limited downside, all the upside if value recovers before the debt is due. Time and volatility give it value; it vanishes in the restructuring."
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "scheme-vs-offer-uk",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "uk-takeover-code",
+    "deal-process"
+  ],
+  "question": "How can you take over a company listed in the UK? Name the two routes and the main differences.",
+  "model_answer_md": "UK public takeovers run under the **Takeover Code**, and there are two routes.\n\n**Scheme of arrangement.** The target proposes the deal to its own shareholders. It needs **75 % by value of the shares voted** and then the court's sanction, after which it binds **every** shareholder. It suits recommended (friendly) deals, delivers 100 % in one step, and is the most common route.\n\n**Contractual offer.** The bidder makes an offer directly to each shareholder, normally conditional on acceptances of **more than 50 %**. At **90 %** it can compulsorily buy out the rest. It is the route for hostile bids, because it does not need the target board's cooperation.\n\nAround both sit Code rules worth naming: **put up or shut up** (28 days after being named to make a firm offer or walk away for six months), the **mandatory offer** at 30 %, and a general ban on target-paid break fees.",
+  "key_points": [
+    "Takeover Code governs UK public bids",
+    "Scheme: target-led, 75 % by value voted + court sanction, binds all",
+    "Offer: bidder-led, >50 % acceptance condition, squeeze-out at 90 %",
+    "Hostile bids use offers; recommended deals usually schemes",
+    "Name PUSU (28 days) and the 30 % mandatory offer"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do most recommended UK deals use a scheme?",
+      "answer_md": "Because it delivers 100 % ownership in one step at a lower threshold than a squeeze-out. A 75 % vote of the shares actually voted binds everyone, whereas an offer needs 90 % acceptances of the shares it does not already own before it can force out the rest. It also gives timetable certainty once the court date is set."
+    },
+    {
+      "question": "What is the mandatory offer rule?",
+      "answer_md": "If anyone acquires 30 % or more of a UK listed company's voting rights, they must make a cash offer, or one with a cash alternative, for all the remaining shares, at no less than the highest price they paid in the previous year. It stops someone from taking control by creeping up their stake without paying every shareholder for that control."
+    }
+  ],
+  "weak_answer_note": "Only knowing the US tender-offer vocabulary. Mixing up the 75 % and 90 % thresholds. Not knowing which route a hostile bidder uses.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

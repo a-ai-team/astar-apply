@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { DEFAULT_PATH } from "../src/lib/content/taxonomy";
 
 // Requires `npm run seed -- 00 && npm run seed -- 03` (users + curriculum + 2 approved lessons).
 function admin() {
@@ -46,7 +47,7 @@ test.describe("Loop 03 technicals", () => {
     await expect(page.getByTestId("week-card")).toHaveCount(10);
     await page.getByTestId("week-card").nth(3).click();
     await expect(page.getByTestId("week-heading")).toContainText("Week 4");
-    await expect(page.getByTestId("day-row")).toHaveCount(5);
+    await expect(page.getByTestId("day-row")).toHaveCount(DEFAULT_PATH.weeks[3].days.length);
     await expect(page.getByTestId("day-lesson-link").filter({ hasText: "The EqV → EV bridge" })).toBeVisible();
   });
 

@@ -1,0 +1,37 @@
+{
+  "slug": "years-to-triple-at-twelve-percent",
+  "subtopic_slug": "brain-teasers",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Fit – Outside the box",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "mental-maths",
+    "compounding"
+  ],
+  "question": "Roughly how long does it take money to triple at 12 % a year? Explain how you got there without a calculator.",
+  "model_answer_md": "About **9½–10 years**.\n\nStart with the rule of 72: at 12 % money **doubles** in about 72 ÷ 12 = **6 years**. Tripling needs a further 50 % on top of the doubled amount, and at 12 % a year that takes between three and four more years (1.12³ ≈ 1.40, 1.12⁴ ≈ 1.57). So roughly 6 + 3.6 ≈ **9.6 years**.\n\nA direct shortcut exists: the \"rule of 114\" for tripling, 114 ÷ 12 ≈ 9.5 years. The exact answer is ln 3 ÷ ln 1.12 ≈ **9.7 years**.",
+  "key_points": [
+    "Rule of 72: doubles in ~6 years at 12 %",
+    "Then ~50 % more growth takes ~3.6 more years",
+    "≈ 9.6 years; exact ≈ 9.7",
+    "Rule of 114 for tripling: 114 ÷ 12 ≈ 9.5"
+  ],
+  "follow_ups": [
+    {
+      "question": "What IRR does a 3× return in 5 years imply?",
+      "answer_md": "About 25 %: 1.25⁵ ≈ 3.05. Useful for LBO returns maths."
+    },
+    {
+      "question": "Why does the rule of 72 work?",
+      "answer_md": "Because ln 2 ≈ 0.69 and ln(1 + r) ≈ r for small r, so doubling time ≈ 0.69 ÷ r. 72 is used instead of 69 because it divides neatly by many rates and corrects for the approximation at typical rates."
+    }
+  ],
+  "weak_answer_note": "Guessing by scaling the doubling time (6 × 1.5 = 9) without a method, or giving up without the rule of 72 as a starting point.",
+  "numbers": null,
+  "topic_slug": "fit-behavioural",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

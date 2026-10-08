@@ -104,7 +104,7 @@ test.describe("Loop 11 platform", () => {
     await expect(page.getByTestId("cheatsheet-canonical")).toContainText("Walk me through the three statements");
     await expect(page.getByTestId("cheatsheet-traps").locator("li").first()).toBeVisible();
     // `ft-only` material is named, never taught.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Deferred tax");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Pension deficits");
     // The formulas render as KaTeX, not raw LaTeX.
     await expect(page.getByTestId("cheatsheet-formulas").locator(".katex").first()).toBeVisible();
   });

@@ -1,0 +1,36 @@
+{
+  "slug": "deferred-tax-asset-vs-liability",
+  "topic_slug": "accounting",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "kind": "concept",
+  "difficulty": 1,
+  "question": "What are deferred tax assets and deferred tax liabilities?",
+  "model_answer_md": "Both come from **timing differences** between the accounts and the tax return.\n\nA **deferred tax liability** is tax the accounts have charged but the company has not yet paid. The usual cause is tax law allowing faster depreciation than the accounts. Taxable profit is lower today, so cash tax is lower today and higher later.\n\nA **deferred tax asset** is the reverse: a future tax saving. The usual causes are **tax losses carried forward**, which will shelter future profit, or expenses booked in the accounts before tax law allows the deduction.\n\nNeither is a debt in the normal sense. Each simply records tax that has been postponed or brought forward.",
+  "key_points": [
+    "Both arise from timing differences between book and tax",
+    "DTL: tax charged in the accounts, not yet paid (e.g. accelerated allowances)",
+    "DTA: future tax saving (e.g. losses carried forward)",
+    "They unwind as the timing difference reverses"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is a DTL part of net debt?",
+      "answer_md": "Usually not. It carries no interest and has no maturity, and if the company keeps investing it may never fully unwind. Some analysts include a long-dated DTL at a discount, but the default is to leave it out."
+    },
+    {
+      "question": "When will the accounts not recognise a DTA?",
+      "answer_md": "When it is not probable that enough future taxable profit will exist to use it. Loss-making start-ups often carry large unrecognised losses for that reason."
+    }
+  ],
+  "weak_answer_note": "Describes a DTL as an unpaid tax bill due now, or cannot name a cause of either.",
+  "numbers": null,
+  "source_topic": "Accounting – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "deferred-tax"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

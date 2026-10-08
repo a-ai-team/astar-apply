@@ -1,0 +1,37 @@
+{
+  "slug": "negative-book-equity",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "book-equity"
+  ],
+  "question": "Can a company have negative shareholders' equity on its balance sheet and still be worth billions? Can its equity value ever be negative?",
+  "model_answer_md": "**Yes to the first, no to the second.**\n\n**Book equity** is an accounting figure: what shareholders put in plus profits retained, minus everything paid back out. A mature, highly profitable company that funds big **buybacks and dividends with debt** can return more than it ever retained, pushing book equity below zero. Large accumulated losses or write-downs can do the same. None of that stops the market valuing its future cash flows at billions — book value records history, the market prices the future.\n\n**Market equity value** — share price × shares — **cannot be negative**. Shareholders have limited liability: the most they can lose is their investment, so a share can approach zero but not go below it.\n\nThat is a neat contrast with **enterprise value**, which *can* be negative, when a company's cash exceeds the value the market puts on everything else.",
+  "key_points": [
+    "Book equity is historical; market equity prices future cash flows",
+    "Debt-funded buybacks and dividends can push book equity negative",
+    "Negative book equity is not, by itself, a sign of distress",
+    "Market equity value cannot be negative — limited liability",
+    "EV can be negative; equity value cannot"
+  ],
+  "follow_ups": [
+    {
+      "question": "What multiple breaks when book equity is negative?",
+      "answer_md": "Price-to-book and return on equity become meaningless — a negative denominator. You would switch to EV-based multiples or P/E."
+    },
+    {
+      "question": "When is negative book equity a warning sign?",
+      "answer_md": "When it comes from accumulated losses rather than shareholder returns. A loss-making company with negative book equity and heavy debt may be insolvent on a balance-sheet basis, which matters to lenders and directors."
+    }
+  ],
+  "weak_answer_note": "Assuming negative book equity means the company is bankrupt, or claiming market equity value can be negative.",
+  "numbers": null,
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

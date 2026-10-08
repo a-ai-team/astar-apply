@@ -1,0 +1,37 @@
+{
+  "slug": "accrued-bonus-walkthrough",
+  "topic_slug": "accounting",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "At the year end Kestrel owes its staff an £8m bonus that it will pay in March. Tax is 25 %. Walk me through this year's statements, then what happens in March.",
+  "model_answer_md": "**This year — the accrual.**\n\n- **Income statement.** The bonus was earned this year, so it is an expense now even though no cash has moved: operating costs +£8m, tax −£2m, **net income −£6m**.\n- **Cash flow statement.** Start at −£6m. The **increase in accrued liabilities** (bills owed but not yet paid) is added back, **+£8m**. Cash **rises £2m**, which is the tax saving.\n- **Balance sheet.** Cash +2. Accrued liabilities +8. Retained earnings −6. Assets +2 = liabilities +8 + equity −6, so it balances.\n\n**In March — the payment.** No income statement effect, because the expense has already been booked. Operating cash flow shows the **decrease in accrued liabilities, −£8m**. Cash −8 and accrued liabilities −8.",
+  "key_points": [
+    "Expense is recognised when earned, not when paid",
+    "This year: NI −6, cash +2, accrued liabilities +8",
+    "The accrual is added back as a working-capital movement",
+    "Payment next year: cash −8, accrued −8, no income statement effect"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does cash rise this year if the company has a new cost?",
+      "answer_md": "Because nothing has been paid yet, but the expense still reduces taxable profit. The only cash effect this year is £2m less tax. The £8m leaves in March."
+    },
+    {
+      "question": "How is a prepayment the mirror image?",
+      "answer_md": "A prepayment is cash paid before the expense is recognised. Cash leaves first and the asset unwinds into expense later. An accrual is expense recognised first and cash paid later."
+    }
+  ],
+  "weak_answer_note": "Says no expense until the bonus is paid (cash accounting), or forgets the tax effect and says cash is unchanged this year.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "accruals"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

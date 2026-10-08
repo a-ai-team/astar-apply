@@ -1,0 +1,199 @@
+{
+  "slug": "levered-dcf-and-variants",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "title": "Levered DCF, APV and the awkward discount rates",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Everything so far has been the standard DCF: unlevered free cash flow, discounted at WACC, giving enterprise value. That is the right default, and it is what you should reach for first.\n\nBut the discount-rate section of an interview rarely stops there. Once you have walked through WACC, the follow-ups test whether you understand *why* the standard method pairs those particular cash flows with that particular rate — by asking about the variants. What if you value the equity directly? What if the company is private and has no share price? What if its cash flows are in another currency, or it has preferred shares?\n\nThis lesson covers those variants. None of them needs new maths. Each one is the same rule applied carefully: **the discount rate must belong to the same people, the same risk and the same currency as the cash flows.**"
+      },
+      {
+        "type": "concept",
+        "heading": "Match the cash flow to the people who receive it",
+        "md": "A DCF discounts a stream of cash at the return its owners require. So the first decision is always **whose cash is this?**\n\n- **Unlevered free cash flow** (UFCF) is struck before any payment to lenders. It belongs to *everyone* who funded the business, so it is discounted at the blended return they all require — **WACC** — and the answer is **enterprise value**.\n- **Levered free cash flow**, usually called **free cash flow to equity (FCFE)**, is what is left after lenders have been paid their interest and any debt has been repaid or newly drawn. It belongs to *shareholders only*, so it is discounted at the **cost of equity** — and the answer is **equity value**, with no bridge needed.\n\nBoth routes should land on roughly the same equity value if the assumptions are consistent. In practice the unlevered route is preferred because it does not move every time the company borrows or repays, which makes it easier to compare across peers and to use when a buyer would change the capital structure anyway.\n\n**Where the levered route is the norm:** banks and insurers. For a bank, debt — customer deposits, wholesale funding — is not financing, it is the raw material of the business. You cannot separate \"operations\" from \"financing\", so you value the equity directly, usually with a dividend discount model, which is a levered DCF on the dividends a regulator lets the bank pay out. Project-finance and infrastructure models are also often run on equity cash flows, because the debt schedule is fixed and contractual."
+      },
+      {
+        "type": "mechanics",
+        "md": "**From UFCF to FCFE** — take away what lenders get, after the tax saving on interest, and add any new borrowing:\n\n$$FCFE = UFCF - \\text{Interest} \\times (1-t) + \\text{Net borrowing}$$\n\n*Net borrowing* is new debt raised less debt repaid in the year. Raising debt puts cash in shareholders' hands that year; repaying it takes cash away.\n\n**Adjusted present value (APV)** splits the value of the business into two pieces and adds them:\n\n$$APV = \\underbrace{\\frac{\\text{UFCF}}{k_u}\\ \\text{(PV at the unlevered cost of equity)}}_{\\text{business as if all-equity}} + \\text{PV of interest tax shields}$$\n\nHere $k_u$ is the cost of equity the business would have with no debt at all — CAPM with the **unlevered** beta. APV is useful when the debt changes a lot over time, as in an LBO, because WACC assumes a steady mix of debt and equity and APV does not.\n\n**Extras that go into the rate, not the cash flows:**\n\n- **Size premium** — an extra 1–3 % on the cost of equity for small companies, whose returns have historically run above what CAPM predicts. Widely used for private-company valuations; contested in theory.\n- **Country risk premium** — an extra return for operating in a country with a meaningful risk of default, currency controls or expropriation, usually sized from that government's borrowing spread over a safe government.\n- **Preferred shares** — a separate slice of the capital, weighted at market value and costed at their dividend yield. **No tax adjustment**, because preferred dividends are paid out of after-tax profit."
+      },
+      {
+        "type": "predict",
+        "prompt": "A candidate takes Harbourline's free cash flow **after** interest — £59.3m in the first forecast year — and discounts it at Harbourline's 8.0 % WACC. Compared with doing it properly, their answer is…",
+        "options": [
+          {
+            "label": "Too high — WACC is too low a rate for a cash flow that belongs to shareholders only",
+            "correct": true
+          },
+          {
+            "label": "Too low — the cash flow is smaller, so the value must be smaller"
+          },
+          {
+            "label": "Correct — it is still Harbourline's cash, discounted at Harbourline's rate"
+          },
+          {
+            "label": "Correct for equity value, as long as you then subtract net debt"
+          }
+        ],
+        "explain_md": "£59.3m is a **levered** cash flow: lenders have already been paid. It belongs to shareholders, who bear more risk than lenders and require **10 %**, not the 8 % blend.\n\nDiscounting a shareholders' cash flow at a rate that is partly made of the cheaper cost of debt counts the benefit of debt **twice** — once by removing the interest from the cash flow, and again by blending the low cost of debt into the rate. The answer is too high.\n\nAnd the last option compounds it: the interest is already gone from the cash flow, so subtracting net debt afterwards takes the lenders out a second time. Match the pair — UFCF with WACC, or FCFE with the cost of equity — and never mix them."
+      },
+      {
+        "type": "widget",
+        "widget": "wacc_builder",
+        "props": {
+          "riskFree": 0.04,
+          "beta": 0.83,
+          "erp": 0.06,
+          "costOfDebt": 0.07,
+          "taxRate": 0.25,
+          "equityValue": 80,
+          "debtValue": 20
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Three variants on familiar numbers.** Harbourline's first-year unlevered free cash flow is **£81.8m** (the figure you built in the free-cash-flow lesson). It pays **£30m** of interest on its £500m of borrowings, tax is **25 %**, and it neither borrows nor repays this year. Its unlevered beta — the beta of the business with no debt — is **0.70**, the risk-free rate **4 %** and the equity risk premium **6 %**.\n\nThird, a **private** competitor with no share price at all. Take the same 0.70 unlevered beta from listed peers, relever it at the private company's own debt-to-equity of **0.25**, and add a **2 %** size premium.",
+        "steps": [
+          {
+            "label": "FCFE: £81.8m − £30m × (1 − 25 %) + £0m net borrowing (£m)",
+            "expr": "81.8 - 30 * (1 - 25%) + 0",
+            "value": 59.3
+          },
+          {
+            "label": "Unlevered cost of equity, ku: 4 % + 0.70 × 6 %",
+            "expr": "4% + 0.70 * 6%",
+            "value": 0.082
+          },
+          {
+            "label": "APV piece 1 — value as if all-equity, cash flow held flat forever: £81.8m ÷ 8.2 % (£m)",
+            "expr": "81.8 / 0.082",
+            "value": 997.6
+          },
+          {
+            "label": "APV piece 2 — PV of the tax shield on £500m of permanent debt: 25 % × £500m (£m)",
+            "expr": "25% * 500",
+            "value": 125
+          },
+          {
+            "label": "APV: £997.6m + £125m (£m)",
+            "expr": "997.6 + 125",
+            "value": 1122.6
+          },
+          {
+            "label": "Private competitor's relevered beta: 0.70 × (1 + 0.75 × 0.25)",
+            "expr": "0.70 * (1 + 0.75 * 0.25)",
+            "value": 0.83
+          },
+          {
+            "label": "Its cost of equity with a 2 % size premium: 4 % + 0.83 × 6 % + 2 %",
+            "expr": "4% + 0.83125 * 6% + 2%",
+            "value": 0.1099
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "In year two Harbourline's unlevered free cash flow rises to **£90.0m**. Interest is still **£30m**, tax 25 %, and this year it draws **£20m** of new debt. Build the cash flow to shareholders.",
+        "steps": [
+          {
+            "label": "After-tax interest: £30m × (1 − 25 %) (£m)",
+            "expr": "30 * (1 - 25%)",
+            "value": 22.5,
+            "blank": true
+          },
+          {
+            "label": "FCFE: £90.0m − £22.5m + £20m (£m)",
+            "expr": "90 - 22.5 + 20",
+            "value": 87.5,
+            "blank": true
+          },
+          {
+            "label": "The same year if it had instead repaid £20m: £90.0m − £22.5m − £20m (£m)",
+            "expr": "90 - 22.5 - 20",
+            "value": 47.5
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**Mixing currencies between the cash flow and the rate.**\n\nSuppose you value a Brazilian subsidiary. Its cash flows are forecast in reais, growing 9 % a year — most of that is Brazilian inflation. If you discount them at a sterling WACC of 8 %, built on a UK gilt yield, you have paired a high-inflation cash flow with a low-inflation rate, and the value comes out far too high. The terminal value makes it worse, because a 9 % growth rate against an 8 % discount rate does not even give a finite answer.\n\nThe rule: **the risk-free rate inside the discount rate must be in the same currency as the cash flows.** Either forecast in reais and discount at a real-denominated rate (Brazilian government yield plus the same risk premia), or convert the forecast into sterling first and use the sterling rate. Then convert the answer at today's exchange rate.\n\nThe same discipline applies to inflation: nominal cash flows with a nominal rate, real cash flows with a real rate."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A levered DCF discounts free cash flow to equity — cash after interest and net borrowing — at the cost of equity, and gives equity value directly. The unlevered DCF discounts cash before financing at WACC and gives enterprise value. They should agree if assumptions are consistent; unlevered is standard because it ignores capital structure. Levered is the norm for banks, where debt is part of operations. APV is a third route: the all-equity value plus the present value of the tax shields.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Telecom subsidiaries in riskier countries",
+            "md": "Telecom groups often own operators across emerging markets. Valuing one of those subsidiaries is where the country risk premium earns its place.\n\nA mobile operator in a country whose government borrows at 5 % above the UK carries risks a London-listed peer does not: currency devaluation, sudden tax changes, licence renewals that are politically priced. Those are not captured by a beta measured against a developed-market index, so bankers add a country risk premium to the cost of equity — commonly sized from that sovereign spread — and forecast the cash flows in local currency with a local risk-free rate.\n\nThe opposite mistake is to add the premium **and** haircut the cash flows for the same risk. Pick one place for each risk and say which.",
+            "example_q": "How would you adjust the discount rate when valuing a telecom operator in an emerging market?",
+            "answer_md": "I would build the cost of equity in the operator's local currency, starting from a local-currency risk-free rate, and add a country risk premium for risks that a developed-market beta misses — devaluation, political interference with tariffs or licences, capital controls. A common way to size that premium is the country's government borrowing spread over a safe sovereign, sometimes scaled up because equity is riskier than government debt.\n\nThe cash flows stay in local currency so the inflation in them matches the inflation in the rate. And I would make sure the same risk is not counted twice — if I have already cut the cash flows for, say, an expected licence fee increase, I would not also load that into the rate."
+          },
+          "healthcare": {
+            "heading": "A UK-listed pharma that earns in dollars",
+            "md": "A British pharmaceutical company may report in sterling yet earn most of its profit in the United States. The currency rule still applies: whichever currency the forecast is in, the risk-free rate inside the discount rate must be in the same one.\n\nIn practice analysts often forecast the US business in dollars, discount it at a dollar-based rate built on US Treasury yields, and translate the resulting value to sterling at the spot rate. Forecasting in dollars and discounting at a gilt-based rate quietly assumes US inflation equals UK inflation — fine if they are close, misleading if they are not.",
+            "example_q": "A UK-listed drug company earns 60 % of its cash flow in US dollars. How do you handle currency in its DCF?",
+            "answer_md": "Keep each cash flow and its discount rate in the same currency. I would forecast the dollar-earning business in dollars and discount it at a rate built on US Treasury yields, value the sterling business at a gilt-based rate, then translate the dollar value at today's exchange rate and add the two.\n\nThe alternative — converting every future dollar into sterling and using one sterling rate — is also valid, but only if the forecast exchange rates are consistent with the interest-rate difference between the two countries. The error to avoid is forecasting in dollars and discounting at a sterling rate without thinking about whether the inflation built into each matches."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Harbourline's capital is **£1,050m** of equity, **£545m** of debt (borrowings plus leases) and **£30m** of preferred shares. The cost of equity is **10 %**, the pre-tax cost of debt **6 %**, the preferred dividend yield **8 %**, and tax **25 %**. Work out WACC with the preferred shares as their own slice. Then say why lumping them in with debt would understate WACC.",
+        "model_answer_md": "Total capital is £1,050m + £545m + £30m = **£1,625m**.\n\n- Equity: 1,050 ÷ 1,625 = 64.6 % × 10 % = **6.46 %**\n- Debt: 545 ÷ 1,625 = 33.5 % × 6 % × 0.75 = **1.51 %**\n- Preferred: 30 ÷ 1,625 = 1.8 % × 8 % = **0.15 %**\n\n$$WACC \\approx 6.46\\% + 1.51\\% + 0.15\\% = \\mathbf{8.1\\%}$$\n\nTreating the preferred as debt would cost it at 6 % and then apply the tax shield, giving 4.5 %. That is wrong twice: preferred holders rank behind lenders and demand more (8 %), and their dividends come out of after-tax profit, so there is no tax saving. The slice is small here, so WACC only moves from 8.1 % to about 8.0 %, but on a company with a large preferred issue the error matters.",
+        "rubric": [
+          "Totals capital at £1,625m and sets three market-value weights",
+          "Applies the (1 − t) adjustment to debt only",
+          "Costs preferred at its 8 % yield with no tax adjustment",
+          "Reaches about 8.1 %",
+          "Explains both reasons preferred is not debt for WACC: higher required return and no tax shield"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "What do you discount free cash flow to equity at, and what does it give you?",
+            "a": "The cost of equity, and it gives equity value directly — no bridge from enterprise value."
+          },
+          {
+            "q": "Why are banks valued with a levered method?",
+            "a": "Their debt is the raw material of the business, not financing, so you cannot strip it out — you value the equity directly, usually with a dividend discount model."
+          },
+          {
+            "q": "What are the two pieces of an APV?",
+            "a": "The value of the business as if it had no debt, discounted at the unlevered cost of equity, plus the present value of the interest tax shields."
+          },
+          {
+            "q": "A private company has no share price. Where does its beta come from?",
+            "a": "Listed peers: unlever their betas, take the median, relever at the private company's own debt-to-equity — then often add a size premium."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Whatever the variant, the rate must belong to the same owners, the same risk and the same currency as the cash flow — UFCF with WACC, FCFE with the cost of equity, reais with a reais rate.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can explain a levered DCF and say when it is used instead of an unlevered one.",
+          "I can build free cash flow to equity from unlevered free cash flow.",
+          "I can explain APV and why it suits a company whose debt changes a lot.",
+          "I can build a discount rate for a private company using peer betas and a size premium.",
+          "I can handle preferred shares, country risk and currency consistently in a discount rate."
+        ]
+      }
+    ]
+  }
+}

@@ -45,6 +45,21 @@
       "name": "Tax shield of a non-cash charge",
       "latex": "\\text{Cash saved} = \\text{charge} \\times t",
       "note": "The one line that decides the classic question. A £10m charge at 25 % leaves cash £2.5m higher, not £10m lower."
+    },
+    {
+      "name": "Deferred tax liability created",
+      "latex": "\\text{DTL} = (\\text{tax allowance} - \\text{book depreciation}) \\times t",
+      "note": "Kestrel: (20 − 10) × 25 % = £2.5m. Charged in the accounts, paid later; added back on the cash flow statement."
+    },
+    {
+      "name": "Deferred tax asset from losses",
+      "latex": "\\text{DTA} = \\text{tax loss carried forward} \\times t",
+      "note": "A £40m loss at 25 % shelters £10m of future tax — recognised only if future profit is likely."
+    },
+    {
+      "name": "Associate (equity method)",
+      "latex": "\\Delta\\text{Investment} = \\text{stake} \\times \\text{NI} - \\text{dividends received}",
+      "note": "30 % × £20m − £2m = +£4m. One line of profit below EBIT; cash moves only with the dividend."
     }
   ],
   "canonical": [
@@ -77,20 +92,22 @@
     "Depreciation up means cash up by the tax shield — never down by the full charge.",
     "A gain on an asset sale is stripped out of operating cash flow; the whole proceeds sit in investing.",
     "Dividends never touch the income statement — they are a financing outflow and a hit to retained earnings.",
-    "An increase in working capital is a use of cash, not a source."
+    "An increase in working capital is a use of cash, not a source.",
+    "Calling a deferred tax liability a tax bill due now — it is postponed tax with no date or interest, normally left out of net debt.",
+    "Saying IFRS 16 made a company more indebted — the lease obligation existed before; only the presentation changed. EBITDA rises by the full rent.",
+    "Consolidating only 80 % of an 80 %-owned subsidiary — you report 100 % and show the other 20 % as non-controlling interest.",
+    "Treating a goodwill impairment as tax-deductible — usually it is not, so cash does not move."
   ],
   "one_liners": [
     "Walk IS → CFS → BS, and finish on assets − liabilities − equity = 0.",
     "Non-cash charges cost you profit and save you tax.",
     "Working capital up, cash down.",
-    "Profit is an opinion; cash is a fact."
+    "Profit is an opinion; cash is a fact.",
+    "Deferred tax is timing, leases are presentation, and stakes follow control: under 20 % an investment, 20–50 % one line of profit, over 50 % everything plus NCI.",
+    "Paying in advance creates an asset; owing for something used creates an accrual — the expense follows the use, not the cash."
   ],
   "you_may_hear": [
-    "Deferred tax assets and liabilities arising from book-versus-tax depreciation — know that they reverse over time.",
-    "IFRS 16 / ASC 842 lease capitalisation mechanics — you need the enterprise-value consequence, not the schedule.",
-    "Net operating loss carry-forwards and how they are valued.",
     "Pension deficits and where they sit in the bridge.",
-    "LIFO versus FIFO inventory accounting (US only — not permitted under IFRS).",
     "The direct method of preparing a cash flow statement, which almost nobody files."
   ]
 }

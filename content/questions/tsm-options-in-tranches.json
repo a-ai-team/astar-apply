@@ -1,0 +1,49 @@
+{
+  "slug": "tsm-options-in-tranches",
+  "subtopic_slug": "diluted-shares",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "tsm",
+    "diluted-shares"
+  ],
+  "question": "Harbourline has 240m basic shares trading at £4.20. Employees hold three batches of options: 10m with a £1.40 strike, 6m at £3.50 and 8m at £5.00. Using the treasury-stock method, what is the diluted share count and the equity value?",
+  "model_answer_md": "Handle each batch, then net off the buyback.\n\n**Which are in the money?** The £1.40 and £3.50 batches have strikes below £4.20, so they are exercised. The **£5.00 batch is out of the money** and is ignored entirely — nobody pays £5.00 for a share worth £4.20.\n\n- Options exercised: 10m + 6m = **16m**\n- Cash received on exercise: 10m × £1.40 + 6m × £3.50 = £14m + £21m = **£35m**\n- Shares bought back at the market price: £35m ÷ £4.20 = **8.33m**\n- Net new shares: 16m − 8.33m = **7.67m**\n\n$$\\text{Diluted shares} = 240\\text{m} + 7.67\\text{m} = \\mathbf{247.7\\text{m}}$$\n\n$$\\text{Equity value} = £4.20 \\times 247.7\\text{m} = \\mathbf{£1{,}040\\text{m}}$$",
+  "key_points": [
+    "Only in-the-money batches count: £1.40 and £3.50; the £5.00 batch is ignored",
+    "Exercise proceeds £35m buy back 8.33m shares at £4.20",
+    "Net new shares 7.67m",
+    "Diluted shares 247.7m; equity value about £1,040m"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens if the share price rises to £5.50?",
+      "answer_md": "The £5.00 batch moves into the money and is added too, and the buyback shrinks relative to the shares issued because each pound of proceeds buys fewer shares. So dilution rises with the share price — which is why the diluted count must be recomputed at the offer price in an acquisition."
+    },
+    {
+      "question": "Why not just add all 24m options?",
+      "answer_md": "Because that ignores the cash the company receives. The holders pay the strike, and the treasury-stock method assumes that cash is used to buy shares back, so only the net new shares dilute existing holders. Adding out-of-the-money options would count shares that will never be issued."
+    }
+  ],
+  "weak_answer_note": "Including the out-of-the-money £5.00 options, or adding the gross 16m exercised without netting off the shares repurchased with the proceeds.",
+  "numbers": {
+    "inputs": {
+      "basic_shares": 240,
+      "share_price": 4.2,
+      "options_1": 10,
+      "strike_1": 1.4,
+      "options_2": 6,
+      "strike_2": 3.5,
+      "options_3": 8,
+      "strike_3": 5.0
+    },
+    "answer": 247.67
+  },
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

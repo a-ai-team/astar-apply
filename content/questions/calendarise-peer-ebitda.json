@@ -1,0 +1,43 @@
+{
+  "slug": "calendarise-peer-ebitda",
+  "subtopic_slug": "comparable-companies",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "calendarisation"
+  ],
+  "question": "Your company has a December year-end. One peer reports to 31 March: EBITDA was £80m in the year to March 2026 and is forecast at £96m in the year to March 2027. What is the peer's calendar-2026 EBITDA?",
+  "model_answer_md": "Calendar 2026 runs January–December 2026. The peer's two financial years split it:\n\n- **January–March 2026** is the last 3 months of the year to March 2026\n- **April–December 2026** is the first 9 months of the year to March 2027\n\nWeight each year by the months it contributes (assuming profit is earned evenly through the year):\n\n$$0.25 \\times £80\\text{m} + 0.75 \\times £96\\text{m} = £20\\text{m} + £72\\text{m} = \\mathbf{£92\\text{m}}$$\n\nWithout this step you would compare your company's calendar-2026 multiple with the peer's year to March 2026 — a period mostly in 2025 — and a growing peer would look more expensive than it is.",
+  "key_points": [
+    "Calendar 2026 = 3 months of FY to Mar-26 + 9 months of FY to Mar-27",
+    "Weights 0.25 and 0.75",
+    "0.25 × 80 + 0.75 × 96 = £92m",
+    "Without it, multiples compare different periods"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the business is seasonal?",
+      "answer_md": "Simple time-weighting assumes profit is earned evenly. For a seasonal business, such as a retailer earning most of its profit at Christmas, use the quarterly or half-year figures it reports to build the calendar year from the actual periods."
+    },
+    {
+      "question": "Is this the same as an LTM figure?",
+      "answer_md": "Related but different. LTM (last twelve months) adds the latest interim period to the last annual figure and strips out the matching prior-year period, giving the most recent actual 12 months. Calendarisation lines up forecasts or actuals to a common year-end."
+    }
+  ],
+  "weak_answer_note": "Using the peer's financial-year figure unadjusted, or weighting the years the wrong way round.",
+  "numbers": {
+    "inputs": {
+      "fy_mar_2026": 80,
+      "fy_mar_2027": 96,
+      "months_from_first": 3
+    },
+    "answer": 92
+  },
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

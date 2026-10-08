@@ -1,0 +1,38 @@
+{
+  "slug": "distressed-company-options",
+  "topic_slug": "lbo",
+  "subtopic_slug": "distress-and-restructuring",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "restructuring"
+  ],
+  "question": "A company has a £300m loan maturing in nine months and banks are unwilling to refinance it. What are its options?",
+  "model_answer_md": "I'd start by asking whether this is liquidity or solvency — is the business worth more than £300m, and can it service the debt on a longer maturity?\n\n**If it is mainly liquidity:**\n- **Amend and extend** — ask the existing lenders to push out the maturity in exchange for a fee and a higher margin.\n- **Refinance elsewhere** — private credit, a high-yield bond, or asset-backed lending against receivables or property.\n- **New equity** — from the sponsor or a rights issue, used to pay down part of the loan.\n- **Sell assets** — dispose of a division or a property portfolio, or do a sale and leaseback.\n\n**If the debt is too big for the business:**\n- **Debt-for-equity swap** — lenders take shares for part of their claim.\n- A **court-backed process** if creditors will not all agree: in the UK a scheme of arrangement or restructuring plan, or administration to sell the business; in the US, Chapter 11.\n\nThe right answer depends on enterprise value against the debt, how much time is left, and who the fulcrum creditors are.",
+  "key_points": [
+    "First diagnose liquidity vs solvency",
+    "Liquidity: amend and extend, refinance, new equity, asset sales",
+    "Solvency: debt-for-equity swap",
+    "Court tools: scheme / restructuring plan / administration (UK), Chapter 11 (US)",
+    "Choice depends on value vs debt, time left, and the fulcrum"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why are lenders often willing to amend and extend rather than enforce?",
+      "answer_md": "Because enforcing on a sound business through a forced sale destroys value and may recover less. An extension earns fees and a higher margin, keeps the loan performing and defers the loss decision."
+    },
+    {
+      "question": "Why act nine months early rather than at maturity?",
+      "answer_md": "Because options shrink as the date nears — auditors may raise going-concern doubts, suppliers tighten terms and negotiating leverage passes to creditors. Starting early keeps consensual solutions open."
+    }
+  ],
+  "weak_answer_note": "Jumping straight to bankruptcy, or listing options without first asking whether the business is worth more than its debt.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Diagnose first. Liquidity: amend and extend, refinance, new equity, asset sale. Solvency: debt-for-equity swap, via a scheme, restructuring plan or administration if creditors won't all agree (Chapter 11 in the US)."
+}

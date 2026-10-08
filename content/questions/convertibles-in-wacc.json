@@ -1,0 +1,38 @@
+{
+  "slug": "convertibles-in-wacc",
+  "subtopic_slug": "wacc",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "wacc",
+    "convertibles"
+  ],
+  "question": "A company has a convertible bond outstanding. How do you treat it when you weight the WACC?",
+  "model_answer_md": "Decide whether it behaves more like **debt** or more like **equity** today — the same test you use in the diluted share count.\n\n- **Well out of the money** (the share price is far below the conversion price): holders will almost certainly take their money back, so treat it as **debt**. Weight it at market value and cost it at the yield on comparable straight debt — not its low coupon, which is low precisely because holders were given the conversion option.\n- **Well in the money** (share price above the conversion price): it will almost certainly convert, so treat it as **equity**. The new shares are already in the diluted share count and therefore in the market value of equity — do not also count it as debt.\n- **Near the money:** a hybrid. The more rigorous approach splits it into a straight-debt piece and an option piece, weighting each in its own bucket.\n\nThe principle that ties it together: whatever you do in the WACC weights must match what you did in the equity-value bridge. A convertible counted as dilution in one place and as debt in the other is counted twice.",
+  "key_points": [
+    "Test: does it behave like debt or equity today?",
+    "Out of the money → debt, costed at a straight-debt yield, not the coupon",
+    "In the money → equity, via the diluted share count",
+    "Near the money → split into debt and option pieces",
+    "Be consistent with the EV bridge — never count it twice"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why not use the coupon as its cost of debt?",
+      "answer_md": "Because the coupon is artificially low — the holders accepted it in exchange for the conversion option. The economic cost of borrowing is closer to what the company would pay on ordinary debt of similar maturity."
+    },
+    {
+      "question": "Does it matter much in practice?",
+      "answer_md": "For most companies the convertible is a small slice and the choice moves WACC only slightly. It matters for technology and biotech companies that fund heavily with convertibles."
+    }
+  ],
+  "weak_answer_note": "Always treating convertibles as debt at their coupon. Counting the same instrument as both dilution and debt.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

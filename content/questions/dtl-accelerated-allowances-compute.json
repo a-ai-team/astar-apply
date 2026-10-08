@@ -1,0 +1,45 @@
+{
+  "slug": "dtl-accelerated-allowances-compute",
+  "topic_slug": "accounting",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Kestrel buys £80m of equipment with an eight-year life and depreciates it evenly in the accounts. Tax law gives a £30m allowance on it in year one. Pre-tax profit in the accounts is £90m and tax is 25 %. What deferred tax liability is created in year one, and what is cash tax?",
+  "model_answer_md": "**Book depreciation** is £80m ÷ 8 = **£10m**. The tax return deducts **£30m**, so taxable profit is **£20m lower** than book profit.\n\n- Tax charge on the income statement: £90m × 25 % = **£22.5m**\n- Taxable profit: £90m + £10m − £30m = **£70m**\n- Cash tax: £70m × 25 % = **£17.5m**\n- **DTL created: £22.5m − £17.5m = £5m**, or equally (£30m − £10m) × 25 %\n\nOn the cash flow statement the £5m increase in the DTL is added back, so operating cash flow is £5m higher than it would be with no accelerated allowance. On the balance sheet cash +5 and DTL +5.",
+  "key_points": [
+    "Book depreciation £10m vs tax allowance £30m",
+    "Book tax £22.5m; taxable profit £70m; cash tax £17.5m",
+    "DTL created = (30 − 10) × 25 % = £5m",
+    "Cash flow adds back the £5m increase; DTL +5, cash +5"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens to the DTL over the asset's eight years?",
+      "answer_md": "It builds while allowances exceed book depreciation, then unwinds once they fall below it. By the end of the asset's life total depreciation equals total allowances, so the DTL is back to zero."
+    },
+    {
+      "question": "Why does it matter in a DCF?",
+      "answer_md": "A DCF should use cash taxes. Taxing EBIT at the statutory rate ignores the deferral and understates cash flow while allowances are generous, which matters for capex-heavy companies."
+    }
+  ],
+  "weak_answer_note": "Applies the tax rate to the full £30m rather than the £20m difference, or says the income statement tax charge falls.",
+  "numbers": {
+    "inputs": {
+      "cost": 80,
+      "life": 8,
+      "allowance": 30,
+      "pretax_profit": 90,
+      "tax_rate": 0.25
+    },
+    "answer": 5
+  },
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "deferred-tax"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

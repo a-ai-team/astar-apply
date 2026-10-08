@@ -1,0 +1,49 @@
+{
+  "slug": "wacc-with-preferred-shares",
+  "subtopic_slug": "wacc",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "wacc",
+    "preferred"
+  ],
+  "question": "A company has £600m of equity at a cost of 11 %, £300m of debt at a pre-tax cost of 7 %, and £100m of preferred shares paying an 8.0 % dividend on their market value with a 9 % required return. Tax is 25 %. What is its WACC, and what would you get if you wrongly treated the preferred shares as debt?",
+  "model_answer_md": "Give the preferred shares their own slice. Total capital is £600m + £300m + £100m = **£1,000m**, which makes the weights easy: **60 %, 30 %, 10 %**.\n\n- Equity: 60 % × 11 % = **6.60 %**\n- Debt, after tax: 30 % × 7 % × (1 − 25 %) = 30 % × 5.25 % = **1.575 %**\n- Preferred: 10 % × 9 % = **0.90 %** — no tax adjustment, because preferred dividends come out of after-tax profit\n\n$$WACC = 6.60\\% + 1.575\\% + 0.90\\% \\approx \\mathbf{9.1\\%}$$\n\n**Lumped in with debt**, the preferred would be costed at 7 % and given the tax shield: 60 % × 11 % + 40 % × 5.25 % = **8.7 %**. That understates WACC by about 0.4 percentage points, which would overvalue the business — on a DCF with a long terminal value, enough to move the answer noticeably.\n\nThe required return to use is what preferred holders demand today — here 9 % — not simply the 8 % dividend set when the shares were issued.",
+  "key_points": [
+    "Total capital £1,000m: weights 60 / 30 / 10",
+    "Debt after tax: 7 % × 0.75 = 5.25 %",
+    "Preferred costed at its 9 % required return, no tax shield",
+    "WACC ≈ 9.1 %",
+    "Treating preferred as debt gives ≈ 8.7 % — too low"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why does preferred cost more than debt but less than ordinary equity?",
+      "answer_md": "It ranks behind lenders, so it is riskier than debt, but ahead of ordinary shareholders and with a fixed dividend, so it is safer than common equity."
+    },
+    {
+      "question": "Where else does the preferred show up?",
+      "answer_md": "In the bridge from enterprise value to equity value — it is a claim ranking ahead of ordinary shareholders, so it is subtracted, just like debt."
+    }
+  ],
+  "weak_answer_note": "Applying the (1 − t) factor to the preferred dividend. Leaving the preferred out of the weights altogether. Using the coupon rather than the current required return.",
+  "numbers": {
+    "inputs": {
+      "equity_value": 600,
+      "cost_of_equity": 0.11,
+      "debt_value": 300,
+      "cost_of_debt": 0.07,
+      "preferred_value": 100,
+      "cost_of_preferred": 0.09,
+      "tax_rate": 0.25
+    },
+    "answer": 0.0908
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

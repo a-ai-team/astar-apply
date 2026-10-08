@@ -1,0 +1,37 @@
+{
+  "slug": "normalised-ebitda-marlow",
+  "subtopic_slug": "multiples-and-metrics",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Valuation metrics & multiples",
+  "tags": [
+    "depth:sa-core",
+    "format:fill",
+    "normalisation"
+  ],
+  "question": "Marlow reports EBITDA of £150m. That includes a £12m one-off restructuring charge and a £5m gain on selling a warehouse. Peers trade at a median of 11× EBITDA. What EBITDA should you apply the multiple to, and what enterprise value does it give?",
+  "model_answer_md": "**Normalise first**, so the multiple prices recurring profit.\n\n- Add back the one-off restructuring charge: +£12m\n- Remove the one-off gain on the warehouse: −£5m\n\n$$\\text{Normalised EBITDA} = £150\\text{m} + £12\\text{m} - £5\\text{m} = \\mathbf{£157\\text{m}}$$\n\n$$\\text{EV} = 11 \\times £157\\text{m} = \\mathbf{£1{,}727\\text{m}}$$\n\nAgainst £1,650m on the reported figure, that is **£77m** more value from £7m of EBITDA — which is exactly why buyers scrutinise every adjustment. Peers' EBITDA must be cleaned the same way, or the comparison is inconsistent.",
+  "key_points": [
+    "Add back one-off charges; remove one-off gains",
+    "Normalised EBITDA £157m",
+    "EV = 11 × £157m = £1,727m",
+    "Each £1m of adjustment is worth £11m at this multiple — scrutinise them",
+    "Normalise the peers on the same basis"
+  ],
+  "follow_ups": [
+    {
+      "question": "When would you challenge a 'one-off' add-back?",
+      "answer_md": "When it recurs. A company that books 'restructuring' every year has a recurring cost, and adding it back flatters EBITDA. I would look at several years of adjustments and treat anything regular as part of the business."
+    },
+    {
+      "question": "Is the warehouse gain in EBITDA in the first place?",
+      "answer_md": "It depends on how the company presents it — some put disposal gains in operating profit, some below it. If it is inside reported EBITDA it must come out, because selling a warehouse is not a recurring operating activity."
+    }
+  ],
+  "weak_answer_note": "Applying the multiple to reported EBITDA without adjusting, or adding back the gain instead of removing it.",
+  "numbers": null,
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

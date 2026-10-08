@@ -1,0 +1,166 @@
+{
+  "slug": "debt-tranches",
+  "subtopic_slug": "debt-tranches",
+  "title": "Debt tranches and covenants: who lends, on what terms",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Sources and uses told you the debt on Pennard was £250m in two layers. Leveraged-finance interviewers, and any elite-boutique round that leans on LBOs, go one level further: *who* are those lenders, what do they each want, and what stops the sponsor running the company into the ground with their money?\n\nThe answers are not a list to memorise. Every feature of a loan — where it ranks, whether it is secured, how it is repaid, what rate it charges, what promises it extracts — follows from one question: **how likely is this lender to get its money back, and how much is it paid for the risk?** Hold that question and the whole capital structure reads like a sentence."
+      },
+      {
+        "type": "concept",
+        "heading": "The capital structure is a queue",
+        "md": "Picture everyone who has funded Pennard standing in a queue for the company's cash and, if it fails, its assets. The order of the queue is **seniority**; whether a lender holds a charge over specific assets is **security**. The further back you stand, the more you are paid — and the less often you are paid in full.\n\nFrom the front:\n\n- **Revolving credit facility (RCF, or 'revolver').** A committed overdraft the company draws and repays as working capital swings. Usually undrawn at completion, senior and secured, and the cheapest money in the deal. Banks provide it.\n- **Term Loan A (TLA).** Senior secured, held by banks, **amortising** — a slice of principal is repaid every year, typically over five or six years.\n- **Term Loan B (TLB).** Also senior secured, but held mostly by institutional investors and repaid in one go at maturity — a **bullet** — with only a token 1 % a year in between. Slightly more expensive than the TLA because the money stays out longer.\n- **High-yield bonds.** Usually unsecured and behind the term loans. Fixed coupon, longer maturity, and **call protection**: the company pays a premium if it refinances in the first few years, because the investor was promised a stream of coupons.\n- **Mezzanine and PIK.** Subordinated debt that ranks behind everything else, often with **payment-in-kind** interest — interest added to the principal instead of paid in cash — and sometimes warrants for a slice of the equity. Expensive: low to mid teens.\n- **Sponsor equity.** Last in the queue, unlimited upside.\n\nIn the mid-market a single **unitranche** loan from a private-credit fund often replaces the senior and junior layers with one facility at one blended rate — fewer lenders, quicker execution, a higher price."
+      },
+      {
+        "type": "mechanics",
+        "md": "**Covenants** are the promises the borrower makes to keep lenders comfortable.\n\n- **Maintenance covenants** are tested regularly — usually every quarter — whether or not anything happens. The classic is a leverage test: total debt ÷ EBITDA must stay below, say, 6.0×. Bank loans (RCF, TLA) carry them.\n- **Incurrence covenants** only bite when the company *does* something — borrows more, pays a dividend, buys a business. Bonds carry these.\n- **Covenant-lite** term loans have incurrence-style terms only. Popular with sponsors because a bad quarter cannot trigger a default on its own.\n\nBreaching a maintenance covenant is a **default**: lenders can demand repayment, so in practice the sponsor negotiates a **waiver** or **amendment**, usually paying a fee, a higher margin or a fresh equity injection for it.\n\nLenders size and monitor all this with three **credit statistics**:\n\n- **Leverage** = total debt ÷ EBITDA — how many years of profit the debt represents.\n- **Interest cover** = EBITDA ÷ cash interest — how many times the interest bill is covered.\n- **FCF ÷ debt** — the share of the debt that a year's free cash flow could repay.\n\nTwo further items finish the structure. **Management rollover** is when executives reinvest part of their sale proceeds alongside the sponsor; **sweet equity** is a small slice of shares sold to management cheaply so that they own a meaningful share of the upside. And **financing fees** — typically 2–3 % of the debt — sit in the uses column, so they come out of the sponsor's cheque."
+      },
+      {
+        "type": "worked_calc",
+        "md": "Pennard's lenders run the credit stats at completion. Entry EBITDA is **£50m**, debt is **£250m** — a **£200m** senior term loan at 5.5 % and a **£50m** second lien at 8 % — and year-one interest is **£15m**. Year one's EBITDA is **£52.5m** and its free cash flow after interest, tax and capex is **£20.6m**. The senior loan carries a maintenance covenant of **6.0×** total leverage.",
+        "steps": [
+          {
+            "label": "Total leverage at entry",
+            "expr": "250 / 50",
+            "value": 5,
+            "unit": "×"
+          },
+          {
+            "label": "Senior leverage — the senior lenders' own exposure",
+            "expr": "200 / 50",
+            "value": 4,
+            "unit": "×"
+          },
+          {
+            "label": "Interest cover in year one",
+            "expr": "52.5 / 15",
+            "value": 3.5,
+            "unit": "×"
+          },
+          {
+            "label": "Year-one FCF as a share of the debt",
+            "expr": "20.6 / 250",
+            "value": 0.082,
+            "unit": ""
+          },
+          {
+            "label": "EBITDA at which 6.0× is breached on £250m of debt",
+            "expr": "250 / 6",
+            "value": 41.67,
+            "unit": "£m"
+          },
+          {
+            "label": "Headroom: how far entry EBITDA can fall",
+            "expr": "(50 - 41.67) / 50",
+            "value": 0.167,
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "A poor first year: Pennard's EBITDA drops to **£40m** before any debt has been repaid. Debt is still £250m and the maintenance covenant is 6.0×. What happens?",
+        "options": [
+          {
+            "label": "Nothing yet — covenants are only tested at refinancing"
+          },
+          {
+            "label": "Leverage is 6.25×, the covenant is breached and the sponsor has to negotiate",
+            "correct": true
+          },
+          {
+            "label": "Leverage is 5.0×, comfortably inside the covenant"
+          }
+        ],
+        "explain_md": "**£250m ÷ £40m = 6.25×**, above the 6.0× limit. A 20 % fall in EBITDA ate through 16.7 % of headroom. Maintenance covenants are tested every quarter regardless of whether the company has done anything, so this is a technical default even though Pennard may still be paying every pound of interest.\n\nWhat follows is a negotiation, not a liquidation: the sponsor asks for a waiver and pays for it — a fee, a higher margin, or new equity that pays down debt. On a covenant-lite loan there would be no test to fail, which is exactly why sponsors push for cov-lite terms."
+      },
+      {
+        "type": "widget",
+        "widget": "lbo_returns",
+        "props": {}
+      },
+      {
+        "type": "trap",
+        "md": "**\"PIK is attractive because it doesn't cost the company any cash.\"**\n\nIt doesn't cost cash *now*. PIK interest compounds onto the principal, so the claim grows every year: **£50m** of PIK notes at **12 %** become 50 × 1.12⁵ = **£88.1m** after five years. That whole amount ranks ahead of the equity at exit — so the sponsor's proceeds shrink by the full £38m of accrued interest — and the business has quietly become more levered every year it was supposed to be deleveraging.\n\nThe right framing: PIK protects near-term liquidity at the cost of a bigger claim later. Senior lenders tolerate it because it ranks behind them; the equity pays for it."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "An LBO's debt is a queue. At the front sit senior secured bank loans — a revolver for working capital and term loans, with the TLA amortising and the TLB a bullet — cheapest because they are repaid first and hold security. Behind them come high-yield bonds, then mezzanine or PIK, each riskier and dearer. Lenders protect themselves with covenants — maintenance tests like a 6× leverage cap for banks, incurrence tests for bonds, or covenant-lite terms — and size the debt off leverage, interest cover and free cash flow.",
+        "seconds": 50
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Recurring revenue buys looser terms",
+            "md": "Software buyouts are where **unitranche** and **covenant-lite** structures are most common. Private-credit funds will lend six to seven turns of EBITDA against subscription revenue with low churn, in one facility, often with a single loose leverage test or none at all. Where EBITDA is depressed by growth spending, the loan may be sized on **annual recurring revenue (ARR)** with a covenant that flips to an EBITDA test once the business matures.\n\nThe credit question changes accordingly: lenders watch **net revenue retention** and churn rather than EBITDA, because the subscription base is the collateral.",
+            "example_q": "Why might a software buyout carry 6.5× leverage with no maintenance covenant while a logistics buyout carries 5× with one?",
+            "answer_md": "Because the lenders' risk is different. Contracted, renewing subscription revenue is predictable, so lenders accept more turns and looser terms, and competition among private-credit funds pushes terms further in the borrower's favour. Freight volumes swing with the economy, so lenders want less debt and an early-warning test. The trade-off for the software sponsor is a higher margin on the unitranche."
+          },
+          "healthcare": {
+            "heading": "Property, regulation and the rent line",
+            "md": "Healthcare buyouts often own real estate — care homes, hospitals, clinics — which changes the structure. Sponsors frequently **sell and lease back** the property, raising cash to reduce the equity cheque. That converts a debt-like obligation into **rent**, which lenders then capitalise: they look at lease-adjusted leverage (debt plus about eight times rent, over **EBITDAR** — EBITDA before rent).\n\nRegulated revenue — fees set by public payers — supports leverage, but a cut in those fees can hit every operator at once, so covenant headroom matters more than the headline multiple.",
+            "example_q": "A care-home buyout's leverage looks low at 3× EBITDA. Why might a lender still be nervous?",
+            "answer_md": "Because the operator may have sold its homes and leased them back, so a large fixed rent sits above EBITDA. Adding capitalised rent to debt and measuring against EBITDAR can show lease-adjusted leverage of 6–7×. Rent is as hard to escape as interest, and with fees set by public payers there is little room to raise prices if costs rise."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Fernhill Packaging** is being bought for **£480m** (8× **£60m** EBITDA) with **£300m** of debt: a **£210m** TLB at **6 %** and a **£90m** high-yield bond at **9 %**. The TLB carries a **5.75×** maintenance leverage covenant.\n\nWork out entry leverage, senior leverage, year-one interest cover (assume EBITDA is still £60m) and the EBITDA level that breaches the covenant. Then say which lender is more exposed if EBITDA falls by a quarter, and why.",
+        "model_answer_md": "**Leverage.** 300 ÷ 60 = **5.0×** total; 210 ÷ 60 = **3.5×** senior.\n\n**Interest.** 210 × 6 % + 90 × 9 % = 12.6 + 8.1 = **£20.7m**, so interest cover is 60 ÷ 20.7 = **2.9×**.\n\n**Covenant.** It breaches below 300 ÷ 5.75 = **£52.2m** of EBITDA — a fall of 13 %. A 25 % fall to **£45m** takes leverage to **6.7×**: a breach.\n\n**Who is more exposed?** The bondholders. The TLB ranks ahead of them and holds security, so at £45m of EBITDA and, say, a 7× distressed multiple the business is worth £315m — enough to repay the TLB in full, leaving the bond to absorb any shortfall. The TLB lenders' advantage is the covenant itself: it gives them a seat at the table early, while the bond's incurrence covenants say nothing until the company tries to borrow or pay out.",
+        "rubric": [
+          "Total leverage 5.0× and senior leverage 3.5×",
+          "Interest £20.7m and cover about 2.9×",
+          "Covenant breach below about £52.2m of EBITDA; a 25 % fall gives 6.7×",
+          "Identifies the bond as more exposed because it ranks behind the secured TLB",
+          "Notes the maintenance covenant gives the TLB an early say; bonds rely on incurrence tests"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "TLA or TLB — which is a bullet?",
+            "a": "TLB: it repays at maturity with only token amortisation; the TLA amortises over its life."
+          },
+          {
+            "q": "Maintenance or incurrence — which is tested every quarter?",
+            "a": "Maintenance. Incurrence covenants only bite when the company takes an action such as borrowing or paying a dividend."
+          },
+          {
+            "q": "Interest cover on £60m EBITDA and £15m interest?",
+            "a": "4.0× — EBITDA divided by cash interest."
+          },
+          {
+            "q": "Why does PIK debt grow?",
+            "a": "Its interest is added to the principal instead of being paid in cash, so the claim compounds."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Every lender is pricing one thing — how likely it is to be repaid — and seniority, security, covenants and rate are just the terms that answer it.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can rank an LBO's debt from revolver to PIK and explain why each layer costs what it does.",
+          "I can distinguish maintenance, incurrence and covenant-lite terms and say what a breach leads to.",
+          "I can compute leverage, senior leverage, interest cover, FCF ÷ debt and covenant headroom.",
+          "I can explain why PIK grows the claim ahead of the equity, and what unitranche replaces.",
+          "I can describe management rollover, sweet equity and where financing fees sit."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "multiple-irrs-sign-changes",
+  "subtopic_slug": "irr-and-payback",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Finance concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "irr"
+  ],
+  "question": "A project costs money up front, generates cash for a few years, then requires a large clean-up payment at the end. Why might IRR be unreliable here, and what would you do instead?",
+  "model_answer_md": "Because the cash flows change sign **twice** — negative, then positive, then negative — and that can make the NPV cross zero at two different discount rates. The project then has **two IRRs**, and neither is a meaningful \"return\".\n\nFor example, spend £1.0m, receive £2.3m in year 1, pay £1.32m in year 2: the NPV is zero at both **10 %** and **20 %**, and positive only between them. Someone quoting \"a 20 % IRR\" would wrongly conclude the project clears an 8 % hurdle comfortably; in fact at 8 % the NPV is slightly negative.\n\nThe fix is to **compute the NPV at the actual cost of capital**. If an IRR-style figure is required, use MIRR, which has a single answer.",
+  "key_points": [
+    "Two or more sign changes can produce multiple IRRs",
+    "Each IRR is a rate where NPV = 0; none is \"the\" return",
+    "Example: −1.0, +2.3, −1.32 has IRRs of 10 % and 20 %",
+    "Decide on NPV at the cost of capital",
+    "MIRR gives a single figure if needed"
+  ],
+  "follow_ups": [
+    {
+      "question": "How many IRRs can a project have?",
+      "answer_md": "Up to as many as there are sign changes in its cash flows. A conventional project — one outflow followed by inflows — changes sign once and has a single IRR."
+    },
+    {
+      "question": "Give a real-world example of this cash-flow shape.",
+      "answer_md": "A mine or quarry with restoration obligations, a nuclear plant with decommissioning costs, or a leased site that must be returned to its original condition. Anything with a large obligation at the end of its life."
+    }
+  ],
+  "weak_answer_note": "Saying IRR is always fine as long as it beats the hurdle, or not knowing why multiple IRRs arise. Failing to offer NPV as the fix.",
+  "numbers": null,
+  "topic_slug": "finance-foundations",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

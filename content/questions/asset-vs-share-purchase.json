@@ -1,0 +1,37 @@
+{
+  "slug": "asset-vs-share-purchase",
+  "subtopic_slug": "purchase-price-allocation",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "deal-structure",
+    "tax"
+  ],
+  "question": "What is the difference between buying a company's shares and buying its assets, and why do buyers and sellers usually want different things?",
+  "model_answer_md": "**Share purchase.** The buyer acquires the company itself: every asset, contract and employee, and every liability, including ones nobody has found yet. The company's tax values carry over unchanged, so write-ups create a deferred tax liability rather than extra tax relief.\n\n**Asset purchase.** The buyer chooses which assets and liabilities to take. The assets' tax values reset to the price paid, so more of the price earns tax relief through allowances, and unwanted liabilities stay behind with the seller.\n\n**Who wants what.** Buyers lean towards assets: cleaner liabilities and better tax. Sellers lean towards shares: the proceeds go straight to the shareholders. In an asset sale, the company is first taxed on any gain and the owners face a second layer of tax when the cash is paid out. In the UK most sales of whole companies are share sales; asset deals are common for carve-outs and distressed sales.",
+  "key_points": [
+    "Share deal: buy the entity with all its liabilities; tax values unchanged",
+    "Asset deal: pick assets and liabilities; tax values step up to the price",
+    "Buyers prefer assets (liabilities, tax relief)",
+    "Sellers prefer shares (one layer of tax, clean exit)",
+    "UK default is a share sale; asset deals for carve-outs and distress"
+  ],
+  "follow_ups": [
+    {
+      "question": "How does the choice affect goodwill and future earnings?",
+      "answer_md": "In a share deal, write-ups come with a deferred tax liability, which raises goodwill, and the extra amortisation earns no tax relief. In an asset deal the tax values match the book values, so there is no DTL on the write-ups and the buyer's cash tax falls as the stepped-up assets are depreciated. Reported pre-tax earnings look similar; cash flow is better in the asset deal."
+    },
+    {
+      "question": "Why are distressed sales often asset deals?",
+      "answer_md": "Because the buyer wants the good business without the debts and claims that caused the distress. Buying assets out of an administration lets it leave liabilities with the insolvent company, where creditors share the sale proceeds. Buying the shares would bring every one of those claims along."
+    }
+  ],
+  "weak_answer_note": "Saying the only difference is what appears on the balance sheet. Missing the liability point. Not explaining why the seller resists an asset deal.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

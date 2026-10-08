@@ -1,15 +1,16 @@
 # CURRENT — live run state (rewrite after every task)
 
 - **Run started:** 2026-08-28 (Technicals v2) · **Programme completed:** 2026-09-01
-- **Loop:** **20 Week packs — merged (#46)** (plan `docs/loops/20-week-packs.md`).
-  Every week of the 10-week path downloads as a print-ready A4 PDF (`/home/path/<week>/pdf`, built
-  by `npm run packs:build` into the private `packs` bucket from the pack page
-  `/home/path/<week>/pack`): lessons laid out open, cheat sheet, practice set + answers, duplex
-  margins. Path audit fixed draft leakage, the week-10 lesson 404, dead drill days, the print header
-  and worked-example value formatting. Three week-10 fit lessons drafted and loaded as `generated`.
-- **Last checks (Loop 20):** lint ✓ typecheck ✓ build ✓ unit **409/409** ✓ e2e `20`+`18`+`03`
-  **13/13** ✓ · ten PDFs built and uploaded, sample pages checked (2026-09-20)
-- **Blockers:** none. **Needs a human:** approve the three week-10 fit lessons (item 0 below).
+- **Loop:** **21 Technicals complete — open PR** (plan `docs/loops/21-technicals-complete.md`).
+  Full-syllabus checklist (`docs/research/technicals-v2/21-complete-syllabus.md`) found nine gap areas;
+  10 stretch lessons + 78 questions now fill them (all `generated`), seven cheat sheets extended, a
+  master guide at `/home/technicals/guide` (+ `/pdf`, `packs:build -- --guide`), and a `coverage` eval
+  suite that maps the 400Q technical sections to our content. Path weeks gain stretch days 6–7.
+- **Last checks (Loop 21):** lint ✓ typecheck ✓ build ✓ unit **409/409** ✓ · eval lessons ✓ (4.45,
+  overlap 0) questions ✓ (n 280, overlap 0) · technicals e2e ✓ after unpinning counts (2026-10-08)
+- **Blockers:** none. **Needs a human:** approve the Loop 21 content (item 0b below); OK the
+  `coverage` run (it sends hidden-set questions to the API).
+- **Also open:** PR #49 (light mode + readable content column).
 
 ---
 
@@ -22,6 +23,10 @@ Mentor. Per-loop detail: the loop docs and `RUNLOG.md`.
 
 ## For James & Tesleem — everything that needs a human
 
+0b. **Loop 21 content** (10 lessons, 78 questions, `generated`): review, then
+   `npm run content:approve -- --topic finance-foundations,accounting,eqv-ev,valuation,dcf,ma,lbo` (+ `fit-behavioural`
+   for brain teasers — that also covers the item-0 fit lessons), then `seed -- 05`, `content:index`,
+   `packs:build -- --guide`. Check the UK loss-relief cap in `tax-losses-carried-forward`.
 0. **Week 10 fit lessons** (`big-five-fit`, `why-banking-why-firm`, `cv-and-experience`) are drafted
    and `generated` — not live. The mentor corpus is thin on fit, so Tesleem should read them. Then:
    `npm run content:approve -- --topic fit-behavioural,why-banking` and

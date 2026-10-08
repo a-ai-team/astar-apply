@@ -1,0 +1,36 @@
+{
+  "slug": "cash-acquisition-ev-eqv",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "transactions"
+  ],
+  "question": "A company uses £100m of its cash to buy another business for £100m. What happens to its equity value and its enterprise value?",
+  "model_answer_md": "**Equity value is unchanged; enterprise value rises by £100m.**\n\nEquity value: the company swapped £100m of cash for a business worth £100m (assuming it paid a fair price), so shareholders are no richer or poorer.\n\nEnterprise value: cash falls by £100m, so net debt **rises** by £100m. Nothing else in the bridge moves, so EV goes up £100m. That matches the intuition — EV measures the operating business, and the company now owns more operating assets.\n\nThe general rule: however an acquisition is funded — cash, debt or shares — EV rises by the price paid. Only a share-funded deal raises equity value too.",
+  "key_points": [
+    "Equity value unchanged: cash swapped for an asset of equal value",
+    "Cash down £100m, so net debt up £100m",
+    "EV up £100m — more operating assets",
+    "Any funding route raises EV by the price paid; only shares raise equity value"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if it overpaid — £100m for a business worth £70m?",
+      "answer_md": "Then the market should mark the shares down by about £30m, the value transferred to the seller. Equity value falls by roughly £30m and EV rises by only about £70m. The accounting entry still shows £100m, but the market prices what was actually bought."
+    },
+    {
+      "question": "Where does the £100m appear on the buyer's balance sheet?",
+      "answer_md": "The target's identifiable assets and liabilities come in at fair value, and any excess of the price over their net value is recorded as goodwill. Cash falls by £100m on the other side."
+    }
+  ],
+  "weak_answer_note": "Saying the company is worth £100m less because it spent cash, or that EV is unchanged.",
+  "numbers": null,
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

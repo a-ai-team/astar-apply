@@ -1,0 +1,36 @@
+{
+  "slug": "mental-maths-percentages",
+  "subtopic_slug": "brain-teasers",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "Fit – Outside the box",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "mental-maths"
+  ],
+  "question": "Without a calculator: what is 18 % of £350m, and what is £350m grown by 18 % a year for two years?",
+  "model_answer_md": "**18 % of £350m:** 10 % is £35m, 5 % is £17.5m, 3 % is £10.5m. Total **£63m**.\n\n**Two years at 18 %:** the factor is 1.18² = 1.3924 — about **1.39**. So £350m × 1.39 ≈ **£487m**. A quick way: 350 × 1.4 = 490, minus a little for the 0.01 overshoot (£3.5m) — about £487m.\n\nThe point to say out loud: two years of 18 % growth is about **39 %**, not 36 %, because the second year's growth is earned on the first year's growth.",
+  "key_points": [
+    "Build percentages from 10 %, 5 % and 1 % pieces: £63m",
+    "1.18² ≈ 1.39, not 1.36",
+    "£350m × 1.39 ≈ £487m",
+    "Compounding adds growth on growth"
+  ],
+  "follow_ups": [
+    {
+      "question": "What is 7 % of 300?",
+      "answer_md": "21 — or flip it to 300 % of 7, which is the same thing."
+    },
+    {
+      "question": "Roughly how long does money take to double at 18 %?",
+      "answer_md": "About four years by the rule of 72 (72 ÷ 18 = 4)."
+    }
+  ],
+  "weak_answer_note": "Adding 18 % twice (36 %) instead of compounding, or freezing on the arithmetic instead of decomposing it.",
+  "numbers": null,
+  "topic_slug": "fit-behavioural",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

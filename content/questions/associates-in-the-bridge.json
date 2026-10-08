@@ -1,0 +1,49 @@
+{
+  "slug": "associates-in-the-bridge",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "EqV & EV – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "associates",
+    "bridge"
+  ],
+  "question": "Harbourline's shares trade at £4.20 with 250m diluted shares. It has £500m of borrowings, £120m of cash, £30m of preferred shares, £25m of non-controlling interest and £45m of lease liabilities. It also owns 30 % of a port operator, accounted for as an associate and worth £60m. What is its enterprise value?",
+  "model_answer_md": "Build the bridge, then deal with the associate.\n\n- Equity value: £4.20 × 250m = **£1,050m**\n- Plus net debt: £500m − £120m = **£380m**\n- Plus preferred, NCI and leases: £30m + £25m + £45m = **£100m**\n- Gives **£1,530m**\n\nNow the associate. Harbourline owns 30 %, so the port is not consolidated: Harbourline's EBITDA excludes it, and only its share of the port's profit appears, below EBITDA. To keep EV consistent with that EBITDA, **subtract** the stake:\n\n$$\\text{EV} = £1{,}530\\text{m} - £60\\text{m} = \\mathbf{£1{,}470\\text{m}}$$",
+  "key_points": [
+    "Equity value £1,050m",
+    "Add net debt £380m and other claims £100m: £1,530m",
+    "The associate's profit sits below EBITDA",
+    "Subtract it: EV = £1,470m"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would you use the stake's book value or market value?",
+      "answer_md": "Market value if the associate is listed or there is a credible estimate — the bridge is a market-value exercise. Book value is the fallback, and it can be badly out of date for a stake held for years."
+    },
+    {
+      "question": "If Harbourline owned 60 % of the port instead, what changes?",
+      "answer_md": "It would consolidate the port in full, so the port's EBITDA would be inside Harbourline's. You would then add the outside owners' 40 % as non-controlling interest rather than subtracting a stake."
+    }
+  ],
+  "weak_answer_note": "Adding the associate to EV because it is an asset, or ignoring it altogether.",
+  "numbers": {
+    "inputs": {
+      "share_price": 4.2,
+      "diluted_shares": 250,
+      "debt": 500,
+      "cash": 120,
+      "preferred": 30,
+      "nci": 25,
+      "leases": 45,
+      "associate": 60
+    },
+    "answer": 1470
+  },
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

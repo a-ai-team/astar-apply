@@ -1,0 +1,38 @@
+{
+  "slug": "find-the-fulcrum",
+  "topic_slug": "lbo",
+  "subtopic_slug": "distress-and-restructuring",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "restructuring"
+  ],
+  "question": "What is the fulcrum security, and why does identifying it matter so much in a restructuring?",
+  "model_answer_md": "The **fulcrum security** is the class of claims where the company's value runs out: the classes ahead of it are repaid in full, the classes behind it get nothing, and it is itself only partly covered. You find it by walking down the waterfall from the enterprise value.\n\nIt matters because the fulcrum holders **control the outcome**:\n\n- They are the economic owners of the business — the residual value is theirs, so they usually swap their claim for most of the new equity.\n- Classes ahead of them are 'in the money' and mainly want to be repaid or reinstated; classes behind are 'out of the money' with little say.\n- Investors buy fulcrum debt at a discount precisely to take control — a 'loan-to-own' strategy.\n\nBecause the fulcrum depends on the valuation, **valuation is the battleground**: junior creditors argue for a high enterprise value (to move the fulcrum down to them), senior creditors for a low one (to keep it with them).",
+  "key_points": [
+    "The class where value runs out — partly covered, nothing below it",
+    "Found by walking the waterfall from enterprise value",
+    "Fulcrum holders usually receive the new equity",
+    "Distressed investors buy it at a discount to gain control",
+    "Valuation disputes are fights over where the fulcrum sits"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why would a junior creditor argue the company is worth more?",
+      "answer_md": "Because a higher enterprise value pushes the fulcrum down the queue to them, giving them a recovery and a share of the equity instead of nothing."
+    },
+    {
+      "question": "Can the fulcrum be the equity?",
+      "answer_md": "If the business is worth more than all its debt, value reaches the shares, so the equity is the residual — but then the company is not insolvent, and the problem is liquidity rather than solvency."
+    }
+  ],
+  "weak_answer_note": "Defining the fulcrum as 'the most senior debt' or 'the biggest tranche', rather than the class where value runs out.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "The class where value runs out: those ahead are repaid in full, those behind get nothing. Its holders usually take the new equity, which is why valuation fights are fights over where the fulcrum sits."
+}

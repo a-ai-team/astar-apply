@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 18 — LBO + the programme close. Requires the seed chain + `npm run seed -- 03`.
 // LBO is a PAID topic: everything loads `generated` and is invisible to a student under RLS. The
@@ -8,6 +9,10 @@ import { signInAs, unlockPrivateArea } from "./helpers/auth";
 // the admin client, then restores every original status afterwards (the linked project is the only
 // environment, so nothing may be left approved).
 const TOPIC = "lbo";
+
+// Loop 21: rows and deferred titles come from the taxonomy, never pinned (CURRENT.md rule 9).
+const SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics;
+const LIVE_SUBTOPICS = SUBTOPICS.filter((s) => !s.deferred).length;
 
 const LESSONS = {
   overview: "lbo-overview",
@@ -26,7 +31,7 @@ const TMT_QUESTION_SLUGS = ["tmt-leverage-capacity", "tmt-rate-sensitivity"];
 
 // `debt-tranches` and `lbo-mental-maths` fold into lessons 2 and 3, so the subtopics stay in the
 // taxonomy and render no row until they have a lesson.
-const DEFERRED = ["Debt tranches and covenants", "LBO mental maths"];
+const DEFERRED = ["LBO mental maths"]; // Loop 21 taught debt tranches
 
 const lessonUrl = (slug: string) => `/home/technicals/${TOPIC}/${slug}`;
 
@@ -78,8 +83,8 @@ test.describe("Loop 18 LBO", () => {
     await expect(page.getByTestId("topic-heading")).toHaveText("LBO");
 
     // Six subtopics in the taxonomy, two deferred with no lesson — so four rows.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(4);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(4);
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(4);
     for (const title of DEFERRED) await expect(page.getByText(title, { exact: true })).toHaveCount(0);
 
     await page.getByTestId("cheatsheet-link").click();
@@ -90,7 +95,7 @@ test.describe("Loop 18 LBO", () => {
     await expect(page.getByTestId("cheatsheet-formulas").locator(".katex").first()).toBeVisible();
     await expect(page.getByTestId("cheatsheet-traps")).toContainText("Building a full debt schedule");
     // `ft-only` material is named so it cannot ambush the student, never taught as a lesson.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Unitranche");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Dividend recapitalisations");
 
     // The chapter's takeaway artefact: the one-page paper LBO, and it survives print styling.
     await page.goto(lessonUrl(LESSONS.paper));

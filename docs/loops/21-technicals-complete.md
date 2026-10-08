@@ -1,6 +1,6 @@
 # Loop 21 — Technicals complete
 
-**Status:** in-progress · **Branch:** `feat/technicals-complete` · **Started:** 2026-10-08
+**Status:** open-pr (content `generated`, awaiting approval) · **Branch:** `feat/technicals-complete` · **Started:** 2026-10-08
 
 ## Goal
 Make sure the Technicals course covers every concept a generalist IB technical interview can ask,
@@ -30,25 +30,25 @@ restructuring basics are **in**.
 
 ## Acceptance checks
 - [ ] `coverage` suite: 0 gaps, ≥ 90 % covered (needs James's go-ahead to run — it sends hidden-set questions to the API)
-- [ ] Every build-list row in `21-complete-syllabus.md` is ✓
-- [ ] `content:validate` and `eval --suite lessons,questions`: schema 100 %, overlap 0, mix gate
-- [ ] Every new lesson passes `approvalProblems` (approvable, status `generated`)
-- [ ] lint · typecheck · build · unit · e2e (guide spec + `03`, `18`, `20`)
-- [ ] Master guide page + PDF render
+- [x] Every build-list row in `21-complete-syllabus.md` is ✓
+- [x] `content:validate` and `eval --suite lessons,questions`: schema 100 %, overlap 0, mix gate
+- [x] Every new lesson passes `approvalProblems` (approvable, status `generated`)
+- [x] lint · typecheck · build · unit · e2e (guide spec + `03`, `18`, `20`)
+- [x] Master guide page + PDF render
 
 ## Tasks
 - [x] Coverage suite (`scripts/eval/suites/coverage.ts`), threshold, CONTRACTS row
 - [x] Syllabus checklist + build list (`docs/research/technicals-v2/21-complete-syllabus.md`)
 - [x] Taxonomy: un-defer, new subtopic, stretch days
-- [ ] Lessons + questions: finance foundations (2 lessons) and brain teasers
-- [ ] Lessons + questions: accounting
-- [ ] Lessons + questions: eqv-ev and valuation
-- [ ] Lessons + questions: DCF (discount-rate top-ups)
-- [ ] Lessons + questions: M&A
-- [ ] Lessons + questions: LBO debt tranches and restructuring
-- [ ] Cheat sheets: new formulas / traps; taught items leave "you may hear"
-- [ ] Master guide `/home/technicals/guide` + PDF
-- [ ] Run checks; seed `03` as `generated`; PR
+- [x] Lessons + questions: finance foundations (2 lessons) and brain teasers
+- [x] Lessons + questions: accounting
+- [x] Lessons + questions: eqv-ev and valuation
+- [x] Lessons + questions: DCF (discount-rate top-ups)
+- [x] Lessons + questions: M&A
+- [x] Lessons + questions: LBO debt tranches and restructuring
+- [x] Cheat sheets: new formulas / traps; taught items leave "you may hear"
+- [x] Master guide `/home/technicals/guide` + PDF
+- [x] Run checks; seed `03` as `generated`; PR
 
 ## Blocked-on-human (defaults taken)
 - **Approval:** all new content lands `generated`; James approves with `content:approve`.
@@ -56,4 +56,20 @@ restructuring basics are **in**.
 - **Path shape:** stretch days 6–7 rather than reshuffling the core 5-day weeks.
 
 ## Retro
-_(at loop end)_
+- **Shipped:** 10 lessons + 78 questions (all `generated`), covering every gap in the syllabus checklist:
+  irr-and-payback, discount-rates-and-risk, brain-teasers, deferred-taxes-and-other-items, ev-edge-cases,
+  other-methodologies, levered-dcf-and-variants, purchase-price-allocation, debt-tranches,
+  distress-and-restructuring. Seven cheat sheets extended; taught items left "you may hear". Master
+  guide `/home/technicals/guide` + PDF; `coverage` eval suite; stretch days 6–7 on the path.
+- **Checks:** content:validate 0 errors (49 lessons / 288 questions); eval lessons PASS (readability 4.45,
+  overlap 0, 48/48 approvable); questions PASS (n 280, mix diff 0.107, overlap 0); lint · typecheck ·
+  build · unit 409/409; technicals e2e green after unpinning counts (rule 9).
+- **Caught in passing:** live `wacc-100-equity` used an unlevered beta of 0.80 / Ke 8.8 % / levered 10.8 %;
+  the library and the WACC lesson say 0.70 / 8.2 % / 10.0 % — corrected (library wins). `unlever-relever-beta`
+  still gives Harbourline a peer-derived 1.14 levered beta — a deliberate exercise, flagged for review.
+  A near-duplicate associate question was dropped. `deferred_tax` and `nci_vs_equity` are in
+  WIDGET_NAMES with no component — nothing uses them.
+- **Not run:** the `coverage` suite (sends hidden-set text to the API; waits for James).
+- **Next:** James/Tesleem review → `npm run content:approve -- --topic finance-foundations,accounting,eqv-ev,valuation,dcf,ma,lbo,fit-behavioural`
+  (approves only rows that pass the rules) → `seed -- 05` → `content:index` → `packs:build -- --guide`.
+  Check the UK loss-relief cap stated in `tax-losses-carried-forward`.

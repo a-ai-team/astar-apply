@@ -25,6 +25,26 @@
       "name": "Revenue multiple, when there is no profit",
       "latex": "\\frac{\\text{EV}}{\\text{Revenue}}",
       "note": "Used when EBITDA is negative or meaningless. It says nothing about profitability, so pair it with a margin assumption."
+    },
+    {
+      "name": "Sum-of-the-parts",
+      "latex": "EV = \\sum_i (\\text{EBITDA}_i \\times \\text{multiple}_i) - \\text{head office} \\times \\text{multiple}",
+      "note": "Fernleigh: 640 + 300 + 300 − 80 = £1,160m; less £260m net debt = £9.00 a share vs £7.65 traded (15 % discount)."
+    },
+    {
+      "name": "LBO floor",
+      "latex": "\\text{Max EV} = \\text{Debt} + \\frac{\\text{Exit equity}}{(1+\\text{IRR})^n}",
+      "note": "Marlow: 750 + 1,260 ÷ 1.2⁵ = £1,256m ≈ £8.72 a share."
+    },
+    {
+      "name": "Dividend discount model",
+      "latex": "P = \\frac{D_1}{k_e - g}",
+      "note": "£0.50 ÷ (10 % − 4 %) = £8.33. For banks and insurers, where EV is meaningless."
+    },
+    {
+      "name": "Calendarisation (March year-end)",
+      "latex": "\\text{EBITDA}_{\\text{Dec }Y} = 0.25 \\times FY_{Mar\\,Y} + 0.75 \\times FY_{Mar\\,Y+1}",
+      "note": "0.25 × 80 + 0.75 × 96 = £92m."
     }
   ],
   "canonical": [
@@ -47,6 +67,10 @@
     {
       "q": "How would you value a company with negative cash flows?",
       "a": "I would move up the income statement to a metric that is still positive — usually revenue, so EV/Revenue against peers at a similar growth rate, and ideally a forward multiple on the year it turns profitable. A DCF still works if you extend the forecast far enough to reach positive cash flow, though the value then sits almost entirely in the terminal period, so I would present it as a range and be explicit that the assumptions carry the answer."
+    },
+    {
+      "q": "Beyond comps, precedents and DCF, what else might you use?",
+      "a": "SOTP for unrelated divisions; LBO analysis as the floor; a DDM for banks; liquidation value in distress; plus 52-week range, analyst targets and premiums paid as reference bars."
     }
   ],
   "traps": [
@@ -57,20 +81,21 @@
     "Using stale precedents — a deal from a different rate environment prices a different world.",
     "Mixing a forward metric with a trailing multiple, or a subject's forward EBITDA with peers' trailing.",
     "Treating a DCF as objective. It is the method most sensitive to your own assumptions.",
-    "Building a peer set on industry label alone — growth, margin and size matter more than the sector name."
+    "Building a peer set on industry label alone — growth, margin and size matter more than the sector name.",
+    "Applying a premiums-paid range to a rumour-inflated price — always start from the undisturbed price.",
+    "Leaving head-office costs out of a sum-of-the-parts.",
+    "Applying the multiple to reported EBITDA without stripping one-off charges and gains."
   ],
   "one_liners": [
     "Comps say what the market pays; precedents say what a buyer paid; a DCF says what you think it is worth.",
     "Precedents carry a control premium, which is why they usually sit highest.",
     "Quote the median, mention the spread.",
-    "A multiple is a DCF you have not written down."
+    "A multiple is a DCF you have not written down.",
+    "Value a group by its parts, a bank by its dividends, and a sponsor's ceiling by working back from its target return.",
+    "The LBO bar is usually the floor; precedents and premiums paid sit highest."
   ],
   "you_may_hear": [
-    "Sum-of-the-parts and the conglomerate discount.",
-    "Liquidation and replacement-cost value as a floor.",
-    "LBO valuation used as a floor for what a sponsor could pay.",
     "EV/EBITDAR for retailers and airlines, where rent is capitalised into the multiple.",
-    "Regression-based comps that price the multiple against growth and margin.",
-    "Calendarisation and stub-period adjustments when peers have different year ends."
+    "Regression-based comps that price the multiple against growth and margin."
   ]
 }

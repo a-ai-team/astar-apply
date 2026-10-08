@@ -1,0 +1,37 @@
+{
+  "slug": "fixed-vs-floating-exchange-ratio",
+  "subtopic_slug": "synergies-and-deal-structure",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "exchange-ratio",
+    "stock-deal"
+  ],
+  "question": "In a stock deal, what is the difference between a fixed exchange ratio and a fixed value, and who bears the risk in each?",
+  "model_answer_md": "Weeks or months pass between signing and completion, and the buyer's share price moves in the meantime. The structure decides who absorbs that move.\n\n**Fixed exchange ratio.** The seller receives a set number of buyer shares per target share, so the **number of shares and the ownership split are locked**. The *value* the seller receives moves with the buyer's share price, so **the seller bears the price risk**. This is the most common structure.\n\n**Fixed value (floating ratio).** The seller receives a set pound value, paid in however many shares that buys at completion. The value is locked and the **number of shares floats**, so **the buyer's holders bear the risk**: if the buyer's price falls, more shares are issued and they are diluted further.\n\nA **collar** compromises between the two: fixed value while the price stays in a band, switching to a fixed ratio outside it, or the reverse, so neither side carries unlimited risk.",
+  "key_points": [
+    "Fixed ratio: share count and ownership locked; seller bears price risk",
+    "Fixed value: value locked; share count floats; buyer bears dilution risk",
+    "Risk arises between signing and completion",
+    "Collars cap the risk within a band",
+    "Fixed ratios are the most common"
+  ],
+  "follow_ups": [
+    {
+      "question": "A buyer's shares are volatile. Which structure would its board push for?",
+      "answer_md": "A fixed ratio. It knows exactly how many shares it will issue and what ownership it gives away, whatever happens to its price. The seller will resist for the same reason and may ask for a collar, or a walk-away right if the buyer's price falls below a floor."
+    },
+    {
+      "question": "Why do merger arbitrage funds care which structure is used?",
+      "answer_md": "Under a fixed ratio they can lock in the spread by buying the target and shorting the buyer in the ratio. If the deal completes, the hedge converges whatever the market does. Under a fixed value the share count is unknown until completion, so the hedge has to be adjusted as the price moves."
+    }
+  ],
+  "weak_answer_note": "Thinking a fixed ratio fixes the value. Not saying who bears the risk. Not knowing what a collar is.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

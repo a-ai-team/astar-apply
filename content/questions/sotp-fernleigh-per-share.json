@@ -1,0 +1,50 @@
+{
+  "slug": "sotp-fernleigh-per-share",
+  "subtopic_slug": "other-methodologies",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "sotp"
+  ],
+  "question": "Fernleigh Group has three divisions: packaging (EBITDA £80m, peers at 8×), chemicals (£50m, 6×) and software (£20m, 15×). Head office costs £10m a year. Net debt is £260m and there are 100m shares, trading at £7.65. What is the sum-of-the-parts value per share, and what discount is the market applying?",
+  "model_answer_md": "Value each division on its own peers, then deal with the centre.\n\n- Packaging: £80m × 8 = **£640m**\n- Chemicals: £50m × 6 = **£300m**\n- Software: £20m × 15 = **£300m**\n- Head office: −£10m × 8 = **−£80m** (capitalised at a group-like multiple, because a buyer pays it every year)\n\nEnterprise value = £640m + £300m + £300m − £80m = **£1,160m**\n\nEquity value = £1,160m − £260m net debt = **£900m**, or **£9.00 a share** across 100m shares.\n\nThe shares trade at £7.65, so the market applies a **15 % conglomerate discount** (1 − 7.65 ÷ 9.00).",
+  "key_points": [
+    "Each division at its own peer multiple: £640m, £300m, £300m",
+    "Capitalise head-office costs: −£80m",
+    "EV £1,160m; equity £900m; £9.00 a share",
+    "Discount to market: 15 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would close the discount?",
+      "answer_md": "Separating the businesses — a sale or spin-off of a division — so investors can own and value each part directly; or clear evidence that management allocates capital across the divisions well. Activists often push for the first."
+    },
+    {
+      "question": "What multiple did you use for head office, and why does it matter?",
+      "answer_md": "Something close to the blended group multiple — 8× here. Capitalising at a high multiple increases the deduction; ignoring head office altogether overstates the SOTP and can make the conglomerate discount look larger than it really is."
+    }
+  ],
+  "weak_answer_note": "Applying one multiple to the whole group, forgetting head-office costs, or stopping at enterprise value without bridging to equity.",
+  "numbers": {
+    "inputs": {
+      "pack_ebitda": 80,
+      "pack_multiple": 8,
+      "chem_ebitda": 50,
+      "chem_multiple": 6,
+      "soft_ebitda": 20,
+      "soft_multiple": 15,
+      "head_office": 10,
+      "head_office_multiple": 8,
+      "net_debt": 260,
+      "shares": 100
+    },
+    "answer": 9
+  },
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

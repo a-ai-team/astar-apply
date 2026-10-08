@@ -1,0 +1,37 @@
+{
+  "slug": "replacement-vs-liquidation-cost",
+  "subtopic_slug": "other-methodologies",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "liquidation"
+  ],
+  "question": "What is the difference between liquidation value and replacement cost?",
+  "model_answer_md": "They look at the same assets from opposite ends.\n\n**Liquidation value** is what the assets would fetch if the business were shut down and sold off — usually quickly and at a discount — **minus every liability**. It is the floor: what owners would get if the company stopped trading. It only matters for a business that might actually be wound up.\n\n**Replacement cost** is what it would cost to build the same business from scratch today — the plant, the network, the customer base. It is a rough ceiling: a buyer should not pay much more than it would cost to build the thing itself. It is the logic behind \"buy versus build\".\n\nA healthy business is normally worth well above liquidation value and, unless it has something hard to replicate, not far above replacement cost.",
+  "key_points": [
+    "Liquidation value: forced-sale proceeds of the assets less all liabilities",
+    "A floor — relevant mainly in distress",
+    "Replacement cost: cost of building the business again today",
+    "A rough ceiling — the buy-versus-build test"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why are forced-sale prices below book value?",
+      "answer_md": "Buyers know the seller must sell quickly, specialised equipment has few buyers, and inventory and receivables lose value when the business behind them stops. Typical recoveries are high for cash and receivables, lower for inventory and much lower for specialised plant."
+    },
+    {
+      "question": "When would a company be worth more than its replacement cost?",
+      "answer_md": "When it has something that cannot simply be rebuilt — a brand, regulatory licences, patents, network effects or a scarce location. Those advantages are exactly why acquirers pay up rather than build."
+    }
+  ],
+  "weak_answer_note": "Mixing the two up, or describing liquidation value without subtracting the liabilities.",
+  "numbers": null,
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Liquidation value = forced-sale value of the assets less all liabilities (a floor). Replacement cost = what it would cost to rebuild the business today (a rough ceiling)."
+}

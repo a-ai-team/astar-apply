@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 15 — Valuation. Requires the seed chain + `npm run seed -- 03`.
 // Valuation is a PAID topic, so unlike Accounting and EqV/EV it does not auto-approve: everything
@@ -8,6 +9,9 @@ import { signInAs, unlockPrivateArea } from "./helpers/auth";
 // approves the five lessons with the admin client and puts their original statuses back afterwards
 // — the linked project is the only environment, so nothing may be left approved.
 const TOPIC = "valuation";
+
+// Loop 21: rows come from the taxonomy, never pinned (CURRENT.md rule 9).
+const LIVE_SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics.filter((s) => !s.deferred).length;
 
 const LESSONS = {
   methods: "valuation-methodologies",
@@ -60,9 +64,9 @@ test.describe("Loop 15 valuation", () => {
     await expect(page.getByTestId("topic-heading")).toHaveText("Valuation");
 
     // Six subtopics in the taxonomy; `other-methodologies` has no lesson, so it never renders a row.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(5);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(5);
-    await expect(page.getByText(DEFERRED, { exact: true })).toHaveCount(0);
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(5);
+    await expect(page.getByText(DEFERRED, { exact: true }).first()).toBeVisible(); // Loop 21 un-deferred it: it now has a row
   });
 
   test("football field: every method is evidence, and turning one off redraws the defensible zone", async ({ page, baseURL }) => {
@@ -168,6 +172,6 @@ test.describe("Loop 15 valuation", () => {
     await expect(page.getByTestId("cheatsheet-canonical")).toContainText("Rank them — which gives the highest value and why?");
     await expect(page.getByTestId("cheatsheet-traps")).toContainText("Quoting one number instead of a range");
     // `ft-only` material is named so it cannot ambush the student, never taught as a lesson.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Sum-of-the-parts");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("EV/EBITDAR");
   });
 });

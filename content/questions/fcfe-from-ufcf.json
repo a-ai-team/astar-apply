@@ -1,0 +1,47 @@
+{
+  "slug": "fcfe-from-ufcf",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "lfcf",
+    "levered-dcf",
+    "ufcf"
+  ],
+  "question": "In its third forecast year Harbourline's unlevered free cash flow is £95.0m. It pays £31.2m of interest, tax is 25 %, and it repays £15m of debt during the year. What is its free cash flow to equity, and what rate would you discount it at?",
+  "model_answer_md": "Start from the cash available to everyone and take out what lenders get.\n\n1. **After-tax interest:** £31.2m × (1 − 25 %) = **£23.4m**. The interest saves tax, so its real cost to shareholders is less than the cash paid.\n2. **Net borrowing:** repaying £15m of debt uses shareholders' cash, so it is **−£15m**.\n3. **FCFE** = £95.0m − £23.4m − £15.0m = **£56.6m**.\n\nDiscount it at the **cost of equity** — about **10 %** for Harbourline — because this cash belongs to shareholders alone, after every lender has been paid. The present value of these flows is **equity value** directly; subtracting net debt afterwards would take the lenders out twice.",
+  "key_points": [
+    "FCFE = UFCF − interest × (1 − t) + net borrowing",
+    "After-tax interest: £31.2m × 0.75 = £23.4m",
+    "Repayment is negative net borrowing: −£15m",
+    "FCFE = £95.0m − £23.4m − £15.0m = £56.6m",
+    "Discount at the cost of equity; result is equity value"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is the interest taken after tax rather than in full?",
+      "answer_md": "Because unlevered free cash flow was taxed as if there were no interest. Paying interest lowers the actual tax bill, so the true cash cost to shareholders is the interest net of that saving."
+    },
+    {
+      "question": "What would happen to FCFE if Harbourline borrowed £15m instead of repaying it?",
+      "answer_md": "It would rise by £30m to £86.6m — the swing from −£15m to +£15m. That volatility is one reason levered cash flows are harder to forecast and compare."
+    }
+  ],
+  "weak_answer_note": "Subtracting the interest in full, or forgetting the debt repayment. Discounting the result at WACC, or treating it as enterprise value.",
+  "numbers": {
+    "inputs": {
+      "ufcf": 95.0,
+      "interest": 31.2,
+      "tax_rate": 0.25,
+      "net_borrowing": -15
+    },
+    "answer": 56.6
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}
