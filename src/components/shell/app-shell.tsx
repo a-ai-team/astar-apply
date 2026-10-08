@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import type { NavItem } from "./nav-link";
 import { AppHeader } from "./app-header";
 import { CommandPalette } from "@/components/practice/command-palette";
+import { ThemeToggle } from "./theme-toggle";
 
 // Products only. Path lives under Technicals, Flashcards under Practice, Pulse under Interviews,
 // Progress behind the initials avatar.
@@ -39,6 +40,7 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
   const right = (
     <>
       {nav === HOME_NAV && <CommandPalette />}
+      <ThemeToggle />
       <Link
         href="/home/progress"
         className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-sm font-medium text-fg transition hover:border-muted"
@@ -49,7 +51,7 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
         {initial}
       </Link>
       <form action={signOut}>
-        <Button type="submit" variant="ghost" size="sm" data-testid="sign-out">
+        <Button type="submit" variant="ghost" size="sm" className="whitespace-nowrap" data-testid="sign-out">
           Sign out
         </Button>
       </form>
@@ -59,7 +61,11 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
     <div className="flex min-h-screen flex-1 flex-col bg-bg text-fg" data-testid="app-shell">
       {/* Sticky; h-16 at md+ so routes can size against --shell-header-h (globals.css). */}
       <AppHeader items={nav} staffItem={staffItem} right={right} />
-      <main className="flex min-h-0 flex-1 flex-col gap-6 px-4 py-8 md:px-8">{children}</main>
+      {/* Side gutter is --gutter (globals.css); content is centred and capped for readable line
+          lengths. Full-bleed pages (landing, mentor) opt out with data-full-bleed. */}
+      <main className="flex min-h-0 flex-1 flex-col px-[var(--gutter)] py-8">
+        <div className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col gap-6 has-[[data-full-bleed]]:max-w-none">{children}</div>
+      </main>
     </div>
   );
 }

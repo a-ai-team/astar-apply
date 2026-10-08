@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
-/* Design tokens — boutique navy, dark-only: deep navy ground, warm ivory text, champagne gold
-   spent only on primary actions, focus and thin signals (underlines, bars, ✓). "/unlock" keeps its
-   own black ground for the wordmark; "/" redirects to /home. */
+/* Design tokens — boutique navy by default: deep navy ground, warm ivory text, champagne gold
+   spent only on primary actions, focus and thin signals (underlines, bars, ✓). A light "paper"
+   theme sits under html[data-theme="light"] (toggle: src/components/shell/theme-toggle.tsx; set
+   before paint by the inline script in src/app/layout.tsx). "/unlock" keeps its own black ground
+   for the wordmark; "/" redirects to /home. */
 :root {
   --bg: #0a1020;
   --surface: #121b30;
@@ -15,10 +17,29 @@
   /* App-shell header height (src/components/shell/app-header.tsx): h-16, plus a 2.5rem nav row
      below md where the primary nav drops to its own line. */
   --shell-header-h: 6.5rem;
+  /* App-shell side gutter (src/components/shell/app-shell.tsx); full-bleed pages pull back by it. */
+  --gutter: 1.25rem;
+  color-scheme: dark;
 }
 @media (min-width: 48rem) {
-  :root { --shell-header-h: 4rem; }
+  :root { --shell-header-h: 4rem; --gutter: 2.5rem; }
 }
+@media (min-width: 80rem) {
+  :root { --gutter: 4rem; }
+}
+:root[data-theme="light"] {
+  --bg: #f8f5ee;
+  --surface: #ffffff;
+  --border: #e0d8c6;
+  --fg: #151b2e;
+  --muted: #5a6377;
+  --accent: #8a6a1f;
+  --accent-fg: #ffffff;
+  --danger: #b0372c;
+  color-scheme: light;
+}
+/* The wordmark PNG is ivory — ink it on the light theme. */
+:root[data-theme="light"] img[src*="wordmark"] { filter: brightness(0.18) sepia(0.4); }
 
 
 @theme inline {
@@ -153,7 +174,8 @@ body {
   [data-print-hide] {
     display: none !important;
   }
-  :root {
+  :root,
+  :root[data-theme] {
     --bg: #ffffff;
     --surface: #ffffff;
     --fg: #111111;
