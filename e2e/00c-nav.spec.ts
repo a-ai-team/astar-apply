@@ -17,7 +17,7 @@ test.describe("Sticky horizontal nav", () => {
     await expect(nav.getByRole("link", { name: "Home" })).toHaveAttribute("aria-current", "page");
     await expect(nav.getByTestId("nav-staff-link")).toHaveCount(0); // students never see Admin
 
-    // Right cluster is just search · initials · sign out — no role badge, no email.
+    // Right cluster is just search · theme · initials · sign out — no role badge, no email.
     await expect(page.getByTestId("palette-open")).toBeVisible();
     await expect(page.getByTestId("user-avatar")).toHaveText("E");
     await expect(page.getByTestId("user-email")).toHaveCount(0);
@@ -32,6 +32,20 @@ test.describe("Sticky horizontal nav", () => {
     await expect(page).toHaveURL(/\/home\/technicals$/);
     await expect(page.getByTestId("nav-bar").getByRole("link", { name: "Technicals" })).toHaveAttribute("aria-current", "page");
     await expect(page.getByTestId("nav-bar").getByRole("link", { name: "Home" })).not.toHaveAttribute("aria-current", "page");
+  });
+
+  test("theme toggle switches to light, survives a reload, and switches back", async ({ page, baseURL }) => {
+    await unlockPrivateArea(page, baseURL!);
+    await signInAs(page, "e2e-student@astar.test", "/home/technicals");
+    const html = page.locator("html");
+    await expect(html).not.toHaveAttribute("data-theme", "light");
+    await page.getByTestId("theme-toggle").click();
+    await expect(html).toHaveAttribute("data-theme", "light");
+    await page.reload();
+    await expect(html).toHaveAttribute("data-theme", "light"); // applied before paint from localStorage
+    await expect(page.getByTestId("theme-toggle")).toHaveAttribute("aria-label", "Switch to dark mode");
+    await page.getByTestId("theme-toggle").click();
+    await expect(html).toHaveAttribute("data-theme", "dark");
   });
 
   test("staff see Admin at the end of the bar", async ({ page, baseURL }) => {

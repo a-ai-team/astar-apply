@@ -16,6 +16,11 @@ const LINK_RANGE = 0.28;
 const IDLE_SIGNALS = 3;
 export const IVORY = "239, 233, 220";
 export const GOLD = "212, 181, 113";
+const NAVY_INK = "21, 27, 46";
+/** Hairline colour for the canvases: ivory on the navy theme, navy ink on the light theme. */
+export function ink(): string {
+  return typeof document !== "undefined" && document.documentElement.dataset.theme === "light" ? NAVY_INK : IVORY;
+}
 
 /** mulberry32 — small seeded PRNG so every mount draws the same constellation. */
 export function prng(seed: number) {
@@ -137,7 +142,7 @@ export function BrainHalo({ size, state, className }: { size: number; state: Sta
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d >= max) continue;
           const alpha = (0.10 + 0.08 * (1 - d / max)) * linkBoost;
-          ctx.strokeStyle = `rgba(${IVORY}, ${alpha})`;
+          ctx.strokeStyle = `rgba(${ink()}, ${alpha})`;
           ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
         }
       }
@@ -163,7 +168,7 @@ export function BrainHalo({ size, state, className }: { size: number; state: Sta
       for (const n of nodes) {
         n.bright *= Math.exp(-dt * 1.6);
         const b = n.bright;
-        ctx.fillStyle = b > 0.02 ? `rgba(${GOLD}, ${0.3 + b * 0.7})` : `rgba(${IVORY}, 0.28)`;
+        ctx.fillStyle = b > 0.02 ? `rgba(${GOLD}, ${0.3 + b * 0.7})` : `rgba(${ink()}, 0.28)`;
         ctx.beginPath(); ctx.arc(n.x, n.y, 0.9 + b * 0.9, 0, Math.PI * 2); ctx.fill();
       }
     };

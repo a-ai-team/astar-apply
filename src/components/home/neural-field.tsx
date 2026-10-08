@@ -7,7 +7,7 @@
 // whole field drifts down slightly. Canvas 2D, no deps; responsive via ResizeObserver;
 // reduced-motion → one static frame; paused while the tab is hidden; DPR capped at 2.
 import { useEffect, useRef } from "react";
-import { GOLD, IVORY, prng } from "@/components/chat/brain-halo";
+import { GOLD, ink, prng } from "@/components/chat/brain-halo";
 
 type Node = { u: number; v: number; p1: number; p2: number; f1: number; f2: number; amp: number; bright: number; x: number; y: number };
 type Signal = { from: number; to: number; t: number; speed: number };
@@ -168,7 +168,7 @@ export function NeuralField({ className }: { className?: string }) {
           const d = Math.sqrt(d2);
           const alpha = (0.07 + 0.09 * (1 - d / R)) * ease;
           if (alpha < 0.004) continue;
-          ctx.strokeStyle = `rgba(${IVORY}, ${alpha})`;
+          ctx.strokeStyle = `rgba(${ink()}, ${alpha})`;
           ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
         }
       }
@@ -193,7 +193,7 @@ export function NeuralField({ className }: { className?: string }) {
         n.bright *= Math.exp(-dt * 1.4);
         const b = n.bright;
         const base = 0.22 * ease;
-        ctx.fillStyle = b > 0.02 ? `rgba(${GOLD}, ${(0.3 + b * 0.7) * ease})` : `rgba(${IVORY}, ${base})`;
+        ctx.fillStyle = b > 0.02 ? `rgba(${GOLD}, ${(0.3 + b * 0.7) * ease})` : `rgba(${ink()}, ${base})`;
         ctx.beginPath(); ctx.arc(n.x, n.y, 0.9 + b * 1.1, 0, Math.PI * 2); ctx.fill();
       }
     };

@@ -12,7 +12,7 @@ const MARK_JS =
 export default async function HomePage() {
   await verifySession("/home");
   return (
-    <div className="-mx-4 -my-8 flex flex-col md:-mx-8" data-testid="home-landing" suppressHydrationWarning>
+    <div className="-mx-[var(--gutter)] -my-8 flex flex-col" data-full-bleed data-testid="home-landing" suppressHydrationWarning>
       <script dangerouslySetInnerHTML={{ __html: MARK_JS }} />
       <Hero />
       <Toolkit />

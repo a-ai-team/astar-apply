@@ -9,7 +9,7 @@ export default async function MentorLayout({ children }: LayoutProps<"/home/ment
   await verifySession("/home/mentor");
   // Undo the app-shell padding so the chat runs edge to edge; only the message list scrolls.
   return (
-    <div className="-my-8 flex min-h-0 flex-1 flex-col md:-mx-8">
+    <div className="-my-8 flex min-h-0 flex-1 flex-col md:-mx-[var(--gutter)]" data-full-bleed>
       <ChatLayout>{children}</ChatLayout>
     </div>
   );

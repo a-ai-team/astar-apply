@@ -59,7 +59,7 @@ export function AppHeader({ items, staffItem, right }: { items: NavItem[]; staff
       data-testid="app-header"
       data-app-header
     >
-      <div className="flex h-16 items-center gap-8 px-4 md:px-6">
+      <div className="flex h-16 items-center gap-8 px-[var(--gutter)]">
         <Link href="/home" className="flex shrink-0 items-center rounded-md p-1 outline-none focus-visible:ring-2 focus-visible:ring-accent" data-testid="nav-logo" data-brand aria-label="A* Apply home">
           <Image src="/wordmark.png" alt="A* Apply" width={140} height={68} priority className="h-auto w-28" />
         </Link>
@@ -69,7 +69,7 @@ export function AppHeader({ items, staffItem, right }: { items: NavItem[]; staff
         </nav>
         <div className="ml-auto flex items-center gap-2">{right}</div>
       </div>
-      <nav className="flex h-10 items-center gap-6 overflow-x-auto px-4 md:hidden [scrollbar-width:none]" aria-label="Primary" data-testid="nav-bar-mobile">
+      <nav className="flex h-10 items-center gap-6 overflow-x-auto px-[var(--gutter)] md:hidden [scrollbar-width:none]" aria-label="Primary" data-testid="nav-bar-mobile">
         {items.map((i) => link(i))}
         {staffItem && link(staffItem, "text-muted/80", "nav-staff-link-mobile")}
       </nav>
