@@ -1,0 +1,44 @@
+{
+  "slug": "associate-income-walkthrough",
+  "topic_slug": "accounting",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "kind": "calculation",
+  "difficulty": 4,
+  "question": "Kestrel owns 30 % of a bakery chain that earns net income of £20m this year and pays Kestrel a £2m dividend. Walk me through Kestrel's statements and give the change in the investment's carrying value.",
+  "model_answer_md": "**Income statement.** Kestrel books its share of the associate's profit: 30 % × £20m = **£6m**, on one line below EBIT. It is already after the associate's own tax, so for simplicity assume no further tax. **Net income +£6m**.\n\n**Cash flow statement.** Start at +£6m. The share of profit is non-cash, so **subtract £6m**. Then add the **£2m dividend** actually received (operating or investing, by policy). **Cash +£2m.**\n\n**Balance sheet.** **Investment in associate +£4m** (+6 share of profit, −2 dividend received). Cash +2, retained earnings +6. Assets +6 = equity +6, so it balances.",
+  "key_points": [
+    "Share of profit = 30 % × £20m = £6m, one line below EBIT",
+    "Cash flow: remove the £6m non-cash, add the £2m dividend → cash +2",
+    "Investment carrying value +4 (6 − 2)",
+    "Assets +6 = retained earnings +6"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why not just record the £2m dividend as income?",
+      "answer_md": "Because it would let the owner's profit depend on the associate's payout decisions rather than its performance. The equity method recognises the share of what was earned. The dividend just turns part of the investment into cash."
+    },
+    {
+      "question": "Does the associate's profit appear in Kestrel's EBITDA?",
+      "answer_md": "No. It sits below operating profit, which is why associates are subtracted when moving from equity value to enterprise value."
+    }
+  ],
+  "weak_answer_note": "Books 30 % of the associate's revenue and costs line by line, or counts the dividend as income on top of the share of profit.",
+  "numbers": {
+    "inputs": {
+      "stake": 0.3,
+      "associate_net_income": 20,
+      "dividend_received": 2
+    },
+    "answer": 4
+  },
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "associates",
+    "walkthrough"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

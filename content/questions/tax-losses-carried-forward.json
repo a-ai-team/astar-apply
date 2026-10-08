@@ -1,0 +1,37 @@
+{
+  "slug": "tax-losses-carried-forward",
+  "topic_slug": "accounting",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Kestrel's new subsidiary loses £40m in year one and earns £100m in year two. Tax is 25 %, and assume the loss can be used in full. What deferred tax asset is created, and what tax is paid in year two?",
+  "model_answer_md": "**Year one.** The £40m loss is a **net operating loss (NOL)** that can be carried forward. It will save £40m × 25 % = **£10m** of future tax, so the accounts recognise a **£10m deferred tax asset**, as long as future profit looks likely. Recognising it creates a £10m tax *credit* on the income statement, so the loss after tax is £30m. No cash moves.\n\n**Year two.** Taxable profit is £100m − £40m = **£60m**, so cash tax is **£15m** instead of £25m. The income statement still shows £25m of tax (25 % of book profit). The £10m difference is the DTA being used up: added back on the cash flow statement, and the DTA falls to zero.",
+  "key_points": [
+    "Loss carried forward = future tax saving: DTA = 40 × 25 % = £10m",
+    "Year one: tax credit £10m, no cash",
+    "Year two: taxable £60m, cash tax £15m vs £25m book",
+    "The DTA unwinds as the loss is used"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does UK tax law let you use the whole loss?",
+      "answer_md": "Not always. For large losses, relief above a £5m annual allowance is limited to half of the profits, so it can take longer to use them. For this question I assumed the loss is usable in full."
+    },
+    {
+      "question": "How would you value the NOL in a DCF?",
+      "answer_md": "Either reduce cash taxes year by year until the loss is used up, or value the tax savings separately and discount them. Don't simply add losses × tax rate, because it ignores timing and the risk of never using them."
+    }
+  ],
+  "weak_answer_note": "Says the DTA is £40m (the loss itself rather than the tax saved), or claims cash comes in during the loss year.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "deferred-tax",
+    "nol"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

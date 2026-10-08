@@ -1,0 +1,37 @@
+{
+  "slug": "clock-angle-four-twenty",
+  "subtopic_slug": "brain-teasers",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "Fit – Outside the box",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "brain-teaser",
+    "mental-maths"
+  ],
+  "question": "What is the angle between the hour and minute hands of a clock at 4:20?",
+  "model_answer_md": "**10°.**\n\nThe minute hand moves 6° a minute, so at 20 minutes past it sits at 20 × 6 = **120°** from 12.\n\nThe hour hand moves 30° an hour *and* 0.5° a minute. At 4:20 it is at 4 × 30 + 20 × 0.5 = **130°**.\n\nThe gap is 130° − 120° = **10°**. The common wrong answer is 0°, from assuming the hour hand points exactly at the 4.",
+  "key_points": [
+    "Minute hand: 6° per minute → 120°",
+    "Hour hand: 30° per hour plus 0.5° per minute → 130°",
+    "Angle = 10°",
+    "Trap: forgetting the hour hand moves during the hour"
+  ],
+  "follow_ups": [
+    {
+      "question": "At what time just after 12:00 do the hands next overlap?",
+      "answer_md": "The minute hand gains 5.5° a minute on the hour hand, and needs to gain 360° to lap it, so 360 ÷ 5.5 ≈ 65.45 minutes — about 1:05 and 27 seconds."
+    },
+    {
+      "question": "What is the angle at 6:00, and at 6:30?",
+      "answer_md": "At 6:00 the hands are opposite: 180°. At 6:30 the minute hand is at 180° and the hour hand has moved half of 30°, to 195°, so the angle is 15°."
+    }
+  ],
+  "weak_answer_note": "Answering 0° by ignoring the hour hand's movement, or computing silently without explaining the per-minute rates.",
+  "numbers": null,
+  "topic_slug": "fit-behavioural",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

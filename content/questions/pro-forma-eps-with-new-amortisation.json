@@ -1,0 +1,50 @@
+{
+  "slug": "pro-forma-eps-with-new-amortisation",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "accretion-dilution",
+    "purchase-accounting"
+  ],
+  "question": "Tamar (net income £120m, 100m shares at £18) buys Wychwood (net income £40m) for £500m, paid entirely in new Tamar shares. The deal writes up Wychwood's brand by £60m, amortised over 10 years. Tax is 25 %. What is pro-forma EPS, with and without the amortisation?",
+  "model_answer_md": "Start with the earnings maths, then let purchase accounting take its cut.\n\n**New shares:** 500 ÷ 18 = **27.78m**, so the count rises to **127.78m**.\n\n**Without amortisation:** net income 120 + 40 = **£160m**; EPS 160 ÷ 127.78 = **£1.252**, against £1.20 standalone — **4.3 % accretive**.\n\n**With amortisation:** 60 ÷ 10 = £6m a year pre-tax, **£4.5m after tax**. Net income 160 − 4.5 = **£155.5m**; EPS 155.5 ÷ 127.78 = **£1.217** — still accretive, but only by **1.4 %**.\n\nThe P/E rule (Tamar at 15× buying at 12.5×) gets the direction right. It cannot see the write-up, which here takes away two-thirds of the accretion.",
+  "key_points": [
+    "New shares 500 ÷ 18 = 27.78m; total 127.78m",
+    "Before amortisation: £160m ÷ 127.78m = £1.252 (+4.3 %)",
+    "Amortisation £6m pre-tax, £4.5m after tax",
+    "After: £155.5m ÷ 127.78m = £1.217 (+1.4 %)",
+    "The P/E shortcut ignores purchase-accounting charges"
+  ],
+  "follow_ups": [
+    {
+      "question": "Would a goodwill-heavy allocation look better?",
+      "answer_md": "On reported EPS, yes. Goodwill is not amortised under IFRS, so moving value from the brand into goodwill removes the £4.5m charge, and EPS goes back to £1.252. The economics are identical, which is why analysts look at deals on cash and on earnings before acquired-intangible amortisation as well as on reported EPS."
+    },
+    {
+      "question": "Does the DTL change pro-forma EPS?",
+      "answer_md": "No. The income-statement tax charge is still 25 % of pre-tax profit; the DTL unwinding just means part of that charge is deferred tax rather than cash tax. EPS sees the £4.5m after-tax figure either way. The DTL matters for goodwill and for cash flow, not for the EPS line."
+    }
+  ],
+  "weak_answer_note": "Deducting the amortisation pre-tax, which gives £1.205 instead of £1.217. Forgetting the new shares. Claiming the deal turns dilutive.",
+  "numbers": {
+    "inputs": {
+      "acquirer_net_income": 120,
+      "acquirer_shares": 100,
+      "share_price": 18,
+      "target_net_income": 40,
+      "price": 500,
+      "write_up": 60,
+      "life_years": 10,
+      "tax_rate": 0.25
+    },
+    "answer": 1.217
+  },
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

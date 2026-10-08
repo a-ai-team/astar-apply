@@ -1,0 +1,44 @@
+{
+  "slug": "expected-value-reroll-game",
+  "subtopic_slug": "brain-teasers",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Fit – Outside the box",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "brain-teaser",
+    "probability"
+  ],
+  "question": "You roll a fair die and are paid £1 per pip shown. After the first roll you may roll once more, but then you must take the second result. With the best strategy, what is the game worth — and would you pay £4 to play?",
+  "model_answer_md": "Work backwards from the last decision.\n\n- A second roll is worth its expected value: (1 + 2 + 3 + 4 + 5 + 6) ÷ 6 = **£3.50**.\n- So after the first roll, **keep** anything above £3.50 — a 4, 5 or 6 — and **re-roll** a 1, 2 or 3.\n- Half the time you keep, and your kept rolls average (4 + 5 + 6) ÷ 3 = £5.00. Half the time you re-roll and expect £3.50.\n\n$$EV = 0.5 \\times 5.00 + 0.5 \\times 3.50 = £4.25$$\n\nAt £4 to play, the game is worth **£4.25**, so yes — a small positive expected profit of 25p a game.",
+  "key_points": [
+    "Value the last stage first: a fresh roll is worth £3.50",
+    "Keep 4, 5 or 6; re-roll 1, 2 or 3",
+    "EV = 0.5 × 5.00 + 0.5 × 3.50 = £4.25",
+    "Worth paying £4"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if you were allowed two re-rolls?",
+      "answer_md": "With one re-roll left the game is worth £4.25, so on the first roll keep only a 5 or 6 (average 5.5) and re-roll otherwise: EV = (2/6) × 5.5 + (4/6) × 4.25 ≈ £4.67."
+    },
+    {
+      "question": "Why keep a 4 but not a 3?",
+      "answer_md": "Because the decision compares what you have with what re-rolling is expected to give. A 4 beats £3.50; a 3 does not."
+    }
+  ],
+  "weak_answer_note": "Answering £3.50 by ignoring the option to re-roll, or using a threshold without justifying it against the £3.50 continuation value.",
+  "numbers": {
+    "inputs": {
+      "faces": 6,
+      "rerolls": 1,
+      "price": 4
+    },
+    "answer": 4.25
+  },
+  "topic_slug": "fit-behavioural",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

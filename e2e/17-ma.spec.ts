@@ -1,12 +1,16 @@
 import { test, expect, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 17 — M&A. Requires the seed chain + `npm run seed -- 03`.
 // M&A is a PAID topic, so everything the chapter loads is `generated` and invisible to a student
 // under RLS. The setup approves the four lessons with the admin client and restores their original
 // statuses afterwards — the linked project is the only environment, so nothing may be left approved.
 const TOPIC = "ma";
+
+// Loop 21: rows come from the taxonomy, never pinned (CURRENT.md rule 9).
+const LIVE_SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics.filter((s) => !s.deferred).length;
 
 const LESSONS = {
   why: "why-companies-acquire",
@@ -61,9 +65,9 @@ test.describe("Loop 17 M&A", () => {
     await expect(page.getByTestId("topic-heading")).toHaveText("M&A");
 
     // Five subtopics in the taxonomy; `purchase-price-allocation` has no lesson, so no row.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(LESSON_SLUGS.length);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(LESSON_SLUGS.length);
-    await expect(page.getByText(DEFERRED, { exact: true })).toHaveCount(0);
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(LESSON_SLUGS.length);
+    await expect(page.getByText(DEFERRED, { exact: true }).first()).toBeVisible(); // Loop 21 un-deferred it: it now has a row
   });
 
   test("the accretion rule: predict first, then the widget flips at the acquirer's own multiple", async ({ page, baseURL }) => {
@@ -160,7 +164,7 @@ test.describe("Loop 17 M&A", () => {
     await expect(page.getByTestId("cheatsheet-formulas").locator(".katex").first()).toBeVisible();
     await expect(page.getByTestId("cheatsheet-traps")).toContainText("Calling the premium goodwill");
     // `ft-only` material is named so it cannot ambush the student, never taught as a lesson.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Exchange-ratio collars");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Full three-statement merger models");
 
     // The chapter's takeaway artefact: the deal card the student fills in and brings to interviews.
     await page.goto(lessonUrl(LESSONS.why));

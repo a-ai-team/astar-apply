@@ -1,0 +1,38 @@
+{
+  "slug": "negative-or-zero-beta",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "beta",
+    "capm"
+  ],
+  "question": "Your regression gives a company a beta of −0.2. What does that mean, and would you use it in a DCF?",
+  "model_answer_md": "A **negative beta** means the share has tended to move **against** the market — rising when the market falls. Plug it into CAPM and the cost of equity comes out **below the risk-free rate**: 4 % + (−0.2) × 6 % = 2.8 %. Shareholders would be accepting less than a government bond for holding a risky business, which makes little economic sense for an operating company.\n\nI would not use it. A negative or near-zero beta on an ordinary company almost always signals a **measurement problem**: thin trading, so the price rarely updates; a short or unusual regression window; a takeover bid pinning the share price to the offer; or a company that is mostly cash.\n\nThe fix is the usual one — take an **industry beta from peers**, unlevered and relevered at the company's own leverage. Genuinely negative betas exist for some assets, such as gold or certain hedging instruments, but very rarely for a company you would value with a DCF.",
+  "key_points": [
+    "Negative beta: the share moves against the market",
+    "CAPM then gives a cost of equity below the risk-free rate",
+    "For an operating company that is a red flag, not an insight",
+    "Causes: thin trading, short window, bid situation, large cash pile",
+    "Replace with a peer-derived, relevered beta"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the beta is 0.1 rather than negative?",
+      "answer_md": "Same diagnosis. A beta near zero says the shares barely respond to the market, which is implausible for most businesses. Check the trading volume and the regression period, and cross-check against peers before trusting it."
+    },
+    {
+      "question": "Name an asset that could genuinely have a negative beta.",
+      "answer_md": "Gold has at times, because investors buy it when equities sell off. Some insurance and hedging positions behave that way too. Operating companies almost never do over a long period."
+    }
+  ],
+  "weak_answer_note": "Using the negative beta mechanically and producing a cost of equity below the gilt yield. Not knowing that a peer beta is the standard fix.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

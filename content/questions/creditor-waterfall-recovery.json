@@ -1,0 +1,46 @@
+{
+  "slug": "creditor-waterfall-recovery",
+  "topic_slug": "lbo",
+  "subtopic_slug": "distress-and-restructuring",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "restructuring",
+    "waterfall"
+  ],
+  "question": "A distressed company is valued at £300m. It owes £220m of senior secured debt and £100m of unsecured notes, and the restructuring costs £20m. What does each class recover, and which is the fulcrum?",
+  "model_answer_md": "Value is shared under **absolute priority**: costs first, then each class in order, each paid in full before the next gets anything.\n\n| | Claim | Recovers | Recovery |\n|---|---|---|---|\n| Costs | £20m | £20m | 100 % |\n| Senior secured | £220m | £220m | 100 % |\n| Unsecured notes | £100m | **£60m** | **60 %** |\n| Equity | — | £0 | 0 % |\n\nAfter costs, **£280m** is left for creditors. The senior lenders take £220m in full, leaving **£60m** for the notes: a 60 % recovery. Nothing reaches the shareholders.\n\nThe **notes are the fulcrum** — the class where the value runs out. They will most likely receive the bulk of the restructured company's equity in exchange for their claim.",
+  "key_points": [
+    "Costs come off first: 300 − 20 = £280m for creditors",
+    "Senior secured paid in full: £220m",
+    "Notes receive 280 − 220 = £60m — a 60 % recovery",
+    "Equity receives nothing",
+    "Notes are the fulcrum and likely take the new equity"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the valuation were £220m instead?",
+      "answer_md": "£200m would be left after costs, so the senior lenders recover 200 ÷ 220 ≈ 91 % and the notes nothing — the fulcrum moves up to the senior debt."
+    },
+    {
+      "question": "Why do recovery outcomes in practice sometimes break strict absolute priority?",
+      "answer_md": "Because negotiations trade value for speed and votes: junior classes or shareholders sometimes get a small 'tip' to avoid a contested, costly court process. Strict priority is the starting point, not always the final split."
+    }
+  ],
+  "weak_answer_note": "Sharing the value pro rata across all creditors, forgetting the costs come first, or saying the shareholders get the residual when there isn't one.",
+  "numbers": {
+    "inputs": {
+      "enterprise_value": 300,
+      "costs": 20,
+      "senior_secured": 220,
+      "unsecured_notes": 100
+    },
+    "answer": 0.6
+  },
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

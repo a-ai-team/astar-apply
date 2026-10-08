@@ -1,0 +1,37 @@
+{
+  "slug": "issue-shares-for-cash",
+  "topic_slug": "accounting",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 1,
+  "question": "Kestrel issues £50m of new shares for cash. Walk me through the three statements.",
+  "model_answer_md": "**Income statement: nothing.** Raising money is not revenue, and selling your own shares is not a gain.\n\n**Cash flow statement.** A **£50m inflow in financing**. Operating and investing are untouched, so cash rises **£50m**.\n\n**Balance sheet.** Cash +£50m on the asset side. On the other side **share capital and share premium** (the shares' nominal value plus whatever investors paid above it) rise £50m. Assets +50 = equity +50, so it balances.\n\nThe interest comes later. From next year the extra cash earns interest, while earnings are now split across more shares.",
+  "key_points": [
+    "No income statement effect on the day",
+    "+£50m in financing cash flow",
+    "Cash +50, share capital / premium +50",
+    "Balances through equity, not retained earnings"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens to earnings per share over the next year?",
+      "answer_md": "Two things pull in opposite directions. The £50m earns some interest, which lifts net income slightly. But the share count has risen, and at today's interest rates the extra income is usually smaller than the dilution, so EPS normally falls. That is the same logic as an all-stock acquisition: new shares are an expensive currency unless the money earns more than the earnings yield."
+    },
+    {
+      "question": "Why does retained earnings not move?",
+      "answer_md": "Retained earnings only collect profit the company has earned and kept. New shares are money put in by owners, so they go to share capital and share premium, a separate part of equity."
+    }
+  ],
+  "weak_answer_note": "Books the issue as revenue or a gain, or puts the inflow in operating cash flow. Credits retained earnings instead of share capital.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "equity"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

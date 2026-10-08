@@ -1,0 +1,36 @@
+{
+  "slug": "premiums-paid-analysis",
+  "subtopic_slug": "other-methodologies",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "premiums"
+  ],
+  "question": "Marlow's shares traded at £9.00 before rumours of a bid pushed them to £10.50. Comparable UK takeovers paid premiums of 25–40 %. What price range does a premiums-paid analysis suggest, and what price do you apply the premium to?",
+  "model_answer_md": "Apply the premium to the **undisturbed** price — **£9.00**, the price before the rumours — not £10.50.\n\n- 25 %: £9.00 × 1.25 = **£11.25**\n- 40 %: £9.00 × 1.40 = **£12.60**\n\nSo the analysis suggests roughly **£11.25–£12.60 a share**.\n\nUsing the rumour-inflated £10.50 would double-count: the market has already priced in part of the expected premium, so adding a full premium on top would overstate what a bidder needs to pay. Bankers typically measure the premium against the price on the day before rumours started, and sometimes against 30- or 90-day averages too.",
+  "key_points": [
+    "Use the undisturbed price, before any leak or rumour",
+    "25–40 % on £9.00 gives £11.25–£12.60",
+    "A rumour-inflated price already contains part of the premium",
+    "Often cross-checked against 30- or 90-day average prices"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why do takeovers pay a premium at all?",
+      "answer_md": "The buyer gains control — it can change strategy, cut costs and capture synergies — and shareholders will not hand that over at the trading price, which reflects only a minority stake. The premium is the buyer sharing part of that value."
+    },
+    {
+      "question": "Why might premiums differ across sectors?",
+      "answer_md": "Sectors with large synergy potential or scarce targets attract higher premiums; deals in stressed sectors or for companies whose shares already price in a bid see lower ones."
+    }
+  ],
+  "weak_answer_note": "Applying the premium to the rumour-inflated price, or giving a premium without saying what it is measured against.",
+  "numbers": null,
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

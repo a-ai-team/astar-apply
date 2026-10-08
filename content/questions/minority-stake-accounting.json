@@ -1,0 +1,37 @@
+{
+  "slug": "minority-stake-accounting",
+  "subtopic_slug": "why-companies-acquire",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Merger models – concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "consolidation",
+    "associates"
+  ],
+  "question": "A company buys 15 %, 35 % and then 70 % of another business. How is each stake accounted for?",
+  "model_answer_md": "The accounting follows the level of influence.\n\n- **15 % — investment.** No significant influence. Held at **fair value**; dividends, and under most elections the value changes, go through the accounts. No share of the investee's profit.\n- **35 % — associate.** Significant influence but not control, usually from about 20 % to 50 %. **Equity method:** one line on the balance sheet for the stake, and the buyer's 35 % share of the investee's net income in its own net income.\n- **70 % — subsidiary.** Control, above 50 %. **Full consolidation:** 100 % of revenue, costs, assets and liabilities come in, and the 30 % the buyer does not own is shown as **non-controlling interest**, both in equity and as a deduction from net income.\n\nThe percentages are guides. The real tests are significant influence and control, such as board seats or voting agreements.",
+  "key_points": [
+    "< ~20 %: investment at fair value",
+    "~20–50 %: associate, equity method (one line, share of profit)",
+    "> 50 %: subsidiary, full consolidation",
+    "Unowned part of a subsidiary shown as non-controlling interest",
+    "Thresholds are guides; influence and control are the tests"
+  ],
+  "follow_ups": [
+    {
+      "question": "How does each stake show up in the EV bridge?",
+      "answer_md": "For the subsidiary, the multiples include 100 % of its EBITDA, so you add the non-controlling interest to get from equity value to enterprise value. For the associate, its profit is not in the parent's EBITDA, so you subtract the stake's value. The 15 % investment is a non-operating asset, subtracted like cash."
+    },
+    {
+      "question": "Why can a 45 % stake sometimes be consolidated?",
+      "answer_md": "Because control is about power, not just percentages. If the holder can appoint most of the board, for example through an agreement with other shareholders, or the rest of the shares are widely scattered, it may control the business with under 50 %. Accounting standards follow control, so it would consolidate and show 55 % as non-controlling interest."
+    }
+  ],
+  "weak_answer_note": "Saying all stakes are consolidated proportionately. Not knowing the equity method. Forgetting non-controlling interest for the 70 % stake.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

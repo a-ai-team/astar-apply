@@ -1,0 +1,48 @@
+{
+  "slug": "pennard-credit-stats",
+  "topic_slug": "lbo",
+  "subtopic_slug": "debt-tranches",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "credit-stats"
+  ],
+  "question": "Pennard Logistics carries £200m of senior debt at 5.5 % and £50m of second lien at 8 %. Entry EBITDA is £50m and year-one EBITDA is £52.5m, with £20.6m of free cash flow after interest. Work out total and senior leverage, year-one interest cover, FCF ÷ debt, and how far EBITDA can fall before a 6.0× leverage covenant breaks.",
+  "model_answer_md": "**Leverage.** Total: 250 ÷ 50 = **5.0×**. Senior: 200 ÷ 50 = **4.0×** — the senior lenders' own exposure, which is lower because the second lien sits behind them.\n\n**Interest.** 200 × 5.5 % + 50 × 8 % = 11 + 4 = **£15m**. Year-one cover = 52.5 ÷ 15 = **3.5×**.\n\n**FCF ÷ debt.** 20.6 ÷ 250 = **8.2 %** — a year's cash flow could repay about a twelfth of the debt.\n\n**Covenant headroom.** The covenant breaks at 250 ÷ 6.0 = **£41.7m** of EBITDA, so EBITDA can fall about **17 %** from £50m before the test fails (less once debt is repaid, more once EBITDA grows).",
+  "key_points": [
+    "Total leverage 250 ÷ 50 = 5.0×; senior 200 ÷ 50 = 4.0×",
+    "Interest 11 + 4 = £15m; cover 52.5 ÷ 15 = 3.5×",
+    "FCF ÷ debt = 20.6 ÷ 250 ≈ 8.2 %",
+    "Breach EBITDA = 250 ÷ 6 ≈ £41.7m: about 17 % headroom"
+  ],
+  "follow_ups": [
+    {
+      "question": "Which statistic would a senior lender look at first, and why?",
+      "answer_md": "Senior leverage, because it measures the claims at or ahead of theirs. A senior lender at 4.0× is protected by the £50m of second lien and the £160m of equity below it — they would only lose money if enterprise value fell below £200m, half the entry price."
+    },
+    {
+      "question": "How does the cash sweep change these numbers over the hold?",
+      "answer_md": "Debt falls as free cash flow repays it — Pennard's falls from £250m to about £116m — while EBITDA grows to about £64m, so leverage falls below 2×, interest cover rises and covenant headroom widens every year."
+    }
+  ],
+  "weak_answer_note": "Dividing debt by year-one EBITDA for leverage but entry EBITDA for cover inconsistently without saying so, or computing interest cover as interest ÷ EBITDA.",
+  "numbers": {
+    "inputs": {
+      "senior_debt": 200,
+      "senior_rate": 0.055,
+      "second_lien": 50,
+      "second_lien_rate": 0.08,
+      "entry_ebitda": 50,
+      "year1_ebitda": 52.5,
+      "fcf": 20.6,
+      "covenant": 6.0
+    },
+    "answer": 3.5
+  },
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

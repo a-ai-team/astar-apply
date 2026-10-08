@@ -1,0 +1,39 @@
+{
+  "slug": "size-premium-private-company",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "capm",
+    "size-premium",
+    "private-company"
+  ],
+  "question": "Why do some valuers add a size premium to the cost of equity for a small private company, and what is the counter-argument?",
+  "model_answer_md": "A **size premium** is an extra 1–3 % added to the CAPM cost of equity for smaller companies.\n\n**The case for it:** historically, small listed companies have earned higher returns than CAPM predicts from their betas. Small businesses also carry risks a beta does not capture well — dependence on a few customers or one founder, thinner access to funding, less diversified products — and their shares are harder to sell. Valuers of private companies, and courts and tax authorities in valuation disputes, often apply one.\n\n**The case against:** the historical small-company excess return has been unstable and has largely disappeared in some periods, so building it into the rate may be fitting old data. Much of what it is meant to capture — customer concentration, key-person risk — is specific to one company and arguably belongs in the cash-flow forecast, where it can be seen and argued about, rather than hidden in the rate.\n\nA balanced answer: use it with a stated source, keep it modest, and do not also haircut the cash flows for the same risks.",
+  "key_points": [
+    "Size premium: an extra 1–3 % on the cost of equity for small companies",
+    "Rationale: historical small-cap excess returns and risks beta misses",
+    "Also reflects illiquidity of small or private shares",
+    "Counter: the effect is unstable and specific risks belong in cash flows",
+    "Never count the same risk in both rate and cash flows"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is illiquidity the same thing as a size premium?",
+      "answer_md": "Related but distinct. A private stake that cannot easily be sold is often valued with a separate discount for lack of marketability applied to the final equity value, rather than through the rate. Mixing the two risks double-counting."
+    },
+    {
+      "question": "Would you add a size premium for a large private company like a big family-owned retailer?",
+      "answer_md": "Probably not much of one. The rationale is about small scale, not private ownership. A large, diversified private business may warrant a marketability discount but little or no size premium."
+    }
+  ],
+  "weak_answer_note": "Treating the size premium as an uncontested fact, or adding it while also cutting the cash flows for the same founder or customer risk.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "unitranche-vs-syndicated",
+  "topic_slug": "lbo",
+  "subtopic_slug": "debt-tranches",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "private-credit"
+  ],
+  "question": "What is a unitranche loan, and why might a sponsor choose one over a syndicated senior-plus-junior structure?",
+  "model_answer_md": "A **unitranche** is a single loan, usually from one private-credit fund or a small club, that replaces the separate senior and junior layers with one facility at one blended rate. A **syndicated** structure is arranged by banks and sold to many investors — a Term Loan B, maybe a second lien or bonds — each tranche priced separately.\n\nWhy a sponsor picks unitranche:\n\n- **Speed and certainty.** One lender, one document, no marketing to dozens of investors and no risk that the market sours mid-process.\n- **Simplicity in trouble.** A single counterparty is far easier to negotiate a waiver with than a dispersed syndicate.\n- **Leverage and flexibility.** Private-credit funds often lend more turns and accept looser covenants, especially for recurring-revenue businesses.\n\nThe cost is **price**: a unitranche usually pays a higher margin than the blended cost of a syndicated deal, and its call protection can make early refinancing expensive. Large deals still go to the syndicated market, where the cost of capital is lower.",
+  "key_points": [
+    "Unitranche: one loan, one lender or club, one blended rate",
+    "Replaces separate senior and junior tranches",
+    "Pros: speed, certainty, one counterparty in a waiver",
+    "Often more turns and looser covenants",
+    "Cons: higher margin than syndicated; less suited to the largest deals"
+  ],
+  "follow_ups": [
+    {
+      "question": "Who provides unitranche loans?",
+      "answer_md": "Private-credit funds — direct lenders that raise money from pension funds and insurers and hold loans to maturity rather than distributing them."
+    },
+    {
+      "question": "What is a first-out / last-out unitranche?",
+      "answer_md": "A unitranche where, behind the scenes, the lenders agree among themselves that one group is repaid first at a lower rate and another bears more risk for a higher rate — the borrower still sees one loan."
+    }
+  ],
+  "weak_answer_note": "Describing unitranche as just 'a cheaper loan', or missing that its appeal is speed and certainty rather than price.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "One loan from a private-credit fund replacing the senior and junior tranches at one blended rate. Faster, more certain and simpler in a waiver; costs a higher margin than a syndicated structure."
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "lbo-floor-price-marlow",
+  "subtopic_slug": "other-methodologies",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Valuation methodologies",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "lbo-floor"
+  ],
+  "question": "A sponsor looks at Marlow (EBITDA £150m, net debt £210m, 120m shares). It can borrow 5.0× EBITDA, wants a 20 % IRR over five years, expects EBITDA of £190m at exit, will repay £300m of debt and assumes a 9.0× exit multiple. Ignoring fees, what is the most it could pay per share?",
+  "model_answer_md": "Work backwards from the exit.\n\n- Debt at entry: 5.0 × £150m = **£750m**\n- Exit EV: 9.0 × £190m = **£1,710m**\n- Debt left at exit: £750m − £300m = £450m, so exit equity = **£1,260m**\n- A 20 % IRR over five years needs a money multiple of 1.2⁵ ≈ **2.49×**\n- Most equity the sponsor can invest: £1,260m ÷ 2.49 ≈ **£506m**\n- Maximum EV: £750m + £506m ≈ **£1,256m** (about 8.4× EBITDA)\n- Less Marlow's £210m net debt, which is repaid at close: equity value **£1,046m**\n\n$$\\text{Per share} = £1{,}046\\text{m} \\div 120\\text{m} \\approx \\mathbf{£8.72}$$\n\nThat is below Marlow's £9.00 share price — so on these assumptions a sponsor could not offer a premium, and the LBO bar sits at the bottom of the football field.",
+  "key_points": [
+    "Exit equity £1,260m after £450m of debt remains",
+    "20 % over 5 years ≈ 2.49× money multiple",
+    "Max equity ≈ £506m; max EV ≈ £1,256m",
+    "Per share ≈ £8.72 — below the £9.00 price"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would let the sponsor pay more?",
+      "answer_md": "More leverage, a higher exit multiple, faster EBITDA growth or debt paydown, a longer hold, or a lower return target. Each one raises exit equity relative to the cheque, so the maximum entry price rises."
+    },
+    {
+      "question": "Why is this usually the lowest bar?",
+      "answer_md": "A sponsor has no synergies to pay away and needs a high return on its equity, whereas a strategic buyer can pay part of its synergies to the seller. So the price that clears a sponsor's hurdle is usually below precedents and often below comps."
+    }
+  ],
+  "weak_answer_note": "Discounting the exit enterprise value instead of the exit equity, forgetting the debt paid down, or not bridging from EV to a per-share figure.",
+  "numbers": {
+    "inputs": {
+      "ebitda": 150,
+      "leverage": 5,
+      "target_irr": 0.2,
+      "years": 5,
+      "exit_ebitda": 190,
+      "exit_multiple": 9,
+      "debt_repaid": 300,
+      "net_debt": 210,
+      "shares": 120
+    },
+    "answer": 8.72
+  },
+  "topic_slug": "valuation",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

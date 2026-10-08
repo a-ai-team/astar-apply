@@ -1,0 +1,37 @@
+{
+  "slug": "ppe-write-down-vs-goodwill-impairment",
+  "topic_slug": "accounting",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Kestrel writes down a closed factory's equipment by £24m. Assume the write-down is tax-deductible at 25 %. Walk me through it. Then tell me how a £24m goodwill impairment would differ.",
+  "model_answer_md": "**PP&E write-down.**\n\n- **Income statement.** A £24m non-cash charge. Tax falls £6m, so **net income falls £18m**.\n- **Cash flow statement.** Start at −£18m and add back the £24m charge, because no cash moved. **Cash rises £6m**, the tax saving.\n- **Balance sheet.** PP&E −24, cash +6, retained earnings −18. Assets −18 = equity −18, so it balances.\n\n**Goodwill impairment.** The walk is the same, with one difference: a goodwill impairment is usually **not tax-deductible**. So net income falls the full **£24m**, the add-back is £24m, and **cash does not change**. On the balance sheet goodwill −24 and retained earnings −24.\n\nEither way the company has admitted that an asset is worth less than it paid. Nothing was spent today. The money left when the asset was bought.",
+  "key_points": [
+    "PP&E write-down: NI −18, cash +6 (tax saving), PP&E −24",
+    "Non-cash, so added back on the cash flow statement",
+    "Goodwill impairment usually not deductible: NI −24, cash unchanged",
+    "Both reflect overpayment in the past, not cash spent today"
+  ],
+  "follow_ups": [
+    {
+      "question": "Can a write-down ever be reversed?",
+      "answer_md": "Under IFRS, an impairment of PP&E can be reversed if the asset's value recovers, up to what its carrying value would otherwise have been. A goodwill impairment can never be reversed. US GAAP forbids reversals of either for assets held and used."
+    },
+    {
+      "question": "Why might an interviewer care about the tax assumption?",
+      "answer_md": "Because it changes the cash answer. When an accounting charge is not deductible, the tax return ignores it and cash tax is unchanged. The book tax charge and the cash tax then differ, and with goodwill that difference is permanent, so no deferred tax arises from it."
+    }
+  ],
+  "weak_answer_note": "Says cash falls by £24m, or treats goodwill impairment as tax-deductible without flagging the assumption.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "impairment"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

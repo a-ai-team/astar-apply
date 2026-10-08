@@ -1,0 +1,38 @@
+{
+  "slug": "why-pik-raises-risk",
+  "topic_slug": "lbo",
+  "subtopic_slug": "debt-tranches",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "pik"
+  ],
+  "question": "A sponsor proposes adding £50m of PIK notes at 12 % to a buyout. Why does that raise risk, and for whom?",
+  "model_answer_md": "**PIK** — payment-in-kind — means the interest is added to the principal instead of being paid in cash. It saves cash now and costs more later, because the claim compounds: **£50m** at **12 %** grows to 50 × 1.12⁵ = **£88.1m** after five years.\n\n**For the equity**, this is the main risk. The PIK notes rank ahead of the shares, so the whole £88.1m comes out of exit proceeds — £38m more than was borrowed. And the business is getting *more* levered on that tranche every year while the senior debt is being paid down.\n\n**For the PIK holders**, risk is high too: they rank behind all the cash-pay debt and receive nothing until exit or refinancing, which is why they charge 12 % or more.\n\n**For the senior lenders**, PIK is fairly benign — it ranks behind them and costs no cash — so they tolerate it. That is exactly why it is used: it stretches total leverage without straining the cash flow the senior lenders depend on.",
+  "key_points": [
+    "PIK interest accrues onto the principal — no cash cost now",
+    "Claim compounds: £50m at 12 % → about £88.1m in five years",
+    "Equity bears the cost: the larger claim ranks ahead at exit",
+    "PIK holders are deeply subordinated, hence 12 %+",
+    "Senior lenders tolerate it because it sits behind them and uses no cash"
+  ],
+  "follow_ups": [
+    {
+      "question": "What is a PIK toggle?",
+      "answer_md": "A note where the borrower can choose each period to pay interest in cash or in kind, usually at a higher rate when it chooses PIK. It gives the company flexibility in a weak year at the cost of a faster-growing claim."
+    },
+    {
+      "question": "Is PIK interest tax-deductible?",
+      "answer_md": "Generally it accrues as an interest expense and can be deductible even though no cash is paid, subject to interest-limitation rules — which is why it raises cash flow by the tax shield in year one."
+    }
+  ],
+  "weak_answer_note": "Calling PIK 'free' because there is no cash interest, or missing that the compounding claim comes out of the equity at exit.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "PIK interest accrues onto the principal, so the claim compounds (£50m at 12 % ≈ £88m in five years). It saves cash now but the bigger claim ranks ahead of the equity at exit — the sponsor bears most of the cost."
+}

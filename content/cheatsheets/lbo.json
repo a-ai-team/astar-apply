@@ -30,6 +30,26 @@
       "name": "Rule of 72",
       "latex": "\\text{Years to double} \\approx \\frac{72}{\\text{IRR \\%}}",
       "note": "At 20 % money doubles in about 3.6 years — the sanity check on any anchor you quote."
+    },
+    {
+      "name": "Credit statistics",
+      "latex": "\\text{Leverage}=\\frac{\\text{Debt}}{\\text{EBITDA}},\\quad \\text{Interest cover}=\\frac{\\text{EBITDA}}{\\text{Cash interest}},\\quad \\frac{\\text{FCF}}{\\text{Debt}}",
+      "note": "Pennard: 250 ÷ 50 = 5.0×; 52.5 ÷ 15 = 3.5×; 20.6 ÷ 250 ≈ 8 %."
+    },
+    {
+      "name": "Covenant headroom",
+      "latex": "\\text{Breach EBITDA}=\\frac{\\text{Debt}}{\\text{Covenant multiple}},\\quad \\text{Headroom}=1-\\frac{\\text{Breach EBITDA}}{\\text{EBITDA}}",
+      "note": "250 ÷ 6.0 = £41.7m, so EBITDA can fall about 17 % before a 6× test fails."
+    },
+    {
+      "name": "PIK accrual",
+      "latex": "\\text{Claim}_n=\\text{Principal}\\times(1+r)^n",
+      "note": "£50m at 12 % for five years = £88.1m, all ahead of the equity at exit."
+    },
+    {
+      "name": "Recovery in a waterfall",
+      "latex": "\\text{Recovery}=\\frac{\\min(\\text{Claim},\\ \\text{Value left after senior classes and costs})}{\\text{Claim}}",
+      "note": "EV £300m − £20m costs − £220m senior = £60m for £100m of notes: 60 %, the fulcrum."
     }
   ],
   "canonical": [
@@ -59,17 +79,19 @@
     "Treating leverage as a value creator. It concentrates the value on a smaller cheque and adds interest and risk; the value itself comes from the three levers.",
     "Computing equity as 100 % minus the leverage. Equity is the plug on the uses side — fees and refinanced debt both enlarge the cheque.",
     "Subtracting entry debt at exit. The business has been repaying it for five years; use the remaining balance, and the difference is exactly the paydown.",
-    "Building a full debt schedule in a paper LBO. Round aggressively and narrate the structure — precision is not what is being tested."
+    "Building a full debt schedule in a paper LBO. Round aggressively and narrate the structure — precision is not what is being tested.",
+    "Calling PIK 'free' — the claim compounds ahead of the equity and the sponsor pays for it at exit.",
+    "Treating a covenant breach as bankruptcy — it is a default that is usually negotiated into a waiver for a fee, margin or new equity.",
+    "Splitting distressed value pro rata — absolute priority pays costs, then secured, then unsecured, then equity, each in full before the next.",
+    "Saying underwater shares must be worth zero — equity keeps option value until the restructuring happens."
   ],
   "one_liners": [
-    "Debt shrinks the cheque; cash flow shrinks the debt; the exit pays the equity."
+    "Debt shrinks the cheque; cash flow shrinks the debt; the exit pays the equity.",
+    "Every lender is pricing one thing — how likely it is to be repaid; seniority, security, covenants and rate are the answer.",
+    "Cash problem or value problem? Walk the waterfall until the money runs out — that class will own the company."
   ],
   "you_may_hear": [
     "Cash sweeps and minimum-cash assumptions in the debt schedule.",
-    "PIK toggles — interest accrued onto the principal instead of paid in cash.",
-    "Maintenance vs incurrence covenants, and covenant-lite loans.",
-    "Dividend recapitalisations — re-levering mid-hold to return cash early.",
-    "Management rollover and sweet equity.",
-    "Unitranche facilities from private-credit funds."
+    "Dividend recapitalisations — re-levering mid-hold to return cash early."
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "slug": "excess-vs-operating-cash",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "cash"
+  ],
+  "question": "When you subtract cash in the EV bridge, should you subtract all of it?",
+  "model_answer_md": "Strictly, **only the excess cash** — the cash a buyer could take out and use to repay debt without hurting the business.\n\nTwo kinds of cash fail that test. **Operating cash** is the minimum the business needs to run — float in tills, a buffer for paying suppliers. **Trapped or restricted cash** cannot be freely used: held in a country that restricts sending it home, pledged as collateral, or held for customers.\n\nIn practice most quick bridges subtract the full cash balance, and that is fine for an interview answer. But saying \"strictly, only excess cash\" shows you know *why* cash is in the bridge at all.",
+  "key_points": [
+    "Cash is subtracted because a buyer could use it to pay down debt",
+    "Operating cash is needed to run the business — not really spare",
+    "Trapped or restricted cash cannot be freely used",
+    "Strictly subtract only excess cash; flag the rest"
+  ],
+  "follow_ups": [
+    {
+      "question": "Where would you find trapped cash?",
+      "answer_md": "In the notes to the accounts: companies usually disclose restricted cash, cash held as collateral and cash in jurisdictions with exchange controls. Management commentary on liquidity often mentions it too."
+    },
+    {
+      "question": "Does it change the multiple much?",
+      "answer_md": "For most companies, no. For a cash-rich company — a large technology group, say — subtracting cash that is actually trapped can understate EV noticeably and make the EV/EBITDA multiple look cheaper than it really is."
+    }
+  ],
+  "weak_answer_note": "Subtracting every pound of cash without any qualification, or not being able to say why cash is subtracted in the first place.",
+  "numbers": null,
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Strictly only excess cash — operating cash and trapped or restricted cash are not freely available to repay debt."
+}

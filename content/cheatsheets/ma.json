@@ -30,6 +30,21 @@
       "name": "The deal test",
       "latex": "PV(\\text{synergies}) > \\text{Premium paid}",
       "note": "Tamar: ≈ £167m of after-tax synergy value net of integration costs, against a £100m premium. Below the line, the deal transfers value to the seller."
+    },
+    {
+      "name": "Goodwill with deferred tax",
+      "latex": "\\text{GW} = P - (\\text{BV} + \\text{write-ups} - \\text{write-ups}\\times t)",
+      "note": "Tamar/Wychwood: 500 − (220 + 60 − 15) = £235m. The DTL raises goodwill pound for pound."
+    },
+    {
+      "name": "Exchange ratio",
+      "latex": "\\text{ER} = \\frac{\\text{offer per target share}}{\\text{buyer share price}}",
+      "note": "10 ÷ 18 = 0.556 Tamar shares per Wychwood share; 27.78m new shares."
+    },
+    {
+      "name": "Seller ownership after an all-stock deal",
+      "latex": "\\frac{\\text{new shares}}{\\text{existing} + \\text{new shares}}",
+      "note": "27.78 ÷ 127.78 = 21.7 %, against a 25 % earnings contribution."
     }
   ],
   "canonical": [
@@ -55,15 +70,17 @@
     "Adding the two net incomes and dividing by the old share count. The funding cost comes off the income and the new shares go into the denominator; forgetting either is the classic failure.",
     "Charging pre-tax interest. Every funding cost — new debt, forgone interest on cash — enters the walk after tax.",
     "Calling the premium goodwill. They are different numbers built on different bases: £100m over the market price, £220m over identifiable net assets.",
-    "Treating accretion as proof the deal is good. Overpaying with cheap debt is still accretive — the EPS line cannot see the NPV."
+    "Treating accretion as proof the deal is good. Overpaying with cheap debt is still accretive — the EPS line cannot see the NPV.",
+    "Keeping the target's equity on the combined balance sheet — it is eliminated; only the buyer's equity plus new shares remain.",
+    "Quoting P/E-rule accretion without the new amortisation from write-ups (Tamar all-stock: +4.3 % falls to +1.4 %).",
+    "Thinking a fixed exchange ratio fixes the value — it fixes the share count; the seller bears the buyer's price risk."
   ],
   "one_liners": [
-    "A deal is accretive when the earnings you buy yield more, at the price you pay, than the after-tax cost of what you pay with."
+    "A deal is accretive when the earnings you buy yield more, at the price you pay, than the after-tax cost of what you pay with.",
+    "Goodwill is the plug, the DTL makes it bigger, and the write-ups — not the goodwill — hit next year's earnings.",
+    "Before synergies and new amortisation, a stock deal is accretive when the buyer keeps a bigger share of the combined company than it contributes in earnings."
   ],
   "you_may_hear": [
-    "Full three-statement merger models — balance sheet and cash-flow consolidation, not just the EPS line.",
-    "Asset sales vs stock sales, and the tax elections that follow.",
-    "Purchase-accounting deferred tax in detail — the DTL created by write-ups and how it unwinds.",
-    "Exchange-ratio collars on stock deals — floors and caps on how many shares the seller receives."
+    "Full three-statement merger models — balance sheet and cash-flow consolidation, not just the EPS line."
   ]
 }

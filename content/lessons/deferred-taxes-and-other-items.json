@@ -1,0 +1,207 @@
+{
+  "slug": "deferred-taxes-and-other-items",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "title": "Deferred tax, leases, associates: the lines that trip people up",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 11,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Once you can walk depreciation, PIK interest and an asset sale, the interviewer has two ways to go deeper. One is to change the transaction again. The other is to point at a line on the balance sheet that most candidates have never thought about and ask what it is doing there.\n\nThis lesson covers those lines: **deferred tax**, **leases**, **stakes in other companies** (associates and minority interests) and **amortisation of acquired intangibles**. None needs new maths. Each is the same three-statement method with one extra idea, and each is a classic follow-up at elite boutiques and in later rounds."
+      },
+      {
+        "type": "concept",
+        "heading": "Deferred tax: two sets of books",
+        "md": "A company keeps two sets of numbers. Its **book accounts** follow accounting rules and go to shareholders. Its **tax return** follows tax law and goes to HMRC. The two often disagree about *timing*.\n\nThe classic case is depreciation. The accounts spread the cost of a machine evenly over its life. Tax law often lets the company deduct more of it early on, through **accelerated capital allowances** (a bigger tax deduction for the asset in the first years). Early on, taxable profit is lower than book profit, so the company *pays* less tax than its income statement *shows*.\n\nThat gap is not a saving. It is tax postponed. Later, when the allowances run out but book depreciation continues, taxable profit is *higher* than book profit and the company pays the difference back. The balance sheet records the IOU as a **deferred tax liability (DTL)**: tax that the accounts have charged but the company has not yet paid.\n\nThe mirror image is a **deferred tax asset (DTA)**: tax the company has effectively prepaid, or a future tax saving it is entitled to. The most common source is a **net operating loss (NOL)**, a tax loss carried forward. Lose £40m this year at a 25 % tax rate, and future profits of £40m will be taxed at zero, so the company holds a £10m asset. Accountants recognise it only if future profits to use it against look likely."
+      },
+      {
+        "type": "mechanics",
+        "md": "**Deferred tax through the three statements.** The income statement shows the *book* tax charge, which is pre-tax profit × the tax rate. The cash flow statement starts from net income and adds back the **increase in the DTL** as a non-cash item, because that part of the charge was not paid. The balance sheet shows cash higher and the DTL higher by the same amount.\n\n**Leases under IFRS 16** (the UK and EU standard since 2019). A lease used to be a rent expense. Now the company records a **right-of-use asset** (its right to use the shop or plane) and a **lease liability** (the present value of the rent it has promised to pay). The rent disappears from operating costs. In its place come **depreciation** of the asset and **interest** on the liability. So EBITDA rises by the full rent. Interest is highest in the early years, so net income is usually *lower* early in a lease and higher late. On the cash flow statement the principal part of each payment moves to **financing**.\n\n**US GAAP (ASC 842)** puts the same asset and liability on the balance sheet. For an *operating* lease, though, it keeps a single straight-line lease cost inside operating expenses, so EBITDA does not change. Comparing a UK company with a US one, you have to adjust one of them.\n\n**Stakes in other companies.** Own **under ~20 %** and it is an investment held at fair value. Own **20–50 %** with real influence and it is an **associate**: the **equity method** puts your share of its profit on one line below EBIT, adds back that non-cash share on the cash flow statement, and adds any dividend actually received. Own **over 50 %** and you **consolidate**: 100 % of its revenue, costs, assets and debt go into your accounts. The slice belonging to other shareholders shows up as **non-controlling interest (NCI)**, both in equity and as a deduction at the bottom of the income statement.\n\n**Amortisation of acquired intangibles.** When a company buys another, it puts a value on things like customer lists and brands. Those are written off over their lives as amortisation, a non-cash charge that walks exactly like depreciation. In many share deals that amortisation is **not tax-deductible**, which is where the DTLs in purchase accounting come from."
+      },
+      {
+        "type": "concept",
+        "heading": "IFRS vs US GAAP: the differences worth knowing",
+        "md": "You will not be asked to recite standards, but three differences come up:\n\n- **Interest and dividends on the cash flow statement.** US GAAP puts interest paid in operating activities and dividends paid in financing. IFRS lets the company choose, so two UK peers can show different operating cash flow for identical businesses.\n- **LIFO** (last in, first out, which charges the newest, usually dearest stock to cost of sales first) is allowed in the US and banned under IFRS.\n- **Development costs** can be capitalised under IFRS once a project is clearly viable. US GAAP expenses almost all R&D as incurred. That makes UK EBITDA look higher for the same spending.\n\nThe interview skill is the same each time: spot the difference and adjust before comparing."
+      },
+      {
+        "type": "predict",
+        "prompt": "Kestrel Foods pays £12m a year to rent its bakeries. It switches to IFRS 16, so the rent is capitalised. Before you touch the slider: what happens to Kestrel's EBITDA?",
+        "options": [
+          {
+            "label": "It falls by £12m"
+          },
+          {
+            "label": "It rises by about £12m",
+            "correct": true
+          },
+          {
+            "label": "It is unchanged — it is the same rent"
+          },
+          {
+            "label": "It rises by £24m"
+          }
+        ],
+        "explain_md": "**It rises by the full £12m.** The rent leaves operating costs completely. What replaces it, depreciation of the right-of-use asset and interest on the lease liability, both sit *below* EBITDA.\n\nNothing about the business changed, which is the point. The same company now reports a higher EBITDA *and* carries more debt-like liabilities. That is why the multiple barely moves in the widget below as long as you treat both sides consistently."
+      },
+      {
+        "type": "widget",
+        "widget": "lease_toggle",
+        "props": {}
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Kestrel's new oven line.** Kestrel spends **£60m** on ovens with a six-year life, so book depreciation is £10m a year. Tax law gives it a **£20m** capital allowance in year one. Pre-tax profit in the accounts is **£90m** and the tax rate is **25 %**.",
+        "steps": [
+          {
+            "label": "Book depreciation: £60m over 6 years",
+            "expr": "60 / 6",
+            "value": 10,
+            "unit": "£m"
+          },
+          {
+            "label": "Extra deduction on the tax return in year one",
+            "expr": "20 - 10",
+            "value": 10,
+            "unit": "£m"
+          },
+          {
+            "label": "Tax charge shown on the income statement: £90m × 25 %",
+            "expr": "90 * 25%",
+            "value": 22.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Taxable profit: £90m + £10m book depreciation − £20m allowance",
+            "expr": "90 + 10 - 20",
+            "value": 80,
+            "unit": "£m"
+          },
+          {
+            "label": "Cash tax actually paid",
+            "expr": "80 * 25%",
+            "value": 20,
+            "unit": "£m"
+          },
+          {
+            "label": "Deferred tax liability created (charged, not yet paid)",
+            "expr": "22.5 - 20",
+            "value": 2.5,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "**Now the asset side.** Kestrel opens a new subsidiary that loses **£40m** in its first year, all of it usable against future profit. In year two the subsidiary earns **£60m**. Tax is 25 %.",
+        "steps": [
+          {
+            "label": "Deferred tax asset at the end of year one",
+            "expr": "40 * 25%",
+            "value": 10,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Year-two taxable profit after using the loss",
+            "expr": "60 - 40",
+            "value": 20,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Year-two cash tax",
+            "expr": "20 * 25%",
+            "value": 5,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Tax saved: tax on £60m with no loss, minus the £5m paid",
+            "expr": "60 * 25% - 5",
+            "value": 10,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"A deferred tax liability is tax the company owes right now.\"**\n\nIt is not owed now. It is tax that *would* have been paid already if the tax rules matched the accounting rules, and that will be paid as the timing difference unwinds. It has no fixed date, no interest and no lender. That is why most bankers leave DTLs *out* of net debt.\n\nThe opposite mistake is just as common with leases: saying IFRS 16 \"makes the company more indebted\". The obligation existed before. It was simply off the balance sheet. The economics did not move, only the presentation, so compare companies on the same basis."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A deferred tax liability arises when the tax return and the accounts recognise the same item at different times. Usually that is because tax law lets a company deduct depreciation faster than the accounts charge it. The income statement shows tax on book profit, but the company pays tax on lower taxable profit. The gap is added back on the cash flow statement and sits on the balance sheet as a liability that unwinds when the allowances run out. A deferred tax asset is the mirror image, most often from tax losses carried forward, which shelter future profit from tax.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Loss-making tech and the asset nobody counts",
+            "md": "A growing software company can pile up hundreds of millions of tax losses before it turns a profit. Those losses are a genuine future tax saving. But because profits are uncertain, the accounts often recognise little or none of the deferred tax asset.\n\nIn a valuation that matters. A DCF should tax early profits at close to zero until the losses are used up, which can add meaningfully to value. Data-centre and tower operators are the lease story instead. Their leases are so large that EBITDA before and after IFRS 16 can differ by a quarter or more, so check which basis every comparable uses.",
+            "example_q": "A software company has £500m of tax losses but recognises no deferred tax asset. Should you ignore the losses when valuing it?",
+            "answer_md": "No. Recognition is an accounting judgement about likelihood, not a statement that the losses are worthless. In a DCF I would model the losses sheltering future taxable profit, so the company pays little cash tax until they are used up. Alternatively, I would value them separately as the present value of the tax saved, discounted at a rate that reflects the risk of never earning enough profit to use them."
+          },
+          "healthcare": {
+            "heading": "Biotech losses and hospital leases",
+            "md": "A clinical-stage biotech is all losses: years of research spending and no revenue. Its tax losses are worth something only if a drug reaches market. So the deferred tax asset is usually left unrecognised, and the value of the losses rides on the same approval probability as the drug itself.\n\nCare-home and hospital operators sit at the other extreme. Their sites are often leased, so IFRS 16 adds a large lease liability and lifts EBITDA sharply. Those businesses are usually valued on EBITDA *after* rent, or with the lease liability counted as debt, so the multiple compares like with like.",
+            "example_q": "Why might a biotech's tax losses be worth less to an acquirer than their face value suggests?",
+            "answer_md": "Because they are only worth something if there are future profits to set them against. That depends on the drug succeeding, which is uncertain. Tax rules can also restrict how much of an acquired company's losses a buyer can use after a change of ownership. So I would probability-weight the saving and discount it, rather than add losses × tax rate to the price."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Kestrel's oven line is now in year four. Book depreciation is still £10m a year, but the capital allowance has dropped to £5m. Pre-tax profit in the accounts is £90m and tax is 25 %. What happens to the deferred tax liability, and what does it do to cash?",
+        "model_answer_md": "The timing difference is now running the other way. Taxable profit is **£90m + £10m − £5m = £95m**, so cash tax is **£23.75m**. The income statement still shows tax on book profit, **£22.5m**.\n\nThe company is paying **£1.25m more** than its accounts charge. That is the IOU being repaid, so the **DTL falls by £1.25m**.\n\nOn the cash flow statement the *decrease* in the DTL is subtracted from net income as a non-cash adjustment, so operating cash flow is £1.25m lower than net income plus the usual add-backs would suggest. On the balance sheet, cash is £1.25m lower and the DTL is £1.25m lower, so it balances.",
+        "rubric": [
+          "Taxable profit £95m and cash tax £23.75m",
+          "Book tax charge unchanged at £22.5m",
+          "DTL falls by £1.25m (unwinding)",
+          "Cash flow: the decrease is a deduction from cash",
+          "Balance check: cash −1.25 and DTL −1.25"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Accelerated capital allowances — does a DTL or a DTA arise?",
+            "a": "A DTL. The company pays less tax now and more later."
+          },
+          {
+            "q": "IFRS 16: what happens to EBITDA when rent is capitalised?",
+            "a": "It rises by the full rent. Depreciation and interest replace it, both below EBITDA."
+          },
+          {
+            "q": "You own 30 % of a company. How does its profit reach your income statement?",
+            "a": "Your 30 % share of its net income, on one line below EBIT, under the equity method."
+          },
+          {
+            "q": "You own 80 %. How much of its revenue do you report?",
+            "a": "All of it. The 20 % you do not own appears as non-controlling interest."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Deferred tax is timing, leases are presentation, and stakes depend on control: under 20 % is an investment, 20–50 % one line of profit, over 50 % everything plus NCI.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can explain how accelerated depreciation creates a deferred tax liability, and walk it through the statements.",
+          "I can explain how tax losses create a deferred tax asset and what using them does to cash tax.",
+          "I can say what IFRS 16 does to EBITDA, net income and the cash flow statement, and how US GAAP differs.",
+          "I can explain the equity method, consolidation and non-controlling interest.",
+          "I can name the IFRS–US GAAP differences an interviewer is likely to raise."
+        ]
+      }
+    ]
+  }
+}

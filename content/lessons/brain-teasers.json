@@ -1,0 +1,119 @@
+{
+  "slug": "brain-teasers",
+  "subtopic_slug": "brain-teasers",
+  "title": "Brain teasers and quick maths: think out loud, land a number",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 9,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Some interviewers drop in an estimation question, a quick sum or a logic puzzle — more often at banks that run numerical tests or case rounds. They are not testing whether you know the answer. They are testing whether you stay calm, structure a problem you have never seen, and do arithmetic accurately under mild pressure.\n\nThe good news: there are only a handful of types, and each has a method. Learn the method and narrate it, and even a slightly wrong final number scores well."
+      },
+      {
+        "type": "concept",
+        "heading": "Estimation: structure first, numbers second",
+        "md": "An estimation (\"market sizing\") question asks for a number nobody expects you to know — how much the UK spends on school shoes in a year, say.\n\nThe method:\n\n1. **Clarify** what is being counted (UK only? spend in £ or pairs?).\n2. **Pick a driver tree** — break the number into pieces you can estimate: *people × how many each × price*.\n3. **State each assumption out loud**, with a round number and a one-line reason.\n4. **Multiply** — keep the numbers round so the arithmetic is easy.\n5. **Sanity-check** against something you do know, and say what would change your answer most.\n\nRound numbers are a feature, not a weakness: 10 million is easier to multiply than 10.6 million and the interviewer cares about the logic."
+      },
+      {
+        "type": "order_steps",
+        "prompt": "Put the estimation method in order.",
+        "steps": [
+          "Clarify exactly what is being estimated",
+          "Break it into a driver tree you can estimate",
+          "State each assumption with a round number and a reason",
+          "Multiply through to an answer",
+          "Sanity-check and name the most sensitive assumption"
+        ]
+      },
+      {
+        "type": "mechanics",
+        "md": "**Mental-maths shortcuts** worth having ready:\n\n- **Percentages:** find 10 %, then scale. 15 % of 240 = 24 + 12 = **36**.\n- **Swapping:** x % of y = y % of x. 8 % of 50 = 50 % of 8 = **4**.\n- **Multiples:** 7 × £1.2bn — do 7 × 12 = 84, then place the decimal: **£8.4bn**.\n- **Compounding:** 10 % for three years is 1.1³ ≈ **1.33**, not 1.30.\n- **Rule of 72:** money doubles in about 72 ÷ rate years. At 9 %, about **8 years**.\n\n**Clock angles:** the minute hand moves 6° a minute (360° ÷ 60). The hour hand moves 30° an hour (360° ÷ 12) **and** 0.5° a minute — the part people forget.\n\n**Expected value:** probability-weight every outcome and add. A fair die pays on average (1+2+3+4+5+6) ÷ 6 = **3.5**."
+      },
+      {
+        "type": "predict",
+        "prompt": "It is 3:15. What is the angle between the hour and minute hands?",
+        "options": [
+          { "label": "0° — both hands point at the 3" },
+          { "label": "7.5°", "correct": true },
+          { "label": "15°" },
+          { "label": "90°" }
+        ],
+        "explain_md": "The minute hand is exactly on the 3, at **90°**. But the hour hand has moved a quarter of the way from 3 to 4 — a quarter of 30°, so **7.5°** past the 3, at 97.5°. The gap is **7.5°**. The trap is assuming the hour hand sits still for the whole hour."
+      },
+      {
+        "type": "worked_calc",
+        "md": "Four quick ones, said the way you would say them out loud.",
+        "steps": [
+          { "label": "UK school shoes: ~10m pupils × 2 pairs a year × £35 a pair", "expr": "10 * 2 * 35", "value": 700, "unit": "£m" },
+          { "label": "Clock at 3:15 — hour hand: 3 hours × 30° + 15 minutes × 0.5°", "expr": "3*30 + 15*0.5", "value": 97.5, "unit": "°" },
+          { "label": "Minute hand: 15 minutes × 6°", "expr": "15*6", "value": 90, "unit": "°" },
+          { "label": "Angle between them", "expr": "97.5 - 90", "value": 7.5, "unit": "°" },
+          { "label": "15 % of 240", "expr": "15% * 240", "value": 36 },
+          { "label": "Years to double at 9 % (rule of 72)", "expr": "72 / 9", "value": 8, "unit": "years" }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Same method, new time: **9:45**.",
+        "steps": [
+          { "label": "Hour hand: 9 × 30° + 45 × 0.5°", "expr": "9*30 + 45*0.5", "value": 292.5, "unit": "°", "blank": true },
+          { "label": "Minute hand: 45 × 6°", "expr": "45*6", "value": 270, "unit": "°" },
+          { "label": "Angle between them", "expr": "292.5 - 270", "value": 22.5, "unit": "°", "blank": true }
+        ]
+      },
+      {
+        "type": "concept",
+        "heading": "Logic puzzles: split the problem, not the objects",
+        "md": "A common type: **nine coins look identical, one is slightly heavier. With a balance scale, find it in two weighings.**\n\nThe insight is to divide into **thirds**, not halves, because each weighing has three outcomes (left heavy, right heavy, balanced):\n\n1. Put three coins on each side, three aside. If one side drops, the heavy coin is in it; if they balance, it is in the three aside.\n2. Take that group of three. Put one on each side, one aside. Same logic finds it.\n\nThe general lesson: say out loud what each step rules out. An interviewer will give credit for a clear process that reaches the answer in three weighings over silence that reaches it in two."
+      },
+      {
+        "type": "trap",
+        "md": "**Going silent to compute, then announcing a number.**\n\nIf the number is wrong, the interviewer has nothing to give you credit for. Narrate: \"I'll split this into pupils, pairs per year and price.\" Then, if an assumption is off, they will often nudge you — which only works if they can hear your reasoning.\n\nThe second trap is false precision. Saying \"£713.4m\" for a back-of-envelope estimate signals you do not understand what an estimate is. Round, and give a range if asked."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "For an estimation question: clarify what is being counted, break it into a driver tree — people, how many each, price — state a round assumption for each with a reason, multiply, then sanity-check and say which assumption matters most. For a quick sum: use the shortcuts — 10 % then scale, swap percentages, rule of 72. For a logic puzzle: say what each step rules out. Throughout, think out loud so the interviewer can follow and correct you.",
+        "seconds": 40
+      },
+      {
+        "type": "your_turn",
+        "prompt": "Estimate how many cups of coffee are sold by coffee shops in London on a typical weekday. Talk through your structure and assumptions.",
+        "model_answer_md": "I would drive it from people:\n\n- **London population:** about 9m, plus roughly 1m commuters and visitors on a weekday — call it **10m** people in the city.\n- **Share who buy a coffee-shop coffee on a weekday:** many people drink coffee, but most make it at home or at work. Say **20 %** buy one — 2m people.\n- **Cups each:** most buy one, some two. Average **1.25**.\n\n$$10\\text{m} \\times 20\\% \\times 1.25 = 2.5\\text{m cups}$$\n\nSanity check from the supply side: if London has roughly 4,000 coffee shops, that is about 600 cups a shop a day — a busy café might sell 300–1,000, so the answer is plausible. The most sensitive assumption is the 20 % share; I would refine it first.",
+        "rubric": [
+          "Clarifies scope and states a driver tree before numbers",
+          "Uses round, reasoned assumptions",
+          "Multiplies correctly to a sensible order of magnitude",
+          "Sanity-checks from a second direction",
+          "Names the most sensitive assumption"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "How far does the hour hand move each minute?", "a": "Half a degree — 30° an hour divided by 60." },
+          { "q": "12 % of 50?", "a": "6 — swap it to 50 % of 12." },
+          { "q": "Years to double at 6 %?", "a": "About 12, by the rule of 72." },
+          { "q": "Expected value of one roll of a fair die?", "a": "3.5." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Structure out loud, round your numbers, and sanity-check — the method earns the marks, not the final digit.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can structure an estimation question with a driver tree and round assumptions.",
+          "I can do percentage, multiple and compounding sums quickly in my head.",
+          "I can find the angle between clock hands at any time.",
+          "I can compute a simple expected value and explain a weighing-puzzle approach."
+        ]
+      }
+    ]
+  }
+}

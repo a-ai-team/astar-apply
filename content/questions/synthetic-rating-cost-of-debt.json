@@ -1,0 +1,48 @@
+{
+  "slug": "synthetic-rating-cost-of-debt",
+  "subtopic_slug": "wacc",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "wacc",
+    "cost-of-debt",
+    "private-company"
+  ],
+  "question": "Fenwick Engineering is private and unrated, with no traded bonds. Its EBIT is £24m and its interest expense £4m. Agencies' typical bands are: interest cover of 8× or more ≈ A (spread 1.0 %), 5–8× ≈ BBB (1.75 %), 3–5× ≈ BB (3.0 %), below 3× ≈ B (4.5 %). Gilts yield 4 % and tax is 25 %. Estimate Fenwick's pre-tax and after-tax cost of debt.",
+  "model_answer_md": "With no rating and no traded debt, build a **synthetic rating** from Fenwick's own numbers.\n\n1. **Interest cover** = EBIT ÷ interest = £24m ÷ £4m = **6.0×**.\n2. 6.0× sits in the 5–8× band, so treat Fenwick as roughly **BBB**, a spread of **1.75 %**.\n3. **Pre-tax cost of debt** = 4 % + 1.75 % = **5.75 %**.\n4. **After-tax**, for WACC: 5.75 % × (1 − 25 %) = **4.3 %**.\n\nWhat I would *not* do is divide £4m of interest by the debt balance. That gives the average rate on loans taken out in the past, which may be far from what lenders would charge Fenwick today.\n\nI would sense-check the result against leverage (debt ÷ EBITDA) too — rating agencies look at several ratios, and one alone can mislead.",
+  "key_points": [
+    "No rating or bonds: build a synthetic rating",
+    "Interest cover = £24m ÷ £4m = 6.0× → BBB band",
+    "Pre-tax Kd = 4 % + 1.75 % = 5.75 %",
+    "After-tax Kd = 5.75 % × 0.75 ≈ 4.3 %",
+    "Avoid interest ÷ debt — it is a historical average"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why might the interest cover overstate Fenwick's credit quality?",
+      "answer_md": "If EBIT is unusually high this year — a cyclical peak or a one-off gain — the cover flatters it. Use a normalised EBIT, and cross-check with leverage."
+    },
+    {
+      "question": "Fenwick borrowed from its bank last month. Could you use that rate?",
+      "answer_md": "Yes, if the loan was agreed recently on arm's-length terms — that is a genuine current market price. I would still check it against the synthetic estimate in case the bank priced in a wider relationship."
+    }
+  ],
+  "weak_answer_note": "Using interest expense divided by the debt balance. Forgetting to add the spread to the risk-free rate, or applying the tax shield and then quoting it as the pre-tax cost.",
+  "numbers": {
+    "inputs": {
+      "ebit": 24,
+      "interest": 4,
+      "gilt_yield": 0.04,
+      "bbb_spread": 0.0175,
+      "tax_rate": 0.25
+    },
+    "answer": 0.0575
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

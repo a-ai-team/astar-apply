@@ -1,0 +1,245 @@
+{
+  "slug": "purchase-price-allocation",
+  "subtopic_slug": "purchase-price-allocation",
+  "title": "Purchase price allocation: the morning after the deal",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 11,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "The synergies lesson stopped at one number: Tamar pays **£500m** for Wychwood and books **£220m** of goodwill. Interviewers at the later rounds go one step further. They ask you to *put the two companies together* — what Tamar's balance sheet looks like the morning after completion, and what the deal does to next year's earnings once the accounting has had its say.\n\nThis is purchase price allocation (PPA): deciding where every pound of the price lands. It explains why goodwill exists, why an accretive-looking deal can report weaker earnings than the back-of-envelope said, and why a buyer cares whether it buys a company's shares or its assets. Add the mechanics of paying in shares — the exchange ratio, who ends up owning what — and the UK rules for bidding for a listed company, and you can talk through a deal's structure end to end."
+      },
+      {
+        "type": "concept",
+        "heading": "Buying a company is buying its balance sheet — at a new price",
+        "md": "When Tamar acquires all of Wychwood, Wychwood's assets and liabilities join Tamar's balance sheet line by line. That is **consolidation**. Three things happen to Wychwood's side on the way in.\n\n1. **Its equity disappears.** Wychwood's **£220m** of shareholders' equity belonged to its old owners. Tamar has paid them for it, so it is *eliminated*; the only equity left is Tamar's own, plus any new shares Tamar issued to fund the deal.\n2. **Its assets are restated to fair value.** Book values are history; the price is today. Anything identifiable that is worth more than its book value is **written up** — Wychwood's brand by **£60m** — and intangibles that were never on its balance sheet at all (customer lists, technology) can be recognised for the first time.\n3. **Whatever is left over is goodwill.** Price minus the fair value of everything identifiable. It is the plug that makes the balance sheet balance.\n\nThere is one wrinkle. The tax authorities usually keep the *old* values for tax purposes, so the extra book value will never earn tax relief. That gap between book value and tax value is a **deferred tax liability (DTL)** — tax that will, in effect, be paid later as the write-up is used up. On £60m at 25 % it is **£15m**, and because it reduces the net assets acquired, it *adds* £15m to goodwill: **£235m** rather than £220m."
+      },
+      {
+        "type": "mechanics",
+        "md": "**The day-one combination**, in four moves:\n\n- **Add** the two companies' assets and liabilities together.\n- **Eliminate** the target's equity.\n- **Record the funding**: new debt is a liability; new shares add to the buyer's equity; cash spent leaves the buyer's assets.\n- **Record the allocation**: write-ups and new intangibles as assets, the DTL as a liability, goodwill as the balancing asset.\n\n$$\\text{Goodwill} = \\text{Price} - (\\text{book net assets} + \\text{write-ups} - \\text{DTL})$$\n\n**The earnings afterwards.** Written-up and newly recognised intangibles with a finite life are **amortised** — spread over their useful life as an expense — and written-up plant depreciates from its higher base. Pro-forma net income loses that charge *after tax*. Goodwill itself is not amortised under IFRS; it is only tested for impairment.\n\n**Paying in shares.** The **exchange ratio** is the number of buyer shares each target share receives: offer price per target share ÷ buyer share price. A **fixed ratio** locks the number of shares, so the seller's value moves with the buyer's share price; a **fixed value** locks the pounds, so the number of shares moves instead. A **collar** fixes one within a band and switches to the other outside it. Ownership afterwards is simply new shares ÷ total shares — and **contribution analysis** sets that ownership against what each side brings (revenue, EBITDA, net income) to test whether the split is fair."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Tamar's morning after.** Before the deal Tamar has total assets of **£1,400m**, liabilities (including its existing debt) of **£400m** and equity of **£1,000m**. Wychwood has total assets of **£300m**, liabilities of **£80m** and equity of **£220m**. Tamar pays **£500m** — **£250m** of new debt and **£250m** of new shares at **£18** — writes Wychwood's brand up by **£60m**, and recognises the DTL. Tax is **25 %**. The brand is amortised over **10 years**.",
+        "steps": [
+          {
+            "label": "New Tamar shares issued: £250m ÷ £18",
+            "expr": "250 / 18",
+            "value": 13.89,
+            "unit": "m"
+          },
+          {
+            "label": "DTL on the brand write-up",
+            "expr": "60 * 25%",
+            "value": 15,
+            "unit": "£m"
+          },
+          {
+            "label": "Goodwill: price less (book net assets + write-up − DTL)",
+            "expr": "500 - (220 + 60 - 15)",
+            "value": 235,
+            "unit": "£m"
+          },
+          {
+            "label": "Combined assets: both sides + write-up + goodwill",
+            "expr": "1400 + 300 + 60 + 235",
+            "value": 1995,
+            "unit": "£m"
+          },
+          {
+            "label": "Combined liabilities: both sides + new debt + DTL",
+            "expr": "400 + 80 + 250 + 15",
+            "value": 745,
+            "unit": "£m"
+          },
+          {
+            "label": "Combined equity: Tamar's + new shares (Wychwood's £220m eliminated)",
+            "expr": "1000 + 250",
+            "value": 1250,
+            "unit": "£m"
+          },
+          {
+            "label": "Check: liabilities + equity",
+            "expr": "745 + 1250",
+            "value": 1995,
+            "unit": "£m"
+          },
+          {
+            "label": "Annual brand amortisation",
+            "expr": "60 / 10",
+            "value": 6,
+            "unit": "£m"
+          },
+          {
+            "label": "… after tax",
+            "expr": "6 * 0.75",
+            "value": 4.5,
+            "unit": "£m"
+          },
+          {
+            "label": "Pro-forma net income: 120 + 40 − 11.25 interest − 4.5",
+            "expr": "120 + 40 - 11.25 - 4.5",
+            "value": 144.25,
+            "unit": "£m"
+          },
+          {
+            "label": "Pro-forma EPS over 113.89m shares",
+            "expr": "144.25 / 113.89",
+            "value": 1.267,
+            "unit": "£"
+          },
+          {
+            "label": "Accretion against £1.20 standalone",
+            "expr": "144.25 / 113.89 / 1.20 - 1",
+            "value": 0.055,
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "Tamar's accountants switch on the deferred tax liability for the £60m brand write-up. With the price unchanged at £500m, goodwill…",
+        "options": [
+          {
+            "label": "Falls by £15m — the tax is a saving"
+          },
+          {
+            "label": "Rises by £15m — the net assets acquired are £15m smaller",
+            "correct": true
+          },
+          {
+            "label": "Is unchanged — deferred tax never touches goodwill"
+          }
+        ],
+        "explain_md": "**Rises, from £220m to £235m.** The DTL is a liability Tamar takes on with Wychwood: tax that will in effect be paid later because the brand's book value is above its tax value. A new liability shrinks the identifiable net assets acquired from £280m to £265m, and goodwill — the residual — absorbs the difference.\n\nToggle the deferred tax switch in the widget and watch the same £15m move."
+      },
+      {
+        "type": "widget",
+        "widget": "ppa_goodwill",
+        "props": {}
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now pay entirely in shares. Wychwood has **50m** shares, so the **£500m** offer is **£10.00** a share. Tamar's shares trade at **£18**, and it has **100m** of them. Tamar earns **£120m** and Wychwood **£40m**.",
+        "steps": [
+          {
+            "label": "Offer per Wychwood share",
+            "expr": "500 / 50",
+            "value": 10,
+            "unit": "£"
+          },
+          {
+            "label": "Exchange ratio: Tamar shares per Wychwood share",
+            "expr": "10 / 18",
+            "value": 0.556,
+            "blank": true
+          },
+          {
+            "label": "New Tamar shares issued",
+            "expr": "50 * 10 / 18",
+            "value": 27.78,
+            "unit": "m",
+            "blank": true
+          },
+          {
+            "label": "Wychwood holders' share of the combined group",
+            "expr": "27.78 / (100 + 27.78)",
+            "value": 0.217,
+            "unit": "",
+            "blank": true
+          },
+          {
+            "label": "Wychwood's share of combined net income",
+            "expr": "40 / (120 + 40)",
+            "value": 0.25,
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "type": "concept",
+        "heading": "Shares or assets — and the UK rules for listed targets",
+        "md": "**Share purchase vs asset purchase.** In a **share purchase** the buyer acquires the company itself, with every asset, contract and liability, known or not — and the target's tax values carry over unchanged, which is where the DTL comes from. In an **asset purchase** the buyer picks the assets (and liabilities) it wants; their tax values reset to the price paid, so the buyer typically gets tax relief on more of it. Sellers usually prefer share sales: the proceeds go straight to the shareholders, whereas in an asset sale the company is taxed on any gain and the owners face a second layer of tax getting the cash out. In the UK most company sales are share sales; asset deals suit carve-outs and distressed sales, where the buyer wants to leave liabilities behind.\n\n**Minority stake vs control.** Below roughly **20 %** of the shares, the stake is an investment held at fair value. From about **20 % to 50 %** — significant influence without control — it is an **associate**: one line on the balance sheet, and a share of its profit in net income (the equity method). Above **50 %** the buyer **consolidates** 100 % of the target and shows the part it does not own as **non-controlling interest**.\n\n**Bidding for a UK-listed company** runs under the **Takeover Code**. Two routes: a **scheme of arrangement** — the target proposes it, shareholders approve it (75 % by value of the shares voted) and the court sanctions it, after which it binds everyone — or a **contractual offer** made to each shareholder, normally conditional on getting more than 50 %, with the right to squeeze out the rest at 90 %. Once a bidder is named publicly, **put up or shut up** gives it 28 days to announce a firm offer or walk away for six months. Break fees payable by the target are generally prohibited — a UK difference from the US, where they are routine."
+      },
+      {
+        "type": "trap",
+        "md": "**\"An all-stock deal is accretive at these multiples, so pro-forma EPS is £1.25 — done.\"**\n\nThe P/E rule only tells you the *direction before purchase accounting*. Pay Tamar's £500m entirely in shares and the earnings maths gives **£160m** over **127.78m** shares — **£1.252**, 4.3 % accretive. Now amortise the £60m brand over ten years: £6m a year, **£4.5m after tax**, and EPS drops to **£1.217**. The deal is still accretive, but only by **1.4 %**.\n\nIn deals for asset-light targets — software, consumer brands — almost the entire price can land in amortising intangibles, and the charge can turn an accretive headline into a dilutive reported number. Always ask: *how much of the price is being allocated to intangibles with a finite life?*"
+      },
+      {
+        "type": "canonical_answer",
+        "md": "On completion the buyer consolidates the target's assets and liabilities, eliminates the target's equity and records the funding — new debt, new shares or cash spent. The target's identifiable assets are restated to fair value, a deferred tax liability is booked because the tax values usually do not step up, and goodwill is the plug: price less book net assets plus write-ups less the DTL. Going forward, written-up assets and new intangibles are depreciated or amortised, which reduces pro-forma EPS after tax; goodwill is not amortised, only tested for impairment.",
+        "seconds": 50
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "When nearly the whole price is intangible",
+            "md": "A software target owns little but code, contracts and people, so its book net assets are tiny and PPA allocates most of the price to **developed technology** and **customer relationships** — both amortised, often over five to eight years — with goodwill on top. The amortisation can run to hundreds of millions a year on a large deal.\n\nThat is why technology acquirers report **adjusted EPS** that adds back acquired-intangible amortisation. The defence is that the charge is non-cash and relates to a past purchase; the critique is that the price was real cash or real dilution. In an interview, show you know both sides and that the add-back is a presentation choice, not a free lunch.",
+            "example_q": "A software company buys a target for £2bn and allocates £1.2bn to amortising intangibles. Why does management lead with adjusted EPS afterwards?",
+            "answer_md": "Because the reported figure carries a large non-cash charge: £1.2bn amortised over, say, six years is £200m a year pre-tax, which can make the deal look dilutive for years even if cash generation improves. Adjusted EPS adds that amortisation back to show underlying earning power.\n\nI would accept the logic only partly. The charge is non-cash today, but it represents real money or real shares handed over at completion. So I would look at both numbers, and at cash flow and return on the total price paid, rather than letting the adjusted figure settle the question."
+          },
+          "healthcare": {
+            "heading": "Milestones in the price",
+            "md": "Healthcare deals often pay part of the price later, if a drug hits a regulatory or sales milestone — **contingent consideration**, sometimes issued to shareholders as a tradable contingent value right. Under purchase accounting the buyer estimates the fair value of those future payments at completion and adds it to the price, so it flows into goodwill and the in-process R&D allocation on day one.\n\nAfterwards the liability is **remeasured through the income statement**. If the drug's prospects improve, the expected payment rises and the buyer books a *loss*; if a trial fails, the liability shrinks and the buyer books a *gain* — at the same moment it writes off the IPR&D. Good news shows as a cost, and bad news partly as income.",
+            "example_q": "An acquirer agrees to pay a further £200m if a drug is approved, with a 40 % chance of approval. How does that enter the purchase accounting?",
+            "answer_md": "At fair value on day one: roughly the probability-weighted, discounted value of the payment — about £80m before discounting — is added to the consideration and recognised as a liability, which raises the amounts allocated to IPR&D and goodwill.\n\nAfter completion the liability is remeasured each period through profit and loss. Approval makes the payment certain, so the liability rises towards £200m and the buyer records a loss; failure removes it, producing a gain alongside the IPR&D write-off."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A buyer pays **£900m** for a target with book net assets of **£500m**. Its property is written up by **£100m** and a customer list worth **£60m** is recognised; tax is **25 %**. The customer list is amortised over **5 years**.\n\nCalculate the deferred tax liability and the goodwill, then say what the deal does to the buyer's pre-tax and after-tax earnings each year from the customer list alone.",
+        "model_answer_md": "**Write-ups:** 100 + 60 = **£160m**. **DTL:** 160 × 25 % = **£40m**.\n\n**Identifiable net assets at fair value:** 500 + 160 − 40 = **£620m**. **Goodwill:** 900 − 620 = **£280m**.\n\n**Earnings:** the customer list amortises at 60 ÷ 5 = **£12m** a year pre-tax, which is **£9m** after tax. The DTL unwinds by £3m a year alongside it, so the income-statement tax charge reflects the deduction even though no tax relief is actually received. Goodwill adds nothing to the annual charge; it waits for an impairment test.",
+        "rubric": [
+          "Totals the write-ups: £160m",
+          "DTL = 160 × 25 % = £40m",
+          "Goodwill = 900 − (500 + 160 − 40) = £280m",
+          "Customer list amortisation: £12m pre-tax, £9m after tax",
+          "States that goodwill is not amortised, only tested for impairment"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "What happens to the target's shareholders' equity on consolidation?",
+            "a": "It is eliminated — the buyer has paid for it. Only the buyer's equity and any new shares remain."
+          },
+          {
+            "q": "Why does a write-up create a deferred tax liability?",
+            "a": "Book value rises but the tax value usually does not, so the extra depreciation or amortisation never earns tax relief — tax effectively paid later."
+          },
+          {
+            "q": "Fixed exchange ratio: who bears the buyer's share price risk?",
+            "a": "The seller — the number of shares is fixed, so the value received moves with the buyer's share price."
+          },
+          {
+            "q": "What does 'put up or shut up' mean?",
+            "a": "Once a UK bidder is named, it has 28 days to announce a firm offer or step away for six months."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Goodwill is the plug, the DTL makes it bigger, and the write-ups — not the goodwill — are what hit next year's earnings.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can build the combined balance sheet on completion and make it balance.",
+          "I can compute goodwill including the deferred tax liability on write-ups.",
+          "I can show how new amortisation reduces pro-forma EPS.",
+          "I can compute an exchange ratio, the shares issued and the ownership split, and test it with contribution analysis.",
+          "I can explain share vs asset purchases, minority vs control accounting, and the two UK routes to buy a listed company."
+        ]
+      }
+    ]
+  }
+}

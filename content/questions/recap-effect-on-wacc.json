@@ -1,0 +1,51 @@
+{
+  "slug": "recap-effect-on-wacc",
+  "subtopic_slug": "wacc",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "wacc",
+    "beta",
+    "leverage",
+    "recap"
+  ],
+  "question": "Harbourline (equity £1,050m, debt £590m, WACC 8.0 %) borrows another £200m and uses it to buy back shares, so equity falls to £850m and debt rises to £790m. Its unlevered beta is 0.70, the risk-free rate 4 %, the equity risk premium 6 % and tax 25 %. Lenders now charge 6.25 % instead of 6.0 %. What happens to its beta, cost of equity and WACC?",
+  "model_answer_md": "Work through each input in order — the point is that every one of them moves.\n\n**Beta.** Debt-to-equity rises from 590 ÷ 1,050 = 0.56 to 790 ÷ 850 = **0.93**. Relevering:\n\n$$\\beta_L = 0.70 \\times (1 + 0.75 \\times 0.93) = \\mathbf{1.19}$$\n\n(up from 1.0).\n\n**Cost of equity.** 4 % + 1.19 × 6 % = **11.1 %** (up from 10.0 %).\n\n**Cost of debt.** 6.25 % before tax, 6.25 % × 0.75 = **4.69 %** after tax (up from 4.5 %).\n\n**WACC.** Weights are 850 ÷ 1,640 = 51.8 % equity and 790 ÷ 1,640 = 48.2 % debt:\n\n$$0.518 \\times 11.13\\% + 0.482 \\times 4.69\\% = \\mathbf{8.03\\%}$$\n\nEssentially **unchanged** from 8.02 %. Every individual cost went up, but the weight shifted towards the cheaper source by just enough to offset it. Harbourline is near the flat bottom of its WACC curve — more debt now transfers risk to shareholders without lowering the overall cost of capital.",
+  "key_points": [
+    "New D/E = 790 ÷ 850 = 0.93",
+    "Relevered beta = 0.70 × (1 + 0.75 × 0.93) ≈ 1.19",
+    "Ke = 4 % + 1.19 × 6 % ≈ 11.1 %",
+    "After-tax Kd = 6.25 % × 0.75 ≈ 4.69 %",
+    "WACC ≈ 8.03 % — flat: rising costs offset by the shift to debt"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why did the total capital stay at £1,640m?",
+      "answer_md": "Because the borrowed £200m went straight back to shareholders in the buyback. The business's assets did not change — only who funds them."
+    },
+    {
+      "question": "What would you have got holding the cost of equity at 10 %?",
+      "answer_md": "About 0.518 × 10 % + 0.482 × 4.69 % ≈ 7.4 %. That is the naive answer — it assumes shareholders do not notice the extra debt standing ahead of them."
+    }
+  ],
+  "weak_answer_note": "Holding beta and the cost of equity fixed. Using book values or forgetting that equity fell by the amount of the buyback. Concluding that more debt always lowers WACC.",
+  "numbers": {
+    "inputs": {
+      "equity_value": 850,
+      "debt_value": 790,
+      "unlevered_beta": 0.7,
+      "risk_free": 0.04,
+      "erp": 0.06,
+      "cost_of_debt": 0.0625,
+      "tax_rate": 0.25
+    },
+    "answer": 0.0803
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

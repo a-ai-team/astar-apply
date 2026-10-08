@@ -1,0 +1,39 @@
+{
+  "slug": "debt-for-equity-swap-statements",
+  "topic_slug": "lbo",
+  "subtopic_slug": "distress-and-restructuring",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "restructuring",
+    "three-statements"
+  ],
+  "question": "In a debt-for-equity swap, £100m of 8 % notes are exchanged for 85 % of a company's shares. What happens to the financial statements and the old shareholders?",
+  "model_answer_md": "**Balance sheet.** Liabilities fall by **£100m** as the notes are cancelled, and equity rises — the noteholders now own shares instead of a debt claim. If the new shares are worth less than £100m, the difference is a gain on cancelling the debt, which can be taxable.\n\n**Income statement.** Interest falls by 100 × 8 % = **£8m** a year, so pre-tax profit rises by £8m.\n\n**Cash flow.** No cash changes hands in the swap itself; in later years operating cash flow is higher by the interest saved (after tax).\n\n**Old shareholders** go from owning 100 % to **15 %** of the company. Their claim was underwater, so a small share of a deleveraged company is often the best outcome available to them.",
+  "key_points": [
+    "Liabilities fall £100m; equity rises as notes become shares",
+    "Possible taxable gain if the shares are worth less than the debt",
+    "Interest saving 100 × 8 % = £8m a year",
+    "No cash moves in the swap itself",
+    "Old shareholders diluted to 15 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why would noteholders accept shares rather than wait for repayment?",
+      "answer_md": "If they are the fulcrum, they will not be repaid in full anyway; owning most of a deleveraged company gives them the upside of a recovery, and avoids a value-destroying court process."
+    },
+    {
+      "question": "How does the swap change leverage?",
+      "answer_md": "Debt falls by £100m against unchanged EBITDA — on £320m of debt and £30m of EBITDA, leverage drops from about 10.7× to 7.3×."
+    }
+  ],
+  "weak_answer_note": "Saying cash is used to repay the notes, or forgetting to mention the dilution of the existing shareholders.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Notes cancelled: liabilities down £100m, equity up. Interest falls £8m a year; no cash moves in the swap. Old shareholders are diluted to 15 %. A taxable gain arises if the shares are worth less than the debt."
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "estimation-question-approach",
+  "subtopic_slug": "brain-teasers",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "Fit – Outside the box",
+  "tags": [
+    "depth:sa-core",
+    "format:order",
+    "brain-teaser",
+    "estimation"
+  ],
+  "question": "An interviewer asks you to estimate how many umbrellas are sold in the UK each year. How do you approach it?",
+  "model_answer_md": "Structure first, then numbers, all out loud:\n\n1. **Clarify** — UK only, units not value, all channels?\n2. **Driver tree** — population × share who buy an umbrella in a year × umbrellas each.\n3. **Assumptions with reasons** — about 67m people; perhaps 30 % buy one in a typical year (they get lost, break, or are bought on the spot when it rains); those who buy average about 1.5. That gives 67m × 30 % × 1.5 ≈ **30m umbrellas**.\n4. **Sanity-check** — roughly one umbrella for every two people a year feels plausible in a rainy country.\n5. **Name the swing factor** — the 30 % share matters most; a wet year could move it a lot.\n\nThe interviewer is scoring the structure and the clarity, not whether the number is exactly right.",
+  "key_points": [
+    "Clarify scope before estimating",
+    "Build a driver tree (people × share × quantity)",
+    "Use round assumptions and say why",
+    "Sanity-check from another angle",
+    "Name the most sensitive assumption"
+  ],
+  "follow_ups": [
+    {
+      "question": "How would you sanity-check from the supply side?",
+      "answer_md": "Estimate outlets and sales per outlet: tens of thousands of shops and supermarkets selling a few hundred umbrellas a year each would also land in the tens of millions — consistent with the demand-side answer."
+    },
+    {
+      "question": "What if the interviewer says your share assumption is too high?",
+      "answer_md": "Accept it and rerun the arithmetic visibly: at 20 % the answer becomes about 20m. Showing you can update calmly is part of what is being tested."
+    }
+  ],
+  "weak_answer_note": "Jumping straight to a number with no structure, or using spuriously precise inputs. Going silent while thinking.",
+  "numbers": null,
+  "topic_slug": "fit-behavioural",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

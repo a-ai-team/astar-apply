@@ -1,0 +1,37 @@
+{
+  "slug": "growing-perpetuity-value",
+  "subtopic_slug": "discount-rates-and-risk",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Finance concepts",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "perpetuity",
+    "discounting"
+  ],
+  "question": "A business will generate £1.5m of cash next year, growing at 3 % a year forever. The discount rate is 9 %. What is it worth today — and what happens if growth is 4 % instead?",
+  "model_answer_md": "Use the growing perpetuity formula, $PV = C \\div (r - g)$, where $C$ is **next year's** cash flow:\n\n$$PV = \\frac{1.5}{9\\% - 3\\%} = \\frac{1.5}{0.06} = £25.0\\text{m}$$\n\nAt 4 % growth:\n\n$$PV = \\frac{1.5}{9\\% - 4\\%} = \\frac{1.5}{0.05} = £30.0\\text{m}$$\n\nA single percentage point of growth adds **20 %** to the value, because it shrinks the denominator from 6 % to 5 %. That sensitivity is why a DCF's long-term growth rate must stay modest — at or below long-run nominal GDP growth — and why it must stay below the discount rate.",
+  "key_points": [
+    "PV = C ÷ (r − g), with C as next year's cash flow",
+    "1.5 ÷ 6 % = £25.0m",
+    "At 4 % growth: 1.5 ÷ 5 % = £30.0m (+20 %)",
+    "Value is very sensitive to g as it approaches r"
+  ],
+  "follow_ups": [
+    {
+      "question": "What if the £1.5m was this year's cash flow rather than next year's?",
+      "answer_md": "Grow it one year first: 1.5 × 1.03 = £1.545m, then divide by 6 % to get about £25.75m. Using the current year's cash flow without growing it is a common slip."
+    },
+    {
+      "question": "Why must g be below r?",
+      "answer_md": "If growth equalled or exceeded the discount rate, the formula would divide by zero or a negative number, implying infinite value. Economically, no business can grow faster than the economy and its cost of capital forever."
+    }
+  ],
+  "weak_answer_note": "Using this year's cash flow instead of next year's, or adding growth to the rate. Not commenting on the sensitivity.",
+  "numbers": null,
+  "topic_slug": "finance-foundations",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

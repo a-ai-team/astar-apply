@@ -1,0 +1,49 @@
+{
+  "slug": "private-company-discount-rate",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "calculation",
+  "difficulty": 2,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "capm",
+    "private-company",
+    "beta"
+  ],
+  "question": "A private engineering company has no share price. How would you build its cost of equity? Listed peers have an unlevered beta of 0.70, the company's target debt-to-equity is 0.25, tax is 25 %, the risk-free rate 4 % and the equity risk premium 6 %, and you decide on a 2 % size premium.",
+  "model_answer_md": "With no share price there is no beta to observe, so borrow one from listed peers and adjust it to this company's own capital structure.\n\n1. **Peers' unlevered beta** — already given: **0.70**. (You would unlever each peer's observed beta and take the median.)\n2. **Relever at the company's own leverage:** 0.70 × (1 + 0.75 × 0.25) = **0.83**.\n3. **CAPM plus the size premium:** 4 % + 0.83 × 6 % + 2 % = **11.0 %**.\n\nTwo judgement calls to flag. The debt-to-equity should be the company's **target** or industry-typical mix rather than whatever it happens to have this year, because a buyer would refinance. And the size premium is a choice, not a law — state where it comes from and keep it modest.",
+  "key_points": [
+    "No observable beta, so use listed peers",
+    "Unlever peers, take the median, relever at the target's D/E",
+    "0.70 × (1 + 0.75 × 0.25) = 0.83",
+    "Ke = 4 % + 0.83 × 6 % + 2 % ≈ 11.0 %",
+    "Use a target capital structure; the size premium is a stated judgement"
+  ],
+  "follow_ups": [
+    {
+      "question": "What would you use for its cost of debt?",
+      "answer_md": "There are no traded bonds, so synthesise one: estimate a credit rating from its interest cover and leverage, and add the spread for that rating to the risk-free rate. Or use the rate on its recent bank borrowing if it was arranged recently on market terms."
+    },
+    {
+      "question": "Where do the market-value weights come from if the equity has no market value?",
+      "answer_md": "Use the target capital structure — a debt-to-equity typical of peers — rather than book values. Some practitioners iterate: assume weights, value the equity, recompute the weights, and repeat until they settle."
+    }
+  ],
+  "weak_answer_note": "Using the peers' raw levered betas without adjusting for leverage. Using book equity as the weight. Forgetting to say where the size premium comes from.",
+  "numbers": {
+    "inputs": {
+      "unlevered_beta": 0.7,
+      "debt_to_equity": 0.25,
+      "tax_rate": 0.25,
+      "risk_free": 0.04,
+      "erp": 0.06,
+      "size_premium": 0.02
+    },
+    "answer": 0.1099
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

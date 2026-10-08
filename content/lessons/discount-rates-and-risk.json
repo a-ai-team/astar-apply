@@ -1,0 +1,139 @@
+{
+  "slug": "discount-rates-and-risk",
+  "subtopic_slug": "discount-rates-and-risk",
+  "title": "Discount rates and risk: what the rate is, and why bonds fall when it rises",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Every valuation in the course divides by something — $(1+r)^t$. This lesson is about where that $r$ comes from and what happens when it moves.\n\nThree ideas recur in interviews: the discount rate is the **return you could earn elsewhere at the same risk**; rates and values move in **opposite directions**; and long-dated cash flows are **more sensitive** to the rate than near ones. The cleanest place to see all three is a plain bond, which is why interviewers sometimes start there."
+      },
+      {
+        "type": "concept",
+        "heading": "The rate is an opportunity cost, priced for risk",
+        "md": "A discount rate is the return an investor **gives up** by putting money into this asset instead of the best alternative of similar risk. That is what \"opportunity cost\" means.\n\nIt has two parts:\n\n- **The risk-free rate** — what you earn with no risk of default, usually taken from government bond yields (gilts in the UK). It compensates purely for waiting.\n- **A risk premium** — extra return demanded because the cash flows might not arrive. Riskier cash flows, higher premium, higher rate.\n\nSo a safe utility might be discounted at 6 % and an early-stage tech company at 15 %. Same pound of cash flow next year, very different values today. Higher risk → higher rate → lower value."
+      },
+      {
+        "type": "concept",
+        "heading": "Real or nominal — but never mixed",
+        "md": "A **nominal** rate includes inflation; a **real** rate strips it out. Cash flows forecast in today's prices are *real*; cash flows that grow with expected prices are *nominal*.\n\nThe rule is consistency: discount nominal cash flows at a nominal rate and real cash flows at a real rate. Mix them and you double-count or miss inflation entirely. The link between the two is\n\n$$(1 + \\text{nominal}) = (1 + \\text{real}) \\times (1 + \\text{inflation})$$\n\nso an 8 % nominal rate with 2.5 % inflation is about a 5.4 % real rate. (Subtracting, 8 − 2.5 = 5.5 %, is a fine mental shortcut.)"
+      },
+      {
+        "type": "mechanics",
+        "md": "Two shortcuts that turn an endless stream of cash into one number:\n\n**Perpetuity** — the same cash flow $C$ every year forever, starting next year:\n\n$$PV = \\frac{C}{r}$$\n\n**Growing perpetuity** — $C$ next year, then growing at $g$ forever (only valid if $g < r$):\n\n$$PV = \\frac{C}{r - g}$$\n\nThe second one is the Gordon growth formula you will use for terminal value in a DCF. Notice the denominator: as $g$ creeps towards $r$, the value explodes — which is why long-run growth assumptions must stay modest.\n\n**A bond** is just a known set of cash flows: a **coupon** (fixed interest, as a percentage of face value) each year and the **face value** (the amount repaid) at maturity. Its price is the present value of those cash flows at the market's required return, called the **yield to maturity (YTM)**."
+      },
+      {
+        "type": "predict",
+        "prompt": "Two bonds both pay a 5 % coupon on £100 face value and both trade at £100 when market yields are 5 %. One matures in 3 years, the other in 10. Yields jump to 7 %. Which falls more in price?",
+        "options": [
+          { "label": "The 3-year bond" },
+          { "label": "The 10-year bond", "correct": true },
+          { "label": "They fall by the same amount — same coupon, same yield change" },
+          { "label": "Neither — the coupon is fixed, so the price is fixed" }
+        ],
+        "explain_md": "The **10-year** bond falls to about **£85.95**; the 3-year only to about **£94.75**. The coupon is fixed, so when the market demands 7 % the only way a new buyer gets 7 % is by paying less. And the further away a cash flow is, the more a higher rate shrinks it — the 10-year bond's £100 repayment is discounted for ten years, not three. That sensitivity to rates is what **duration** measures."
+      },
+      {
+        "type": "widget",
+        "widget": "discount_dial",
+        "props": {
+          "mode": "pv",
+          "cashflows": [5, 5, 5, 5, 5, 5, 5, 5, 5, 105],
+          "rate": 0.05,
+          "midYear": false
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "Ashdown's numbers plus the two bonds. Ashdown expects **£0.6m** a year of cash from a shop it plans to run indefinitely, discounted at **8 %**.",
+        "steps": [
+          { "label": "Level perpetuity: £0.6m a year forever at 8 %", "expr": "0.6 / 8%", "value": 7.5, "unit": "£m" },
+          { "label": "Growing perpetuity: same £0.6m next year, growing 2 % a year", "expr": "0.6 / (8% - 2%)", "value": 10.0, "unit": "£m" },
+          { "label": "Real rate: 8 % nominal, 2.5 % inflation", "expr": "1.08 / 1.025 - 1", "value": 0.0537 },
+          { "label": "3-year, 5 % coupon bond priced at a 7 % yield", "expr": "5/1.07 + 5/1.07^2 + 105/1.07^3", "value": 94.75, "unit": "£" },
+          { "label": "10-year, 5 % coupon bond priced at a 7 % yield", "expr": "5*((1 - 1.07^-10)/7%) + 100/1.07^10", "value": 85.95, "unit": "£" }
+        ]
+      },
+      {
+        "type": "concept",
+        "heading": "Coupon versus yield",
+        "md": "The **coupon** is fixed when the bond is issued. The **yield** is set every day by the market. The price adjusts to reconcile them:\n\n- Yield **above** the coupon → price **below** face value (a discount).\n- Yield **below** the coupon → price **above** face value (a premium).\n- Yield **equal** to the coupon → price at face value (par).\n\nThe same logic runs through equities. A company whose value sits mostly in cash flows many years away — a fast-growing tech company — behaves like a long bond: when rates rise, its value falls further than a mature business that pays out most of its cash now."
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Now let rates go the other way, and stretch Ashdown's growth assumption.",
+        "steps": [
+          { "label": "3-year, 5 % coupon bond priced at a 4 % yield", "expr": "5/1.04 + 5/1.04^2 + 105/1.04^3", "value": 102.78, "unit": "£", "blank": true },
+          { "label": "Ashdown's shop if growth is 3 % instead of 2 % (8 % rate)", "expr": "0.6 / (8% - 3%)", "value": 12.0, "unit": "£m", "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"The bond pays 5 %, so its return is 5 %.\"**\n\nThe coupon is the bond's return only if you buy it at face value. Buy it at £85.95 and you earn the 5 % coupon *plus* the £14.05 pull back to £100 at maturity — a 7 % yield. Coupon is fixed; yield is what the price implies.\n\nThe same confusion appears in growing perpetuities: plugging in a growth rate close to the discount rate. At 8 % and 7.5 % growth, £0.6m becomes £120m. The formula is not wrong; the assumption is."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "A discount rate is an opportunity cost: the return you could earn elsewhere at the same risk, made of a risk-free rate for waiting plus a premium for uncertainty. Higher risk means a higher rate and a lower value. Rates and prices move inversely — a fixed-coupon bond falls when yields rise — and long-dated cash flows fall most, which is why long bonds and high-growth equities are the most rate-sensitive. Keep cash flows and rates consistent: nominal with nominal, real with real.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Growth stocks are long-duration assets",
+            "md": "A high-growth software company may expect most of its cash flow ten or more years out. In present-value terms it looks like a long-dated bond with a small coupon today and a large repayment far in the future.\n\nThat is why, when rates rose sharply, unprofitable growth names fell much further than telecoms or other mature cash generators: the discount factor on year-15 cash moves far more than on year-1 cash for the same change in rates.",
+            "example_q": "Rates rise by 2 percentage points. Why would a loss-making software company fall more than a cash-generative telecoms operator?",
+            "answer_md": "Because its value sits in cash flows many years away, and a higher discount rate shrinks distant cash flows much more than near ones. The telecoms operator's value is concentrated in near-term cash, so it behaves like a short bond and moves less."
+          },
+          "healthcare": {
+            "heading": "Risk in the cash flows or in the rate — not both",
+            "md": "For a drug in trials, the biggest risk is binary: it may never be approved. Analysts handle that by multiplying each cash flow by its **probability of success**, then discounting at a normal cost of capital.\n\nThe trap is to *also* raise the discount rate for trial risk. That double-counts it and undervalues the programme. Clinical risk goes in the probabilities; the rate only carries the market risk that remains.",
+            "example_q": "A colleague discounts a probability-weighted drug forecast at 25 % \"because biotech is risky\". What is wrong?",
+            "answer_md": "The trial risk has already been taken out by probability-weighting the cash flows. Using a 25 % rate on top counts the same risk twice and understates the value. A normal cost of capital for the company's market risk is the right rate."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A bond with a **6 %** coupon and **£100** face value matures in **2 years**. The market yield is **8 %**. Roughly what is it worth, is that above or below par, and what happens to its price if yields fall to 6 %?",
+        "model_answer_md": "Discount the cash flows at 8 %:\n\n$$\\frac{6}{1.08} + \\frac{106}{1.08^2} = 5.56 + 90.88 = £96.43$$\n\nThat is **below par**, because the market wants 8 % and the bond pays only 6 %; the buyer makes up the difference through the £3.57 rise to £100 at maturity.\n\nIf yields fall to 6 %, the yield equals the coupon, so the price rises to **£100** — par. Rates down, price up.",
+        "rubric": [
+          "Prices the bond at about £96.4",
+          "Says below par because yield exceeds coupon",
+          "Says price rises to £100 when yield equals coupon",
+          "States the inverse relationship between yields and prices"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "What are the two building blocks of a discount rate?", "a": "A risk-free rate for waiting, plus a risk premium for uncertainty." },
+          { "q": "PV of £10m a year forever at 5 %?", "a": "£10m ÷ 5 % = £200m." },
+          { "q": "Yields rise. What happens to bond prices, and which bonds move most?", "a": "Prices fall; long-dated bonds fall most because their cash flows are furthest away." },
+          { "q": "You forecast cash flows in today's prices. Which rate do you use?", "a": "A real rate — real cash flows with a real rate, nominal with nominal." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**The discount rate is what you could earn elsewhere at the same risk; when it rises, every value falls — and the most distant cash flows fall furthest.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can explain a discount rate as an opportunity cost made of a risk-free rate and a risk premium.",
+          "I can value a perpetuity and a growing perpetuity, and say why g must stay below r.",
+          "I can price a simple bond and explain why price and yield move inversely.",
+          "I can explain why long-dated cash flows are the most rate-sensitive.",
+          "I can keep real and nominal rates consistent."
+        ]
+      }
+    ]
+  }
+}

@@ -1,12 +1,16 @@
 import { test, expect, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 16 — DCF. Requires the seed chain + `npm run seed -- 03`.
 // DCF is a PAID topic, so everything the chapter loads is `generated` and invisible to a student
 // under RLS. The setup approves the seven lessons with the admin client and restores their original
 // statuses afterwards — the linked project is the only environment, so nothing may be left approved.
 const TOPIC = "dcf";
+
+// Loop 21: rows come from the taxonomy, never pinned (CURRENT.md rule 9).
+const LIVE_SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics.filter((s) => !s.deferred).length;
 
 const LESSONS = {
   overview: "dcf-overview",
@@ -64,9 +68,9 @@ test.describe("Loop 16 DCF", () => {
     await expect(page.getByTestId("topic-heading")).toHaveText("DCF");
 
     // Eight subtopics in the taxonomy; `levered-dcf-and-variants` has no lesson, so no row.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(7);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(7);
-    await expect(page.getByText(DEFERRED, { exact: true })).toHaveCount(0);
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(7);
+    await expect(page.getByText(DEFERRED, { exact: true }).first()).toBeVisible(); // Loop 21 un-deferred it: it now has a row
   });
 
   test("terminal value dominates, and forecasting longer only shrinks its share", async ({ page, baseURL }) => {
@@ -183,7 +187,7 @@ test.describe("Loop 16 DCF", () => {
     await expect(page.getByTestId("cheatsheet-canonical")).toContainText("Walk me through a DCF.");
     await expect(page.getByTestId("cheatsheet-traps")).toContainText("Discounting unlevered cash flow at the cost of equity");
     // `ft-only` material is named so it cannot ambush the student, never taught as a lesson.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Levered DCF");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Stub periods");
 
     // The chapter's takeaway artefact: a blank one-page DCF the student fills in by hand.
     await page.goto(lessonUrl(LESSONS.overview));

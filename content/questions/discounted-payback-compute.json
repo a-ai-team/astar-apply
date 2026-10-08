@@ -1,0 +1,45 @@
+{
+  "slug": "discounted-payback-compute",
+  "subtopic_slug": "irr-and-payback",
+  "kind": "calculation",
+  "difficulty": 4,
+  "source_topic": "Finance concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "payback",
+    "discounting"
+  ],
+  "question": "A new production line costs £3.0m today and generates £1.2m a year for four years. The discount rate is 10 %. What are the simple payback and the discounted payback, and is the project worth doing?",
+  "model_answer_md": "**Simple payback:** £1.2m a year recovers £2.4m after two years; the remaining £0.6m takes half of year 3. **2.5 years.**\n\n**Discounted payback** — discount each year at 10 %:\n\n| Year | Cash | PV | Cumulative PV |\n|---|---|---|---|\n| 1 | 1.2 | 1.091 | 1.091 |\n| 2 | 1.2 | 0.992 | 2.083 |\n| 3 | 1.2 | 0.902 | 2.984 |\n| 4 | 1.2 | 0.820 | 3.804 |\n\nAfter year 3, £3.0m − £2.984m = **£0.016m** is still to recover, which is about 0.02 of year 4's £0.820m. Discounted payback ≈ **3.02 years** — half a year longer than the simple measure.\n\n**NPV** = £3.804m − £3.0m = **+£0.80m**, so yes, it is worth doing at a 10 % cost of capital.",
+  "key_points": [
+    "Simple payback: 2 + 0.6 ÷ 1.2 = 2.5 years",
+    "PVs at 10 %: 1.091, 0.992, 0.902, 0.820",
+    "Discounted payback: 3 + 0.016 ÷ 0.820 ≈ 3.02 years",
+    "NPV = 3.804 − 3.0 ≈ +£0.80m, so accept"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is discounted payback always the longer of the two?",
+      "answer_md": "Because discounting makes every future cash flow smaller, so the cumulative total reaches the outlay later. The only exception would be a zero discount rate, where the two are identical."
+    },
+    {
+      "question": "If the line only lasted three years, what would change?",
+      "answer_md": "Cumulative PV after three years is £2.984m, just short of the £3.0m outlay, so the project would never pay back on a discounted basis and its NPV would be about −£0.02m. Simple payback would still say 2.5 years — a good example of how the simple measure hides a value-destroying project."
+    }
+  ],
+  "weak_answer_note": "Computing simple payback only, or discounting but forgetting to interpolate within year 4. Concluding on payback instead of checking NPV.",
+  "numbers": {
+    "inputs": {
+      "outlay": 3.0,
+      "annual_cash": 1.2,
+      "years": 4,
+      "rate": 0.1
+    },
+    "answer": 3.02
+  },
+  "topic_slug": "finance-foundations",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

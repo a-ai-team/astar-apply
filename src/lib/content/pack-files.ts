@@ -32,3 +32,7 @@ export function packDownloadName(week: number): string {
   const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   return `astar-apply-week-${pad(week)}${slug ? `-${slug}` : ""}.pdf`;
 }
+
+/** Loop 21: the complete technicals guide — one PDF beside the week packs in the same bucket. */
+export const GUIDE_OBJECT_PATH = `${DEFAULT_PATH.slug}/complete-technicals-guide.pdf`;
+export const GUIDE_DOWNLOAD_NAME = "astar-apply-complete-technicals-guide.pdf";

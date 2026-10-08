@@ -1,0 +1,38 @@
+{
+  "slug": "maintenance-vs-incurrence-covenants",
+  "topic_slug": "lbo",
+  "subtopic_slug": "debt-tranches",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "LBO models – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "covenants"
+  ],
+  "question": "What is the difference between maintenance and incurrence covenants, and why do sponsors prefer covenant-lite loans?",
+  "model_answer_md": "Both are promises the borrower makes to its lenders; they differ in **when they are tested**.\n\n- A **maintenance covenant** is tested regularly — usually every quarter — whatever the company does. A typical one caps leverage: total debt ÷ EBITDA must stay below, say, 6.0×. If EBITDA falls, the company can breach it without taking any action. Bank loans carry these.\n- An **incurrence covenant** is tested only when the company *does* something — borrows more, pays a dividend, makes an acquisition. If leverage is already high, the action is blocked, but nothing happens just because trading is weak. High-yield bonds carry these.\n\n**Covenant-lite** term loans have only incurrence-style terms. Sponsors prefer them because a bad few quarters cannot trigger a default: there is no test to fail, so no waiver fee, no forced margin increase and no lender pressure for new equity. The lenders' trade-off is that they lose an early warning and a seat at the table.",
+  "key_points": [
+    "Maintenance: tested regularly (quarterly), e.g. debt/EBITDA ≤ 6.0×",
+    "Incurrence: tested only when the company acts — borrowing, dividends, acquisitions",
+    "Banks use maintenance; bonds use incurrence",
+    "Covenant-lite = incurrence only; no default from weak trading",
+    "Lenders lose their early warning in exchange"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens when a maintenance covenant is breached?",
+      "answer_md": "It is a default, so lenders could demand repayment, but in practice they negotiate a waiver or amendment. The sponsor pays for it — a fee, a higher margin, tighter terms or new equity to pay down debt."
+    },
+    {
+      "question": "Why did covenant-lite become common?",
+      "answer_md": "Because demand from institutional loan investors and private-credit funds outstripped supply, so borrowers could dictate terms. Term Loan B investors, who trade loans rather than manage relationships, care less about early intervention than banks do."
+    }
+  ],
+  "weak_answer_note": "Saying covenants are just 'rules on the loan' without distinguishing when each type is tested, or thinking covenant-lite loans have no covenants at all.",
+  "numbers": null,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "flashcard_back": "Maintenance covenants are tested every quarter regardless of what the company does (e.g. leverage ≤ 6×); incurrence covenants only bite when it borrows, pays out or acquires. Cov-lite = incurrence only, so weak trading alone can't cause a default."
+}

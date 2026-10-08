@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 13 — Accounting. Requires the seed chain + `npm run seed -- 03`.
 // Seven of the eight lessons load `generated` (student-invisible), so the setup approves them with
@@ -9,6 +10,10 @@ import { signInAs, unlockPrivateArea } from "./helpers/auth";
 // status is recorded and restored with the rest, so the test is safe either way.
 // No test here asserts on the chapter's 40 questions, so none are approved.
 const TOPIC = "accounting";
+
+// Loop 21: rows and deferred titles come from the taxonomy, never pinned (CURRENT.md rule 9).
+const SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics;
+const LIVE_SUBTOPICS = SUBTOPICS.filter((s) => !s.deferred).length;
 
 const LESSONS = [
   "three-statements-overview",
@@ -22,7 +27,7 @@ const LESSONS = [
 ] as const;
 
 // Folded into siblings by the Loop 13 plan: kept in the taxonomy, hidden until they have a lesson.
-const DEFERRED = ["Depreciation, capex and non-cash items", "Deferred taxes, leases and other items"];
+const DEFERRED = ["Depreciation, capex and non-cash items"]; // Loop 21 taught the deferred-tax subtopic
 
 const lessonPrevious = new Map<string, string>();
 
@@ -59,8 +64,8 @@ test.describe("Loop 13 accounting", () => {
     await expect(page.getByTestId("topic-heading")).toHaveText("Accounting");
 
     // Ten subtopics in the taxonomy; the two deferred ones have no lesson, so they never render.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(8);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(8);
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(8);
     for (const heading of DEFERRED) await expect(page.getByText(heading, { exact: true })).toHaveCount(0);
   });
 

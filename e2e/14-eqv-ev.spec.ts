@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 14 — Equity value vs enterprise value. Requires the seed chain + `npm run seed -- 03`.
 // Unlike Loops 12–13 there is no approve/restore setup: EqV/EV is a free topic that auto-approves
@@ -7,6 +8,9 @@ import { signInAs, unlockPrivateArea } from "./helpers/auth";
 // already `approved` in the linked project. The spec asserts that rather than assuming it, so a
 // missing approval fails loudly instead of showing up as a confusing 404.
 const TOPIC = "eqv-ev";
+
+// Loop 21: rows come from the taxonomy, never pinned (CURRENT.md rule 9).
+const LIVE_SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics.filter((s) => !s.deferred).length;
 
 const LESSONS = {
   concepts: "equity-and-enterprise-value",
@@ -33,9 +37,9 @@ test.describe("Loop 14 equity value vs enterprise value", () => {
     await expect(page.getByTestId("topic-heading")).toHaveText("Equity value vs enterprise value");
 
     // Five subtopics in the taxonomy; `ev-edge-cases` has no lesson, so it never renders a row.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(4);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(4);
-    await expect(page.getByText(DEFERRED, { exact: true })).toHaveCount(0);
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(4);
+    await expect(page.getByText(DEFERRED, { exact: true }).first()).toBeVisible(); // Loop 21 un-deferred it: it now has a row
   });
 
   test("treasury-stock method: dilution appears above the strike and vanishes below it", async ({ page, baseURL }) => {
@@ -136,6 +140,6 @@ test.describe("Loop 14 equity value vs enterprise value", () => {
     await expect(page.getByTestId("cheatsheet-canonical")).toContainText("Why do you subtract cash?");
     await expect(page.getByTestId("cheatsheet-traps")).toContainText("Cash is subtracted, never added");
     // `ft-only` material is named so it cannot ambush the student, never taught as a lesson.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Restricted cash");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Minority put options");
   });
 });

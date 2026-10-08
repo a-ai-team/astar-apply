@@ -1,0 +1,38 @@
+{
+  "slug": "convertible-bond-converts",
+  "topic_slug": "accounting",
+  "subtopic_slug": "multi-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "Kestrel has a £40m convertible bond paying a 3 % coupon. Holders convert it into shares at the start of the year. Tax is 25 %. Walk me through the conversion, then the year that follows.",
+  "model_answer_md": "**On conversion.** Nothing on the income statement and no cash moves. On the balance sheet, **debt falls £40m and equity (share capital and premium) rises £40m**. A liability has turned into ownership. Liabilities −40 and equity +40, so it balances.\n\n**The year that follows.** The coupon has stopped: interest expense is **£1.2m lower** (3 % × £40m). Pre-tax profit rises £1.2m, tax rises £0.3m, so **net income rises £0.9m** and cash ends **£0.9m higher**, since the interest was a cash cost.\n\n**For EPS** the share count is now higher. Diluted EPS already assumed the conversion (the if-converted method: add back the after-tax interest, add the new shares), so diluted EPS should barely move. Basic EPS changes.",
+  "key_points": [
+    "Conversion: debt −40, equity +40, no IS or cash effect",
+    "Coupon stops: interest −1.2, NI +0.9, cash +0.9",
+    "The share count rises",
+    "Diluted EPS already assumed this (if-converted), so it barely moves"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why would holders convert?",
+      "answer_md": "When the shares are worth more than the bond's cash repayment, or will be soon. Converting swaps a fixed claim for a share of the upside. With the share price well above the conversion price, the bond behaves like equity anyway."
+    },
+    {
+      "question": "What happens to enterprise value on conversion?",
+      "answer_md": "Nothing. Debt falls £40m in the bridge and equity value rises by the value of the new shares. If the convertible was already counted as dilution rather than debt, nothing moves at all. It is a change in who holds the claim, not in the business."
+    }
+  ],
+  "weak_answer_note": "Books the conversion as a gain or a cash outflow, or forgets that the interest saving is taxed.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "walkthrough",
+    "convertibles",
+    "debt"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

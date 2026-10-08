@@ -1,0 +1,37 @@
+{
+  "slug": "nols-in-enterprise-value",
+  "subtopic_slug": "ev-edge-cases",
+  "kind": "concept",
+  "difficulty": 2,
+  "source_topic": "EqV & EV – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "nols",
+    "tax"
+  ],
+  "question": "A company has £200m of tax losses carried forward. Are they worth anything, and where would they show up in a valuation?",
+  "model_answer_md": "**Yes** — tax losses (net operating losses, NOLs) can be set against future profits, so they cut future tax bills. The most they could be worth is losses × tax rate: at 25 % that is **£50m**. The real figure is lower, because the saving only arrives as profits are made, so it must be discounted, and rules can limit how much can be used after a change of ownership.\n\nThere are two ways to capture it:\n\n1. **In the bridge** — treat the present value of the tax savings as a cash-like asset and subtract it on the way from equity value to EV (or add it from EV to equity value).\n2. **In the DCF** — leave them out of the bridge and lower the tax line in the cash-flow forecast until the losses are used up.\n\nEither is defensible. **Doing both double-counts** the same saving.",
+  "key_points": [
+    "Losses offset future profits, so they reduce future tax",
+    "Upper bound = losses × tax rate (£50m here)",
+    "Discount for timing; usage can be limited after a change of control",
+    "Capture once: in the bridge or in the DCF tax line, never both"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why might an acquirer be unable to use them?",
+      "answer_md": "Many tax systems, including the UK's, restrict losses after a change of ownership — for example if the nature of the trade changes significantly soon after a takeover. The aim is to stop companies being bought just for their losses."
+    },
+    {
+      "question": "Would you include them in a comps multiple?",
+      "answer_md": "Usually not. Most data providers leave NOLs out of EV, so including them for your company only would make it inconsistent with its peers. I would mention them as an adjustment rather than bake them in."
+    }
+  ],
+  "weak_answer_note": "Saying tax losses are worth their full face value, or counting them in both the bridge and the DCF.",
+  "numbers": null,
+  "topic_slug": "eqv-ev",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

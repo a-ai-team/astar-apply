@@ -1,0 +1,38 @@
+{
+  "slug": "country-risk-premium-what-is",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "capm",
+    "country-risk"
+  ],
+  "question": "What is a country risk premium, and where does it go in a DCF?",
+  "model_answer_md": "A **country risk premium** is an extra return added to the cost of equity for a business that operates in a country with risks a developed-market investor does not normally face — currency collapse, capital controls, sudden tax or regulatory changes, or expropriation.\n\nIt goes into the **cost of equity**: Rf + β × ERP **+ country risk premium**. The usual way to size it is the extra yield that country's government pays to borrow compared with a safe government, sometimes scaled up because equities are more volatile than government bonds.\n\nTwo cautions. It should reflect where the company **operates**, not where it is listed. And the same risk should not be counted twice — if the cash-flow forecast already includes a haircut for, say, an expected devaluation, the premium should not repeat it.",
+  "key_points": [
+    "Extra return for country-level risks: currency, controls, expropriation, policy",
+    "Added to the cost of equity in CAPM",
+    "Usually sized from the sovereign's borrowing spread over a safe government",
+    "Based on where the business operates, not where it lists",
+    "Do not double-count with cash-flow haircuts"
+  ],
+  "follow_ups": [
+    {
+      "question": "A FTSE 100 company earns 40 % of its profit in a high-risk country. Does it need a premium?",
+      "answer_md": "Arguably on that part of the business. The cleaner approach is to value the high-risk operations separately with the premium and the rest without, rather than applying a blended premium to the whole group."
+    },
+    {
+      "question": "Is a country risk premium diversifiable?",
+      "answer_md": "That is the theoretical objection: a global investor holding many countries could diversify much of it away, so CAPM says it should not be priced. Practitioners add it anyway because emerging-market risks tend to move together in a crisis and because buyers demonstrably demand higher returns there."
+    }
+  ],
+  "weak_answer_note": "Adding it to the cost of debt or to WACC as a flat extra without saying why. Basing it on the listing venue rather than where the cash is earned.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "levered-dcf-when-used",
+  "subtopic_slug": "levered-dcf-and-variants",
+  "kind": "concept",
+  "difficulty": 1,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "lfcf",
+    "levered-dcf"
+  ],
+  "question": "What is a levered DCF, and when would you use one instead of the usual unlevered DCF?",
+  "model_answer_md": "A **levered DCF** projects free cash flow to equity — the cash left for shareholders after interest has been paid and after any debt has been raised or repaid — and discounts it at the **cost of equity**. The result is **equity value** directly, with no bridge from enterprise value.\n\nThe unlevered version is the default because it values the business independently of how it happens to be financed. The levered version earns its place where financing cannot be separated from operations:\n\n- **Banks and insurers.** Deposits and other borrowings are the raw material of a bank, not a funding choice, so enterprise value has no meaning. You value the equity — usually with a dividend discount model, a levered DCF on the dividends the regulator allows.\n- **Project finance and some real-estate or infrastructure assets**, where the debt schedule is fixed by contract and the equity investor's question is simply what their own cash flows are worth.",
+  "key_points": [
+    "Levered DCF = free cash flow to equity discounted at the cost of equity",
+    "Gives equity value directly — no bridge",
+    "Unlevered is the default because it ignores capital structure",
+    "Used for banks and insurers, where debt is part of operations",
+    "Also common in project finance with a fixed debt schedule"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is the dividend discount model a levered DCF?",
+      "answer_md": "Because dividends are paid to shareholders after every lender has been paid. Discounting them at the cost of equity values the equity directly — the same pairing as free cash flow to equity, just with the cash that is actually distributed rather than the cash that could be."
+    },
+    {
+      "question": "Should a levered and an unlevered DCF give the same equity value?",
+      "answer_md": "In principle yes, if the assumptions are consistent — in particular, if the cost of equity used in the levered model reflects the leverage in each year. In practice they drift apart because the capital structure changes over time while a single cost of equity assumes it does not, which is one reason the unlevered method is preferred."
+    }
+  ],
+  "weak_answer_note": "Saying a levered DCF uses WACC, or that its output still needs net debt subtracted. Not knowing that banks are the main case where the levered route is standard.",
+  "numbers": null,
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

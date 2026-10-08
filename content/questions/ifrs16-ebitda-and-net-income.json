@@ -1,0 +1,36 @@
+{
+  "slug": "ifrs16-ebitda-and-net-income",
+  "topic_slug": "accounting",
+  "subtopic_slug": "deferred-taxes-and-other-items",
+  "kind": "concept",
+  "difficulty": 2,
+  "question": "A retailer starts reporting under IFRS 16. What happens to its EBITDA, EBIT, net income and cash flow statement?",
+  "model_answer_md": "Take a store rented for **£12m a year**, with a lease liability of £60m at 5 % and a right-of-use asset depreciated over six years.\n\n- **EBITDA rises £12m.** Rent leaves operating costs entirely.\n- **EBIT rises a little**, by rent minus depreciation: £12m − £10m = £2m.\n- **Net income falls slightly in the early years.** Depreciation £10m + interest £3m = £13m of cost against the old £12m. Interest is front-loaded, so the effect reverses later in the lease.\n- **Cash flow statement.** Total cash paid is still £12m. But the principal part (£9m here) moves to **financing**, so operating cash flow *rises* while financing falls by the same amount.\n\nNothing about the business changed. That is why you must compare companies on the same basis: either every peer before IFRS 16, or every peer after it with the lease liability in net debt.",
+  "key_points": [
+    "EBITDA up by the full rent",
+    "EBIT up by rent − depreciation; net income lower early (front-loaded interest)",
+    "Same total cash; principal shifts from operating to financing",
+    "Compare peers on a consistent basis"
+  ],
+  "follow_ups": [
+    {
+      "question": "What changes under US GAAP for an operating lease?",
+      "answer_md": "The asset and liability still go on the balance sheet. But the income statement keeps one straight-line lease cost in operating expenses, so EBITDA does not change. A UK retailer and a US retailer can therefore show different EBITDA for identical stores."
+    },
+    {
+      "question": "If EBITDA rises, does EV/EBITDA fall?",
+      "answer_md": "Only if you forget to add the lease liability to EV. Done consistently, the numerator and the denominator both rise and the multiple moves only a little."
+    }
+  ],
+  "weak_answer_note": "Says the company's debt or costs have genuinely increased, or that operating cash flow is unchanged.",
+  "numbers": null,
+  "source_topic": "Accounting – concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "leases"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

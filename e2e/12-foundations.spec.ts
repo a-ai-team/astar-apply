@@ -1,17 +1,22 @@
 import { test, expect, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { signInAs, unlockPrivateArea } from "./helpers/auth";
+import { CURRICULUM } from "../src/lib/content/taxonomy";
 
 // Loop 12 — Finance foundations. Requires the seed chain + `npm run seed -- 03`.
 // Everything Loop 12 loads is `generated` (student-invisible), so the setup approves the three
 // lessons with the admin client and restores their original status afterwards — the linked project
 // is the only environment. No test here asserts on the chapter's questions, so none are approved.
 const TOPIC = "finance-foundations";
+
+// Loop 21: rows and deferred titles come from the taxonomy, never pinned (CURRENT.md rule 9).
+const SUBTOPICS = CURRICULUM.find((t) => t.slug === TOPIC)!.subtopics;
+const LIVE_SUBTOPICS = SUBTOPICS.filter((s) => !s.deferred).length;
 const LESSONS = ["time-value-of-money", "pv-npv", "wacc-intro"] as const;
 const LESSON_URL = `/home/technicals/${TOPIC}/${LESSONS[0]}`;
 
 // Folded into siblings by the Loop 12 plan: kept in the taxonomy, hidden until they have a lesson.
-const DEFERRED = ["Discount rates and risk", "IRR and payback"];
+const DEFERRED: string[] = []; // Loop 21 taught both former deferred subtopics
 
 const TMT_HEADING = "Growth companies are long-duration assets";
 const HEALTHCARE_HEADING = "Discount the probability first, then the time";
@@ -48,9 +53,9 @@ test.describe("Loop 12 finance foundations", () => {
     await signIn(page, baseURL!, `/home/technicals/${TOPIC}`);
     await expect(page.getByTestId("topic-heading")).toHaveText("Finance foundations");
 
-    // Three teaching subtopics; the two deferred ones have no lesson, so they never render a row.
-    await expect(page.getByTestId("subtopic-row")).toHaveCount(3);
-    await expect(page.getByTestId("lesson-link")).toHaveCount(3);
+    // Every live subtopic renders a row; deferred ones never do. The three core lessons are approved.
+    await expect(page.getByTestId("subtopic-row")).toHaveCount(LIVE_SUBTOPICS);
+    expect(await page.getByTestId("lesson-link").count()).toBeGreaterThanOrEqual(3);
     for (const heading of DEFERRED) await expect(page.getByText(heading, { exact: true })).toHaveCount(0);
 
     // The link carries a reading-time suffix ("… · 8 min"), so match on the title.
@@ -120,6 +125,6 @@ test.describe("Loop 12 finance foundations", () => {
     await expect(page.getByTestId("cheatsheet-canonical")).toContainText("Why do we discount?");
     await expect(page.getByTestId("cheatsheet-traps")).toContainText("IRR is a rate");
     // `ft-only` material is named so it cannot ambush the student, never taught as a lesson.
-    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Modified IRR");
+    await expect(page.getByTestId("cheatsheet-you-may-hear")).toContainText("Continuous compounding");
   });
 });

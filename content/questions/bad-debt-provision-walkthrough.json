@@ -1,0 +1,37 @@
+{
+  "slug": "bad-debt-provision-walkthrough",
+  "topic_slug": "accounting",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 3,
+  "question": "A large supermarket customer is in trouble, and Kestrel sets up a £6m provision against what it is owed. Assume the provision is tax-deductible at 25 %. Walk me through it, and say what changes if it is not deductible.",
+  "model_answer_md": "**Income statement.** A **bad-debt provision** (an estimate of receivables that will never be collected) is an operating expense of £6m. Tax falls £1.5m, so **net income falls £4.5m**.\n\n**Cash flow statement.** Start at −£4.5m. The provision is non-cash, so it is added back, either as a separate line or through the **fall in net receivables**. **Cash rises £1.5m**, the tax saving.\n\n**Balance sheet.** Net receivables −6, cash +1.5, retained earnings −4.5. Assets −4.5 = equity −4.5, so it balances.\n\n**If it is not deductible** (UK tax law often allows a bad-debt deduction only once the debt is specifically doubtful or written off): cash tax is unchanged, so cash does not move. The tax shown in the accounts still falls by £1.5m, because accounting tax follows book profit, and the difference becomes a **£1.5m deferred tax asset** that reverses when the loss is finally deductible.",
+  "key_points": [
+    "Provision = operating expense: NI −4.5",
+    "Non-cash, added back: cash +1.5 if deductible",
+    "Net receivables −6; balances through retained earnings",
+    "If not yet deductible: cash unchanged, £1.5m DTA instead"
+  ],
+  "follow_ups": [
+    {
+      "question": "What happens when the customer finally pays nothing and the debt is written off?",
+      "answer_md": "Nothing on the income statement, because the expense was booked when the provision was made. The gross receivable and the provision against it are both removed, and net receivables are unchanged. If tax relief only comes at write-off, cash tax falls now and the DTA unwinds."
+    },
+    {
+      "question": "Why does an analyst watch provisions closely?",
+      "answer_md": "Because they are estimates, and they can be used to smooth profit. Releasing an old provision boosts earnings with no cash coming in."
+    }
+  ],
+  "weak_answer_note": "Says cash falls £6m, as if the provision were a payment, or forgets the tax effect.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "walkthrough",
+    "working-capital"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

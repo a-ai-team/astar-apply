@@ -1,0 +1,45 @@
+{
+  "slug": "covenant-headroom-calc",
+  "topic_slug": "lbo",
+  "subtopic_slug": "debt-tranches",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "LBO models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "covenants",
+    "credit-stats"
+  ],
+  "question": "A company has £300m of debt and £60m of EBITDA. Its maintenance covenant caps leverage at 5.75×. How far can EBITDA fall before the covenant breaks — and what if £30m of debt is repaid first?",
+  "model_answer_md": "Today leverage is 300 ÷ 60 = **5.0×**.\n\n**Breach point.** The covenant breaks when EBITDA falls below 300 ÷ 5.75 = **£52.2m** — a fall of 1 − 52.2 ÷ 60 = **13 %**. That is the **headroom**.\n\n**After repaying £30m.** Debt is £270m, so the breach point is 270 ÷ 5.75 = **£47.0m**, a fall of about **22 %**. Paying down debt widens headroom as surely as growing EBITDA does.\n\nThe interview point: covenant headroom is quoted as a percentage fall in EBITDA, and lenders typically set covenants 25–35 % below the sponsor's plan at signing, often stepping down over time as the company is expected to deleverage.",
+  "key_points": [
+    "Current leverage 300 ÷ 60 = 5.0×",
+    "Breach EBITDA = 300 ÷ 5.75 ≈ £52.2m: about 13 % headroom",
+    "After £30m repaid: 270 ÷ 5.75 ≈ £47.0m: about 22 % headroom",
+    "Headroom is quoted as the % fall in EBITDA",
+    "Covenant levels often step down over the life of the loan"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why might the covenant 'step down' from 5.75× to 4.5× over three years?",
+      "answer_md": "Because the lenders lent on a plan that shows deleveraging. Step-downs keep the headroom roughly constant as the company is expected to repay debt; if it misses the plan, the tightening test catches it."
+    },
+    {
+      "question": "What is an equity cure?",
+      "answer_md": "A clause letting the sponsor fix a breach by injecting new equity that is counted as extra EBITDA or used to repay debt for the test — usually limited in how often it can be used."
+    }
+  ],
+  "weak_answer_note": "Computing headroom as the gap between 5.0× and 5.75× in turns instead of translating it into an EBITDA fall.",
+  "numbers": {
+    "inputs": {
+      "debt": 300,
+      "ebitda": 60,
+      "covenant": 5.75
+    },
+    "answer": 0.13
+  },
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

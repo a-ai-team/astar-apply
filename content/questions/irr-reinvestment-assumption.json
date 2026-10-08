@@ -1,0 +1,38 @@
+{
+  "slug": "irr-reinvestment-assumption",
+  "subtopic_slug": "irr-and-payback",
+  "kind": "concept",
+  "difficulty": 3,
+  "source_topic": "Finance concepts",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "irr",
+    "mirr"
+  ],
+  "question": "A project shows an IRR of 36 %. Why might that overstate the return investors will actually earn, and how does MIRR address it?",
+  "model_answer_md": "IRR implicitly assumes that every pound the project pays out along the way is **reinvested at the IRR itself** — here 36 % — until the end. Unless the company has a queue of equally good projects waiting, that is unrealistic. Cash returned early will more likely earn something close to the cost of capital.\n\n**MIRR** (modified IRR) fixes this by growing the interim cash flows at a realistic reinvestment rate, usually the cost of capital, to a single future value, then finding the rate that links the outlay to that amount.\n\nFor a £1.0m project returning £0.6m a year for three years, the IRR is about **36 %**, but reinvesting at 8 % gives a future value of about £1.95m and a MIRR of about **25 %** — still good, but materially lower.",
+  "key_points": [
+    "IRR assumes interim cash is reinvested at the IRR",
+    "High IRRs make that assumption unrealistic",
+    "MIRR reinvests at the cost of capital instead",
+    "Example: 36 % IRR becomes ~25 % MIRR at an 8 % reinvestment rate",
+    "NPV assumes reinvestment at the cost of capital, which is why it is safer"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does the reinvestment assumption matter for a project with one cash flow at the end?",
+      "answer_md": "No. If there is only one inflow, at maturity, nothing is paid out to be reinvested, so IRR and MIRR are the same. The issue grows with the size and earliness of interim cash flows."
+    },
+    {
+      "question": "Why do private equity firms still quote IRR?",
+      "answer_md": "Because it is the industry convention and captures speed of return, which matters to their investors. But they report it alongside the money multiple, which shows how much money was actually made, precisely because IRR alone can flatter quick, small wins."
+    }
+  ],
+  "weak_answer_note": "Defining IRR but not knowing the reinvestment assumption, or naming MIRR without explaining what it changes.",
+  "numbers": null,
+  "topic_slug": "finance-foundations",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

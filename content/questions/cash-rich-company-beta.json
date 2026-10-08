@@ -1,0 +1,46 @@
+{
+  "slug": "cash-rich-company-beta",
+  "subtopic_slug": "cost-of-equity-capm",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "DCF – the discount rate",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "beta",
+    "capm",
+    "cash"
+  ],
+  "question": "A company's equity is worth £1,000m, of which £300m is cash on the balance sheet. Its observed equity beta is 0.90. What beta should you use to discount the cash flows of its operating business, and why? Assume cash has a beta of zero, a 4 % risk-free rate and a 6 % equity risk premium.",
+  "model_answer_md": "The observed beta is a **blend** of two very different assets: £300m of cash, which barely moves with the market, and £700m of operating business, which carries all the real risk. The cash drags the measured beta down.\n\nThe equity beta is the value-weighted average of the two:\n\n$$0.90 = \\frac{700}{1{,}000} \\times \\beta_{ops} + \\frac{300}{1{,}000} \\times 0$$\n\nso\n\n$$\\beta_{ops} = 0.90 \\times \\frac{1{,}000}{700} = \\mathbf{1.29}$$\n\nThat gives an operating cost of equity of 4 % + 1.29 × 6 % = **11.7 %**, against 9.4 % if you had used the observed 0.90.\n\nIt matters because a DCF discounts the **operating** cash flows and adds the cash separately in the bridge. Using the diluted 0.90 would discount risky operating cash at too low a rate and overvalue the business — and then the cash would be counted on top.",
+  "key_points": [
+    "Observed beta blends cash (beta ≈ 0) and operations",
+    "Equity beta = weighted average of the two",
+    "βops = 0.90 × 1,000 ÷ 700 = 1.29",
+    "Ke for operations ≈ 11.7 % vs 9.4 % using 0.90",
+    "The DCF values operations and adds cash in the bridge, so use the operating beta"
+  ],
+  "follow_ups": [
+    {
+      "question": "Is this the same idea as unlevering beta?",
+      "answer_md": "Yes — it is unlevering with net cash instead of net debt. Cash is negative debt, so removing it raises the beta just as removing debt lowers it."
+    },
+    {
+      "question": "Which companies does this matter most for?",
+      "answer_md": "Large technology companies and some pharma groups that hold cash worth a big fraction of their market value. Their observed betas can look reassuringly low purely because of the cash."
+    }
+  ],
+  "weak_answer_note": "Using the observed beta for the operating business, or dividing the wrong way and getting a lower beta. Not linking the answer back to how the DCF treats cash separately.",
+  "numbers": {
+    "inputs": {
+      "equity_value": 1000,
+      "cash": 300,
+      "observed_beta": 0.9
+    },
+    "answer": 1.29
+  },
+  "topic_slug": "dcf",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

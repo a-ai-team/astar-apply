@@ -1,0 +1,140 @@
+{
+  "slug": "ev-edge-cases",
+  "subtopic_slug": "ev-edge-cases",
+  "title": "Edge cases: associates, spare cash, tax losses — and what deals do to each value",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "You can already walk the bridge from equity value to enterprise value with Harbourline's numbers. Interviewers know that, so the follow-ups move to the items that do not fit the simple list: a minority stake in another company, cash the business could not actually hand back, tax losses, a company whose book equity is negative.\n\nThe second favourite follow-up is a transaction: *the company buys back shares — what happens to each value?* Candidates who memorised the bridge freeze here. Candidates who understand **why** each item is in the bridge answer in one sentence. This lesson gives you the one rule that settles every edge case, then runs it on the transactions you will be asked about."
+      },
+      {
+        "type": "concept",
+        "heading": "One rule settles every edge case: match the numerator to the denominator",
+        "md": "Enterprise value exists to be divided by an operating metric — EBITDA, EBIT, revenue. So the test for any odd item is: **is the profit this asset produces already inside the EBITDA I am dividing by?**\n\n**Associates (equity-method investments).** When a company owns roughly 20–50 % of another business, it does not consolidate that business line by line. It records one line, \"share of profit of associates\", which sits *below* EBITDA. So the associate's earnings are **not** in EBITDA — and if its value stayed in EV, the multiple would compare something that includes the stake with a profit figure that excludes it. You therefore **subtract** the stake's value, exactly as you subtract cash. (Contrast NCI: a subsidiary above 50 % *is* consolidated in full, so you **add** the outside owners' slice. Same rule, opposite answer.)\n\n**Excess versus operating cash.** You subtract cash because a buyer could use it to pay down debt. Cash the business needs to run — tills, a minimum balance for suppliers — is not really spare, and cash trapped abroad or pledged to a lender cannot be freely used either. A careful bridge subtracts only the **excess** cash, or notes the trapped amount as a caveat.\n\n**Tax losses (NOLs — net operating losses carried forward).** Past losses can be offset against future profits, so they reduce future tax bills and are worth something. Two views: subtract them in the bridge as a cash-like asset (worth roughly losses × tax rate, discounted for timing and usage limits), or leave them out of the bridge and capture the saving inside a DCF. Either is defensible; doing both double-counts."
+      },
+      {
+        "type": "concept",
+        "heading": "Book equity versus market equity — and when book equity goes negative",
+        "md": "**Equity value** in the bridge is the *market* value: share price × diluted shares. **Book equity** is the accounting figure on the balance sheet — what shareholders paid in plus profits kept, less anything returned. The two can be miles apart, because book equity records history and the market prices the future.\n\nBook equity can even be **negative**. A steady consumer brand that has borrowed to fund years of buybacks and dividends can return more than it ever kept, leaving shareholders' funds below zero — while its shares are worth billions. That is a sign of confident financing, not distress.\n\nMarket equity value, on the other hand, **cannot be negative**: shareholders have limited liability, so the worst they can lose is what they hold. A share can be worth almost nothing, never less than nothing. That is the contrast with enterprise value, which *can* go negative when cash exceeds the business's total value."
+      },
+      {
+        "type": "mechanics",
+        "md": "Transactions, one rule: **money moving between the company and its own investors changes equity value; buying or selling operating assets changes enterprise value.**\n\n| Event (£100m) | Equity value | Enterprise value | Why |\n|---|---|---|---|\n| Buy back shares with cash | −100 | unchanged | Cash leaves to shareholders; the operating business is the same |\n| Pay a dividend | −100 | unchanged | Same as a buyback |\n| Issue shares, keep the cash | +100 | unchanged | Equity up, cash up — they cancel in EV |\n| Raise debt, keep the cash | unchanged | unchanged | Debt up, cash up — they cancel |\n| Buy a business with cash | unchanged | +100 | Cash down, so net debt up; new operations owned |\n| Buy a business with new debt | unchanged | +100 | Debt up; new operations owned |\n| Buy a business with new shares | +100 | +100 | Equity up; new operations owned |\n\nThe last three rows are the ones people get wrong. However an acquisition is funded, **enterprise value rises by what was paid**, because the company now owns more operating assets. Only the share-funded version raises equity value. These are the immediate accounting effects at a fair price — in reality the share price then moves on whether the market likes the deal."
+      },
+      {
+        "type": "predict",
+        "prompt": "Harbourline uses £50m of its £120m cash to buy back shares at the market price of £4.20. Before the buyback its enterprise value is £1,530m. What is it afterwards?",
+        "options": [
+          { "label": "£1,480m — the company has £50m less in it" },
+          { "label": "£1,530m — unchanged", "correct": true },
+          { "label": "£1,580m — net debt is £50m higher" },
+          { "label": "It depends on whether the share price rises" }
+        ],
+        "explain_md": "About 11.9m shares are cancelled (£50m ÷ £4.20), so equity value falls from **£1,050m to £1,000m**. But cash falls by the same £50m, so net debt rises from £380m to **£430m**. The two moves cancel: £1,000m + £430m + £30m + £25m + £45m = **£1,530m**.\n\nThat is the point of EV: it values the operating business, and a buyback does not change the business — it only changes who has the cash. Try it in the widget below: set the shares to 238.1 and the cash to 70."
+      },
+      {
+        "type": "widget",
+        "widget": "ev_bridge",
+        "props": {
+          "company": "Harbourline plc",
+          "share_price": 4.2,
+          "diluted_shares": 250,
+          "debt": 500,
+          "cash": 120,
+          "preferred": 30,
+          "nci": 25,
+          "leases": 45
+        }
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Harbourline plc** again: share price £4.20, 250m diluted shares, borrowings £500m, cash £120m, preferred shares £30m, NCI £25m, lease liabilities £45m. One new fact from the notes: Harbourline owns **30 % of a port operator**, accounted for as an associate and worth **£60m**. Its share of the port's profit sits below EBITDA.",
+        "steps": [
+          { "label": "Equity value: £4.20 × 250m", "expr": "4.2 * 250", "value": 1050 },
+          { "label": "Add net debt: £500m − £120m", "expr": "500 - 120", "value": 380 },
+          { "label": "Add preferred, NCI and leases", "expr": "30 + 25 + 45", "value": 100 },
+          { "label": "Enterprise value before the associate", "expr": "1050 + 380 + 100", "value": 1530 },
+          { "label": "Subtract the associate (its profit is not in EBITDA)", "expr": "1530 - 60", "value": 1470 }
+        ]
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Harbourline buys **Wren Freight**, a small haulier with no debt and no cash, for **£105m**. Work out the effect on each value, first if it pays with **25m new shares** at £4.20, then if it pays from its **cash** instead. Start from equity value £1,050m and EV £1,530m (ignore the associate).",
+        "steps": [
+          { "label": "Value of the new shares: 25m × £4.20", "expr": "25 * 4.2", "value": 105 },
+          { "label": "Equity value after a share-funded deal", "expr": "1050 + 105", "value": 1155, "blank": true },
+          { "label": "EV after a share-funded deal: 1,155 + 380 + 100", "expr": "1155 + 380 + 100", "value": 1635, "blank": true },
+          { "label": "Cash left if it pays in cash: £120m − £105m", "expr": "120 - 105", "value": 15 },
+          { "label": "EV after a cash-funded deal: 1,050 + (500 − 15) + 100", "expr": "1050 + (500 - 15) + 100", "value": 1635, "blank": true }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"The company spent £100m of cash on an acquisition, so it is worth £100m less.\"**\n\nIt swapped £100m of cash for a business worth (at a fair price) £100m. Equity value is unchanged, and enterprise value goes **up** by £100m, because EV only counts operating assets and the company now owns more of them. The cash it gave up was already being netted off against debt.\n\nTwo smaller traps travel with this one. First, **adding** an associate stake to EV because \"it is an asset we own\" — it is an asset, but its profit is not in EBITDA, so it comes out. Second, subtracting **all** the cash on the balance sheet for a business that needs a chunk of it to operate. Say \"I would subtract excess cash only\" and you have shown you know why cash is in the bridge at all."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "Every bridge item answers one question: is this claim or asset already reflected in the EBITDA I am dividing by? Associates are not, so their value is subtracted; consolidated subsidiaries are, so NCI is added. Only spare cash comes off. On transactions: money flowing between the company and its own investors moves equity value, buying operating assets moves enterprise value. A buyback leaves EV unchanged; an acquisition raises EV however it is paid for.",
+        "seconds": 45
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Cash piles and venture stakes",
+            "md": "Large technology companies often hold more cash and short-term investments than debt, sometimes by tens of billions. That makes the **excess-cash** question material: a lot of that cash may sit in overseas subsidiaries or be earmarked for staff share schemes, and an analyst who subtracts every pound can understate enterprise value — and overstate how cheap the shares look on EV/EBITDA.\n\nThey also collect **minority stakes** in start-ups and partners. Those are associates or plain investments: their profit (usually a loss) is not in EBITDA, so their value comes out of the bridge. Getting this wrong on a company with large stakes visibly distorts its multiple.",
+            "example_q": "A software group holds £2bn of cash and a 25 % stake in a start-up worth £300m. How do you treat each in its EV?",
+            "answer_md": "Subtract the cash that is genuinely spare — I would check how much is trapped abroad or needed for operations before netting all £2bn. Subtract the £300m stake too: at 25 % it is an associate, so its results sit below EBITDA, and leaving it in EV would compare a value that includes the stake with a profit figure that excludes it."
+          },
+          "healthcare": {
+            "heading": "Biotechs with years of tax losses",
+            "md": "A biotech that spent a decade on research before its first approval can carry **hundreds of millions of tax losses**. Once a drug starts selling, those losses shelter its first years of profit from tax — a real cash benefit, and one acquirers price.\n\nThat makes the NOL choice a live one: value them separately (losses × tax rate, discounted for when they will be used and any limits on using them after a change of ownership) **or** model the lower tax inside the DCF. Not both. Royalty interests and stakes in partner companies raise the associate question in the same way as any other sector.",
+            "example_q": "A biotech has £400m of tax losses and a 25 % tax rate. Are they worth £100m to an acquirer?",
+            "answer_md": "£100m is the ceiling, not the answer. The losses only save tax when there are profits to offset, so the saving arrives over several years and must be discounted, and rules can limit how much can be used after a change of control. I would value the expected savings year by year — and either show that figure separately or put it in the DCF's tax line, never both."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "A company has equity value of **£800m** and net debt of **£200m**, so its EV is **£1,000m**. Walk through the effect on equity value and enterprise value of each, separately:\n\n1. It pays a **£50m** dividend from cash.\n2. It borrows **£150m** and uses it to buy a business for £150m.\n3. It issues **£150m** of new shares to the seller of that business instead.",
+        "model_answer_md": "1. **Dividend:** cash leaves to shareholders, so equity value falls to **£750m**; net debt rises to £250m, so EV stays at **£1,000m**.\n2. **Debt-funded acquisition:** equity value stays at **£800m**; debt rises by £150m, so net debt is £350m and EV rises to **£1,150m** — the company owns more operating assets.\n3. **Share-funded acquisition:** equity value rises to **£950m**; net debt is unchanged at £200m, so EV is also **£1,150m**.\n\nEV ends at £1,150m in both acquisitions because the business bought is the same; only the funding — and therefore who holds the claim — differs.",
+        "rubric": [
+          "Dividend: equity value −£50m, EV unchanged",
+          "Debt-funded deal: equity value unchanged, EV +£150m",
+          "Share-funded deal: both values +£150m",
+          "States that EV rises by the price paid however a deal is funded"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          { "q": "Add or subtract an associate in the bridge?", "a": "Subtract — its profit sits below EBITDA, so its value must come out of EV to keep the multiple consistent." },
+          { "q": "A company buys back shares with cash. Enterprise value?", "a": "Unchanged. Equity value and cash fall by the same amount." },
+          { "q": "Can equity value be negative?", "a": "Market equity value cannot — limited liability puts a floor at zero. Book equity can be negative, often after years of debt-funded buybacks." },
+          { "q": "Should all balance-sheet cash be subtracted?", "a": "Strictly, only excess cash. Operating cash and trapped or restricted cash are not freely available to repay debt." }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Keep the numerator matched to the denominator: if an asset's profit is not in EBITDA, its value comes out of EV — and only buying or selling operations moves EV, never paying investors.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can say whether an associate, NCI or tax losses are added or subtracted, and why.",
+          "I can explain why only excess cash comes off, and what trapped cash is.",
+          "I can distinguish book from market equity and explain negative book equity.",
+          "I can state the effect on equity value and EV of a buyback, a dividend and an acquisition funded three ways."
+        ]
+      }
+    ]
+  }
+}

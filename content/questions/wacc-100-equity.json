@@ -11,12 +11,12 @@
     "cost-of-equity"
   ],
   "question": "A company has no debt at all. What is its WACC?",
-  "model_answer_md": "Its **cost of equity** — there is nothing else in the blend to weight against.\n\nWith the debt weight at zero, the formula collapses to the equity term alone:\n\n$$\\text{WACC} = 1.0 \\times k_e + 0 = k_e$$\n\nThe part worth adding, because it is where the follow-up goes, is that this cost of equity is **lower** than the same company would have if it carried debt. Beta reflects leverage, so an all-equity company has an unlevered beta. Harbourline's unlevered beta is about 0.80, giving roughly 4 % + 0.80 × 6 % = **8.8 %** — lower than the 10.8 % its levered equity requires.\n\nSo an all-equity company has a higher WACC than the same business modestly levered, but a lower cost of equity. Those two facts sound contradictory and are not.",
+  "model_answer_md": "Its **cost of equity** — there is nothing else in the blend to weight against.\n\nWith the debt weight at zero, the formula collapses to the equity term alone:\n\n$$\\text{WACC} = 1.0 \\times k_e + 0 = k_e$$\n\nThe part worth adding, because it is where the follow-up goes, is that this cost of equity is **lower** than the same company would have if it carried debt. Beta reflects leverage, so an all-equity company has an unlevered beta. Harbourline's unlevered beta is about 0.70, giving roughly 4 % + 0.70 × 6 % = **8.2 %** — lower than the 10.0 % its levered equity requires, though still above its 8.0 % WACC.\n\nSo an all-equity company has a higher WACC than the same business modestly levered, but a lower cost of equity. Those two facts sound contradictory and are not.",
   "key_points": [
     "With no debt, WACC equals the cost of equity",
     "The debt weight is zero, so the formula reduces to the equity term",
     "That cost of equity uses the unlevered beta, so it is lower than a levered one",
-    "Harbourline unlevered: roughly 4 % + 0.80 × 6 % = 8.8 %",
+    "Harbourline unlevered: roughly 4 % + 0.70 × 6 % = 8.2 % (levered: 10.0 %)",
     "Higher WACC than a modestly levered version of the same business, but lower cost of equity"
   ],
   "follow_ups": [

@@ -1,0 +1,199 @@
+{
+  "slug": "distress-and-restructuring",
+  "subtopic_slug": "distress-and-restructuring",
+  "title": "Distress and restructuring: when the debt is bigger than the business",
+  "ordinal": 1,
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21",
+  "body": {
+    "version": 1,
+    "reading_minutes": 10,
+    "blocks": [
+      {
+        "type": "why_here",
+        "md": "Every LBO lesson so far assumed the plan works. Restructuring is what happens when it does not — and in London it is not a niche. PJT, Lazard, Houlihan Lokey, Rothschild and Moelis all run large restructuring teams, and their interviewers expect a summer candidate to reason about a company that cannot pay its debts.\n\nYou are not expected to know insolvency law. You are expected to know three things: how to tell a cash problem from a value problem, what a struggling company can actually do about it, and who gets what when the value runs out. The last one is a calculation you can do on paper in a minute."
+      },
+      {
+        "type": "concept",
+        "heading": "Cash problems and value problems",
+        "md": "Distress comes in two forms, and the cure depends on which you have.\n\n- **Liquidity** is about *cash and timing*: can the company pay its bills, interest and maturities as they fall due? A sound business with a £300m loan maturing in six months and a shut credit market has a liquidity problem.\n- **Solvency** is about *value*: is the business worth more than what it owes? If the enterprise value is £300m and the debt is £320m, the equity is underwater even if this month's interest gets paid.\n\nUK insolvency law tests both — a **cash-flow test** (paying debts as they fall due) and a **balance-sheet test** (assets against liabilities).\n\nThe warning signs: covenant headroom shrinking, interest cover heading towards 1×, the revolver drawn to its limit, suppliers demanding cash up front, bonds trading well below 100p, and a maturity approaching with no refinancing in sight. A liquidity problem can often be bridged with time or new money. A solvency problem can only be fixed by shrinking the debt — which means someone takes a loss."
+      },
+      {
+        "type": "mechanics",
+        "md": "**The options, from least to most painful.**\n\n1. **Out-of-court fixes.** **Amend and extend** — lenders push out the maturity, usually for a fee and a higher margin. A **covenant waiver**. **New money** from the sponsor or new lenders. **Asset sales** to raise cash. These work when the problem is liquidity.\n2. **Debt-for-equity swap.** Creditors cancel part of their claim in exchange for most of the shares. The balance sheet shrinks, interest falls, and the old shareholders are heavily diluted or wiped out. This is the cure for a solvency problem.\n3. **Court-backed processes**, used when creditors will not all agree. In the UK: a **scheme of arrangement** or a **restructuring plan** (a court-sanctioned deal; the plan can bind a dissenting class of creditors — a **cross-class cram-down**); a **company voluntary arrangement (CVA)**, often used to cut leases; and **administration**, where an insolvency practitioner takes control to rescue or sell the business. The US equivalent of a rescue process is **Chapter 11**, in which management usually stays in charge.\n\n**Who gets what.** In a restructuring, value is shared out under **absolute priority**: each class is paid in full before the class behind it receives anything. Costs of the process come first, then secured creditors, then unsecured, then equity. The class where the value runs out — partly repaid, nothing left behind it — is the **fulcrum security**. Its holders usually end up owning the restructured company, because cancelling their claim in exchange for the equity is how the debt shrinks."
+      },
+      {
+        "type": "worked_calc",
+        "md": "**Lydford Leisure plc**, a cinema chain, borrowed against **£60m** of EBITDA; it now earns **£30m**. It owes **£220m** of senior secured debt (revolver and term loan) and **£100m** of unsecured notes. Valuers put the enterprise value at **£300m**, and the restructuring costs **£20m** in advisers' fees, paid first.",
+        "steps": [
+          {
+            "label": "Total debt",
+            "expr": "220 + 100",
+            "value": 320,
+            "unit": "£m"
+          },
+          {
+            "label": "Leverage on today's EBITDA",
+            "expr": "320 / 30",
+            "value": 10.67,
+            "unit": "×"
+          },
+          {
+            "label": "Value left for creditors after costs",
+            "expr": "300 - 20",
+            "value": 280,
+            "unit": "£m"
+          },
+          {
+            "label": "Senior secured: repaid in full",
+            "expr": "220",
+            "value": 220,
+            "unit": "£m"
+          },
+          {
+            "label": "Left for the unsecured notes",
+            "expr": "280 - 220",
+            "value": 60,
+            "unit": "£m"
+          },
+          {
+            "label": "Notes' recovery — they are the fulcrum",
+            "expr": "60 / 100",
+            "value": 0.6,
+            "unit": ""
+          },
+          {
+            "label": "Left for the shareholders",
+            "expr": "280 - 220 - 60",
+            "value": 0,
+            "unit": "£m"
+          }
+        ]
+      },
+      {
+        "type": "predict",
+        "prompt": "The cinema market worsens and the valuers cut Lydford's enterprise value from £300m to **£220m**. Costs are still £20m. Which class is now the fulcrum?",
+        "options": [
+          {
+            "label": "Still the unsecured notes — they just recover less"
+          },
+          {
+            "label": "The senior secured lenders — they recover about 91 % and the notes get nothing",
+            "correct": true
+          },
+          {
+            "label": "The shareholders — they are always the fulcrum"
+          }
+        ],
+        "explain_md": "After £20m of costs there is **£200m** for creditors. The senior lenders are owed £220m, so they recover 200 ÷ 220 = **91 %** and the value runs out inside their class: they are now the fulcrum. The notes recover **nothing**.\n\nThis is why the fulcrum matters to a banker: it tells you who controls the negotiation. A fall in value moves the fulcrum up the queue, and the senior lenders, not the noteholders, would now be the ones swapping debt for the equity."
+      },
+      {
+        "type": "fill_numbers",
+        "md": "Same structure — **£220m** senior secured, **£100m** unsecured notes, **£20m** of costs — but the valuers settle on **£260m** of enterprise value. Work down the waterfall.",
+        "steps": [
+          {
+            "label": "Value left after costs",
+            "expr": "260 - 20",
+            "value": 240,
+            "unit": "£m"
+          },
+          {
+            "label": "Senior secured recovery (£m)",
+            "expr": "220",
+            "value": 220,
+            "unit": "£m"
+          },
+          {
+            "label": "Left for the notes",
+            "expr": "240 - 220",
+            "value": 20,
+            "unit": "£m",
+            "blank": true
+          },
+          {
+            "label": "Notes' recovery rate",
+            "expr": "20 / 100",
+            "value": 0.2,
+            "unit": "",
+            "blank": true
+          }
+        ]
+      },
+      {
+        "type": "trap",
+        "md": "**\"The debt is bigger than the business, so the shares are worth zero.\"**\n\nIn a final restructuring under absolute priority, yes — Lydford's shareholders receive nothing. But *before* that point, distressed shares rarely trade at zero, and an interviewer will ask why.\n\nThe answer is **option value**. Equity holders have limited liability: they cannot lose more than they put in, but they keep all the upside if the business recovers before the debt is due. A share in an insolvent company is like a call option on the enterprise value, struck at the debt. With time left and volatile value, that option is worth something.\n\nThe same logic explains **'out of the money' creditors** holding out in negotiations: their claim has nuisance value because a deal needs their votes — which is exactly what the UK restructuring plan's cross-class cram-down was designed to limit."
+      },
+      {
+        "type": "canonical_answer",
+        "md": "First I'd separate liquidity from solvency: is this a cash and timing problem, or is the business worth less than its debt? A liquidity problem can be bridged — amend and extend, a waiver, new money or an asset sale. A solvency problem needs the debt cut, usually through a debt-for-equity swap, agreed consensually or pushed through a court process such as a UK scheme, restructuring plan or administration, or Chapter 11 in the US. Value is then shared under absolute priority: costs, secured, unsecured, then equity. The class where value runs out is the fulcrum, and it usually ends up owning the company.",
+        "seconds": 60
+      },
+      {
+        "type": "lens",
+        "slot": "before-your-turn",
+        "variants": {
+          "tmt": {
+            "heading": "Convertibles and capex-heavy networks",
+            "md": "Two technology patterns recur in restructurings. **Telecom and data-centre businesses** carry heavy, secured debt against long-lived networks; when growth stalls, the capex cannot be cut without damaging the asset, so liquidity runs out fast. **Growth software companies** often borrowed through **convertible bonds** that were expected to convert into shares. When the share price falls far below the conversion price the bonds stay as debt, the maturity arrives, and the unsecured convertibles are often the fulcrum.",
+            "example_q": "A loss-making software company has £400m of convertible bonds due next year and a share price 80 % below the conversion price. Why is this a restructuring situation?",
+            "answer_md": "Because the convertible has become ordinary debt. Holders will not convert at a price far above the market, so the full £400m must be repaid in cash at maturity, and a loss-making company cannot refinance easily. If enterprise value is below the debt, the convertibles are likely the fulcrum and may swap their claim for most of the equity."
+          },
+          "healthcare": {
+            "heading": "Rent, regulators and binary trials",
+            "md": "UK care-home operators show how **leases** behave like debt in distress: groups that sold their homes and leased them back faced fixed, rising rents while publicly funded fees stalled, and a CVA to cut rents became the restructuring tool. A regulator's involvement also limits the options: residents must be cared for, so a disorderly liquidation is not acceptable.\n\nIn **biotech**, distress is often binary: a failed trial removes most of the enterprise value overnight, and convertible holders become the fulcrum of a business that is mostly cash and intellectual property.",
+            "example_q": "Why might a care-home operator use a CVA rather than a debt-for-equity swap?",
+            "answer_md": "Because its biggest fixed obligation may be rent, not borrowings. A CVA lets the operator compromise lease liabilities — cutting rents or exiting loss-making homes — with the required creditor vote, while the homes keep operating. A debt-for-equity swap only helps if the problem is financial debt."
+          }
+        }
+      },
+      {
+        "type": "your_turn",
+        "prompt": "**Lydford Leisure** agrees a deal: the senior secured lenders **amend and extend** their **£220m** at **6 %**, and the **£100m** of unsecured notes, which paid **8 %**, swap their whole claim for **85 %** of the new shares. EBITDA is **£30m**.\n\nShow interest cover before and after, explain what happens to the balance sheet and to the old shareholders, and say why the noteholders accepted shares rather than holding out for cash.",
+        "model_answer_md": "**Before.** Interest = 220 × 6 % + 100 × 8 % = 13.2 + 8.0 = **£21.2m**; cover = 30 ÷ 21.2 = **1.4×** — barely covered.\n\n**After.** Only the senior interest remains: **£13.2m**; cover = 30 ÷ 13.2 = **2.3×**. Leverage falls from 10.7× to 220 ÷ 30 = **7.3×**.\n\n**Balance sheet.** Liabilities fall by £100m, and the cancelled claim becomes equity. The old shareholders keep **15 %** of a company whose debt has shrunk.\n\n**Why the notes accepted.** They were the **fulcrum**: on a £300m valuation they would recover about 60p in the pound in an administration, after costs and with a sale at a distressed price. Owning 85 % of a deleveraged company gives them the upside if the cinemas recover, and avoids a court process that would destroy more value.",
+        "rubric": [
+          "Interest before £21.2m and cover about 1.4×; after £13.2m and about 2.3×",
+          "Leverage falls from about 10.7× to 7.3×",
+          "Liabilities fall £100m and that claim becomes equity",
+          "Old shareholders are diluted to 15 %",
+          "Explains the noteholders as the fulcrum, preferring the upside of equity to a low cash recovery"
+        ]
+      },
+      {
+        "type": "quick_fire",
+        "pairs": [
+          {
+            "q": "Liquidity or solvency — a profitable company with a maturity it cannot refinance?",
+            "a": "Liquidity: the business may be worth more than its debt, but the cash is not there when it is due."
+          },
+          {
+            "q": "What is the fulcrum security?",
+            "a": "The class where the value runs out — partly repaid, with nothing left for the classes behind it. It usually receives the new equity."
+          },
+          {
+            "q": "What does absolute priority mean?",
+            "a": "Each class is paid in full before the class behind it receives anything: costs, secured, unsecured, then equity."
+          },
+          {
+            "q": "Why can an insolvent company's shares trade above zero?",
+            "a": "Option value — limited downside, full upside if value recovers before the debt is due."
+          }
+        ]
+      },
+      {
+        "type": "one_liner",
+        "md": "**Ask whether it is a cash problem or a value problem, walk the waterfall until the money runs out, and the class you stop in will own the company.**"
+      },
+      {
+        "type": "now_you_can",
+        "items": [
+          "I can tell a liquidity problem from a solvency problem and name the warning signs.",
+          "I can list a distressed company's options, from amend and extend to administration, and say when each fits.",
+          "I can run a creditor waterfall under absolute priority and compute each class's recovery.",
+          "I can identify the fulcrum security and explain why it ends up owning the company.",
+          "I can explain why distressed equity keeps option value and what a debt-for-equity swap does to the balance sheet."
+        ]
+      }
+    ]
+  }
+}

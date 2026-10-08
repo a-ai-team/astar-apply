@@ -1,0 +1,37 @@
+{
+  "slug": "prepaid-insurance-walkthrough",
+  "topic_slug": "accounting",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "On 1 January Kestrel pays £12m upfront for a year of insurance. Tax is 25 %. Walk me through day one, then the year as a whole.",
+  "model_answer_md": "**Day one.**\n\n- **Income statement: nothing.** No insurance has been *used* yet.\n- **Cash flow statement.** The **increase in prepaid expenses** (cash paid for something not yet used, held as an asset) is an operating outflow, **−£12m**.\n- **Balance sheet.** Cash −12, prepaid expenses +12. One asset swapped for another.\n\n**Over the year.** The cover is used month by month, so £12m of insurance expense is recognised. Pre-tax profit −£12m, tax −£3m, **net income −£9m**. On the cash flow statement the **fall in prepaid expenses, +£12m**, is added back, so operating cash flow for the year from the expense is +£3m. The prepayment asset is back to zero, cash has fallen **£9m net** (−12 upfront +3 tax saved) and retained earnings are down £9m.",
+  "key_points": [
+    "Paying in advance is not an expense — it creates an asset",
+    "Day one: cash −12, prepaid +12 (operating outflow)",
+    "Expense recognised as the cover is used: NI −9 over the year",
+    "Full year: cash −9 net, equity −9"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why is the outflow in operating rather than investing?",
+      "answer_md": "Prepaid expenses are part of working capital: short-term items in the normal trading cycle. They are not long-lived assets, so they sit in operating cash flow like receivables and inventory."
+    },
+    {
+      "question": "Does a prepayment raise or lower net working capital?",
+      "answer_md": "It raises it, because it is a current asset. That is why an increase shows as a use of cash."
+    }
+  ],
+  "weak_answer_note": "Expenses the full £12m on day one, or ignores the tax effect over the year.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "prepayments"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

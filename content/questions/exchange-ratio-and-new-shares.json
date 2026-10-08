@@ -1,0 +1,45 @@
+{
+  "slug": "exchange-ratio-and-new-shares",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:fill",
+    "exchange-ratio",
+    "stock-deal"
+  ],
+  "question": "Wychwood has 50m shares and Tamar offers £500m, all in Tamar shares trading at £18. What is the exchange ratio, how many new Tamar shares are issued, and how much of the enlarged Tamar do Wychwood's holders own?",
+  "model_answer_md": "**Offer per Wychwood share:** 500 ÷ 50 = **£10.00**.\n\n**Exchange ratio:** 10 ÷ 18 = **0.556 Tamar shares** for every Wychwood share.\n\n**New shares:** 50m × 0.556 = **27.78m**. That is the same as 500 ÷ 18, a useful check.\n\n**Ownership:** 27.78 ÷ (100 + 27.78) = **21.7 %** of the enlarged Tamar for Wychwood's old holders; Tamar's existing holders keep **78.3 %**.",
+  "key_points": [
+    "Offer per target share = £500m ÷ 50m = £10",
+    "Exchange ratio = 10 ÷ 18 = 0.556",
+    "New shares = 50m × 0.556 = 27.78m (= 500 ÷ 18)",
+    "Seller ownership = 27.78 ÷ 127.78 = 21.7 %"
+  ],
+  "follow_ups": [
+    {
+      "question": "Tamar's share price falls to £16 before completion under a fixed ratio. What do Wychwood holders get?",
+      "answer_md": "Still 27.78m shares, because the ratio is fixed, but now worth 27.78 × 16 ≈ £444m rather than £500m. Under a fixed ratio the seller carries the buyer's share price risk, and the ownership split does not move. Under a fixed value Tamar would instead issue 500 ÷ 16 = 31.25m shares, and its own holders would bear the dilution."
+    },
+    {
+      "question": "Is 21.7 % a fair split?",
+      "answer_md": "Compare it with what each side contributes. Wychwood brings £40m of the combined £160m of net income, which is 25 %, but receives 21.7 % of the shares. On earnings alone Wychwood's holders have accepted less than they contribute, which is the flip side of the deal being accretive for Tamar. That comparison is a contribution analysis."
+    }
+  ],
+  "weak_answer_note": "Dividing the share prices the wrong way round (18 ÷ 10). Using Wychwood's undisturbed £8 price instead of the £10 offer. Computing ownership as new shares ÷ old shares (27.8 %).",
+  "numbers": {
+    "inputs": {
+      "offer": 500,
+      "target_shares": 50,
+      "acquirer_price": 18,
+      "acquirer_shares": 100
+    },
+    "answer": 0.556
+  },
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

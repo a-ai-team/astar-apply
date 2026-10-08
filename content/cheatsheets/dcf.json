@@ -40,6 +40,26 @@
       "name": "Relevering beta",
       "latex": "\\beta_L = \\beta_U \\left(1 + (1-t)\\frac{D}{E}\\right)",
       "note": "Unlever each comp, take the median, relever at your target structure. Harbourline: 0.80 unlevered → 1.14 at D/E 0.56."
+    },
+    {
+      "name": "Free cash flow to equity",
+      "latex": "FCFE = UFCF - \\text{Interest}\\times(1-t) + \\text{Net borrowing}",
+      "note": "Harbourline: 81.8 − 30 × 0.75 + 0 = £59.3m. Discount at the cost of equity; the answer is equity value."
+    },
+    {
+      "name": "Adjusted present value",
+      "latex": "APV = \\frac{UFCF}{k_u} + PV(\\text{tax shields})",
+      "note": "Unlevered value at k_u = 4 % + 0.70 × 6 % = 8.2 %, plus the tax shield (t × D for permanent debt): £997.6m + £125m."
+    },
+    {
+      "name": "WACC with preferred",
+      "latex": "WACC = W_e k_e + W_d k_d (1-t) + W_p k_p",
+      "note": "No (1 − t) on preferred: its dividends come from after-tax profit. 60/30/10 at 11 %, 7 %, 9 % → 9.1 %."
+    },
+    {
+      "name": "Beta of a cash-rich company's operations",
+      "latex": "\\beta_{ops} = \\beta_{equity} \\times \\frac{E}{E - \\text{Cash}}",
+      "note": "0.90 × 1,000 ÷ 700 = 1.29. Cash dilutes the observed beta."
     }
   ],
   "canonical": [
@@ -71,20 +91,22 @@
     "Forgetting that the terminal value is discounted too, at the final year's factor.",
     "Book-value weights in WACC instead of market values.",
     "Presenting a single number. A DCF is a range with a story behind it.",
-    "Taking capex equal to D&A forever without saying so — it flatters cash flow and hides the reinvestment a growing business needs."
+    "Taking capex equal to D&A forever without saying so — it flatters cash flow and hides the reinvestment a growing business needs.",
+    "Discounting FCFE at WACC, or UFCF at the cost of equity: match the cash flow to its owners.",
+    "Cash flows in one currency, discount rate built on another country's risk-free rate.",
+    "Applying the tax shield to preferred dividends, or lumping preferred in with debt.",
+    "Using a negative or near-zero regression beta for an operating company: replace it with a relevered peer beta.",
+    "Holding the cost of equity fixed when leverage changes."
   ],
   "one_liners": [
     "A DCF is a range with a story, not a number.",
     "Most of the value is terminal — say so before you are asked.",
     "Unlevered pairs with WACC and gives enterprise value.",
-    "Each terminal-value method implies the other; quote both."
+    "Each terminal-value method implies the other; quote both.",
+    "The rate must belong to the same owners, the same risk and the same currency as the cash flow."
   ],
   "you_may_hear": [
-    "Levered DCF on free cash flow to equity, discounted at the cost of equity.",
-    "Adjusted present value — value the business unlevered, then add the tax shield separately.",
     "Stub periods and mid-year convention refinements for a valuation date mid-year.",
-    "Size premia and country risk premia added to CAPM.",
-    "Estimating WACC for a private company with no observable beta.",
     "The dividend discount model, which is how banks are valued — see the FIG module."
   ]
 }

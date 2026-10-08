@@ -1,0 +1,38 @@
+{
+  "slug": "share-buyback-walkthrough",
+  "topic_slug": "accounting",
+  "subtopic_slug": "single-step-walkthroughs",
+  "kind": "calculation",
+  "difficulty": 2,
+  "question": "Kestrel spends £30m buying back its own shares. Walk me through the statements, and tell me what happens to equity value and enterprise value.",
+  "model_answer_md": "**Income statement: nothing.** Buying your own shares is a return of capital, not an expense.\n\n**Cash flow statement.** A **£30m outflow in financing**. Cash falls **£30m**.\n\n**Balance sheet.** Cash −£30m. Equity −£30m, either as cancelled shares or as **treasury shares** (shares the company holds itself, shown as a negative inside equity). Assets −30 = equity −30, so it balances.\n\n**Valuation.** Equity value falls by about £30m: shareholders own the same business with £30m less cash. Enterprise value does not change, because the £30m of cash leaving is exactly offset in the bridge (less cash means net debt is £30m higher).",
+  "key_points": [
+    "No income statement effect",
+    "−£30m in financing",
+    "Cash −30, equity −30 (cancelled or treasury shares)",
+    "Equity value down ~£30m; enterprise value unchanged"
+  ],
+  "follow_ups": [
+    {
+      "question": "Does the buyback raise EPS?",
+      "answer_md": "Usually, yes. Earnings fall a little because the cash no longer earns interest, but the share count falls proportionally more whenever the interest rate after tax is below the earnings yield (earnings ÷ share price). At a P/E of 15 the earnings yield is about 6.7 %, well above most deposit rates, so EPS rises. That does not make shareholders richer: the share price should adjust for the cash that left."
+    },
+    {
+      "question": "How is this different from a £30m dividend?",
+      "answer_md": "On the statements it is almost identical: financing outflow, cash down, equity down. The difference is who receives the money. A dividend goes pro rata to every holder. A buyback goes only to those who sell, and the share count falls."
+    }
+  ],
+  "weak_answer_note": "Puts the buyback through the income statement, or says enterprise value falls by £30m. Forgets the equity side of the balance sheet entry.",
+  "numbers": null,
+  "source_topic": "Accounting – calculations",
+  "tags": [
+    "depth:sa-core",
+    "format:verbal",
+    "walkthrough",
+    "equity",
+    "buyback"
+  ],
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}

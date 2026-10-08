@@ -1,0 +1,37 @@
+{
+  "slug": "ownership-split-all-stock",
+  "subtopic_slug": "accretion-dilution-calculations",
+  "kind": "calculation",
+  "difficulty": 3,
+  "source_topic": "Merger models – calculations",
+  "tags": [
+    "depth:sa-stretch",
+    "format:verbal",
+    "contribution-analysis",
+    "stock-deal"
+  ],
+  "question": "In an all-stock deal, Tamar's holders end up with 78.3 % of the combined group and Wychwood's with 21.7 %. Tamar earns £120m and Wychwood £40m. What does that tell you about who got the better deal on earnings, and how does it link to accretion?",
+  "model_answer_md": "Set ownership against contribution.\n\n- **Contribution to net income:** Tamar 120 ÷ 160 = **75 %**; Wychwood 40 ÷ 160 = **25 %**.\n- **Ownership received:** Tamar **78.3 %**; Wychwood **21.7 %**.\n\nTamar's holders own more of the combined earnings than they brought, so each Tamar share now carries more earnings. That is accretion: EPS goes from £1.20 to 160 ÷ 127.78 = **£1.252**. Wychwood's holders gave up some earnings share in exchange for a **25 % premium** over their £400m market value, plus a stake in a larger, more liquid company.\n\nThe two framings always agree in an all-stock deal. **The deal is accretive exactly when the buyer's ownership exceeds its earnings contribution.**",
+  "key_points": [
+    "Earnings contribution: 75 % / 25 %",
+    "Ownership: 78.3 % / 21.7 %",
+    "Buyer owns more than it contributes → accretive (EPS £1.20 → £1.252)",
+    "Seller trades earnings share for a premium and liquidity",
+    "Accretion and contribution analysis are two views of one fact"
+  ],
+  "follow_ups": [
+    {
+      "question": "Why use several metrics in a contribution analysis?",
+      "answer_md": "Because net income can flatter or punish a side depending on its leverage, tax position or one-offs. Bankers lay out revenue, EBITDA, net income and sometimes cash flow side by side. A target that contributes 30 % of EBITDA but 25 % of net income because it carries more debt can argue for more than 25 % of the shares."
+    },
+    {
+      "question": "When would a seller accept less than its contribution?",
+      "answer_md": "When the premium compensates, when it values the buyer's growth, liquidity or management, or when it expects synergies and takes enough shares to share in them. Contribution analysis is a negotiating reference, not a rule. A seller with weak prospects alone may also take a lower share of a stronger combined company."
+    }
+  ],
+  "weak_answer_note": "Comparing ownership with share-price contribution instead of earnings. Missing the link to accretion. Calling the seller the loser without mentioning the premium.",
+  "topic_slug": "ma",
+  "status": "generated",
+  "generated_by": "claude",
+  "prompt_version": "loop-21"
+}
