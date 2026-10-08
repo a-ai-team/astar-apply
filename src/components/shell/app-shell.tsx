@@ -51,7 +51,7 @@ export function AppShell({ session, nav, children }: { session: Session; nav: Na
         {initial}
       </Link>
       <form action={signOut}>
-        <Button type="submit" variant="ghost" size="sm" data-testid="sign-out">
+        <Button type="submit" variant="ghost" size="sm" className="whitespace-nowrap" data-testid="sign-out">
           Sign out
         </Button>
       </form>
