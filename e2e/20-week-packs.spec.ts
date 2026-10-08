@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { unlockPrivateArea } from "./helpers/auth";
+import { DEFAULT_PATH } from "../src/lib/content/taxonomy";
 
 // Loop 20 — week packs. Week 4 (EqV/EV) is a free, approved chapter that closes with a cheat
 // sheet, so its pack carries every section. Counts are read off the week page, never pinned.
@@ -18,7 +19,7 @@ test.describe("loop 20: week packs", () => {
 
     await page.getByTestId("week-pack-link").click();
     await expect(page.getByTestId("pack-heading")).toBeVisible({ timeout: 30_000 });
-    await expect(page.getByTestId("pack-plan").locator("tr")).toHaveCount(5);
+    await expect(page.getByTestId("pack-plan").locator("tr")).toHaveCount(DEFAULT_PATH.weeks.find((w) => w.week === WEEK)!.days.length);
     await expect(page.getByTestId("pack-lesson")).toHaveCount(lessons);
     await expect(page.getByTestId("pack-cheatsheet")).toBeVisible();
 

@@ -6,6 +6,8 @@
 //   npm run packs:build                          # all weeks
 //   npm run packs:build -- --week 4              # one week
 //   npm run packs:build -- --no-upload           # PDFs into .packs/ only (gitignored)
+//   npm run packs:build -- --guide               # also the complete technicals guide (Loop 21)
+//   npm run packs:build -- --guide-only          # just the guide
 //
 // PDFs never enter the repo (it is public, the content is gated): `.packs/` and `*.pdf` are ignored.
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -13,12 +15,14 @@ import path from "node:path";
 import { chromium } from "@playwright/test";
 import { adminClient, requireEnv } from "../seed/env";
 import { ACCESS_COOKIE, accessToken } from "../../src/lib/access";
-import { PACKS_BUCKET, packDownloadName, packObjectPath } from "../../src/lib/content/pack-files";
+import { GUIDE_DOWNLOAD_NAME, GUIDE_OBJECT_PATH, PACKS_BUCKET, packDownloadName, packObjectPath } from "../../src/lib/content/pack-files";
 import { DEFAULT_PATH } from "../../src/lib/content/taxonomy";
 
 const args = process.argv.slice(2);
 const only = args.includes("--week") ? Number(args[args.indexOf("--week") + 1]) : null;
 const upload = !args.includes("--no-upload");
+const guideOnly = args.includes("--guide-only");
+const guide = guideOnly || args.includes("--guide");
 const baseURL = (process.env.PACKS_BASE_URL ?? "http://localhost:3100").replace(/\/$/, "");
 const outDir = path.join(process.cwd(), ".packs");
 
@@ -29,8 +33,8 @@ const footer = (label: string) => `
   </div>`;
 
 async function main() {
-  const weeks = DEFAULT_PATH.weeks.filter((w) => only === null || w.week === only);
-  if (weeks.length === 0) throw new Error(`no week ${only} in ${DEFAULT_PATH.slug}`);
+  const weeks = guideOnly ? [] : DEFAULT_PATH.weeks.filter((w) => only === null || w.week === only);
+  if (weeks.length === 0 && !guideOnly) throw new Error(`no week ${only} in ${DEFAULT_PATH.slug}`);
   mkdirSync(outDir, { recursive: true });
 
   const db = upload ? adminClient() : null;
@@ -66,6 +70,28 @@ async function main() {
       }
       const lessons = await page.getByTestId("pack-lesson").count();
       console.log(`week ${String(w.week).padStart(2)}  ${lessons} lesson(s)  ${(pdf.length / 1024).toFixed(0).padStart(5)} KB  ${upload ? "uploaded" : "local only"}  ${packDownloadName(w.week)}`);
+    }
+
+    if (guide) {
+      const res = await page.goto("/home/technicals/guide", { waitUntil: "networkidle" });
+      if (!res?.ok() || !(await page.getByTestId("guide").count())) throw new Error(`guide: page did not render (${res?.status()} ${page.url()})`);
+      await page.evaluate(() => document.fonts.ready);
+      const pdf = await page.pdf({
+        format: "A4",
+        preferCSSPageSize: true,
+        printBackground: true,
+        displayHeaderFooter: true,
+        headerTemplate: "<span></span>",
+        footerTemplate: footer("The complete technicals guide"),
+        margin: { top: "16mm", right: "15mm", bottom: "18mm", left: "15mm" },
+      });
+      writeFileSync(path.join(outDir, GUIDE_DOWNLOAD_NAME), pdf);
+      if (db) {
+        const { error } = await db.storage.from(PACKS_BUCKET).upload(GUIDE_OBJECT_PATH, pdf, { contentType: "application/pdf", upsert: true });
+        if (error) throw error;
+      }
+      const chapters = await page.getByTestId("guide-chapter").count();
+      console.log(`guide    ${chapters} chapter(s)  ${(pdf.length / 1024).toFixed(0).padStart(5)} KB  ${upload ? "uploaded" : "local only"}  ${GUIDE_DOWNLOAD_NAME}`);
     }
   } finally {
     await browser.close();

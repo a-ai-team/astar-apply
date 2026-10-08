@@ -9,4 +9,6 @@ export const THRESHOLDS = {
   grader: { spearman: 0.7, mae: 1.0, empty_max: 1 },
   // Loop 09: content/industry/** — schema 100 %, overlap 0 (readability ≥ 4 reported; skipped without credit)
   industry: { schema_rate: 1, overlap_hits: 0, readability: 4 },
+  // Loop 21: 400Q technical sections → our content (judge-mapped); no gaps, ≥ 90 % fully covered
+  coverage: { gap_max: 0, covered_rate: 0.9 },
 } as const;

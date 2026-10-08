@@ -84,12 +84,13 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "Time value of money, discounting, NPV and IRR — the five ideas every later topic leans on.",
     source_section: "Finance concepts",
     subtopics: [
-      // Loop 12: three lessons carry the chapter; `discount-rates-and-risk` folds into lesson 1 and
-      // `irr-and-payback` into lesson 2, so both are deferred (slugs kept — never removed).
+      // Loop 12: three lessons carried the chapter. Loop 21 (completeness) un-deferred
+      // `discount-rates-and-risk` (risk ↔ return, real vs nominal, bond price vs yield) and
+      // `irr-and-payback` (payback, IRR's flaws) as stretch lessons.
       sub("time-value-of-money", "Time value of money", "mixed", "Finance concepts", 4),
-      { ...sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 0), deferred: true },
+      sub("discount-rates-and-risk", "Discount rates and risk", "concept", "Finance concepts", 3),
       sub("pv-npv", "Present value, NPV and IRR", "calculation", "Finance concepts", 4),
-      { ...sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 0), deferred: true },
+      sub("irr-and-payback", "IRR and payback", "calculation", "Finance concepts", 3),
       sub("wacc-intro", "WACC: a first look", "mixed", "Finance concepts", 4),
     ],
   },
@@ -99,8 +100,8 @@ export const CURRICULUM: CurriculumTopic[] = [
     source_section: "Accounting – concepts / calculations",
     subtopics: [
       // Loop 13: eight lessons carry the chapter. `depreciation-and-capex` folds into
-      // `single-step-walkthroughs`; `deferred-taxes-and-other-items` becomes cheat-sheet
-      // "you may hear" material. Both deferred — slugs kept, never removed.
+      // `single-step-walkthroughs` (deferred, slug kept). Loop 21 un-deferred
+      // `deferred-taxes-and-other-items` (DTA/DTL, NOLs, leases, associates, intangibles).
       sub("three-statements-overview", "The three statements at a glance", "concept", "Accounting – concepts", 5),
       sub("income-statement", "Income statement", "concept", "Accounting – concepts", 4),
       sub("balance-sheet", "Balance sheet", "concept", "Accounting – concepts", 5),
@@ -110,7 +111,7 @@ export const CURRICULUM: CurriculumTopic[] = [
       { ...sub("depreciation-and-capex", "Depreciation, capex and non-cash items", "calculation", "Accounting – calculations", 0, true), deferred: true },
       sub("single-step-walkthroughs", "Single-step walkthroughs", "calculation", "Accounting – calculations", 6, true),
       sub("multi-step-walkthroughs", "Multi-step walkthroughs", "calculation", "Accounting – calculations", 5, true),
-      { ...sub("deferred-taxes-and-other-items", "Deferred taxes, leases and other items", "mixed", "Accounting – calculations", 0), deferred: true },
+      sub("deferred-taxes-and-other-items", "Deferred taxes, leases and other items", "mixed", "Accounting – calculations", 5),
     ],
   },
   {
@@ -118,12 +119,12 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "What each value means, the bridge between them, and which metrics pair with which.",
     source_section: "Equity value & enterprise value – concepts / calculations",
     subtopics: [
-      // Loop 14: four lessons carry the chapter. `ev-edge-cases` folds into the bridge lesson
-      // (leases, pensions, NCI and preferred all appear there) — deferred, slug kept.
+      // Loop 14: four lessons carried the chapter. Loop 21 un-deferred `ev-edge-cases` (associates,
+      // NOLs, excess cash, book vs market equity, what transactions do to each value).
       sub("equity-and-enterprise-value", "Equity value and enterprise value", "concept", "EqV & EV – concepts", 7),
       sub("ev-bridge-calculations", "The EqV → EV bridge", "calculation", "EqV & EV – calculations", 8),
       sub("diluted-shares", "Diluted share count", "calculation", "EqV & EV – calculations", 7),
-      { ...sub("ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions", "mixed", "EqV & EV – concepts", 0), deferred: true },
+      sub("ev-edge-cases", "Edge cases: leases, NCI, preferred, pensions", "mixed", "EqV & EV – concepts", 5),
       sub("pairing-metrics-with-values", "Pairing metrics with the right value", "concept", "EqV & EV – concepts", 6),
     ],
   },
@@ -132,14 +133,14 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "The three core methodologies, the multiples they use, and how to pick between them.",
     source_section: "Valuation methodologies / metrics & multiples",
     subtopics: [
-      // Loop 15: five lessons carry the chapter. `other-methodologies` (SOTP, liquidation, LBO
-      // valuation) is named in the cheat sheet's "you may hear" box — deferred, slug kept.
+      // Loop 15: five lessons carried the chapter. Loop 21 un-deferred `other-methodologies`
+      // (SOTP, DDM, liquidation, LBO floor, premiums paid, normalising EBITDA).
       sub("valuation-methodologies", "The three methodologies", "concept", "Valuation methodologies", 7),
       sub("comparable-companies", "Comparable companies", "mixed", "Valuation methodologies", 6),
       sub("precedent-transactions", "Precedent transactions", "mixed", "Valuation methodologies", 6),
       sub("multiples-and-metrics", "Multiples and metrics", "calculation", "Valuation metrics & multiples", 6),
       sub("choosing-and-presenting", "Choosing a method and presenting a range", "concept", "Valuation metrics & multiples", 6),
-      { ...sub("other-methodologies", "Other methods: SOTP, liquidation, LBO valuation", "concept", "Valuation methodologies", 0), deferred: true },
+      sub("other-methodologies", "Other methods: SOTP, liquidation, LBO valuation", "concept", "Valuation methodologies", 5),
     ],
   },
   {
@@ -147,8 +148,8 @@ export const CURRICULUM: CurriculumTopic[] = [
     summary: "Free cash flow, the discount rate and terminal value — built step by step with real numbers.",
     source_section: "DCF – assumptions & analysis / the discount rate",
     subtopics: [
-      // Loop 16: seven lessons carry the chapter. `levered-dcf-and-variants` (levered DCF, APV) is
-      // named in the cheat sheet's "you may hear" box — deferred, slug kept.
+      // Loop 16: seven lessons carried the chapter. Loop 21 un-deferred `levered-dcf-and-variants`
+      // (FCFE, APV, private-company WACC, size / country premia, prefs and converts in WACC).
       sub("dcf-overview", "What a DCF is doing", "concept", "DCF – assumptions & analysis", 6),
       sub("unlevered-free-cash-flow", "Unlevered free cash flow", "calculation", "DCF – assumptions & analysis", 6),
       sub("projections-and-assumptions", "Projections and assumptions", "mixed", "DCF – assumptions & analysis", 6),
@@ -156,7 +157,7 @@ export const CURRICULUM: CurriculumTopic[] = [
       sub("cost-of-equity-capm", "Cost of equity and CAPM", "calculation", "DCF – the discount rate", 6),
       sub("wacc", "WACC", "calculation", "DCF – the discount rate", 6),
       sub("terminal-value", "Terminal value", "calculation", "DCF – assumptions & analysis", 6),
-      { ...sub("levered-dcf-and-variants", "Levered DCF and other variants", "concept", "DCF – the discount rate", 0), deferred: true },
+      sub("levered-dcf-and-variants", "Levered DCF and other variants", "concept", "DCF – the discount rate", 5),
     ],
   },
   {
@@ -167,10 +168,12 @@ export const CURRICULUM: CurriculumTopic[] = [
       // Loop 17: four lessons carry the chapter on the one Tamar / Wychwood deal. PPA beyond one
       // stretch widget and two questions is folded into `synergies-and-deal-structure` — deferred,
       // slug kept. Targets are the 18 non-lens questions (lens questions are tagged, not targeted).
+      // Loop 21 un-deferred `purchase-price-allocation` (combining balance sheets, write-ups, DTL,
+      // new D&A in EPS, exchange ratios, contribution analysis, UK Takeover Code basics).
       sub("why-companies-acquire", "Why companies acquire", "concept", "Merger models – concepts", 5),
       sub("accretion-dilution-concepts", "Accretion / dilution: the idea", "concept", "Merger models – concepts", 5),
       sub("accretion-dilution-calculations", "Accretion / dilution: the numbers", "calculation", "Merger models – calculations", 5),
-      { ...sub("purchase-price-allocation", "Purchase price allocation and goodwill", "mixed", "Merger models – calculations", 0), deferred: true },
+      sub("purchase-price-allocation", "Purchase price allocation and goodwill", "mixed", "Merger models – calculations", 5),
       sub("synergies-and-deal-structure", "Synergies, consideration and deal structure", "mixed", "Merger models – concepts", 3),
     ],
   },
@@ -183,12 +186,15 @@ export const CURRICULUM: CurriculumTopic[] = [
       // folds into sources-and-uses and `lbo-mental-maths` into returns-irr-mom — both deferred,
       // slugs kept. `paper-lbo-walkthrough` is the one NEW v2 subtopic slug in the programme.
       // Targets are the 20 non-lens questions (lens questions are tagged, not targeted).
+      // Loop 21 un-deferred `debt-tranches` and added `distress-and-restructuring` (the UK
+      // restructuring-basics extra: waterfall, fulcrum, a distressed company's options).
       sub("lbo-overview", "What an LBO is", "concept", "LBO models – concepts", 5),
       sub("sources-and-uses", "Sources and uses", "calculation", "LBO models – calculations", 4),
-      { ...sub("debt-tranches", "Debt tranches and covenants", "concept", "LBO models – concepts", 0), deferred: true },
+      sub("debt-tranches", "Debt tranches and covenants", "concept", "LBO models – concepts", 5),
       sub("returns-irr-mom", "Returns: IRR and money multiple", "calculation", "LBO models – calculations", 6),
       { ...sub("lbo-mental-maths", "LBO mental maths", "calculation", "LBO models – calculations", 0), deferred: true },
       sub("paper-lbo-walkthrough", "The paper LBO", "calculation", "LBO models – calculations", 5),
+      sub("distress-and-restructuring", "Distress and restructuring basics", "concept", "LBO models – concepts", 5),
     ],
   },
   {
@@ -447,7 +453,7 @@ export function findSubtopic(slug: string): { topic: CurriculumTopic; subtopic: 
 
 export const TOTAL_TARGET_QUESTIONS = CURRICULUM.reduce((n, t) => n + t.subtopics.reduce((m, s) => m + s.target_questions, 0), 0);
 
-// Default learning path: 10 weeks × 5 days. Re-sequenced by Loop 18 onto the 35 v2 lessons —
+// Default learning path: 10 weeks × 5 core days (+ Loop 21 stretch days 6–7 on some weeks). Re-sequenced by Loop 18 onto the 35 v2 lessons —
 // every `lesson_slug` is a written, non-deferred chapter lesson (plus `ev-bridge-basics`, the
 // hand-written Loop 03 lesson that Loop 14 extended in place and that fills the bridge slot).
 // Day 5 of a completed chapter is its cheat sheet + faded review (`cheatsheet` names the topic;
@@ -460,6 +466,8 @@ const week = (week: number, title: string, topic_slug: TopicSlug, days: PathDay[
 const lessonDay = (day: number, lesson_slug: string, label: string): PathDay => ({ day, label, lesson_slug });
 const drillDay = (day: number, label: string): PathDay => ({ day, label, lesson_slug: null });
 const sheetDay = (topic: TopicSlug, label = "Cheat sheet + faded review"): PathDay => ({ day: 5, label, lesson_slug: null, cheatsheet: topic });
+/** Loop 21: optional days 6–7 carry stretch lessons (the completeness material) after the core week. */
+const stretchDay = (day: 6 | 7, lesson_slug: string, label: string): PathDay => ({ day, label: `Stretch: ${label}`, lesson_slug });
 
 export const DEFAULT_PATH = {
   slug: "default-10-week",
@@ -472,6 +480,8 @@ export const DEFAULT_PATH = {
       lessonDay(3, "wacc-intro", "WACC: a first look"),
       drillDay(4, "Question drill: foundations"),
       sheetDay("finance-foundations"),
+      stretchDay(6, "irr-and-payback", "IRR and payback"),
+      stretchDay(7, "discount-rates-and-risk", "Discount rates and risk"),
     ]),
     week(2, "Accounting: the three statements", "accounting", [
       lessonDay(1, "three-statements-overview", "The three statements at a glance"),
@@ -486,6 +496,7 @@ export const DEFAULT_PATH = {
       lessonDay(3, "single-step-walkthroughs", "Single-step walkthroughs"),
       lessonDay(4, "multi-step-walkthroughs", "Multi-step walkthroughs"),
       sheetDay("accounting"),
+      stretchDay(6, "deferred-taxes-and-other-items", "Deferred taxes, leases and other items"),
     ]),
     week(4, "Equity value vs enterprise value", "eqv-ev", [
       lessonDay(1, "equity-and-enterprise-value", "Equity value and enterprise value"),
@@ -493,6 +504,7 @@ export const DEFAULT_PATH = {
       lessonDay(3, "diluted-shares", "Diluted share count"),
       lessonDay(4, "pairing-metrics-with-values", "Pairing metrics with the right value"),
       sheetDay("eqv-ev"),
+      stretchDay(6, "ev-edge-cases", "Edge cases in the bridge"),
     ]),
     week(5, "Valuation", "valuation", [
       lessonDay(1, "valuation-methodologies", "The three methodologies"),
@@ -500,6 +512,7 @@ export const DEFAULT_PATH = {
       lessonDay(3, "precedent-transactions", "Precedent transactions"),
       lessonDay(4, "multiples-and-metrics", "Multiples and metrics"),
       { day: 5, label: "Choosing and presenting + cheat sheet", lesson_slug: "choosing-and-presenting", cheatsheet: "valuation" },
+      stretchDay(6, "other-methodologies", "Other methods: SOTP, DDM, liquidation, LBO floor"),
     ]),
     week(6, "DCF: cash flows and assumptions", "dcf", [
       lessonDay(1, "dcf-overview", "What a DCF is doing"),
@@ -514,6 +527,7 @@ export const DEFAULT_PATH = {
       lessonDay(3, "dcf-sensitivities", "Sensitivities and sanity checks"),
       drillDay(4, "Full DCF drill"),
       sheetDay("dcf"),
+      stretchDay(6, "levered-dcf-and-variants", "Levered DCF and other variants"),
     ]),
     week(8, "M&A", "ma", [
       lessonDay(1, "why-companies-acquire", "Why companies acquire"),
@@ -521,6 +535,7 @@ export const DEFAULT_PATH = {
       lessonDay(3, "accretion-dilution-calculations", "Accretion / dilution: the numbers"),
       lessonDay(4, "synergies-and-deal-structure", "Synergies, consideration and deal structure"),
       sheetDay("ma"),
+      stretchDay(6, "purchase-price-allocation", "Purchase price allocation"),
     ]),
     week(9, "LBO", "lbo", [
       lessonDay(1, "lbo-overview", "What an LBO is"),
@@ -528,6 +543,8 @@ export const DEFAULT_PATH = {
       lessonDay(3, "returns-irr-mom", "Returns: IRR and money multiple"),
       lessonDay(4, "paper-lbo-walkthrough", "The paper LBO"),
       sheetDay("lbo"),
+      stretchDay(6, "debt-tranches", "Debt tranches and covenants"),
+      stretchDay(7, "distress-and-restructuring", "Distress and restructuring basics"),
     ]),
     week(10, "Fit + full mock", "fit-behavioural", [
       lessonDay(1, "big-five-fit", "The big five fit questions"),
@@ -535,6 +552,7 @@ export const DEFAULT_PATH = {
       lessonDay(3, "cv-and-experience", "Walking through your CV"),
       drillDay(4, "Full mock: 15 timed questions — with lens optional"),
       drillDay(5, "Review: weak areas + flashcards"),
+      stretchDay(6, "brain-teasers", "Brain teasers and quick maths"),
     ]),
   ] as PathWeek[],
 };

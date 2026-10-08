@@ -17,6 +17,15 @@ export default async function TechnicalsPage() {
         <h1 className="text-2xl font-semibold" data-testid="technicals-heading">Technicals</h1>
         <p className="mt-1 text-sm text-muted">The textbook for IB technicals that doesn&apos;t exist yet — written for a second-year with one finance module. Follow the <Link href="/home/path" className="underline">10-week path</Link> or browse by topic.</p>
       </div>
+      <Link href="/home/technicals/guide" data-testid="guide-link">
+        <Card className="flex flex-wrap items-center justify-between gap-3 hover:border-muted">
+          <div>
+            <CardTitle>The complete technicals guide</CardTitle>
+            <CardDescription>Every chapter on one page — the takeaways, every formula, the answers to learn, the traps and rapid-fire questions. Read it, print it, or download the PDF.</CardDescription>
+          </div>
+          <Badge tone="accent">Guide</Badge>
+        </Card>
+      </Link>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-testid="topic-grid">
         {overview.map(({ topic, subtopics, lessonCount }) => (
           <Link key={topic.id} href={`/home/technicals/${topic.slug}`} data-testid="topic-card">

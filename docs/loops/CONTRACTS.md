@@ -77,7 +77,7 @@ Validator `src/lib/content/question-schema.ts`. Flashcards are derived: front = 
 - Every Opus 5 call: `client.beta.messages.*`, `betas: ["server-side-fallback-2026-07-01"]`, `fallbacks: "default"`, adaptive thinking, stream when `max_tokens > 8000`, check `stop_reason === "refusal"`. Batches omit `fallbacks`. Structured output via `messages.parse` + `zodOutputFormat`; never combined with `citations`.
 
 ### Eval harness (`scripts/eval/`)
-`npm run eval -- --suite retrieval|chat|lessons|questions|grader|industry|all [--limit N] [--json out]`. Golden sets: `fixtures/eval/*.jsonl` (public, original) + hidden `$EVAL_HIDDEN_DIR/.eval/*.jsonl` (from `extract-400q.ts`, gitignored). Writes `.eval/last-<suite>.json`; non-zero exit on missed threshold. Judge `scripts/eval/judge.ts`: Opus 5, `{correctness, faithfulness, voice: 0–5, notes}`, `effort: "medium"`, cached prompt. CI runs `retrieval,chat` on PRs touching `src/lib/ai/**` (skips with warning if no key).
+`npm run eval -- --suite retrieval|chat|lessons|questions|grader|industry|coverage|all [--limit N] [--json out]`. Golden sets: `fixtures/eval/*.jsonl` (public, original) + hidden `$EVAL_HIDDEN_DIR/.eval/*.jsonl` (from `extract-400q.ts`, gitignored). Writes `.eval/last-<suite>.json`; non-zero exit on missed threshold. Judge `scripts/eval/judge.ts`: Opus 5, `{correctness, faithfulness, voice: 0–5, notes}`, `effort: "medium"`, cached prompt. CI runs `retrieval,chat` on PRs touching `src/lib/ai/**` (skips with warning if no key).
 
 | Suite | Threshold | Introduced |
 |---|---|---|
@@ -88,6 +88,7 @@ Validator `src/lib/content/question-schema.ts`. Flashcards are derived: front = 
 | chat (fusion) | lesson-citation rate ≥ 80 % on curriculum questions | 06 |
 | grader | Spearman ≥ 0.7, MAE ≤ 1.0 vs 40 hand-labelled answers | 07 |
 | industry | schema 100 %, overlap 0 | 09 |
+| coverage | every 400Q technical question (13 sections) judge-mapped to our content: 0 `gap`, ≥ 90 % `covered`; writes `.eval/coverage-400q.json`, prints our own labels only | 21 |
 
 ### Technicals v2 (Loops 11–18) — additions, never renames
 _Design: `docs/research/technicals-v2/{00-syllabus,01-interactive-teaching,02-lens-design}.md`. Implemented by Loop 11; filled by Loops 12–18._

@@ -22,12 +22,17 @@ describe("curriculum taxonomy", () => {
     expect(TOTAL_TARGET_QUESTIONS).toBeLessThanOrEqual(400);
   });
 
-  it("default path is 10 weeks × 5 days and no lesson slug points at a deferred subtopic", () => {
+  it("default path is 10 weeks × 5 core days (+ stretch) and no lesson slug points at a deferred subtopic", () => {
     expect(DEFAULT_PATH.weeks).toHaveLength(10);
     // `ev-bridge-basics` is the hand-written Loop 03 lesson (its subtopic is ev-bridge-calculations).
     const handWritten = new Set(["ev-bridge-basics"]);
     for (const w of DEFAULT_PATH.weeks) {
-      expect(w.days.map((d) => d.day)).toEqual([1, 2, 3, 4, 5]);
+      // Core days 1–5; Loop 21 stretch days 6–7 follow, labelled "Stretch:".
+      expect(w.days.slice(0, 5).map((d) => d.day)).toEqual([1, 2, 3, 4, 5]);
+      for (const d of w.days.slice(5)) {
+        expect([6, 7]).toContain(d.day);
+        expect(d.label).toMatch(/^Stretch: /);
+      }
       for (const d of w.days) {
         if (!d.lesson_slug || handWritten.has(d.lesson_slug)) continue;
         const hit = findSubtopic(d.lesson_slug);
@@ -37,12 +42,13 @@ describe("curriculum taxonomy", () => {
     }
   });
 
-  it("the technicals weeks (1–9) name all 35 v2 lessons, each written in content/", () => {
+  it("the technicals weeks (1–9) name the 35 core v2 lessons plus stretch lessons, each written in content/", () => {
     const slugs = DEFAULT_PATH.weeks
       .filter((w) => w.week <= 9)
       .flatMap((w) => w.days.map((d) => d.lesson_slug).filter((s): s is string => s !== null));
     expect(new Set(slugs).size).toBe(slugs.length);
-    expect(slugs).toHaveLength(35);
+    const core = DEFAULT_PATH.weeks.filter((w) => w.week <= 9).flatMap((w) => w.days.filter((d) => d.day <= 5 && d.lesson_slug));
+    expect(core).toHaveLength(35);
     for (const s of slugs) {
       expect(existsSync(path.resolve(__dirname, "../../../content/lessons", `${s}.json`)), `content/lessons/${s}.json`).toBe(true);
     }
